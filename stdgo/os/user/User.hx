@@ -53,11 +53,11 @@ package stdgo.os.user;
 }
 typedef T__struct_0Pointer = stdgo._internal.os.user.User_T__struct_0Pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
-    public static function _doSlow(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _0:() -> Void):Void {
+    public static function _doSlow(__self__:stdgo._internal.os.user.User_t__struct_0.T__struct_0, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _0);
     }
-    public static function do_(__self__:stdgo._internal.os.user.User_T__struct_0.T__struct_0, _0:() -> Void):Void {
+    public static function do_(__self__:stdgo._internal.os.user.User_t__struct_0.T__struct_0, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.os.user.User_T__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _0);
     }
@@ -71,7 +71,7 @@ typedef UnknownGroupError = stdgo._internal.os.user.User_UnknownGroupError.Unkno
 typedef UserPointer = stdgo._internal.os.user.User_UserPointer.UserPointer;
 class User_static_extension {
     static public function groupIds(_u:User_):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _u = (_u : stdgo.Ref<stdgo._internal.os.user.User_User.User>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.os.user.User_user.User>);
         return {
             final obj = stdgo._internal.os.user.User_User_static_extension.User_static_extension.groupIds(_u);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };

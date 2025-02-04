@@ -1,7 +1,7 @@
 package stdgo._internal.internal.buildcfg;
 function _goamd64():stdgo.GoInt {
         {
-            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envOr._envOr(("GOAMD64" : stdgo.GoString), ("v1" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envor._envOr(("GOAMD64" : stdgo.GoString), ("v1" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             {
                 final __value__ = _v;
                 if (__value__ == (("v1" : stdgo.GoString))) {

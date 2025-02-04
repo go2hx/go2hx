@@ -26,7 +26,7 @@ function repeat(_s:stdgo.GoString, _count:stdgo.GoInt):stdgo.GoString {
                 _chunkMax = (_s.length);
             };
         };
-        var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+        var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
         @:check2 _b.grow(_n);
         @:check2 _b.writeString(_s?.__copy__());
         while ((@:check2 _b.len() < _n : Bool)) {

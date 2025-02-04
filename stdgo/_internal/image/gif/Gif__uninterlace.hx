@@ -1,5 +1,5 @@
 package stdgo._internal.image.gif;
-function _uninterlace(_m:stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>):Void {
+function _uninterlace(_m:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>):Void {
         var _nPix:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _dx = (@:check2r _m.bounds().dx() : stdgo.GoInt);
         var _dy = (@:check2r _m.bounds().dy() : stdgo.GoInt);

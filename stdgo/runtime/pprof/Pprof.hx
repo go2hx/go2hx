@@ -1,14 +1,14 @@
 package stdgo.runtime.pprof;
 class T_countProfile_static_extension {
-    static public function label(t:stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_countProfile, _i:StdTypes.Int):T_labelMap {
+    static public function label(t:stdgo._internal.runtime.pprof.Pprof_t_countprofile.T_countProfile, _i:StdTypes.Int):T_labelMap {
         final _i = (_i : stdgo.GoInt);
         return stdgo._internal.runtime.pprof.Pprof_T_countProfile_static_extension.T_countProfile_static_extension.label(t, _i);
     }
-    static public function stack(t:stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_countProfile, _i:StdTypes.Int):Array<stdgo.GoUIntptr> {
+    static public function stack(t:stdgo._internal.runtime.pprof.Pprof_t_countprofile.T_countProfile, _i:StdTypes.Int):Array<stdgo.GoUIntptr> {
         final _i = (_i : stdgo.GoInt);
         return [for (i in stdgo._internal.runtime.pprof.Pprof_T_countProfile_static_extension.T_countProfile_static_extension.stack(t, _i)) i];
     }
-    static public function len(t:stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_countProfile):StdTypes.Int {
+    static public function len(t:stdgo._internal.runtime.pprof.Pprof_t_countprofile.T_countProfile):StdTypes.Int {
         return stdgo._internal.runtime.pprof.Pprof_T_countProfile_static_extension.T_countProfile_static_extension.len(t);
     }
 }
@@ -34,10 +34,10 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
     public var _list(get, set) : Array<T_label>;
     function get__list():Array<T_label> return [for (i in this._list) i];
     function set__list(v:Array<T_label>):Array<T_label> {
-        this._list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_label.T_label>);
+        this._list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_label.T_label>);
         return v;
     }
-    public function new(?_list:Array<T_label>) this = new stdgo._internal.runtime.pprof.Pprof_LabelSet.LabelSet(([for (i in _list) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_label.T_label>));
+    public function new(?_list:Array<T_label>) this = new stdgo._internal.runtime.pprof.Pprof_LabelSet.LabelSet(([for (i in _list) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_label.T_label>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -47,28 +47,28 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.pprof.Pprof.T_profMap_static_extension) abstract T_profMap(stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap) from stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap to stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap {
-    public var _hash(get, set) : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>>;
-    function get__hash():stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>> return this._hash;
-    function set__hash(v:stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>>):stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>> {
-        this._hash = (v : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>>);
+    public var _hash(get, set) : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>>;
+    function get__hash():stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>> return this._hash;
+    function set__hash(v:stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>>):stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>> {
+        this._hash = (v : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>>);
         return v;
     }
     public var _all(get, set) : T_profMapEntry;
     function get__all():T_profMapEntry return this._all;
     function set__all(v:T_profMapEntry):T_profMapEntry {
-        this._all = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>);
+        this._all = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         return v;
     }
     public var _last(get, set) : T_profMapEntry;
     function get__last():T_profMapEntry return this._last;
     function set__last(v:T_profMapEntry):T_profMapEntry {
-        this._last = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>);
+        this._last = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         return v;
     }
     public var _free(get, set) : Array<T_profMapEntry>;
     function get__free():Array<T_profMapEntry> return [for (i in this._free) i];
     function set__free(v:Array<T_profMapEntry>):Array<T_profMapEntry> {
-        this._free = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>);
+        this._free = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         return v;
     }
     public var _freeStk(get, set) : Array<stdgo.GoUIntptr>;
@@ -77,7 +77,7 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._freeStk = ([for (i in v) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         return v;
     }
-    public function new(?_hash:stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>>, ?_all:T_profMapEntry, ?_last:T_profMapEntry, ?_free:Array<T_profMapEntry>, ?_freeStk:Array<stdgo.GoUIntptr>) this = new stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap((_hash : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>>), (_all : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>), (_last : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>), ([for (i in _free) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>), ([for (i in _freeStk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>));
+    public function new(?_hash:stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>>, ?_all:T_profMapEntry, ?_last:T_profMapEntry, ?_free:Array<T_profMapEntry>, ?_freeStk:Array<stdgo.GoUIntptr>) this = new stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap((_hash : stdgo.GoMap<stdgo.GoUIntptr, stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>>), (_all : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>), (_last : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>), ([for (i in _free) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>), ([for (i in _freeStk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -85,13 +85,13 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
     public var _nextHash(get, set) : T_profMapEntry;
     function get__nextHash():T_profMapEntry return this._nextHash;
     function set__nextHash(v:T_profMapEntry):T_profMapEntry {
-        this._nextHash = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>);
+        this._nextHash = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         return v;
     }
     public var _nextAll(get, set) : T_profMapEntry;
     function get__nextAll():T_profMapEntry return this._nextAll;
     function set__nextAll(v:T_profMapEntry):T_profMapEntry {
-        this._nextAll = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>);
+        this._nextAll = (v : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         return v;
     }
     public var _stk(get, set) : Array<stdgo.GoUIntptr>;
@@ -112,7 +112,7 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._count = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_nextHash:T_profMapEntry, ?_nextAll:T_profMapEntry, ?_stk:Array<stdgo.GoUIntptr>, ?_tag:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_count:haxe.Int64) this = new stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry((_nextHash : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>), (_nextAll : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry>), ([for (i in _stk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), _tag, (_count : stdgo.GoInt64));
+    public function new(?_nextHash:T_profMapEntry, ?_nextAll:T_profMapEntry, ?_stk:Array<stdgo.GoUIntptr>, ?_tag:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_count:haxe.Int64) this = new stdgo._internal.runtime.pprof.Pprof_T_profMapEntry.T_profMapEntry((_nextHash : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>), (_nextAll : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>), ([for (i in _stk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), _tag, (_count : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -123,9 +123,9 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._name = (v : stdgo.GoString);
         return v;
     }
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
@@ -141,13 +141,13 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._count = v;
         return v;
     }
-    public var _write(get, set) : (stdgo._internal.io.Io_Writer.Writer, stdgo.GoInt) -> stdgo.Error;
-    function get__write():(stdgo._internal.io.Io_Writer.Writer, stdgo.GoInt) -> stdgo.Error return (_0, _1) -> this._write(_0, _1);
-    function set__write(v:(stdgo._internal.io.Io_Writer.Writer, stdgo.GoInt) -> stdgo.Error):(stdgo._internal.io.Io_Writer.Writer, stdgo.GoInt) -> stdgo.Error {
+    public var _write(get, set) : (stdgo._internal.io.Io_writer.Writer, stdgo.GoInt) -> stdgo.Error;
+    function get__write():(stdgo._internal.io.Io_writer.Writer, stdgo.GoInt) -> stdgo.Error return (_0, _1) -> this._write(_0, _1);
+    function set__write(v:(stdgo._internal.io.Io_writer.Writer, stdgo.GoInt) -> stdgo.Error):(stdgo._internal.io.Io_writer.Writer, stdgo.GoInt) -> stdgo.Error {
         this._write = v;
         return v;
     }
-    public function new(?_name:String, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_m:stdgo.GoMap<stdgo.AnyInterface, stdgo.Slice<stdgo.GoUIntptr>>, ?_count:() -> stdgo.GoInt, ?_write:(stdgo._internal.io.Io_Writer.Writer, stdgo.GoInt) -> stdgo.Error) this = new stdgo._internal.runtime.pprof.Pprof_Profile.Profile((_name : stdgo.GoString), _mu, (_m : stdgo.GoMap<stdgo.AnyInterface, stdgo.Slice<stdgo.GoUIntptr>>), _count, _write);
+    public function new(?_name:String, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:stdgo.GoMap<stdgo.AnyInterface, stdgo.Slice<stdgo.GoUIntptr>>, ?_count:() -> stdgo.GoInt, ?_write:(stdgo._internal.io.Io_writer.Writer, stdgo.GoInt) -> stdgo.Error) this = new stdgo._internal.runtime.pprof.Pprof_Profile.Profile((_name : stdgo.GoString), _mu, (_m : stdgo.GoMap<stdgo.AnyInterface, stdgo.Slice<stdgo.GoUIntptr>>), _count, _write);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -169,10 +169,10 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.pprof.Pprof.T_runtimeProfile_static_extension) abstract T_runtimeProfile(stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile) from stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile to stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile {
-    public var _stk(get, set) : Array<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>;
-    function get__stk():Array<stdgo._internal.runtime.Runtime_StackRecord.StackRecord> return [for (i in this._stk) i];
-    function set__stk(v:Array<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>):Array<stdgo._internal.runtime.Runtime_StackRecord.StackRecord> {
-        this._stk = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>);
+    public var _stk(get, set) : Array<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>;
+    function get__stk():Array<stdgo._internal.runtime.Runtime_stackrecord.StackRecord> return [for (i in this._stk) i];
+    function set__stk(v:Array<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>):Array<stdgo._internal.runtime.Runtime_stackrecord.StackRecord> {
+        this._stk = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>);
         return v;
     }
     public var _labels(get, set) : Array<stdgo._internal.unsafe.Unsafe.UnsafePointer>;
@@ -181,20 +181,20 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._labels = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         return v;
     }
-    public function new(?_stk:Array<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>, ?_labels:Array<stdgo._internal.unsafe.Unsafe.UnsafePointer>) this = new stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile(([for (i in _stk) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>), ([for (i in _labels) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>));
+    public function new(?_stk:Array<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>, ?_labels:Array<stdgo._internal.unsafe.Unsafe.UnsafePointer>) this = new stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile(([for (i in _stk) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>), ([for (i in _labels) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.pprof.Pprof.T_profileBuilder_static_extension) abstract T_profileBuilder(stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder) from stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder to stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder {
-    public var _start(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get__start():stdgo._internal.time.Time_Time.Time return this._start;
-    function set__start(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var _start(get, set) : stdgo._internal.time.Time_time.Time;
+    function get__start():stdgo._internal.time.Time_time.Time return this._start;
+    function set__start(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this._start = v;
         return v;
     }
-    public var _end(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get__end():stdgo._internal.time.Time_Time.Time return this._end;
-    function set__end(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var _end(get, set) : stdgo._internal.time.Time_time.Time;
+    function get__end():stdgo._internal.time.Time_time.Time return this._end;
+    function set__end(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this._end = v;
         return v;
     }
@@ -216,16 +216,16 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._m = v;
         return v;
     }
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
-    public var _zw(get, set) : stdgo._internal.compress.gzip.Gzip_Writer.Writer;
-    function get__zw():stdgo._internal.compress.gzip.Gzip_Writer.Writer return this._zw;
-    function set__zw(v:stdgo._internal.compress.gzip.Gzip_Writer.Writer):stdgo._internal.compress.gzip.Gzip_Writer.Writer {
-        this._zw = (v : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+    public var _zw(get, set) : stdgo._internal.compress.gzip.Gzip_writer.Writer;
+    function get__zw():stdgo._internal.compress.gzip.Gzip_writer.Writer return this._zw;
+    function set__zw(v:stdgo._internal.compress.gzip.Gzip_writer.Writer):stdgo._internal.compress.gzip.Gzip_writer.Writer {
+        this._zw = (v : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         return v;
     }
     public var _pb(get, set) : T_protobuf;
@@ -246,10 +246,10 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._stringMap = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
         return v;
     }
-    public var _locs(get, set) : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo>;
-    function get__locs():stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo> return this._locs;
-    function set__locs(v:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo>):stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo> {
-        this._locs = (v : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo>);
+    public var _locs(get, set) : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo>;
+    function get__locs():stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo> return this._locs;
+    function set__locs(v:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo>):stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo> {
+        this._locs = (v : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo>);
         return v;
     }
     public var _funcs(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
@@ -261,7 +261,7 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
     public var _mem(get, set) : Array<T_memMap>;
     function get__mem():Array<T_memMap> return [for (i in this._mem) i];
     function set__mem(v:Array<T_memMap>):Array<T_memMap> {
-        this._mem = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_memMap.T_memMap>);
+        this._mem = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_memmap.T_memMap>);
         return v;
     }
     public var _deck(get, set) : T_pcDeck;
@@ -270,20 +270,20 @@ typedef T_countProfile = stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_co
         this._deck = v;
         return v;
     }
-    public function new(?_start:stdgo._internal.time.Time_Time.Time, ?_end:stdgo._internal.time.Time_Time.Time, ?_havePeriod:Bool, ?_period:haxe.Int64, ?_m:T_profMap, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_zw:stdgo._internal.compress.gzip.Gzip_Writer.Writer, ?_pb:T_protobuf, ?_strings:Array<String>, ?_stringMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_locs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo>, ?_funcs:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_mem:Array<T_memMap>, ?_deck:T_pcDeck) this = new stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder(
+    public function new(?_start:stdgo._internal.time.Time_time.Time, ?_end:stdgo._internal.time.Time_time.Time, ?_havePeriod:Bool, ?_period:haxe.Int64, ?_m:T_profMap, ?_w:stdgo._internal.io.Io_writer.Writer, ?_zw:stdgo._internal.compress.gzip.Gzip_writer.Writer, ?_pb:T_protobuf, ?_strings:Array<String>, ?_stringMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_locs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo>, ?_funcs:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_mem:Array<T_memMap>, ?_deck:T_pcDeck) this = new stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder(
 _start,
 _end,
 _havePeriod,
 (_period : stdgo.GoInt64),
 _m,
 _w,
-(_zw : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>),
+(_zw : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>),
 _pb,
 ([for (i in _strings) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (_stringMap : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
-(_locs : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo>),
+(_locs : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo>),
 (_funcs : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
-([for (i in _mem) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_T_memMap.T_memMap>),
+([for (i in _mem) i] : stdgo.Slice<stdgo._internal.runtime.pprof.Pprof_t_memmap.T_memMap>),
 _deck);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -348,10 +348,10 @@ _deck);
         this._pcs = ([for (i in v) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         return v;
     }
-    public var _firstPCFrames(get, set) : Array<stdgo._internal.runtime.Runtime_Frame.Frame>;
-    function get__firstPCFrames():Array<stdgo._internal.runtime.Runtime_Frame.Frame> return [for (i in this._firstPCFrames) i];
-    function set__firstPCFrames(v:Array<stdgo._internal.runtime.Runtime_Frame.Frame>):Array<stdgo._internal.runtime.Runtime_Frame.Frame> {
-        this._firstPCFrames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>);
+    public var _firstPCFrames(get, set) : Array<stdgo._internal.runtime.Runtime_frame.Frame>;
+    function get__firstPCFrames():Array<stdgo._internal.runtime.Runtime_frame.Frame> return [for (i in this._firstPCFrames) i];
+    function set__firstPCFrames(v:Array<stdgo._internal.runtime.Runtime_frame.Frame>):Array<stdgo._internal.runtime.Runtime_frame.Frame> {
+        this._firstPCFrames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>);
         return v;
     }
     public var _firstPCSymbolizeResult(get, set) : T_symbolizeFlag;
@@ -360,7 +360,7 @@ _deck);
         this._firstPCSymbolizeResult = v;
         return v;
     }
-    public function new(?_id:haxe.UInt64, ?_pcs:Array<stdgo.GoUIntptr>, ?_firstPCFrames:Array<stdgo._internal.runtime.Runtime_Frame.Frame>, ?_firstPCSymbolizeResult:T_symbolizeFlag) this = new stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo((_id : stdgo.GoUInt64), ([for (i in _pcs) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), ([for (i in _firstPCFrames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>), _firstPCSymbolizeResult);
+    public function new(?_id:haxe.UInt64, ?_pcs:Array<stdgo.GoUIntptr>, ?_firstPCFrames:Array<stdgo._internal.runtime.Runtime_frame.Frame>, ?_firstPCSymbolizeResult:T_symbolizeFlag) this = new stdgo._internal.runtime.pprof.Pprof_T_locInfo.T_locInfo((_id : stdgo.GoUInt64), ([for (i in _pcs) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), ([for (i in _firstPCFrames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>), _firstPCSymbolizeResult);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -371,10 +371,10 @@ _deck);
         this._pcs = ([for (i in v) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         return v;
     }
-    public var _frames(get, set) : Array<stdgo._internal.runtime.Runtime_Frame.Frame>;
-    function get__frames():Array<stdgo._internal.runtime.Runtime_Frame.Frame> return [for (i in this._frames) i];
-    function set__frames(v:Array<stdgo._internal.runtime.Runtime_Frame.Frame>):Array<stdgo._internal.runtime.Runtime_Frame.Frame> {
-        this._frames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>);
+    public var _frames(get, set) : Array<stdgo._internal.runtime.Runtime_frame.Frame>;
+    function get__frames():Array<stdgo._internal.runtime.Runtime_frame.Frame> return [for (i in this._frames) i];
+    function set__frames(v:Array<stdgo._internal.runtime.Runtime_frame.Frame>):Array<stdgo._internal.runtime.Runtime_frame.Frame> {
+        this._frames = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>);
         return v;
     }
     public var _symbolizeResult(get, set) : T_symbolizeFlag;
@@ -395,7 +395,7 @@ _deck);
         this._firstPCSymbolizeResult = v;
         return v;
     }
-    public function new(?_pcs:Array<stdgo.GoUIntptr>, ?_frames:Array<stdgo._internal.runtime.Runtime_Frame.Frame>, ?_symbolizeResult:T_symbolizeFlag, ?_firstPCFrames:StdTypes.Int, ?_firstPCSymbolizeResult:T_symbolizeFlag) this = new stdgo._internal.runtime.pprof.Pprof_T_pcDeck.T_pcDeck(([for (i in _pcs) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), ([for (i in _frames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>), _symbolizeResult, (_firstPCFrames : stdgo.GoInt), _firstPCSymbolizeResult);
+    public function new(?_pcs:Array<stdgo.GoUIntptr>, ?_frames:Array<stdgo._internal.runtime.Runtime_frame.Frame>, ?_symbolizeResult:T_symbolizeFlag, ?_firstPCFrames:StdTypes.Int, ?_firstPCSymbolizeResult:T_symbolizeFlag) this = new stdgo._internal.runtime.pprof.Pprof_T_pcDeck.T_pcDeck(([for (i in _pcs) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>), ([for (i in _frames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>), _symbolizeResult, (_firstPCFrames : stdgo.GoInt), _firstPCSymbolizeResult);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -429,20 +429,20 @@ class T__struct_0_static_extension {
 typedef T__struct_0 = stdgo._internal.runtime.pprof.Pprof_T__struct_0.T__struct_0;
 typedef T__struct_1Pointer = stdgo._internal.runtime.pprof.Pprof_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1, _0:StdTypes.Int):Void {
+    public static function _unlockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_t__struct_1.T__struct_1, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
+    public static function _lockSlow(__self__:stdgo._internal.runtime.pprof.Pprof_t__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
+    public static function unlock(__self__:stdgo._internal.runtime.pprof.Pprof_t__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.unlock(__self__);
     }
-    public static function tryLock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Bool {
+    public static function tryLock(__self__:stdgo._internal.runtime.pprof.Pprof_t__struct_1.T__struct_1):Bool {
         return stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.runtime.pprof.Pprof_T__struct_1.T__struct_1):Void {
+    public static function lock(__self__:stdgo._internal.runtime.pprof.Pprof_t__struct_1.T__struct_1):Void {
         stdgo._internal.runtime.pprof.Pprof_T__struct_1_static_extension.T__struct_1_static_extension.lock(__self__);
     }
 }
@@ -466,7 +466,7 @@ class T_labelContextKey_static_extension {
 typedef T_profMapPointer = stdgo._internal.runtime.pprof.Pprof_T_profMapPointer.T_profMapPointer;
 class T_profMap_static_extension {
     static public function _lookup(_m:T_profMap, _stk:Array<haxe.UInt64>, _tag:stdgo._internal.unsafe.Unsafe.UnsafePointer):T_profMapEntry {
-        final _m = (_m : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profMap.T_profMap>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmap.T_profMap>);
         final _stk = ([for (i in _stk) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         return stdgo._internal.runtime.pprof.Pprof_T_profMap_static_extension.T_profMap_static_extension._lookup(_m, _stk, _tag);
     }
@@ -477,75 +477,75 @@ class T_profMapEntry_static_extension {
 }
 typedef ProfilePointer = stdgo._internal.runtime.pprof.Pprof_ProfilePointer.ProfilePointer;
 class Profile_static_extension {
-    static public function writeTo(_p:Profile, _w:stdgo._internal.io.Io_Writer.Writer, _debug:StdTypes.Int):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+    static public function writeTo(_p:Profile, _w:stdgo._internal.io.Io_writer.Writer, _debug:StdTypes.Int):stdgo.Error {
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         final _debug = (_debug : stdgo.GoInt);
         return stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.writeTo(_p, _w, _debug);
     }
     static public function remove(_p:Profile, _value:stdgo.AnyInterface):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         final _value = (_value : stdgo.AnyInterface);
         stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.remove(_p, _value);
     }
     static public function add(_p:Profile, _value:stdgo.AnyInterface, _skip:StdTypes.Int):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         final _value = (_value : stdgo.AnyInterface);
         final _skip = (_skip : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.add(_p, _value, _skip);
     }
     static public function count(_p:Profile):StdTypes.Int {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         return stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.count(_p);
     }
     static public function name(_p:Profile):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);
         return stdgo._internal.runtime.pprof.Pprof_Profile_static_extension.Profile_static_extension.name(_p);
     }
 }
 typedef T_keysByCountPointer = stdgo._internal.runtime.pprof.Pprof_T_keysByCountPointer.T_keysByCountPointer;
 class T_keysByCount_static_extension {
     static public function less(_x:T_keysByCount, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_keysbycount.T_keysByCount>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         return stdgo._internal.runtime.pprof.Pprof_T_keysByCount_static_extension.T_keysByCount_static_extension.less(_x, _i, _j);
     }
     static public function swap(_x:T_keysByCount, _i:StdTypes.Int, _j:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_keysbycount.T_keysByCount>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_T_keysByCount_static_extension.T_keysByCount_static_extension.swap(_x, _i, _j);
     }
     static public function len(_x:T_keysByCount):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_keysbycount.T_keysByCount>);
         return stdgo._internal.runtime.pprof.Pprof_T_keysByCount_static_extension.T_keysByCount_static_extension.len(_x);
     }
 }
 typedef T_runtimeProfilePointer = stdgo._internal.runtime.pprof.Pprof_T_runtimeProfilePointer.T_runtimeProfilePointer;
 class T_runtimeProfile_static_extension {
     static public function label(_p:T_runtimeProfile, _i:StdTypes.Int):T_labelMap {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_runtimeprofile.T_runtimeProfile>);
         final _i = (_i : stdgo.GoInt);
         return stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile_static_extension.T_runtimeProfile_static_extension.label(_p, _i);
     }
     static public function stack(_p:T_runtimeProfile, _i:StdTypes.Int):Array<stdgo.GoUIntptr> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_runtimeprofile.T_runtimeProfile>);
         final _i = (_i : stdgo.GoInt);
         return [for (i in stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile_static_extension.T_runtimeProfile_static_extension.stack(_p, _i)) i];
     }
     static public function len(_p:T_runtimeProfile):StdTypes.Int {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile.T_runtimeProfile>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_runtimeprofile.T_runtimeProfile>);
         return stdgo._internal.runtime.pprof.Pprof_T_runtimeProfile_static_extension.T_runtimeProfile_static_extension.len(_p);
     }
 }
 typedef T_profileBuilderPointer = stdgo._internal.runtime.pprof.Pprof_T_profileBuilderPointer.T_profileBuilderPointer;
 class T_profileBuilder_static_extension {
     static public function _readMapping(_b:T_profileBuilder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._readMapping(_b);
     }
     static public function _addMappingEntry(_b:T_profileBuilder, _lo:haxe.UInt64, _hi:haxe.UInt64, _offset:haxe.UInt64, _file:String, _buildID:String, _fake:Bool):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _lo = (_lo : stdgo.GoUInt64);
         final _hi = (_hi : stdgo.GoUInt64);
         final _offset = (_offset : stdgo.GoUInt64);
@@ -554,7 +554,7 @@ class T_profileBuilder_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._addMappingEntry(_b, _lo, _hi, _offset, _file, _buildID, _fake);
     }
     static public function _addMapping(_b:T_profileBuilder, _lo:haxe.UInt64, _hi:haxe.UInt64, _offset:haxe.UInt64, _file:String, _buildID:String):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _lo = (_lo : stdgo.GoUInt64);
         final _hi = (_hi : stdgo.GoUInt64);
         final _offset = (_offset : stdgo.GoUInt64);
@@ -563,27 +563,27 @@ class T_profileBuilder_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._addMapping(_b, _lo, _hi, _offset, _file, _buildID);
     }
     static public function _emitLocation(_b:T_profileBuilder):haxe.UInt64 {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         return stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._emitLocation(_b);
     }
     static public function _appendLocsForStack(_b:T_profileBuilder, _locs:Array<haxe.UInt64>, _stk:Array<stdgo.GoUIntptr>):Array<haxe.UInt64> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _locs = ([for (i in _locs) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         final _stk = ([for (i in _stk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         return [for (i in stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._appendLocsForStack(_b, _locs, _stk)) i];
     }
     static public function _build(_b:T_profileBuilder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._build(_b);
     }
     static public function _addCPUData(_b:T_profileBuilder, _data:Array<haxe.UInt64>, _tags:Array<stdgo._internal.unsafe.Unsafe.UnsafePointer>):stdgo.Error {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         final _tags = ([for (i in _tags) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         return stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._addCPUData(_b, _data, _tags);
     }
     static public function _pbMapping(_b:T_profileBuilder, _tag:StdTypes.Int, _id:haxe.UInt64, _base:haxe.UInt64, _limit:haxe.UInt64, _offset:haxe.UInt64, _file:String, _buildID:String, _hasFuncs:Bool):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _tag = (_tag : stdgo.GoInt);
         final _id = (_id : stdgo.GoUInt64);
         final _base = (_base : stdgo.GoUInt64);
@@ -594,14 +594,14 @@ class T_profileBuilder_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._pbMapping(_b, _tag, _id, _base, _limit, _offset, _file, _buildID, _hasFuncs);
     }
     static public function _pbLine(_b:T_profileBuilder, _tag:StdTypes.Int, _funcID:haxe.UInt64, _line:haxe.Int64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _tag = (_tag : stdgo.GoInt);
         final _funcID = (_funcID : stdgo.GoUInt64);
         final _line = (_line : stdgo.GoInt64);
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._pbLine(_b, _tag, _funcID, _line);
     }
     static public function _pbLabel(_b:T_profileBuilder, _tag:StdTypes.Int, _key:String, _str:String, _num:haxe.Int64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _tag = (_tag : stdgo.GoInt);
         final _key = (_key : stdgo.GoString);
         final _str = (_str : stdgo.GoString);
@@ -609,25 +609,25 @@ class T_profileBuilder_static_extension {
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._pbLabel(_b, _tag, _key, _str, _num);
     }
     static public function _pbSample(_b:T_profileBuilder, _values:Array<haxe.Int64>, _locs:Array<haxe.UInt64>, _labels:() -> Void):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _values = ([for (i in _values) (i : stdgo.GoInt64)] : stdgo.Slice<stdgo.GoInt64>);
         final _locs = ([for (i in _locs) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         final _labels = _labels;
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._pbSample(_b, _values, _locs, _labels);
     }
     static public function _pbValueType(_b:T_profileBuilder, _tag:StdTypes.Int, _typ:String, _unit:String):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _tag = (_tag : stdgo.GoInt);
         final _typ = (_typ : stdgo.GoString);
         final _unit = (_unit : stdgo.GoString);
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._pbValueType(_b, _tag, _typ, _unit);
     }
     static public function _flush(_b:T_profileBuilder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._flush(_b);
     }
     static public function _stringIndex(_b:T_profileBuilder, _s:String):haxe.Int64 {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.runtime.pprof.Pprof_T_profileBuilder_static_extension.T_profileBuilder_static_extension._stringIndex(_b, _s);
     }
@@ -671,100 +671,100 @@ class T_locInfo_static_extension {
 }
 typedef T_pcDeckPointer = stdgo._internal.runtime.pprof.Pprof_T_pcDeckPointer.T_pcDeckPointer;
 class T_pcDeck_static_extension {
-    static public function _tryAdd(_d:T_pcDeck, _pc:stdgo.GoUIntptr, _frames:Array<stdgo._internal.runtime.Runtime_Frame.Frame>, _symbolizeResult:T_symbolizeFlag):Bool {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_pcDeck.T_pcDeck>);
+    static public function _tryAdd(_d:T_pcDeck, _pc:stdgo.GoUIntptr, _frames:Array<stdgo._internal.runtime.Runtime_frame.Frame>, _symbolizeResult:T_symbolizeFlag):Bool {
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_pcdeck.T_pcDeck>);
         final _pc = (_pc : stdgo.GoUIntptr);
-        final _frames = ([for (i in _frames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_Frame.Frame>);
+        final _frames = ([for (i in _frames) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_frame.Frame>);
         return stdgo._internal.runtime.pprof.Pprof_T_pcDeck_static_extension.T_pcDeck_static_extension._tryAdd(_d, _pc, _frames, _symbolizeResult);
     }
     static public function _reset(_d:T_pcDeck):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_pcDeck.T_pcDeck>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_pcdeck.T_pcDeck>);
         stdgo._internal.runtime.pprof.Pprof_T_pcDeck_static_extension.T_pcDeck_static_extension._reset(_d);
     }
 }
 typedef T_protobufPointer = stdgo._internal.runtime.pprof.Pprof_T_protobufPointer.T_protobufPointer;
 class T_protobuf_static_extension {
     static public function _endMessage(_b:T_protobuf, _tag:StdTypes.Int, _start:T_msgOffset):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._endMessage(_b, _tag, _start);
     }
     static public function _startMessage(_b:T_protobuf):T_msgOffset {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         return stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._startMessage(_b);
     }
     static public function _boolOpt(_b:T_protobuf, _tag:StdTypes.Int, _x:Bool):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._boolOpt(_b, _tag, _x);
     }
     static public function _bool(_b:T_protobuf, _tag:StdTypes.Int, _x:Bool):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._bool(_b, _tag, _x);
     }
     static public function _stringOpt(_b:T_protobuf, _tag:StdTypes.Int, _x:String):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoString);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._stringOpt(_b, _tag, _x);
     }
     static public function _strings(_b:T_protobuf, _tag:StdTypes.Int, _x:Array<String>):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = ([for (i in _x) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._strings(_b, _tag, _x);
     }
     static public function _string(_b:T_protobuf, _tag:StdTypes.Int, _x:String):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoString);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._string(_b, _tag, _x);
     }
     static public function _int64s(_b:T_protobuf, _tag:StdTypes.Int, _x:Array<haxe.Int64>):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = ([for (i in _x) (i : stdgo.GoInt64)] : stdgo.Slice<stdgo.GoInt64>);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._int64s(_b, _tag, _x);
     }
     static public function _int64Opt(_b:T_protobuf, _tag:StdTypes.Int, _x:haxe.Int64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoInt64);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._int64Opt(_b, _tag, _x);
     }
     static public function _int64(_b:T_protobuf, _tag:StdTypes.Int, _x:haxe.Int64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoInt64);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._int64(_b, _tag, _x);
     }
     static public function _uint64Opt(_b:T_protobuf, _tag:StdTypes.Int, _x:haxe.UInt64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoUInt64);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._uint64Opt(_b, _tag, _x);
     }
     static public function _uint64s(_b:T_protobuf, _tag:StdTypes.Int, _x:Array<haxe.UInt64>):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = ([for (i in _x) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._uint64s(_b, _tag, _x);
     }
     static public function _uint64(_b:T_protobuf, _tag:StdTypes.Int, _x:haxe.UInt64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _x = (_x : stdgo.GoUInt64);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._uint64(_b, _tag, _x);
     }
     static public function _length(_b:T_protobuf, _tag:StdTypes.Int, _len:StdTypes.Int):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _tag = (_tag : stdgo.GoInt);
         final _len = (_len : stdgo.GoInt);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._length(_b, _tag, _len);
     }
     static public function _varint(_b:T_protobuf, _x:haxe.UInt64):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_protobuf.T_protobuf>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_protobuf.T_protobuf>);
         final _x = (_x : stdgo.GoUInt64);
         stdgo._internal.runtime.pprof.Pprof_T_protobuf_static_extension.T_protobuf_static_extension._varint(_b, _x);
     }
@@ -780,7 +780,7 @@ class T__struct_1Pointer_static_extension {
 typedef T_labelMapPointer = stdgo._internal.runtime.pprof.Pprof_T_labelMapPointer.T_labelMapPointer;
 class T_labelMap_static_extension {
     static public function string(_l:T_labelMap):String {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap>);
         return stdgo._internal.runtime.pprof.Pprof_T_labelMap_static_extension.T_labelMap_static_extension.string(_l);
     }
 }
@@ -881,7 +881,7 @@ class Pprof {
         WithLabels returns a new context.Context with the given labels added.
         A label overwrites a prior label with the same key.
     **/
-    static public inline function withLabels(_ctx:stdgo._internal.context.Context_Context.Context, _labels:LabelSet):stdgo._internal.context.Context_Context.Context {
+    static public inline function withLabels(_ctx:stdgo._internal.context.Context_context.Context, _labels:LabelSet):stdgo._internal.context.Context_context.Context {
         return stdgo._internal.runtime.pprof.Pprof_withLabels.withLabels(_ctx, _labels);
     }
     /**
@@ -899,7 +899,7 @@ class Pprof {
         Label returns the value of the label with the given key on ctx, and a boolean indicating
         whether that label exists.
     **/
-    static public inline function label(_ctx:stdgo._internal.context.Context_Context.Context, _key:String):stdgo.Tuple<String, Bool> {
+    static public inline function label(_ctx:stdgo._internal.context.Context_context.Context, _key:String):stdgo.Tuple<String, Bool> {
         final _key = (_key : stdgo.GoString);
         return {
             final obj = stdgo._internal.runtime.pprof.Pprof_label.label(_ctx, _key);
@@ -910,7 +910,7 @@ class Pprof {
         ForLabels invokes f with each label set on the context.
         The function f should return true to continue iteration or false to stop iteration early.
     **/
-    static public inline function forLabels(_ctx:stdgo._internal.context.Context_Context.Context, _f:(stdgo.GoString, stdgo.GoString) -> Bool):Void {
+    static public inline function forLabels(_ctx:stdgo._internal.context.Context_context.Context, _f:(stdgo.GoString, stdgo.GoString) -> Bool):Void {
         final _f = _f;
         stdgo._internal.runtime.pprof.Pprof_forLabels.forLabels(_ctx, _f);
     }
@@ -943,7 +943,7 @@ class Pprof {
         WriteHeapProfile is shorthand for Lookup("heap").WriteTo(w, 0).
         It is preserved for backwards compatibility.
     **/
-    static public inline function writeHeapProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
+    static public inline function writeHeapProfile(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         return stdgo._internal.runtime.pprof.Pprof_writeHeapProfile.writeHeapProfile(_w);
     }
     /**
@@ -959,7 +959,7 @@ class Pprof {
         for syscall.SIGPROF, but note that doing so may break any profiling
         being done by the main program.
     **/
-    static public inline function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
+    static public inline function startCPUProfile(_w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         return stdgo._internal.runtime.pprof.Pprof_startCPUProfile.startCPUProfile(_w);
     }
     /**
@@ -975,7 +975,7 @@ class Pprof {
         A new goroutine inherits the labels of the goroutine that created it.
         This is a lower-level API than Do, which should be used instead when possible.
     **/
-    static public inline function setGoroutineLabels(_ctx:stdgo._internal.context.Context_Context.Context):Void {
+    static public inline function setGoroutineLabels(_ctx:stdgo._internal.context.Context_context.Context):Void {
         stdgo._internal.runtime.pprof.Pprof_setGoroutineLabels.setGoroutineLabels(_ctx);
     }
     /**
@@ -987,7 +987,7 @@ class Pprof {
         The augmented label map will be set for the duration of the call to f
         and restored once f returns.
     **/
-    static public inline function do_(_ctx:stdgo._internal.context.Context_Context.Context, _labels:LabelSet, _f:stdgo._internal.context.Context_Context.Context -> Void):Void {
+    static public inline function do_(_ctx:stdgo._internal.context.Context_context.Context, _labels:LabelSet, _f:stdgo._internal.context.Context_context.Context -> Void):Void {
         final _f = _f;
         stdgo._internal.runtime.pprof.Pprof_do_.do_(_ctx, _labels, _f);
     }

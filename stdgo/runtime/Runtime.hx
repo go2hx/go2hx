@@ -66,9 +66,9 @@ private function set_atomicVariables(v:Array<stdgo._internal.unsafe.Unsafe.Unsaf
         stdgo._internal.runtime.Runtime_atomicVariables.atomicVariables = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         return v;
     }
-var dlog(get, set) : () -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>;
-private function get_dlog():() -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger> return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
-private function set_dlog(v:() -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>):() -> stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger> {
+var dlog(get, set) : () -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>;
+private function get_dlog():() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
+private function set_dlog(v:() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>):() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> {
         stdgo._internal.runtime.Runtime_dlog.dlog = v;
         return v;
     }
@@ -231,7 +231,7 @@ private function set_cgoCheckPointer(v:(stdgo.AnyInterface, stdgo.AnyInterface) 
 var lockPartialOrder(get, set) : Array<Array<T_lockRank>>;
 private function get_lockPartialOrder():Array<Array<T_lockRank>> return [for (i in stdgo._internal.runtime.Runtime_lockPartialOrder.lockPartialOrder) [for (i in i) i]];
 private function set_lockPartialOrder(v:Array<Array<T_lockRank>>):Array<Array<T_lockRank>> {
-        stdgo._internal.runtime.Runtime_lockPartialOrder.lockPartialOrder = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_T_lockRank.T_lockRank>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.runtime.Runtime_T_lockRank.T_lockRank>>);
+        stdgo._internal.runtime.Runtime_lockPartialOrder.lockPartialOrder = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>>);
         return v;
     }
 var stringHash(get, set) : (stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
@@ -403,76 +403,76 @@ private function set_getPinCounter(v:stdgo._internal.unsafe.Unsafe.UnsafePointer
         return v;
     }
 class Error_static_extension {
-    static public function runtimeError(t:stdgo._internal.runtime.Runtime_Error.Error):Void {
+    static public function runtimeError(t:stdgo._internal.runtime.Runtime_error.Error):Void {
         stdgo._internal.runtime.Runtime_Error_static_extension.Error_static_extension.runtimeError(t);
     }
 }
 typedef Error = stdgo._internal.runtime.Runtime_Error.Error;
 class T_stringer_static_extension {
-    static public function string(t:stdgo._internal.runtime.Runtime_T_stringer.T_stringer):String {
+    static public function string(t:stdgo._internal.runtime.Runtime_t_stringer.T_stringer):String {
         return stdgo._internal.runtime.Runtime_T_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
 typedef T_stringer = stdgo._internal.runtime.Runtime_T_stringer.T_stringer;
 class TestingT_static_extension {
-    static public function tempDir(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):String {
+    static public function tempDir(t:stdgo._internal.runtime.Runtime_testingt.TestingT):String {
         return stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.tempDir(t);
     }
-    static public function skipped(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Bool {
+    static public function skipped(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Bool {
         return stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.skipped(t);
     }
-    static public function skipf(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function skipf(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _format = (_format : stdgo.GoString);
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.skipf(t, _format, ...[for (i in _args) i]);
     }
-    static public function skipNow(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Void {
+    static public function skipNow(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.skipNow(t);
     }
-    static public function skip(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function skip(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.skip(t, ...[for (i in _args) i]);
     }
-    static public function setenv(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _key:String, _value:String):Void {
+    static public function setenv(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _key:String, _value:String):Void {
         final _key = (_key : stdgo.GoString);
         final _value = (_value : stdgo.GoString);
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.setenv(t, _key, _value);
     }
-    static public function name(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):String {
+    static public function name(t:stdgo._internal.runtime.Runtime_testingt.TestingT):String {
         return stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.name(t);
     }
-    static public function logf(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function logf(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _format = (_format : stdgo.GoString);
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.logf(t, _format, ...[for (i in _args) i]);
     }
-    static public function log(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function log(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.log(t, ...[for (i in _args) i]);
     }
-    static public function helper(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Void {
+    static public function helper(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.helper(t);
     }
-    static public function fatalf(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function fatalf(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _format = (_format : stdgo.GoString);
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.fatalf(t, _format, ...[for (i in _args) i]);
     }
-    static public function fatal(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function fatal(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.fatal(t, ...[for (i in _args) i]);
     }
-    static public function failed(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Bool {
+    static public function failed(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Bool {
         return stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.failed(t);
     }
-    static public function failNow(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Void {
+    static public function failNow(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.failNow(t);
     }
-    static public function fail(t:stdgo._internal.runtime.Runtime_TestingT.TestingT):Void {
+    static public function fail(t:stdgo._internal.runtime.Runtime_testingt.TestingT):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.fail(t);
     }
-    static public function errorf(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function errorf(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _format = (_format : stdgo.GoString);
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.errorf(t, _format, ...[for (i in _args) i]);
     }
-    static public function error(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+    static public function error(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.error(t, ...[for (i in _args) i]);
     }
-    static public function cleanup(t:stdgo._internal.runtime.Runtime_TestingT.TestingT, _0:() -> Void):Void {
+    static public function cleanup(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.runtime.Runtime_TestingT_static_extension.TestingT_static_extension.cleanup(t, _0);
     }
@@ -1898,7 +1898,7 @@ debugGC,
     public var func(get, set) : Func;
     function get_func():Func return this.func;
     function set_func(v:Func):Func {
-        this.func = (v : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>);
+        this.func = (v : stdgo.Ref<stdgo._internal.runtime.Runtime_func.Func>);
         return v;
     }
     public var function_(get, set) : String;
@@ -1925,7 +1925,7 @@ debugGC,
         this.entry = (v : stdgo.GoUIntptr);
         return v;
     }
-    public function new(?pC:stdgo.GoUIntptr, ?func:Func, ?function_:String, ?file:String, ?line:StdTypes.Int, ?entry:stdgo.GoUIntptr) this = new stdgo._internal.runtime.Runtime_Frame.Frame((pC : stdgo.GoUIntptr), (func : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>), (function_ : stdgo.GoString), (file : stdgo.GoString), (line : stdgo.GoInt), (entry : stdgo.GoUIntptr));
+    public function new(?pC:stdgo.GoUIntptr, ?func:Func, ?function_:String, ?file:String, ?line:StdTypes.Int, ?entry:stdgo.GoUIntptr) this = new stdgo._internal.runtime.Runtime_Frame.Frame((pC : stdgo.GoUIntptr), (func : stdgo.Ref<stdgo._internal.runtime.Runtime_func.Func>), (function_ : stdgo.GoString), (file : stdgo.GoString), (line : stdgo.GoInt), (entry : stdgo.GoUIntptr));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2097,13 +2097,13 @@ debugGC,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.Runtime.T_rtype_static_extension) abstract T_rtype(stdgo._internal.runtime.Runtime_T_rtype.T_rtype) from stdgo._internal.runtime.Runtime_T_rtype.T_rtype to stdgo._internal.runtime.Runtime_T_rtype.T_rtype {
-    public var type(get, set) : stdgo._internal.internal.abi.Abi_Type_.Type_;
-    function get_type():stdgo._internal.internal.abi.Abi_Type_.Type_ return this.type;
-    function set_type(v:stdgo._internal.internal.abi.Abi_Type_.Type_):stdgo._internal.internal.abi.Abi_Type_.Type_ {
-        this.type = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
+    function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
+    function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
+        this.type = (v : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         return v;
     }
-    public function new(?type:stdgo._internal.internal.abi.Abi_Type_.Type_) this = new stdgo._internal.runtime.Runtime_T_rtype.T_rtype((type : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>));
+    public function new(?type:stdgo._internal.internal.abi.Abi_type_.Type_) this = new stdgo._internal.runtime.Runtime_T_rtype.T_rtype((type : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2217,12 +2217,12 @@ class T_userArena_static_extension {
 }
 typedef T_liveUserArenaChunkPointer = stdgo._internal.runtime.Runtime_T_liveUserArenaChunkPointer.T_liveUserArenaChunkPointer;
 class T_liveUserArenaChunk_static_extension {
-    public static function _userArenaNextFree(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo._internal.internal.abi.Abi_Type_.Type_, _1:StdTypes.Int):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public static function _userArenaNextFree(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo._internal.internal.abi.Abi_type_.Type_, _1:StdTypes.Int):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         final _1 = (_1 : stdgo.GoInt);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._userArenaNextFree(__self__, _0, _1);
     }
-    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
+    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {
@@ -2230,92 +2230,92 @@ class T_liveUserArenaChunk_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _setUserArenaChunkToFault(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Void {
+    public static function _setUserArenaChunkToFault(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Void {
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._setUserArenaChunkToFault(__self__);
     }
-    public static function _setPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:T_pinnerBits):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_pinnerBits.T_pinnerBits>);
+    public static function _setPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:T_pinnerBits):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_pinnerbits.T_pinnerBits>);
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._setPinnerBits(__self__, _0);
     }
-    public static function _reportZombies(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Void {
+    public static function _reportZombies(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Void {
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._reportZombies(__self__);
     }
-    public static function _refreshPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Void {
+    public static function _refreshPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Void {
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._refreshPinnerBits(__self__);
     }
-    public static function _refillAllocCache(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Void {
+    public static function _refillAllocCache(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._refillAllocCache(__self__, _0);
     }
-    public static function _pinnerBitSize(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
+    public static function _pinnerBitSize(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._pinnerBitSize(__self__);
     }
-    public static function _objIndex(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
+    public static function _objIndex(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._objIndex(__self__, _0);
     }
-    public static function _nextFreeIndex(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
+    public static function _nextFreeIndex(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._nextFreeIndex(__self__);
     }
-    public static function _newPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):T_pinnerBits {
+    public static function _newPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):T_pinnerBits {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._newPinnerBits(__self__);
     }
-    public static function _markBitsForIndex(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):T_markBits {
+    public static function _markBitsForIndex(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):T_markBits {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._markBitsForIndex(__self__, _0);
     }
-    public static function _markBitsForBase(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):T_markBits {
+    public static function _markBitsForBase(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):T_markBits {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._markBitsForBase(__self__);
     }
-    public static function _layout(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, stdgo.GoUIntptr> {
+    public static function _layout(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, stdgo.GoUIntptr> {
         return {
             final obj = stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._layout(__self__);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function _isUnusedUserArenaChunk(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Bool {
+    public static function _isUnusedUserArenaChunk(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Bool {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._isUnusedUserArenaChunk(__self__);
     }
-    public static function _isFree(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Bool {
+    public static function _isFree(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._isFree(__self__, _0);
     }
-    public static function _initHeapBits(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:Bool):Void {
+    public static function _initHeapBits(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:Bool):Void {
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._initHeapBits(__self__, _0);
     }
-    public static function _init(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Void {
+    public static function _init(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._init(__self__, _0, _1);
     }
-    public static function _incPinCounter(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Void {
+    public static function _incPinCounter(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._incPinCounter(__self__, _0);
     }
-    public static function _inList(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Bool {
+    public static function _inList(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Bool {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._inList(__self__);
     }
-    public static function _getPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):T_pinnerBits {
+    public static function _getPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):T_pinnerBits {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._getPinnerBits(__self__);
     }
-    public static function _ensureSwept(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):Void {
+    public static function _ensureSwept(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):Void {
         stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._ensureSwept(__self__);
     }
-    public static function _divideByElemSize(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
+    public static function _divideByElemSize(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._divideByElemSize(__self__, _0);
     }
-    public static function _decPinCounter(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Bool {
+    public static function _decPinCounter(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._decPinCounter(__self__, _0);
     }
-    public static function _countAlloc(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):StdTypes.Int {
+    public static function _countAlloc(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._countAlloc(__self__);
     }
-    public static function _base(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
+    public static function _base(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._base(__self__);
     }
-    public static function _allocBitsForIndex(__self__:stdgo._internal.runtime.Runtime_T_liveUserArenaChunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):T_markBits {
+    public static function _allocBitsForIndex(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr):T_markBits {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_liveUserArenaChunk_static_extension.T_liveUserArenaChunk_static_extension._allocBitsForIndex(__self__, _0);
     }
@@ -2339,46 +2339,46 @@ class T_cpuProfile_static_extension {
 typedef T_dloggerPointer = stdgo._internal.runtime.Runtime_T_dloggerPointer.T_dloggerPointer;
 class T_dlogger_static_extension {
     static public function pC(_l:T_dlogger, _x:stdgo.GoUIntptr):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.pC(_l, _x);
     }
     static public function s(_l:T_dlogger, _x:String):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoString);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.s(_l, _x);
     }
     static public function p(_l:T_dlogger, _x:stdgo.AnyInterface):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.AnyInterface);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.p(_l, _x);
     }
     static public function hex(_l:T_dlogger, _x:haxe.UInt64):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.hex(_l, _x);
     }
     static public function u64(_l:T_dlogger, _x:haxe.UInt64):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.u64(_l, _x);
     }
     static public function i16(_l:T_dlogger, _x:StdTypes.Int):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoInt16);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.i16(_l, _x);
     }
     static public function i(_l:T_dlogger, _x:StdTypes.Int):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         final _x = (_x : stdgo.GoInt);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.i(_l, _x);
     }
     static public function b(_l:T_dlogger, _x:Bool):T_dlogger {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         return stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.b(_l, _x);
     }
     static public function end(_l:T_dlogger):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_T_dlogger.T_dlogger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>);
         stdgo._internal.runtime.Runtime_T_dlogger_static_extension.T_dlogger_static_extension.end(_l);
     }
 }
@@ -2401,11 +2401,11 @@ class T_dlogPerM_static_extension {
 typedef TypeAssertionErrorPointer = stdgo._internal.runtime.Runtime_TypeAssertionErrorPointer.TypeAssertionErrorPointer;
 class TypeAssertionError_static_extension {
     static public function error(_e:TypeAssertionError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.runtime.Runtime_TypeAssertionError.TypeAssertionError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError>);
         return stdgo._internal.runtime.Runtime_TypeAssertionError_static_extension.TypeAssertionError_static_extension.error(_e);
     }
     static public function runtimeError(_:TypeAssertionError):Void {
-        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_TypeAssertionError.TypeAssertionError>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError>);
         stdgo._internal.runtime.Runtime_TypeAssertionError_static_extension.TypeAssertionError_static_extension.runtimeError(_);
     }
 }
@@ -2453,19 +2453,19 @@ class T_arrayLargeBlockWrapper_static_extension {
 typedef RWMutexPointer = stdgo._internal.runtime.Runtime_RWMutexPointer.RWMutexPointer;
 class RWMutex_static_extension {
     static public function unlock(_rw:RWMutex):Void {
-        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_RWMutex.RWMutex>);
+        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_rwmutex.RWMutex>);
         stdgo._internal.runtime.Runtime_RWMutex_static_extension.RWMutex_static_extension.unlock(_rw);
     }
     static public function lock(_rw:RWMutex):Void {
-        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_RWMutex.RWMutex>);
+        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_rwmutex.RWMutex>);
         stdgo._internal.runtime.Runtime_RWMutex_static_extension.RWMutex_static_extension.lock(_rw);
     }
     static public function rUnlock(_rw:RWMutex):Void {
-        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_RWMutex.RWMutex>);
+        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_rwmutex.RWMutex>);
         stdgo._internal.runtime.Runtime_RWMutex_static_extension.RWMutex_static_extension.rUnlock(_rw);
     }
     static public function rLock(_rw:RWMutex):Void {
-        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_RWMutex.RWMutex>);
+        final _rw = (_rw : stdgo.Ref<stdgo._internal.runtime.Runtime_rwmutex.RWMutex>);
         stdgo._internal.runtime.Runtime_RWMutex_static_extension.RWMutex_static_extension.rLock(_rw);
     }
 }
@@ -2483,7 +2483,7 @@ class AddrRange_static_extension {
     static public function base(_a:AddrRange):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension.base(_a);
     }
-    public static function _takeFromFront(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
+    public static function _takeFromFront(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {
@@ -2491,7 +2491,7 @@ class AddrRange_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _takeFromBack(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
+    public static function _takeFromBack(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {
@@ -2499,17 +2499,17 @@ class AddrRange_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _subtract(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange, _0:T_addrRange):T_addrRange {
+    public static function _subtract(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange, _0:T_addrRange):T_addrRange {
         return stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension._subtract(__self__, _0);
     }
-    public static function _size(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange):stdgo.GoUIntptr {
+    public static function _size(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension._size(__self__);
     }
-    public static function _removeGreaterEqual(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange, _0:stdgo.GoUIntptr):T_addrRange {
+    public static function _removeGreaterEqual(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange, _0:stdgo.GoUIntptr):T_addrRange {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension._removeGreaterEqual(__self__, _0);
     }
-    public static function _contains(__self__:stdgo._internal.runtime.Runtime_AddrRange.AddrRange, _0:stdgo.GoUIntptr):Bool {
+    public static function _contains(__self__:stdgo._internal.runtime.Runtime_addrrange.AddrRange, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRange_static_extension.AddrRange_static_extension._contains(__self__, _0);
     }
@@ -2517,53 +2517,53 @@ class AddrRange_static_extension {
 typedef AddrRangesPointer = stdgo._internal.runtime.Runtime_AddrRangesPointer.AddrRangesPointer;
 class AddrRanges_static_extension {
     static public function totalBytes(_a:AddrRanges):stdgo.GoUIntptr {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_addrranges.AddrRanges>);
         return stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension.totalBytes(_a);
     }
     static public function add(_a:AddrRanges, _r:AddrRange):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_addrranges.AddrRanges>);
         stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension.add(_a, _r);
     }
     static public function findSucc(_a:AddrRanges, _base:stdgo.GoUIntptr):StdTypes.Int {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_addrranges.AddrRanges>);
         final _base = (_base : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension.findSucc(_a, _base);
     }
     static public function ranges(_a:AddrRanges):Array<AddrRange> {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_addrranges.AddrRanges>);
         return [for (i in stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension.ranges(_a)) i];
     }
-    public static function _removeLast(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.GoUIntptr):T_addrRange {
+    public static function _removeLast(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.GoUIntptr):T_addrRange {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._removeLast(__self__, _0);
     }
-    public static function _removeGreaterEqual(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.GoUIntptr):Void {
+    public static function _removeGreaterEqual(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._removeGreaterEqual(__self__, _0);
     }
-    public static function _init(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.Pointer<T_sysMemStat>):Void {
+    public static function _init(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.Pointer<T_sysMemStat>):Void {
         stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._init(__self__, _0);
     }
-    public static function _findSucc(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.GoUIntptr):StdTypes.Int {
+    public static function _findSucc(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.GoUIntptr):StdTypes.Int {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._findSucc(__self__, _0);
     }
-    public static function _findAddrGreaterEqual(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.GoUIntptr):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
+    public static function _findAddrGreaterEqual(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.GoUIntptr):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         return {
             final obj = stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._findAddrGreaterEqual(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _contains(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:stdgo.GoUIntptr):Bool {
+    public static function _contains(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._contains(__self__, _0);
     }
-    public static function _cloneInto(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:T_addrRanges):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_addrRanges.T_addrRanges>);
+    public static function _cloneInto(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:T_addrRanges):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges>);
         stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._cloneInto(__self__, _0);
     }
-    public static function _add(__self__:stdgo._internal.runtime.Runtime_AddrRanges.AddrRanges, _0:T_addrRange):Void {
+    public static function _add(__self__:stdgo._internal.runtime.Runtime_addrranges.AddrRanges, _0:T_addrRange):Void {
         stdgo._internal.runtime.Runtime_AddrRanges_static_extension.AddrRanges_static_extension._add(__self__, _0);
     }
 }
@@ -2578,38 +2578,38 @@ class BitsMismatch_static_extension {
 typedef SemTablePointer = stdgo._internal.runtime.Runtime_SemTablePointer.SemTablePointer;
 class SemTable_static_extension {
     static public function dequeue(_t:SemTable, _addr:stdgo.Pointer<std.UInt>):Bool {
-        final _t = (_t : stdgo.Ref<stdgo._internal.runtime.Runtime_SemTable.SemTable>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.runtime.Runtime_semtable.SemTable>);
         return stdgo._internal.runtime.Runtime_SemTable_static_extension.SemTable_static_extension.dequeue(_t, _addr);
     }
     static public function enqueue(_t:SemTable, _addr:stdgo.Pointer<std.UInt>):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.runtime.Runtime_SemTable.SemTable>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.runtime.Runtime_semtable.SemTable>);
         stdgo._internal.runtime.Runtime_SemTable_static_extension.SemTable_static_extension.enqueue(_t, _addr);
     }
-    public static function _rootFor(__self__:stdgo._internal.runtime.Runtime_SemTable.SemTable, _0:stdgo.Pointer<std.UInt>):T_semaRoot {
+    public static function _rootFor(__self__:stdgo._internal.runtime.Runtime_semtable.SemTable, _0:stdgo.Pointer<std.UInt>):T_semaRoot {
         return stdgo._internal.runtime.Runtime_SemTable_static_extension.SemTable_static_extension._rootFor(__self__, _0);
     }
 }
 typedef GCControllerPointer = stdgo._internal.runtime.Runtime_GCControllerPointer.GCControllerPointer;
 class GCController_static_extension {
     static public function setMaxIdleMarkWorkers(_c:GCController, _max:StdTypes.Int):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         final _max = (_max : stdgo.GoInt32);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.setMaxIdleMarkWorkers(_c, _max);
     }
     static public function removeIdleMarkWorker(_c:GCController):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.removeIdleMarkWorker(_c);
     }
     static public function needIdleMarkWorker(_c:GCController):Bool {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.needIdleMarkWorker(_c);
     }
     static public function addIdleMarkWorker(_c:GCController):Bool {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.addIdleMarkWorker(_c);
     }
     static public function endCycle(_c:GCController, _bytesMarked:haxe.UInt64, _assistTime:haxe.Int64, _elapsed:haxe.Int64, _gomaxprocs:StdTypes.Int):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         final _bytesMarked = (_bytesMarked : stdgo.GoUInt64);
         final _assistTime = (_assistTime : stdgo.GoInt64);
         final _elapsed = (_elapsed : stdgo.GoInt64);
@@ -2617,127 +2617,127 @@ class GCController_static_extension {
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.endCycle(_c, _bytesMarked, _assistTime, _elapsed, _gomaxprocs);
     }
     static public function revise(_c:GCController, _d:GCControllerReviseDelta):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.revise(_c, _d);
     }
     static public function triggered(_c:GCController):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.triggered(_c);
     }
     static public function heapMarked(_c:GCController):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.heapMarked(_c);
     }
     static public function heapLive(_c:GCController):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.heapLive(_c);
     }
     static public function heapGoal(_c:GCController):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.heapGoal(_c);
     }
     static public function assistWorkPerByte(_c:GCController):StdTypes.Float {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.assistWorkPerByte(_c);
     }
     static public function startCycle(_c:GCController, _stackSize:haxe.UInt64, _globalsSize:haxe.UInt64, _scannableFrac:StdTypes.Float, _gomaxprocs:StdTypes.Int):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_GCController.GCController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_gccontroller.GCController>);
         final _stackSize = (_stackSize : stdgo.GoUInt64);
         final _globalsSize = (_globalsSize : stdgo.GoUInt64);
         final _scannableFrac = (_scannableFrac : stdgo.GoFloat64);
         final _gomaxprocs = (_gomaxprocs : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension.startCycle(_c, _stackSize, _globalsSize, _scannableFrac, _gomaxprocs);
     }
-    public static function _update(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.Int64, _1:haxe.Int64):Void {
+    public static function _update(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.Int64, _1:haxe.Int64):Void {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._update(__self__, _0, _1);
     }
-    public static function _trigger(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    public static function _trigger(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
             final obj = stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._trigger(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _startCycle(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.Int64, _1:StdTypes.Int, _2:T_gcTrigger):Void {
+    public static function _startCycle(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.Int64, _1:StdTypes.Int, _2:T_gcTrigger):Void {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._startCycle(__self__, _0, _1, _2);
     }
-    public static function _setMemoryLimit(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.Int64):haxe.Int64 {
+    public static function _setMemoryLimit(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.Int64):haxe.Int64 {
         final _0 = (_0 : stdgo.GoInt64);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._setMemoryLimit(__self__, _0);
     }
-    public static function _setMaxIdleMarkWorkers(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:StdTypes.Int):Void {
+    public static function _setMaxIdleMarkWorkers(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._setMaxIdleMarkWorkers(__self__, _0);
     }
-    public static function _setGCPercent(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:StdTypes.Int):StdTypes.Int {
+    public static function _setGCPercent(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:StdTypes.Int):StdTypes.Int {
         final _0 = (_0 : stdgo.GoInt32);
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._setGCPercent(__self__, _0);
     }
-    public static function _revise(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):Void {
+    public static function _revise(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):Void {
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._revise(__self__);
     }
-    public static function _resetLive(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.UInt64):Void {
+    public static function _resetLive(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.UInt64):Void {
         final _0 = (_0 : stdgo.GoUInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._resetLive(__self__, _0);
     }
-    public static function _removeIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):Void {
+    public static function _removeIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):Void {
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._removeIdleMarkWorker(__self__);
     }
-    public static function _needIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):Bool {
+    public static function _needIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):Bool {
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._needIdleMarkWorker(__self__);
     }
-    public static function _memoryLimitHeapGoal(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):haxe.UInt64 {
+    public static function _memoryLimitHeapGoal(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):haxe.UInt64 {
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._memoryLimitHeapGoal(__self__);
     }
-    public static function _markWorkerStop(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:T_gcMarkWorkerMode, _1:haxe.Int64):Void {
+    public static function _markWorkerStop(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:T_gcMarkWorkerMode, _1:haxe.Int64):Void {
         final _1 = (_1 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._markWorkerStop(__self__, _0, _1);
     }
-    public static function _init(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:StdTypes.Int, _1:haxe.Int64):Void {
+    public static function _init(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:StdTypes.Int, _1:haxe.Int64):Void {
         final _0 = (_0 : stdgo.GoInt32);
         final _1 = (_1 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._init(__self__, _0, _1);
     }
-    public static function _heapGoalInternal(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    public static function _heapGoalInternal(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
             final obj = stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._heapGoalInternal(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _heapGoal(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):haxe.UInt64 {
+    public static function _heapGoal(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):haxe.UInt64 {
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._heapGoal(__self__);
     }
-    public static function _findRunnableGCWorker(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:T_p, _1:haxe.Int64):stdgo.Tuple<T_g, haxe.Int64> {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_p.T_p>);
+    public static function _findRunnableGCWorker(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:T_p, _1:haxe.Int64):stdgo.Tuple<T_g, haxe.Int64> {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_p.T_p>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._findRunnableGCWorker(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _enlistWorker(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):Void {
+    public static function _enlistWorker(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):Void {
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._enlistWorker(__self__);
     }
-    public static function _endCycle(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.Int64, _1:StdTypes.Int, _2:Bool):Void {
+    public static function _endCycle(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.Int64, _1:StdTypes.Int, _2:Bool):Void {
         final _0 = (_0 : stdgo.GoInt64);
         final _1 = (_1 : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._endCycle(__self__, _0, _1, _2);
     }
-    public static function _commit(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:Bool):Void {
+    public static function _commit(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:Bool):Void {
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._commit(__self__, _0);
     }
-    public static function _addScannableStack(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:T_p, _1:haxe.Int64):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_p.T_p>);
+    public static function _addScannableStack(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:T_p, _1:haxe.Int64):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_p.T_p>);
         final _1 = (_1 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._addScannableStack(__self__, _0, _1);
     }
-    public static function _addIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_GCController.GCController):Bool {
+    public static function _addIdleMarkWorker(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController):Bool {
         return stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._addIdleMarkWorker(__self__);
     }
-    public static function _addGlobals(__self__:stdgo._internal.runtime.Runtime_GCController.GCController, _0:haxe.Int64):Void {
+    public static function _addGlobals(__self__:stdgo._internal.runtime.Runtime_gccontroller.GCController, _0:haxe.Int64):Void {
         final _0 = (_0 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCController_static_extension.GCController_static_extension._addGlobals(__self__, _0);
     }
@@ -2749,7 +2749,7 @@ class GCControllerReviseDelta_static_extension {
 typedef PIControllerPointer = stdgo._internal.runtime.Runtime_PIControllerPointer.PIControllerPointer;
 class PIController_static_extension {
     static public function next(_c:PIController, _input:StdTypes.Float, _setpoint:StdTypes.Float, _period:StdTypes.Float):stdgo.Tuple<StdTypes.Float, Bool> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PIController.PIController>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_picontroller.PIController>);
         final _input = (_input : stdgo.GoFloat64);
         final _setpoint = (_setpoint : stdgo.GoFloat64);
         final _period = (_period : stdgo.GoFloat64);
@@ -2758,10 +2758,10 @@ class PIController_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _reset(__self__:stdgo._internal.runtime.Runtime_PIController.PIController):Void {
+    public static function _reset(__self__:stdgo._internal.runtime.Runtime_picontroller.PIController):Void {
         stdgo._internal.runtime.Runtime_PIController_static_extension.PIController_static_extension._reset(__self__);
     }
-    public static function _next(__self__:stdgo._internal.runtime.Runtime_PIController.PIController, _0:StdTypes.Float, _1:StdTypes.Float, _2:StdTypes.Float):stdgo.Tuple<StdTypes.Float, Bool> {
+    public static function _next(__self__:stdgo._internal.runtime.Runtime_picontroller.PIController, _0:StdTypes.Float, _1:StdTypes.Float, _2:StdTypes.Float):stdgo.Tuple<StdTypes.Float, Bool> {
         final _0 = (_0 : stdgo.GoFloat64);
         final _1 = (_1 : stdgo.GoFloat64);
         final _2 = (_2 : stdgo.GoFloat64);
@@ -2774,109 +2774,109 @@ class PIController_static_extension {
 typedef GCCPULimiterPointer = stdgo._internal.runtime.Runtime_GCCPULimiterPointer.GCCPULimiterPointer;
 class GCCPULimiter_static_extension {
     static public function resetCapacity(_l:GCCPULimiter, _now:haxe.Int64, _nprocs:StdTypes.Int):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _now = (_now : stdgo.GoInt64);
         final _nprocs = (_nprocs : stdgo.GoInt32);
         stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.resetCapacity(_l, _now, _nprocs);
     }
     static public function addAssistTime(_l:GCCPULimiter, _t:haxe.Int64):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _t = (_t : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.addAssistTime(_l, _t);
     }
     static public function update(_l:GCCPULimiter, _now:haxe.Int64):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _now = (_now : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.update(_l, _now);
     }
     static public function finishGCTransition(_l:GCCPULimiter, _now:haxe.Int64):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _now = (_now : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.finishGCTransition(_l, _now);
     }
     static public function startGCTransition(_l:GCCPULimiter, _enableGC:Bool, _now:haxe.Int64):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _now = (_now : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.startGCTransition(_l, _enableGC, _now);
     }
     static public function needUpdate(_l:GCCPULimiter, _now:haxe.Int64):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         final _now = (_now : stdgo.GoInt64);
         return stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.needUpdate(_l, _now);
     }
     static public function limiting(_l:GCCPULimiter):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         return stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.limiting(_l);
     }
     static public function overflow(_l:GCCPULimiter):haxe.UInt64 {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         return stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.overflow(_l);
     }
     static public function capacity_(_l:GCCPULimiter):haxe.UInt64 {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         return stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.capacity_(_l);
     }
     static public function fill(_l:GCCPULimiter):haxe.UInt64 {
-        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_GCCPULimiter.GCCPULimiter>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter>);
         return stdgo._internal.runtime.Runtime_GCCPULimiter_static_extension.GCCPULimiter_static_extension.fill(_l);
     }
 }
 typedef ScavengerPointer = stdgo._internal.runtime.Runtime_ScavengerPointer.ScavengerPointer;
 class Scavenger_static_extension {
     static public function stop(_s:Scavenger):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_Scavenger.Scavenger>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavenger.Scavenger>);
         stdgo._internal.runtime.Runtime_Scavenger_static_extension.Scavenger_static_extension.stop(_s);
     }
     static public function wake(_s:Scavenger):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_Scavenger.Scavenger>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavenger.Scavenger>);
         stdgo._internal.runtime.Runtime_Scavenger_static_extension.Scavenger_static_extension.wake(_s);
     }
     static public function released(_s:Scavenger):stdgo.GoUIntptr {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_Scavenger.Scavenger>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavenger.Scavenger>);
         return stdgo._internal.runtime.Runtime_Scavenger_static_extension.Scavenger_static_extension.released(_s);
     }
     static public function blockUntilParked(_s:Scavenger, _timeout:haxe.Int64):Bool {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_Scavenger.Scavenger>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavenger.Scavenger>);
         final _timeout = (_timeout : stdgo.GoInt64);
         return stdgo._internal.runtime.Runtime_Scavenger_static_extension.Scavenger_static_extension.blockUntilParked(_s, _timeout);
     }
     static public function start(_s:Scavenger):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_Scavenger.Scavenger>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavenger.Scavenger>);
         stdgo._internal.runtime.Runtime_Scavenger_static_extension.Scavenger_static_extension.start(_s);
     }
 }
 typedef ScavengeIndexPointer = stdgo._internal.runtime.Runtime_ScavengeIndexPointer.ScavengeIndexPointer;
 class ScavengeIndex_static_extension {
     static public function setNoHugePage(_s:ScavengeIndex, _ci:ChunkIdx):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.setNoHugePage(_s, _ci);
     }
     static public function setEmpty(_s:ScavengeIndex, _ci:ChunkIdx):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.setEmpty(_s, _ci);
     }
     static public function nextGen(_s:ScavengeIndex):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.nextGen(_s);
     }
     static public function resetSearchAddrs(_s:ScavengeIndex):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.resetSearchAddrs(_s);
     }
     static public function freeRange(_s:ScavengeIndex, _base:stdgo.GoUIntptr, _limit:stdgo.GoUIntptr):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         final _base = (_base : stdgo.GoUIntptr);
         final _limit = (_limit : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.freeRange(_s, _base, _limit);
     }
     static public function allocRange(_s:ScavengeIndex, _base:stdgo.GoUIntptr, _limit:stdgo.GoUIntptr):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         final _base = (_base : stdgo.GoUIntptr);
         final _limit = (_limit : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.allocRange(_s, _base, _limit);
     }
     static public function find(_s:ScavengeIndex, _force:Bool):stdgo.Tuple<ChunkIdx, std.UInt> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_ScavengeIndex.ScavengeIndex>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex>);
         return {
             final obj = stdgo._internal.runtime.Runtime_ScavengeIndex_static_extension.ScavengeIndex_static_extension.find(_s, _force);
             { _0 : obj._0, _1 : obj._1 };
@@ -2886,17 +2886,17 @@ class ScavengeIndex_static_extension {
 typedef UserArenaPointer = stdgo._internal.runtime.Runtime_UserArenaPointer.UserArenaPointer;
 class UserArena_static_extension {
     static public function free(_a:UserArena):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_UserArena.UserArena>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_userarena.UserArena>);
         stdgo._internal.runtime.Runtime_UserArena_static_extension.UserArena_static_extension.free(_a);
     }
     static public function slice(_a:UserArena, _sl:stdgo.AnyInterface, _cap:StdTypes.Int):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_UserArena.UserArena>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_userarena.UserArena>);
         final _sl = (_sl : stdgo.AnyInterface);
         final _cap = (_cap : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_UserArena_static_extension.UserArena_static_extension.slice(_a, _sl, _cap);
     }
     static public function new_(_a:UserArena, _out:stdgo.AnyInterface):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_UserArena.UserArena>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_userarena.UserArena>);
         final _out = (_out : stdgo.Ref<stdgo.AnyInterface>);
         stdgo._internal.runtime.Runtime_UserArena_static_extension.UserArena_static_extension.new_(_a, _out);
     }
@@ -3007,8 +3007,8 @@ class T_metricData_static_extension {
 }
 typedef T_heapStatsAggregatePointer = stdgo._internal.runtime.Runtime_T_heapStatsAggregatePointer.T_heapStatsAggregatePointer;
 class T_heapStatsAggregate_static_extension {
-    public static function _merge(__self__:stdgo._internal.runtime.Runtime_T_heapStatsAggregate.T_heapStatsAggregate, _0:T_heapStatsDelta):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_heapStatsDelta.T_heapStatsDelta>);
+    public static function _merge(__self__:stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate, _0:T_heapStatsDelta):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta>);
         stdgo._internal.runtime.Runtime_T_heapStatsAggregate_static_extension.T_heapStatsAggregate_static_extension._merge(__self__, _0);
     }
 }
@@ -3018,7 +3018,7 @@ class T_sysStatsAggregate_static_extension {
 }
 typedef T_cpuStatsAggregatePointer = stdgo._internal.runtime.Runtime_T_cpuStatsAggregatePointer.T_cpuStatsAggregatePointer;
 class T_cpuStatsAggregate_static_extension {
-    public static function _accumulate(__self__:stdgo._internal.runtime.Runtime_T_cpuStatsAggregate.T_cpuStatsAggregate, _0:haxe.Int64, _1:Bool):Void {
+    public static function _accumulate(__self__:stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate, _0:haxe.Int64, _1:Bool):Void {
         final _0 = (_0 : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_T_cpuStatsAggregate_static_extension.T_cpuStatsAggregate_static_extension._accumulate(__self__, _0, _1);
     }
@@ -3145,12 +3145,12 @@ class T_sweepLocker_static_extension {
 }
 typedef T_sweepLockedPointer = stdgo._internal.runtime.Runtime_T_sweepLockedPointer.T_sweepLockedPointer;
 class T_sweepLocked_static_extension {
-    public static function _userArenaNextFree(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo._internal.internal.abi.Abi_Type_.Type_, _1:StdTypes.Int):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.internal.abi.Abi_Type_.Type_>);
+    public static function _userArenaNextFree(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo._internal.internal.abi.Abi_type_.Type_, _1:StdTypes.Int):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>);
         final _1 = (_1 : stdgo.GoInt);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._userArenaNextFree(__self__, _0, _1);
     }
-    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
+    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {
@@ -3158,92 +3158,92 @@ class T_sweepLocked_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _setUserArenaChunkToFault(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Void {
+    public static function _setUserArenaChunkToFault(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Void {
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._setUserArenaChunkToFault(__self__);
     }
-    public static function _setPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:T_pinnerBits):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_T_pinnerBits.T_pinnerBits>);
+    public static function _setPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:T_pinnerBits):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.runtime.Runtime_t_pinnerbits.T_pinnerBits>);
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._setPinnerBits(__self__, _0);
     }
-    public static function _reportZombies(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Void {
+    public static function _reportZombies(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Void {
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._reportZombies(__self__);
     }
-    public static function _refreshPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Void {
+    public static function _refreshPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Void {
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._refreshPinnerBits(__self__);
     }
-    public static function _refillAllocCache(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):Void {
+    public static function _refillAllocCache(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._refillAllocCache(__self__, _0);
     }
-    public static function _pinnerBitSize(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):stdgo.GoUIntptr {
+    public static function _pinnerBitSize(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._pinnerBitSize(__self__);
     }
-    public static function _objIndex(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
+    public static function _objIndex(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._objIndex(__self__, _0);
     }
-    public static function _nextFreeIndex(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):stdgo.GoUIntptr {
+    public static function _nextFreeIndex(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._nextFreeIndex(__self__);
     }
-    public static function _newPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):T_pinnerBits {
+    public static function _newPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):T_pinnerBits {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._newPinnerBits(__self__);
     }
-    public static function _markBitsForIndex(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):T_markBits {
+    public static function _markBitsForIndex(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):T_markBits {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._markBitsForIndex(__self__, _0);
     }
-    public static function _markBitsForBase(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):T_markBits {
+    public static function _markBitsForBase(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):T_markBits {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._markBitsForBase(__self__);
     }
-    public static function _layout(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, stdgo.GoUIntptr> {
+    public static function _layout(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, stdgo.GoUIntptr> {
         return {
             final obj = stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._layout(__self__);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function _isUnusedUserArenaChunk(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Bool {
+    public static function _isUnusedUserArenaChunk(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Bool {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._isUnusedUserArenaChunk(__self__);
     }
-    public static function _isFree(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):Bool {
+    public static function _isFree(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._isFree(__self__, _0);
     }
-    public static function _initHeapBits(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:Bool):Void {
+    public static function _initHeapBits(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:Bool):Void {
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._initHeapBits(__self__, _0);
     }
-    public static function _init(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Void {
+    public static function _init(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._init(__self__, _0, _1);
     }
-    public static function _incPinCounter(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):Void {
+    public static function _incPinCounter(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):Void {
         final _0 = (_0 : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._incPinCounter(__self__, _0);
     }
-    public static function _inList(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Bool {
+    public static function _inList(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Bool {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._inList(__self__);
     }
-    public static function _getPinnerBits(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):T_pinnerBits {
+    public static function _getPinnerBits(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):T_pinnerBits {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._getPinnerBits(__self__);
     }
-    public static function _ensureSwept(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):Void {
+    public static function _ensureSwept(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Void {
         stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._ensureSwept(__self__);
     }
-    public static function _divideByElemSize(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
+    public static function _divideByElemSize(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):stdgo.GoUIntptr {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._divideByElemSize(__self__, _0);
     }
-    public static function _decPinCounter(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):Bool {
+    public static function _decPinCounter(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):Bool {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._decPinCounter(__self__, _0);
     }
-    public static function _countAlloc(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):StdTypes.Int {
+    public static function _countAlloc(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._countAlloc(__self__);
     }
-    public static function _base(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked):stdgo.GoUIntptr {
+    public static function _base(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._base(__self__);
     }
-    public static function _allocBitsForIndex(__self__:stdgo._internal.runtime.Runtime_T_sweepLocked.T_sweepLocked, _0:stdgo.GoUIntptr):T_markBits {
+    public static function _allocBitsForIndex(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr):T_markBits {
         final _0 = (_0 : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_T_sweepLocked_static_extension.T_sweepLocked_static_extension._allocBitsForIndex(__self__, _0);
     }
@@ -3330,26 +3330,26 @@ class T_pageCache_static_extension {
 }
 typedef T_pallocDataPointer = stdgo._internal.runtime.Runtime_T_pallocDataPointer.T_pallocDataPointer;
 class T_pallocData_static_extension {
-    public static function _summarize(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData):T_pallocSum {
+    public static function _summarize(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData):T_pallocSum {
         return stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._summarize(__self__);
     }
-    public static function _pages64(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:std.UInt):haxe.UInt64 {
+    public static function _pages64(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:std.UInt):haxe.UInt64 {
         final _0 = (_0 : stdgo.GoUInt);
         return stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._pages64(__self__, _0);
     }
-    public static function _freeAll(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData):Void {
+    public static function _freeAll(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData):Void {
         stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._freeAll(__self__);
     }
-    public static function _free1(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:std.UInt):Void {
+    public static function _free1(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:std.UInt):Void {
         final _0 = (_0 : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._free1(__self__, _0);
     }
-    public static function _free(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:std.UInt, _1:std.UInt):Void {
+    public static function _free(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:std.UInt, _1:std.UInt):Void {
         final _0 = (_0 : stdgo.GoUInt);
         final _1 = (_1 : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._free(__self__, _0, _1);
     }
-    public static function _findSmallN(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    public static function _findSmallN(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt);
         return {
@@ -3357,7 +3357,7 @@ class T_pallocData_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _findLargeN(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    public static function _findLargeN(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt);
         return {
@@ -3365,11 +3365,11 @@ class T_pallocData_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _find1(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:std.UInt):std.UInt {
+    public static function _find1(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:std.UInt):std.UInt {
         final _0 = (_0 : stdgo.GoUInt);
         return stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._find1(__self__, _0);
     }
-    public static function _find(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    public static function _find(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt);
         return {
@@ -3377,7 +3377,7 @@ class T_pallocData_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _allocPages64(__self__:stdgo._internal.runtime.Runtime_T_pallocData.T_pallocData, _0:std.UInt, _1:haxe.UInt64):Void {
+    public static function _allocPages64(__self__:stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData, _0:std.UInt, _1:haxe.UInt64):Void {
         final _0 = (_0 : stdgo.GoUInt);
         final _1 = (_1 : stdgo.GoUInt64);
         stdgo._internal.runtime.Runtime_T_pallocData_static_extension.T_pallocData_static_extension._allocPages64(__self__, _0, _1);
@@ -3406,28 +3406,28 @@ class T_mProfCycleHolder_static_extension {
 typedef StackRecordPointer = stdgo._internal.runtime.Runtime_StackRecordPointer.StackRecordPointer;
 class StackRecord_static_extension {
     static public function stack(_r:StackRecord):Array<stdgo.GoUIntptr> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>);
         return [for (i in stdgo._internal.runtime.Runtime_StackRecord_static_extension.StackRecord_static_extension.stack(_r)) i];
     }
 }
 typedef MemProfileRecordPointer = stdgo._internal.runtime.Runtime_MemProfileRecordPointer.MemProfileRecordPointer;
 class MemProfileRecord_static_extension {
     static public function stack(_r:MemProfileRecord):Array<stdgo.GoUIntptr> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_MemProfileRecord.MemProfileRecord>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord>);
         return [for (i in stdgo._internal.runtime.Runtime_MemProfileRecord_static_extension.MemProfileRecord_static_extension.stack(_r)) i];
     }
     static public function inUseObjects(_r:MemProfileRecord):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_MemProfileRecord.MemProfileRecord>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord>);
         return stdgo._internal.runtime.Runtime_MemProfileRecord_static_extension.MemProfileRecord_static_extension.inUseObjects(_r);
     }
     static public function inUseBytes(_r:MemProfileRecord):haxe.Int64 {
-        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_MemProfileRecord.MemProfileRecord>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord>);
         return stdgo._internal.runtime.Runtime_MemProfileRecord_static_extension.MemProfileRecord_static_extension.inUseBytes(_r);
     }
 }
 typedef BlockProfileRecordPointer = stdgo._internal.runtime.Runtime_BlockProfileRecordPointer.BlockProfileRecordPointer;
 class BlockProfileRecord_static_extension {
-    public static function stack(__self__:stdgo._internal.runtime.Runtime_BlockProfileRecord.BlockProfileRecord):Array<stdgo.GoUIntptr> {
+    public static function stack(__self__:stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord):Array<stdgo.GoUIntptr> {
         return [for (i in stdgo._internal.runtime.Runtime_BlockProfileRecord_static_extension.BlockProfileRecord_static_extension.stack(__self__)) i];
     }
 }
@@ -3442,30 +3442,30 @@ class T_offAddr_static_extension {
 typedef T_atomicOffAddrPointer = stdgo._internal.runtime.Runtime_T_atomicOffAddrPointer.T_atomicOffAddrPointer;
 class T_atomicOffAddr_static_extension {
     static public function load(_b:T_atomicOffAddr):stdgo.Tuple<stdgo.GoUIntptr, Bool> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicOffAddr.T_atomicOffAddr>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr>);
         return {
             final obj = stdgo._internal.runtime.Runtime_T_atomicOffAddr_static_extension.T_atomicOffAddr_static_extension.load(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function storeMarked(_b:T_atomicOffAddr, _addr:stdgo.GoUIntptr):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicOffAddr.T_atomicOffAddr>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr>);
         final _addr = (_addr : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_atomicOffAddr_static_extension.T_atomicOffAddr_static_extension.storeMarked(_b, _addr);
     }
     static public function storeUnmark(_b:T_atomicOffAddr, _markedAddr:stdgo.GoUIntptr, _newAddr:stdgo.GoUIntptr):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicOffAddr.T_atomicOffAddr>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr>);
         final _markedAddr = (_markedAddr : stdgo.GoUIntptr);
         final _newAddr = (_newAddr : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_atomicOffAddr_static_extension.T_atomicOffAddr_static_extension.storeUnmark(_b, _markedAddr, _newAddr);
     }
     static public function storeMin(_b:T_atomicOffAddr, _addr:stdgo.GoUIntptr):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicOffAddr.T_atomicOffAddr>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr>);
         final _addr = (_addr : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_T_atomicOffAddr_static_extension.T_atomicOffAddr_static_extension.storeMin(_b, _addr);
     }
     static public function clear(_b:T_atomicOffAddr):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicOffAddr.T_atomicOffAddr>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr>);
         stdgo._internal.runtime.Runtime_T_atomicOffAddr_static_extension.T_atomicOffAddr_static_extension.clear(_b);
     }
 }
@@ -3484,11 +3484,11 @@ class T_spanSetBlock_static_extension {
 typedef T_atomicSpanSetSpinePointerPointer = stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointerPointer.T_atomicSpanSetSpinePointerPointer;
 class T_atomicSpanSetSpinePointer_static_extension {
     static public function storeNoWB(_s:T_atomicSpanSetSpinePointer, _p:T_spanSetSpinePointer):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointer.T_atomicSpanSetSpinePointer>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer>);
         stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointer_static_extension.T_atomicSpanSetSpinePointer_static_extension.storeNoWB(_s, _p);
     }
     static public function load(_s:T_atomicSpanSetSpinePointer):T_spanSetSpinePointer {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointer.T_atomicSpanSetSpinePointer>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer>);
         return stdgo._internal.runtime.Runtime_T_atomicSpanSetSpinePointer_static_extension.T_atomicSpanSetSpinePointer_static_extension.load(_s);
     }
 }
@@ -3507,12 +3507,12 @@ class T_atomicHeadTailIndex_static_extension {
 typedef T_atomicMSpanPointerPointer = stdgo._internal.runtime.Runtime_T_atomicMSpanPointerPointer.T_atomicMSpanPointerPointer;
 class T_atomicMSpanPointer_static_extension {
     static public function storeNoWB(_p:T_atomicMSpanPointer, _s:T_mspan):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicMSpanPointer.T_atomicMSpanPointer>);
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_T_mspan.T_mspan>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_t_mspan.T_mspan>);
         stdgo._internal.runtime.Runtime_T_atomicMSpanPointer_static_extension.T_atomicMSpanPointer_static_extension.storeNoWB(_p, _s);
     }
     static public function load(_p:T_atomicMSpanPointer):T_mspan {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_T_atomicMSpanPointer.T_atomicMSpanPointer>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer>);
         return stdgo._internal.runtime.Runtime_T_atomicMSpanPointer_static_extension.T_atomicMSpanPointer_static_extension.load(_p);
     }
 }
@@ -3567,26 +3567,26 @@ class T_pageTraceBuf_static_extension {
 typedef PanicNilErrorPointer = stdgo._internal.runtime.Runtime_PanicNilErrorPointer.PanicNilErrorPointer;
 class PanicNilError_static_extension {
     static public function runtimeError(_:PanicNilError):Void {
-        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_PanicNilError.PanicNilError>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError>);
         stdgo._internal.runtime.Runtime_PanicNilError_static_extension.PanicNilError_static_extension.runtimeError(_);
     }
     static public function error(_:PanicNilError):String {
-        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_PanicNilError.PanicNilError>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError>);
         return stdgo._internal.runtime.Runtime_PanicNilError_static_extension.PanicNilError_static_extension.error(_);
     }
 }
 typedef PinnerPointer = stdgo._internal.runtime.Runtime_PinnerPointer.PinnerPointer;
 class Pinner_static_extension {
     static public function unpin(_p:Pinner):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_Pinner.Pinner>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pinner.Pinner>);
         stdgo._internal.runtime.Runtime_Pinner_static_extension.Pinner_static_extension.unpin(_p);
     }
     static public function pin(_p:Pinner, _pointer:stdgo.AnyInterface):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_Pinner.Pinner>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pinner.Pinner>);
         final _pointer = (_pointer : stdgo.AnyInterface);
         stdgo._internal.runtime.Runtime_Pinner_static_extension.Pinner_static_extension.pin(_p, _pointer);
     }
-    public static function _unpin(__self__:stdgo._internal.runtime.Runtime_Pinner.Pinner):Void {
+    public static function _unpin(__self__:stdgo._internal.runtime.Runtime_pinner.Pinner):Void {
         stdgo._internal.runtime.Runtime_Pinner_static_extension.Pinner_static_extension._unpin(__self__);
     }
 }
@@ -3649,7 +3649,7 @@ class T_ticksType_static_extension {
 typedef T_godebugIncPointer = stdgo._internal.runtime.Runtime_T_godebugIncPointer.T_godebugIncPointer;
 class T_godebugInc_static_extension {
     static public function incNonDefault(_g:T_godebugInc):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.runtime.Runtime_T_godebugInc.T_godebugInc>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc>);
         stdgo._internal.runtime.Runtime_T_godebugInc_static_extension.T_godebugInc_static_extension.incNonDefault(_g);
     }
 }
@@ -3812,7 +3812,7 @@ class T_neverCallThisFunction_static_extension {
 typedef FramesPointer = stdgo._internal.runtime.Runtime_FramesPointer.FramesPointer;
 class Frames_static_extension {
     static public function next(_ci:Frames):stdgo.Tuple<Frame, Bool> {
-        final _ci = (_ci : stdgo.Ref<stdgo._internal.runtime.Runtime_Frames.Frames>);
+        final _ci = (_ci : stdgo.Ref<stdgo._internal.runtime.Runtime_frames.Frames>);
         return {
             final obj = stdgo._internal.runtime.Runtime_Frames_static_extension.Frames_static_extension.next(_ci);
             { _0 : obj._0, _1 : obj._1 };
@@ -3826,7 +3826,7 @@ class Frame_static_extension {
 typedef FuncPointer = stdgo._internal.runtime.Runtime_FuncPointer.FuncPointer;
 class Func_static_extension {
     static public function fileLine(_f:Func, _pc:stdgo.GoUIntptr):stdgo.Tuple<String, StdTypes.Int> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_func.Func>);
         final _pc = (_pc : stdgo.GoUIntptr);
         return {
             final obj = stdgo._internal.runtime.Runtime_Func_static_extension.Func_static_extension.fileLine(_f, _pc);
@@ -3834,11 +3834,11 @@ class Func_static_extension {
         };
     }
     static public function entry(_f:Func):stdgo.GoUIntptr {
-        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_func.Func>);
         return stdgo._internal.runtime.Runtime_Func_static_extension.Func_static_extension.entry(_f);
     }
     static public function name(_f:Func):String {
-        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_Func.Func>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_func.Func>);
         return stdgo._internal.runtime.Runtime_Func_static_extension.Func_static_extension.name(_f);
     }
 }
@@ -3868,10 +3868,10 @@ class T_findfuncbucket_static_extension {
 }
 typedef T_funcInfoPointer = stdgo._internal.runtime.Runtime_T_funcInfoPointer.T_funcInfoPointer;
 class T_funcInfo_static_extension {
-    public static function _isInlined(__self__:stdgo._internal.runtime.Runtime_T_funcInfo.T_funcInfo):Bool {
+    public static function _isInlined(__self__:stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo):Bool {
         return stdgo._internal.runtime.Runtime_T_funcInfo_static_extension.T_funcInfo_static_extension._isInlined(__self__);
     }
-    public static function _funcInfo(__self__:stdgo._internal.runtime.Runtime_T_funcInfo.T_funcInfo):T_funcInfo {
+    public static function _funcInfo(__self__:stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo):T_funcInfo {
         return stdgo._internal.runtime.Runtime_T_funcInfo_static_extension.T_funcInfo_static_extension._funcInfo(__self__);
     }
 }
@@ -3969,72 +3969,72 @@ class T_cgoSymbolizerArg_static_extension {
 }
 typedef T_rtypePointer = stdgo._internal.runtime.Runtime_T_rtypePointer.T_rtypePointer;
 class T_rtype_static_extension {
-    public static function uncommon(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_UncommonType.UncommonType {
+    public static function uncommon(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.uncommon(__self__);
     }
-    public static function structType(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_StructType.StructType {
+    public static function structType(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_structtype.StructType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.structType(__self__);
     }
-    public static function size(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo.GoUIntptr {
+    public static function size(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo.GoUIntptr {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.size(__self__);
     }
-    public static function pointers(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):Bool {
+    public static function pointers(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):Bool {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.pointers(__self__);
     }
-    public static function numMethod(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):StdTypes.Int {
+    public static function numMethod(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.numMethod(__self__);
     }
-    public static function mapType(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_MapType.MapType {
+    public static function mapType(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_maptype.MapType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.mapType(__self__);
     }
-    public static function len(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):StdTypes.Int {
+    public static function len(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.len(__self__);
     }
-    public static function kind(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Kind.Kind {
+    public static function kind(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_kind.Kind {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.kind(__self__);
     }
-    public static function key(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function key(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.key(__self__);
     }
-    public static function isDirectIface(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):Bool {
+    public static function isDirectIface(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):Bool {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_InterfaceType.InterfaceType {
+    public static function interfaceType(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):Bool {
+    public static function ifaceIndir(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):Bool {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):Bool {
+    public static function hasName(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):Bool {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.hasName(__self__);
     }
-    public static function gcSlice(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
+    public static function gcSlice(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype, _0:stdgo.GoUIntptr, _1:stdgo.GoUIntptr):Array<std.UInt> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUIntptr);
         return [for (i in stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.gcSlice(__self__, _0, _1)) i];
     }
-    public static function funcType(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_FuncType.FuncType {
+    public static function funcType(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_functype.FuncType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):StdTypes.Int {
+    public static function fieldAlign(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):Array<stdgo._internal.internal.abi.Abi_Method.Method> {
+    public static function exportedMethods(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):Array<stdgo._internal.internal.abi.Abi_method.Method> {
         return [for (i in stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.exportedMethods(__self__)) i];
     }
-    public static function elem(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function elem(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.elem(__self__);
     }
-    public static function common(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_Type_.Type_ {
+    public static function common(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_type_.Type_ {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.common(__self__);
     }
-    public static function chanDir(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_ChanDir.ChanDir {
+    public static function chanDir(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_chandir.ChanDir {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.chanDir(__self__);
     }
-    public static function arrayType(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):stdgo._internal.internal.abi.Abi_ArrayType.ArrayType {
+    public static function arrayType(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):stdgo._internal.internal.abi.Abi_arraytype.ArrayType {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.arrayType(__self__);
     }
-    public static function align(__self__:stdgo._internal.runtime.Runtime_T_rtype.T_rtype):StdTypes.Int {
+    public static function align(__self__:stdgo._internal.runtime.Runtime_t_rtype.T_rtype):StdTypes.Int {
         return stdgo._internal.runtime.Runtime_T_rtype_static_extension.T_rtype_static_extension.align(__self__);
     }
 }
@@ -4085,18 +4085,18 @@ class LockRank_static_extension {
 typedef ProfBufPointer = stdgo._internal.runtime.Runtime_ProfBufPointer.ProfBufPointer;
 class ProfBuf_static_extension {
     static public function close(_p:ProfBuf):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_ProfBuf.ProfBuf>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_profbuf.ProfBuf>);
         stdgo._internal.runtime.Runtime_ProfBuf_static_extension.ProfBuf_static_extension.close(_p);
     }
     static public function read(_p:ProfBuf, _mode:T_profBufReadMode):stdgo.Tuple.Tuple3<Array<haxe.UInt64>, Array<stdgo._internal.unsafe.Unsafe.UnsafePointer>, Bool> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_ProfBuf.ProfBuf>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_profbuf.ProfBuf>);
         return {
             final obj = stdgo._internal.runtime.Runtime_ProfBuf_static_extension.ProfBuf_static_extension.read(_p, _mode);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
     static public function write(_p:ProfBuf, _tag:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, _now:haxe.Int64, _hdr:Array<haxe.UInt64>, _stk:Array<stdgo.GoUIntptr>):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_ProfBuf.ProfBuf>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_profbuf.ProfBuf>);
         final _now = (_now : stdgo.GoInt64);
         final _hdr = ([for (i in _hdr) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
         final _stk = ([for (i in _stk) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
@@ -4126,29 +4126,29 @@ class PallocSum_static_extension {
 typedef PallocBitsPointer = stdgo._internal.runtime.Runtime_PallocBitsPointer.PallocBitsPointer;
 class PallocBits_static_extension {
     static public function popcntRange(_b:PallocBits, _i:std.UInt, _n:std.UInt):std.UInt {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         final _i = (_i : stdgo.GoUInt);
         final _n = (_n : stdgo.GoUInt);
         return stdgo._internal.runtime.Runtime_PallocBits_static_extension.PallocBits_static_extension.popcntRange(_b, _i, _n);
     }
     static public function summarize(_b:PallocBits):PallocSum {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         return stdgo._internal.runtime.Runtime_PallocBits_static_extension.PallocBits_static_extension.summarize(_b);
     }
     static public function free(_b:PallocBits, _i:std.UInt, _n:std.UInt):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         final _i = (_i : stdgo.GoUInt);
         final _n = (_n : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_PallocBits_static_extension.PallocBits_static_extension.free(_b, _i, _n);
     }
     static public function allocRange(_b:PallocBits, _i:std.UInt, _n:std.UInt):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         final _i = (_i : stdgo.GoUInt);
         final _n = (_n : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_PallocBits_static_extension.PallocBits_static_extension.allocRange(_b, _i, _n);
     }
     static public function find(_b:PallocBits, _npages:stdgo.GoUIntptr, _searchIdx:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         final _npages = (_npages : stdgo.GoUIntptr);
         final _searchIdx = (_searchIdx : stdgo.GoUInt);
         return {
@@ -4160,27 +4160,27 @@ class PallocBits_static_extension {
 typedef PallocDataPointer = stdgo._internal.runtime.Runtime_PallocDataPointer.PallocDataPointer;
 class PallocData_static_extension {
     static public function scavenged(_d:PallocData):PallocBits {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocData.PallocData>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocdata.PallocData>);
         return stdgo._internal.runtime.Runtime_PallocData_static_extension.PallocData_static_extension.scavenged(_d);
     }
     static public function pallocBits(_d:PallocData):PallocBits {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocData.PallocData>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocdata.PallocData>);
         return stdgo._internal.runtime.Runtime_PallocData_static_extension.PallocData_static_extension.pallocBits(_d);
     }
     static public function scavengedSetRange(_d:PallocData, _i:std.UInt, _n:std.UInt):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocData.PallocData>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocdata.PallocData>);
         final _i = (_i : stdgo.GoUInt);
         final _n = (_n : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_PallocData_static_extension.PallocData_static_extension.scavengedSetRange(_d, _i, _n);
     }
     static public function allocRange(_d:PallocData, _i:std.UInt, _n:std.UInt):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocData.PallocData>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocdata.PallocData>);
         final _i = (_i : stdgo.GoUInt);
         final _n = (_n : stdgo.GoUInt);
         stdgo._internal.runtime.Runtime_PallocData_static_extension.PallocData_static_extension.allocRange(_d, _i, _n);
     }
     static public function findScavengeCandidate(_d:PallocData, _searchIdx:std.UInt, _min:stdgo.GoUIntptr, _max:stdgo.GoUIntptr):stdgo.Tuple<std.UInt, std.UInt> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocData.PallocData>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocdata.PallocData>);
         final _searchIdx = (_searchIdx : stdgo.GoUInt);
         final _min = (_min : stdgo.GoUIntptr);
         final _max = (_max : stdgo.GoUIntptr);
@@ -4193,12 +4193,12 @@ class PallocData_static_extension {
 typedef PageCachePointer = stdgo._internal.runtime.Runtime_PageCachePointer.PageCachePointer;
 class PageCache_static_extension {
     static public function flush(_c:PageCache, _s:PageAlloc):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.flush(_c, _s);
     }
     static public function alloc(_c:PageCache, _npages:stdgo.GoUIntptr):stdgo.Tuple<stdgo.GoUIntptr, stdgo.GoUIntptr> {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
         final _npages = (_npages : stdgo.GoUIntptr);
         return {
             final obj = stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.alloc(_c, _npages);
@@ -4206,19 +4206,19 @@ class PageCache_static_extension {
         };
     }
     static public function scav(_c:PageCache):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
         return stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.scav(_c);
     }
     static public function cache(_c:PageCache):haxe.UInt64 {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
         return stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.cache(_c);
     }
     static public function base(_c:PageCache):stdgo.GoUIntptr {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
         return stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.base(_c);
     }
     static public function empty(_c:PageCache):Bool {
-        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_PageCache.PageCache>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.runtime.Runtime_pagecache.PageCache>);
         return stdgo._internal.runtime.Runtime_PageCache_static_extension.PageCache_static_extension.empty(_c);
     }
 }
@@ -4229,37 +4229,37 @@ class ChunkIdx_static_extension {
 typedef PageAllocPointer = stdgo._internal.runtime.Runtime_PageAllocPointer.PageAllocPointer;
 class PageAlloc_static_extension {
     static public function pallocData(_p:PageAlloc, _i:ChunkIdx):PallocData {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         return stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.pallocData(_p, _i);
     }
     static public function inUse(_p:PageAlloc):Array<AddrRange> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         return [for (i in stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.inUse(_p)) i];
     }
     static public function scavenge(_p:PageAlloc, _nbytes:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         final _nbytes = (_nbytes : stdgo.GoUIntptr);
         return stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.scavenge(_p, _nbytes);
     }
     static public function bounds(_p:PageAlloc):stdgo.Tuple<ChunkIdx, ChunkIdx> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         return {
             final obj = stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.bounds(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function free(_p:PageAlloc, _base:stdgo.GoUIntptr, _npages:stdgo.GoUIntptr):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         final _base = (_base : stdgo.GoUIntptr);
         final _npages = (_npages : stdgo.GoUIntptr);
         stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.free(_p, _base, _npages);
     }
     static public function allocToCache(_p:PageAlloc):PageCache {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         return stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.allocToCache(_p);
     }
     static public function alloc(_p:PageAlloc, _npages:stdgo.GoUIntptr):stdgo.Tuple<stdgo.GoUIntptr, stdgo.GoUIntptr> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         final _npages = (_npages : stdgo.GoUIntptr);
         return {
             final obj = stdgo._internal.runtime.Runtime_PageAlloc_static_extension.PageAlloc_static_extension.alloc(_p, _npages);
@@ -4274,12 +4274,12 @@ class MSpan_static_extension {
 typedef TimeHistogramPointer = stdgo._internal.runtime.Runtime_TimeHistogramPointer.TimeHistogramPointer;
 class TimeHistogram_static_extension {
     static public function record(_th:TimeHistogram, _duration:haxe.Int64):Void {
-        final _th = (_th : stdgo.Ref<stdgo._internal.runtime.Runtime_TimeHistogram.TimeHistogram>);
+        final _th = (_th : stdgo.Ref<stdgo._internal.runtime.Runtime_timehistogram.TimeHistogram>);
         final _duration = (_duration : stdgo.GoInt64);
         stdgo._internal.runtime.Runtime_TimeHistogram_static_extension.TimeHistogram_static_extension.record(_th, _duration);
     }
     static public function count(_th:TimeHistogram, _bucket:StdTypes.Int, _subBucket:StdTypes.Int):stdgo.Tuple<haxe.UInt64, Bool> {
-        final _th = (_th : stdgo.Ref<stdgo._internal.runtime.Runtime_TimeHistogram.TimeHistogram>);
+        final _th = (_th : stdgo.Ref<stdgo._internal.runtime.Runtime_timehistogram.TimeHistogram>);
         final _bucket = (_bucket : stdgo.GoInt);
         final _subBucket = (_subBucket : stdgo.GoInt);
         return {
@@ -4421,15 +4421,15 @@ class T_goroutineProfileState_static_extension {
 typedef T_goroutineProfileStateHolderPointer = stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolderPointer.T_goroutineProfileStateHolderPointer;
 class T_goroutineProfileStateHolder_static_extension {
     static public function compareAndSwap(_p:T_goroutineProfileStateHolder, _old:T_goroutineProfileState, _new:T_goroutineProfileState):Bool {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder.T_goroutineProfileStateHolder>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder.T_goroutineProfileStateHolder>);
         return stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder_static_extension.T_goroutineProfileStateHolder_static_extension.compareAndSwap(_p, _old, _new);
     }
     static public function store(_p:T_goroutineProfileStateHolder, _value:T_goroutineProfileState):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder.T_goroutineProfileStateHolder>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder.T_goroutineProfileStateHolder>);
         stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder_static_extension.T_goroutineProfileStateHolder_static_extension.store(_p, _value);
     }
     static public function load(_p:T_goroutineProfileStateHolder):T_goroutineProfileState {
-        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder.T_goroutineProfileStateHolder>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder.T_goroutineProfileStateHolder>);
         return stdgo._internal.runtime.Runtime_T_goroutineProfileStateHolder_static_extension.T_goroutineProfileStateHolder_static_extension.load(_p);
     }
 }
@@ -4919,14 +4919,14 @@ class Runtime {
         stdgo._internal.runtime.Runtime_resetDebugLog.resetDebugLog();
     }
     static public inline function lFStackPush(_head:stdgo.Pointer<haxe.UInt64>, _node:LFNode):Void {
-        final _node = (_node : stdgo.Ref<stdgo._internal.runtime.Runtime_LFNode.LFNode>);
+        final _node = (_node : stdgo.Ref<stdgo._internal.runtime.Runtime_lfnode.LFNode>);
         stdgo._internal.runtime.Runtime_lFStackPush.lFStackPush(_head, _node);
     }
     static public inline function lFStackPop(_head:stdgo.Pointer<haxe.UInt64>):LFNode {
         return stdgo._internal.runtime.Runtime_lFStackPop.lFStackPop(_head);
     }
     static public inline function lFNodeValidate(_node:LFNode):Void {
-        final _node = (_node : stdgo.Ref<stdgo._internal.runtime.Runtime_LFNode.LFNode>);
+        final _node = (_node : stdgo.Ref<stdgo._internal.runtime.Runtime_lfnode.LFNode>);
         stdgo._internal.runtime.Runtime_lFNodeValidate.lFNodeValidate(_node);
     }
     static public inline function netpoll(_delta:haxe.Int64):Void {
@@ -5008,7 +5008,7 @@ class Runtime {
         return stdgo._internal.runtime.Runtime_newProfBuf.newProfBuf(_hdrsize, _bufwords, _tags);
     }
     static public inline function readMetricsSlow(_memStats:MemStats, _samplesp:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int, _cap:StdTypes.Int):Void {
-        final _memStats = (_memStats : stdgo.Ref<stdgo._internal.runtime.Runtime_MemStats.MemStats>);
+        final _memStats = (_memStats : stdgo.Ref<stdgo._internal.runtime.Runtime_memstats.MemStats>);
         final _len = (_len : stdgo.GoInt);
         final _cap = (_cap : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_readMetricsSlow.readMetricsSlow(_memStats, _samplesp, _len, _cap);
@@ -5089,7 +5089,7 @@ class Runtime {
         return stdgo._internal.runtime.Runtime_goid.goid();
     }
     static public inline function gIsWaitingOnMutex(_gp:T_g):Bool {
-        final _gp = (_gp : stdgo.Ref<stdgo._internal.runtime.Runtime_T_g.T_g>);
+        final _gp = (_gp : stdgo.Ref<stdgo._internal.runtime.Runtime_t_g.T_g>);
         return stdgo._internal.runtime.Runtime_gIsWaitingOnMutex.gIsWaitingOnMutex(_gp);
     }
     /**
@@ -5121,7 +5121,7 @@ class Runtime {
         of (*pallocBits).summarize. Used for testing.
     **/
     static public inline function summarizeSlow(_b:PallocBits):PallocSum {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         return stdgo._internal.runtime.Runtime_summarizeSlow.summarizeSlow(_b);
     }
     /**
@@ -5137,8 +5137,8 @@ class Runtime {
         they differ.
     **/
     static public inline function diffPallocBits(_a:PallocBits, _b:PallocBits):Array<BitRange> {
-        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         return [for (i in stdgo._internal.runtime.Runtime_diffPallocBits.diffPallocBits(_a, _b)) i];
     }
     /**
@@ -5147,7 +5147,7 @@ class Runtime {
         characters.
     **/
     static public inline function stringifyPallocBits(_b:PallocBits, _r:BitRange):String {
-        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_PallocBits.PallocBits>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.runtime.Runtime_pallocbits.PallocBits>);
         return stdgo._internal.runtime.Runtime_stringifyPallocBits.stringifyPallocBits(_b, _r);
     }
     /**
@@ -5212,9 +5212,9 @@ class Runtime {
         chunk index in scav must appear in chunks; ones that do not are
         ignored.
     **/
-    static public inline function newPageAlloc(_chunks:stdgo.GoMap<stdgo._internal.runtime.Runtime_ChunkIdx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_BitRange.BitRange>>, _scav:stdgo.GoMap<stdgo._internal.runtime.Runtime_ChunkIdx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_BitRange.BitRange>>):PageAlloc {
-        final _chunks = (_chunks : stdgo.GoMap<stdgo._internal.runtime.Runtime_ChunkIdx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_BitRange.BitRange>>);
-        final _scav = (_scav : stdgo.GoMap<stdgo._internal.runtime.Runtime_ChunkIdx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_BitRange.BitRange>>);
+    static public inline function newPageAlloc(_chunks:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>, _scav:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>):PageAlloc {
+        final _chunks = (_chunks : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
+        final _scav = (_scav : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
         return stdgo._internal.runtime.Runtime_newPageAlloc.newPageAlloc(_chunks, _scav);
     }
     /**
@@ -5223,7 +5223,7 @@ class Runtime {
         collected by the garbage collector once it is no longer live.
     **/
     static public inline function freePageAlloc(_pp:PageAlloc):Void {
-        final _pp = (_pp : stdgo.Ref<stdgo._internal.runtime.Runtime_PageAlloc.PageAlloc>);
+        final _pp = (_pp : stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc>);
         stdgo._internal.runtime.Runtime_freePageAlloc.freePageAlloc(_pp);
     }
     /**
@@ -5235,7 +5235,7 @@ class Runtime {
         return stdgo._internal.runtime.Runtime_pageBase.pageBase(_c, _pageIdx);
     }
     static public inline function checkScavengedBitsCleared(_mismatches:Array<BitsMismatch>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _mismatches = ([for (i in _mismatches) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_BitsMismatch.BitsMismatch>);
+        final _mismatches = ([for (i in _mismatches) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch>);
         return {
             final obj = stdgo._internal.runtime.Runtime_checkScavengedBitsCleared.checkScavengedBitsCleared(_mismatches);
             { _0 : obj._0, _1 : obj._1 };
@@ -5257,11 +5257,11 @@ class Runtime {
         Free an allocated mspan.
     **/
     static public inline function freeMSpan(_s:MSpan):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_MSpan.MSpan>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.runtime.Runtime_mspan.MSpan>);
         stdgo._internal.runtime.Runtime_freeMSpan.freeMSpan(_s);
     }
     static public inline function mSpanCountAlloc(_ms:MSpan, _bits:Array<std.UInt>):StdTypes.Int {
-        final _ms = (_ms : stdgo.Ref<stdgo._internal.runtime.Runtime_MSpan.MSpan>);
+        final _ms = (_ms : stdgo.Ref<stdgo._internal.runtime.Runtime_mspan.MSpan>);
         final _bits = ([for (i in _bits) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.runtime.Runtime_mSpanCountAlloc.mSpanCountAlloc(_ms, _bits);
     }
@@ -5349,7 +5349,7 @@ class Runtime {
         return stdgo._internal.runtime.Runtime_blockUntilEmptyFinalizerQueue.blockUntilEmptyFinalizerQueue(_timeout);
     }
     static public inline function frameStartLine(_f:Frame):StdTypes.Int {
-        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_Frame.Frame>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.runtime.Runtime_frame.Frame>);
         return stdgo._internal.runtime.Runtime_frameStartLine.frameStartLine(_f);
     }
     /**
@@ -5606,7 +5606,7 @@ class Runtime {
         of calling MemProfile directly.
     **/
     static public inline function memProfile(_p:Array<MemProfileRecord>, _inuseZero:Bool):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_MemProfileRecord.MemProfileRecord>);
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord>);
         return {
             final obj = stdgo._internal.runtime.Runtime_memProfile.memProfile(_p, _inuseZero);
             { _0 : obj._0, _1 : obj._1 };
@@ -5622,7 +5622,7 @@ class Runtime {
         of calling BlockProfile directly.
     **/
     static public inline function blockProfile(_p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_BlockProfileRecord.BlockProfileRecord>);
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord>);
         return {
             final obj = stdgo._internal.runtime.Runtime_blockProfile.blockProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
@@ -5637,7 +5637,7 @@ class Runtime {
         instead of calling MutexProfile directly.
     **/
     static public inline function mutexProfile(_p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_BlockProfileRecord.BlockProfileRecord>);
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord>);
         return {
             final obj = stdgo._internal.runtime.Runtime_mutexProfile.mutexProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
@@ -5652,7 +5652,7 @@ class Runtime {
         of calling ThreadCreateProfile directly.
     **/
     static public inline function threadCreateProfile(_p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>);
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>);
         return {
             final obj = stdgo._internal.runtime.Runtime_threadCreateProfile.threadCreateProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
@@ -5667,7 +5667,7 @@ class Runtime {
         of calling GoroutineProfile directly.
     **/
     static public inline function goroutineProfile(_p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_StackRecord.StackRecord>);
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_stackrecord.StackRecord>);
         return {
             final obj = stdgo._internal.runtime.Runtime_goroutineProfile.goroutineProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
@@ -5692,7 +5692,7 @@ class Runtime {
         collection cycle.
     **/
     static public inline function readMemStats(_m:MemStats):Void {
-        final _m = (_m : stdgo.Ref<stdgo._internal.runtime.Runtime_MemStats.MemStats>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.runtime.Runtime_memstats.MemStats>);
         stdgo._internal.runtime.Runtime_readMemStats.readMemStats(_m);
     }
     /**

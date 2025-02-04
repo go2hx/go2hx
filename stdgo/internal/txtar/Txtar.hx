@@ -9,10 +9,10 @@ package stdgo.internal.txtar;
     public var files(get, set) : Array<File>;
     function get_files():Array<File> return [for (i in this.files) i];
     function set_files(v:Array<File>):Array<File> {
-        this.files = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_File.File>);
+        this.files = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_file.File>);
         return v;
     }
-    public function new(?comment:Array<std.UInt>, ?files:Array<File>) this = new stdgo._internal.internal.txtar.Txtar_Archive.Archive(([for (i in comment) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in files) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_File.File>));
+    public function new(?comment:Array<std.UInt>, ?files:Array<File>) this = new stdgo._internal.internal.txtar.Txtar_Archive.Archive(([for (i in comment) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in files) i] : stdgo.Slice<stdgo._internal.internal.txtar.Txtar_file.File>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -78,7 +78,7 @@ class Txtar {
         and all a.File[i].Name is non-empty.
     **/
     static public inline function format(_a:Archive):Array<std.UInt> {
-        final _a = (_a : stdgo.Ref<stdgo._internal.internal.txtar.Txtar_Archive.Archive>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.internal.txtar.Txtar_archive.Archive>);
         return [for (i in stdgo._internal.internal.txtar.Txtar_format.format(_a)) i];
     }
     /**

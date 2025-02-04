@@ -1,5 +1,5 @@
 package stdgo._internal.internal.diff;
-function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo._internal.internal.diff.Diff_T_pair.T_pair> {
+function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):stdgo.Slice<stdgo._internal.internal.diff.Diff_t_pair.T_pair> {
         var _m = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
@@ -63,19 +63,19 @@ l[(_i : stdgo.GoInt)] = (_k + (1 : stdgo.GoInt) : stdgo.GoInt);
                 _k = _v;
             };
         };
-        var _seq = (new stdgo.Slice<stdgo._internal.internal.diff.Diff_T_pair.T_pair>(((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic() > 0 ? ((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair)]) : stdgo.Slice<stdgo._internal.internal.diff.Diff_T_pair.T_pair>);
-        _seq[((1 : stdgo.GoInt) + _k : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair((_x.length), (_y.length)) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+        var _seq = (new stdgo.Slice<stdgo._internal.internal.diff.Diff_t_pair.T_pair>(((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic() > 0 ? ((2 : stdgo.GoInt) + _k : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair)]) : stdgo.Slice<stdgo._internal.internal.diff.Diff_t_pair.T_pair>);
+        _seq[((1 : stdgo.GoInt) + _k : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair((_x.length), (_y.length)) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
         var _lastj = (_n : stdgo.GoInt);
         {
             var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
             while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 if (((l[(_i : stdgo.GoInt)] == _k) && (j[(_i : stdgo.GoInt)] < _lastj : Bool) : Bool)) {
-                    _seq[(_k : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair(_xi[(_i : stdgo.GoInt)], _yi[(j[(_i : stdgo.GoInt)] : stdgo.GoInt)]) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+                    _seq[(_k : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair(_xi[(_i : stdgo.GoInt)], _yi[(j[(_i : stdgo.GoInt)] : stdgo.GoInt)]) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
                     _k--;
                 };
                 _i--;
             };
         };
-        _seq[(0 : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+        _seq[(0 : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
         return _seq;
     }

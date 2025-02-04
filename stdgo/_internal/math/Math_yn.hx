@@ -1,9 +1,9 @@
 package stdgo._internal.math;
 function yn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (((_x < (0 : stdgo.GoFloat64) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (1 : stdgo.GoInt))) {
+        if (((_x < (0 : stdgo.GoFloat64) : Bool) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (1 : stdgo.GoInt))) {
             return (0 : stdgo.GoFloat64);
         };
         if (_n == ((0 : stdgo.GoInt))) {
@@ -52,7 +52,7 @@ function yn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
             _b = stdgo._internal.math.Math_y1.y1(_x);
             {
                 var _i = (1 : stdgo.GoInt);
-                while (((_i < _n : Bool) && !stdgo._internal.math.Math_isInf.isInf(_b, (-1 : stdgo.GoInt)) : Bool)) {
+                while (((_i < _n : Bool) && !stdgo._internal.math.Math_isinf.isInf(_b, (-1 : stdgo.GoInt)) : Bool)) {
                     {
                         final __tmp__0 = _b;
                         final __tmp__1 = ((((((_i + _i : stdgo.GoInt) : stdgo.GoFloat64) / _x : stdgo.GoFloat64)) * _b : stdgo.GoFloat64) - _a : stdgo.GoFloat64);

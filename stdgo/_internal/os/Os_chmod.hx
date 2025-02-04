@@ -1,5 +1,5 @@
 package stdgo._internal.os;
-function chmod(_name:stdgo.GoString, _mode:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+function chmod(_name:stdgo.GoString, _mode:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         #if (sys || hxnodejs) {
             final perm:Int = _mode;
             final name = _name;

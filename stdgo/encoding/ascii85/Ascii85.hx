@@ -6,9 +6,9 @@ package stdgo.encoding.ascii85;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
@@ -30,7 +30,7 @@ package stdgo.encoding.ascii85;
         this._out = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_err:stdgo.Error, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.ascii85.Ascii85_T_encoder.T_encoder((_err : stdgo.Error), _w, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_nbuf : stdgo.GoInt), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_err:stdgo.Error, ?_w:stdgo._internal.io.Io_writer.Writer, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.ascii85.Ascii85_T_encoder.T_encoder((_err : stdgo.Error), _w, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_nbuf : stdgo.GoInt), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -47,9 +47,9 @@ package stdgo.encoding.ascii85;
         this._readErr = (v : stdgo.Error);
         return v;
     }
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
@@ -77,7 +77,7 @@ package stdgo.encoding.ascii85;
         this._outbuf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_r:stdgo._internal.io.Io_Reader.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:Array<std.UInt>, ?_outbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder((_err : stdgo.Error), (_readErr : stdgo.Error), _r, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_nbuf : stdgo.GoInt), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _outbuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_r:stdgo._internal.io.Io_reader.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:Array<std.UInt>, ?_outbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder((_err : stdgo.Error), (_readErr : stdgo.Error), _r, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_nbuf : stdgo.GoInt), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _outbuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -85,11 +85,11 @@ typedef CorruptInputError = stdgo._internal.encoding.ascii85.Ascii85_CorruptInpu
 typedef T_encoderPointer = stdgo._internal.encoding.ascii85.Ascii85_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder>);
         return stdgo._internal.encoding.ascii85.Ascii85_T_encoder_static_extension.T_encoder_static_extension.close(_e);
     }
     static public function write(_e:T_encoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.ascii85.Ascii85_T_encoder_static_extension.T_encoder_static_extension.write(_e, _p);
@@ -100,7 +100,7 @@ class T_encoder_static_extension {
 typedef T_decoderPointer = stdgo._internal.encoding.ascii85.Ascii85_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.ascii85.Ascii85_T_decoder_static_extension.T_decoder_static_extension.read(_d, _p);
@@ -149,7 +149,7 @@ class Ascii85 {
         writing, the caller must Close the returned encoder to flush any
         trailing partial block.
     **/
-    static public inline function newEncoder(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_WriteCloser.WriteCloser {
+    static public inline function newEncoder(_w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writecloser.WriteCloser {
         return stdgo._internal.encoding.ascii85.Ascii85_newEncoder.newEncoder(_w);
     }
     /**
@@ -178,7 +178,7 @@ class Ascii85 {
     /**
         NewDecoder constructs a new ascii85 stream decoder.
     **/
-    static public inline function newDecoder(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    static public inline function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.encoding.ascii85.Ascii85_newDecoder.newDecoder(_r);
     }
 }

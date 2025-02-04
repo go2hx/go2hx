@@ -1,0 +1,23 @@
+package stdgo._internal.debug.dwarf;
+var _attrPtrClass : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_attr.Attr, stdgo._internal.debug.dwarf.Dwarf_class_.Class_> = ({
+        final x = new stdgo.GoMap.GoIntMap<stdgo._internal.debug.dwarf.Dwarf_class_.Class_>();
+        x.__defaultValue__ = () -> ((0 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
+        x.set((2u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((16u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (6 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((25u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((42u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((44u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (9 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((56u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((64u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((67u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (8 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((70u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((72u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((74u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((77u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((85u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (9 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((114u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (19 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((115u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (15 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((116u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (18 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+x.set((140u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr), (7 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_));
+        x;
+    } : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_attr.Attr, stdgo._internal.debug.dwarf.Dwarf_class_.Class_>);

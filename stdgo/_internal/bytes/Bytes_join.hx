@@ -19,7 +19,7 @@ function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, _sep:stdgo.Slice<stdgo
             };
             _n = (_n + ((_v.length)) : stdgo.GoInt);
         };
-        var _b = stdgo._internal.internal.bytealg.Bytealg_makeNoZero.makeNoZero(_n);
+        var _b = stdgo._internal.internal.bytealg.Bytealg_makenozero.makeNoZero(_n);
         var _bp = (_b.__copyTo__(_s[(0 : stdgo.GoInt)]) : stdgo.GoInt);
         for (__1 => _v in (_s.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
             _bp = (_bp + ((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_sep)) : stdgo.GoInt);

@@ -60,16 +60,16 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public var sections(get, set) : Array<Section>;
     function get_sections():Array<Section> return [for (i in this.sections) i];
     function set_sections(v:Array<Section>):Array<Section> {
-        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>);
+        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>>);
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.plan9obj.Plan9obj_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>>), _closer);
+    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.plan9obj.Plan9obj_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -103,19 +103,19 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.sectionHeader = v;
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.debug.plan9obj.Plan9obj_Section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.plan9obj.Plan9obj_Section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -253,19 +253,19 @@ class FileHeader_static_extension {
 typedef FilePointer = stdgo._internal.debug.plan9obj.Plan9obj_FilePointer.FilePointer;
 class File_static_extension {
     static public function section(_f:File, _name:String):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.section(_f, _name);
     }
     static public function symbols(_f:File):stdgo.Tuple<Array<Sym>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
         return {
             final obj = stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.symbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
         return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.close(_f);
     }
 }
@@ -275,18 +275,18 @@ class SectionHeader_static_extension {
 }
 typedef SectionPointer = stdgo._internal.debug.plan9obj.Plan9obj_SectionPointer.SectionPointer;
 class Section_static_extension {
-    static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>);
+    static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>);
         return stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_Section.Section>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>);
         return {
             final obj = stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.plan9obj.Plan9obj_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.plan9obj.Plan9obj_section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -302,7 +302,7 @@ class Sym_static_extension {
 typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_T_formatErrorPointer.T_formatErrorPointer;
 class T_formatError_static_extension {
     static public function error(_e:T_formatError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_T_formatError.T_formatError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError>);
         return stdgo._internal.debug.plan9obj.Plan9obj_T_formatError_static_extension.T_formatError_static_extension.error(_e);
     }
 }
@@ -346,7 +346,7 @@ class Plan9obj {
         NewFile creates a new File for accessing a Plan 9 binary in an underlying reader.
         The Plan 9 binary is expected to start at position 0 in the ReaderAt.
     **/
-    static public inline function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.plan9obj.Plan9obj_newFile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };

@@ -1,2 +1,0 @@
-package stdgo._internal.runtime.pprof;
-var _threadcreateProfile : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo.Go.setRef(({ _name : ("threadcreate" : stdgo.GoString), _count : stdgo._internal.runtime.pprof.Pprof__countThreadCreate._countThreadCreate, _write : stdgo._internal.runtime.pprof.Pprof__writeThreadCreate._writeThreadCreate } : stdgo._internal.runtime.pprof.Pprof_Profile.Profile)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);

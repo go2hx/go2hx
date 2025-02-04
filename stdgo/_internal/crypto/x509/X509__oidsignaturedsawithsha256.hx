@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.x509;
+var _oidSignatureDSAWithSHA256 : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(2 : stdgo.GoInt), (16 : stdgo.GoInt), (840 : stdgo.GoInt), (1 : stdgo.GoInt), (101 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier);

@@ -1,5 +1,5 @@
 package stdgo._internal.internal.intern;
-function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>):Void {
+function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 stdgo._internal.internal.intern.Intern__mu._mu.lock();
@@ -9,7 +9,7 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
             };
             if ((@:checkr _v ?? throw "null pointer dereference")._resurrected) {
                 (@:checkr _v ?? throw "null pointer dereference")._resurrected = false;
-                stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_v)), stdgo.Go.toInterface(stdgo._internal.internal.intern.Intern__finalize._finalize));
+                stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_v)), stdgo.Go.toInterface(stdgo._internal.internal.intern.Intern__finalize._finalize));
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -19,7 +19,7 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
                     return;
                 };
             };
-            if (stdgo._internal.internal.intern.Intern__valMap._valMap != null) stdgo._internal.internal.intern.Intern__valMap._valMap.remove(stdgo._internal.internal.intern.Intern__keyFor._keyFor((@:checkr _v ?? throw "null pointer dereference")._cmpVal));
+            if (stdgo._internal.internal.intern.Intern__valmap._valMap != null) stdgo._internal.internal.intern.Intern__valmap._valMap.remove(stdgo._internal.internal.intern.Intern__keyfor._keyFor((@:checkr _v ?? throw "null pointer dereference")._cmpVal));
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

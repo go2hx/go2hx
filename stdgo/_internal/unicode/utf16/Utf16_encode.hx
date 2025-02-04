@@ -13,7 +13,7 @@ function encode(_s:stdgo.Slice<stdgo.GoInt32>):stdgo.Slice<stdgo.GoUInt16> {
                 _a[(_n : stdgo.GoInt)] = (_v : stdgo.GoUInt16);
                 _n++;
             } else if ((((65536 : stdgo.GoInt32) <= _v : Bool) && (_v <= (1114111 : stdgo.GoInt32) : Bool) : Bool)) {
-                var __tmp__ = stdgo._internal.unicode.utf16.Utf16_encodeRune.encodeRune(_v), _r1:stdgo.GoInt32 = __tmp__._0, _r2:stdgo.GoInt32 = __tmp__._1;
+                var __tmp__ = stdgo._internal.unicode.utf16.Utf16_encoderune.encodeRune(_v), _r1:stdgo.GoInt32 = __tmp__._0, _r2:stdgo.GoInt32 = __tmp__._1;
                 _a[(_n : stdgo.GoInt)] = (_r1 : stdgo.GoUInt16);
                 _a[(_n + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_r2 : stdgo.GoUInt16);
                 _n = (_n + ((2 : stdgo.GoInt)) : stdgo.GoInt);

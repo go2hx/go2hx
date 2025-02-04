@@ -1,0 +1,2 @@
+package stdgo._internal.math.cmplx;
+var _polarSC : stdgo.Slice<stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff> = (new stdgo.Slice<stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff>(1, 1, ...[(new stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff(stdgo._internal.math.Math_nan.naN(), stdgo._internal.math.Math_nan.naN()) : stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff)])) : stdgo.Slice<stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff>);

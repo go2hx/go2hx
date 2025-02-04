@@ -5,39 +5,39 @@ private function set_debugOptions(v:Bool):Bool {
         stdgo._internal.internal.cpu.Cpu_debugOptions.debugOptions = v;
         return v;
     }
-var x86(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_0.T__struct_0;
-private function get_x86():stdgo._internal.internal.cpu.Cpu_T__struct_0.T__struct_0 return stdgo._internal.internal.cpu.Cpu_x86.x86;
-private function set_x86(v:stdgo._internal.internal.cpu.Cpu_T__struct_0.T__struct_0):stdgo._internal.internal.cpu.Cpu_T__struct_0.T__struct_0 {
+var x86(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0;
+private function get_x86():stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0 return stdgo._internal.internal.cpu.Cpu_x86.x86;
+private function set_x86(v:stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0):stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0 {
         stdgo._internal.internal.cpu.Cpu_x86.x86 = v;
         return v;
     }
-var aRM(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_1.T__struct_1;
-private function get_aRM():stdgo._internal.internal.cpu.Cpu_T__struct_1.T__struct_1 return stdgo._internal.internal.cpu.Cpu_aRM.aRM;
-private function set_aRM(v:stdgo._internal.internal.cpu.Cpu_T__struct_1.T__struct_1):stdgo._internal.internal.cpu.Cpu_T__struct_1.T__struct_1 {
+var aRM(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1;
+private function get_aRM():stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1 return stdgo._internal.internal.cpu.Cpu_aRM.aRM;
+private function set_aRM(v:stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1):stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1 {
         stdgo._internal.internal.cpu.Cpu_aRM.aRM = v;
         return v;
     }
-var aRM64(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_2.T__struct_2;
-private function get_aRM64():stdgo._internal.internal.cpu.Cpu_T__struct_2.T__struct_2 return stdgo._internal.internal.cpu.Cpu_aRM64.aRM64;
-private function set_aRM64(v:stdgo._internal.internal.cpu.Cpu_T__struct_2.T__struct_2):stdgo._internal.internal.cpu.Cpu_T__struct_2.T__struct_2 {
+var aRM64(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2;
+private function get_aRM64():stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2 return stdgo._internal.internal.cpu.Cpu_aRM64.aRM64;
+private function set_aRM64(v:stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2):stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2 {
         stdgo._internal.internal.cpu.Cpu_aRM64.aRM64 = v;
         return v;
     }
-var mIPS64X(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_3.T__struct_3;
-private function get_mIPS64X():stdgo._internal.internal.cpu.Cpu_T__struct_3.T__struct_3 return stdgo._internal.internal.cpu.Cpu_mIPS64X.mIPS64X;
-private function set_mIPS64X(v:stdgo._internal.internal.cpu.Cpu_T__struct_3.T__struct_3):stdgo._internal.internal.cpu.Cpu_T__struct_3.T__struct_3 {
+var mIPS64X(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3;
+private function get_mIPS64X():stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3 return stdgo._internal.internal.cpu.Cpu_mIPS64X.mIPS64X;
+private function set_mIPS64X(v:stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3):stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3 {
         stdgo._internal.internal.cpu.Cpu_mIPS64X.mIPS64X = v;
         return v;
     }
-var pPC64(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_4.T__struct_4;
-private function get_pPC64():stdgo._internal.internal.cpu.Cpu_T__struct_4.T__struct_4 return stdgo._internal.internal.cpu.Cpu_pPC64.pPC64;
-private function set_pPC64(v:stdgo._internal.internal.cpu.Cpu_T__struct_4.T__struct_4):stdgo._internal.internal.cpu.Cpu_T__struct_4.T__struct_4 {
+var pPC64(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4;
+private function get_pPC64():stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4 return stdgo._internal.internal.cpu.Cpu_pPC64.pPC64;
+private function set_pPC64(v:stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4):stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4 {
         stdgo._internal.internal.cpu.Cpu_pPC64.pPC64 = v;
         return v;
     }
-var s390X(get, set) : stdgo._internal.internal.cpu.Cpu_T__struct_5.T__struct_5;
-private function get_s390X():stdgo._internal.internal.cpu.Cpu_T__struct_5.T__struct_5 return stdgo._internal.internal.cpu.Cpu_s390X.s390X;
-private function set_s390X(v:stdgo._internal.internal.cpu.Cpu_T__struct_5.T__struct_5):stdgo._internal.internal.cpu.Cpu_T__struct_5.T__struct_5 {
+var s390X(get, set) : stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5;
+private function get_s390X():stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5 return stdgo._internal.internal.cpu.Cpu_s390X.s390X;
+private function set_s390X(v:stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5):stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5 {
         stdgo._internal.internal.cpu.Cpu_s390X.s390X = v;
         return v;
     }
@@ -51,7 +51,7 @@ private function set_cacheLineSize(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
 var options(get, set) : Array<T_option>;
 private function get_options():Array<T_option> return [for (i in stdgo._internal.internal.cpu.Cpu_options.options) i];
 private function set_options(v:Array<T_option>):Array<T_option> {
-        stdgo._internal.internal.cpu.Cpu_options.options = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.cpu.Cpu_T_option.T_option>);
+        stdgo._internal.internal.cpu.Cpu_options.options = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.cpu.Cpu_t_option.T_option>);
         return v;
     }
 @:structInit @:using(stdgo.internal.cpu.Cpu.CacheLinePad_static_extension) abstract CacheLinePad(stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad) from stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad to stdgo._internal.internal.cpu.Cpu_CacheLinePad.CacheLinePad {

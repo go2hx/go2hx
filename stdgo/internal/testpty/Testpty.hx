@@ -31,11 +31,11 @@ private function set_errNotSupported(v:stdgo.Error):stdgo.Error {
 typedef PtyErrorPointer = stdgo._internal.internal.testpty.Testpty_PtyErrorPointer.PtyErrorPointer;
 class PtyError_static_extension {
     static public function unwrap(_e:PtyError):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.internal.testpty.Testpty_PtyError.PtyError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError>);
         return stdgo._internal.internal.testpty.Testpty_PtyError_static_extension.PtyError_static_extension.unwrap(_e);
     }
     static public function error(_e:PtyError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.internal.testpty.Testpty_PtyError.PtyError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError>);
         return stdgo._internal.internal.testpty.Testpty_PtyError_static_extension.PtyError_static_extension.error(_e);
     }
 }
@@ -49,7 +49,7 @@ class Testpty {
         
         If Open is not implemented on this platform, it returns ErrNotSupported.
     **/
-    static public inline function open():stdgo.Tuple.Tuple3<stdgo._internal.os.Os_File.File, String, stdgo.Error> {
+    static public inline function open():stdgo.Tuple.Tuple3<stdgo._internal.os.Os_file.File, String, stdgo.Error> {
         return {
             final obj = stdgo._internal.internal.testpty.Testpty_open.open();
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };

@@ -11,8 +11,8 @@ function _extract(_str:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo
         };
         var _i = (0 : stdgo.GoInt);
         while ((_i < (_str.length) : Bool)) {
-            var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_str.__slice__(_i) : stdgo.GoString)?.__copy__()), _rune:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
-            if (((!stdgo._internal.unicode.Unicode_isLetter.isLetter(_rune) && !stdgo._internal.unicode.Unicode_isDigit.isDigit(_rune) : Bool) && (_rune != (95 : stdgo.GoInt32)) : Bool)) {
+            var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString((_str.__slice__(_i) : stdgo.GoString)?.__copy__()), _rune:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
+            if (((!stdgo._internal.unicode.Unicode_isletter.isLetter(_rune) && !stdgo._internal.unicode.Unicode_isdigit.isDigit(_rune) : Bool) && (_rune != (95 : stdgo.GoInt32)) : Bool)) {
                 break;
             };
             _i = (_i + (_size) : stdgo.GoInt);

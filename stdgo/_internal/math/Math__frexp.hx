@@ -8,7 +8,7 @@ function _frexp(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
                 _exp = __tmp__._1;
                 __tmp__;
             };
-        } else if ((stdgo._internal.math.Math_isInf.isInf(_f, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_f) : Bool)) {
+        } else if ((stdgo._internal.math.Math_isinf.isInf(_f, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isnan.isNaN(_f) : Bool)) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; } = { _0 : _f, _1 : (0 : stdgo.GoInt) };
                 _frac = __tmp__._0;

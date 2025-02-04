@@ -1,18 +1,18 @@
 package stdgo._internal.crypto.rand;
-function prime(_rand:stdgo._internal.io.Io_Reader.Reader, _bits:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } {
+function prime(_rand:stdgo._internal.io.Io_reader.Reader, _bits:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Error; } {
         if ((_bits < (2 : stdgo.GoInt) : Bool)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/rand: prime size must be at least 2-bit" : stdgo.GoString)) };
         };
-        stdgo._internal.crypto.internal.randutil.Randutil_maybeReadByte.maybeReadByte(_rand);
+        stdgo._internal.crypto.internal.randutil.Randutil_maybereadbyte.maybeReadByte(_rand);
         var _b = ((_bits % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt);
         if (_b == ((0u32 : stdgo.GoUInt))) {
             _b = (8u32 : stdgo.GoUInt);
         };
         var _bytes = (new stdgo.Slice<stdgo.GoUInt8>((((_bits + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         while (true) {
             {
-                var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _bytes), __14:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_rand, _bytes), __14:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };

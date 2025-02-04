@@ -1,0 +1,2 @@
+package stdgo._internal.unicode;
+var printRanges : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> = (new stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>(5, 5, ...[stdgo._internal.unicode.Unicode_l.l, stdgo._internal.unicode.Unicode_m.m, stdgo._internal.unicode.Unicode_n.n, stdgo._internal.unicode.Unicode_p.p, stdgo._internal.unicode.Unicode_s.s]) : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);

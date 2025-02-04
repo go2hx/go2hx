@@ -74,7 +74,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public var _d(get, set) : Array<Word>;
     function get__d():Array<Word> return [for (i in this._d) i];
     function set__d(v:Array<Word>):Array<Word> {
-        this._d = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
+        this._d = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big_word.Word>);
         return v;
     }
     public var _l(get, set) : std.UInt;
@@ -104,7 +104,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public var _r(get, set) : Array<Word>;
     function get__r():Array<Word> return [for (i in this._r) i];
     function set__r(v:Array<Word>):Array<Word> {
-        this._r = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
+        this._r = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big_word.Word>);
         return v;
     }
     public var _c(get, set) : Word;
@@ -119,7 +119,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
         this._m = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_d:Array<Word>, ?_l:std.UInt, ?_xp:std.UInt, ?_zp:std.UInt, ?_s:std.UInt, ?_r:Array<Word>, ?_c:Word, ?_m:String) this = new stdgo._internal.math.big.Big_T_argVU.T_argVU(([for (i in _d) i] : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>), (_l : stdgo.GoUInt), (_xp : stdgo.GoUInt), (_zp : stdgo.GoUInt), (_s : stdgo.GoUInt), ([for (i in _r) i] : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>), _c, (_m : stdgo.GoString));
+    public function new(?_d:Array<Word>, ?_l:std.UInt, ?_xp:std.UInt, ?_zp:std.UInt, ?_s:std.UInt, ?_r:Array<Word>, ?_c:Word, ?_m:String) this = new stdgo._internal.math.big.Big_T_argVU.T_argVU(([for (i in _d) i] : stdgo.Slice<stdgo._internal.math.big.Big_word.Word>), (_l : stdgo.GoUInt), (_xp : stdgo.GoUInt), (_zp : stdgo.GoUInt), (_s : stdgo.GoUInt), ([for (i in _r) i] : stdgo.Slice<stdgo._internal.math.big.Big_word.Word>), _c, (_m : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -284,10 +284,10 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public var _a(get, set) : Array<Rat>;
     function get__a():Array<Rat> return [for (i in this._a) i];
     function set__a(v:Array<Rat>):Array<Rat> {
-        this._a = ([for (i in v) (i : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>);
+        this._a = ([for (i in v) (i : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>>);
         return v;
     }
-    public function new(?_n:StdTypes.Int, ?_m:StdTypes.Int, ?_a:Array<Rat>) this = new stdgo._internal.math.big.Big_T_matrix.T_matrix((_n : stdgo.GoInt), (_m : stdgo.GoInt), ([for (i in _a) (i : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>));
+    public function new(?_n:StdTypes.Int, ?_m:StdTypes.Int, ?_a:Array<Rat>) this = new stdgo._internal.math.big.Big_T_matrix.T_matrix((_n : stdgo.GoInt), (_m : stdgo.GoInt), ([for (i in _a) (i : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -312,22 +312,22 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public var _z(get, set) : Int_;
     function get__z():Int_ return this._z;
     function set__z(v:Int_):Int_ {
-        this._z = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        this._z = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
     public var _x(get, set) : Int_;
     function get__x():Int_ return this._x;
     function set__x(v:Int_):Int_ {
-        this._x = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        this._x = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
     public var _y(get, set) : Int_;
     function get__y():Int_ return this._y;
     function set__y(v:Int_):Int_ {
-        this._y = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        this._y = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?_z:Int_, ?_x:Int_, ?_y:Int_) this = new stdgo._internal.math.big.Big_T_argZZ.T_argZZ((_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+    public function new(?_z:Int_, ?_x:Int_, ?_y:Int_) this = new stdgo._internal.math.big.Big_T_argZZ.T_argZZ((_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -355,13 +355,13 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxBase.maxBase;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.math.big.Big.T_byteReader_static_extension) abstract T_byteReader(stdgo._internal.math.big.Big_T_byteReader.T_byteReader) from stdgo._internal.math.big.Big_T_byteReader.T_byteReader to stdgo._internal.math.big.Big_T_byteReader.T_byteReader {
-    public var scanState(get, set) : stdgo._internal.fmt.Fmt_ScanState.ScanState;
-    function get_scanState():stdgo._internal.fmt.Fmt_ScanState.ScanState return this.scanState;
-    function set_scanState(v:stdgo._internal.fmt.Fmt_ScanState.ScanState):stdgo._internal.fmt.Fmt_ScanState.ScanState {
+    public var scanState(get, set) : stdgo._internal.fmt.Fmt_scanstate.ScanState;
+    function get_scanState():stdgo._internal.fmt.Fmt_scanstate.ScanState return this.scanState;
+    function set_scanState(v:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo._internal.fmt.Fmt_scanstate.ScanState {
         this.scanState = v;
         return v;
     }
-    public function new(?scanState:stdgo._internal.fmt.Fmt_ScanState.ScanState) this = new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(scanState);
+    public function new(?scanState:stdgo._internal.fmt.Fmt_scanstate.ScanState) this = new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(scanState);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -807,20 +807,20 @@ class T__struct_56_static_extension {
 typedef T__struct_56 = stdgo._internal.math.big.Big_T__struct_56.T__struct_56;
 typedef T__struct_57Pointer = stdgo._internal.math.big.Big_T__struct_57Pointer.T__struct_57Pointer;
 class T__struct_57_static_extension {
-    public static function _unlockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57, _0:StdTypes.Int):Void {
+    public static function _unlockSlow(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension._unlockSlow(__self__, _0);
     }
-    public static function _lockSlow(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
+    public static function _lockSlow(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension._lockSlow(__self__);
     }
-    public static function unlock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
+    public static function unlock(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.unlock(__self__);
     }
-    public static function tryLock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Bool {
+    public static function tryLock(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57):Bool {
         return stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.tryLock(__self__);
     }
-    public static function lock(__self__:stdgo._internal.math.big.Big_T__struct_57.T__struct_57):Void {
+    public static function lock(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57):Void {
         stdgo._internal.math.big.Big_T__struct_57_static_extension.T__struct_57_static_extension.lock(__self__);
     }
 }
@@ -872,11 +872,11 @@ class T__struct_66_static_extension {
 typedef T__struct_66 = stdgo._internal.math.big.Big_T__struct_66.T__struct_66;
 typedef T__struct_67Pointer = stdgo._internal.math.big.Big_T__struct_67Pointer.T__struct_67Pointer;
 class T__struct_67_static_extension {
-    public static function _doSlow(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _0:() -> Void):Void {
+    public static function _doSlow(__self__:stdgo._internal.math.big.Big_t__struct_67.T__struct_67, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension._doSlow(__self__, _0);
     }
-    public static function do_(__self__:stdgo._internal.math.big.Big_T__struct_67.T__struct_67, _0:() -> Void):Void {
+    public static function do_(__self__:stdgo._internal.math.big.Big_t__struct_67.T__struct_67, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.math.big.Big_T__struct_67_static_extension.T__struct_67_static_extension.do_(__self__, _0);
     }
@@ -929,31 +929,31 @@ class T_argWVW_static_extension {
 typedef T_decimalPointer = stdgo._internal.math.big.Big_T_decimalPointer.T_decimalPointer;
 class T_decimal_static_extension {
     static public function _roundDown(_x:T_decimal, _n:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._roundDown(_x, _n);
     }
     static public function _roundUp(_x:T_decimal, _n:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._roundUp(_x, _n);
     }
     static public function _round(_x:T_decimal, _n:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._round(_x, _n);
     }
     static public function string(_x:T_decimal):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         return stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension.string(_x);
     }
     static public function _init(_x:T_decimal, _m:T_nat, _shift:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _shift = (_shift : stdgo.GoInt);
         stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._init(_x, _m, _shift);
     }
     static public function _at(_d:T_decimal, _i:StdTypes.Int):std.UInt {
-        final _d = (_d : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _i = (_i : stdgo.GoInt);
         return stdgo._internal.math.big.Big_T_decimal_static_extension.T_decimal_static_extension._at(_d, _i);
     }
@@ -961,84 +961,84 @@ class T_decimal_static_extension {
 typedef Float_Pointer = stdgo._internal.math.big.Big_Float_Pointer.Float_Pointer;
 class Float__static_extension {
     static public function _sqrtInverse(_z:Float_, _x:Float_):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._sqrtInverse(_z, _x);
     }
     static public function sqrt(_z:Float_, _x:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.sqrt(_z, _x);
     }
-    static public function format(_x:Float_, _s:stdgo._internal.fmt.Fmt_State.State, _format:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+    static public function format(_x:Float_, _s:stdgo._internal.fmt.Fmt_state.State, _format:StdTypes.Int):Void {
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _format = (_format : stdgo.GoInt32);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.format(_x, _s, _format);
     }
     static public function _fmtP(_x:Float_, _buf:Array<std.UInt>):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._fmtP(_x, _buf)) i];
     }
     static public function _fmtX(_x:Float_, _buf:Array<std.UInt>, _prec:StdTypes.Int):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _prec = (_prec : stdgo.GoInt);
         return [for (i in stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._fmtX(_x, _buf, _prec)) i];
     }
     static public function _fmtB(_x:Float_, _buf:Array<std.UInt>):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._fmtB(_x, _buf)) i];
     }
     static public function append(_x:Float_, _buf:Array<std.UInt>, _fmt:std.UInt, _prec:StdTypes.Int):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _fmt = (_fmt : stdgo.GoUInt8);
         final _prec = (_prec : stdgo.GoInt);
         return [for (i in stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.append(_x, _buf, _fmt, _prec)) i];
     }
     static public function string(_x:Float_):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.string(_x);
     }
     static public function text(_x:Float_, _format:std.UInt, _prec:StdTypes.Int):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _format = (_format : stdgo.GoUInt8);
         final _prec = (_prec : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.text(_x, _format, _prec);
     }
     static public function unmarshalText(_z:Float_, _text:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.unmarshalText(_z, _text);
     }
     static public function marshalText(_x:Float_):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.marshalText(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function gobDecode(_z:Float_, _buf:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.gobDecode(_z, _buf);
     }
     static public function gobEncode(_x:Float_):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.gobEncode(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function scan(_z:Float_, _s:stdgo._internal.fmt.Fmt_ScanState.ScanState, _ch:StdTypes.Int):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+    static public function scan(_z:Float_, _s:stdgo._internal.fmt.Fmt_scanstate.ScanState, _ch:StdTypes.Int):stdgo.Error {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _ch = (_ch : stdgo.GoInt32);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.scan(_z, _s, _ch);
     }
     static public function parse(_z:Float_, _s:String, _base:StdTypes.Int):stdgo.Tuple.Tuple3<Float_, StdTypes.Int, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _s = (_s : stdgo.GoString);
         final _base = (_base : stdgo.GoInt);
         return {
@@ -1047,12 +1047,12 @@ class Float__static_extension {
         };
     }
     static public function _pow5(_z:Float_, _n:haxe.UInt64):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _n = (_n : stdgo.GoUInt64);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._pow5(_z, _n);
     }
-    static public function _scan(_z:Float_, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple.Tuple3<Float_, StdTypes.Int, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+    static public function _scan(_z:Float_, _r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple.Tuple3<Float_, StdTypes.Int, stdgo.Error> {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _base = (_base : stdgo.GoInt);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._scan(_z, _r, _base);
@@ -1060,7 +1060,7 @@ class Float__static_extension {
         };
     }
     static public function setString(_z:Float_, _s:String):stdgo.Tuple<Float_, Bool> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setString(_z, _s);
@@ -1068,241 +1068,241 @@ class Float__static_extension {
         };
     }
     static public function _int64(_x:Float_):haxe.Int64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._int64(_x);
     }
     static public function _uint64(_x:Float_):haxe.UInt64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._uint64(_x);
     }
     static public function _ord(_x:Float_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._ord(_x);
     }
     static public function cmp(_x:Float_, _y:Float_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.cmp(_x, _y);
     }
     static public function quo(_z:Float_, _x:Float_, _y:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.quo(_z, _x, _y);
     }
     static public function mul(_z:Float_, _x:Float_, _y:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.mul(_z, _x, _y);
     }
     static public function sub(_z:Float_, _x:Float_, _y:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.sub(_z, _x, _y);
     }
     static public function add(_z:Float_, _x:Float_, _y:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.add(_z, _x, _y);
     }
     static public function _ucmp(_x:Float_, _y:Float_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._ucmp(_x, _y);
     }
     static public function _uquo(_z:Float_, _x:Float_, _y:Float_):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._uquo(_z, _x, _y);
     }
     static public function _umul(_z:Float_, _x:Float_, _y:Float_):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._umul(_z, _x, _y);
     }
     static public function _usub(_z:Float_, _x:Float_, _y:Float_):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._usub(_z, _x, _y);
     }
     static public function _uadd(_z:Float_, _x:Float_, _y:Float_):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._uadd(_z, _x, _y);
     }
     static public function neg(_z:Float_, _x:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.neg(_z, _x);
     }
     static public function abs(_z:Float_, _x:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.abs(_z, _x);
     }
     static public function rat(_x:Float_, _z:Rat):stdgo.Tuple<Rat, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.rat(_x, _z);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function int_(_x:Float_, _z:Int_):stdgo.Tuple<Int_, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.int_(_x, _z);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function float64(_x:Float_):stdgo.Tuple<StdTypes.Float, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.float64(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function float32(_x:Float_):stdgo.Tuple<StdTypes.Float, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.float32(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function int64(_x:Float_):stdgo.Tuple<haxe.Int64, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.int64(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function uint64(_x:Float_):stdgo.Tuple<haxe.UInt64, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return {
             final obj = stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.uint64(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function copy(_z:Float_, _x:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.copy(_z, _x);
     }
     static public function set(_z:Float_, _x:Float_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.set(_z, _x);
     }
     static public function setInf(_z:Float_, _signbit:Bool):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setInf(_z, _signbit);
     }
     static public function setRat(_z:Float_, _x:Rat):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setRat(_z, _x);
     }
     static public function setInt(_z:Float_, _x:Int_):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setInt(_z, _x);
     }
     static public function setFloat64(_z:Float_, _x:StdTypes.Float):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setFloat64(_z, _x);
     }
     static public function setInt64(_z:Float_, _x:haxe.Int64):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _x = (_x : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setInt64(_z, _x);
     }
     static public function setUint64(_z:Float_, _x:haxe.UInt64):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setUint64(_z, _x);
     }
     static public function _setBits64(_z:Float_, _neg:Bool, _x:haxe.UInt64):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._setBits64(_z, _neg, _x);
     }
     static public function _round(_z:Float_, _sbit:std.UInt):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _sbit = (_sbit : stdgo.GoUInt);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._round(_z, _sbit);
     }
     static public function _validate0(_x:Float_):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._validate0(_x);
     }
     static public function _validate(_x:Float_):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._validate(_x);
     }
     static public function isInt(_x:Float_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.isInt(_x);
     }
     static public function isInf(_x:Float_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.isInf(_x);
     }
     static public function signbit(_x:Float_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.signbit(_x);
     }
     static public function setMantExp(_z:Float_, _mant:Float_, _exp:StdTypes.Int):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _mant = (_mant : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _mant = (_mant : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _exp = (_exp : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setMantExp(_z, _mant, _exp);
     }
     static public function _setExpAndRound(_z:Float_, _exp:haxe.Int64, _sbit:std.UInt):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _exp = (_exp : stdgo.GoInt64);
         final _sbit = (_sbit : stdgo.GoUInt);
         stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension._setExpAndRound(_z, _exp, _sbit);
     }
     static public function mantExp(_x:Float_, _mant:Float_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
-        final _mant = (_mant : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
+        final _mant = (_mant : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.mantExp(_x, _mant);
     }
     static public function sign(_x:Float_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.sign(_x);
     }
     static public function acc(_x:Float_):Accuracy {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.acc(_x);
     }
     static public function mode(_x:Float_):RoundingMode {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.mode(_x);
     }
     static public function minPrec(_x:Float_):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.minPrec(_x);
     }
     static public function prec(_x:Float_):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.prec(_x);
     }
     static public function setMode(_z:Float_, _mode:RoundingMode):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setMode(_z, _mode);
     }
     static public function setPrec(_z:Float_, _prec:std.UInt):Float_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>);
         final _prec = (_prec : stdgo.GoUInt);
         return stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.setPrec(_z, _prec);
     }
@@ -1316,28 +1316,28 @@ class ErrNaN_static_extension {
 typedef T_matrixPointer = stdgo._internal.math.big.Big_T_matrixPointer.T_matrixPointer;
 class T_matrix_static_extension {
     static public function string(_a:T_matrix):String {
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension.string(_a);
     }
     static public function _eql(_a:T_matrix, _b:T_matrix):Bool {
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension._eql(_a, _b);
     }
     static public function _mul(_a:T_matrix, _b:T_matrix):T_matrix {
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension._mul(_a, _b);
     }
     static public function _set(_a:T_matrix, _i:StdTypes.Int, _j:StdTypes.Int, _x:Rat):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension._set(_a, _i, _j, _x);
     }
     static public function _at(_a:T_matrix, _i:StdTypes.Int, _j:StdTypes.Int):Rat {
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_T_matrix.T_matrix>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
         return stdgo._internal.math.big.Big_T_matrix_static_extension.T_matrix_static_extension._at(_a, _i, _j);
@@ -1346,239 +1346,239 @@ class T_matrix_static_extension {
 typedef Int_Pointer = stdgo._internal.math.big.Big_Int_Pointer.Int_Pointer;
 class Int__static_extension {
     static public function _scaleDenom(_z:Int_, _x:Int_, _f:T_nat):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._scaleDenom(_z, _x, _f);
     }
     static public function probablyPrime(_x:Int_, _n:StdTypes.Int):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.probablyPrime(_x, _n);
     }
     static public function unmarshalJSON(_z:Int_, _text:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.unmarshalJSON(_z, _text);
     }
     static public function marshalJSON(_x:Int_):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.marshalJSON(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function unmarshalText(_z:Int_, _text:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.unmarshalText(_z, _text);
     }
     static public function marshalText(_x:Int_):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.marshalText(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function gobDecode(_z:Int_, _buf:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.gobDecode(_z, _buf);
     }
     static public function gobEncode(_x:Int_):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.gobEncode(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function scan(_z:Int_, _s:stdgo._internal.fmt.Fmt_ScanState.ScanState, _ch:StdTypes.Int):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    static public function scan(_z:Int_, _s:stdgo._internal.fmt.Fmt_scanstate.ScanState, _ch:StdTypes.Int):stdgo.Error {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _ch = (_ch : stdgo.GoInt32);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.scan(_z, _s, _ch);
     }
-    static public function _scan(_z:Int_, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple.Tuple3<Int_, StdTypes.Int, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    static public function _scan(_z:Int_, _r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple.Tuple3<Int_, StdTypes.Int, stdgo.Error> {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _base = (_base : stdgo.GoInt);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._scan(_z, _r, _base);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function format(_x:Int_, _s:stdgo._internal.fmt.Fmt_State.State, _ch:StdTypes.Int):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    static public function format(_x:Int_, _s:stdgo._internal.fmt.Fmt_state.State, _ch:StdTypes.Int):Void {
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _ch = (_ch : stdgo.GoInt32);
         stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.format(_x, _s, _ch);
     }
     static public function string(_x:Int_):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.string(_x);
     }
     static public function append(_x:Int_, _buf:Array<std.UInt>, _base:StdTypes.Int):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _base = (_base : stdgo.GoInt);
         return [for (i in stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.append(_x, _buf, _base)) i];
     }
     static public function text(_x:Int_, _base:StdTypes.Int):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _base = (_base : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.text(_x, _base);
     }
     static public function sqrt(_z:Int_, _x:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.sqrt(_z, _x);
     }
     static public function not(_z:Int_, _x:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.not(_z, _x);
     }
     static public function xor(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.xor(_z, _x, _y);
     }
     static public function or(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.or(_z, _x, _y);
     }
     static public function andNot(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.andNot(_z, _x, _y);
     }
     static public function and(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.and(_z, _x, _y);
     }
     static public function setBit(_z:Int_, _x:Int_, _i:StdTypes.Int, _b:std.UInt):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _i = (_i : stdgo.GoInt);
         final _b = (_b : stdgo.GoUInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.setBit(_z, _x, _i, _b);
     }
     static public function bit(_x:Int_, _i:StdTypes.Int):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _i = (_i : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.bit(_x, _i);
     }
     static public function rsh(_z:Int_, _x:Int_, _n:std.UInt):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _n = (_n : stdgo.GoUInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.rsh(_z, _x, _n);
     }
     static public function lsh(_z:Int_, _x:Int_, _n:std.UInt):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _n = (_n : stdgo.GoUInt);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.lsh(_z, _x, _n);
     }
     static public function modSqrt(_z:Int_, _x:Int_, _p:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.modSqrt(_z, _x, _p);
     }
     static public function _modSqrtTonelliShanks(_z:Int_, _x:Int_, _p:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._modSqrtTonelliShanks(_z, _x, _p);
     }
     static public function _modSqrt5Mod8Prime(_z:Int_, _x:Int_, _p:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._modSqrt5Mod8Prime(_z, _x, _p);
     }
     static public function _modSqrt3Mod4Prime(_z:Int_, _x:Int_, _p:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._modSqrt3Mod4Prime(_z, _x, _p);
     }
     static public function modInverse(_z:Int_, _g:Int_, _n:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _g = (_g : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _n = (_n : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.modInverse(_z, _g, _n);
     }
-    static public function rand(_z:Int_, _rnd:stdgo._internal.math.rand.Rand_Rand.Rand, _n:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _rnd = (_rnd : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
-        final _n = (_n : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    static public function rand(_z:Int_, _rnd:stdgo._internal.math.rand.Rand_rand.Rand, _n:Int_):Int_ {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _rnd = (_rnd : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.rand(_z, _rnd, _n);
     }
     static public function _lehmerGCD(_z:Int_, _x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._lehmerGCD(_z, _x, _y, _a, _b);
     }
     static public function gCD(_z:Int_, _x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.gCD(_z, _x, _y, _a, _b);
     }
     static public function _exp(_z:Int_, _x:Int_, _y:Int_, _m:Int_, _slow:Bool):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._exp(_z, _x, _y, _m, _slow);
     }
     static public function _expSlow(_z:Int_, _x:Int_, _y:Int_, _m:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._expSlow(_z, _x, _y, _m);
     }
     static public function exp(_z:Int_, _x:Int_, _y:Int_, _m:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.exp(_z, _x, _y, _m);
     }
     static public function trailingZeroBits(_x:Int_):std.UInt {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.trailingZeroBits(_x);
     }
     static public function bitLen(_x:Int_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.bitLen(_x);
     }
     static public function fillBytes(_x:Int_, _buf:Array<std.UInt>):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.fillBytes(_x, _buf)) i];
     }
     static public function bytes(_x:Int_):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return [for (i in stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.bytes(_x)) i];
     }
     static public function setBytes(_z:Int_, _buf:Array<std.UInt>):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.setBytes(_z, _buf);
     }
-    static public function _setFromScanner(_z:Int_, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple<Int_, Bool> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    static public function _setFromScanner(_z:Int_, _r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base:StdTypes.Int):stdgo.Tuple<Int_, Bool> {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _base = (_base : stdgo.GoInt);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension._setFromScanner(_z, _r, _base);
@@ -1586,7 +1586,7 @@ class Int__static_extension {
         };
     }
     static public function setString(_z:Int_, _s:String, _base:StdTypes.Int):stdgo.Tuple<Int_, Bool> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _s = (_s : stdgo.GoString);
         final _base = (_base : stdgo.GoInt);
         return {
@@ -1595,148 +1595,148 @@ class Int__static_extension {
         };
     }
     static public function float64(_x:Int_):stdgo.Tuple<StdTypes.Float, Accuracy> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.float64(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function isUint64(_x:Int_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.isUint64(_x);
     }
     static public function isInt64(_x:Int_):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.isInt64(_x);
     }
     static public function uint64(_x:Int_):haxe.UInt64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.uint64(_x);
     }
     static public function int64(_x:Int_):haxe.Int64 {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.int64(_x);
     }
     static public function cmpAbs(_x:Int_, _y:Int_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.cmpAbs(_x, _y);
     }
     static public function cmp(_x:Int_, _y:Int_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.cmp(_x, _y);
     }
     static public function divMod(_z:Int_, _x:Int_, _y:Int_, _m:Int_):stdgo.Tuple<Int_, Int_> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.divMod(_z, _x, _y, _m);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function mod(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.mod(_z, _x, _y);
     }
     static public function div(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.div(_z, _x, _y);
     }
     static public function quoRem(_z:Int_, _x:Int_, _y:Int_, _r:Int_):stdgo.Tuple<Int_, Int_> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
             final obj = stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.quoRem(_z, _x, _y, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function rem(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.rem(_z, _x, _y);
     }
     static public function quo(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.quo(_z, _x, _y);
     }
     static public function binomial(_z:Int_, _n:haxe.Int64, _k:haxe.Int64):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _n = (_n : stdgo.GoInt64);
         final _k = (_k : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.binomial(_z, _n, _k);
     }
     static public function mulRange(_z:Int_, _a:haxe.Int64, _b:haxe.Int64):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _a = (_a : stdgo.GoInt64);
         final _b = (_b : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.mulRange(_z, _a, _b);
     }
     static public function mul(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.mul(_z, _x, _y);
     }
     static public function sub(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.sub(_z, _x, _y);
     }
     static public function add(_z:Int_, _x:Int_, _y:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.add(_z, _x, _y);
     }
     static public function neg(_z:Int_, _x:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.neg(_z, _x);
     }
     static public function abs(_z:Int_, _x:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.abs(_z, _x);
     }
     static public function setBits(_z:Int_, _abs:Array<Word>):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _abs = ([for (i in _abs) i] : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _abs = ([for (i in _abs) i] : stdgo.Slice<stdgo._internal.math.big.Big_word.Word>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.setBits(_z, _abs);
     }
     static public function bits(_x:Int_):Array<Word> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return [for (i in stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.bits(_x)) i];
     }
     static public function set(_z:Int_, _x:Int_):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.set(_z, _x);
     }
     static public function setUint64(_z:Int_, _x:haxe.UInt64):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.setUint64(_z, _x);
     }
     static public function setInt64(_z:Int_, _x:haxe.Int64):Int_ {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _x = (_x : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.setInt64(_z, _x);
     }
     static public function sign(_x:Int_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Int__static_extension.Int__static_extension.sign(_x);
     }
 }
@@ -1759,32 +1759,32 @@ class T_byteReader_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function width(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):stdgo.Tuple<StdTypes.Int, Bool> {
+    public static function width(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
             final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.width(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function unreadRune(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):stdgo.Error {
+    public static function unreadRune(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.unreadRune(__self__);
     }
-    public static function token(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _0:Bool, _1:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _1 = _1;
         return {
             final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.token(__self__, _0, _1);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function skipSpace(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):Void {
+    public static function skipSpace(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):Void {
         stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.skipSpace(__self__);
     }
-    public static function readRune(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    public static function readRune(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
             final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.readRune(__self__);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function read(__self__:stdgo._internal.math.big.Big_T_byteReader.T_byteReader, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function read(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.math.big.Big_T_byteReader_static_extension.T_byteReader_static_extension.read(__self__, _0);
@@ -1811,171 +1811,171 @@ class T_divisor_static_extension {
 typedef RatPointer = stdgo._internal.math.big.Big_RatPointer.RatPointer;
 class Rat_static_extension {
     static public function unmarshalText(_z:Rat, _text:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.unmarshalText(_z, _text);
     }
     static public function marshalText(_x:Rat):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return {
             final obj = stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.marshalText(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function gobDecode(_z:Rat, _buf:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.gobDecode(_z, _buf);
     }
     static public function gobEncode(_x:Rat):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return {
             final obj = stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.gobEncode(_x);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function floatString(_x:Rat, _prec:StdTypes.Int):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _prec = (_prec : stdgo.GoInt);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.floatString(_x, _prec);
     }
     static public function ratString(_x:Rat):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.ratString(_x);
     }
     static public function _marshal(_x:Rat):Array<std.UInt> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return [for (i in stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension._marshal(_x)) i];
     }
     static public function string(_x:Rat):String {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.string(_x);
     }
     static public function setString(_z:Rat, _s:String):stdgo.Tuple<Rat, Bool> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _s = (_s : stdgo.GoString);
         return {
             final obj = stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setString(_z, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function scan(_z:Rat, _s:stdgo._internal.fmt.Fmt_ScanState.ScanState, _ch:StdTypes.Int):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+    static public function scan(_z:Rat, _s:stdgo._internal.fmt.Fmt_scanstate.ScanState, _ch:StdTypes.Int):stdgo.Error {
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _ch = (_ch : stdgo.GoInt32);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.scan(_z, _s, _ch);
     }
     static public function quo(_z:Rat, _x:Rat, _y:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.quo(_z, _x, _y);
     }
     static public function mul(_z:Rat, _x:Rat, _y:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.mul(_z, _x, _y);
     }
     static public function sub(_z:Rat, _x:Rat, _y:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.sub(_z, _x, _y);
     }
     static public function add(_z:Rat, _x:Rat, _y:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.add(_z, _x, _y);
     }
     static public function cmp(_x:Rat, _y:Rat):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.cmp(_x, _y);
     }
     static public function _norm(_z:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension._norm(_z);
     }
     static public function denom(_x:Rat):Int_ {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.denom(_x);
     }
     static public function num(_x:Rat):Int_ {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.num(_x);
     }
     static public function isInt(_x:Rat):Bool {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.isInt(_x);
     }
     static public function sign(_x:Rat):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.sign(_x);
     }
     static public function inv(_z:Rat, _x:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.inv(_z, _x);
     }
     static public function neg(_z:Rat, _x:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.neg(_z, _x);
     }
     static public function abs(_z:Rat, _x:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.abs(_z, _x);
     }
     static public function set(_z:Rat, _x:Rat):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.set(_z, _x);
     }
     static public function setUint64(_z:Rat, _x:haxe.UInt64):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setUint64(_z, _x);
     }
     static public function setInt64(_z:Rat, _x:haxe.Int64):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _x = (_x : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setInt64(_z, _x);
     }
     static public function setInt(_z:Rat, _x:Int_):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setInt(_z, _x);
     }
     static public function setFrac64(_z:Rat, _a:haxe.Int64, _b:haxe.Int64):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _a = (_a : stdgo.GoInt64);
         final _b = (_b : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setFrac64(_z, _a, _b);
     }
     static public function setFrac(_z:Rat, _a:Int_, _b:Int_):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setFrac(_z, _a, _b);
     }
     static public function float64(_x:Rat):stdgo.Tuple<StdTypes.Float, Bool> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return {
             final obj = stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.float64(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function float32(_x:Rat):stdgo.Tuple<StdTypes.Float, Bool> {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         return {
             final obj = stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.float32(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setFloat64(_z:Rat, _f:StdTypes.Float):Rat {
-        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         final _f = (_f : stdgo.GoFloat64);
         return stdgo._internal.math.big.Big_Rat_static_extension.Rat_static_extension.setFloat64(_z, _f);
     }
@@ -2342,8 +2342,8 @@ class T_nat_static_extension {
     }
     static public function _divRecursiveStep(_z:T_nat, _u:T_nat, _v:T_nat, _depth:StdTypes.Int, _tmp:T_nat, _temps:Array<T_nat>):Void {
         final _depth = (_depth : stdgo.GoInt);
-        final _tmp = (_tmp : stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>);
-        final _temps = ([for (i in _temps) (i : stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>>);
+        final _tmp = (_tmp : stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_nat>);
+        final _temps = ([for (i in _temps) (i : stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_nat>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_nat>>);
         stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._divRecursiveStep(_z, _u, _v, _depth, _tmp, _temps);
     }
     static public function _divRecursive(_z:T_nat, _u:T_nat, _v:T_nat):Void {
@@ -2382,7 +2382,7 @@ class T_nat_static_extension {
     static public function _convertWords(_q:T_nat, _s:Array<std.UInt>, _b:Word, _ndigits:StdTypes.Int, _bb:Word, _table:Array<T_divisor>):Void {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ndigits = (_ndigits : stdgo.GoInt);
-        final _table = ([for (i in _table) i] : stdgo.Slice<stdgo._internal.math.big.Big_T_divisor.T_divisor>);
+        final _table = ([for (i in _table) i] : stdgo.Slice<stdgo._internal.math.big.Big_t_divisor.T_divisor>);
         stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._convertWords(_q, _s, _b, _ndigits, _bb, _table);
     }
     static public function _itoa(_x:T_nat, _neg:Bool, _base:StdTypes.Int):Array<std.UInt> {
@@ -2393,7 +2393,7 @@ class T_nat_static_extension {
         final _base = (_base : stdgo.GoInt);
         return [for (i in stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._utoa(_x, _base)) i];
     }
-    static public function _scan(_z:T_nat, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:StdTypes.Int, _fracOk:Bool):stdgo.Tuple.Tuple4<T_nat, StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    static public function _scan(_z:T_nat, _r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base:StdTypes.Int, _fracOk:Bool):stdgo.Tuple.Tuple4<T_nat, StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _base = (_base : stdgo.GoInt);
         return {
             final obj = stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._scan(_z, _r, _base, _fracOk);
@@ -2428,8 +2428,8 @@ class T_nat_static_extension {
     static public function _expNN(_z:T_nat, _x:T_nat, _y:T_nat, _m:T_nat, _slow:Bool):T_nat {
         return stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._expNN(_z, _x, _y, _m, _slow);
     }
-    static public function _random(_z:T_nat, _rand:stdgo._internal.math.rand.Rand_Rand.Rand, _limit:T_nat, _n:StdTypes.Int):T_nat {
-        final _rand = (_rand : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+    static public function _random(_z:T_nat, _rand:stdgo._internal.math.rand.Rand_rand.Rand, _limit:T_nat, _n:StdTypes.Int):T_nat {
+        final _rand = (_rand : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.math.big.Big_T_nat_static_extension.T_nat_static_extension._random(_z, _rand, _limit, _n);
     }
@@ -2640,20 +2640,20 @@ class T_ratBinFun_static_extension {
     *|/
 **/
 class Big {
-    static public inline function testFunVV(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFunVV(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFunVV.testFunVV(_t);
     }
-    static public inline function benchmarkAddVV(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkAddVV(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkAddVV.benchmarkAddVV(_b);
     }
-    static public inline function benchmarkSubVV(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkSubVV(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkSubVV.benchmarkSubVV(_b);
     }
-    static public inline function testFunVW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFunVW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFunVW.testFunVW(_t);
     }
     /**
@@ -2661,110 +2661,110 @@ class Big {
         We utilize the results of addVW_g and subVW_g as golden reference to check
         correctness.
     **/
-    static public inline function testFunVWExt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFunVWExt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFunVWExt.testFunVWExt(_t);
     }
-    static public inline function testShiftOverlap(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testShiftOverlap(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testShiftOverlap.testShiftOverlap(_t);
     }
-    static public inline function testIssue31084(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue31084(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue31084.testIssue31084(_t);
     }
-    static public inline function testIssue42838(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue42838(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue42838.testIssue42838(_t);
     }
-    static public inline function benchmarkAddVW(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkAddVW(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkAddVW.benchmarkAddVW(_b);
     }
     /**
         Benchmarking addVW using vector of maximum uint to force carry flag set
     **/
-    static public inline function benchmarkAddVWext(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkAddVWext(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkAddVWext.benchmarkAddVWext(_b);
     }
-    static public inline function benchmarkSubVW(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkSubVW(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkSubVW.benchmarkSubVW(_b);
     }
     /**
         Benchmarking subVW using vector of zero to force carry flag set
     **/
-    static public inline function benchmarkSubVWext(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkSubVWext(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkSubVWext.benchmarkSubVWext(_b);
     }
-    static public inline function testFunVWW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFunVWW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFunVWW.testFunVWW(_t);
     }
-    static public inline function testMulWW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulWW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulWW.testMulWW(_t);
     }
-    static public inline function testMulAddWWW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulAddWWW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulAddWWW.testMulAddWWW(_t);
     }
-    static public inline function testDivWW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDivWW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDivWW.testDivWW(_t);
     }
-    static public inline function benchmarkMulAddVWW(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkMulAddVWW(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkMulAddVWW.benchmarkMulAddVWW(_b);
     }
-    static public inline function benchmarkAddMulVVW(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkAddMulVVW(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkAddMulVVW.benchmarkAddMulVVW(_b);
     }
-    static public inline function benchmarkDivWVW(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDivWVW(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkDivWVW.benchmarkDivWVW(_b);
     }
-    static public inline function benchmarkNonZeroShifts(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkNonZeroShifts(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkNonZeroShifts.benchmarkNonZeroShifts(_b);
     }
-    static public inline function testMulBits(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulBits(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulBits.testMulBits(_t);
     }
-    static public inline function testNormBits(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNormBits(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNormBits.testNormBits(_t);
     }
-    static public inline function testFromBits(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFromBits(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFromBits.testFromBits(_t);
     }
-    static public inline function testCalibrate(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCalibrate(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testCalibrate.testCalibrate(_t);
     }
-    static public inline function testDecimalString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecimalString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDecimalString.testDecimalString(_t);
     }
-    static public inline function testDecimalInit(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecimalInit(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDecimalInit.testDecimalInit(_t);
     }
-    static public inline function testDecimalRounding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecimalRounding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDecimalRounding.testDecimalRounding(_t);
     }
-    static public inline function benchmarkDecimalConversion(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDecimalConversion(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkDecimalConversion.benchmarkDecimalConversion(_b);
     }
-    static public inline function benchmarkFloatString(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkFloatString(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkFloatString.benchmarkFloatString(_b);
     }
     /**
@@ -2776,47 +2776,47 @@ class Big {
         final _x = (_x : stdgo.GoFloat64);
         return stdgo._internal.math.big.Big_newFloat.newFloat(_x);
     }
-    static public inline function testFloatZeroValue(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatZeroValue(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatZeroValue.testFloatZeroValue(_t);
     }
-    static public inline function testFloatSetPrec(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetPrec(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetPrec.testFloatSetPrec(_t);
     }
-    static public inline function testFloatMinPrec(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatMinPrec(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatMinPrec.testFloatMinPrec(_t);
     }
-    static public inline function testFloatSign(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSign(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSign.testFloatSign(_t);
     }
-    static public inline function testFloatMantExp(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatMantExp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatMantExp.testFloatMantExp(_t);
     }
-    static public inline function testFloatMantExpAliasing(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatMantExpAliasing(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatMantExpAliasing.testFloatMantExpAliasing(_t);
     }
-    static public inline function testFloatSetMantExp(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetMantExp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetMantExp.testFloatSetMantExp(_t);
     }
-    static public inline function testFloatPredicates(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatPredicates(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatPredicates.testFloatPredicates(_t);
     }
-    static public inline function testFloatIsInt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatIsInt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatIsInt.testFloatIsInt(_t);
     }
     /**
         TestFloatRound tests basic rounding.
     **/
-    static public inline function testFloatRound(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatRound(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatRound.testFloatRound(_t);
     }
     /**
@@ -2824,68 +2824,68 @@ class Big {
         matches IEEE-754 rounding to nearest when converting a
         float64 to a float32 (excluding denormal numbers).
     **/
-    static public inline function testFloatRound24(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatRound24(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatRound24.testFloatRound24(_t);
     }
-    static public inline function testFloatSetUint64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetUint64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetUint64.testFloatSetUint64(_t);
     }
-    static public inline function testFloatSetInt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetInt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetInt64.testFloatSetInt64(_t);
     }
-    static public inline function testFloatSetFloat64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetFloat64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetFloat64.testFloatSetFloat64(_t);
     }
-    static public inline function testFloatSetInt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetInt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetInt.testFloatSetInt(_t);
     }
-    static public inline function testFloatSetRat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetRat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetRat.testFloatSetRat(_t);
     }
-    static public inline function testFloatSetInf(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetInf(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetInf.testFloatSetInf(_t);
     }
-    static public inline function testFloatUint64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatUint64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatUint64.testFloatUint64(_t);
     }
-    static public inline function testFloatInt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatInt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatInt64.testFloatInt64(_t);
     }
-    static public inline function testFloatFloat32(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatFloat32(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatFloat32.testFloatFloat32(_t);
     }
-    static public inline function testFloatFloat64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatFloat64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatFloat64.testFloatFloat64(_t);
     }
-    static public inline function testFloatInt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatInt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatInt.testFloatInt(_t);
     }
-    static public inline function testFloatRat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatRat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatRat.testFloatRat(_t);
     }
-    static public inline function testFloatAbs(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatAbs(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatAbs.testFloatAbs(_t);
     }
-    static public inline function testFloatNeg(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatNeg(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatNeg.testFloatNeg(_t);
     }
-    static public inline function testFloatInc(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatInc(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatInc.testFloatInc(_t);
     }
     /**
@@ -2894,8 +2894,8 @@ class Big {
         respective Float addition/subtraction for a variety of precisions
         and rounding modes.
     **/
-    static public inline function testFloatAdd(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatAdd(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatAdd.testFloatAdd(_t);
     }
     /**
@@ -2903,8 +2903,8 @@ class Big {
         x + (-x) or x - x for non-zero x should be +0 in all cases except when
         the rounding mode is ToNegativeInf in which case it should be -0.
     **/
-    static public inline function testFloatAddRoundZero(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatAddRoundZero(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatAddRoundZero.testFloatAddRoundZero(_t);
     }
     /**
@@ -2912,20 +2912,20 @@ class Big {
         24bit mantissa behaves like float32 addition/subtraction
         (excluding denormal numbers).
     **/
-    static public inline function testFloatAdd32(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatAdd32(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatAdd32.testFloatAdd32(_t);
     }
     /**
         TestFloatAdd64 tests that Float.Add/Sub of numbers with
         53bit mantissa behaves like float64 addition/subtraction.
     **/
-    static public inline function testFloatAdd64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatAdd64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatAdd64.testFloatAdd64(_t);
     }
-    static public inline function testIssue20490(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue20490(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue20490.testIssue20490(_t);
     }
     /**
@@ -2934,32 +2934,32 @@ class Big {
         respective Float multiplication/division for a variety of precisions
         and rounding modes.
     **/
-    static public inline function testFloatMul(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatMul(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatMul.testFloatMul(_t);
     }
     /**
         TestFloatMul64 tests that Float.Mul/Quo of numbers with
         53bit mantissa behaves like float64 multiplication/division.
     **/
-    static public inline function testFloatMul64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatMul64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatMul64.testFloatMul64(_t);
     }
-    static public inline function testIssue6866(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue6866(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue6866.testIssue6866(_t);
     }
-    static public inline function testFloatQuo(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatQuo(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatQuo.testFloatQuo(_t);
     }
     /**
         TestFloatQuoSmoke tests all divisions x/y for values x, y in the range [-n, +n];
         it serves as a smoke test for basic correctness of division.
     **/
-    static public inline function testFloatQuoSmoke(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatQuoSmoke(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatQuoSmoke.testFloatQuoSmoke(_t);
     }
     /**
@@ -2967,12 +2967,12 @@ class Big {
         correct results for combinations of zero (±0), finite (±1 and ±2.71828),
         and infinite (±Inf) operands.
     **/
-    static public inline function testFloatArithmeticSpecialValues(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatArithmeticSpecialValues(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatArithmeticSpecialValues.testFloatArithmeticSpecialValues(_t);
     }
-    static public inline function testFloatArithmeticOverflow(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatArithmeticOverflow(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatArithmeticOverflow.testFloatArithmeticOverflow(_t);
     }
     /**
@@ -2982,8 +2982,8 @@ class Big {
         This test uses specific values that are known to fail if rounding is
         "factored" out before setting the result sign.
     **/
-    static public inline function testFloatArithmeticRounding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatArithmeticRounding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatArithmeticRounding.testFloatArithmeticRounding(_t);
     }
     /**
@@ -2991,16 +2991,16 @@ class Big {
         combinations of zero (±0), finite (±1 and ±2.71828), and infinite (±Inf)
         operands.
     **/
-    static public inline function testFloatCmpSpecialValues(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatCmpSpecialValues(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatCmpSpecialValues.testFloatCmpSpecialValues(_t);
     }
-    static public inline function benchmarkFloatAdd(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkFloatAdd(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkFloatAdd.benchmarkFloatAdd(_b);
     }
-    static public inline function benchmarkFloatSub(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkFloatSub(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkFloatSub.benchmarkFloatSub(_b);
     }
     /**
@@ -3016,120 +3016,120 @@ class Big {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public inline function testFloatSetFloat64String(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSetFloat64String(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSetFloat64String.testFloatSetFloat64String(_t);
     }
-    static public inline function testFloat64Text(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat64Text(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat64Text.testFloat64Text(_t);
     }
-    static public inline function testFloatText(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatText(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatText.testFloatText(_t);
     }
-    static public inline function testFloatFormat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatFormat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatFormat.testFloatFormat(_t);
     }
-    static public inline function benchmarkParseFloatSmallExp(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkParseFloatSmallExp(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkParseFloatSmallExp.benchmarkParseFloatSmallExp(_b);
     }
-    static public inline function benchmarkParseFloatLargeExp(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkParseFloatLargeExp(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkParseFloatLargeExp.benchmarkParseFloatLargeExp(_b);
     }
-    static public inline function testFloatScan(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatScan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatScan.testFloatScan(_t);
     }
-    static public inline function testFloatGobEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatGobEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatGobEncoding.testFloatGobEncoding(_t);
     }
-    static public inline function testFloatCorruptGob(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatCorruptGob(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatCorruptGob.testFloatCorruptGob(_t);
     }
-    static public inline function testFloatJSONEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatJSONEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatJSONEncoding.testFloatJSONEncoding(_t);
     }
-    static public inline function testFloatGobDecodeShortBuffer(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatGobDecodeShortBuffer(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatGobDecodeShortBuffer.testFloatGobDecodeShortBuffer(_t);
     }
-    static public inline function testFloatGobDecodeInvalid(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatGobDecodeInvalid(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatGobDecodeInvalid.testFloatGobDecodeInvalid(_t);
     }
-    static public inline function benchmarkGCD10x10(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10x10(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10x10.benchmarkGCD10x10(_b);
     }
-    static public inline function benchmarkGCD10x100(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10x100(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10x100.benchmarkGCD10x100(_b);
     }
-    static public inline function benchmarkGCD10x1000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10x1000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10x1000.benchmarkGCD10x1000(_b);
     }
-    static public inline function benchmarkGCD10x10000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10x10000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10x10000.benchmarkGCD10x10000(_b);
     }
-    static public inline function benchmarkGCD10x100000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10x100000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10x100000.benchmarkGCD10x100000(_b);
     }
-    static public inline function benchmarkGCD100x100(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD100x100(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD100x100.benchmarkGCD100x100(_b);
     }
-    static public inline function benchmarkGCD100x1000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD100x1000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD100x1000.benchmarkGCD100x1000(_b);
     }
-    static public inline function benchmarkGCD100x10000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD100x10000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD100x10000.benchmarkGCD100x10000(_b);
     }
-    static public inline function benchmarkGCD100x100000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD100x100000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD100x100000.benchmarkGCD100x100000(_b);
     }
-    static public inline function benchmarkGCD1000x1000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD1000x1000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD1000x1000.benchmarkGCD1000x1000(_b);
     }
-    static public inline function benchmarkGCD1000x10000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD1000x10000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD1000x10000.benchmarkGCD1000x10000(_b);
     }
-    static public inline function benchmarkGCD1000x100000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD1000x100000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD1000x100000.benchmarkGCD1000x100000(_b);
     }
-    static public inline function benchmarkGCD10000x10000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10000x10000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10000x10000.benchmarkGCD10000x10000(_b);
     }
-    static public inline function benchmarkGCD10000x100000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD10000x100000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD10000x100000.benchmarkGCD10000x100000(_b);
     }
-    static public inline function benchmarkGCD100000x100000(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkGCD100000x100000(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkGCD100000x100000.benchmarkGCD100000x100000(_b);
     }
-    static public inline function testHilbert(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testHilbert(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testHilbert.testHilbert(_t);
     }
-    static public inline function benchmarkHilbert(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkHilbert(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkHilbert.benchmarkHilbert(_b);
     }
     /**
@@ -3144,316 +3144,316 @@ class Big {
         The y argument must be an odd integer.
     **/
     static public inline function jacobi(_x:Int_, _y:Int_):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.math.big.Big_jacobi.jacobi(_x, _y);
     }
-    static public inline function testSignZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSignZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSignZ.testSignZ(_t);
     }
-    static public inline function testSetZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSetZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSetZ.testSetZ(_t);
     }
-    static public inline function testAbsZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testAbsZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testAbsZ.testAbsZ(_t);
     }
-    static public inline function testSumZZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSumZZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSumZZ.testSumZZ(_t);
     }
-    static public inline function testProdZZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testProdZZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testProdZZ.testProdZZ(_t);
     }
-    static public inline function testMul(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMul(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMul.testMul(_t);
     }
-    static public inline function testMulRangeZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulRangeZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulRangeZ.testMulRangeZ(_t);
     }
-    static public inline function testBinomial(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBinomial(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBinomial.testBinomial(_t);
     }
-    static public inline function benchmarkBinomial(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkBinomial(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkBinomial.benchmarkBinomial(_b);
     }
-    static public inline function testDivisionSigns(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDivisionSigns(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDivisionSigns.testDivisionSigns(_t);
     }
-    static public inline function testBits(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBits(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBits.testBits(_t);
     }
-    static public inline function testSetBytes(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSetBytes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSetBytes.testSetBytes(_t);
     }
-    static public inline function testBytes(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBytes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBytes.testBytes(_t);
     }
-    static public inline function testQuo(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testQuo(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testQuo.testQuo(_t);
     }
-    static public inline function testQuoStepD6(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testQuoStepD6(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testQuoStepD6.testQuoStepD6(_t);
     }
-    static public inline function benchmarkQuoRem(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkQuoRem(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkQuoRem.benchmarkQuoRem(_b);
     }
-    static public inline function testBitLen(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBitLen(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBitLen.testBitLen(_t);
     }
-    static public inline function testExp(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testExp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testExp.testExp(_t);
     }
-    static public inline function benchmarkExp(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkExp(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkExp.benchmarkExp(_b);
     }
-    static public inline function benchmarkExpMont(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkExpMont(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkExpMont.benchmarkExpMont(_b);
     }
-    static public inline function benchmarkExp2(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkExp2(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkExp2.benchmarkExp2(_b);
     }
-    static public inline function testGcd(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGcd(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testGcd.testGcd(_t);
     }
-    static public inline function testRsh(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRsh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRsh.testRsh(_t);
     }
-    static public inline function testRshSelf(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRshSelf(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRshSelf.testRshSelf(_t);
     }
-    static public inline function testLsh(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testLsh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testLsh.testLsh(_t);
     }
-    static public inline function testLshSelf(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testLshSelf(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testLshSelf.testLshSelf(_t);
     }
-    static public inline function testLshRsh(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testLshRsh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testLshRsh.testLshRsh(_t);
     }
-    static public inline function testCmpAbs(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCmpAbs(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testCmpAbs.testCmpAbs(_t);
     }
-    static public inline function testIntCmpSelf(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntCmpSelf(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntCmpSelf.testIntCmpSelf(_t);
     }
-    static public inline function testInt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testInt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testInt64.testInt64(_t);
     }
-    static public inline function testUint64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testUint64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testUint64.testUint64(_t);
     }
-    static public inline function testBitSet(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBitSet(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBitSet.testBitSet(_t);
     }
-    static public inline function testTrailingZeroBits(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testTrailingZeroBits(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testTrailingZeroBits.testTrailingZeroBits(_t);
     }
-    static public inline function benchmarkBitset(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkBitset(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkBitset.benchmarkBitset(_b);
     }
-    static public inline function benchmarkBitsetNeg(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkBitsetNeg(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkBitsetNeg.benchmarkBitsetNeg(_b);
     }
-    static public inline function benchmarkBitsetOrig(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkBitsetOrig(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkBitsetOrig.benchmarkBitsetOrig(_b);
     }
-    static public inline function benchmarkBitsetNegOrig(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkBitsetNegOrig(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkBitsetNegOrig.benchmarkBitsetNegOrig(_b);
     }
-    static public inline function benchmarkModSqrt225_Tonelli(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkModSqrt225_Tonelli(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkModSqrt225_Tonelli.benchmarkModSqrt225_Tonelli(_b);
     }
-    static public inline function benchmarkModSqrt225_3Mod4(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkModSqrt225_3Mod4(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkModSqrt225_3Mod4.benchmarkModSqrt225_3Mod4(_b);
     }
-    static public inline function benchmarkModSqrt231_Tonelli(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkModSqrt231_Tonelli(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkModSqrt231_Tonelli.benchmarkModSqrt231_Tonelli(_b);
     }
-    static public inline function benchmarkModSqrt231_5Mod8(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkModSqrt231_5Mod8(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkModSqrt231_5Mod8.benchmarkModSqrt231_5Mod8(_b);
     }
-    static public inline function testBitwise(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBitwise(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBitwise.testBitwise(_t);
     }
-    static public inline function testNot(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNot(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNot.testNot(_t);
     }
-    static public inline function testModInverse(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testModInverse(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testModInverse.testModInverse(_t);
     }
-    static public inline function benchmarkModInverse(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkModInverse(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkModInverse.benchmarkModInverse(_b);
     }
-    static public inline function testModSqrt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testModSqrt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testModSqrt.testModSqrt(_t);
     }
-    static public inline function testJacobi(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testJacobi(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testJacobi.testJacobi(_t);
     }
-    static public inline function testJacobiPanic(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testJacobiPanic(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testJacobiPanic.testJacobiPanic(_t);
     }
-    static public inline function testIssue2607(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue2607(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue2607.testIssue2607(_t);
     }
-    static public inline function testSqrt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSqrt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSqrt.testSqrt(_t);
     }
     /**
         We can't test this together with the other Exp tests above because
         it requires a different receiver setup.
     **/
-    static public inline function testIssue22830(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue22830(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue22830.testIssue22830(_t);
     }
-    static public inline function benchmarkSqrt(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkSqrt(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkSqrt.benchmarkSqrt(_b);
     }
-    static public inline function benchmarkIntSqr(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkIntSqr(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkIntSqr.benchmarkIntSqr(_b);
     }
-    static public inline function benchmarkDiv(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDiv(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkDiv.benchmarkDiv(_b);
     }
-    static public inline function testFillBytes(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFillBytes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFillBytes.testFillBytes(_t);
     }
-    static public inline function testNewIntMinInt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNewIntMinInt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNewIntMinInt64.testNewIntMinInt64(_t);
     }
-    static public inline function testNewIntAllocs(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNewIntAllocs(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNewIntAllocs.testNewIntAllocs(_t);
     }
-    static public inline function testFloat64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat64.testFloat64(_t);
     }
-    static public inline function testIntText(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntText(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntText.testIntText(_t);
     }
-    static public inline function testAppendText(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testAppendText(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testAppendText.testAppendText(_t);
     }
-    static public inline function testGetString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGetString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testGetString.testGetString(_t);
     }
-    static public inline function testSetString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSetString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSetString.testSetString(_t);
     }
-    static public inline function testFormat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFormat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFormat.testFormat(_t);
     }
-    static public inline function testScan(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testScan.testScan(_t);
     }
-    static public inline function testIntGobEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntGobEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntGobEncoding.testIntGobEncoding(_t);
     }
     /**
         Sending a nil Int pointer (inside a slice) on a round trip through gob should yield a zero.
         TODO: top-level nils.
     **/
-    static public inline function testGobEncodingNilIntInSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGobEncodingNilIntInSlice(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testGobEncodingNilIntInSlice.testGobEncodingNilIntInSlice(_t);
     }
-    static public inline function testIntJSONEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntJSONEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntJSONEncoding.testIntJSONEncoding(_t);
     }
-    static public inline function testIntJSONEncodingNil(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntJSONEncodingNil(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntJSONEncodingNil.testIntJSONEncodingNil(_t);
     }
-    static public inline function testIntXMLEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIntXMLEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIntXMLEncoding.testIntXMLEncoding(_t);
     }
     /**
         Tests that the linker is able to remove references to Float, Rat,
         and Int if unused (notably, not used by init).
     **/
-    static public inline function testLinkerGC(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testLinkerGC(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testLinkerGC.testLinkerGC(_t);
     }
-    static public inline function testCmp(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCmp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testCmp.testCmp(_t);
     }
-    static public inline function testSet(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSet(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSet.testSet(_t);
     }
-    static public inline function testFunNN(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFunNN(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFunNN.testFunNN(_t);
     }
-    static public inline function testMulRangeN(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulRangeN(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulRangeN.testMulRangeN(_t);
     }
     /**
@@ -3461,88 +3461,88 @@ class Big {
         does not cause deep recursion and in turn allocate too much memory.
         Test case for issue 3807.
     **/
-    static public inline function testMulUnbalanced(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMulUnbalanced(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMulUnbalanced.testMulUnbalanced(_t);
     }
-    static public inline function benchmarkMul(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkMul(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkMul.benchmarkMul(_b);
     }
-    static public inline function benchmarkNatMul(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkNatMul(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkNatMul.benchmarkNatMul(_b);
     }
-    static public inline function testNLZ(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNLZ(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNLZ.testNLZ(_t);
     }
-    static public inline function testShiftLeft(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testShiftLeft(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testShiftLeft.testShiftLeft(_t);
     }
-    static public inline function testShiftRight(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testShiftRight(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testShiftRight.testShiftRight(_t);
     }
-    static public inline function benchmarkZeroShifts(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkZeroShifts(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkZeroShifts.benchmarkZeroShifts(_b);
     }
-    static public inline function testModW(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testModW(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testModW.testModW(_t);
     }
-    static public inline function testMontgomery(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMontgomery(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMontgomery.testMontgomery(_t);
     }
-    static public inline function testExpNN(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testExpNN(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testExpNN.testExpNN(_t);
     }
-    static public inline function fuzzExpMont(_f:stdgo._internal.testing.Testing_F.F):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_F.F>);
+    static public inline function fuzzExpMont(_f:stdgo._internal.testing.Testing_f.F):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_f.F>);
         stdgo._internal.math.big.Big_fuzzExpMont.fuzzExpMont(_f);
     }
-    static public inline function benchmarkExp3Power(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkExp3Power(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkExp3Power.benchmarkExp3Power(_b);
     }
-    static public inline function testFibo(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFibo(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFibo.testFibo(_t);
     }
-    static public inline function benchmarkFibo(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkFibo(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkFibo.benchmarkFibo(_b);
     }
-    static public inline function testBit(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testBit(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testBit.testBit(_t);
     }
-    static public inline function testSticky(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSticky(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSticky.testSticky(_t);
     }
-    static public inline function testSqr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSqr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSqr.testSqr(_t);
     }
-    static public inline function benchmarkNatSqr(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkNatSqr(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkNatSqr.benchmarkNatSqr(_b);
     }
-    static public inline function testNatSubMod2N(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNatSubMod2N(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNatSubMod2N.testNatSubMod2N(_t);
     }
-    static public inline function benchmarkNatSetBytes(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkNatSetBytes(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkNatSetBytes.benchmarkNatSetBytes(_b);
     }
-    static public inline function testNatDiv(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNatDiv(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testNatDiv.testNatDiv(_t);
     }
     /**
@@ -3550,8 +3550,8 @@ class Big {
         the inaccurate estimate of the first word's quotient
         happens at the very beginning of the loop.
     **/
-    static public inline function testIssue37499(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue37499(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue37499.testIssue37499(_t);
     }
     /**
@@ -3559,77 +3559,77 @@ class Big {
         where the first division loop is never entered, and correcting
         the remainder takes exactly two iterations in the final loop.
     **/
-    static public inline function testIssue42552(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue42552(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue42552.testIssue42552(_t);
     }
-    static public inline function testMaxBase(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMaxBase(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMaxBase.testMaxBase(_t);
     }
-    static public inline function testString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testString.testString(_t);
     }
-    static public inline function testScanBase(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanBase(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testScanBase.testScanBase(_t);
     }
     /**
         Test case for BenchmarkScanPi.
     **/
-    static public inline function testScanPi(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanPi(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testScanPi.testScanPi(_t);
     }
-    static public inline function testScanPiParallel(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanPiParallel(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testScanPiParallel.testScanPiParallel(_t);
     }
-    static public inline function benchmarkScanPi(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkScanPi(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkScanPi.benchmarkScanPi(_b);
     }
-    static public inline function benchmarkStringPiParallel(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkStringPiParallel(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkStringPiParallel.benchmarkStringPiParallel(_b);
     }
-    static public inline function benchmarkScan(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkScan(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkScan.benchmarkScan(_b);
     }
-    static public inline function benchmarkString(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkString(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkString.benchmarkString(_b);
     }
-    static public inline function benchmarkLeafSize(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkLeafSize(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkLeafSize.benchmarkLeafSize(_b);
     }
-    static public inline function leafSizeHelper(_b:stdgo._internal.testing.Testing_B.B, _base:StdTypes.Int, _size:StdTypes.Int):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function leafSizeHelper(_b:stdgo._internal.testing.Testing_b.B, _base:StdTypes.Int, _size:StdTypes.Int):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         final _base = (_base : stdgo.GoInt);
         final _size = (_size : stdgo.GoInt);
         stdgo._internal.math.big.Big_leafSizeHelper.leafSizeHelper(_b, _base, _size);
     }
-    static public inline function testStringPowers(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testStringPowers(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testStringPowers.testStringPowers(_t);
     }
-    static public inline function testProbablyPrime(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testProbablyPrime(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testProbablyPrime.testProbablyPrime(_t);
     }
-    static public inline function benchmarkProbablyPrime(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkProbablyPrime(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkProbablyPrime.benchmarkProbablyPrime(_b);
     }
-    static public inline function testMillerRabinPseudoprimes(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testMillerRabinPseudoprimes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testMillerRabinPseudoprimes.testMillerRabinPseudoprimes(_t);
     }
-    static public inline function testLucasPseudoprimes(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testLucasPseudoprimes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testLucasPseudoprimes.testLucasPseudoprimes(_t);
     }
     /**
@@ -3640,176 +3640,176 @@ class Big {
         final _b = (_b : stdgo.GoInt64);
         return stdgo._internal.math.big.Big_newRat.newRat(_a, _b);
     }
-    static public inline function testZeroRat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testZeroRat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testZeroRat.testZeroRat(_t);
     }
-    static public inline function testRatSign(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSign(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSign.testRatSign(_t);
     }
-    static public inline function testRatCmp(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatCmp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatCmp.testRatCmp(_t);
     }
-    static public inline function testIsInt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIsInt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIsInt.testIsInt(_t);
     }
-    static public inline function testRatAbs(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatAbs(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatAbs.testRatAbs(_t);
     }
-    static public inline function testRatNeg(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatNeg(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatNeg.testRatNeg(_t);
     }
-    static public inline function testRatInv(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatInv(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatInv.testRatInv(_t);
     }
-    static public inline function testRatBin(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatBin(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatBin.testRatBin(_t);
     }
-    static public inline function testIssue820(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue820(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue820.testIssue820(_t);
     }
-    static public inline function testRatSetFrac64Rat(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSetFrac64Rat(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSetFrac64Rat.testRatSetFrac64Rat(_t);
     }
-    static public inline function testIssue2379(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue2379(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue2379.testIssue2379(_t);
     }
-    static public inline function testIssue3521(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue3521(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue3521.testIssue3521(_t);
     }
-    static public inline function testFloat32Distribution(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat32Distribution(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat32Distribution.testFloat32Distribution(_t);
     }
-    static public inline function testFloat64Distribution(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat64Distribution(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat64Distribution.testFloat64Distribution(_t);
     }
     /**
         TestSetFloat64NonFinite checks that SetFloat64 of a non-finite value
         returns nil.
     **/
-    static public inline function testSetFloat64NonFinite(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSetFloat64NonFinite(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testSetFloat64NonFinite.testSetFloat64NonFinite(_t);
     }
-    static public inline function testIsFinite(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIsFinite(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIsFinite.testIsFinite(_t);
     }
-    static public inline function testRatSetInt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSetInt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSetInt64.testRatSetInt64(_t);
     }
-    static public inline function testRatSetUint64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSetUint64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSetUint64.testRatSetUint64(_t);
     }
-    static public inline function benchmarkRatCmp(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkRatCmp(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkRatCmp.benchmarkRatCmp(_b);
     }
     /**
         TestIssue34919 verifies that a Rat's denominator is not modified
         when simply accessing the Rat value.
     **/
-    static public inline function testIssue34919(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue34919(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue34919.testIssue34919(_t);
     }
-    static public inline function testDenomRace(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDenomRace(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testDenomRace.testDenomRace(_t);
     }
-    static public inline function testScanExponent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanExponent(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testScanExponent.testScanExponent(_t);
     }
-    static public inline function testRatSetString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSetString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSetString.testRatSetString(_t);
     }
-    static public inline function testRatSetStringZero(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatSetStringZero(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatSetStringZero.testRatSetStringZero(_t);
     }
-    static public inline function testRatScan(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatScan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatScan.testRatScan(_t);
     }
-    static public inline function testFloatString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatString.testFloatString(_t);
     }
-    static public inline function testFloat32SpecialCases(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat32SpecialCases(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat32SpecialCases.testFloat32SpecialCases(_t);
     }
-    static public inline function testFloat64SpecialCases(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloat64SpecialCases(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloat64SpecialCases.testFloat64SpecialCases(_t);
     }
-    static public inline function testIssue31184(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue31184(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue31184.testIssue31184(_t);
     }
-    static public inline function testIssue45910(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue45910(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testIssue45910.testIssue45910(_t);
     }
-    static public inline function testRatGobEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatGobEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatGobEncoding.testRatGobEncoding(_t);
     }
     /**
         Sending a nil Rat pointer (inside a slice) on a round trip through gob should yield a zero.
         TODO: top-level nils.
     **/
-    static public inline function testGobEncodingNilRatInSlice(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGobEncodingNilRatInSlice(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testGobEncodingNilRatInSlice.testGobEncodingNilRatInSlice(_t);
     }
-    static public inline function testRatJSONEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatJSONEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatJSONEncoding.testRatJSONEncoding(_t);
     }
-    static public inline function testRatXMLEncoding(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatXMLEncoding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatXMLEncoding.testRatXMLEncoding(_t);
     }
-    static public inline function testRatGobDecodeShortBuffer(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testRatGobDecodeShortBuffer(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testRatGobDecodeShortBuffer.testRatGobDecodeShortBuffer(_t);
     }
     /**
         TestFloatSqrt64 tests that Float.Sqrt of numbers with 53bit mantissa
         behaves like float math.Sqrt.
     **/
-    static public inline function testFloatSqrt64(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSqrt64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSqrt64.testFloatSqrt64(_t);
     }
-    static public inline function testFloatSqrt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSqrt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSqrt.testFloatSqrt(_t);
     }
-    static public inline function testFloatSqrtSpecial(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFloatSqrtSpecial(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.math.big.Big_testFloatSqrtSpecial.testFloatSqrtSpecial(_t);
     }
-    static public inline function benchmarkFloatSqrt(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkFloatSqrt(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.math.big.Big_benchmarkFloatSqrt.benchmarkFloatSqrt(_b);
     }
 }

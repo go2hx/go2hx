@@ -1,6 +1,6 @@
 package stdgo._internal.os.signal;
-function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Rest<stdgo._internal.os.Os_Signal.Signal>):Void {
-        var _sig = new stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>(_sig.length, 0, ..._sig);
+function notify(_c:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>, _sig:haxe.Rest<stdgo._internal.os.Os_signal.Signal>):Void {
+        var _sig = new stdgo.Slice<stdgo._internal.os.Os_signal.Signal>(_sig.length, 0, ..._sig);
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             if (_c == null) {
@@ -11,16 +11,16 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
                 final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>));
+            var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>));
             if ((_h == null || (_h : Dynamic).__nil__)) {
                 if (stdgo._internal.os.signal.Signal__handlers._handlers._m == null) {
                     stdgo._internal.os.signal.Signal__handlers._handlers._m = ({
-                        final x = new stdgo.GoMap.GoChanMap<stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>>();
+                        final x = new stdgo.GoMap.GoChanMap<stdgo.Chan<stdgo._internal.os.Os_signal.Signal>, stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>>();
                         {};
                         cast x;
-                    } : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>>);
+                    } : stdgo.GoMap<stdgo.Chan<stdgo._internal.os.Os_signal.Signal>, stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>>);
                 };
-                _h = (stdgo.Go.setRef(({} : stdgo._internal.os.signal.Signal_T_handler.T_handler)) : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>);
+                _h = (stdgo.Go.setRef(({} : stdgo._internal.os.signal.Signal_t_handler.T_handler)) : stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>);
                 stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] = _h;
             };
             var _add = (function(_n:stdgo.GoInt):Void {
@@ -30,10 +30,10 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
                 if (!@:check2r _h._want(_n)) {
                     @:check2r _h._set(_n);
                     if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
-                        stdgo._internal.os.signal.Signal__enableSignal._enableSignal(_n);
-                        @:check2 stdgo._internal.os.signal.Signal__watchSignalLoopOnce._watchSignalLoopOnce.do_(function():Void {
-                            if (stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop != null) {
-                                stdgo.Go.routine(() -> stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop());
+                        stdgo._internal.os.signal.Signal__enablesignal._enableSignal(_n);
+                        @:check2 stdgo._internal.os.signal.Signal__watchsignallooponce._watchSignalLoopOnce.do_(function():Void {
+                            if (stdgo._internal.os.signal.Signal__watchsignalloop._watchSignalLoop != null) {
+                                stdgo.Go.routine(() -> stdgo._internal.os.signal.Signal__watchsignalloop._watchSignalLoop());
                             };
                         });
                     };

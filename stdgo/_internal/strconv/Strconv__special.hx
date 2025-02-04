@@ -32,7 +32,7 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
                         };
                         break;
                     } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == ((105 : stdgo.GoUInt8)) || __value__ == ((73 : stdgo.GoUInt8))))) {
-                        var _n = (stdgo._internal.strconv.Strconv__commonPrefixLenIgnoreCase._commonPrefixLenIgnoreCase(_s?.__copy__(), ("infinity" : stdgo.GoString)) : stdgo.GoInt);
+                        var _n = (stdgo._internal.strconv.Strconv__commonprefixlenignorecase._commonPrefixLenIgnoreCase(_s?.__copy__(), ("infinity" : stdgo.GoString)) : stdgo.GoInt);
                         if ((((3 : stdgo.GoInt) < _n : Bool) && (_n < (8 : stdgo.GoInt) : Bool) : Bool)) {
                             _n = (3 : stdgo.GoInt);
                         };
@@ -48,9 +48,9 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
                         break;
                         break;
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((110 : stdgo.GoUInt8)) || __value__ == ((78 : stdgo.GoUInt8))))) {
-                        if (stdgo._internal.strconv.Strconv__commonPrefixLenIgnoreCase._commonPrefixLenIgnoreCase(_s?.__copy__(), ("nan" : stdgo.GoString)) == ((3 : stdgo.GoInt))) {
+                        if (stdgo._internal.strconv.Strconv__commonprefixlenignorecase._commonPrefixLenIgnoreCase(_s?.__copy__(), ("nan" : stdgo.GoString)) == ((3 : stdgo.GoInt))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_naN.naN(), _1 : (3 : stdgo.GoInt), _2 : true };
+                                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : (3 : stdgo.GoInt), _2 : true };
                                 _f = __tmp__._0;
                                 _n = __tmp__._1;
                                 _ok = __tmp__._2;

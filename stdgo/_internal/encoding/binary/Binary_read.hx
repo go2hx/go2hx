@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.binary;
-function read(_r:stdgo._internal.io.Io_Reader.Reader, _order:stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
+function read(_r:stdgo._internal.io.Io_reader.Reader, _order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
         {
-            var _n = (stdgo._internal.encoding.binary.Binary__intDataSize._intDataSize(_data) : stdgo.GoInt);
+            var _n = (stdgo._internal.encoding.binary.Binary__intdatasize._intDataSize(_data) : stdgo.GoInt);
             if (_n != ((0 : stdgo.GoInt))) {
                 var _bs = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 {
-                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, _bs), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_r, _bs), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
@@ -108,23 +108,23 @@ function read(_r:stdgo._internal.io.Io_Reader.Reader, _order:stdgo._internal.enc
                 };
             };
         };
-        var _v = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_data)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+        var _v = (stdgo._internal.reflect.Reflect_valueof.valueOf(_data)?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
         var _size = (-1 : stdgo.GoInt);
         {
             final __value__ = _v.kind();
-            if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
+            if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                 _v = _v.elem()?.__copy__();
-                _size = stdgo._internal.encoding.binary.Binary__dataSize._dataSize(_v?.__copy__());
-            } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                _size = stdgo._internal.encoding.binary.Binary__dataSize._dataSize(_v?.__copy__());
+                _size = stdgo._internal.encoding.binary.Binary__datasize._dataSize(_v?.__copy__());
+            } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
+                _size = stdgo._internal.encoding.binary.Binary__datasize._dataSize(_v?.__copy__());
             };
         };
         if ((_size < (0 : stdgo.GoInt) : Bool)) {
-            return stdgo._internal.errors.Errors_new_.new_((("binary.Read: invalid type " : stdgo.GoString) + (stdgo._internal.reflect.Reflect_typeOf.typeOf(_data).string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
+            return stdgo._internal.errors.Errors_new_.new_((("binary.Read: invalid type " : stdgo.GoString) + (stdgo._internal.reflect.Reflect_typeof.typeOf(_data).string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
         };
-        var _d = (stdgo.Go.setRef(({ _order : _order, _buf : (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.binary.Binary_T_decoder.T_decoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_T_decoder.T_decoder>);
+        var _d = (stdgo.Go.setRef(({ _order : _order, _buf : (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.binary.Binary_t_decoder.T_decoder)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_decoder.T_decoder>);
         {
-            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (@:checkr _d ?? throw "null pointer dereference")._buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_r, (@:checkr _d ?? throw "null pointer dereference")._buf), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

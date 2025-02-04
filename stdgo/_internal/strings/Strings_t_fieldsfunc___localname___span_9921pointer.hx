@@ -1,0 +1,2 @@
+package stdgo._internal.strings;
+@:keep @:follow @:using(stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921_static_extension.T_fieldsFunc___localname___span_9921_static_extension) typedef T_fieldsFunc___localname___span_9921Pointer = stdgo.Pointer<stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921>;

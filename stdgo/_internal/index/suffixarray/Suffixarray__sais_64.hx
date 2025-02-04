@@ -28,12 +28,12 @@ var _bucket = __1, _freq = __0;
                 _bucket = __tmp__1;
             };
         };
-        var _numLMS = (stdgo._internal.index.suffixarray.Suffixarray__placeLMS_64._placeLMS_64(_text, _sa, _freq, _bucket) : stdgo.GoInt);
+        var _numLMS = (stdgo._internal.index.suffixarray.Suffixarray__placelms_64._placeLMS_64(_text, _sa, _freq, _bucket) : stdgo.GoInt);
         if ((_numLMS <= (1 : stdgo.GoInt) : Bool)) {} else {
-            stdgo._internal.index.suffixarray.Suffixarray__induceSubL_64._induceSubL_64(_text, _sa, _freq, _bucket);
-            stdgo._internal.index.suffixarray.Suffixarray__induceSubS_64._induceSubS_64(_text, _sa, _freq, _bucket);
+            stdgo._internal.index.suffixarray.Suffixarray__inducesubl_64._induceSubL_64(_text, _sa, _freq, _bucket);
+            stdgo._internal.index.suffixarray.Suffixarray__inducesubs_64._induceSubS_64(_text, _sa, _freq, _bucket);
             stdgo._internal.index.suffixarray.Suffixarray__length_64._length_64(_text, _sa, _numLMS);
-            var _maxID = (stdgo._internal.index.suffixarray.Suffixarray__assignID_64._assignID_64(_text, _sa, _numLMS) : stdgo.GoInt);
+            var _maxID = (stdgo._internal.index.suffixarray.Suffixarray__assignid_64._assignID_64(_text, _sa, _numLMS) : stdgo.GoInt);
             if ((_maxID < _numLMS : Bool)) {
                 stdgo._internal.index.suffixarray.Suffixarray__map_64._map_64(_sa, _numLMS);
                 stdgo._internal.index.suffixarray.Suffixarray__recurse_64._recurse_64(_sa, _tmp, _numLMS, _maxID);
@@ -43,7 +43,7 @@ var _bucket = __1, _freq = __0;
             };
             stdgo._internal.index.suffixarray.Suffixarray__expand_64._expand_64(_text, _freq, _bucket, _sa, _numLMS);
         };
-        stdgo._internal.index.suffixarray.Suffixarray__induceL_64._induceL_64(_text, _sa, _freq, _bucket);
-        stdgo._internal.index.suffixarray.Suffixarray__induceS_64._induceS_64(_text, _sa, _freq, _bucket);
+        stdgo._internal.index.suffixarray.Suffixarray__inducel_64._induceL_64(_text, _sa, _freq, _bucket);
+        stdgo._internal.index.suffixarray.Suffixarray__induces_64._induceS_64(_text, _sa, _freq, _bucket);
         _tmp[(0 : stdgo.GoInt)] = (-1i64 : stdgo.GoInt64);
     }

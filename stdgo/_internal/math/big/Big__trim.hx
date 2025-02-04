@@ -1,5 +1,5 @@
 package stdgo._internal.math.big;
-function _trim(_x:stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>):Void {
+function _trim(_x:stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>):Void {
         var _i = ((@:checkr _x ?? throw "null pointer dereference")._mant.length : stdgo.GoInt);
         while (((_i > (0 : stdgo.GoInt) : Bool) && ((@:checkr _x ?? throw "null pointer dereference")._mant[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
             _i--;

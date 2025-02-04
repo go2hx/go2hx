@@ -11,7 +11,7 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
                 _n = _m;
             };
         };
-        var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+        var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
         @:check2 _b.grow(((_s.length) + (_n * (((_new.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt));
         var _start = (0 : stdgo.GoInt);
         {
@@ -20,7 +20,7 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
                 var _j = (_start : stdgo.GoInt);
 if ((_old.length) == ((0 : stdgo.GoInt))) {
                     if ((_i > (0 : stdgo.GoInt) : Bool)) {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_start) : stdgo.GoString).__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString((_s.__slice__(_start) : stdgo.GoString).__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
                         _j = (_j + (_wid) : stdgo.GoInt);
                     };
                 } else {

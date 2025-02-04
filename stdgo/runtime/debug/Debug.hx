@@ -1,8 +1,8 @@
 package stdgo.runtime.debug;
 @:structInit @:using(stdgo.runtime.debug.Debug.GCStats_static_extension) abstract GCStats(stdgo._internal.runtime.debug.Debug_GCStats.GCStats) from stdgo._internal.runtime.debug.Debug_GCStats.GCStats to stdgo._internal.runtime.debug.Debug_GCStats.GCStats {
-    public var lastGC(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_lastGC():stdgo._internal.time.Time_Time.Time return this.lastGC;
-    function set_lastGC(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var lastGC(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_lastGC():stdgo._internal.time.Time_time.Time return this.lastGC;
+    function set_lastGC(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.lastGC = v;
         return v;
     }
@@ -12,31 +12,31 @@ package stdgo.runtime.debug;
         this.numGC = (v : stdgo.GoInt64);
         return v;
     }
-    public var pauseTotal(get, set) : stdgo._internal.time.Time_Duration.Duration;
-    function get_pauseTotal():stdgo._internal.time.Time_Duration.Duration return this.pauseTotal;
-    function set_pauseTotal(v:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {
+    public var pauseTotal(get, set) : stdgo._internal.time.Time_duration.Duration;
+    function get_pauseTotal():stdgo._internal.time.Time_duration.Duration return this.pauseTotal;
+    function set_pauseTotal(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
         this.pauseTotal = v;
         return v;
     }
-    public var pause(get, set) : Array<stdgo._internal.time.Time_Duration.Duration>;
-    function get_pause():Array<stdgo._internal.time.Time_Duration.Duration> return [for (i in this.pause) i];
-    function set_pause(v:Array<stdgo._internal.time.Time_Duration.Duration>):Array<stdgo._internal.time.Time_Duration.Duration> {
-        this.pause = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>);
+    public var pause(get, set) : Array<stdgo._internal.time.Time_duration.Duration>;
+    function get_pause():Array<stdgo._internal.time.Time_duration.Duration> return [for (i in this.pause) i];
+    function set_pause(v:Array<stdgo._internal.time.Time_duration.Duration>):Array<stdgo._internal.time.Time_duration.Duration> {
+        this.pause = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_duration.Duration>);
         return v;
     }
-    public var pauseEnd(get, set) : Array<stdgo._internal.time.Time_Time.Time>;
-    function get_pauseEnd():Array<stdgo._internal.time.Time_Time.Time> return [for (i in this.pauseEnd) i];
-    function set_pauseEnd(v:Array<stdgo._internal.time.Time_Time.Time>):Array<stdgo._internal.time.Time_Time.Time> {
-        this.pauseEnd = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_Time.Time>);
+    public var pauseEnd(get, set) : Array<stdgo._internal.time.Time_time.Time>;
+    function get_pauseEnd():Array<stdgo._internal.time.Time_time.Time> return [for (i in this.pauseEnd) i];
+    function set_pauseEnd(v:Array<stdgo._internal.time.Time_time.Time>):Array<stdgo._internal.time.Time_time.Time> {
+        this.pauseEnd = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_time.Time>);
         return v;
     }
-    public var pauseQuantiles(get, set) : Array<stdgo._internal.time.Time_Duration.Duration>;
-    function get_pauseQuantiles():Array<stdgo._internal.time.Time_Duration.Duration> return [for (i in this.pauseQuantiles) i];
-    function set_pauseQuantiles(v:Array<stdgo._internal.time.Time_Duration.Duration>):Array<stdgo._internal.time.Time_Duration.Duration> {
-        this.pauseQuantiles = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>);
+    public var pauseQuantiles(get, set) : Array<stdgo._internal.time.Time_duration.Duration>;
+    function get_pauseQuantiles():Array<stdgo._internal.time.Time_duration.Duration> return [for (i in this.pauseQuantiles) i];
+    function set_pauseQuantiles(v:Array<stdgo._internal.time.Time_duration.Duration>):Array<stdgo._internal.time.Time_duration.Duration> {
+        this.pauseQuantiles = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_duration.Duration>);
         return v;
     }
-    public function new(?lastGC:stdgo._internal.time.Time_Time.Time, ?numGC:haxe.Int64, ?pauseTotal:stdgo._internal.time.Time_Duration.Duration, ?pause:Array<stdgo._internal.time.Time_Duration.Duration>, ?pauseEnd:Array<stdgo._internal.time.Time_Time.Time>, ?pauseQuantiles:Array<stdgo._internal.time.Time_Duration.Duration>) this = new stdgo._internal.runtime.debug.Debug_GCStats.GCStats(lastGC, (numGC : stdgo.GoInt64), pauseTotal, ([for (i in pause) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>), ([for (i in pauseEnd) i] : stdgo.Slice<stdgo._internal.time.Time_Time.Time>), ([for (i in pauseQuantiles) i] : stdgo.Slice<stdgo._internal.time.Time_Duration.Duration>));
+    public function new(?lastGC:stdgo._internal.time.Time_time.Time, ?numGC:haxe.Int64, ?pauseTotal:stdgo._internal.time.Time_duration.Duration, ?pause:Array<stdgo._internal.time.Time_duration.Duration>, ?pauseEnd:Array<stdgo._internal.time.Time_time.Time>, ?pauseQuantiles:Array<stdgo._internal.time.Time_duration.Duration>) this = new stdgo._internal.runtime.debug.Debug_GCStats.GCStats(lastGC, (numGC : stdgo.GoInt64), pauseTotal, ([for (i in pause) i] : stdgo.Slice<stdgo._internal.time.Time_duration.Duration>), ([for (i in pauseEnd) i] : stdgo.Slice<stdgo._internal.time.Time_time.Time>), ([for (i in pauseQuantiles) i] : stdgo.Slice<stdgo._internal.time.Time_duration.Duration>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -62,16 +62,16 @@ package stdgo.runtime.debug;
     public var deps(get, set) : Array<Module>;
     function get_deps():Array<Module> return [for (i in this.deps) i];
     function set_deps(v:Array<Module>):Array<Module> {
-        this.deps = ([for (i in v) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>);
+        this.deps = ([for (i in v) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>>);
         return v;
     }
     public var settings(get, set) : Array<BuildSetting>;
     function get_settings():Array<BuildSetting> return [for (i in this.settings) i];
     function set_settings(v:Array<BuildSetting>):Array<BuildSetting> {
-        this.settings = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting>);
+        this.settings = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting>);
         return v;
     }
-    public function new(?goVersion:String, ?path:String, ?__Main:Module, ?deps:Array<Module>, ?settings:Array<BuildSetting>) this = new stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo((goVersion : stdgo.GoString), (path : stdgo.GoString), __Main, ([for (i in deps) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_BuildSetting.BuildSetting>));
+    public function new(?goVersion:String, ?path:String, ?__Main:Module, ?deps:Array<Module>, ?settings:Array<BuildSetting>) this = new stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo((goVersion : stdgo.GoString), (path : stdgo.GoString), __Main, ([for (i in deps) (i : stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -97,10 +97,10 @@ package stdgo.runtime.debug;
     public var replace(get, set) : Module;
     function get_replace():Module return this.replace;
     function set_replace(v:Module):Module {
-        this.replace = (v : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>);
+        this.replace = (v : stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>);
         return v;
     }
-    public function new(?path:String, ?version:String, ?sum:String, ?replace:Module) this = new stdgo._internal.runtime.debug.Debug_Module.Module((path : stdgo.GoString), (version : stdgo.GoString), (sum : stdgo.GoString), (replace : stdgo.Ref<stdgo._internal.runtime.debug.Debug_Module.Module>));
+    public function new(?path:String, ?version:String, ?sum:String, ?replace:Module) this = new stdgo._internal.runtime.debug.Debug_Module.Module((path : stdgo.GoString), (version : stdgo.GoString), (sum : stdgo.GoString), (replace : stdgo.Ref<stdgo._internal.runtime.debug.Debug_module.Module>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -128,7 +128,7 @@ class GCStats_static_extension {
 typedef BuildInfoPointer = stdgo._internal.runtime.debug.Debug_BuildInfoPointer.BuildInfoPointer;
 class BuildInfo_static_extension {
     static public function string(_bi:BuildInfo):String {
-        final _bi = (_bi : stdgo.Ref<stdgo._internal.runtime.debug.Debug_BuildInfo.BuildInfo>);
+        final _bi = (_bi : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>);
         return stdgo._internal.runtime.debug.Debug_BuildInfo_static_extension.BuildInfo_static_extension.string(_bi);
     }
 }
@@ -156,7 +156,7 @@ class Debug {
         25%, 50%, 75%, and maximum pause times.
     **/
     static public inline function readGCStats(_stats:GCStats):Void {
-        final _stats = (_stats : stdgo.Ref<stdgo._internal.runtime.debug.Debug_GCStats.GCStats>);
+        final _stats = (_stats : stdgo.Ref<stdgo._internal.runtime.debug.Debug_gcstats.GCStats>);
         stdgo._internal.runtime.debug.Debug_readGCStats.readGCStats(_stats);
     }
     /**

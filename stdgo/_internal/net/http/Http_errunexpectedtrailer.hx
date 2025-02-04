@@ -1,0 +1,2 @@
+package stdgo._internal.net.http;
+var errUnexpectedTrailer : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError> = (stdgo.Go.setRef((new stdgo._internal.net.http.Http_protocolerror.ProtocolError(("trailer header without chunked transfer encoding" : stdgo.GoString)) : stdgo._internal.net.http.Http_protocolerror.ProtocolError)) : stdgo.Ref<stdgo._internal.net.http.Http_protocolerror.ProtocolError>);

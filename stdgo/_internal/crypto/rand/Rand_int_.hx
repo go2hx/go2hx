@@ -1,10 +1,10 @@
 package stdgo._internal.crypto.rand;
-function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } {
-        var _n = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _err = (null : stdgo.Error);
+function int_(_rand:stdgo._internal.io.Io_reader.Reader, _max:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Error; } {
+        var _n = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _err = (null : stdgo.Error);
         if ((@:check2r _max.sign() <= (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("crypto/rand: argument to Int is <= 0" : stdgo.GoString));
         };
-        _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         @:check2r _n.sub(_max, @:check2r _n.setUint64((1i64 : stdgo.GoUInt64)));
         var _bitLen = (@:check2r _n.bitLen() : stdgo.GoInt);
         if (_bitLen == ((0 : stdgo.GoInt))) {
@@ -18,12 +18,12 @@ function int_(_rand:stdgo._internal.io.Io_Reader.Reader, _max:stdgo.Ref<stdgo._i
         var _bytes = (new stdgo.Slice<stdgo.GoUInt8>((_k : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while (true) {
             {
-                var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _bytes);
+                var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_rand, _bytes);
                 _err = @:tmpset0 __tmp__._1;
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

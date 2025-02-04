@@ -1,0 +1,2 @@
+package stdgo._internal.runtime;
+function newPageAlloc(_chunks:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>, _scav:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>):stdgo.Ref<stdgo._internal.runtime.Runtime_pagealloc.PageAlloc> throw ":runtime.newPageAlloc is not yet implemented";

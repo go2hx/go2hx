@@ -112,19 +112,19 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
     public var sections(get, set) : Array<Section>;
     function get_sections():Array<Section> return [for (i in this.sections) i];
     function set_sections(v:Array<Section>):Array<Section> {
-        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>);
+        this.sections = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>);
         return v;
     }
     public var symbols(get, set) : Array<Symbol>;
     function get_symbols():Array<Symbol> return [for (i in this.symbols) i];
     function set_symbols(v:Array<Symbol>):Array<Symbol> {
-        this.symbols = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>);
+        this.symbols = ([for (i in v) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>>);
         return v;
     }
     public var cOFFSymbols(get, set) : Array<COFFSymbol>;
     function get_cOFFSymbols():Array<COFFSymbol> return [for (i in this.cOFFSymbols) i];
     function set_cOFFSymbols(v:Array<COFFSymbol>):Array<COFFSymbol> {
-        this.cOFFSymbols = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>);
+        this.cOFFSymbols = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>);
         return v;
     }
     public var stringTable(get, set) : StringTable;
@@ -133,13 +133,13 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
         this.stringTable = v;
         return v;
     }
-    public var _closer(get, set) : stdgo._internal.io.Io_Closer.Closer;
-    function get__closer():stdgo._internal.io.Io_Closer.Closer return this._closer;
-    function set__closer(v:stdgo._internal.io.Io_Closer.Closer):stdgo._internal.io.Io_Closer.Closer {
+    public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
+    function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
+    function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?optionalHeader:stdgo.AnyInterface, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?cOFFSymbols:Array<COFFSymbol>, ?stringTable:StringTable, ?_closer:stdgo._internal.io.Io_Closer.Closer) this = new stdgo._internal.debug.pe.Pe_File.File(fileHeader, (optionalHeader : stdgo.AnyInterface), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>), ([for (i in symbols) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Symbol.Symbol>>), ([for (i in cOFFSymbols) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), stringTable, _closer);
+    public function new(?fileHeader:FileHeader, ?optionalHeader:stdgo.AnyInterface, ?sections:Array<Section>, ?symbols:Array<Symbol>, ?cOFFSymbols:Array<COFFSymbol>, ?stringTable:StringTable, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.pe.Pe_File.File(fileHeader, (optionalHeader : stdgo.AnyInterface), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>), ([for (i in symbols) (i : stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>>), ([for (i in cOFFSymbols) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>), stringTable, _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -442,7 +442,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
     public var dataDirectory(get, set) : haxe.ds.Vector<DataDirectory>;
     function get_dataDirectory():haxe.ds.Vector<DataDirectory> return haxe.ds.Vector.fromArrayCopy([for (i in this.dataDirectory) i]);
     function set_dataDirectory(v:haxe.ds.Vector<DataDirectory>):haxe.ds.Vector<DataDirectory> {
-        this.dataDirectory = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>);
+        this.dataDirectory = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory>);
         return v;
     }
     public function new(?magic:std.UInt, ?majorLinkerVersion:std.UInt, ?minorLinkerVersion:std.UInt, ?sizeOfCode:std.UInt, ?sizeOfInitializedData:std.UInt, ?sizeOfUninitializedData:std.UInt, ?addressOfEntryPoint:std.UInt, ?baseOfCode:std.UInt, ?baseOfData:std.UInt, ?imageBase:std.UInt, ?sectionAlignment:std.UInt, ?fileAlignment:std.UInt, ?majorOperatingSystemVersion:std.UInt, ?minorOperatingSystemVersion:std.UInt, ?majorImageVersion:std.UInt, ?minorImageVersion:std.UInt, ?majorSubsystemVersion:std.UInt, ?minorSubsystemVersion:std.UInt, ?win32VersionValue:std.UInt, ?sizeOfImage:std.UInt, ?sizeOfHeaders:std.UInt, ?checkSum:std.UInt, ?subsystem:std.UInt, ?dllCharacteristics:std.UInt, ?sizeOfStackReserve:std.UInt, ?sizeOfStackCommit:std.UInt, ?sizeOfHeapReserve:std.UInt, ?sizeOfHeapCommit:std.UInt, ?loaderFlags:std.UInt, ?numberOfRvaAndSizes:std.UInt, ?dataDirectory:haxe.ds.Vector<DataDirectory>) this = new stdgo._internal.debug.pe.Pe_OptionalHeader32.OptionalHeader32(
@@ -476,7 +476,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
 (sizeOfHeapCommit : stdgo.GoUInt32),
 (loaderFlags : stdgo.GoUInt32),
 (numberOfRvaAndSizes : stdgo.GoUInt32),
-([for (i in dataDirectory) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>));
+([for (i in dataDirectory) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -658,7 +658,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
     public var dataDirectory(get, set) : haxe.ds.Vector<DataDirectory>;
     function get_dataDirectory():haxe.ds.Vector<DataDirectory> return haxe.ds.Vector.fromArrayCopy([for (i in this.dataDirectory) i]);
     function set_dataDirectory(v:haxe.ds.Vector<DataDirectory>):haxe.ds.Vector<DataDirectory> {
-        this.dataDirectory = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>);
+        this.dataDirectory = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory>);
         return v;
     }
     public function new(?magic:std.UInt, ?majorLinkerVersion:std.UInt, ?minorLinkerVersion:std.UInt, ?sizeOfCode:std.UInt, ?sizeOfInitializedData:std.UInt, ?sizeOfUninitializedData:std.UInt, ?addressOfEntryPoint:std.UInt, ?baseOfCode:std.UInt, ?imageBase:haxe.UInt64, ?sectionAlignment:std.UInt, ?fileAlignment:std.UInt, ?majorOperatingSystemVersion:std.UInt, ?minorOperatingSystemVersion:std.UInt, ?majorImageVersion:std.UInt, ?minorImageVersion:std.UInt, ?majorSubsystemVersion:std.UInt, ?minorSubsystemVersion:std.UInt, ?win32VersionValue:std.UInt, ?sizeOfImage:std.UInt, ?sizeOfHeaders:std.UInt, ?checkSum:std.UInt, ?subsystem:std.UInt, ?dllCharacteristics:std.UInt, ?sizeOfStackReserve:haxe.UInt64, ?sizeOfStackCommit:haxe.UInt64, ?sizeOfHeapReserve:haxe.UInt64, ?sizeOfHeapCommit:haxe.UInt64, ?loaderFlags:std.UInt, ?numberOfRvaAndSizes:std.UInt, ?dataDirectory:haxe.ds.Vector<DataDirectory>) this = new stdgo._internal.debug.pe.Pe_OptionalHeader64.OptionalHeader64(
@@ -691,7 +691,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
 (sizeOfHeapCommit : stdgo.GoUInt64),
 (loaderFlags : stdgo.GoUInt32),
 (numberOfRvaAndSizes : stdgo.GoUInt32),
-([for (i in dataDirectory) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>));
+([for (i in dataDirectory) i] : stdgo.GoArray<stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -858,22 +858,22 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_iM
     public var relocs(get, set) : Array<Reloc>;
     function get_relocs():Array<Reloc> return [for (i in this.relocs) i];
     function set_relocs(v:Array<Reloc>):Array<Reloc> {
-        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_Reloc.Reloc>);
+        this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_reloc.Reloc>);
         return v;
     }
-    public var readerAt(get, set) : stdgo._internal.io.Io_ReaderAt.ReaderAt;
-    function get_readerAt():stdgo._internal.io.Io_ReaderAt.ReaderAt return this.readerAt;
-    function set_readerAt(v:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo._internal.io.Io_ReaderAt.ReaderAt {
+    public var readerAt(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
+    function get_readerAt():stdgo._internal.io.Io_readerat.ReaderAt return this.readerAt;
+    function set_readerAt(v:stdgo._internal.io.Io_readerat.ReaderAt):stdgo._internal.io.Io_readerat.ReaderAt {
         this.readerAt = v;
         return v;
     }
-    public var _sr(get, set) : stdgo._internal.io.Io_SectionReader.SectionReader;
-    function get__sr():stdgo._internal.io.Io_SectionReader.SectionReader return this._sr;
-    function set__sr(v:stdgo._internal.io.Io_SectionReader.SectionReader):stdgo._internal.io.Io_SectionReader.SectionReader {
-        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>);
+    public var _sr(get, set) : stdgo._internal.io.Io_sectionreader.SectionReader;
+    function get__sr():stdgo._internal.io.Io_sectionreader.SectionReader return this._sr;
+    function set__sr(v:stdgo._internal.io.Io_sectionreader.SectionReader):stdgo._internal.io.Io_sectionreader.SectionReader {
+        this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_ReaderAt.ReaderAt, ?_sr:stdgo._internal.io.Io_SectionReader.SectionReader) this = new stdgo._internal.debug.pe.Pe_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_Reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.pe.Pe_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.pe.Pe_reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1004,7 +1004,7 @@ typedef StringTable = stdgo._internal.debug.pe.Pe_StringTable.StringTable;
 typedef FilePointer = stdgo._internal.debug.pe.Pe_FilePointer.FilePointer;
 class File_static_extension {
     static public function cOFFSymbolReadSectionDefAux(_f:File, _idx:StdTypes.Int):stdgo.Tuple<COFFSymbolAuxFormat5, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         final _idx = (_idx : stdgo.GoInt);
         return {
             final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.cOFFSymbolReadSectionDefAux(_f, _idx);
@@ -1012,40 +1012,40 @@ class File_static_extension {
         };
     }
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.importedLibraries(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function importedSymbols(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.importedSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_Data.Data, stdgo.Error> {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+    static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function section(_f:File, _name:String):Section {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.section(_f, _name);
     }
     static public function close(_f:File):stdgo.Error {
-        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_File.File>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         return stdgo._internal.debug.pe.Pe_File_static_extension.File_static_extension.close(_f);
     }
 }
 typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.pe.Pe_T_nobitsSectionReaderPointer.T_nobitsSectionReaderPointer;
 class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _ = (_ : stdgo.Ref<stdgo._internal.debug.pe.Pe_T_nobitsSectionReader.T_nobitsSectionReader>);
+        final _ = (_ : stdgo.Ref<stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -1061,7 +1061,7 @@ class ImportDirectory_static_extension {
 typedef FormatErrorPointer = stdgo._internal.debug.pe.Pe_FormatErrorPointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.debug.pe.Pe_FormatError.FormatError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.debug.pe.Pe_formaterror.FormatError>);
         return stdgo._internal.debug.pe.Pe_FormatError_static_extension.FormatError_static_extension.error(_e);
     }
 }
@@ -1084,7 +1084,7 @@ class OptionalHeader64_static_extension {
 typedef SectionHeader32Pointer = stdgo._internal.debug.pe.Pe_SectionHeader32Pointer.SectionHeader32Pointer;
 class SectionHeader32_static_extension {
     static public function _fullName(_sh:SectionHeader32, _st:StringTable):stdgo.Tuple<String, stdgo.Error> {
-        final _sh = (_sh : stdgo.Ref<stdgo._internal.debug.pe.Pe_SectionHeader32.SectionHeader32>);
+        final _sh = (_sh : stdgo.Ref<stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_SectionHeader32_static_extension.SectionHeader32_static_extension._fullName(_sh, _st);
             { _0 : obj._0, _1 : obj._1 };
@@ -1101,18 +1101,18 @@ class SectionHeader_static_extension {
 }
 typedef SectionPointer = stdgo._internal.debug.pe.Pe_SectionPointer.SectionPointer;
 class Section_static_extension {
-    static public function open(_s:Section):stdgo._internal.io.Io_ReadSeeker.ReadSeeker {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>);
+    static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>);
         return stdgo._internal.debug.pe.Pe_Section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_Section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readAt(__self__:stdgo._internal.debug.pe.Pe_Section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function readAt(__self__:stdgo._internal.debug.pe.Pe_section.Section, _0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
@@ -1124,7 +1124,7 @@ class Section_static_extension {
 typedef COFFSymbolPointer = stdgo._internal.debug.pe.Pe_COFFSymbolPointer.COFFSymbolPointer;
 class COFFSymbol_static_extension {
     static public function fullName(_sym:COFFSymbol, _st:StringTable):stdgo.Tuple<String, stdgo.Error> {
-        final _sym = (_sym : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>);
+        final _sym = (_sym : stdgo.Ref<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>);
         return {
             final obj = stdgo._internal.debug.pe.Pe_COFFSymbol_static_extension.COFFSymbol_static_extension.fullName(_sym, _st);
             { _0 : obj._0, _1 : obj._1 };
@@ -1176,7 +1176,7 @@ class Pe {
     /**
         NewFile creates a new File for accessing a PE binary in an underlying reader.
     **/
-    static public inline function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
+    static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
             final obj = stdgo._internal.debug.pe.Pe_newFile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };

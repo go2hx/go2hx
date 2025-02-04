@@ -1,16 +1,16 @@
 package stdgo._internal.image.png;
-function _opaque(_m:stdgo._internal.image.Image_Image.Image):Bool {
+function _opaque(_m:stdgo._internal.image.Image_image.Image):Bool {
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo._internal.image.png.Png_T_opaquer.T_opaquer)) : stdgo._internal.image.png.Png_T_opaquer.T_opaquer), _1 : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo._internal.image.png.Png_t_opaquer.T_opaquer)) : stdgo._internal.image.png.Png_t_opaquer.T_opaquer), _1 : true };
             } catch(_) {
-                { _0 : (null : stdgo._internal.image.png.Png_T_opaquer.T_opaquer), _1 : false };
+                { _0 : (null : stdgo._internal.image.png.Png_t_opaquer.T_opaquer), _1 : false };
             }, _o = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return _o.opaque();
             };
         };
-        var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
+        var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_rectangle.Rectangle);
         {
             var _y = (_b.min.y : stdgo.GoInt);
             while ((_y < _b.max.y : Bool)) {

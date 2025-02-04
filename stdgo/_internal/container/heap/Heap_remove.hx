@@ -1,5 +1,5 @@
 package stdgo._internal.container.heap;
-function remove(_h:stdgo._internal.container.heap.Heap_Interface.Interface, _i:stdgo.GoInt):stdgo.AnyInterface {
+function remove(_h:stdgo._internal.container.heap.Heap_interface.Interface, _i:stdgo.GoInt):stdgo.AnyInterface {
         var _n = (_h.len() - (1 : stdgo.GoInt) : stdgo.GoInt);
         if (_n != (_i)) {
             _h.swap(_i, _n);

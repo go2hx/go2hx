@@ -1,5 +1,5 @@
 package stdgo._internal.container.heap;
-function init(_h:stdgo._internal.container.heap.Heap_Interface.Interface):Void {
+function init(_h:stdgo._internal.container.heap.Heap_interface.Interface):Void {
         var _n = (_h.len() : stdgo.GoInt);
         {
             var _i = ((_n / (2 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);

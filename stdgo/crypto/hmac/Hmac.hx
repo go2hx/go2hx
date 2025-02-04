@@ -1,10 +1,10 @@
 package stdgo.crypto.hmac;
 class T_marshalable_static_extension {
-    static public function unmarshalBinary(t:stdgo._internal.crypto.hmac.Hmac_T_marshalable.T_marshalable, _0:Array<std.UInt>):stdgo.Error {
+    static public function unmarshalBinary(t:stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable, _0:Array<std.UInt>):stdgo.Error {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.hmac.Hmac_T_marshalable_static_extension.T_marshalable_static_extension.unmarshalBinary(t, _0);
     }
-    static public function marshalBinary(t:stdgo._internal.crypto.hmac.Hmac_T_marshalable.T_marshalable):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function marshalBinary(t:stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
             final obj = stdgo._internal.crypto.hmac.Hmac_T_marshalable_static_extension.T_marshalable_static_extension.marshalBinary(t);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -25,15 +25,15 @@ typedef T_marshalable = stdgo._internal.crypto.hmac.Hmac_T_marshalable.T_marshal
         this._ipad = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _outer(get, set) : stdgo._internal.hash.Hash_Hash.Hash;
-    function get__outer():stdgo._internal.hash.Hash_Hash.Hash return this._outer;
-    function set__outer(v:stdgo._internal.hash.Hash_Hash.Hash):stdgo._internal.hash.Hash_Hash.Hash {
+    public var _outer(get, set) : stdgo._internal.hash.Hash_hash.Hash;
+    function get__outer():stdgo._internal.hash.Hash_hash.Hash return this._outer;
+    function set__outer(v:stdgo._internal.hash.Hash_hash.Hash):stdgo._internal.hash.Hash_hash.Hash {
         this._outer = v;
         return v;
     }
-    public var _inner(get, set) : stdgo._internal.hash.Hash_Hash.Hash;
-    function get__inner():stdgo._internal.hash.Hash_Hash.Hash return this._inner;
-    function set__inner(v:stdgo._internal.hash.Hash_Hash.Hash):stdgo._internal.hash.Hash_Hash.Hash {
+    public var _inner(get, set) : stdgo._internal.hash.Hash_hash.Hash;
+    function get__inner():stdgo._internal.hash.Hash_hash.Hash return this._inner;
+    function set__inner(v:stdgo._internal.hash.Hash_hash.Hash):stdgo._internal.hash.Hash_hash.Hash {
         this._inner = v;
         return v;
     }
@@ -43,26 +43,26 @@ typedef T_marshalable = stdgo._internal.crypto.hmac.Hmac_T_marshalable.T_marshal
         this._marshaled = v;
         return v;
     }
-    public function new(?_opad:Array<std.UInt>, ?_ipad:Array<std.UInt>, ?_outer:stdgo._internal.hash.Hash_Hash.Hash, ?_inner:stdgo._internal.hash.Hash_Hash.Hash, ?_marshaled:Bool) this = new stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac(([for (i in _opad) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ipad) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _outer, _inner, _marshaled);
+    public function new(?_opad:Array<std.UInt>, ?_ipad:Array<std.UInt>, ?_outer:stdgo._internal.hash.Hash_hash.Hash, ?_inner:stdgo._internal.hash.Hash_hash.Hash, ?_marshaled:Bool) this = new stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac(([for (i in _opad) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ipad) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _outer, _inner, _marshaled);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef T_hmacPointer = stdgo._internal.crypto.hmac.Hmac_T_hmacPointer.T_hmacPointer;
 class T_hmac_static_extension {
     static public function reset(_h:T_hmac):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.reset(_h);
     }
     static public function blockSize(_h:T_hmac):StdTypes.Int {
-        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         return stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.blockSize(_h);
     }
     static public function size(_h:T_hmac):StdTypes.Int {
-        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         return stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.size(_h);
     }
     static public function write(_h:T_hmac, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.write(_h, _p);
@@ -70,7 +70,7 @@ class T_hmac_static_extension {
         };
     }
     static public function sum(_h:T_hmac, _in:Array<std.UInt>):Array<std.UInt> {
-        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.crypto.hmac.Hmac_T_hmac_static_extension.T_hmac_static_extension.sum(_h, _in)) i];
     }
@@ -103,7 +103,7 @@ class Hmac {
         the returned Hash does not implement encoding.BinaryMarshaler
         or encoding.BinaryUnmarshaler.
     **/
-    static public inline function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_Hash.Hash {
+    static public inline function new_(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_hash.Hash {
         final _h = _h;
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.hmac.Hmac_new_.new_(_h, _key);

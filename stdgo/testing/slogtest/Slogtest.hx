@@ -6,42 +6,42 @@ package stdgo.testing.slogtest;
         this._explanation = (v : stdgo.GoString);
         return v;
     }
-    public var _f(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> -> Void;
-    function get__f():stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> -> Void return _0 -> this._f(_0);
-    function set__f(v:stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> -> Void {
+    public var _f(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger> -> Void;
+    function get__f():stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger> -> Void return _0 -> this._f(_0);
+    function set__f(v:stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger> -> Void {
         this._f = v;
         return v;
     }
-    public var _mod(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void;
-    function get__mod():stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void return _0 -> this._mod(_0);
-    function set__mod(v:stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void {
+    public var _mod(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void;
+    function get__mod():stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void return _0 -> this._mod(_0);
+    function set__mod(v:stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void {
         this._mod = v;
         return v;
     }
     public var _checks(get, set) : Array<T_check>;
     function get__checks():Array<T_check> return [for (i in this._checks) i];
     function set__checks(v:Array<T_check>):Array<T_check> {
-        this._checks = ([for (i in v) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_T_check.T_check>);
+        this._checks = ([for (i in v) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_t_check.T_check>);
         return v;
     }
-    public function new(?_explanation:String, ?_f:stdgo.Ref<stdgo._internal.log.slog.Slog_Logger.Logger> -> Void, ?_mod:stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void, ?_checks:Array<T_check>) this = new stdgo._internal.testing.slogtest.Slogtest_T_testCase.T_testCase((_explanation : stdgo.GoString), _f, _mod, ([for (i in _checks) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_T_check.T_check>));
+    public function new(?_explanation:String, ?_f:stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger> -> Void, ?_mod:stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void, ?_checks:Array<T_check>) this = new stdgo._internal.testing.slogtest.Slogtest_T_testCase.T_testCase((_explanation : stdgo.GoString), _f, _mod, ([for (i in _checks) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_t_check.T_check>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.testing.slogtest.Slogtest.T_wrapper_static_extension) abstract T_wrapper(stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper) from stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper to stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper {
-    public var handler(get, set) : stdgo._internal.log.slog.Slog_Handler.Handler;
-    function get_handler():stdgo._internal.log.slog.Slog_Handler.Handler return this.handler;
-    function set_handler(v:stdgo._internal.log.slog.Slog_Handler.Handler):stdgo._internal.log.slog.Slog_Handler.Handler {
+    public var handler(get, set) : stdgo._internal.log.slog.Slog_handler.Handler;
+    function get_handler():stdgo._internal.log.slog.Slog_handler.Handler return this.handler;
+    function set_handler(v:stdgo._internal.log.slog.Slog_handler.Handler):stdgo._internal.log.slog.Slog_handler.Handler {
         this.handler = v;
         return v;
     }
-    public var _mod(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void;
-    function get__mod():stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void return _0 -> this._mod(_0);
-    function set__mod(v:stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void {
+    public var _mod(get, set) : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void;
+    function get__mod():stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void return _0 -> this._mod(_0);
+    function set__mod(v:stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void):stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void {
         this._mod = v;
         return v;
     }
-    public function new(?handler:stdgo._internal.log.slog.Slog_Handler.Handler, ?_mod:stdgo.Ref<stdgo._internal.log.slog.Slog_Record.Record> -> Void) this = new stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper(handler, _mod);
+    public function new(?handler:stdgo._internal.log.slog.Slog_handler.Handler, ?_mod:stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record> -> Void) this = new stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper(handler, _mod);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -63,30 +63,30 @@ class T_testCase_static_extension {
 }
 typedef T_wrapperPointer = stdgo._internal.testing.slogtest.Slogtest_T_wrapperPointer.T_wrapperPointer;
 class T_wrapper_static_extension {
-    static public function handle(_h:T_wrapper, _ctx:stdgo._internal.context.Context_Context.Context, _r:stdgo._internal.log.slog.Slog_Record.Record):stdgo.Error {
-        final _h = (_h : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper>);
+    static public function handle(_h:T_wrapper, _ctx:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
+        final _h = (_h : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper>);
         return stdgo._internal.testing.slogtest.Slogtest_T_wrapper_static_extension.T_wrapper_static_extension.handle(_h, _ctx, _r);
     }
-    public static function withGroup(__self__:stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper, _0:String):stdgo._internal.log.slog.Slog_Handler.Handler {
+    public static function withGroup(__self__:stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper, _0:String):stdgo._internal.log.slog.Slog_handler.Handler {
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.testing.slogtest.Slogtest_T_wrapper_static_extension.T_wrapper_static_extension.withGroup(__self__, _0);
     }
-    public static function withAttrs(__self__:stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper, _0:Array<stdgo._internal.log.slog.Slog_Attr.Attr>):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr>);
+    public static function withAttrs(__self__:stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper, _0:Array<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.testing.slogtest.Slogtest_T_wrapper_static_extension.T_wrapper_static_extension.withAttrs(__self__, _0);
     }
-    public static function enabled(__self__:stdgo._internal.testing.slogtest.Slogtest_T_wrapper.T_wrapper, _0:stdgo._internal.context.Context_Context.Context, _1:stdgo._internal.log.slog.Slog_Level.Level):Bool {
+    public static function enabled(__self__:stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.log.slog.Slog_level.Level):Bool {
         return stdgo._internal.testing.slogtest.Slogtest_T_wrapper_static_extension.T_wrapper_static_extension.enabled(__self__, _0, _1);
     }
 }
 typedef T_replacePointer = stdgo._internal.testing.slogtest.Slogtest_T_replacePointer.T_replacePointer;
 class T_replace_static_extension {
     static public function string(_r:T_replace):String {
-        final _r = (_r : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_T_replace.T_replace>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace>);
         return stdgo._internal.testing.slogtest.Slogtest_T_replace_static_extension.T_replace_static_extension.string(_r);
     }
-    static public function logValue(_r:T_replace):stdgo._internal.log.slog.Slog_Value.Value {
-        final _r = (_r : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_T_replace.T_replace>);
+    static public function logValue(_r:T_replace):stdgo._internal.log.slog.Slog_value.Value {
+        final _r = (_r : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace>);
         return stdgo._internal.testing.slogtest.Slogtest_T_replace_static_extension.T_replace_static_extension.logValue(_r);
     }
 }
@@ -118,7 +118,7 @@ class Slogtest {
         If a Handler intentionally drops an attribute that is checked by a test,
         then the results function should check for its absence and add it to the map it returns.
     **/
-    static public inline function testHandler(_h:stdgo._internal.log.slog.Slog_Handler.Handler, _results:() -> stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Error {
+    static public inline function testHandler(_h:stdgo._internal.log.slog.Slog_handler.Handler, _results:() -> stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Error {
         final _results = _results;
         return stdgo._internal.testing.slogtest.Slogtest_testHandler.testHandler(_h, _results);
     }

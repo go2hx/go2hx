@@ -1,12 +1,12 @@
 package stdgo.net.url;
 class T__interface_0_static_extension {
-    static public function timeout(t:stdgo._internal.net.url.Url_T__interface_0.T__interface_0):Bool {
+    static public function timeout(t:stdgo._internal.net.url.Url_t__interface_0.T__interface_0):Bool {
         return stdgo._internal.net.url.Url_T__interface_0_static_extension.T__interface_0_static_extension.timeout(t);
     }
 }
 typedef T__interface_0 = stdgo._internal.net.url.Url_T__interface_0.T__interface_0;
 class T__interface_1_static_extension {
-    static public function temporary(t:stdgo._internal.net.url.Url_T__interface_1.T__interface_1):Bool {
+    static public function temporary(t:stdgo._internal.net.url.Url_t__interface_1.T__interface_1):Bool {
         return stdgo._internal.net.url.Url_T__interface_1_static_extension.T__interface_1_static_extension.temporary(t);
     }
 }
@@ -50,7 +50,7 @@ typedef T__interface_1 = stdgo._internal.net.url.Url_T__interface_1.T__interface
     public var user(get, set) : Userinfo;
     function get_user():Userinfo return this.user;
     function set_user(v:Userinfo):Userinfo {
-        this.user = (v : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
+        this.user = (v : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>);
         return v;
     }
     public var host(get, set) : String;
@@ -104,7 +104,7 @@ typedef T__interface_1 = stdgo._internal.net.url.Url_T__interface_1.T__interface
     public function new(?scheme:String, ?opaque:String, ?user:Userinfo, ?host:String, ?path:String, ?rawPath:String, ?omitHost:Bool, ?forceQuery:Bool, ?rawQuery:String, ?fragment:String, ?rawFragment:String) this = new stdgo._internal.net.url.Url_URL.URL(
 (scheme : stdgo.GoString),
 (opaque : stdgo.GoString),
-(user : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>),
+(user : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>),
 (host : stdgo.GoString),
 (path : stdgo.GoString),
 (rawPath : stdgo.GoString),
@@ -146,63 +146,63 @@ typedef Values = stdgo._internal.net.url.Url_Values.Values;
 typedef ErrorPointer = stdgo._internal.net.url.Url_ErrorPointer.ErrorPointer;
 class Error_static_extension {
     static public function temporary(_e:Error):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_error.Error>);
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.temporary(_e);
     }
     static public function timeout(_e:Error):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_error.Error>);
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.timeout(_e);
     }
     static public function error(_e:Error):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_error.Error>);
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.error(_e);
     }
     static public function unwrap(_e:Error):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.url.Url_error.Error>);
         return stdgo._internal.net.url.Url_Error_static_extension.Error_static_extension.unwrap(_e);
     }
 }
 typedef URLPointer = stdgo._internal.net.url.Url_URLPointer.URLPointer;
 class URL_static_extension {
     static public function joinPath(_u:URL, _elem:haxe.Rest<String>):URL {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.joinPath(_u, ...[for (i in _elem) i]);
     }
     static public function unmarshalBinary(_u:URL, _text:Array<std.UInt>):stdgo.Error {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.unmarshalBinary(_u, _text);
     }
     static public function marshalBinary(_u:URL):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return {
             final obj = stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.marshalBinary(_u);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function port(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.port(_u);
     }
     static public function hostname(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.hostname(_u);
     }
     static public function requestURI(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.requestURI(_u);
     }
     static public function query(_u:URL):Values {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.query(_u);
     }
     static public function resolveReference(_u:URL, _ref:URL):URL {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
-        final _ref = (_ref : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
+        final _ref = (_ref : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.resolveReference(_u, _ref);
     }
     static public function parse(_u:URL, _ref:String):stdgo.Tuple<URL, stdgo.Error> {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         final _ref = (_ref : stdgo.GoString);
         return {
             final obj = stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.parse(_u, _ref);
@@ -210,32 +210,32 @@ class URL_static_extension {
         };
     }
     static public function isAbs(_u:URL):Bool {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.isAbs(_u);
     }
     static public function redacted(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.redacted(_u);
     }
     static public function string(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.string(_u);
     }
     static public function escapedFragment(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.escapedFragment(_u);
     }
     static public function _setFragment(_u:URL, _f:String):stdgo.Error {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         final _f = (_f : stdgo.GoString);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension._setFragment(_u, _f);
     }
     static public function escapedPath(_u:URL):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension.escapedPath(_u);
     }
     static public function _setPath(_u:URL, _p:String):stdgo.Error {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         final _p = (_p : stdgo.GoString);
         return stdgo._internal.net.url.Url_URL_static_extension.URL_static_extension._setPath(_u, _p);
     }
@@ -243,18 +243,18 @@ class URL_static_extension {
 typedef UserinfoPointer = stdgo._internal.net.url.Url_UserinfoPointer.UserinfoPointer;
 class Userinfo_static_extension {
     static public function string(_u:Userinfo):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>);
         return stdgo._internal.net.url.Url_Userinfo_static_extension.Userinfo_static_extension.string(_u);
     }
     static public function password(_u:Userinfo):stdgo.Tuple<String, Bool> {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>);
         return {
             final obj = stdgo._internal.net.url.Url_Userinfo_static_extension.Userinfo_static_extension.password(_u);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function username(_u:Userinfo):String {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>);
         return stdgo._internal.net.url.Url_Userinfo_static_extension.Userinfo_static_extension.username(_u);
     }
 }

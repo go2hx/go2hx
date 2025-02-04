@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.json;
-@:keep @:follow @:using(stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067_static_extension.T_testStringKind___localname___stringKind_47067_static_extension) typedef T_testStringKind___localname___stringKind_47067Pointer = stdgo.Pointer<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067>;

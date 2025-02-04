@@ -14,37 +14,37 @@ final rline : String = stdgo._internal.log.Log_rline.rline;
 final rlongfile : String = stdgo._internal.log.Log_rlongfile.rlongfile;
 final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
 @:structInit @:using(stdgo.log.Log.Logger_static_extension) abstract Logger(stdgo._internal.log.Log_Logger.Logger) from stdgo._internal.log.Log_Logger.Logger to stdgo._internal.log.Log_Logger.Logger {
-    public var _outMu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__outMu():stdgo._internal.sync.Sync_Mutex.Mutex return this._outMu;
-    function set__outMu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _outMu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__outMu():stdgo._internal.sync.Sync_mutex.Mutex return this._outMu;
+    function set__outMu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._outMu = v;
         return v;
     }
-    public var _out(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__out():stdgo._internal.io.Io_Writer.Writer return this._out;
-    function set__out(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _out(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__out():stdgo._internal.io.Io_writer.Writer return this._out;
+    function set__out(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._out = v;
         return v;
     }
-    public var _prefix(get, set) : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>;
-    function get__prefix():stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> return this._prefix;
-    function set__prefix(v:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>):stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString> {
+    public var _prefix(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.GoString>;
+    function get__prefix():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.GoString> return this._prefix;
+    function set__prefix(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.GoString>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.GoString> {
         this._prefix = v;
         return v;
     }
-    public var _flag(get, set) : stdgo._internal.sync.atomic_.Atomic__Int32.Int32;
-    function get__flag():stdgo._internal.sync.atomic_.Atomic__Int32.Int32 return this._flag;
-    function set__flag(v:stdgo._internal.sync.atomic_.Atomic__Int32.Int32):stdgo._internal.sync.atomic_.Atomic__Int32.Int32 {
+    public var _flag(get, set) : stdgo._internal.sync.atomic_.Atomic__int32.Int32;
+    function get__flag():stdgo._internal.sync.atomic_.Atomic__int32.Int32 return this._flag;
+    function set__flag(v:stdgo._internal.sync.atomic_.Atomic__int32.Int32):stdgo._internal.sync.atomic_.Atomic__int32.Int32 {
         this._flag = v;
         return v;
     }
-    public var _isDiscard(get, set) : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_;
-    function get__isDiscard():stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ return this._isDiscard;
-    function set__isDiscard(v:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ {
+    public var _isDiscard(get, set) : stdgo._internal.sync.atomic_.Atomic__bool_.Bool_;
+    function get__isDiscard():stdgo._internal.sync.atomic_.Atomic__bool_.Bool_ return this._isDiscard;
+    function set__isDiscard(v:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_):stdgo._internal.sync.atomic_.Atomic__bool_.Bool_ {
         this._isDiscard = v;
         return v;
     }
-    public function new(?_outMu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_out:stdgo._internal.io.Io_Writer.Writer, ?_prefix:stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo.GoString>, ?_flag:stdgo._internal.sync.atomic_.Atomic__Int32.Int32, ?_isDiscard:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_) this = new stdgo._internal.log.Log_Logger.Logger(_outMu, _out, _prefix, _flag, _isDiscard);
+    public function new(?_outMu:stdgo._internal.sync.Sync_mutex.Mutex, ?_out:stdgo._internal.io.Io_writer.Writer, ?_prefix:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.GoString>, ?_flag:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_isDiscard:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_) this = new stdgo._internal.log.Log_Logger.Logger(_outMu, _out, _prefix, _flag, _isDiscard);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -78,82 +78,82 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
 }
 typedef LoggerPointer = stdgo._internal.log.Log_LoggerPointer.LoggerPointer;
 class Logger_static_extension {
-    static public function writer(_l:Logger):stdgo._internal.io.Io_Writer.Writer {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+    static public function writer(_l:Logger):stdgo._internal.io.Io_writer.Writer {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.writer(_l);
     }
     static public function setPrefix(_l:Logger, _prefix:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _prefix = (_prefix : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setPrefix(_l, _prefix);
     }
     static public function prefix(_l:Logger):String {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.prefix(_l);
     }
     static public function setFlags(_l:Logger, _flag:StdTypes.Int):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _flag = (_flag : stdgo.GoInt);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setFlags(_l, _flag);
     }
     static public function flags(_l:Logger):StdTypes.Int {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.flags(_l);
     }
     static public function panicln(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panicln(_l, ...[for (i in _v) i]);
     }
     static public function panicf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panicf(_l, _format, ...[for (i in _v) i]);
     }
     static public function panic(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.panic(_l, ...[for (i in _v) i]);
     }
     static public function fatalln(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatalln(_l, ...[for (i in _v) i]);
     }
     static public function fatalf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatalf(_l, _format, ...[for (i in _v) i]);
     }
     static public function fatal(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.fatal(_l, ...[for (i in _v) i]);
     }
     static public function println(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.println(_l, ...[for (i in _v) i]);
     }
     static public function printf(_l:Logger, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.printf(_l, _format, ...[for (i in _v) i]);
     }
     static public function print(_l:Logger, _v:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.print(_l, ...[for (i in _v) i]);
     }
     static public function _output(_l:Logger, _pc:stdgo.GoUIntptr, _calldepth:StdTypes.Int, _appendOutput:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _pc = (_pc : stdgo.GoUIntptr);
         final _calldepth = (_calldepth : stdgo.GoInt);
         final _appendOutput = _appendOutput;
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension._output(_l, _pc, _calldepth, _appendOutput);
     }
     static public function output(_l:Logger, _calldepth:StdTypes.Int, _s:String):stdgo.Error {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _calldepth = (_calldepth : stdgo.GoInt);
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.output(_l, _calldepth, _s);
     }
-    static public function setOutput(_l:Logger, _w:stdgo._internal.io.Io_Writer.Writer):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>);
+    static public function setOutput(_l:Logger, _w:stdgo._internal.io.Io_writer.Writer):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_Logger_static_extension.Logger_static_extension.setOutput(_l, _w);
     }
 }
@@ -191,7 +191,7 @@ class Log {
         after the log header if the Lmsgprefix flag is provided.
         The flag argument defines the logging properties.
     **/
-    static public inline function new_(_out:stdgo._internal.io.Io_Writer.Writer, _prefix:String, _flag:StdTypes.Int):Logger {
+    static public inline function new_(_out:stdgo._internal.io.Io_writer.Writer, _prefix:String, _flag:StdTypes.Int):Logger {
         final _prefix = (_prefix : stdgo.GoString);
         final _flag = (_flag : stdgo.GoInt);
         return stdgo._internal.log.Log_new_.new_(_out, _prefix, _flag);
@@ -205,7 +205,7 @@ class Log {
     /**
         SetOutput sets the output destination for the standard logger.
     **/
-    static public inline function setOutput(_w:stdgo._internal.io.Io_Writer.Writer):Void {
+    static public inline function setOutput(_w:stdgo._internal.io.Io_writer.Writer):Void {
         stdgo._internal.log.Log_setOutput.setOutput(_w);
     }
     /**
@@ -239,7 +239,7 @@ class Log {
     /**
         Writer returns the output destination for the standard logger.
     **/
-    static public inline function writer():stdgo._internal.io.Io_Writer.Writer {
+    static public inline function writer():stdgo._internal.io.Io_writer.Writer {
         return stdgo._internal.log.Log_writer.writer();
     }
     /**
@@ -316,60 +316,60 @@ class Log {
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.log.Log_output.output(_calldepth, _s);
     }
-    static public inline function testDefault(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDefault(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testDefault.testDefault(_t);
     }
-    static public inline function testAll(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testAll(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testAll.testAll(_t);
     }
-    static public inline function testOutput(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testOutput(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testOutput.testOutput(_t);
     }
-    static public inline function testNonNewLogger(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNonNewLogger(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testNonNewLogger.testNonNewLogger(_t);
     }
-    static public inline function testOutputRace(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testOutputRace(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testOutputRace.testOutputRace(_t);
     }
-    static public inline function testFlagAndPrefixSetting(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testFlagAndPrefixSetting(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testFlagAndPrefixSetting.testFlagAndPrefixSetting(_t);
     }
-    static public inline function testUTCFlag(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testUTCFlag(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testUTCFlag.testUTCFlag(_t);
     }
-    static public inline function testEmptyPrintCreatesLine(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testEmptyPrintCreatesLine(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testEmptyPrintCreatesLine.testEmptyPrintCreatesLine(_t);
     }
-    static public inline function testDiscard(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDiscard(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.log.Log_testDiscard.testDiscard(_t);
     }
-    static public inline function benchmarkItoa(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkItoa(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.log.Log_benchmarkItoa.benchmarkItoa(_b);
     }
-    static public inline function benchmarkPrintln(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkPrintln(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.log.Log_benchmarkPrintln.benchmarkPrintln(_b);
     }
-    static public inline function benchmarkPrintlnNoFlags(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkPrintlnNoFlags(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.log.Log_benchmarkPrintlnNoFlags.benchmarkPrintlnNoFlags(_b);
     }
-    static public inline function benchmarkConcurrent(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkConcurrent(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.log.Log_benchmarkConcurrent.benchmarkConcurrent(_b);
     }
-    static public inline function benchmarkDiscard(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDiscard(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.log.Log_benchmarkDiscard.benchmarkDiscard(_b);
     }
 }

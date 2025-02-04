@@ -1,36 +1,36 @@
 package stdgo.crypto.cipher;
 class T_cbcEncAble_static_extension {
-    static public function newCBCEncrypter(t:stdgo._internal.crypto.cipher.Cipher_T_cbcEncAble.T_cbcEncAble, _iv:Array<std.UInt>):BlockMode {
+    static public function newCBCEncrypter(t:stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble, _iv:Array<std.UInt>):BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_T_cbcEncAble_static_extension.T_cbcEncAble_static_extension.newCBCEncrypter(t, _iv);
     }
 }
 typedef T_cbcEncAble = stdgo._internal.crypto.cipher.Cipher_T_cbcEncAble.T_cbcEncAble;
 class T_cbcDecAble_static_extension {
-    static public function newCBCDecrypter(t:stdgo._internal.crypto.cipher.Cipher_T_cbcDecAble.T_cbcDecAble, _iv:Array<std.UInt>):BlockMode {
+    static public function newCBCDecrypter(t:stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble, _iv:Array<std.UInt>):BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_T_cbcDecAble_static_extension.T_cbcDecAble_static_extension.newCBCDecrypter(t, _iv);
     }
 }
 typedef T_cbcDecAble = stdgo._internal.crypto.cipher.Cipher_T_cbcDecAble.T_cbcDecAble;
 class Block_static_extension {
-    static public function decrypt(t:stdgo._internal.crypto.cipher.Cipher_Block.Block, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function decrypt(t:stdgo._internal.crypto.cipher.Cipher_block.Block, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_Block_static_extension.Block_static_extension.decrypt(t, _dst, _src);
     }
-    static public function encrypt(t:stdgo._internal.crypto.cipher.Cipher_Block.Block, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function encrypt(t:stdgo._internal.crypto.cipher.Cipher_block.Block, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_Block_static_extension.Block_static_extension.encrypt(t, _dst, _src);
     }
-    static public function blockSize(t:stdgo._internal.crypto.cipher.Cipher_Block.Block):StdTypes.Int {
+    static public function blockSize(t:stdgo._internal.crypto.cipher.Cipher_block.Block):StdTypes.Int {
         return stdgo._internal.crypto.cipher.Cipher_Block_static_extension.Block_static_extension.blockSize(t);
     }
 }
 typedef Block = stdgo._internal.crypto.cipher.Cipher_Block.Block;
 class Stream_static_extension {
-    static public function xORKeyStream(t:stdgo._internal.crypto.cipher.Cipher_Stream.Stream, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function xORKeyStream(t:stdgo._internal.crypto.cipher.Cipher_stream.Stream, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_Stream_static_extension.Stream_static_extension.xORKeyStream(t, _dst, _src);
@@ -38,25 +38,25 @@ class Stream_static_extension {
 }
 typedef Stream = stdgo._internal.crypto.cipher.Cipher_Stream.Stream;
 class BlockMode_static_extension {
-    static public function cryptBlocks(t:stdgo._internal.crypto.cipher.Cipher_BlockMode.BlockMode, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
+    static public function cryptBlocks(t:stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_BlockMode_static_extension.BlockMode_static_extension.cryptBlocks(t, _dst, _src);
     }
-    static public function blockSize(t:stdgo._internal.crypto.cipher.Cipher_BlockMode.BlockMode):StdTypes.Int {
+    static public function blockSize(t:stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode):StdTypes.Int {
         return stdgo._internal.crypto.cipher.Cipher_BlockMode_static_extension.BlockMode_static_extension.blockSize(t);
     }
 }
 typedef BlockMode = stdgo._internal.crypto.cipher.Cipher_BlockMode.BlockMode;
 class T_ctrAble_static_extension {
-    static public function newCTR(t:stdgo._internal.crypto.cipher.Cipher_T_ctrAble.T_ctrAble, _iv:Array<std.UInt>):Stream {
+    static public function newCTR(t:stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble, _iv:Array<std.UInt>):Stream {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_T_ctrAble_static_extension.T_ctrAble_static_extension.newCTR(t, _iv);
     }
 }
 typedef T_ctrAble = stdgo._internal.crypto.cipher.Cipher_T_ctrAble.T_ctrAble;
 class AEAD_static_extension {
-    static public function open(t:stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function open(t:stdgo._internal.crypto.cipher.Cipher_aead.AEAD, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ciphertext = ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -66,23 +66,23 @@ class AEAD_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function seal(t:stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _additionalData:Array<std.UInt>):Array<std.UInt> {
+    static public function seal(t:stdgo._internal.crypto.cipher.Cipher_aead.AEAD, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _additionalData:Array<std.UInt>):Array<std.UInt> {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _plaintext = ([for (i in _plaintext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.crypto.cipher.Cipher_AEAD_static_extension.AEAD_static_extension.seal(t, _dst, _nonce, _plaintext, _additionalData)) i];
     }
-    static public function overhead(t:stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD):StdTypes.Int {
+    static public function overhead(t:stdgo._internal.crypto.cipher.Cipher_aead.AEAD):StdTypes.Int {
         return stdgo._internal.crypto.cipher.Cipher_AEAD_static_extension.AEAD_static_extension.overhead(t);
     }
-    static public function nonceSize(t:stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD):StdTypes.Int {
+    static public function nonceSize(t:stdgo._internal.crypto.cipher.Cipher_aead.AEAD):StdTypes.Int {
         return stdgo._internal.crypto.cipher.Cipher_AEAD_static_extension.AEAD_static_extension.nonceSize(t);
     }
 }
 typedef AEAD = stdgo._internal.crypto.cipher.Cipher_AEAD.AEAD;
 class T_gcmAble_static_extension {
-    static public function newGCM(t:stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble, _nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error> {
+    static public function newGCM(t:stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble, _nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error> {
         final _nonceSize = (_nonceSize : stdgo.GoInt);
         final _tagSize = (_tagSize : stdgo.GoInt);
         return {
@@ -224,10 +224,10 @@ typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble;
     public var _productTable(get, set) : haxe.ds.Vector<T_gcmFieldElement>;
     function get__productTable():haxe.ds.Vector<T_gcmFieldElement> return haxe.ds.Vector.fromArrayCopy([for (i in this._productTable) i]);
     function set__productTable(v:haxe.ds.Vector<T_gcmFieldElement>):haxe.ds.Vector<T_gcmFieldElement> {
-        this._productTable = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
+        this._productTable = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement>);
         return v;
     }
-    public function new(?_cipher:Block, ?_nonceSize:StdTypes.Int, ?_tagSize:StdTypes.Int, ?_productTable:haxe.ds.Vector<T_gcmFieldElement>) this = new stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm(_cipher, (_nonceSize : stdgo.GoInt), (_tagSize : stdgo.GoInt), ([for (i in _productTable) i] : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>));
+    public function new(?_cipher:Block, ?_nonceSize:StdTypes.Int, ?_tagSize:StdTypes.Int, ?_productTable:haxe.ds.Vector<T_gcmFieldElement>) this = new stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm(_cipher, (_nonceSize : stdgo.GoInt), (_tagSize : stdgo.GoInt), ([for (i in _productTable) i] : stdgo.GoArray<stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -238,13 +238,13 @@ typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble;
         this.s = v;
         return v;
     }
-    public var r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get_r():stdgo._internal.io.Io_Reader.Reader return this.r;
-    function set_r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get_r():stdgo._internal.io.Io_reader.Reader return this.r;
+    function set_r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this.r = v;
         return v;
     }
-    public function new(?s:Stream, ?r:stdgo._internal.io.Io_Reader.Reader) this = new stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader(s, r);
+    public function new(?s:Stream, ?r:stdgo._internal.io.Io_reader.Reader) this = new stdgo._internal.crypto.cipher.Cipher_StreamReader.StreamReader(s, r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -255,9 +255,9 @@ typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble;
         this.s = v;
         return v;
     }
-    public var w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get_w():stdgo._internal.io.Io_Writer.Writer return this.w;
-    function set_w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get_w():stdgo._internal.io.Io_writer.Writer return this.w;
+    function set_w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this.w = v;
         return v;
     }
@@ -267,7 +267,7 @@ typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_T_gcmAble.T_gcmAble;
         this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?s:Stream, ?w:stdgo._internal.io.Io_Writer.Writer, ?err:stdgo.Error) this = new stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter(s, w, (err : stdgo.Error));
+    public function new(?s:Stream, ?w:stdgo._internal.io.Io_writer.Writer, ?err:stdgo.Error) this = new stdgo._internal.crypto.cipher.Cipher_StreamWriter.StreamWriter(s, w, (err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -309,7 +309,7 @@ class T_cbc_static_extension {
 typedef T_cfbPointer = stdgo._internal.crypto.cipher.Cipher_T_cfbPointer.T_cfbPointer;
 class T_cfb_static_extension {
     static public function xORKeyStream(_x:T_cfb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cfb.T_cfb>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_cfb_static_extension.T_cfb_static_extension.xORKeyStream(_x, _dst, _src);
@@ -318,13 +318,13 @@ class T_cfb_static_extension {
 typedef T_ctrPointer = stdgo._internal.crypto.cipher.Cipher_T_ctrPointer.T_ctrPointer;
 class T_ctr_static_extension {
     static public function xORKeyStream(_x:T_ctr, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ctr.T_ctr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_ctr_static_extension.T_ctr_static_extension.xORKeyStream(_x, _dst, _src);
     }
     static public function _refill(_x:T_ctr):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ctr.T_ctr>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr>);
         stdgo._internal.crypto.cipher.Cipher_T_ctr_static_extension.T_ctr_static_extension._refill(_x);
     }
 }
@@ -335,7 +335,7 @@ class T_gcmFieldElement_static_extension {
 typedef T_gcmPointer = stdgo._internal.crypto.cipher.Cipher_T_gcmPointer.T_gcmPointer;
 class T_gcm_static_extension {
     static public function _auth(_g:T_gcm, _out:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>, _tagMask:haxe.ds.Vector<std.UInt>):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ciphertext = ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -343,37 +343,37 @@ class T_gcm_static_extension {
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._auth(_g, _out, _ciphertext, _additionalData, _tagMask);
     }
     static public function _deriveCounter(_g:T_gcm, _counter:haxe.ds.Vector<std.UInt>, _nonce:Array<std.UInt>):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         final _counter = (_counter : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._deriveCounter(_g, _counter, _nonce);
     }
     static public function _counterCrypt(_g:T_gcm, _out:Array<std.UInt>, _in:Array<std.UInt>, _counter:haxe.ds.Vector<std.UInt>):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _counter = (_counter : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._counterCrypt(_g, _out, _in, _counter);
     }
     static public function _update(_g:T_gcm, _y:T_gcmFieldElement, _data:Array<std.UInt>):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._update(_g, _y, _data);
     }
     static public function _updateBlocks(_g:T_gcm, _y:T_gcmFieldElement, _blocks:Array<std.UInt>):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement>);
         final _blocks = ([for (i in _blocks) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._updateBlocks(_g, _y, _blocks);
     }
     static public function _mul(_g:T_gcm, _y:T_gcmFieldElement):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
-        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
+        final _y = (_y : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement>);
         stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension._mul(_g, _y);
     }
     static public function open(_g:T_gcm, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _data:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ciphertext = ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -384,7 +384,7 @@ class T_gcm_static_extension {
         };
     }
     static public function seal(_g:T_gcm, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _data:Array<std.UInt>):Array<std.UInt> {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _plaintext = ([for (i in _plaintext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -392,11 +392,11 @@ class T_gcm_static_extension {
         return [for (i in stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension.seal(_g, _dst, _nonce, _plaintext, _data)) i];
     }
     static public function overhead(_g:T_gcm):StdTypes.Int {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         return stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension.overhead(_g);
     }
     static public function nonceSize(_g:T_gcm):StdTypes.Int {
-        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>);
         return stdgo._internal.crypto.cipher.Cipher_T_gcm_static_extension.T_gcm_static_extension.nonceSize(_g);
     }
 }
@@ -426,49 +426,49 @@ class StreamWriter_static_extension {
 typedef T_ofbPointer = stdgo._internal.crypto.cipher.Cipher_T_ofbPointer.T_ofbPointer;
 class T_ofb_static_extension {
     static public function xORKeyStream(_x:T_ofb, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ofb.T_ofb>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_ofb_static_extension.T_ofb_static_extension.xORKeyStream(_x, _dst, _src);
     }
     static public function _refill(_x:T_ofb):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ofb.T_ofb>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb>);
         stdgo._internal.crypto.cipher.Cipher_T_ofb_static_extension.T_ofb_static_extension._refill(_x);
     }
 }
 typedef T_cbcEncrypterPointer = stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypterPointer.T_cbcEncrypterPointer;
 class T_cbcEncrypter_static_extension {
     static public function setIV(_x:T_cbcEncrypter, _iv:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcencrypter.T_cbcEncrypter>);
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter_static_extension.T_cbcEncrypter_static_extension.setIV(_x, _iv);
     }
     static public function cryptBlocks(_x:T_cbcEncrypter, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcencrypter.T_cbcEncrypter>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter_static_extension.T_cbcEncrypter_static_extension.cryptBlocks(_x, _dst, _src);
     }
     static public function blockSize(_x:T_cbcEncrypter):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcencrypter.T_cbcEncrypter>);
         return stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter_static_extension.T_cbcEncrypter_static_extension.blockSize(_x);
     }
 }
 typedef T_cbcDecrypterPointer = stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypterPointer.T_cbcDecrypterPointer;
 class T_cbcDecrypter_static_extension {
     static public function setIV(_x:T_cbcDecrypter, _iv:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcdecrypter.T_cbcDecrypter>);
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter_static_extension.T_cbcDecrypter_static_extension.setIV(_x, _iv);
     }
     static public function cryptBlocks(_x:T_cbcDecrypter, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcdecrypter.T_cbcDecrypter>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter_static_extension.T_cbcDecrypter_static_extension.cryptBlocks(_x, _dst, _src);
     }
     static public function blockSize(_x:T_cbcDecrypter):StdTypes.Int {
-        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>);
+        final _x = (_x : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_cbcdecrypter.T_cbcDecrypter>);
         return stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter_static_extension.T_cbcDecrypter_static_extension.blockSize(_x);
     }
 }

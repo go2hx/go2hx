@@ -2,7 +2,7 @@ package stdgo.internal.platform;
 var list(get, set) : Array<OSArch>;
 private function get_list():Array<OSArch> return [for (i in stdgo._internal.internal.platform.Platform_list.list) i];
 private function set_list(v:Array<OSArch>):Array<OSArch> {
-        stdgo._internal.internal.platform.Platform_list.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform_OSArch.OSArch>);
+        stdgo._internal.internal.platform.Platform_list.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform_osarch.OSArch>);
         return v;
     }
 @:structInit @:using(stdgo.internal.platform.Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_OSArch.OSArch) from stdgo._internal.internal.platform.Platform_OSArch.OSArch to stdgo._internal.internal.platform.Platform_OSArch.OSArch {

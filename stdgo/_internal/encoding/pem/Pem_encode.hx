@@ -1,12 +1,12 @@
 package stdgo._internal.encoding.pem;
-function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>):stdgo.Error {
+function encode(_out:stdgo._internal.io.Io_writer.Writer, _b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>):stdgo.Error {
         for (_k => _ in (@:checkr _b ?? throw "null pointer dereference").headers) {
             if (stdgo._internal.strings.Strings_contains.contains(_k?.__copy__(), (":" : stdgo.GoString))) {
                 return stdgo._internal.errors.Errors_new_.new_(("pem: cannot encode a header key that contains a colon" : stdgo.GoString));
             };
         };
         {
-            var __tmp__ = _out.write((stdgo._internal.encoding.pem.Pem__pemStart._pemStart.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _out.write((stdgo._internal.encoding.pem.Pem__pemstart._pemStart.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -30,7 +30,7 @@ function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._in
             };
             if (_hasProcType) {
                 {
-                    var _err = (stdgo._internal.encoding.pem.Pem__writeHeader._writeHeader(_out, ("Proc-Type" : stdgo.GoString), ((@:checkr _b ?? throw "null pointer dereference").headers[("Proc-Type" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__()) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.pem.Pem__writeheader._writeHeader(_out, ("Proc-Type" : stdgo.GoString), ((@:checkr _b ?? throw "null pointer dereference").headers[("Proc-Type" : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -39,7 +39,7 @@ function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._in
             stdgo._internal.sort.Sort_strings.strings(_h);
             for (__2 => _k in _h) {
                 {
-                    var _err = (stdgo._internal.encoding.pem.Pem__writeHeader._writeHeader(_out, _k?.__copy__(), ((@:checkr _b ?? throw "null pointer dereference").headers[_k] ?? ("" : stdgo.GoString))?.__copy__()) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.pem.Pem__writeheader._writeHeader(_out, _k?.__copy__(), ((@:checkr _b ?? throw "null pointer dereference").headers[_k] ?? ("" : stdgo.GoString))?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -52,9 +52,9 @@ function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._in
                 };
             };
         };
-        var _breaker:stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker = ({} : stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker);
+        var _breaker:stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker = ({} : stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker);
         _breaker._out = _out;
-        var _b64 = (stdgo._internal.encoding.base64.Base64_newEncoder.newEncoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(_breaker) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
+        var _b64 = (stdgo._internal.encoding.base64.Base64_newencoder.newEncoder(stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(_breaker) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker>))) : stdgo._internal.io.Io_writecloser.WriteCloser);
         {
             var __tmp__ = _b64.write((@:checkr _b ?? throw "null pointer dereference").bytes), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -64,7 +64,7 @@ function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._in
         _b64.close();
         @:check2 _breaker.close();
         {
-            var __tmp__ = _out.write((stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __3:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _out.write((stdgo._internal.encoding.pem.Pem__pemend._pemEnd.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __3:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

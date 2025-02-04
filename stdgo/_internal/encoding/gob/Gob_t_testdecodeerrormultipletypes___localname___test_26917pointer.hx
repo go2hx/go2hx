@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testdecodeerrormultipletypes___localname___test_26917_static_extension.T_testDecodeErrorMultipleTypes___localname___Test_26917_static_extension) typedef T_testDecodeErrorMultipleTypes___localname___Test_26917Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testdecodeerrormultipletypes___localname___test_26917.T_testDecodeErrorMultipleTypes___localname___Test_26917>;

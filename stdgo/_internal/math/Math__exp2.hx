@@ -1,9 +1,9 @@
 package stdgo._internal.math;
 function _exp2(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isInf.isInf(_x, (1 : stdgo.GoInt)) : Bool)) {
+        if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isinf.isInf(_x, (1 : stdgo.GoInt)) : Bool)) {
             return _x;
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (-1 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (-1 : stdgo.GoInt))) {
             return (0 : stdgo.GoFloat64);
         } else if ((_x > (1023.9999999999999 : stdgo.GoFloat64) : Bool)) {
             return stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));

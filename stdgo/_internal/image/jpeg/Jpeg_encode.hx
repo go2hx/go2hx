@@ -1,20 +1,20 @@
 package stdgo._internal.image.jpeg;
-function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image.Image_Image.Image, _o:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_Options.Options>):stdgo.Error {
-        var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
+function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image, _o:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_options.Options>):stdgo.Error {
+        var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_rectangle.Rectangle);
         if (((_b.dx() >= (65536 : stdgo.GoInt) : Bool) || (_b.dy() >= (65536 : stdgo.GoInt) : Bool) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("jpeg: image is too large to encode" : stdgo.GoString));
         };
-        var _e:stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder = ({} : stdgo._internal.image.jpeg.Jpeg_T_encoder.T_encoder);
+        var _e:stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder = ({} : stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder);
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer)) : stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer), _1 : true };
+                { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer)) : stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer), _1 : true };
             } catch(_) {
-                { _0 : (null : stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer), _1 : false };
+                { _0 : (null : stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer), _1 : false };
             }, _ww = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 _e._w = _ww;
             } else {
-                _e._w = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newWriter.newWriter(_w));
+                _e._w = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newwriter.newWriter(_w));
             };
         };
         var _quality = (75 : stdgo.GoInt);
@@ -34,7 +34,7 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
         };
         for (_i => _ in _e._quant) {
             for (_j => _ in _e._quant[(_i : stdgo.GoInt)]) {
-                var _x = (stdgo._internal.image.jpeg.Jpeg__unscaledQuant._unscaledQuant[(_i : stdgo.GoInt)][(_j : stdgo.GoInt)] : stdgo.GoInt);
+                var _x = (stdgo._internal.image.jpeg.Jpeg__unscaledquant._unscaledQuant[(_i : stdgo.GoInt)][(_j : stdgo.GoInt)] : stdgo.GoInt);
                 _x = ((((_x * _scale : stdgo.GoInt) + (50 : stdgo.GoInt) : stdgo.GoInt)) / (100 : stdgo.GoInt) : stdgo.GoInt);
                 if ((_x < (1 : stdgo.GoInt) : Bool)) {
                     _x = (1 : stdgo.GoInt);
@@ -47,7 +47,7 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
         var _nComponent = (3 : stdgo.GoInt);
         {
             final __type__ = _m;
-            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_Gray.Gray>))) {
+            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
                 _nComponent = (1 : stdgo.GoInt);
             };
         };

@@ -2,7 +2,7 @@ package stdgo._internal.math;
 function _ldexp(_frac:stdgo.GoFloat64, _exp:stdgo.GoInt):stdgo.GoFloat64 {
         if (_frac == (0 : stdgo.GoFloat64)) {
             return _frac;
-        } else if ((stdgo._internal.math.Math_isInf.isInf(_frac, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_frac) : Bool)) {
+        } else if ((stdgo._internal.math.Math_isinf.isInf(_frac, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isnan.isNaN(_frac) : Bool)) {
             return _frac;
         };
         var __tmp__ = stdgo._internal.math.Math__normalize._normalize(_frac), _frac:stdgo.GoFloat64 = __tmp__._0, _e:stdgo.GoInt = __tmp__._1;

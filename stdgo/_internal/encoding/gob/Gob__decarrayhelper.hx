@@ -1,0 +1,22 @@
+package stdgo._internal.encoding.gob;
+var _decArrayHelper : stdgo.GoMap<stdgo._internal.reflect.Reflect_kind.Kind, stdgo._internal.encoding.gob.Gob_t_dechelper.T_decHelper> = ({
+        final x = new stdgo.GoMap.GoIntMap<stdgo._internal.encoding.gob.Gob_t_dechelper.T_decHelper>();
+        x.__defaultValue__ = () -> (null : stdgo._internal.encoding.gob.Gob_t_dechelper.T_decHelper);
+        x.set((1u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decboolarray._decBoolArray);
+x.set((15u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__deccomplex64array._decComplex64Array);
+x.set((16u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__deccomplex128array._decComplex128Array);
+x.set((13u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decfloat32array._decFloat32Array);
+x.set((14u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decfloat64array._decFloat64Array);
+x.set((2u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decintarray._decIntArray);
+x.set((4u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decint16array._decInt16Array);
+x.set((5u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decint32array._decInt32Array);
+x.set((6u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decint64array._decInt64Array);
+x.set((3u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decint8array._decInt8Array);
+x.set((24u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decstringarray._decStringArray);
+x.set((7u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decuintarray._decUintArray);
+x.set((9u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decuint16array._decUint16Array);
+x.set((10u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decuint32array._decUint32Array);
+x.set((11u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decuint64array._decUint64Array);
+x.set((12u32 : stdgo._internal.reflect.Reflect_kind.Kind), stdgo._internal.encoding.gob.Gob__decuintptrarray._decUintptrArray);
+        x;
+    } : stdgo.GoMap<stdgo._internal.reflect.Reflect_kind.Kind, stdgo._internal.encoding.gob.Gob_t_dechelper.T_decHelper>);

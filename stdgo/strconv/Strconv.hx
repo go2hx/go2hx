@@ -12,15 +12,15 @@ private function set_errSyntax(v:stdgo.Error):stdgo.Error {
         stdgo._internal.strconv.Strconv_errSyntax.errSyntax = (v : stdgo.Error);
         return v;
     }
-var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>;
-private function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitSizeError.bitSizeError(_0, _1, _2);
-private function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError> {
+var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>;
+private function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitSizeError.bitSizeError(_0, _1, _2);
+private function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> {
         stdgo._internal.strconv.Strconv_bitSizeError.bitSizeError = v;
         return v;
     }
-var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>;
-private function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_baseError.baseError(_0, _1, _2);
-private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError> {
+var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>;
+private function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_baseError.baseError(_0, _1, _2);
+private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> {
         stdgo._internal.strconv.Strconv_baseError.baseError = v;
         return v;
     }
@@ -148,59 +148,59 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
 typedef NumErrorPointer = stdgo._internal.strconv.Strconv_NumErrorPointer.NumErrorPointer;
 class NumError_static_extension {
     static public function unwrap(_e:NumError):stdgo.Error {
-        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>);
         return stdgo._internal.strconv.Strconv_NumError_static_extension.NumError_static_extension.unwrap(_e);
     }
     static public function error(_e:NumError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>);
         return stdgo._internal.strconv.Strconv_NumError_static_extension.NumError_static_extension.error(_e);
     }
 }
 typedef T_decimalPointer = stdgo._internal.strconv.Strconv_T_decimalPointer.T_decimalPointer;
 class T_decimal_static_extension {
     static public function roundedInteger(_a:T_decimal):haxe.UInt64 {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundedInteger(_a);
     }
     static public function roundUp(_a:T_decimal, _nd:StdTypes.Int):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundUp(_a, _nd);
     }
     static public function roundDown(_a:T_decimal, _nd:StdTypes.Int):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.roundDown(_a, _nd);
     }
     static public function round(_a:T_decimal, _nd:StdTypes.Int):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _nd = (_nd : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.round(_a, _nd);
     }
     static public function shift(_a:T_decimal, _k:StdTypes.Int):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _k = (_k : stdgo.GoInt);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.shift(_a, _k);
     }
     static public function assign(_a:T_decimal, _v:haxe.UInt64):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _v = (_v : stdgo.GoUInt64);
         stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.assign(_a, _v);
     }
     static public function string(_a:T_decimal):String {
-        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension.string(_a);
     }
     static public function _floatBits(_d:T_decimal, _flt:T_floatInfo):stdgo.Tuple<haxe.UInt64, Bool> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
-        final _flt = (_flt : stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
+        final _flt = (_flt : stdgo.Ref<stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo>);
         return {
             final obj = stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension._floatBits(_d, _flt);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _set(_b:T_decimal, _s:String):Bool {
-        final _b = (_b : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.strconv.Strconv_T_decimal_static_extension.T_decimal_static_extension._set(_b, _s);
     }

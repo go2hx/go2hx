@@ -1,13 +1,13 @@
 package stdgo._internal.runtime.pprof;
-function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>> {
+function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
+            stdgo._internal.runtime.pprof.Pprof__lockprofiles._lockProfiles();
             {
-                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockprofiles._unlockProfiles;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var _all = (new stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>);
+            var _all = (new stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>);
             for (__0 => _p in stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m) {
                 _all = (_all.__append__(_p));
             };
@@ -33,7 +33,7 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Pr
                     stdgo.Go.recover_exception = null;
                     throw e;
                 };
-                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>);
+                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>);
             };
         } catch(__exception__) {
             {
@@ -72,7 +72,7 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Pr
                     stdgo.Go.recover_exception = null;
                     throw e;
                 };
-                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>);
+                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>>);
             };
         };
     }

@@ -1,0 +1,2 @@
+package stdgo._internal.runtime.pprof;
+var _goroutineProfile : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile> = (stdgo.Go.setRef(({ _name : ("goroutine" : stdgo.GoString), _count : stdgo._internal.runtime.pprof.Pprof__countgoroutine._countGoroutine, _write : stdgo._internal.runtime.pprof.Pprof__writegoroutine._writeGoroutine } : stdgo._internal.runtime.pprof.Pprof_profile.Profile)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);

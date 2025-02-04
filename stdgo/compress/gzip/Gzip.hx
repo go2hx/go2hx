@@ -29,9 +29,9 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this.extra = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var modTime(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_modTime():stdgo._internal.time.Time_Time.Time return this.modTime;
-    function set_modTime(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var modTime(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_modTime():stdgo._internal.time.Time_time.Time return this.modTime;
+    function set_modTime(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.modTime = v;
         return v;
     }
@@ -47,7 +47,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this.oS = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?comment:String, ?extra:Array<std.UInt>, ?modTime:stdgo._internal.time.Time_Time.Time, ?name:String, ?oS:std.UInt) this = new stdgo._internal.compress.gzip.Gzip_Header.Header((comment : stdgo.GoString), ([for (i in extra) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), modTime, (name : stdgo.GoString), (oS : stdgo.GoUInt8));
+    public function new(?comment:String, ?extra:Array<std.UInt>, ?modTime:stdgo._internal.time.Time_time.Time, ?name:String, ?oS:std.UInt) this = new stdgo._internal.compress.gzip.Gzip_Header.Header((comment : stdgo.GoString), ([for (i in extra) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), modTime, (name : stdgo.GoString), (oS : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -58,15 +58,15 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this.header = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.compress.flate.Flate_Reader.Reader;
-    function get__r():stdgo._internal.compress.flate.Flate_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.compress.flate.Flate_Reader.Reader):stdgo._internal.compress.flate.Flate_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.compress.flate.Flate_reader.Reader;
+    function get__r():stdgo._internal.compress.flate.Flate_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.compress.flate.Flate_reader.Reader):stdgo._internal.compress.flate.Flate_reader.Reader {
         this._r = v;
         return v;
     }
-    public var _decompressor(get, set) : stdgo._internal.io.Io_ReadCloser.ReadCloser;
-    function get__decompressor():stdgo._internal.io.Io_ReadCloser.ReadCloser return this._decompressor;
-    function set__decompressor(v:stdgo._internal.io.Io_ReadCloser.ReadCloser):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    public var _decompressor(get, set) : stdgo._internal.io.Io_readcloser.ReadCloser;
+    function get__decompressor():stdgo._internal.io.Io_readcloser.ReadCloser return this._decompressor;
+    function set__decompressor(v:stdgo._internal.io.Io_readcloser.ReadCloser):stdgo._internal.io.Io_readcloser.ReadCloser {
         this._decompressor = v;
         return v;
     }
@@ -100,7 +100,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this._multistream = v;
         return v;
     }
-    public function new(?header:Header, ?_r:stdgo._internal.compress.flate.Flate_Reader.Reader, ?_decompressor:stdgo._internal.io.Io_ReadCloser.ReadCloser, ?_digest:std.UInt, ?_size:std.UInt, ?_buf:haxe.ds.Vector<std.UInt>, ?_err:stdgo.Error, ?_multistream:Bool) this = new stdgo._internal.compress.gzip.Gzip_Reader.Reader(header, _r, _decompressor, (_digest : stdgo.GoUInt32), (_size : stdgo.GoUInt32), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_err : stdgo.Error), _multistream);
+    public function new(?header:Header, ?_r:stdgo._internal.compress.flate.Flate_reader.Reader, ?_decompressor:stdgo._internal.io.Io_readcloser.ReadCloser, ?_digest:std.UInt, ?_size:std.UInt, ?_buf:haxe.ds.Vector<std.UInt>, ?_err:stdgo.Error, ?_multistream:Bool) this = new stdgo._internal.compress.gzip.Gzip_Reader.Reader(header, _r, _decompressor, (_digest : stdgo.GoUInt32), (_size : stdgo.GoUInt32), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_err : stdgo.Error), _multistream);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -111,9 +111,9 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this.header = v;
         return v;
     }
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
@@ -129,10 +129,10 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this._wroteHeader = v;
         return v;
     }
-    public var _compressor(get, set) : stdgo._internal.compress.flate.Flate_Writer.Writer;
-    function get__compressor():stdgo._internal.compress.flate.Flate_Writer.Writer return this._compressor;
-    function set__compressor(v:stdgo._internal.compress.flate.Flate_Writer.Writer):stdgo._internal.compress.flate.Flate_Writer.Writer {
-        this._compressor = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>);
+    public var _compressor(get, set) : stdgo._internal.compress.flate.Flate_writer.Writer;
+    function get__compressor():stdgo._internal.compress.flate.Flate_writer.Writer return this._compressor;
+    function set__compressor(v:stdgo._internal.compress.flate.Flate_writer.Writer):stdgo._internal.compress.flate.Flate_writer.Writer {
+        this._compressor = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>);
         return v;
     }
     public var _digest(get, set) : std.UInt;
@@ -165,7 +165,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?header:Header, ?_w:stdgo._internal.io.Io_Writer.Writer, ?_level:StdTypes.Int, ?_wroteHeader:Bool, ?_compressor:stdgo._internal.compress.flate.Flate_Writer.Writer, ?_digest:std.UInt, ?_size:std.UInt, ?_closed:Bool, ?_buf:haxe.ds.Vector<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.compress.gzip.Gzip_Writer.Writer(header, _w, (_level : stdgo.GoInt), _wroteHeader, (_compressor : stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>), (_digest : stdgo.GoUInt32), (_size : stdgo.GoUInt32), _closed, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_err : stdgo.Error));
+    public function new(?header:Header, ?_w:stdgo._internal.io.Io_writer.Writer, ?_level:StdTypes.Int, ?_wroteHeader:Bool, ?_compressor:stdgo._internal.compress.flate.Flate_writer.Writer, ?_digest:std.UInt, ?_size:std.UInt, ?_closed:Bool, ?_buf:haxe.ds.Vector<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.compress.gzip.Gzip_Writer.Writer(header, _w, (_level : stdgo.GoInt), _wroteHeader, (_compressor : stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer>), (_digest : stdgo.GoUInt32), (_size : stdgo.GoUInt32), _closed, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -176,11 +176,11 @@ class Header_static_extension {
 typedef ReaderPointer = stdgo._internal.compress.gzip.Gzip_ReaderPointer.ReaderPointer;
 class Reader_static_extension {
     static public function close(_z:Reader):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         return stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.close(_z);
     }
     static public function read(_z:Reader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.read(_z, _p);
@@ -188,40 +188,40 @@ class Reader_static_extension {
         };
     }
     static public function _readHeader(_z:Reader):stdgo.Tuple<Header, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension._readHeader(_z);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readString(_z:Reader):stdgo.Tuple<String, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension._readString(_z);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function multistream(_z:Reader, _ok:Bool):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.multistream(_z, _ok);
     }
-    static public function reset(_z:Reader, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>);
+    static public function reset(_z:Reader, _r:stdgo._internal.io.Io_reader.Reader):stdgo.Error {
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_reader.Reader>);
         return stdgo._internal.compress.gzip.Gzip_Reader_static_extension.Reader_static_extension.reset(_z, _r);
     }
 }
 typedef WriterPointer = stdgo._internal.compress.gzip.Gzip_WriterPointer.WriterPointer;
 class Writer_static_extension {
     static public function close(_z:Writer):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         return stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension.close(_z);
     }
     static public function flush(_z:Writer):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         return stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension.flush(_z);
     }
     static public function write(_z:Writer, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension.write(_z, _p);
@@ -229,21 +229,21 @@ class Writer_static_extension {
         };
     }
     static public function _writeString(_z:Writer, _s:String):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension._writeString(_z, _s);
     }
     static public function _writeBytes(_z:Writer, _b:Array<std.UInt>):stdgo.Error {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension._writeBytes(_z, _b);
     }
-    static public function reset(_z:Writer, _w:stdgo._internal.io.Io_Writer.Writer):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+    static public function reset(_z:Writer, _w:stdgo._internal.io.Io_writer.Writer):Void {
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension.reset(_z, _w);
     }
-    static public function _init(_z:Writer, _w:stdgo._internal.io.Io_Writer.Writer, _level:StdTypes.Int):Void {
-        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Writer.Writer>);
+    static public function _init(_z:Writer, _w:stdgo._internal.io.Io_writer.Writer, _level:StdTypes.Int):Void {
+        final _z = (_z : stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>);
         final _level = (_level : stdgo.GoInt);
         stdgo._internal.compress.gzip.Gzip_Writer_static_extension.Writer_static_extension._init(_z, _w, _level);
     }
@@ -262,7 +262,7 @@ class Gzip {
         
         The Reader.Header fields will be valid in the Reader returned.
     **/
-    static public inline function newReader(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<Reader, stdgo.Error> {
+    static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<Reader, stdgo.Error> {
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_newReader.newReader(_r);
             { _0 : obj._0, _1 : obj._1 };
@@ -278,7 +278,7 @@ class Gzip {
         Callers that wish to set the fields in Writer.Header must do so before
         the first call to Write, Flush, or Close.
     **/
-    static public inline function newWriter(_w:stdgo._internal.io.Io_Writer.Writer):Writer {
+    static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer):Writer {
         return stdgo._internal.compress.gzip.Gzip_newWriter.newWriter(_w);
     }
     /**
@@ -289,7 +289,7 @@ class Gzip {
         or any integer value between BestSpeed and BestCompression inclusive.
         The error returned will be nil if the level is valid.
     **/
-    static public inline function newWriterLevel(_w:stdgo._internal.io.Io_Writer.Writer, _level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
+    static public inline function newWriterLevel(_w:stdgo._internal.io.Io_writer.Writer, _level:StdTypes.Int):stdgo.Tuple<Writer, stdgo.Error> {
         final _level = (_level : stdgo.GoInt);
         return {
             final obj = stdgo._internal.compress.gzip.Gzip_newWriterLevel.newWriterLevel(_w, _level);

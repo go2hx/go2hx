@@ -1,5 +1,5 @@
 package stdgo._internal.image.jpeg;
-function _scale(_dst:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>, _src:stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>):Void {
+function _scale(_dst:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _src:stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>>):Void {
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (4 : stdgo.GoInt) : Bool)) {

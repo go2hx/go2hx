@@ -543,7 +543,7 @@ class Metrics {
         as KindBad to indicate that the name is unknown.
     **/
     static public inline function read(_m:Array<Sample>):Void {
-        final _m = ([for (i in _m) i] : stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_Sample.Sample>);
+        final _m = ([for (i in _m) i] : stdgo.Slice<stdgo._internal.runtime.metrics.Metrics_sample.Sample>);
         stdgo._internal.runtime.metrics.Metrics_read.read(_m);
     }
 }

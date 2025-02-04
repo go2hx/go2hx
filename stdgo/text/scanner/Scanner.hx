@@ -47,9 +47,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_goWhites
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.text.scanner.Scanner.Scanner_static_extension) abstract Scanner_(stdgo._internal.text.scanner.Scanner_Scanner.Scanner) from stdgo._internal.text.scanner.Scanner_Scanner.Scanner to stdgo._internal.text.scanner.Scanner_Scanner.Scanner {
-    public var _src(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__src():stdgo._internal.io.Io_Reader.Reader return this._src;
-    function set__src(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _src(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__src():stdgo._internal.io.Io_reader.Reader return this._src;
+    function set__src(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._src = v;
         return v;
     }
@@ -101,9 +101,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_goWhites
         this._lastCharLen = (v : stdgo.GoInt);
         return v;
     }
-    public var _tokBuf(get, set) : stdgo._internal.bytes.Bytes_Buffer.Buffer;
-    function get__tokBuf():stdgo._internal.bytes.Bytes_Buffer.Buffer return this._tokBuf;
-    function set__tokBuf(v:stdgo._internal.bytes.Bytes_Buffer.Buffer):stdgo._internal.bytes.Bytes_Buffer.Buffer {
+    public var _tokBuf(get, set) : stdgo._internal.bytes.Bytes_buffer.Buffer;
+    function get__tokBuf():stdgo._internal.bytes.Bytes_buffer.Buffer return this._tokBuf;
+    function set__tokBuf(v:stdgo._internal.bytes.Bytes_buffer.Buffer):stdgo._internal.bytes.Bytes_buffer.Buffer {
         this._tokBuf = v;
         return v;
     }
@@ -125,9 +125,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_goWhites
         this._ch = (v : stdgo.GoInt32);
         return v;
     }
-    public var error(get, set) : (stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, stdgo.GoString) -> Void;
-    function get_error():(stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, stdgo.GoString) -> Void return (_0, _1) -> this.error(_0, _1);
-    function set_error(v:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, stdgo.GoString) -> Void):(stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, stdgo.GoString) -> Void {
+    public var error(get, set) : (stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void;
+    function get_error():(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void return (_0, _1) -> this.error(_0, _1);
+    function set_error(v:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void):(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void {
         this.error = v;
         return v;
     }
@@ -161,7 +161,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_goWhites
         this.position = v;
         return v;
     }
-    public function new(?_src:stdgo._internal.io.Io_Reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_Buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_Scanner.Scanner(
+    public function new(?_src:stdgo._internal.io.Io_reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_Scanner.Scanner(
 _src,
 ([for (i in _srcBuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 (_srcPos : stdgo.GoInt),
@@ -240,56 +240,56 @@ class Position_static_extension {
         return stdgo._internal.text.scanner.Scanner_Position_static_extension.Position_static_extension.string(_pos);
     }
     static public function isValid(_pos:Position):Bool {
-        final _pos = (_pos : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Position.Position>);
+        final _pos = (_pos : stdgo.Ref<stdgo._internal.text.scanner.Scanner_position.Position>);
         return stdgo._internal.text.scanner.Scanner_Position_static_extension.Position_static_extension.isValid(_pos);
     }
 }
 typedef ScannerPointer = stdgo._internal.text.scanner.Scanner_ScannerPointer.ScannerPointer;
 class Scanner_static_extension {
     static public function tokenText(_s:Scanner_):String {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.tokenText(_s);
     }
     static public function pos(_s:Scanner_):Position {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.pos(_s);
     }
     static public function scan(_s:Scanner_):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.scan(_s);
     }
     static public function _scanComment(_s:Scanner_, _ch:StdTypes.Int):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _ch = (_ch : stdgo.GoInt32);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanComment(_s, _ch);
     }
     static public function _scanChar(_s:Scanner_):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanChar(_s);
     }
     static public function _scanRawString(_s:Scanner_):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanRawString(_s);
     }
     static public function _scanString(_s:Scanner_, _quote:StdTypes.Int):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _quote = (_quote : stdgo.GoInt32);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanString(_s, _quote);
     }
     static public function _scanEscape(_s:Scanner_, _quote:StdTypes.Int):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _quote = (_quote : stdgo.GoInt32);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanEscape(_s, _quote);
     }
     static public function _scanDigits(_s:Scanner_, _ch:StdTypes.Int, _base:StdTypes.Int, _n:StdTypes.Int):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _ch = (_ch : stdgo.GoInt32);
         final _base = (_base : stdgo.GoInt);
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanDigits(_s, _ch, _base, _n);
     }
     static public function _scanNumber(_s:Scanner_, _ch:StdTypes.Int, _seenDot:Bool):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _ch = (_ch : stdgo.GoInt32);
         return {
             final obj = stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanNumber(_s, _ch, _seenDot);
@@ -297,7 +297,7 @@ class Scanner_static_extension {
         };
     }
     static public function _digits(_s:Scanner_, _ch0:StdTypes.Int, _base:StdTypes.Int, _invalid:stdgo.Pointer<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _ch0 = (_ch0 : stdgo.GoInt32);
         final _base = (_base : stdgo.GoInt);
         return {
@@ -306,52 +306,52 @@ class Scanner_static_extension {
         };
     }
     static public function _scanIdentifier(_s:Scanner_):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._scanIdentifier(_s);
     }
     static public function _isIdentRune(_s:Scanner_, _ch:StdTypes.Int, _i:StdTypes.Int):Bool {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _ch = (_ch : stdgo.GoInt32);
         final _i = (_i : stdgo.GoInt);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._isIdentRune(_s, _ch, _i);
     }
     static public function _errorf(_s:Scanner_, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._errorf(_s, _format, ...[for (i in _args) i]);
     }
     static public function _error(_s:Scanner_, _msg:String):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         final _msg = (_msg : stdgo.GoString);
         stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._error(_s, _msg);
     }
     static public function peek(_s:Scanner_):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.peek(_s);
     }
     static public function next(_s:Scanner_):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.next(_s);
     }
     static public function _next(_s:Scanner_):StdTypes.Int {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension._next(_s);
     }
-    static public function init(_s:Scanner_, _src:stdgo._internal.io.Io_Reader.Reader):Scanner_ {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_Scanner.Scanner>);
+    static public function init(_s:Scanner_, _src:stdgo._internal.io.Io_reader.Reader):Scanner_ {
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>);
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.init(_s, _src);
     }
-    public static function string(__self__:stdgo._internal.text.scanner.Scanner_Scanner.Scanner):String {
+    public static function string(__self__:stdgo._internal.text.scanner.Scanner_scanner.Scanner):String {
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.string(__self__);
     }
-    public static function isValid(__self__:stdgo._internal.text.scanner.Scanner_Scanner.Scanner):Bool {
+    public static function isValid(__self__:stdgo._internal.text.scanner.Scanner_scanner.Scanner):Bool {
         return stdgo._internal.text.scanner.Scanner_Scanner_static_extension.Scanner_static_extension.isValid(__self__);
     }
 }
 typedef StringReaderPointer = stdgo._internal.text.scanner.Scanner_StringReaderPointer.StringReaderPointer;
 class StringReader_static_extension {
     static public function read(_r:StringReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.text.scanner.Scanner_StringReader.StringReader>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.text.scanner.Scanner_stringreader.StringReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.text.scanner.Scanner_StringReader_static_extension.StringReader_static_extension.read(_r, _p);
@@ -411,76 +411,76 @@ class Scanner {
         final _tok = (_tok : stdgo.GoInt32);
         return stdgo._internal.text.scanner.Scanner_tokenString.tokenString(_tok);
     }
-    static public inline function testNext(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNext(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testNext.testNext(_t);
     }
-    static public inline function testScan(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScan.testScan(_t);
     }
-    static public inline function testInvalidExponent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testInvalidExponent(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testInvalidExponent.testInvalidExponent(_t);
     }
-    static public inline function testPosition(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testPosition(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testPosition.testPosition(_t);
     }
-    static public inline function testScanZeroMode(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanZeroMode(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanZeroMode.testScanZeroMode(_t);
     }
-    static public inline function testScanSelectedMask(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanSelectedMask(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanSelectedMask.testScanSelectedMask(_t);
     }
-    static public inline function testScanCustomIdent(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanCustomIdent(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanCustomIdent.testScanCustomIdent(_t);
     }
-    static public inline function testScanNext(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanNext(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanNext.testScanNext(_t);
     }
-    static public inline function testScanWhitespace(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanWhitespace(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanWhitespace.testScanWhitespace(_t);
     }
-    static public inline function testError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testError(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testError.testError(_t);
     }
-    static public inline function testIOError(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIOError(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testIOError.testIOError(_t);
     }
-    static public inline function testPos(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testPos(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testPos.testPos(_t);
     }
-    static public inline function testNextEOFHandling(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNextEOFHandling(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testNextEOFHandling.testNextEOFHandling(_t);
     }
-    static public inline function testScanEOFHandling(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testScanEOFHandling(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testScanEOFHandling.testScanEOFHandling(_t);
     }
-    static public inline function testIssue29723(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue29723(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testIssue29723.testIssue29723(_t);
     }
-    static public inline function testNumbers(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNumbers(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testNumbers.testNumbers(_t);
     }
-    static public inline function testIssue30320(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue30320(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testIssue30320.testIssue30320(_t);
     }
-    static public inline function testIssue50909(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testIssue50909(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.text.scanner.Scanner_testIssue50909.testIssue50909(_t);
     }
 }

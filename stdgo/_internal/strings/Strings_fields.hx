@@ -8,32 +8,32 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
             while ((_i < (_s.length) : Bool)) {
                 var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
 _setBits = (_setBits | (_r) : stdgo.GoUInt8);
-var _isSpace = (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_r : stdgo.GoInt)] : stdgo.GoInt);
+var _isSpace = (stdgo._internal.strings.Strings__asciispace._asciiSpace[(_r : stdgo.GoInt)] : stdgo.GoInt);
 _n = (_n + ((_wasSpace & (-1 ^ _isSpace) : stdgo.GoInt)) : stdgo.GoInt);
 _wasSpace = _isSpace;
                 _i++;
             };
         };
         if ((_setBits >= (128 : stdgo.GoUInt8) : Bool)) {
-            return stdgo._internal.strings.Strings_fieldsFunc.fieldsFunc(_s?.__copy__(), stdgo._internal.unicode.Unicode_isSpace.isSpace);
+            return stdgo._internal.strings.Strings_fieldsfunc.fieldsFunc(_s?.__copy__(), stdgo._internal.unicode.Unicode_isspace.isSpace);
         };
         var _a = (new stdgo.Slice<stdgo.GoString>((_n : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         var _na = (0 : stdgo.GoInt);
         var _fieldStart = (0 : stdgo.GoInt);
         var _i = (0 : stdgo.GoInt);
-        while (((_i < (_s.length) : Bool) && (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
+        while (((_i < (_s.length) : Bool) && (stdgo._internal.strings.Strings__asciispace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
             _i++;
         };
         _fieldStart = _i;
         while ((_i < (_s.length) : Bool)) {
-            if (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
+            if (stdgo._internal.strings.Strings__asciispace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                 _i++;
                 continue;
             };
             _a[(_na : stdgo.GoInt)] = (_s.__slice__(_fieldStart, _i) : stdgo.GoString)?.__copy__();
             _na++;
             _i++;
-            while (((_i < (_s.length) : Bool) && (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
+            while (((_i < (_s.length) : Bool) && (stdgo._internal.strings.Strings__asciispace._asciiSpace[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
                 _i++;
             };
             _fieldStart = _i;

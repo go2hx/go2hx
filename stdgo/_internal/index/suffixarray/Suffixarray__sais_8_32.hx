@@ -28,12 +28,12 @@ var _bucket = __1, _freq = __0;
                 _bucket = __tmp__1;
             };
         };
-        var _numLMS = (stdgo._internal.index.suffixarray.Suffixarray__placeLMS_8_32._placeLMS_8_32(_text, _sa, _freq, _bucket) : stdgo.GoInt);
+        var _numLMS = (stdgo._internal.index.suffixarray.Suffixarray__placelms_8_32._placeLMS_8_32(_text, _sa, _freq, _bucket) : stdgo.GoInt);
         if ((_numLMS <= (1 : stdgo.GoInt) : Bool)) {} else {
-            stdgo._internal.index.suffixarray.Suffixarray__induceSubL_8_32._induceSubL_8_32(_text, _sa, _freq, _bucket);
-            stdgo._internal.index.suffixarray.Suffixarray__induceSubS_8_32._induceSubS_8_32(_text, _sa, _freq, _bucket);
+            stdgo._internal.index.suffixarray.Suffixarray__inducesubl_8_32._induceSubL_8_32(_text, _sa, _freq, _bucket);
+            stdgo._internal.index.suffixarray.Suffixarray__inducesubs_8_32._induceSubS_8_32(_text, _sa, _freq, _bucket);
             stdgo._internal.index.suffixarray.Suffixarray__length_8_32._length_8_32(_text, _sa, _numLMS);
-            var _maxID = (stdgo._internal.index.suffixarray.Suffixarray__assignID_8_32._assignID_8_32(_text, _sa, _numLMS) : stdgo.GoInt);
+            var _maxID = (stdgo._internal.index.suffixarray.Suffixarray__assignid_8_32._assignID_8_32(_text, _sa, _numLMS) : stdgo.GoInt);
             if ((_maxID < _numLMS : Bool)) {
                 stdgo._internal.index.suffixarray.Suffixarray__map_32._map_32(_sa, _numLMS);
                 stdgo._internal.index.suffixarray.Suffixarray__recurse_32._recurse_32(_sa, _tmp, _numLMS, _maxID);
@@ -43,7 +43,7 @@ var _bucket = __1, _freq = __0;
             };
             stdgo._internal.index.suffixarray.Suffixarray__expand_8_32._expand_8_32(_text, _freq, _bucket, _sa, _numLMS);
         };
-        stdgo._internal.index.suffixarray.Suffixarray__induceL_8_32._induceL_8_32(_text, _sa, _freq, _bucket);
-        stdgo._internal.index.suffixarray.Suffixarray__induceS_8_32._induceS_8_32(_text, _sa, _freq, _bucket);
+        stdgo._internal.index.suffixarray.Suffixarray__inducel_8_32._induceL_8_32(_text, _sa, _freq, _bucket);
+        stdgo._internal.index.suffixarray.Suffixarray__induces_8_32._induceS_8_32(_text, _sa, _freq, _bucket);
         _tmp[(0 : stdgo.GoInt)] = (-1 : stdgo.GoInt32);
     }

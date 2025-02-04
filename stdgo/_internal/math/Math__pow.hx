@@ -4,30 +4,30 @@ function _pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
             return (1 : stdgo.GoFloat64);
         } else if (_y == (1 : stdgo.GoFloat64)) {
             return _x;
-        } else if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+        } else if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
         } else if (_x == (0 : stdgo.GoFloat64)) {
             if ((_y < (0 : stdgo.GoFloat64) : Bool)) {
-                if ((stdgo._internal.math.Math_signbit.signbit(_x) && stdgo._internal.math.Math__isOddInt._isOddInt(_y) : Bool)) {
+                if ((stdgo._internal.math.Math_signbit.signbit(_x) && stdgo._internal.math.Math__isoddint._isOddInt(_y) : Bool)) {
                     return stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));
                 };
                 return stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
             } else if ((_y > (0 : stdgo.GoFloat64) : Bool)) {
-                if ((stdgo._internal.math.Math_signbit.signbit(_x) && stdgo._internal.math.Math__isOddInt._isOddInt(_y) : Bool)) {
+                if ((stdgo._internal.math.Math_signbit.signbit(_x) && stdgo._internal.math.Math__isoddint._isOddInt(_y) : Bool)) {
                     return _x;
                 };
                 return (0 : stdgo.GoFloat64);
             };
-        } else if (stdgo._internal.math.Math_isInf.isInf(_y, (0 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_y, (0 : stdgo.GoInt))) {
             if (_x == (-1 : stdgo.GoFloat64)) {
                 return (1 : stdgo.GoFloat64);
-            } else if (((stdgo._internal.math.Math_abs.abs(_x) < (1 : stdgo.GoFloat64) : Bool)) == (stdgo._internal.math.Math_isInf.isInf(_y, (1 : stdgo.GoInt)))) {
+            } else if (((stdgo._internal.math.Math_abs.abs(_x) < (1 : stdgo.GoFloat64) : Bool)) == (stdgo._internal.math.Math_isinf.isInf(_y, (1 : stdgo.GoInt)))) {
                 return (0 : stdgo.GoFloat64);
             } else {
                 return stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
             };
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt))) {
-            if (stdgo._internal.math.Math_isInf.isInf(_x, (-1 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt))) {
+            if (stdgo._internal.math.Math_isinf.isInf(_x, (-1 : stdgo.GoInt))) {
                 return stdgo._internal.math.Math_pow.pow(((1 : stdgo.GoFloat64) / _x : stdgo.GoFloat64), -_y);
             };
             if ((_y < (0 : stdgo.GoFloat64) : Bool)) {
@@ -42,7 +42,7 @@ function _pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         };
         var __tmp__ = stdgo._internal.math.Math_modf.modf(stdgo._internal.math.Math_abs.abs(_y)), _yi:stdgo.GoFloat64 = __tmp__._0, _yf:stdgo.GoFloat64 = __tmp__._1;
         if (((_yf != (0 : stdgo.GoFloat64)) && (_x < (0 : stdgo.GoFloat64) : Bool) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+            return stdgo._internal.math.Math_nan.naN();
         };
         if ((_yi >= (9.223372036854776e+18 : stdgo.GoFloat64) : Bool)) {
             if (_x == (-1 : stdgo.GoFloat64)) {

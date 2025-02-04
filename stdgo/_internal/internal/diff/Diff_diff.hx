@@ -5,22 +5,22 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
         };
         var _x = stdgo._internal.internal.diff.Diff__lines._lines(_old);
         var _y = stdgo._internal.internal.diff.Diff__lines._lines(_new);
-        var _out:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("+++ %s\n" : stdgo.GoString), stdgo.Go.toInterface(_newName));
-        var __0:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __1:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __2:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __3:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
+        var _out:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("+++ %s\n" : stdgo.GoString), stdgo.Go.toInterface(_newName));
+        var __0:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __1:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __2:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __3:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
 var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
         for (__0 => _m in stdgo._internal.internal.diff.Diff__tgs._tgs(_x, _y)) {
             if ((_m._x < _done._x : Bool)) {
                 continue;
             };
-            var _start = (_m?.__copy__() : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+            var _start = (_m?.__copy__() : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
             while ((((_start._x > _done._x : Bool) && (_start._y > _done._y : Bool) : Bool) && (_x[(_start._x - (1 : stdgo.GoInt) : stdgo.GoInt)] == _y[(_start._y - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
                 _start._x--;
                 _start._y--;
             };
-            var _end = (_m?.__copy__() : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+            var _end = (_m?.__copy__() : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
             while ((((_end._x < (_x.length) : Bool) && (_end._y < (_y.length) : Bool) : Bool) && (_x[(_end._x : stdgo.GoInt)] == _y[(_end._y : stdgo.GoInt)]) : Bool)) {
                 _end._x++;
                 _end._y++;
@@ -53,14 +53,14 @@ var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
                     _count._x++;
                     _count._y++;
                 };
-                _done = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair((_start._x + _n : stdgo.GoInt), (_start._y + _n : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+                _done = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair((_start._x + _n : stdgo.GoInt), (_start._y + _n : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
                 if ((_count._x > (0 : stdgo.GoInt) : Bool)) {
                     _chunk._x++;
                 };
                 if ((_count._y > (0 : stdgo.GoInt) : Bool)) {
                     _chunk._y++;
                 };
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("@@ -%d,%d +%d,%d @@\n" : stdgo.GoString), stdgo.Go.toInterface(_chunk._x), stdgo.Go.toInterface(_count._x), stdgo.Go.toInterface(_chunk._y), stdgo.Go.toInterface(_count._y));
+                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("@@ -%d,%d +%d,%d @@\n" : stdgo.GoString), stdgo.Go.toInterface(_chunk._x), stdgo.Go.toInterface(_count._x), stdgo.Go.toInterface(_chunk._y), stdgo.Go.toInterface(_count._y));
                 for (__4 => _s in _ctext) {
                     @:check2 _out.writeString(_s?.__copy__());
                 };
@@ -71,7 +71,7 @@ var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
             if (((_end._x >= (_x.length) : Bool) && (_end._y >= (_y.length) : Bool) : Bool)) {
                 break;
             };
-            _chunk = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair((_end._x - (3 : stdgo.GoInt) : stdgo.GoInt), (_end._y - (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
+            _chunk = (new stdgo._internal.internal.diff.Diff_t_pair.T_pair((_end._x - (3 : stdgo.GoInt) : stdgo.GoInt), (_end._y - (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_t_pair.T_pair);
             for (__3 => _s in (_x.__slice__(_chunk._x, _end._x) : stdgo.Slice<stdgo.GoString>)) {
                 _ctext = (_ctext.__append__(((" " : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__()));
                 _count._x++;

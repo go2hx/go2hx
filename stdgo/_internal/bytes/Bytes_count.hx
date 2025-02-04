@@ -1,7 +1,7 @@
 package stdgo._internal.bytes;
 function count(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         if ((_sep.length) == ((0 : stdgo.GoInt))) {
-            return (stdgo._internal.unicode.utf8.Utf8_runeCount.runeCount(_s) + (1 : stdgo.GoInt) : stdgo.GoInt);
+            return (stdgo._internal.unicode.utf8.Utf8_runecount.runeCount(_s) + (1 : stdgo.GoInt) : stdgo.GoInt);
         };
         if ((_sep.length) == ((1 : stdgo.GoInt))) {
             return stdgo._internal.internal.bytealg.Bytealg_count.count(_s, _sep[(0 : stdgo.GoInt)]);

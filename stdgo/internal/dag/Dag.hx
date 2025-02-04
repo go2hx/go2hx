@@ -72,43 +72,43 @@ typedef T_syntaxError = stdgo._internal.internal.dag.Dag_T_syntaxError.T_syntaxE
 typedef GraphPointer = stdgo._internal.internal.dag.Dag_GraphPointer.GraphPointer;
 class Graph_static_extension {
     static public function edges(_g:Graph, _from:String):Array<String> {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         return [for (i in stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.edges(_g, _from)) i];
     }
     static public function hasEdge(_g:Graph, _from:String, _to:String):Bool {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
         return stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.hasEdge(_g, _from, _to);
     }
     static public function delEdge(_g:Graph, _from:String, _to:String):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
         stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.delEdge(_g, _from, _to);
     }
     static public function addEdge(_g:Graph, _from:String, _to:String):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
         stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.addEdge(_g, _from, _to);
     }
     static public function _addNode(_g:Graph, _label:String):Bool {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _label = (_label : stdgo.GoString);
         return stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension._addNode(_g, _label);
     }
     static public function transitiveReduction(_g:Graph):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.transitiveReduction(_g);
     }
     static public function topo(_g:Graph):Array<String> {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         return [for (i in stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.topo(_g)) i];
     }
     static public function transpose(_g:Graph):Void {
-        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_Graph.Graph>);
+        final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.transpose(_g);
     }
 }
@@ -119,18 +119,18 @@ class T_rule_static_extension {
 typedef T_rulesParserPointer = stdgo._internal.internal.dag.Dag_T_rulesParserPointer.T_rulesParserPointer;
 class T_rulesParser_static_extension {
     static public function _nextToken(_p:T_rulesParser):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
         return stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._nextToken(_p);
     }
     static public function _nextList(_p:T_rulesParser):stdgo.Tuple<Array<String>, String> {
-        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
         return {
             final obj = stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._nextList(_p);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _syntaxError(_p:T_rulesParser, _msg:String):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
         final _msg = (_msg : stdgo.GoString);
         stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._syntaxError(_p, _msg);
     }

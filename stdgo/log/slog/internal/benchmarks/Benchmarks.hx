@@ -1,20 +1,20 @@
 package stdgo.log.slog.internal.benchmarks;
 @:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_fastTextHandler_static_extension) abstract T_fastTextHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler {
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer) this = new stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler(_w);
+    public function new(?_w:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler(_w);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_asyncHandler_static_extension) abstract T_asyncHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler {
-    public var _ringBuffer(get, set) : haxe.ds.Vector<stdgo._internal.log.slog.Slog_Record.Record>;
-    function get__ringBuffer():haxe.ds.Vector<stdgo._internal.log.slog.Slog_Record.Record> return haxe.ds.Vector.fromArrayCopy([for (i in this._ringBuffer) i]);
-    function set__ringBuffer(v:haxe.ds.Vector<stdgo._internal.log.slog.Slog_Record.Record>):haxe.ds.Vector<stdgo._internal.log.slog.Slog_Record.Record> {
-        this._ringBuffer = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.log.slog.Slog_Record.Record>);
+    public var _ringBuffer(get, set) : haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record>;
+    function get__ringBuffer():haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record> return haxe.ds.Vector.fromArrayCopy([for (i in this._ringBuffer) i]);
+    function set__ringBuffer(v:haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record>):haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record> {
+        this._ringBuffer = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.log.slog.Slog_record.Record>);
         return v;
     }
     public var _next(get, set) : StdTypes.Int;
@@ -23,7 +23,7 @@ package stdgo.log.slog.internal.benchmarks;
         this._next = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_ringBuffer:haxe.ds.Vector<stdgo._internal.log.slog.Slog_Record.Record>, ?_next:StdTypes.Int) this = new stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler(([for (i in _ringBuffer) i] : stdgo.GoArray<stdgo._internal.log.slog.Slog_Record.Record>), (_next : stdgo.GoInt));
+    public function new(?_ringBuffer:haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record>, ?_next:StdTypes.Int) this = new stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler(([for (i in _ringBuffer) i] : stdgo.GoArray<stdgo._internal.log.slog.Slog_record.Record>), (_next : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -34,70 +34,70 @@ package stdgo.log.slog.internal.benchmarks;
 }
 typedef T_fastTextHandlerPointer = stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandlerPointer.T_fastTextHandlerPointer;
 class T_fastTextHandler_static_extension {
-    static public function withGroup(_:T_fastTextHandler, _0:String):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
+    static public function withGroup(_:T_fastTextHandler, _0:String):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension.withGroup(_, _0);
     }
-    static public function withAttrs(_h:T_fastTextHandler, _0:Array<stdgo._internal.log.slog.Slog_Attr.Attr>):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr>);
+    static public function withAttrs(_h:T_fastTextHandler, _0:Array<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension.withAttrs(_h, _0);
     }
-    static public function _appendTime(_h:T_fastTextHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer, _t:stdgo._internal.time.Time_Time.Time):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
-        final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer>);
+    static public function _appendTime(_h:T_fastTextHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _t:stdgo._internal.time.Time_time.Time):Void {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
+        final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension._appendTime(_h, _buf, _t);
     }
-    static public function _appendValue(_h:T_fastTextHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer, _v:stdgo._internal.log.slog.Slog_Value.Value):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
-        final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_Buffer.Buffer>);
+    static public function _appendValue(_h:T_fastTextHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _v:stdgo._internal.log.slog.Slog_value.Value):Void {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
+        final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension._appendValue(_h, _buf, _v);
     }
-    static public function handle(_h:T_fastTextHandler, __0:stdgo._internal.context.Context_Context.Context, _r:stdgo._internal.log.slog.Slog_Record.Record):stdgo.Error {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
+    static public function handle(_h:T_fastTextHandler, __0:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension.handle(_h, __0, _r);
     }
-    static public function enabled(_h:T_fastTextHandler, _0:stdgo._internal.context.Context_Context.Context, _1:stdgo._internal.log.slog.Slog_Level.Level):Bool {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler.T_fastTextHandler>);
+    static public function enabled(_h:T_fastTextHandler, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.log.slog.Slog_level.Level):Bool {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_fastTextHandler_static_extension.T_fastTextHandler_static_extension.enabled(_h, _0, _1);
     }
 }
 typedef T_asyncHandlerPointer = stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandlerPointer.T_asyncHandlerPointer;
 class T_asyncHandler_static_extension {
-    static public function withGroup(_:T_asyncHandler, _0:String):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler>);
+    static public function withGroup(_:T_asyncHandler, _0:String):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler>);
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler_static_extension.T_asyncHandler_static_extension.withGroup(_, _0);
     }
-    static public function withAttrs(_:T_asyncHandler, _0:Array<stdgo._internal.log.slog.Slog_Attr.Attr>):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler>);
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr>);
+    static public function withAttrs(_:T_asyncHandler, _0:Array<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler>);
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler_static_extension.T_asyncHandler_static_extension.withAttrs(_, _0);
     }
-    static public function handle(_h:T_asyncHandler, __0:stdgo._internal.context.Context_Context.Context, _r:stdgo._internal.log.slog.Slog_Record.Record):stdgo.Error {
-        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler>);
+    static public function handle(_h:T_asyncHandler, __0:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
+        final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler_static_extension.T_asyncHandler_static_extension.handle(_h, __0, _r);
     }
-    static public function enabled(_:T_asyncHandler, _0:stdgo._internal.context.Context_Context.Context, _1:stdgo._internal.log.slog.Slog_Level.Level):Bool {
-        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler.T_asyncHandler>);
+    static public function enabled(_:T_asyncHandler, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.log.slog.Slog_level.Level):Bool {
+        final _ = (_ : stdgo.Ref<stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_asyncHandler_static_extension.T_asyncHandler_static_extension.enabled(_, _0, _1);
     }
 }
 typedef T_disabledHandlerPointer = stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_disabledHandlerPointer.T_disabledHandlerPointer;
 class T_disabledHandler_static_extension {
-    static public function withGroup(_:T_disabledHandler, _0:String):stdgo._internal.log.slog.Slog_Handler.Handler {
+    static public function withGroup(_:T_disabledHandler, _0:String):stdgo._internal.log.slog.Slog_handler.Handler {
         final _0 = (_0 : stdgo.GoString);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_disabledHandler_static_extension.T_disabledHandler_static_extension.withGroup(_, _0);
     }
-    static public function withAttrs(_:T_disabledHandler, _0:Array<stdgo._internal.log.slog.Slog_Attr.Attr>):stdgo._internal.log.slog.Slog_Handler.Handler {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_Attr.Attr>);
+    static public function withAttrs(_:T_disabledHandler, _0:Array<stdgo._internal.log.slog.Slog_attr.Attr>):stdgo._internal.log.slog.Slog_handler.Handler {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_disabledHandler_static_extension.T_disabledHandler_static_extension.withAttrs(_, _0);
     }
-    static public function handle(_:T_disabledHandler, _0:stdgo._internal.context.Context_Context.Context, _1:stdgo._internal.log.slog.Slog_Record.Record):stdgo.Error {
+    static public function handle(_:T_disabledHandler, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_disabledHandler_static_extension.T_disabledHandler_static_extension.handle(_, _0, _1);
     }
-    static public function enabled(_:T_disabledHandler, _0:stdgo._internal.context.Context_Context.Context, _1:stdgo._internal.log.slog.Slog_Level.Level):Bool {
+    static public function enabled(_:T_disabledHandler, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.log.slog.Slog_level.Level):Bool {
         return stdgo._internal.log.slog.internal.benchmarks.Benchmarks_T_disabledHandler_static_extension.T_disabledHandler_static_extension.enabled(_, _0, _1);
     }
 }

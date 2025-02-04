@@ -1,10 +1,10 @@
 package stdgo._internal.math;
 function _tan(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (((_x == (0 : stdgo.GoFloat64)) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {
+        if (((_x == (0 : stdgo.GoFloat64)) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool)) {
             return _x;
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt))) {
-            return stdgo._internal.math.Math_naN.naN();
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt))) {
+            return stdgo._internal.math.Math_nan.naN();
         };
         var _sign = (false : Bool);
         if ((_x < (0 : stdgo.GoFloat64) : Bool)) {
@@ -16,7 +16,7 @@ function _tan(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
 var _z = __1, _y = __0;
         if ((_x >= (5.36870912e+08 : stdgo.GoFloat64) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.math.Math__trigReduce._trigReduce(_x);
+                var __tmp__ = stdgo._internal.math.Math__trigreduce._trigReduce(_x);
                 _j = @:tmpset0 __tmp__._0;
                 _z = @:tmpset0 __tmp__._1;
             };
@@ -31,7 +31,7 @@ var _z = __1, _y = __0;
         };
         var _zz = (_z * _z : stdgo.GoFloat64);
         if ((_zz > (1e-14 : stdgo.GoFloat64) : Bool)) {
-            _y = (_z + (_z * (((_zz * (((((((stdgo._internal.math.Math___tanP.__tanP[(0 : stdgo.GoInt)] * _zz : stdgo.GoFloat64)) + stdgo._internal.math.Math___tanP.__tanP[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanP.__tanP[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) / (((((((((((_zz + stdgo._internal.math.Math___tanQ.__tanQ[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanQ.__tanQ[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanQ.__tanQ[(3 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanQ.__tanQ[(4 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
+            _y = (_z + (_z * (((_zz * (((((((stdgo._internal.math.Math___tanp.__tanP[(0 : stdgo.GoInt)] * _zz : stdgo.GoFloat64)) + stdgo._internal.math.Math___tanp.__tanP[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanp.__tanP[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64) / (((((((((((_zz + stdgo._internal.math.Math___tanq.__tanQ[(1 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanq.__tanQ[(2 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanq.__tanQ[(3 : stdgo.GoInt)] : stdgo.GoFloat64)) * _zz : stdgo.GoFloat64) + stdgo._internal.math.Math___tanq.__tanQ[(4 : stdgo.GoInt)] : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64) : stdgo.GoFloat64);
         } else {
             _y = _z;
         };

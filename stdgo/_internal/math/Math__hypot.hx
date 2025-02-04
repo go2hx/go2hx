@@ -6,10 +6,10 @@ function _hypot(_p:stdgo.GoFloat64, _q:stdgo.GoFloat64):stdgo.GoFloat64 {
             _p = __tmp__0;
             _q = __tmp__1;
         };
-        if ((stdgo._internal.math.Math_isInf.isInf(_p, (1 : stdgo.GoInt)) || stdgo._internal.math.Math_isInf.isInf(_q, (1 : stdgo.GoInt)) : Bool)) {
+        if ((stdgo._internal.math.Math_isinf.isInf(_p, (1 : stdgo.GoInt)) || stdgo._internal.math.Math_isinf.isInf(_q, (1 : stdgo.GoInt)) : Bool)) {
             return stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt));
-        } else if ((stdgo._internal.math.Math_isNaN.isNaN(_p) || stdgo._internal.math.Math_isNaN.isNaN(_q) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+        } else if ((stdgo._internal.math.Math_isnan.isNaN(_p) || stdgo._internal.math.Math_isnan.isNaN(_q) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
         };
         if ((_p < _q : Bool)) {
             {

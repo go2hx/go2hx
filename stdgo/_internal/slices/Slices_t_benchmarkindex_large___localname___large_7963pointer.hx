@@ -1,0 +1,2 @@
+package stdgo._internal.slices;
+@:keep @:follow @:using(stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963_static_extension.T_benchmarkIndex_Large___localname___Large_7963_static_extension) typedef T_benchmarkIndex_Large___localname___Large_7963Pointer = stdgo.Pointer<stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963.T_benchmarkIndex_Large___localname___Large_7963>;

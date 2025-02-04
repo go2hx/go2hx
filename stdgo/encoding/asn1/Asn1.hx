@@ -34,11 +34,11 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
         return v;
     }
 class T_encoder_static_extension {
-    static public function encode(t:stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder, _dst:Array<std.UInt>):Void {
+    static public function encode(t:stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.asn1.Asn1_T_encoder_static_extension.T_encoder_static_extension.encode(t, _dst);
     }
-    static public function len(t:stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder):StdTypes.Int {
+    static public function len(t:stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder):StdTypes.Int {
         return stdgo._internal.encoding.asn1.Asn1_T_encoder_static_extension.T_encoder_static_extension.len(t);
     }
 }
@@ -118,13 +118,13 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.asn1.Asn1.T_invalidUnmarshalError_static_extension) abstract T_invalidUnmarshalError(stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError) from stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError to stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError {
-    public var type(get, set) : stdgo._internal.reflect.Reflect_Type_.Type_;
-    function get_type():stdgo._internal.reflect.Reflect_Type_.Type_ return this.type;
-    function set_type(v:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo._internal.reflect.Reflect_Type_.Type_ {
+    public var type(get, set) : stdgo._internal.reflect.Reflect_type_.Type_;
+    function get_type():stdgo._internal.reflect.Reflect_type_.Type_ return this.type;
+    function set_type(v:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.reflect.Reflect_type_.Type_ {
         this.type = v;
         return v;
     }
-    public function new(?type:stdgo._internal.reflect.Reflect_Type_.Type_) this = new stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError(type);
+    public function new(?type:stdgo._internal.reflect.Reflect_type_.Type_) this = new stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError(type);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -288,7 +288,7 @@ class RawValue_static_extension {
 typedef T_invalidUnmarshalErrorPointer = stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalErrorPointer.T_invalidUnmarshalErrorPointer;
 class T_invalidUnmarshalError_static_extension {
     static public function error(_e:T_invalidUnmarshalError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError>);
         return stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError_static_extension.T_invalidUnmarshalError_static_extension.error(_e);
     }
 }
@@ -303,12 +303,12 @@ class T_fieldParameters_static_extension {
 typedef T_taggedEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_taggedEncoderPointer.T_taggedEncoderPointer;
 class T_taggedEncoder_static_extension {
     static public function encode(_t:T_taggedEncoder, _dst:Array<std.UInt>):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder_static_extension.T_taggedEncoder_static_extension.encode(_t, _dst);
     }
     static public function len(_t:T_taggedEncoder):StdTypes.Int {
-        final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder>);
         return stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder_static_extension.T_taggedEncoder_static_extension.len(_t);
     }
 }

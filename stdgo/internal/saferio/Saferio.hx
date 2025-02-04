@@ -16,7 +16,7 @@ class Saferio {
         If an io.EOF happens after reading some but not all the bytes,
         ReadData returns io.ErrUnexpectedEOF.
     **/
-    static public inline function readData(_r:stdgo._internal.io.Io_Reader.Reader, _n:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function readData(_r:stdgo._internal.io.Io_reader.Reader, _n:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _n = (_n : stdgo.GoUInt64);
         return {
             final obj = stdgo._internal.internal.saferio.Saferio_readData.readData(_r, _n);
@@ -28,7 +28,7 @@ class Saferio {
         allocating all n bytes if n is large. This avoids crashing the program
         by allocating all n bytes in cases where n is incorrect.
     **/
-    static public inline function readDataAt(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _n:haxe.UInt64, _off:haxe.Int64):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function readDataAt(_r:stdgo._internal.io.Io_readerat.ReaderAt, _n:haxe.UInt64, _off:haxe.Int64):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _n = (_n : stdgo.GoUInt64);
         final _off = (_off : stdgo.GoInt64);
         return {
@@ -54,16 +54,16 @@ class Saferio {
         final _c = (_c : stdgo.GoUInt64);
         return stdgo._internal.internal.saferio.Saferio_sliceCap.sliceCap(_v, _c);
     }
-    static public inline function testReadData(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testReadData(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.internal.saferio.Saferio_testReadData.testReadData(_t);
     }
-    static public inline function testReadDataAt(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testReadDataAt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.internal.saferio.Saferio_testReadDataAt.testReadDataAt(_t);
     }
-    static public inline function testSliceCap(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSliceCap(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.internal.saferio.Saferio_testSliceCap.testSliceCap(_t);
     }
 }

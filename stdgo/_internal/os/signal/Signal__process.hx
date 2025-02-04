@@ -1,5 +1,5 @@
 package stdgo._internal.os.signal;
-function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
+function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             var _n = (stdgo._internal.os.signal.Signal__signum._signum(_sig) : stdgo.GoInt);

@@ -2,7 +2,7 @@ package stdgo.internal.godebugs;
 var all(get, set) : Array<Info>;
 private function get_all():Array<Info> return [for (i in stdgo._internal.internal.godebugs.Godebugs_all.all) i];
 private function set_all(v:Array<Info>):Array<Info> {
-        stdgo._internal.internal.godebugs.Godebugs_all.all = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs_Info.Info>);
+        stdgo._internal.internal.godebugs.Godebugs_all.all = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs_info.Info>);
         return v;
     }
 @:structInit @:using(stdgo.internal.godebugs.Godebugs.Info_static_extension) abstract Info(stdgo._internal.internal.godebugs.Godebugs_Info.Info) from stdgo._internal.internal.godebugs.Godebugs_Info.Info to stdgo._internal.internal.godebugs.Godebugs_Info.Info {

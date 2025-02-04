@@ -7,23 +7,23 @@ var _im = __1, _re = __0;
                 return new stdgo.GoComplex128(stdgo._internal.math.Math_asin.asin(_re), _im);
             } else if (((_re == (0 : stdgo.GoFloat64)) && (stdgo._internal.math.Math_abs.abs(_im) <= (1 : stdgo.GoFloat64) : Bool) : Bool)) {
                 return new stdgo.GoComplex128(_re, stdgo._internal.math.Math_asinh.asinh(_im));
-            } else if (stdgo._internal.math.Math_isNaN.isNaN(_im)) {
+            } else if (stdgo._internal.math.Math_isnan.isNaN(_im)) {
                 if (_re == (0 : stdgo.GoFloat64)) {
-                    return new stdgo.GoComplex128(_re, stdgo._internal.math.Math_naN.naN());
-                } else if (stdgo._internal.math.Math_isInf.isInf(_re, (0 : stdgo.GoInt))) {
-                    return new stdgo.GoComplex128(stdgo._internal.math.Math_naN.naN(), _re);
+                    return new stdgo.GoComplex128(_re, stdgo._internal.math.Math_nan.naN());
+                } else if (stdgo._internal.math.Math_isinf.isInf(_re, (0 : stdgo.GoInt))) {
+                    return new stdgo.GoComplex128(stdgo._internal.math.Math_nan.naN(), _re);
                 } else {
-                    return stdgo._internal.math.cmplx.Cmplx_naN.naN();
+                    return stdgo._internal.math.cmplx.Cmplx_nan.naN();
                 };
-            } else if (stdgo._internal.math.Math_isInf.isInf(_im, (0 : stdgo.GoInt))) {
-                if (stdgo._internal.math.Math_isNaN.isNaN(_re)) {
+            } else if (stdgo._internal.math.Math_isinf.isInf(_im, (0 : stdgo.GoInt))) {
+                if (stdgo._internal.math.Math_isnan.isNaN(_re)) {
                     return _x;
-                } else if (stdgo._internal.math.Math_isInf.isInf(_re, (0 : stdgo.GoInt))) {
+                } else if (stdgo._internal.math.Math_isinf.isInf(_re, (0 : stdgo.GoInt))) {
                     return new stdgo.GoComplex128(stdgo._internal.math.Math_copysign.copysign((0.7853981633974483 : stdgo.GoFloat64), _re), _im);
                 } else {
                     return new stdgo.GoComplex128(stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), _re), _im);
                 };
-            } else if (stdgo._internal.math.Math_isInf.isInf(_re, (0 : stdgo.GoInt))) {
+            } else if (stdgo._internal.math.Math_isinf.isInf(_re, (0 : stdgo.GoInt))) {
                 return new stdgo.GoComplex128(stdgo._internal.math.Math_copysign.copysign((1.5707963267948966 : stdgo.GoFloat64), _re), stdgo._internal.math.Math_copysign.copysign(_re, _im));
             };
         };

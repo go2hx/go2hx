@@ -21,7 +21,7 @@ function repeat(_b:stdgo.Slice<stdgo.GoUInt8>, _count:stdgo.GoInt):stdgo.Slice<s
                 _chunkMax = (_b.length);
             };
         };
-        var _nb = stdgo._internal.internal.bytealg.Bytealg_makeNoZero.makeNoZero(_n);
+        var _nb = stdgo._internal.internal.bytealg.Bytealg_makenozero.makeNoZero(_n);
         var _bp = (_nb.__copyTo__(_b) : stdgo.GoInt);
         while ((_bp < _n : Bool)) {
             var _chunk = (_bp : stdgo.GoInt);

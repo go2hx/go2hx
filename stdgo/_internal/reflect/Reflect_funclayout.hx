@@ -1,0 +1,2 @@
+package stdgo._internal.reflect;
+function funcLayout(_t:stdgo._internal.reflect.Reflect_type_.Type_, _rcvr:stdgo._internal.reflect.Reflect_type_.Type_):{ var _0 : stdgo._internal.reflect.Reflect_type_.Type_; var _1 : stdgo.GoUIntptr; var _2 : stdgo.GoUIntptr; var _3 : stdgo.Slice<stdgo.GoUInt8>; var _4 : stdgo.Slice<stdgo.GoUInt8>; var _5 : stdgo.Slice<stdgo.GoUInt8>; var _6 : stdgo.Slice<stdgo.GoUInt8>; var _7 : Bool; } throw ":reflect.funcLayout is not yet implemented";

@@ -1,5 +1,5 @@
 package stdgo._internal.hash.maphash;
-function bytes(_seed:stdgo._internal.hash.maphash.Maphash_Seed.Seed, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
+function bytes(_seed:stdgo._internal.hash.maphash.Maphash_seed.Seed, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         var _state = (_seed._s : stdgo.GoUInt64);
         if (_state == ((0i64 : stdgo.GoUInt64))) {
             throw stdgo.Go.toInterface(("maphash: use of uninitialized Seed" : stdgo.GoString));

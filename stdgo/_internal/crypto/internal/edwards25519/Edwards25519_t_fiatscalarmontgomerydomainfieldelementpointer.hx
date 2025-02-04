@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.internal.edwards25519;
+@:keep @:follow @:using(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement_static_extension.T_fiatScalarMontgomeryDomainFieldElement_static_extension) typedef T_fiatScalarMontgomeryDomainFieldElementPointer = stdgo.Pointer<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement>;

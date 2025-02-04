@@ -1,0 +1,2 @@
+package stdgo._internal.slices;
+@:named @:using(stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963_static_extension.T_benchmarkIndex_Large___localname___Large_7963_static_extension) typedef T_benchmarkIndex_Large___localname___Large_7963 = stdgo.GoArray<stdgo.GoUInt8>;

@@ -23,23 +23,23 @@ final nodeContinue = stdgo._internal.text.template.parse.Parse_nodeContinue.node
 final parseComments : Mode = stdgo._internal.text.template.parse.Parse_parseComments.parseComments;
 final skipFuncCheck = stdgo._internal.text.template.parse.Parse_skipFuncCheck.skipFuncCheck;
 class Node_static_extension {
-    static public function _writeTo(t:stdgo._internal.text.template.parse.Parse_Node.Node, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(t:stdgo._internal.text.template.parse.Parse_node.Node, _0:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension._writeTo(t, _0);
     }
-    static public function _tree(t:stdgo._internal.text.template.parse.Parse_Node.Node):Tree {
+    static public function _tree(t:stdgo._internal.text.template.parse.Parse_node.Node):Tree {
         return stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension._tree(t);
     }
-    static public function position(t:stdgo._internal.text.template.parse.Parse_Node.Node):Pos {
+    static public function position(t:stdgo._internal.text.template.parse.Parse_node.Node):Pos {
         return stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension.position(t);
     }
-    static public function copy(t:stdgo._internal.text.template.parse.Parse_Node.Node):Node {
+    static public function copy(t:stdgo._internal.text.template.parse.Parse_node.Node):Node {
         return stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension.copy(t);
     }
-    static public function string(t:stdgo._internal.text.template.parse.Parse_Node.Node):String {
+    static public function string(t:stdgo._internal.text.template.parse.Parse_node.Node):String {
         return stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension.string(t);
     }
-    static public function type(t:stdgo._internal.text.template.parse.Parse_Node.Node):NodeType {
+    static public function type(t:stdgo._internal.text.template.parse.Parse_node.Node):NodeType {
         return stdgo._internal.text.template.parse.Parse_Node_static_extension.Node_static_extension.type(t);
     }
 }
@@ -208,16 +208,16 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var nodes(get, set) : Array<Node>;
     function get_nodes():Array<Node> return [for (i in this.nodes) i];
     function set_nodes(v:Array<Node>):Array<Node> {
-        this.nodes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>);
+        this.nodes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?nodes:Array<Node>) this = new stdgo._internal.text.template.parse.Parse_ListNode.ListNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), ([for (i in nodes) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?nodes:Array<Node>) this = new stdgo._internal.text.template.parse.Parse_ListNode.ListNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), ([for (i in nodes) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -237,7 +237,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var text(get, set) : Array<std.UInt>;
@@ -246,7 +246,7 @@ _options);
         this.text = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?text:Array<std.UInt>) this = new stdgo._internal.text.template.parse.Parse_TextNode.TextNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), ([for (i in text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?text:Array<std.UInt>) this = new stdgo._internal.text.template.parse.Parse_TextNode.TextNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), ([for (i in text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -266,7 +266,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var text(get, set) : String;
@@ -275,7 +275,7 @@ _options);
         this.text = (v : stdgo.GoString);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?text:String) this = new stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (text : stdgo.GoString));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?text:String) this = new stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (text : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -295,7 +295,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
@@ -313,16 +313,16 @@ _options);
     public var decl(get, set) : Array<VariableNode>;
     function get_decl():Array<VariableNode> return [for (i in this.decl) i];
     function set_decl(v:Array<VariableNode>):Array<VariableNode> {
-        this.decl = ([for (i in v) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>);
+        this.decl = ([for (i in v) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>);
         return v;
     }
     public var cmds(get, set) : Array<CommandNode>;
     function get_cmds():Array<CommandNode> return [for (i in this.cmds) i];
     function set_cmds(v:Array<CommandNode>):Array<CommandNode> {
-        this.cmds = ([for (i in v) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>>);
+        this.cmds = ([for (i in v) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?isAssign:Bool, ?decl:Array<VariableNode>, ?cmds:Array<CommandNode>) this = new stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (line : stdgo.GoInt), isAssign, ([for (i in decl) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>), ([for (i in cmds) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?isAssign:Bool, ?decl:Array<VariableNode>, ?cmds:Array<CommandNode>) this = new stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (line : stdgo.GoInt), isAssign, ([for (i in decl) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>), ([for (i in cmds) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -342,7 +342,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
@@ -354,10 +354,10 @@ _options);
     public var pipe(get, set) : PipeNode;
     function get_pipe():PipeNode return this.pipe;
     function set_pipe(v:PipeNode):PipeNode {
-        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?pipe:PipeNode) this = new stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (line : stdgo.GoInt), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?pipe:PipeNode) this = new stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (line : stdgo.GoInt), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -377,16 +377,16 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var args(get, set) : Array<Node>;
     function get_args():Array<Node> return [for (i in this.args) i];
     function set_args(v:Array<Node>):Array<Node> {
-        this.args = ([for (i in v) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>);
+        this.args = ([for (i in v) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?args:Array<Node>) this = new stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), ([for (i in args) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_Node.Node>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?args:Array<Node>) this = new stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), ([for (i in args) i] : stdgo.Slice<stdgo._internal.text.template.parse.Parse_node.Node>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -406,7 +406,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var ident(get, set) : String;
@@ -415,7 +415,7 @@ _options);
         this.ident = (v : stdgo.GoString);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:String) this = new stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (ident : stdgo.GoString));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:String) this = new stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (ident : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -435,7 +435,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var ident(get, set) : Array<String>;
@@ -444,7 +444,7 @@ _options);
         this.ident = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:Array<String>) this = new stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), ([for (i in ident) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:Array<String>) this = new stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), ([for (i in ident) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -464,10 +464,10 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_DotNode.DotNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_DotNode.DotNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -487,10 +487,10 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_NilNode.NilNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_NilNode.NilNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -510,7 +510,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var ident(get, set) : Array<String>;
@@ -519,7 +519,7 @@ _options);
         this.ident = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:Array<String>) this = new stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), ([for (i in ident) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?ident:Array<String>) this = new stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), ([for (i in ident) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -539,7 +539,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var node(get, set) : Node;
@@ -554,7 +554,7 @@ _options);
         this.field = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?node:Node, ?field:Array<String>) this = new stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), node, ([for (i in field) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?node:Node, ?field:Array<String>) this = new stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), node, ([for (i in field) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -574,7 +574,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var __True(get, set) : Bool;
@@ -583,7 +583,7 @@ _options);
         this.__True = v;
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?__True:Bool) this = new stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), __True);
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?__True:Bool) this = new stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), __True);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -603,7 +603,7 @@ _options);
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var isInt(get, set) : Bool;
@@ -663,7 +663,7 @@ _options);
     public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?isInt:Bool, ?isUint:Bool, ?isFloat:Bool, ?isComplex:Bool, ?int64:haxe.Int64, ?uint64:haxe.UInt64, ?float64:StdTypes.Float, ?complex128:stdgo.GoComplex128, ?text:String) this = new stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode(
 nodeType,
 pos,
-(_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>),
+(_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>),
 isInt,
 isUint,
 isFloat,
@@ -692,7 +692,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var quoted(get, set) : String;
@@ -707,7 +707,7 @@ isComplex,
         this.text = (v : stdgo.GoString);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?quoted:String, ?text:String) this = new stdgo._internal.text.template.parse.Parse_StringNode.StringNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (quoted : stdgo.GoString), (text : stdgo.GoString));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?quoted:String, ?text:String) this = new stdgo._internal.text.template.parse.Parse_StringNode.StringNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (quoted : stdgo.GoString), (text : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -727,10 +727,10 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree) this = new stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -750,7 +750,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
@@ -759,7 +759,7 @@ isComplex,
         this.line = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (line : stdgo.GoInt));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (line : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -779,7 +779,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
@@ -791,22 +791,22 @@ isComplex,
     public var pipe(get, set) : PipeNode;
     function get_pipe():PipeNode return this.pipe;
     function set_pipe(v:PipeNode):PipeNode {
-        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return v;
     }
     public var list(get, set) : ListNode;
     function get_list():ListNode return this.list;
     function set_list(v:ListNode):ListNode {
-        this.list = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        this.list = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return v;
     }
     public var elseList(get, set) : ListNode;
     function get_elseList():ListNode return this.elseList;
     function set_elseList(v:ListNode):ListNode {
-        this.elseList = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        this.elseList = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?pipe:PipeNode, ?list:ListNode, ?elseList:ListNode) this = new stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (line : stdgo.GoInt), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>), (list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>), (elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?pipe:PipeNode, ?list:ListNode, ?elseList:ListNode) this = new stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (line : stdgo.GoInt), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>), (list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>), (elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -825,7 +825,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var nodeType(get, set) : NodeType;
@@ -846,7 +846,7 @@ isComplex,
         this.line = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_tr:Tree, ?nodeType:NodeType, ?pos:Pos, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode((_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), nodeType, pos, (line : stdgo.GoInt));
+    public function new(?_tr:Tree, ?nodeType:NodeType, ?pos:Pos, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode((_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), nodeType, pos, (line : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -854,7 +854,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var nodeType(get, set) : NodeType;
@@ -875,7 +875,7 @@ isComplex,
         this.line = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_tr:Tree, ?nodeType:NodeType, ?pos:Pos, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode((_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), nodeType, pos, (line : stdgo.GoInt));
+    public function new(?_tr:Tree, ?nodeType:NodeType, ?pos:Pos, ?line:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode((_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), nodeType, pos, (line : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -917,7 +917,7 @@ isComplex,
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
-        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        this._tr = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return v;
     }
     public var line(get, set) : StdTypes.Int;
@@ -935,10 +935,10 @@ isComplex,
     public var pipe(get, set) : PipeNode;
     function get_pipe():PipeNode return this.pipe;
     function set_pipe(v:PipeNode):PipeNode {
-        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        this.pipe = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return v;
     }
-    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?name:String, ?pipe:PipeNode) this = new stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>), (line : stdgo.GoInt), (name : stdgo.GoString), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>));
+    public function new(?nodeType:NodeType, ?pos:Pos, ?_tr:Tree, ?line:StdTypes.Int, ?name:String, ?pipe:PipeNode) this = new stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode(nodeType, pos, (_tr : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>), (line : stdgo.GoInt), (name : stdgo.GoString), (pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -958,7 +958,7 @@ isComplex,
     public var root(get, set) : ListNode;
     function get_root():ListNode return this.root;
     function set_root(v:ListNode):ListNode {
-        this.root = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        this.root = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return v;
     }
     public var mode(get, set) : Mode;
@@ -982,13 +982,13 @@ isComplex,
     public var _lex(get, set) : T_lexer;
     function get__lex():T_lexer return this._lex;
     function set__lex(v:T_lexer):T_lexer {
-        this._lex = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        this._lex = (v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return v;
     }
     public var _token(get, set) : haxe.ds.Vector<T_item>;
     function get__token():haxe.ds.Vector<T_item> return haxe.ds.Vector.fromArrayCopy([for (i in this._token) i]);
     function set__token(v:haxe.ds.Vector<T_item>):haxe.ds.Vector<T_item> {
-        this._token = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_T_item.T_item>);
+        this._token = ([for (i in v) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>);
         return v;
     }
     public var _peekCount(get, set) : StdTypes.Int;
@@ -1003,10 +1003,10 @@ isComplex,
         this._vars = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _treeSet(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>;
-    function get__treeSet():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> return this._treeSet;
-    function set__treeSet(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>> {
-        this._treeSet = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>);
+    public var _treeSet(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>;
+    function get__treeSet():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> return this._treeSet;
+    function set__treeSet(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> {
+        this._treeSet = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
         return v;
     }
     public var _actionLine(get, set) : StdTypes.Int;
@@ -1021,18 +1021,18 @@ isComplex,
         this._rangeDepth = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_Tree.Tree(
+    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_Tree.Tree(
 (name : stdgo.GoString),
 (parseName : stdgo.GoString),
-(root : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>),
+(root : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>),
 mode,
 (_text : stdgo.GoString),
 ([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>),
-(_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>),
-([for (i in _token) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_T_item.T_item>),
+(_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>),
+([for (i in _token) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>),
 (_peekCount : stdgo.GoInt),
 ([for (i in _vars) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
-(_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>),
+(_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>),
 (_actionLine : stdgo.GoInt),
 (_rangeDepth : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -1052,65 +1052,65 @@ class T_item_static_extension {
 typedef T_lexerPointer = stdgo._internal.text.template.parse.Parse_T_lexerPointer.T_lexerPointer;
 class T_lexer_static_extension {
     static public function _scanNumber(_l:T_lexer):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._scanNumber(_l);
     }
     static public function _atTerminator(_l:T_lexer):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._atTerminator(_l);
     }
     static public function _atRightDelim(_l:T_lexer):stdgo.Tuple<Bool, Bool> {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._atRightDelim(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _nextItem(_l:T_lexer):T_item {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._nextItem(_l);
     }
     static public function _errorf(_l:T_lexer, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):T_stateFn {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         final _format = (_format : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._errorf(_l, _format, ...[for (i in _args) i]);
     }
     static public function _acceptRun(_l:T_lexer, _valid:String):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         final _valid = (_valid : stdgo.GoString);
         stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._acceptRun(_l, _valid);
     }
     static public function _accept(_l:T_lexer, _valid:String):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         final _valid = (_valid : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._accept(_l, _valid);
     }
     static public function _ignore(_l:T_lexer):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._ignore(_l);
     }
     static public function _emitItem(_l:T_lexer, _i:T_item):T_stateFn {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._emitItem(_l, _i);
     }
     static public function _emit(_l:T_lexer, _t:T_itemType):T_stateFn {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._emit(_l, _t);
     }
     static public function _thisItem(_l:T_lexer, _t:T_itemType):T_item {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._thisItem(_l, _t);
     }
     static public function _backup(_l:T_lexer):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._backup(_l);
     }
     static public function _peek(_l:T_lexer):StdTypes.Int {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._peek(_l);
     }
     static public function _next(_l:T_lexer):StdTypes.Int {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
         return stdgo._internal.text.template.parse.Parse_T_lexer_static_extension.T_lexer_static_extension._next(_l);
     }
 }
@@ -1121,724 +1121,724 @@ class T_lexOptions_static_extension {
 typedef ListNodePointer = stdgo._internal.text.template.parse.Parse_ListNodePointer.ListNodePointer;
 class ListNode_static_extension {
     static public function copy(_l:ListNode):Node {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.copy(_l);
     }
     static public function copyList(_l:ListNode):ListNode {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.copyList(_l);
     }
-    static public function _writeTo(_l:ListNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_l:ListNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension._writeTo(_l, _sb);
     }
     static public function string(_l:ListNode):String {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.string(_l);
     }
     static public function _tree(_l:ListNode):Tree {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension._tree(_l);
     }
     static public function _append(_l:ListNode, _n:Node):Void {
-        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension._append(_l, _n);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_ListNode.ListNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_listnode.ListNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_ListNode.ListNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_listnode.ListNode):Pos {
         return stdgo._internal.text.template.parse.Parse_ListNode_static_extension.ListNode_static_extension.position(__self__);
     }
 }
 typedef TextNodePointer = stdgo._internal.text.template.parse.Parse_TextNodePointer.TextNodePointer;
 class TextNode_static_extension {
     static public function copy(_t:TextNode):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>);
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.copy(_t);
     }
     static public function _tree(_t:TextNode):Tree {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>);
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension._tree(_t);
     }
-    static public function _writeTo(_t:TextNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_t:TextNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension._writeTo(_t, _sb);
     }
     static public function string(_t:TextNode):String {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TextNode.TextNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>);
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.string(_t);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_TextNode.TextNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_textnode.TextNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_TextNode.TextNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_textnode.TextNode):Pos {
         return stdgo._internal.text.template.parse.Parse_TextNode_static_extension.TextNode_static_extension.position(__self__);
     }
 }
 typedef CommentNodePointer = stdgo._internal.text.template.parse.Parse_CommentNodePointer.CommentNodePointer;
 class CommentNode_static_extension {
     static public function copy(_c:CommentNode):Node {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>);
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.copy(_c);
     }
     static public function _tree(_c:CommentNode):Tree {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>);
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension._tree(_c);
     }
-    static public function _writeTo(_c:CommentNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_c:CommentNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension._writeTo(_c, _sb);
     }
     static public function string(_c:CommentNode):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commentnode.CommentNode>);
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.string(_c);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_commentnode.CommentNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_CommentNode.CommentNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_commentnode.CommentNode):Pos {
         return stdgo._internal.text.template.parse.Parse_CommentNode_static_extension.CommentNode_static_extension.position(__self__);
     }
 }
 typedef PipeNodePointer = stdgo._internal.text.template.parse.Parse_PipeNodePointer.PipeNodePointer;
 class PipeNode_static_extension {
     static public function copy(_p:PipeNode):Node {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.copy(_p);
     }
     static public function copyPipe(_p:PipeNode):PipeNode {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.copyPipe(_p);
     }
     static public function _tree(_p:PipeNode):Tree {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension._tree(_p);
     }
-    static public function _writeTo(_p:PipeNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_p:PipeNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension._writeTo(_p, _sb);
     }
     static public function string(_p:PipeNode):String {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.string(_p);
     }
     static public function _append(_p:PipeNode, _command:CommandNode):Void {
-        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        final _command = (_command : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        final _command = (_command : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
         stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension._append(_p, _command);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_pipenode.PipeNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_pipenode.PipeNode):Pos {
         return stdgo._internal.text.template.parse.Parse_PipeNode_static_extension.PipeNode_static_extension.position(__self__);
     }
 }
 typedef ActionNodePointer = stdgo._internal.text.template.parse.Parse_ActionNodePointer.ActionNodePointer;
 class ActionNode_static_extension {
     static public function copy(_a:ActionNode):Node {
-        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_actionnode.ActionNode>);
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.copy(_a);
     }
     static public function _tree(_a:ActionNode):Tree {
-        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_actionnode.ActionNode>);
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension._tree(_a);
     }
-    static public function _writeTo(_a:ActionNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_a:ActionNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_actionnode.ActionNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension._writeTo(_a, _sb);
     }
     static public function string(_a:ActionNode):String {
-        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>);
+        final _a = (_a : stdgo.Ref<stdgo._internal.text.template.parse.Parse_actionnode.ActionNode>);
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.string(_a);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_actionnode.ActionNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_actionnode.ActionNode):Pos {
         return stdgo._internal.text.template.parse.Parse_ActionNode_static_extension.ActionNode_static_extension.position(__self__);
     }
 }
 typedef CommandNodePointer = stdgo._internal.text.template.parse.Parse_CommandNodePointer.CommandNodePointer;
 class CommandNode_static_extension {
     static public function copy(_c:CommandNode):Node {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.copy(_c);
     }
     static public function _tree(_c:CommandNode):Tree {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension._tree(_c);
     }
-    static public function _writeTo(_c:CommandNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_c:CommandNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension._writeTo(_c, _sb);
     }
     static public function string(_c:CommandNode):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.string(_c);
     }
     static public function _append(_c:CommandNode, _arg:Node):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>);
         stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension._append(_c, _arg);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_commandnode.CommandNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_commandnode.CommandNode):Pos {
         return stdgo._internal.text.template.parse.Parse_CommandNode_static_extension.CommandNode_static_extension.position(__self__);
     }
 }
 typedef IdentifierNodePointer = stdgo._internal.text.template.parse.Parse_IdentifierNodePointer.IdentifierNodePointer;
 class IdentifierNode_static_extension {
     static public function copy(_i:IdentifierNode):Node {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.copy(_i);
     }
     static public function _tree(_i:IdentifierNode):Tree {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension._tree(_i);
     }
-    static public function _writeTo(_i:IdentifierNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_i:IdentifierNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension._writeTo(_i, _sb);
     }
     static public function string(_i:IdentifierNode):String {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.string(_i);
     }
     static public function setTree(_i:IdentifierNode, _t:Tree):IdentifierNode {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.setTree(_i, _t);
     }
     static public function setPos(_i:IdentifierNode, _pos:Pos):IdentifierNode {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode>);
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.setPos(_i, _pos);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode):Pos {
         return stdgo._internal.text.template.parse.Parse_IdentifierNode_static_extension.IdentifierNode_static_extension.position(__self__);
     }
 }
 typedef VariableNodePointer = stdgo._internal.text.template.parse.Parse_VariableNodePointer.VariableNodePointer;
 class VariableNode_static_extension {
     static public function copy(_v:VariableNode):Node {
-        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>);
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.copy(_v);
     }
     static public function _tree(_v:VariableNode):Tree {
-        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>);
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension._tree(_v);
     }
-    static public function _writeTo(_v:VariableNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_v:VariableNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension._writeTo(_v, _sb);
     }
     static public function string(_v:VariableNode):String {
-        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>);
+        final _v = (_v : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>);
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.string(_v);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_variablenode.VariableNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_variablenode.VariableNode):Pos {
         return stdgo._internal.text.template.parse.Parse_VariableNode_static_extension.VariableNode_static_extension.position(__self__);
     }
 }
 typedef DotNodePointer = stdgo._internal.text.template.parse.Parse_DotNodePointer.DotNodePointer;
 class DotNode_static_extension {
     static public function copy(_d:DotNode):Node {
-        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>);
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.copy(_d);
     }
     static public function _tree(_d:DotNode):Tree {
-        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>);
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension._tree(_d);
     }
-    static public function _writeTo(_d:DotNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_d:DotNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension._writeTo(_d, _sb);
     }
     static public function string(_d:DotNode):String {
-        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>);
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.string(_d);
     }
     static public function type(_d:DotNode):NodeType {
-        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_DotNode.DotNode>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.text.template.parse.Parse_dotnode.DotNode>);
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.type(_d);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_DotNode.DotNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_dotnode.DotNode):Pos {
         return stdgo._internal.text.template.parse.Parse_DotNode_static_extension.DotNode_static_extension.position(__self__);
     }
 }
 typedef NilNodePointer = stdgo._internal.text.template.parse.Parse_NilNodePointer.NilNodePointer;
 class NilNode_static_extension {
     static public function copy(_n:NilNode):Node {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_nilnode.NilNode>);
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.copy(_n);
     }
     static public function _tree(_n:NilNode):Tree {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_nilnode.NilNode>);
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension._tree(_n);
     }
-    static public function _writeTo(_n:NilNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_n:NilNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_nilnode.NilNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension._writeTo(_n, _sb);
     }
     static public function string(_n:NilNode):String {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_nilnode.NilNode>);
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.string(_n);
     }
     static public function type(_n:NilNode):NodeType {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NilNode.NilNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_nilnode.NilNode>);
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.type(_n);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_NilNode.NilNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_nilnode.NilNode):Pos {
         return stdgo._internal.text.template.parse.Parse_NilNode_static_extension.NilNode_static_extension.position(__self__);
     }
 }
 typedef FieldNodePointer = stdgo._internal.text.template.parse.Parse_FieldNodePointer.FieldNodePointer;
 class FieldNode_static_extension {
     static public function copy(_f:FieldNode):Node {
-        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode>);
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.copy(_f);
     }
     static public function _tree(_f:FieldNode):Tree {
-        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode>);
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension._tree(_f);
     }
-    static public function _writeTo(_f:FieldNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_f:FieldNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension._writeTo(_f, _sb);
     }
     static public function string(_f:FieldNode):String {
-        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode>);
+        final _f = (_f : stdgo.Ref<stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode>);
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.string(_f);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_FieldNode.FieldNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode):Pos {
         return stdgo._internal.text.template.parse.Parse_FieldNode_static_extension.FieldNode_static_extension.position(__self__);
     }
 }
 typedef ChainNodePointer = stdgo._internal.text.template.parse.Parse_ChainNodePointer.ChainNodePointer;
 class ChainNode_static_extension {
     static public function copy(_c:ChainNode):Node {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>);
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.copy(_c);
     }
     static public function _tree(_c:ChainNode):Tree {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>);
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension._tree(_c);
     }
-    static public function _writeTo(_c:ChainNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_c:ChainNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension._writeTo(_c, _sb);
     }
     static public function string(_c:ChainNode):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>);
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.string(_c);
     }
     static public function add(_c:ChainNode, _field:String):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_chainnode.ChainNode>);
         final _field = (_field : stdgo.GoString);
         stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.add(_c, _field);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_chainnode.ChainNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_ChainNode.ChainNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_chainnode.ChainNode):Pos {
         return stdgo._internal.text.template.parse.Parse_ChainNode_static_extension.ChainNode_static_extension.position(__self__);
     }
 }
 typedef BoolNodePointer = stdgo._internal.text.template.parse.Parse_BoolNodePointer.BoolNodePointer;
 class BoolNode_static_extension {
     static public function copy(_b:BoolNode):Node {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_boolnode.BoolNode>);
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.copy(_b);
     }
     static public function _tree(_b:BoolNode):Tree {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_boolnode.BoolNode>);
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension._tree(_b);
     }
-    static public function _writeTo(_b:BoolNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_b:BoolNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_boolnode.BoolNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension._writeTo(_b, _sb);
     }
     static public function string(_b:BoolNode):String {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_boolnode.BoolNode>);
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.string(_b);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_boolnode.BoolNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_BoolNode.BoolNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_boolnode.BoolNode):Pos {
         return stdgo._internal.text.template.parse.Parse_BoolNode_static_extension.BoolNode_static_extension.position(__self__);
     }
 }
 typedef NumberNodePointer = stdgo._internal.text.template.parse.Parse_NumberNodePointer.NumberNodePointer;
 class NumberNode_static_extension {
     static public function copy(_n:NumberNode):Node {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>);
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.copy(_n);
     }
     static public function _tree(_n:NumberNode):Tree {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>);
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension._tree(_n);
     }
-    static public function _writeTo(_n:NumberNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_n:NumberNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension._writeTo(_n, _sb);
     }
     static public function string(_n:NumberNode):String {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>);
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.string(_n);
     }
     static public function _simplifyComplex(_n:NumberNode):Void {
-        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode>);
+        final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_numbernode.NumberNode>);
         stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension._simplifyComplex(_n);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_numbernode.NumberNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_NumberNode.NumberNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_numbernode.NumberNode):Pos {
         return stdgo._internal.text.template.parse.Parse_NumberNode_static_extension.NumberNode_static_extension.position(__self__);
     }
 }
 typedef StringNodePointer = stdgo._internal.text.template.parse.Parse_StringNodePointer.StringNodePointer;
 class StringNode_static_extension {
     static public function copy(_s:StringNode):Node {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>);
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.copy(_s);
     }
     static public function _tree(_s:StringNode):Tree {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>);
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension._tree(_s);
     }
-    static public function _writeTo(_s:StringNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_s:StringNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension._writeTo(_s, _sb);
     }
     static public function string(_s:StringNode):String {
-        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_StringNode.StringNode>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.text.template.parse.Parse_stringnode.StringNode>);
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.string(_s);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_StringNode.StringNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_stringnode.StringNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_StringNode.StringNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_stringnode.StringNode):Pos {
         return stdgo._internal.text.template.parse.Parse_StringNode_static_extension.StringNode_static_extension.position(__self__);
     }
 }
 typedef T_endNodePointer = stdgo._internal.text.template.parse.Parse_T_endNodePointer.T_endNodePointer;
 class T_endNode_static_extension {
     static public function copy(_e:T_endNode):Node {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>);
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.copy(_e);
     }
     static public function _tree(_e:T_endNode):Tree {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>);
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension._tree(_e);
     }
-    static public function _writeTo(_e:T_endNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_e:T_endNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension._writeTo(_e, _sb);
     }
     static public function string(_e:T_endNode):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode>);
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.string(_e);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_T_endNode.T_endNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode):Pos {
         return stdgo._internal.text.template.parse.Parse_T_endNode_static_extension.T_endNode_static_extension.position(__self__);
     }
 }
 typedef T_elseNodePointer = stdgo._internal.text.template.parse.Parse_T_elseNodePointer.T_elseNodePointer;
 class T_elseNode_static_extension {
     static public function copy(_e:T_elseNode):Node {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode>);
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.copy(_e);
     }
     static public function _tree(_e:T_elseNode):Tree {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode>);
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension._tree(_e);
     }
-    static public function _writeTo(_e:T_elseNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_e:T_elseNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension._writeTo(_e, _sb);
     }
     static public function string(_e:T_elseNode):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode>);
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.string(_e);
     }
     static public function type(_e:T_elseNode):NodeType {
-        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode>);
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.type(_e);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_T_elseNode.T_elseNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode):Pos {
         return stdgo._internal.text.template.parse.Parse_T_elseNode_static_extension.T_elseNode_static_extension.position(__self__);
     }
 }
 typedef BranchNodePointer = stdgo._internal.text.template.parse.Parse_BranchNodePointer.BranchNodePointer;
 class BranchNode_static_extension {
     static public function copy(_b:BranchNode):Node {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_branchnode.BranchNode>);
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.copy(_b);
     }
     static public function _tree(_b:BranchNode):Tree {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_branchnode.BranchNode>);
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension._tree(_b);
     }
-    static public function _writeTo(_b:BranchNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_b:BranchNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_branchnode.BranchNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension._writeTo(_b, _sb);
     }
     static public function string(_b:BranchNode):String {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_branchnode.BranchNode>);
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.string(_b);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_branchnode.BranchNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_BranchNode.BranchNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_branchnode.BranchNode):Pos {
         return stdgo._internal.text.template.parse.Parse_BranchNode_static_extension.BranchNode_static_extension.position(__self__);
     }
 }
 typedef IfNodePointer = stdgo._internal.text.template.parse.Parse_IfNodePointer.IfNodePointer;
 class IfNode_static_extension {
     static public function copy(_i:IfNode):Node {
-        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IfNode.IfNode>);
+        final _i = (_i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ifnode.IfNode>);
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.copy(_i);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_ifnode.IfNode, _0:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension._writeTo(__self__, _0);
     }
-    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode):Tree {
+    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_ifnode.IfNode):Tree {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension._tree(__self__);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_ifnode.IfNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.type(__self__);
     }
-    public static function string(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode):String {
+    public static function string(__self__:stdgo._internal.text.template.parse.Parse_ifnode.IfNode):String {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.string(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_IfNode.IfNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_ifnode.IfNode):Pos {
         return stdgo._internal.text.template.parse.Parse_IfNode_static_extension.IfNode_static_extension.position(__self__);
     }
 }
 typedef BreakNodePointer = stdgo._internal.text.template.parse.Parse_BreakNodePointer.BreakNodePointer;
 class BreakNode_static_extension {
-    static public function _writeTo(_b:BreakNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_b:BreakNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension._writeTo(_b, _sb);
     }
     static public function _tree(_b:BreakNode):Tree {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>);
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension._tree(_b);
     }
     static public function string(_b:BreakNode):String {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>);
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension.string(_b);
     }
     static public function copy(_b:BreakNode):Node {
-        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode>);
+        final _b = (_b : stdgo.Ref<stdgo._internal.text.template.parse.Parse_breaknode.BreakNode>);
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension.copy(_b);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_breaknode.BreakNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_BreakNode.BreakNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_breaknode.BreakNode):Pos {
         return stdgo._internal.text.template.parse.Parse_BreakNode_static_extension.BreakNode_static_extension.position(__self__);
     }
 }
 typedef ContinueNodePointer = stdgo._internal.text.template.parse.Parse_ContinueNodePointer.ContinueNodePointer;
 class ContinueNode_static_extension {
-    static public function _writeTo(_c:ContinueNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_c:ContinueNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension._writeTo(_c, _sb);
     }
     static public function _tree(_c:ContinueNode):Tree {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>);
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension._tree(_c);
     }
     static public function string(_c:ContinueNode):String {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>);
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension.string(_c);
     }
     static public function copy(_c:ContinueNode):Node {
-        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode>);
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension.copy(_c);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_ContinueNode.ContinueNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode):Pos {
         return stdgo._internal.text.template.parse.Parse_ContinueNode_static_extension.ContinueNode_static_extension.position(__self__);
     }
 }
 typedef RangeNodePointer = stdgo._internal.text.template.parse.Parse_RangeNodePointer.RangeNodePointer;
 class RangeNode_static_extension {
     static public function copy(_r:RangeNode):Node {
-        final _r = (_r : stdgo.Ref<stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.text.template.parse.Parse_rangenode.RangeNode>);
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.copy(_r);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_rangenode.RangeNode, _0:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension._writeTo(__self__, _0);
     }
-    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode):Tree {
+    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_rangenode.RangeNode):Tree {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension._tree(__self__);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_rangenode.RangeNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.type(__self__);
     }
-    public static function string(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode):String {
+    public static function string(__self__:stdgo._internal.text.template.parse.Parse_rangenode.RangeNode):String {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.string(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_RangeNode.RangeNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_rangenode.RangeNode):Pos {
         return stdgo._internal.text.template.parse.Parse_RangeNode_static_extension.RangeNode_static_extension.position(__self__);
     }
 }
 typedef WithNodePointer = stdgo._internal.text.template.parse.Parse_WithNodePointer.WithNodePointer;
 class WithNode_static_extension {
     static public function copy(_w:WithNode):Node {
-        final _w = (_w : stdgo.Ref<stdgo._internal.text.template.parse.Parse_WithNode.WithNode>);
+        final _w = (_w : stdgo.Ref<stdgo._internal.text.template.parse.Parse_withnode.WithNode>);
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.copy(_w);
     }
-    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode, _0:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    public static function _writeTo(__self__:stdgo._internal.text.template.parse.Parse_withnode.WithNode, _0:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension._writeTo(__self__, _0);
     }
-    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode):Tree {
+    public static function _tree(__self__:stdgo._internal.text.template.parse.Parse_withnode.WithNode):Tree {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension._tree(__self__);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_withnode.WithNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.type(__self__);
     }
-    public static function string(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode):String {
+    public static function string(__self__:stdgo._internal.text.template.parse.Parse_withnode.WithNode):String {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.string(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_WithNode.WithNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_withnode.WithNode):Pos {
         return stdgo._internal.text.template.parse.Parse_WithNode_static_extension.WithNode_static_extension.position(__self__);
     }
 }
 typedef TemplateNodePointer = stdgo._internal.text.template.parse.Parse_TemplateNodePointer.TemplateNodePointer;
 class TemplateNode_static_extension {
     static public function copy(_t:TemplateNode):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode>);
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.copy(_t);
     }
     static public function _tree(_t:TemplateNode):Tree {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode>);
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension._tree(_t);
     }
-    static public function _writeTo(_t:TemplateNode, _sb:stdgo._internal.strings.Strings_Builder.Builder):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
-        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+    static public function _writeTo(_t:TemplateNode, _sb:stdgo._internal.strings.Strings_builder.Builder):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode>);
+        final _sb = (_sb : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension._writeTo(_t, _sb);
     }
     static public function string(_t:TemplateNode):String {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode>);
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.string(_t);
     }
-    public static function type(__self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):NodeType {
+    public static function type(__self__:stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode):NodeType {
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.type(__self__);
     }
-    public static function position(__self__:stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode):Pos {
+    public static function position(__self__:stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode):Pos {
         return stdgo._internal.text.template.parse.Parse_TemplateNode_static_extension.TemplateNode_static_extension.position(__self__);
     }
 }
 typedef TreePointer = stdgo._internal.text.template.parse.Parse_TreePointer.TreePointer;
 class Tree_static_extension {
     static public function _useVar(_t:Tree, _pos:Pos, _name:String):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._useVar(_t, _pos, _name);
     }
     static public function _popVars(_t:Tree, _n:StdTypes.Int):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _n = (_n : stdgo.GoInt);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._popVars(_t, _n);
     }
     static public function _hasFunction(_t:Tree, _name:String):Bool {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._hasFunction(_t, _name);
     }
     static public function _term(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._term(_t);
     }
     static public function _operand(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._operand(_t);
     }
     static public function _command(_t:Tree):CommandNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._command(_t);
     }
     static public function _parseTemplateName(_t:Tree, _token:T_item, _context:String):String {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._parseTemplateName(_t, _token, _context);
     }
     static public function _templateControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._templateControl(_t);
     }
     static public function _blockControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._blockControl(_t);
     }
     static public function _elseControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._elseControl(_t);
     }
     static public function _endControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._endControl(_t);
     }
     static public function _withControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._withControl(_t);
     }
     static public function _rangeControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._rangeControl(_t);
     }
     static public function _ifControl(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._ifControl(_t);
     }
     static public function _parseControl(_t:Tree, _allowElseIf:Bool, _context:String):stdgo.Tuple.Tuple5<Pos, StdTypes.Int, PipeNode, ListNode, ListNode> {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._parseControl(_t, _allowElseIf, _context);
@@ -1846,206 +1846,206 @@ class Tree_static_extension {
         };
     }
     static public function _checkPipeline(_t:Tree, _pipe:PipeNode, _context:String):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         final _context = (_context : stdgo.GoString);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._checkPipeline(_t, _pipe, _context);
     }
     static public function _pipeline(_t:Tree, _context:String, _end:T_itemType):PipeNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._pipeline(_t, _context, _end);
     }
     static public function _continueControl(_t:Tree, _pos:Pos, _line:StdTypes.Int):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._continueControl(_t, _pos, _line);
     }
     static public function _breakControl(_t:Tree, _pos:Pos, _line:StdTypes.Int):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._breakControl(_t, _pos, _line);
     }
     static public function _action(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._action(_t);
     }
     static public function _clearActionLine(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._clearActionLine(_t);
     }
     static public function _textOrAction(_t:Tree):Node {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._textOrAction(_t);
     }
     static public function _itemList(_t:Tree):stdgo.Tuple<ListNode, Node> {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._itemList(_t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _parseDefinition(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._parseDefinition(_t);
     }
     static public function _parse(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._parse(_t);
     }
     static public function _add(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._add(_t);
     }
-    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);
         final _rightDelim = (_rightDelim : stdgo.GoString);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>);
+        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension.parse(_t, _text, _leftDelim, _rightDelim, _treeSet, ...[for (i in _funcs) i]);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _stopParse(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._stopParse(_t);
     }
-    static public function _startParse(_t:Tree, _funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+    static public function _startParse(_t:Tree, _funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _funcs = ([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
-        final _lex = (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>);
+        final _lex = (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
+        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._startParse(_t, _funcs, _lex, _treeSet);
     }
     static public function _recover(_t:Tree, _errp:stdgo.Error):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _errp = (_errp : stdgo.Ref<stdgo.Error>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._recover(_t, _errp);
     }
     static public function _unexpected(_t:Tree, _token:T_item, _context:String):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._unexpected(_t, _token, _context);
     }
     static public function _expectOneOf(_t:Tree, _expected1:T_itemType, _expected2:T_itemType, _context:String):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._expectOneOf(_t, _expected1, _expected2, _context);
     }
     static public function _expect(_t:Tree, _expected:T_itemType, _context:String):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _context = (_context : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._expect(_t, _expected, _context);
     }
     static public function _error(_t:Tree, _err:stdgo.Error):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _err = (_err : stdgo.Error);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._error(_t, _err);
     }
     static public function _errorf(_t:Tree, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _format = (_format : stdgo.GoString);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._errorf(_t, _format, ...[for (i in _args) i]);
     }
     static public function errorContext(_t:Tree, _n:Node):stdgo.Tuple<String, String> {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension.errorContext(_t, _n);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _peekNonSpace(_t:Tree):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._peekNonSpace(_t);
     }
     static public function _nextNonSpace(_t:Tree):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._nextNonSpace(_t);
     }
     static public function _peek(_t:Tree):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._peek(_t);
     }
     static public function _backup3(_t:Tree, _t2:T_item, _t1:T_item):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._backup3(_t, _t2, _t1);
     }
     static public function _backup2(_t:Tree, _t1:T_item):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._backup2(_t, _t1);
     }
     static public function _backup(_t:Tree):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._backup(_t);
     }
     static public function _next(_t:Tree):T_item {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._next(_t);
     }
     static public function copy(_t:Tree):Tree {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension.copy(_t);
     }
     static public function _newTemplate(_t:Tree, _pos:Pos, _line:StdTypes.Int, _name:String, _pipe:PipeNode):TemplateNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         final _name = (_name : stdgo.GoString);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newTemplate(_t, _pos, _line, _name, _pipe);
     }
     static public function _newWith(_t:Tree, _pos:Pos, _line:StdTypes.Int, _pipe:PipeNode, _list:ListNode, _elseList:ListNode):WithNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
-        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
+        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newWith(_t, _pos, _line, _pipe, _list, _elseList);
     }
     static public function _newRange(_t:Tree, _pos:Pos, _line:StdTypes.Int, _pipe:PipeNode, _list:ListNode, _elseList:ListNode):RangeNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
-        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
+        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newRange(_t, _pos, _line, _pipe, _list, _elseList);
     }
     static public function _newContinue(_t:Tree, _pos:Pos, _line:StdTypes.Int):ContinueNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newContinue(_t, _pos, _line);
     }
     static public function _newBreak(_t:Tree, _pos:Pos, _line:StdTypes.Int):BreakNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newBreak(_t, _pos, _line);
     }
     static public function _newIf(_t:Tree, _pos:Pos, _line:StdTypes.Int, _pipe:PipeNode, _list:ListNode, _elseList:ListNode):IfNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
-        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
+        final _list = (_list : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
+        final _elseList = (_elseList : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newIf(_t, _pos, _line, _pipe, _list, _elseList);
     }
     static public function _newElse(_t:Tree, _pos:Pos, _line:StdTypes.Int):T_elseNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newElse(_t, _pos, _line);
     }
     static public function _newEnd(_t:Tree, _pos:Pos):T_endNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newEnd(_t, _pos);
     }
     static public function _newString(_t:Tree, _pos:Pos, _orig:String, _text:String):StringNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _orig = (_orig : stdgo.GoString);
         final _text = (_text : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newString(_t, _pos, _orig, _text);
     }
     static public function _newNumber(_t:Tree, _pos:Pos, _text:String, _typ:T_itemType):stdgo.Tuple<NumberNode, stdgo.Error> {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newNumber(_t, _pos, _text, _typ);
@@ -2053,59 +2053,59 @@ class Tree_static_extension {
         };
     }
     static public function _newBool(_t:Tree, _pos:Pos, __true:Bool):BoolNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newBool(_t, _pos, __true);
     }
     static public function _newChain(_t:Tree, _pos:Pos, _node:Node):ChainNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newChain(_t, _pos, _node);
     }
     static public function _newField(_t:Tree, _pos:Pos, _ident:String):FieldNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _ident = (_ident : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newField(_t, _pos, _ident);
     }
     static public function _newNil(_t:Tree, _pos:Pos):NilNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newNil(_t, _pos);
     }
     static public function _newDot(_t:Tree, _pos:Pos):DotNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newDot(_t, _pos);
     }
     static public function _newVariable(_t:Tree, _pos:Pos, _ident:String):VariableNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _ident = (_ident : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newVariable(_t, _pos, _ident);
     }
     static public function _newCommand(_t:Tree, _pos:Pos):CommandNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newCommand(_t, _pos);
     }
     static public function _newAction(_t:Tree, _pos:Pos, _line:StdTypes.Int, _pipe:PipeNode):ActionNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
-        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        final _pipe = (_pipe : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newAction(_t, _pos, _line, _pipe);
     }
     static public function _newPipeline(_t:Tree, _pos:Pos, _line:StdTypes.Int, _vars:Array<VariableNode>):PipeNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _line = (_line : stdgo.GoInt);
-        final _vars = ([for (i in _vars) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>);
+        final _vars = ([for (i in _vars) (i : stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newPipeline(_t, _pos, _line, _vars);
     }
     static public function _newComment(_t:Tree, _pos:Pos, _text:String):CommentNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newComment(_t, _pos, _text);
     }
     static public function _newText(_t:Tree, _pos:Pos, _text:String):TextNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newText(_t, _pos, _text);
     }
     static public function _newList(_t:Tree, _pos:Pos):ListNode {
-        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         return stdgo._internal.text.template.parse.Parse_Tree_static_extension.Tree_static_extension._newList(_t, _pos);
     }
 }
@@ -2153,7 +2153,7 @@ class Parse {
         given the specified name. If an error is encountered, parsing stops and an
         empty map is returned with the error.
     **/
-    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>>, stdgo.Error> {
+    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);

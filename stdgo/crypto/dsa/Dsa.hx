@@ -10,25 +10,25 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         return v;
     }
 @:structInit @:using(stdgo.crypto.dsa.Dsa.Parameters_static_extension) abstract Parameters(stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters) from stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters to stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters {
-    public var p(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_p():stdgo._internal.math.big.Big_Int_.Int_ return this.p;
-    function set_p(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.p = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var p(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_p():stdgo._internal.math.big.Big_int_.Int_ return this.p;
+    function set_p(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.p = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public var q(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_q():stdgo._internal.math.big.Big_Int_.Int_ return this.q;
-    function set_q(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.q = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var q(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_q():stdgo._internal.math.big.Big_int_.Int_ return this.q;
+    function set_q(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.q = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public var g(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_g():stdgo._internal.math.big.Big_Int_.Int_ return this.g;
-    function set_g(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.g = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var g(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_g():stdgo._internal.math.big.Big_int_.Int_ return this.g;
+    function set_g(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.g = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?p:stdgo._internal.math.big.Big_Int_.Int_, ?q:stdgo._internal.math.big.Big_Int_.Int_, ?g:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters((p : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (g : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+    public function new(?p:stdgo._internal.math.big.Big_int_.Int_, ?q:stdgo._internal.math.big.Big_int_.Int_, ?g:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters((p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (g : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -39,13 +39,13 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         this.parameters = v;
         return v;
     }
-    public var y(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_y():stdgo._internal.math.big.Big_Int_.Int_ return this.y;
-    function set_y(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.y = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var y(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_y():stdgo._internal.math.big.Big_int_.Int_ return this.y;
+    function set_y(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.y = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?parameters:Parameters, ?y:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey(parameters, (y : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+    public function new(?parameters:Parameters, ?y:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey(parameters, (y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -56,13 +56,13 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         this.publicKey = v;
         return v;
     }
-    public var x(get, set) : stdgo._internal.math.big.Big_Int_.Int_;
-    function get_x():stdgo._internal.math.big.Big_Int_.Int_ return this.x;
-    function set_x(v:stdgo._internal.math.big.Big_Int_.Int_):stdgo._internal.math.big.Big_Int_.Int_ {
-        this.x = (v : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+    public var x(get, set) : stdgo._internal.math.big.Big_int_.Int_;
+    function get_x():stdgo._internal.math.big.Big_int_.Int_ return this.x;
+    function set_x(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
+        this.x = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?publicKey:PublicKey, ?x:stdgo._internal.math.big.Big_Int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey(publicKey, (x : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+    public function new(?publicKey:PublicKey, ?x:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey(publicKey, (x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -99,16 +99,16 @@ class Dsa {
         GenerateParameters puts a random, valid set of DSA parameters into params.
         This function can take many seconds, even on fast machines.
     **/
-    static public inline function generateParameters(_params:Parameters, _rand:stdgo._internal.io.Io_Reader.Reader, _sizes:ParameterSizes):stdgo.Error {
-        final _params = (_params : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters>);
+    static public inline function generateParameters(_params:Parameters, _rand:stdgo._internal.io.Io_reader.Reader, _sizes:ParameterSizes):stdgo.Error {
+        final _params = (_params : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_parameters.Parameters>);
         return stdgo._internal.crypto.dsa.Dsa_generateParameters.generateParameters(_params, _rand, _sizes);
     }
     /**
         GenerateKey generates a public&private key pair. The Parameters of the
         PrivateKey must already be valid (see GenerateParameters).
     **/
-    static public inline function generateKey(_priv:PrivateKey, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        final _priv = (_priv : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey>);
+    static public inline function generateKey(_priv:PrivateKey, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Error {
+        final _priv = (_priv : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey>);
         return stdgo._internal.crypto.dsa.Dsa_generateKey.generateKey(_priv, _rand);
     }
     /**
@@ -124,8 +124,8 @@ class Dsa {
         Be aware that calling Sign with an attacker-controlled PrivateKey may
         require an arbitrary amount of CPU.
     **/
-    static public inline function sign(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:PrivateKey, _hash:Array<std.UInt>):stdgo.Tuple.Tuple3<stdgo._internal.math.big.Big_Int_.Int_, stdgo._internal.math.big.Big_Int_.Int_, stdgo.Error> {
-        final _priv = (_priv : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey>);
+    static public inline function sign(_rand:stdgo._internal.io.Io_reader.Reader, _priv:PrivateKey, _hash:Array<std.UInt>):stdgo.Tuple.Tuple3<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_, stdgo.Error> {
+        final _priv = (_priv : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey>);
         final _hash = ([for (i in _hash) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.crypto.dsa.Dsa_sign.sign(_rand, _priv, _hash);
@@ -140,11 +140,11 @@ class Dsa {
         to the byte-length of the subgroup. This function does not perform that
         truncation itself.
     **/
-    static public inline function verify(_pub:PublicKey, _hash:Array<std.UInt>, _r:stdgo._internal.math.big.Big_Int_.Int_, _s:stdgo._internal.math.big.Big_Int_.Int_):Bool {
-        final _pub = (_pub : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey>);
+    static public inline function verify(_pub:PublicKey, _hash:Array<std.UInt>, _r:stdgo._internal.math.big.Big_int_.Int_, _s:stdgo._internal.math.big.Big_int_.Int_):Bool {
+        final _pub = (_pub : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey>);
         final _hash = ([for (i in _hash) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _r = (_r : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        final _s = (_s : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        final _r = (_r : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        final _s = (_s : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return stdgo._internal.crypto.dsa.Dsa_verify.verify(_pub, _hash, _r, _s);
     }
 }

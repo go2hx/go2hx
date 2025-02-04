@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.internal.edwards25519;
-var __tmp__24 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.edwards25519.field.Field_Element.Element)) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_Element.Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(32, 32, ...[
+var __tmp__24 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element)) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element>).setBytes((new stdgo.Slice<stdgo.GoUInt8>(32, 32, ...[
 (163 : stdgo.GoUInt8),
 (120 : stdgo.GoUInt8),
 (89 : stdgo.GoUInt8),

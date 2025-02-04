@@ -1,2 +1,0 @@
-package stdgo._internal.net.http;
-var errNotMultipart : stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError> = (stdgo.Go.setRef((new stdgo._internal.net.http.Http_ProtocolError.ProtocolError(("request Content-Type isn\'t multipart/form-data" : stdgo.GoString)) : stdgo._internal.net.http.Http_ProtocolError.ProtocolError)) : stdgo.Ref<stdgo._internal.net.http.Http_ProtocolError.ProtocolError>);

@@ -48,7 +48,7 @@ private function set_errRemoveArgument(v:stdgo.Error):stdgo.Error {
         return v;
     }
 class Driver_static_extension {
-    static public function open(t:stdgo._internal.database.sql.driver.Driver_Driver.Driver, _name:String):stdgo.Tuple<Conn, stdgo.Error> {
+    static public function open(t:stdgo._internal.database.sql.driver.Driver_driver.Driver, _name:String):stdgo.Tuple<Conn, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Driver_static_extension.Driver_static_extension.open(t, _name);
@@ -58,7 +58,7 @@ class Driver_static_extension {
 }
 typedef Driver_ = stdgo._internal.database.sql.driver.Driver_Driver.Driver;
 class DriverContext_static_extension {
-    static public function openConnector(t:stdgo._internal.database.sql.driver.Driver_DriverContext.DriverContext, _name:String):stdgo.Tuple<Connector, stdgo.Error> {
+    static public function openConnector(t:stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext, _name:String):stdgo.Tuple<Connector, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_DriverContext_static_extension.DriverContext_static_extension.openConnector(t, _name);
@@ -68,10 +68,10 @@ class DriverContext_static_extension {
 }
 typedef DriverContext = stdgo._internal.database.sql.driver.Driver_DriverContext.DriverContext;
 class Connector_static_extension {
-    static public function driver(t:stdgo._internal.database.sql.driver.Driver_Connector.Connector):Driver_ {
+    static public function driver(t:stdgo._internal.database.sql.driver.Driver_connector.Connector):Driver_ {
         return stdgo._internal.database.sql.driver.Driver_Connector_static_extension.Connector_static_extension.driver(t);
     }
-    static public function connect(t:stdgo._internal.database.sql.driver.Driver_Connector.Connector, _0:stdgo._internal.context.Context_Context.Context):stdgo.Tuple<Conn, stdgo.Error> {
+    static public function connect(t:stdgo._internal.database.sql.driver.Driver_connector.Connector, _0:stdgo._internal.context.Context_context.Context):stdgo.Tuple<Conn, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Connector_static_extension.Connector_static_extension.connect(t, _0);
             { _0 : obj._0, _1 : obj._1 };
@@ -80,15 +80,15 @@ class Connector_static_extension {
 }
 typedef Connector = stdgo._internal.database.sql.driver.Driver_Connector.Connector;
 class Pinger_static_extension {
-    static public function ping(t:stdgo._internal.database.sql.driver.Driver_Pinger.Pinger, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
+    static public function ping(t:stdgo._internal.database.sql.driver.Driver_pinger.Pinger, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Pinger_static_extension.Pinger_static_extension.ping(t, _ctx);
     }
 }
 typedef Pinger = stdgo._internal.database.sql.driver.Driver_Pinger.Pinger;
 class Execer_static_extension {
-    static public function exec(t:stdgo._internal.database.sql.driver.Driver_Execer.Execer, _query:String, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error> {
+    static public function exec(t:stdgo._internal.database.sql.driver.Driver_execer.Execer, _query:String, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Execer_static_extension.Execer_static_extension.exec(t, _query, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -97,9 +97,9 @@ class Execer_static_extension {
 }
 typedef Execer = stdgo._internal.database.sql.driver.Driver_Execer.Execer;
 class ExecerContext_static_extension {
-    static public function execContext(t:stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext, _ctx:stdgo._internal.context.Context_Context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
+    static public function execContext(t:stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_ExecerContext_static_extension.ExecerContext_static_extension.execContext(t, _ctx, _query, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -108,9 +108,9 @@ class ExecerContext_static_extension {
 }
 typedef ExecerContext = stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext;
 class Queryer_static_extension {
-    static public function query(t:stdgo._internal.database.sql.driver.Driver_Queryer.Queryer, _query:String, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
+    static public function query(t:stdgo._internal.database.sql.driver.Driver_queryer.Queryer, _query:String, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Queryer_static_extension.Queryer_static_extension.query(t, _query, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -119,9 +119,9 @@ class Queryer_static_extension {
 }
 typedef Queryer = stdgo._internal.database.sql.driver.Driver_Queryer.Queryer;
 class QueryerContext_static_extension {
-    static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_QueryerContext.QueryerContext, _ctx:stdgo._internal.context.Context_Context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
+    static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_QueryerContext_static_extension.QueryerContext_static_extension.queryContext(t, _ctx, _query, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -130,16 +130,16 @@ class QueryerContext_static_extension {
 }
 typedef QueryerContext = stdgo._internal.database.sql.driver.Driver_QueryerContext.QueryerContext;
 class Conn_static_extension {
-    static public function begin(t:stdgo._internal.database.sql.driver.Driver_Conn.Conn):stdgo.Tuple<Tx, stdgo.Error> {
+    static public function begin(t:stdgo._internal.database.sql.driver.Driver_conn.Conn):stdgo.Tuple<Tx, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Conn_static_extension.Conn_static_extension.begin(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function close(t:stdgo._internal.database.sql.driver.Driver_Conn.Conn):stdgo.Error {
+    static public function close(t:stdgo._internal.database.sql.driver.Driver_conn.Conn):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Conn_static_extension.Conn_static_extension.close(t);
     }
-    static public function prepare(t:stdgo._internal.database.sql.driver.Driver_Conn.Conn, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {
+    static public function prepare(t:stdgo._internal.database.sql.driver.Driver_conn.Conn, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Conn_static_extension.Conn_static_extension.prepare(t, _query);
@@ -149,7 +149,7 @@ class Conn_static_extension {
 }
 typedef Conn = stdgo._internal.database.sql.driver.Driver_Conn.Conn;
 class ConnPrepareContext_static_extension {
-    static public function prepareContext(t:stdgo._internal.database.sql.driver.Driver_ConnPrepareContext.ConnPrepareContext, _ctx:stdgo._internal.context.Context_Context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {
+    static public function prepareContext(t:stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_ConnPrepareContext_static_extension.ConnPrepareContext_static_extension.prepareContext(t, _ctx, _query);
@@ -159,7 +159,7 @@ class ConnPrepareContext_static_extension {
 }
 typedef ConnPrepareContext = stdgo._internal.database.sql.driver.Driver_ConnPrepareContext.ConnPrepareContext;
 class ConnBeginTx_static_extension {
-    static public function beginTx(t:stdgo._internal.database.sql.driver.Driver_ConnBeginTx.ConnBeginTx, _ctx:stdgo._internal.context.Context_Context.Context, _opts:TxOptions):stdgo.Tuple<Tx, stdgo.Error> {
+    static public function beginTx(t:stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx, _ctx:stdgo._internal.context.Context_context.Context, _opts:TxOptions):stdgo.Tuple<Tx, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_ConnBeginTx_static_extension.ConnBeginTx_static_extension.beginTx(t, _ctx, _opts);
             { _0 : obj._0, _1 : obj._1 };
@@ -168,25 +168,25 @@ class ConnBeginTx_static_extension {
 }
 typedef ConnBeginTx = stdgo._internal.database.sql.driver.Driver_ConnBeginTx.ConnBeginTx;
 class SessionResetter_static_extension {
-    static public function resetSession(t:stdgo._internal.database.sql.driver.Driver_SessionResetter.SessionResetter, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
+    static public function resetSession(t:stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_SessionResetter_static_extension.SessionResetter_static_extension.resetSession(t, _ctx);
     }
 }
 typedef SessionResetter = stdgo._internal.database.sql.driver.Driver_SessionResetter.SessionResetter;
 class Validator_static_extension {
-    static public function isValid(t:stdgo._internal.database.sql.driver.Driver_Validator.Validator):Bool {
+    static public function isValid(t:stdgo._internal.database.sql.driver.Driver_validator.Validator):Bool {
         return stdgo._internal.database.sql.driver.Driver_Validator_static_extension.Validator_static_extension.isValid(t);
     }
 }
 typedef Validator = stdgo._internal.database.sql.driver.Driver_Validator.Validator;
 class Result_static_extension {
-    static public function rowsAffected(t:stdgo._internal.database.sql.driver.Driver_Result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function rowsAffected(t:stdgo._internal.database.sql.driver.Driver_result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Result_static_extension.Result_static_extension.rowsAffected(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function lastInsertId(t:stdgo._internal.database.sql.driver.Driver_Result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function lastInsertId(t:stdgo._internal.database.sql.driver.Driver_result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Result_static_extension.Result_static_extension.lastInsertId(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -195,31 +195,31 @@ class Result_static_extension {
 }
 typedef Result = stdgo._internal.database.sql.driver.Driver_Result.Result;
 class Stmt_static_extension {
-    static public function query(t:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
+    static public function query(t:stdgo._internal.database.sql.driver.Driver_stmt.Stmt, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Stmt_static_extension.Stmt_static_extension.query(t, _args);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function exec(t:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error> {
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
+    static public function exec(t:stdgo._internal.database.sql.driver.Driver_stmt.Stmt, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error> {
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Stmt_static_extension.Stmt_static_extension.exec(t, _args);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function numInput(t:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt):StdTypes.Int {
+    static public function numInput(t:stdgo._internal.database.sql.driver.Driver_stmt.Stmt):StdTypes.Int {
         return stdgo._internal.database.sql.driver.Driver_Stmt_static_extension.Stmt_static_extension.numInput(t);
     }
-    static public function close(t:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt):stdgo.Error {
+    static public function close(t:stdgo._internal.database.sql.driver.Driver_stmt.Stmt):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Stmt_static_extension.Stmt_static_extension.close(t);
     }
 }
 typedef Stmt = stdgo._internal.database.sql.driver.Driver_Stmt.Stmt;
 class StmtExecContext_static_extension {
-    static public function execContext(t:stdgo._internal.database.sql.driver.Driver_StmtExecContext.StmtExecContext, _ctx:stdgo._internal.context.Context_Context.Context, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+    static public function execContext(t:stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext, _ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_StmtExecContext_static_extension.StmtExecContext_static_extension.execContext(t, _ctx, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -228,8 +228,8 @@ class StmtExecContext_static_extension {
 }
 typedef StmtExecContext = stdgo._internal.database.sql.driver.Driver_StmtExecContext.StmtExecContext;
 class StmtQueryContext_static_extension {
-    static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_StmtQueryContext.StmtQueryContext, _ctx:stdgo._internal.context.Context_Context.Context, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
-        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+    static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext, _ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
+        final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_StmtQueryContext_static_extension.StmtQueryContext_static_extension.queryContext(t, _ctx, _args);
             { _0 : obj._0, _1 : obj._1 };
@@ -238,57 +238,57 @@ class StmtQueryContext_static_extension {
 }
 typedef StmtQueryContext = stdgo._internal.database.sql.driver.Driver_StmtQueryContext.StmtQueryContext;
 class NamedValueChecker_static_extension {
-    static public function checkNamedValue(t:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker, _0:NamedValue):stdgo.Error {
-        final _0 = (_0 : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+    static public function checkNamedValue(t:stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker, _0:NamedValue):stdgo.Error {
+        final _0 = (_0 : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return stdgo._internal.database.sql.driver.Driver_NamedValueChecker_static_extension.NamedValueChecker_static_extension.checkNamedValue(t, _0);
     }
 }
 typedef NamedValueChecker = stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker;
 class ColumnConverter_static_extension {
-    static public function columnConverter(t:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter, _idx:StdTypes.Int):ValueConverter {
+    static public function columnConverter(t:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter, _idx:StdTypes.Int):ValueConverter {
         final _idx = (_idx : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_ColumnConverter_static_extension.ColumnConverter_static_extension.columnConverter(t, _idx);
     }
 }
 typedef ColumnConverter = stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter;
 class Rows_static_extension {
-    static public function next(t:stdgo._internal.database.sql.driver.Driver_Rows.Rows, _dest:Array<Value>):stdgo.Error {
-        final _dest = ([for (i in _dest) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
+    static public function next(t:stdgo._internal.database.sql.driver.Driver_rows.Rows, _dest:Array<Value>):stdgo.Error {
+        final _dest = ([for (i in _dest) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return stdgo._internal.database.sql.driver.Driver_Rows_static_extension.Rows_static_extension.next(t, _dest);
     }
-    static public function close(t:stdgo._internal.database.sql.driver.Driver_Rows.Rows):stdgo.Error {
+    static public function close(t:stdgo._internal.database.sql.driver.Driver_rows.Rows):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Rows_static_extension.Rows_static_extension.close(t);
     }
-    static public function columns(t:stdgo._internal.database.sql.driver.Driver_Rows.Rows):Array<String> {
+    static public function columns(t:stdgo._internal.database.sql.driver.Driver_rows.Rows):Array<String> {
         return [for (i in stdgo._internal.database.sql.driver.Driver_Rows_static_extension.Rows_static_extension.columns(t)) i];
     }
 }
 typedef Rows = stdgo._internal.database.sql.driver.Driver_Rows.Rows;
 class RowsNextResultSet_static_extension {
-    static public function nextResultSet(t:stdgo._internal.database.sql.driver.Driver_RowsNextResultSet.RowsNextResultSet):stdgo.Error {
+    static public function nextResultSet(t:stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_RowsNextResultSet_static_extension.RowsNextResultSet_static_extension.nextResultSet(t);
     }
-    static public function hasNextResultSet(t:stdgo._internal.database.sql.driver.Driver_RowsNextResultSet.RowsNextResultSet):Bool {
+    static public function hasNextResultSet(t:stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet):Bool {
         return stdgo._internal.database.sql.driver.Driver_RowsNextResultSet_static_extension.RowsNextResultSet_static_extension.hasNextResultSet(t);
     }
 }
 typedef RowsNextResultSet = stdgo._internal.database.sql.driver.Driver_RowsNextResultSet.RowsNextResultSet;
 class RowsColumnTypeScanType_static_extension {
-    static public function columnTypeScanType(t:stdgo._internal.database.sql.driver.Driver_RowsColumnTypeScanType.RowsColumnTypeScanType, _index:StdTypes.Int):stdgo._internal.reflect.Reflect_Type_.Type_ {
+    static public function columnTypeScanType(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType, _index:StdTypes.Int):stdgo._internal.reflect.Reflect_type_.Type_ {
         final _index = (_index : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_RowsColumnTypeScanType_static_extension.RowsColumnTypeScanType_static_extension.columnTypeScanType(t, _index);
     }
 }
 typedef RowsColumnTypeScanType = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeScanType.RowsColumnTypeScanType;
 class RowsColumnTypeDatabaseTypeName_static_extension {
-    static public function columnTypeDatabaseTypeName(t:stdgo._internal.database.sql.driver.Driver_RowsColumnTypeDatabaseTypeName.RowsColumnTypeDatabaseTypeName, _index:StdTypes.Int):String {
+    static public function columnTypeDatabaseTypeName(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName, _index:StdTypes.Int):String {
         final _index = (_index : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_RowsColumnTypeDatabaseTypeName_static_extension.RowsColumnTypeDatabaseTypeName_static_extension.columnTypeDatabaseTypeName(t, _index);
     }
 }
 typedef RowsColumnTypeDatabaseTypeName = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeDatabaseTypeName.RowsColumnTypeDatabaseTypeName;
 class RowsColumnTypeLength_static_extension {
-    static public function columnTypeLength(t:stdgo._internal.database.sql.driver.Driver_RowsColumnTypeLength.RowsColumnTypeLength, _index:StdTypes.Int):stdgo.Tuple<haxe.Int64, Bool> {
+    static public function columnTypeLength(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength, _index:StdTypes.Int):stdgo.Tuple<haxe.Int64, Bool> {
         final _index = (_index : stdgo.GoInt);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeLength_static_extension.RowsColumnTypeLength_static_extension.columnTypeLength(t, _index);
@@ -298,7 +298,7 @@ class RowsColumnTypeLength_static_extension {
 }
 typedef RowsColumnTypeLength = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeLength.RowsColumnTypeLength;
 class RowsColumnTypeNullable_static_extension {
-    static public function columnTypeNullable(t:stdgo._internal.database.sql.driver.Driver_RowsColumnTypeNullable.RowsColumnTypeNullable, _index:StdTypes.Int):stdgo.Tuple<Bool, Bool> {
+    static public function columnTypeNullable(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable, _index:StdTypes.Int):stdgo.Tuple<Bool, Bool> {
         final _index = (_index : stdgo.GoInt);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeNullable_static_extension.RowsColumnTypeNullable_static_extension.columnTypeNullable(t, _index);
@@ -308,7 +308,7 @@ class RowsColumnTypeNullable_static_extension {
 }
 typedef RowsColumnTypeNullable = stdgo._internal.database.sql.driver.Driver_RowsColumnTypeNullable.RowsColumnTypeNullable;
 class RowsColumnTypePrecisionScale_static_extension {
-    static public function columnTypePrecisionScale(t:stdgo._internal.database.sql.driver.Driver_RowsColumnTypePrecisionScale.RowsColumnTypePrecisionScale, _index:StdTypes.Int):stdgo.Tuple.Tuple3<haxe.Int64, haxe.Int64, Bool> {
+    static public function columnTypePrecisionScale(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale, _index:StdTypes.Int):stdgo.Tuple.Tuple3<haxe.Int64, haxe.Int64, Bool> {
         final _index = (_index : stdgo.GoInt);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_RowsColumnTypePrecisionScale_static_extension.RowsColumnTypePrecisionScale_static_extension.columnTypePrecisionScale(t, _index);
@@ -318,16 +318,16 @@ class RowsColumnTypePrecisionScale_static_extension {
 }
 typedef RowsColumnTypePrecisionScale = stdgo._internal.database.sql.driver.Driver_RowsColumnTypePrecisionScale.RowsColumnTypePrecisionScale;
 class Tx_static_extension {
-    static public function rollback(t:stdgo._internal.database.sql.driver.Driver_Tx.Tx):stdgo.Error {
+    static public function rollback(t:stdgo._internal.database.sql.driver.Driver_tx.Tx):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Tx_static_extension.Tx_static_extension.rollback(t);
     }
-    static public function commit(t:stdgo._internal.database.sql.driver.Driver_Tx.Tx):stdgo.Error {
+    static public function commit(t:stdgo._internal.database.sql.driver.Driver_tx.Tx):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_Tx_static_extension.Tx_static_extension.commit(t);
     }
 }
 typedef Tx = stdgo._internal.database.sql.driver.Driver_Tx.Tx;
 class ValueConverter_static_extension {
-    static public function convertValue(t:stdgo._internal.database.sql.driver.Driver_ValueConverter.ValueConverter, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
+    static public function convertValue(t:stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _v = (_v : stdgo.AnyInterface);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_ValueConverter_static_extension.ValueConverter_static_extension.convertValue(t, _v);
@@ -337,7 +337,7 @@ class ValueConverter_static_extension {
 }
 typedef ValueConverter = stdgo._internal.database.sql.driver.Driver_ValueConverter.ValueConverter;
 class Valuer_static_extension {
-    static public function value(t:stdgo._internal.database.sql.driver.Driver_Valuer.Valuer):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(t:stdgo._internal.database.sql.driver.Driver_valuer.Valuer):stdgo.Tuple<Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_Valuer_static_extension.Valuer_static_extension.value(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -346,7 +346,7 @@ class Valuer_static_extension {
 }
 typedef Valuer = stdgo._internal.database.sql.driver.Driver_Valuer.Valuer;
 class T_decimalDecompose_static_extension {
-    static public function decompose(t:stdgo._internal.database.sql.driver.Driver_T_decimalDecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
+    static public function decompose(t:stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_T_decimalDecompose_static_extension.T_decimalDecompose_static_extension.decompose(t, _buf);

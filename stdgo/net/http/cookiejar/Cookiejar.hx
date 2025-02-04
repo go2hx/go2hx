@@ -1,9 +1,9 @@
 package stdgo.net.http.cookiejar;
 class PublicSuffixList_static_extension {
-    static public function string(t:stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList.PublicSuffixList):String {
+    static public function string(t:stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList):String {
         return stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList_static_extension.PublicSuffixList_static_extension.string(t);
     }
-    static public function publicSuffix(t:stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList.PublicSuffixList, _domain:String):String {
+    static public function publicSuffix(t:stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList, _domain:String):String {
         final _domain = (_domain : stdgo.GoString);
         return stdgo._internal.net.http.cookiejar.Cookiejar_PublicSuffixList_static_extension.PublicSuffixList_static_extension.publicSuffix(t, _domain);
     }
@@ -27,16 +27,16 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_PublicSu
         this._psList = v;
         return v;
     }
-    public var _mu(get, set) : stdgo._internal.sync.Sync_Mutex.Mutex;
-    function get__mu():stdgo._internal.sync.Sync_Mutex.Mutex return this._mu;
-    function set__mu(v:stdgo._internal.sync.Sync_Mutex.Mutex):stdgo._internal.sync.Sync_Mutex.Mutex {
+    public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
+    function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
+    function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
         this._mu = v;
         return v;
     }
-    public var _entries(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>;
-    function get__entries():stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>> return this._entries;
-    function set__entries(v:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>):stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>> {
-        this._entries = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>);
+    public var _entries(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>;
+    function get__entries():stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>> return this._entries;
+    function set__entries(v:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>):stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>> {
+        this._entries = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>);
         return v;
     }
     public var _nextSeqNum(get, set) : haxe.UInt64;
@@ -45,7 +45,7 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_PublicSu
         this._nextSeqNum = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?_psList:PublicSuffixList, ?_mu:stdgo._internal.sync.Sync_Mutex.Mutex, ?_entries:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>, ?_nextSeqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar(_psList, _mu, (_entries : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>), (_nextSeqNum : stdgo.GoUInt64));
+    public function new(?_psList:PublicSuffixList, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_entries:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>, ?_nextSeqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar(_psList, _mu, (_entries : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>), (_nextSeqNum : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -104,21 +104,21 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_PublicSu
         this.hostOnly = v;
         return v;
     }
-    public var expires(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_expires():stdgo._internal.time.Time_Time.Time return this.expires;
-    function set_expires(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var expires(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_expires():stdgo._internal.time.Time_time.Time return this.expires;
+    function set_expires(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.expires = v;
         return v;
     }
-    public var creation(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_creation():stdgo._internal.time.Time_Time.Time return this.creation;
-    function set_creation(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var creation(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_creation():stdgo._internal.time.Time_time.Time return this.creation;
+    function set_creation(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.creation = v;
         return v;
     }
-    public var lastAccess(get, set) : stdgo._internal.time.Time_Time.Time;
-    function get_lastAccess():stdgo._internal.time.Time_Time.Time return this.lastAccess;
-    function set_lastAccess(v:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Time.Time {
+    public var lastAccess(get, set) : stdgo._internal.time.Time_time.Time;
+    function get_lastAccess():stdgo._internal.time.Time_time.Time return this.lastAccess;
+    function set_lastAccess(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
         this.lastAccess = v;
         return v;
     }
@@ -128,7 +128,7 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_PublicSu
         this._seqNum = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?name:String, ?value:String, ?domain:String, ?path:String, ?sameSite:String, ?secure:Bool, ?httpOnly:Bool, ?persistent:Bool, ?hostOnly:Bool, ?expires:stdgo._internal.time.Time_Time.Time, ?creation:stdgo._internal.time.Time_Time.Time, ?lastAccess:stdgo._internal.time.Time_Time.Time, ?_seqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry(
+    public function new(?name:String, ?value:String, ?domain:String, ?path:String, ?sameSite:String, ?secure:Bool, ?httpOnly:Bool, ?persistent:Bool, ?hostOnly:Bool, ?expires:stdgo._internal.time.Time_time.Time, ?creation:stdgo._internal.time.Time_time.Time, ?lastAccess:stdgo._internal.time.Time_time.Time, ?_seqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry(
 (name : stdgo.GoString),
 (value : stdgo.GoString),
 (domain : stdgo.GoString),
@@ -152,7 +152,7 @@ class Options_static_extension {
 typedef JarPointer = stdgo._internal.net.http.cookiejar.Cookiejar_JarPointer.JarPointer;
 class Jar_static_extension {
     static public function _domainAndType(_j:Jar, _host:String, _domain:String):stdgo.Tuple.Tuple3<String, Bool, stdgo.Error> {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
         final _host = (_host : stdgo.GoString);
         final _domain = (_domain : stdgo.GoString);
         return {
@@ -160,9 +160,9 @@ class Jar_static_extension {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _newEntry(_j:Jar, _c:stdgo._internal.net.http.Http_Cookie.Cookie, _now:stdgo._internal.time.Time_Time.Time, _defPath:String, _host:String):stdgo.Tuple.Tuple3<T_entry, Bool, stdgo.Error> {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>);
+    static public function _newEntry(_j:Jar, _c:stdgo._internal.net.http.Http_cookie.Cookie, _now:stdgo._internal.time.Time_time.Time, _defPath:String, _host:String):stdgo.Tuple.Tuple3<T_entry, Bool, stdgo.Error> {
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        final _c = (_c : stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>);
         final _defPath = (_defPath : stdgo.GoString);
         final _host = (_host : stdgo.GoString);
         return {
@@ -170,49 +170,49 @@ class Jar_static_extension {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _setCookies(_j:Jar, _u:stdgo._internal.net.url.Url_URL.URL, _cookies:Array<stdgo._internal.net.http.Http_Cookie.Cookie>, _now:stdgo._internal.time.Time_Time.Time):Void {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
-        final _cookies = ([for (i in _cookies) (i : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
+    static public function _setCookies(_j:Jar, _u:stdgo._internal.net.url.Url_url.URL, _cookies:Array<stdgo._internal.net.http.Http_cookie.Cookie>, _now:stdgo._internal.time.Time_time.Time):Void {
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
+        final _cookies = ([for (i in _cookies) (i : stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>>);
         stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension._setCookies(_j, _u, _cookies, _now);
     }
-    static public function setCookies(_j:Jar, _u:stdgo._internal.net.url.Url_URL.URL, _cookies:Array<stdgo._internal.net.http.Http_Cookie.Cookie>):Void {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
-        final _cookies = ([for (i in _cookies) (i : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
+    static public function setCookies(_j:Jar, _u:stdgo._internal.net.url.Url_url.URL, _cookies:Array<stdgo._internal.net.http.Http_cookie.Cookie>):Void {
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
+        final _cookies = ([for (i in _cookies) (i : stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_cookie.Cookie>>);
         stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension.setCookies(_j, _u, _cookies);
     }
-    static public function _cookies(_j:Jar, _u:stdgo._internal.net.url.Url_URL.URL, _now:stdgo._internal.time.Time_Time.Time):Array<stdgo._internal.net.http.Http_Cookie.Cookie> {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+    static public function _cookies(_j:Jar, _u:stdgo._internal.net.url.Url_url.URL, _now:stdgo._internal.time.Time_time.Time):Array<stdgo._internal.net.http.Http_cookie.Cookie> {
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return [for (i in stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension._cookies(_j, _u, _now)) i];
     }
-    static public function cookies(_j:Jar, _u:stdgo._internal.net.url.Url_URL.URL):Array<stdgo._internal.net.http.Http_Cookie.Cookie> {
-        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+    static public function cookies(_j:Jar, _u:stdgo._internal.net.url.Url_url.URL):Array<stdgo._internal.net.http.Http_cookie.Cookie> {
+        final _j = (_j : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return [for (i in stdgo._internal.net.http.cookiejar.Cookiejar_Jar_static_extension.Jar_static_extension.cookies(_j, _u)) i];
     }
 }
 typedef T_entryPointer = stdgo._internal.net.http.cookiejar.Cookiejar_T_entryPointer.T_entryPointer;
 class T_entry_static_extension {
     static public function _pathMatch(_e:T_entry, _requestPath:String):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
         final _requestPath = (_requestPath : stdgo.GoString);
         return stdgo._internal.net.http.cookiejar.Cookiejar_T_entry_static_extension.T_entry_static_extension._pathMatch(_e, _requestPath);
     }
     static public function _domainMatch(_e:T_entry, _host:String):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
         final _host = (_host : stdgo.GoString);
         return stdgo._internal.net.http.cookiejar.Cookiejar_T_entry_static_extension.T_entry_static_extension._domainMatch(_e, _host);
     }
     static public function _shouldSend(_e:T_entry, _https:Bool, _host:String, _path:String):Bool {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
         final _host = (_host : stdgo.GoString);
         final _path = (_path : stdgo.GoString);
         return stdgo._internal.net.http.cookiejar.Cookiejar_T_entry_static_extension.T_entry_static_extension._shouldSend(_e, _https, _host, _path);
     }
     static public function _id(_e:T_entry):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
         return stdgo._internal.net.http.cookiejar.Cookiejar_T_entry_static_extension.T_entry_static_extension._id(_e);
     }
 }
@@ -225,7 +225,7 @@ class Cookiejar {
         Options.
     **/
     static public inline function new_(_o:Options):stdgo.Tuple<Jar, stdgo.Error> {
-        final _o = (_o : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Options.Options>);
+        final _o = (_o : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_options.Options>);
         return {
             final obj = stdgo._internal.net.http.cookiejar.Cookiejar_new_.new_(_o);
             { _0 : obj._0, _1 : obj._1 };

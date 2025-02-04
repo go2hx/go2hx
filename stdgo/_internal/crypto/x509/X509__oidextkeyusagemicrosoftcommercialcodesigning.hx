@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.x509;
+var _oidExtKeyUsageMicrosoftCommercialCodeSigning : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(1 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (1 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (311 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (22 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier);

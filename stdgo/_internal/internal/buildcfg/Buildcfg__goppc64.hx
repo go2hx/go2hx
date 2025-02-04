@@ -1,7 +1,7 @@
 package stdgo._internal.internal.buildcfg;
 function _goppc64():stdgo.GoInt {
         {
-            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envOr._envOr(("GOPPC64" : stdgo.GoString), ("power8" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+            var _v = (stdgo._internal.internal.buildcfg.Buildcfg__envor._envOr(("GOPPC64" : stdgo.GoString), ("power8" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             {
                 final __value__ = _v;
                 if (__value__ == (("power8" : stdgo.GoString))) {

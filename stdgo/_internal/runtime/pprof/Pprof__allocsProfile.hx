@@ -1,2 +1,0 @@
-package stdgo._internal.runtime.pprof;
-var _allocsProfile : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo.Go.setRef(({ _name : ("allocs" : stdgo.GoString), _count : stdgo._internal.runtime.pprof.Pprof__countHeap._countHeap, _write : stdgo._internal.runtime.pprof.Pprof__writeAlloc._writeAlloc } : stdgo._internal.runtime.pprof.Pprof_Profile.Profile)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);

@@ -1,0 +1,11 @@
+package stdgo._internal.crypto.tls;
+@:keep class T_keyAgreement_static_extension {
+    @:interfacetypeffun
+    static public function _generateClientKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>, _2:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>; var _2 : stdgo.Error; } return t._generateClientKeyExchange(_0, _1, _2);
+    @:interfacetypeffun
+    static public function _processServerKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>, _2:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>, _3:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>, _4:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>):stdgo.Error return t._processServerKeyExchange(_0, _1, _2, _3, _4);
+    @:interfacetypeffun
+    static public function _processClientKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>, _2:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>, _3:stdgo.GoUInt16):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return t._processClientKeyExchange(_0, _1, _2, _3);
+    @:interfacetypeffun
+    static public function _generateServerKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>, _2:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>, _3:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>; var _1 : stdgo.Error; } return t._generateServerKeyExchange(_0, _1, _2, _3);
+}

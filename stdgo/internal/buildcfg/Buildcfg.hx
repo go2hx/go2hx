@@ -114,19 +114,19 @@ private function set_framePointerEnabled(v:Bool):Bool {
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.buildcfg.Buildcfg.ExperimentFlags_static_extension) abstract ExperimentFlags(stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags) from stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags to stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags {
-    public var flags(get, set) : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags;
-    function get_flags():stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags return this.flags;
-    function set_flags(v:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags):stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags {
+    public var flags(get, set) : stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags;
+    function get_flags():stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags return this.flags;
+    function set_flags(v:stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags):stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {
         this.flags = v;
         return v;
     }
-    public var _baseline(get, set) : stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags;
-    function get__baseline():stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags return this._baseline;
-    function set__baseline(v:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags):stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags {
+    public var _baseline(get, set) : stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags;
+    function get__baseline():stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags return this._baseline;
+    function set__baseline(v:stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags):stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {
         this._baseline = v;
         return v;
     }
-    public function new(?flags:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags, ?_baseline:stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags) this = new stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags(flags, _baseline);
+    public function new(?flags:stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags, ?_baseline:stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags) this = new stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags(flags, _baseline);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -139,15 +139,15 @@ class T_gowasmFeatures_static_extension {
 typedef ExperimentFlagsPointer = stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlagsPointer.ExperimentFlagsPointer;
 class ExperimentFlags_static_extension {
     static public function all(_exp:ExperimentFlags):Array<String> {
-        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags>);
         return [for (i in stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.all(_exp)) i];
     }
     static public function enabled(_exp:ExperimentFlags):Array<String> {
-        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags>);
         return [for (i in stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.enabled(_exp)) i];
     }
     static public function string(_exp:ExperimentFlags):String {
-        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags.ExperimentFlags>);
+        final _exp = (_exp : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags>);
         return stdgo._internal.internal.buildcfg.Buildcfg_ExperimentFlags_static_extension.ExperimentFlags_static_extension.string(_exp);
     }
 }

@@ -1,0 +1,2 @@
+package stdgo._internal.net.http;
+@:named @:using(stdgo._internal.net.http.Http_t_http2frameparser_static_extension.T_http2frameParser_static_extension) typedef T_http2frameParser = (stdgo.Ref<stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache>, stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader, stdgo.GoString -> Void, stdgo.Slice<stdgo.GoUInt8>) -> { var _0 : stdgo._internal.net.http.Http_t_http2frame.T_http2Frame; var _1 : stdgo.Error; };

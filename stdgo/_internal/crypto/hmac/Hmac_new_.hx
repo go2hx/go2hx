@@ -1,12 +1,12 @@
 package stdgo._internal.crypto.hmac;
-function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.hash.Hash_Hash.Hash {
+function new_(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:stdgo.Slice<stdgo.GoUInt8>):stdgo._internal.hash.Hash_hash.Hash {
         if (false) {
-            var _hm = (stdgo._internal.crypto.internal.boring.Boring_newHMAC.newHMAC(_h, _key) : stdgo._internal.hash.Hash_Hash.Hash);
+            var _hm = (stdgo._internal.crypto.internal.boring.Boring_newhmac.newHMAC(_h, _key) : stdgo._internal.hash.Hash_hash.Hash);
             if (_hm != null) {
                 return _hm;
             };
         };
-        var _hm = (stdgo.Go.setRef(({} : stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac)) : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>);
+        var _hm = (stdgo.Go.setRef(({} : stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac)) : stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>);
         (@:checkr _hm ?? throw "null pointer dereference")._outer = _h();
         (@:checkr _hm ?? throw "null pointer dereference")._inner = _h();
         var _unique = (true : Bool);

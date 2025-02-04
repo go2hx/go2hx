@@ -90,7 +90,7 @@ private function set_cMYKModel(v:Model):Model {
         return v;
     }
 class Color_static_extension {
-    static public function rGBA(t:stdgo._internal.image.color.Color_Color.Color):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rGBA(t:stdgo._internal.image.color.Color_color.Color):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
             final obj = stdgo._internal.image.color.Color_Color_static_extension.Color_static_extension.rGBA(t);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
@@ -99,7 +99,7 @@ class Color_static_extension {
 }
 typedef Color_ = stdgo._internal.image.color.Color_Color.Color;
 class Model_static_extension {
-    static public function convert(t:stdgo._internal.image.color.Color_Model.Model, _c:Color_):Color_ {
+    static public function convert(t:stdgo._internal.image.color.Color_model.Model, _c:Color_):Color_ {
         return stdgo._internal.image.color.Color_Model_static_extension.Model_static_extension.convert(t, _c);
     }
 }
@@ -265,13 +265,13 @@ typedef Model = stdgo._internal.image.color.Color_Model.Model;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.image.color.Color.T_modelFunc_static_extension) abstract T_modelFunc(stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc) from stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc to stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc {
-    public var _f(get, set) : stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color;
-    function get__f():stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color return _0 -> this._f(_0);
-    function set__f(v:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color):stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color {
+    public var _f(get, set) : stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color;
+    function get__f():stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color return _0 -> this._f(_0);
+    function set__f(v:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color {
         this._f = v;
         return v;
     }
-    public function new(?_f:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color) this = new stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc(_f);
+    public function new(?_f:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color) this = new stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc(_f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -420,7 +420,7 @@ class Gray16_static_extension {
 typedef T_modelFuncPointer = stdgo._internal.image.color.Color_T_modelFuncPointer.T_modelFuncPointer;
 class T_modelFunc_static_extension {
     static public function convert(_m:T_modelFunc, _c:Color_):Color_ {
-        final _m = (_m : stdgo.Ref<stdgo._internal.image.color.Color_T_modelFunc.T_modelFunc>);
+        final _m = (_m : stdgo.Ref<stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc>);
         return stdgo._internal.image.color.Color_T_modelFunc_static_extension.T_modelFunc_static_extension.convert(_m, _c);
     }
 }
@@ -467,12 +467,12 @@ class Color {
     /**
         ModelFunc returns a Model that invokes f to implement the conversion.
     **/
-    static public inline function modelFunc(_f:stdgo._internal.image.color.Color_Color.Color -> stdgo._internal.image.color.Color_Color.Color):Model {
+    static public inline function modelFunc(_f:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):Model {
         final _f = _f;
         return stdgo._internal.image.color.Color_modelFunc.modelFunc(_f);
     }
-    static public inline function testSqDiff(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testSqDiff(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testSqDiff.testSqDiff(_t);
     }
     /**
@@ -528,8 +528,8 @@ class Color {
         TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
         and back to within 2/256 tolerance.
     **/
-    static public inline function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrRoundtrip.testYCbCrRoundtrip(_t);
     }
     /**
@@ -537,37 +537,37 @@ class Color {
         then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
         bit color).
     **/
-    static public inline function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrToRGBConsistency.testYCbCrToRGBConsistency(_t);
     }
     /**
         TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
     **/
-    static public inline function testYCbCrGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testYCbCrGray(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrGray.testYCbCrGray(_t);
     }
     /**
         TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
     **/
-    static public inline function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAAlpha.testNYCbCrAAlpha(_t);
     }
     /**
         TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
     **/
-    static public inline function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAYCbCr.testNYCbCrAYCbCr(_t);
     }
     /**
         TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
         and back to within 1/256 tolerance.
     **/
-    static public inline function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testCMYKRoundtrip.testCMYKRoundtrip(_t);
     }
     /**
@@ -575,35 +575,35 @@ class Color {
         then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
         bit color).
     **/
-    static public inline function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testCMYKToRGBConsistency.testCMYKToRGBConsistency(_t);
     }
     /**
         TestCMYKGray tests that CMYK colors are a superset of Gray colors.
     **/
-    static public inline function testCMYKGray(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testCMYKGray(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testCMYKGray.testCMYKGray(_t);
     }
-    static public inline function testPalette(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testPalette(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testPalette.testPalette(_t);
     }
-    static public inline function benchmarkYCbCrToRGB(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkYCbCrToRGB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.image.color.Color_benchmarkYCbCrToRGB.benchmarkYCbCrToRGB(_b);
     }
-    static public inline function benchmarkRGBToYCbCr(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkRGBToYCbCr(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.image.color.Color_benchmarkRGBToYCbCr.benchmarkRGBToYCbCr(_b);
     }
-    static public inline function benchmarkYCbCrToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkYCbCrToRGBA(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.image.color.Color_benchmarkYCbCrToRGBA.benchmarkYCbCrToRGBA(_b);
     }
-    static public inline function benchmarkNYCbCrAToRGBA(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkNYCbCrAToRGBA(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.image.color.Color_benchmarkNYCbCrAToRGBA.benchmarkNYCbCrAToRGBA(_b);
     }
 }

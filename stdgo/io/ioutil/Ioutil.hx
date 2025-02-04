@@ -1,7 +1,7 @@
 package stdgo.io.ioutil;
-var discard(get, set) : stdgo._internal.io.Io_Writer.Writer;
-private function get_discard():stdgo._internal.io.Io_Writer.Writer return stdgo._internal.io.ioutil.Ioutil_discard.discard;
-private function set_discard(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+var discard(get, set) : stdgo._internal.io.Io_writer.Writer;
+private function get_discard():stdgo._internal.io.Io_writer.Writer return stdgo._internal.io.ioutil.Ioutil_discard.discard;
+private function set_discard(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         stdgo._internal.io.ioutil.Ioutil_discard.discard = v;
         return v;
     }
@@ -22,7 +22,7 @@ class Ioutil {
         
         Deprecated: As of Go 1.16, this function simply calls [io.ReadAll].
     **/
-    static public inline function readAll(_r:stdgo._internal.io.Io_Reader.Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public inline function readAll(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
             final obj = stdgo._internal.io.ioutil.Ioutil_readAll.readAll(_r);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -50,7 +50,7 @@ class Ioutil {
         
         Deprecated: As of Go 1.16, this function simply calls [os.WriteFile].
     **/
-    static public inline function writeFile(_filename:String, _data:Array<std.UInt>, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):stdgo.Error {
+    static public inline function writeFile(_filename:String, _data:Array<std.UInt>, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _filename = (_filename : stdgo.GoString);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.io.ioutil.Ioutil_writeFile.writeFile(_filename, _data, _perm);
@@ -77,7 +77,7 @@ class Ioutil {
         		infos = append(infos, info)
         	}
     **/
-    static public inline function readDir(_dirname:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>, stdgo.Error> {
+    static public inline function readDir(_dirname:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
         final _dirname = (_dirname : stdgo.GoString);
         return {
             final obj = stdgo._internal.io.ioutil.Ioutil_readDir.readDir(_dirname);
@@ -90,7 +90,7 @@ class Ioutil {
         
         Deprecated: As of Go 1.16, this function simply calls [io.NopCloser].
     **/
-    static public inline function nopCloser(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_ReadCloser.ReadCloser {
+    static public inline function nopCloser(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_readcloser.ReadCloser {
         return stdgo._internal.io.ioutil.Ioutil_nopCloser.nopCloser(_r);
     }
     /**
@@ -108,7 +108,7 @@ class Ioutil {
         
         Deprecated: As of Go 1.17, this function simply calls [os.CreateTemp].
     **/
-    static public inline function tempFile(_dir:String, _pattern:String):stdgo.Tuple<stdgo._internal.os.Os_File.File, stdgo.Error> {
+    static public inline function tempFile(_dir:String, _pattern:String):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         final _dir = (_dir : stdgo.GoString);
         final _pattern = (_pattern : stdgo.GoString);
         return {

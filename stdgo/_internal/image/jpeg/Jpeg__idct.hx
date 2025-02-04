@@ -1,5 +1,5 @@
 package stdgo._internal.image.jpeg;
-function _idct(_src:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>):Void {
+function _idct(_src:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>):Void {
         {
             var _y = (0 : stdgo.GoInt);
             while ((_y < (8 : stdgo.GoInt) : Bool)) {

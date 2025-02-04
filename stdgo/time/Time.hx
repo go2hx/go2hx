@@ -50,13 +50,13 @@ final hour : Duration = stdgo._internal.time.Time_hour.hour;
 var uTC(get, set) : Location;
 private function get_uTC():Location return stdgo._internal.time.Time_uTC.uTC;
 private function set_uTC(v:Location):Location {
-        stdgo._internal.time.Time_uTC.uTC = (v : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        stdgo._internal.time.Time_uTC.uTC = (v : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return v;
     }
 var local(get, set) : Location;
 private function get_local():Location return stdgo._internal.time.Time_local.local;
 private function set_local(v:Location):Location {
-        stdgo._internal.time.Time_local.local = (v : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        stdgo._internal.time.Time_local.local = (v : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return v;
     }
 var gorootZoneSource(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : Bool; };
@@ -71,15 +71,15 @@ private function set_parseTimeZone(v:stdgo.GoString -> { var _0 : stdgo.GoInt; v
         stdgo._internal.time.Time_parseTimeZone.parseTimeZone = v;
         return v;
     }
-var setMono(get, set) : (stdgo.Ref<stdgo._internal.time.Time_Time.Time>, stdgo.GoInt64) -> Void;
-private function get_setMono():(stdgo.Ref<stdgo._internal.time.Time_Time.Time>, stdgo.GoInt64) -> Void return (_0, _1) -> stdgo._internal.time.Time_setMono.setMono(_0, _1);
-private function set_setMono(v:(stdgo.Ref<stdgo._internal.time.Time_Time.Time>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo._internal.time.Time_Time.Time>, stdgo.GoInt64) -> Void {
+var setMono(get, set) : (stdgo.Ref<stdgo._internal.time.Time_time.Time>, stdgo.GoInt64) -> Void;
+private function get_setMono():(stdgo.Ref<stdgo._internal.time.Time_time.Time>, stdgo.GoInt64) -> Void return (_0, _1) -> stdgo._internal.time.Time_setMono.setMono(_0, _1);
+private function set_setMono(v:(stdgo.Ref<stdgo._internal.time.Time_time.Time>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo._internal.time.Time_time.Time>, stdgo.GoInt64) -> Void {
         stdgo._internal.time.Time_setMono.setMono = v;
         return v;
     }
-var getMono(get, set) : stdgo.Ref<stdgo._internal.time.Time_Time.Time> -> stdgo.GoInt64;
-private function get_getMono():stdgo.Ref<stdgo._internal.time.Time_Time.Time> -> stdgo.GoInt64 return _0 -> stdgo._internal.time.Time_getMono.getMono(_0);
-private function set_getMono(v:stdgo.Ref<stdgo._internal.time.Time_Time.Time> -> stdgo.GoInt64):stdgo.Ref<stdgo._internal.time.Time_Time.Time> -> stdgo.GoInt64 {
+var getMono(get, set) : stdgo.Ref<stdgo._internal.time.Time_time.Time> -> stdgo.GoInt64;
+private function get_getMono():stdgo.Ref<stdgo._internal.time.Time_time.Time> -> stdgo.GoInt64 return _0 -> stdgo._internal.time.Time_getMono.getMono(_0);
+private function set_getMono(v:stdgo.Ref<stdgo._internal.time.Time_time.Time> -> stdgo.GoInt64):stdgo.Ref<stdgo._internal.time.Time_time.Time> -> stdgo.GoInt64 {
         stdgo._internal.time.Time_getMono.getMono = v;
         return v;
     }
@@ -143,27 +143,27 @@ private function set_appendInt(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt, stdgo
         stdgo._internal.time.Time_appendInt.appendInt = v;
         return v;
     }
-var appendFormatAny(get, set) : (stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_appendFormatAny():(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time_appendFormatAny.appendFormatAny(_0, [for (i in _1) i], _2);
-private function set_appendFormatAny(v:(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> {
+var appendFormatAny(get, set) : (stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>;
+private function get_appendFormatAny():(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time_appendFormatAny.appendFormatAny(_0, [for (i in _1) i], _2);
+private function set_appendFormatAny(v:(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoString) -> stdgo.Slice<stdgo.GoUInt8> {
         stdgo._internal.time.Time_appendFormatAny.appendFormatAny = v;
         return v;
     }
-var appendFormatRFC3339(get, set) : (stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>;
-private function get_appendFormatRFC3339():(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time_appendFormatRFC3339.appendFormatRFC3339(_0, [for (i in _1) i], _2);
-private function set_appendFormatRFC3339(v:(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time_Time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> {
+var appendFormatRFC3339(get, set) : (stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>;
+private function get_appendFormatRFC3339():(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> return (_0, _1, _2) -> stdgo._internal.time.Time_appendFormatRFC3339.appendFormatRFC3339(_0, [for (i in _1) i], _2);
+private function set_appendFormatRFC3339(v:(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8>):(stdgo._internal.time.Time_time.Time, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.Slice<stdgo.GoUInt8> {
         stdgo._internal.time.Time_appendFormatRFC3339.appendFormatRFC3339 = v;
         return v;
     }
-var parseAny(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; };
-private function get_parseAny():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } return (_0, _1, _2, _3) -> stdgo._internal.time.Time_parseAny.parseAny(_0, _1, _2, _3);
-private function set_parseAny(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
+var parseAny(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : stdgo.Error; };
+private function get_parseAny():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : stdgo.Error; } return (_0, _1, _2, _3) -> stdgo._internal.time.Time_parseAny.parseAny(_0, _1, _2, _3);
+private function set_parseAny(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : stdgo.Error; } {
         stdgo._internal.time.Time_parseAny.parseAny = v;
         return v;
     }
-var parseRFC3339(get, set) : (stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; };
-private function get_parseRFC3339():(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } return (_0, _1) -> stdgo._internal.time.Time_parseRFC3339.parseRFC3339(_0, _1);
-private function set_parseRFC3339(v:(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; }):(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_Location.Location>) -> { var _0 : stdgo._internal.time.Time_Time.Time; var _1 : Bool; } {
+var parseRFC3339(get, set) : (stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; };
+private function get_parseRFC3339():(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; } return (_0, _1) -> stdgo._internal.time.Time_parseRFC3339.parseRFC3339(_0, _1);
+private function set_parseRFC3339(v:(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; }):(stdgo.GoString, stdgo.Ref<stdgo._internal.time.Time_location.Location>) -> { var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; } {
         stdgo._internal.time.Time_parseRFC3339.parseRFC3339 = v;
         return v;
     }
@@ -179,9 +179,9 @@ private function set_interrupt(v:() -> Void):() -> Void {
         stdgo._internal.time.Time_interrupt.interrupt = v;
         return v;
     }
-var daysIn(get, set) : (stdgo._internal.time.Time_Month.Month, stdgo.GoInt) -> stdgo.GoInt;
-private function get_daysIn():(stdgo._internal.time.Time_Month.Month, stdgo.GoInt) -> stdgo.GoInt return (_0, _1) -> stdgo._internal.time.Time_daysIn.daysIn(_0, _1);
-private function set_daysIn(v:(stdgo._internal.time.Time_Month.Month, stdgo.GoInt) -> stdgo.GoInt):(stdgo._internal.time.Time_Month.Month, stdgo.GoInt) -> stdgo.GoInt {
+var daysIn(get, set) : (stdgo._internal.time.Time_month.Month, stdgo.GoInt) -> stdgo.GoInt;
+private function get_daysIn():(stdgo._internal.time.Time_month.Month, stdgo.GoInt) -> stdgo.GoInt return (_0, _1) -> stdgo._internal.time.Time_daysIn.daysIn(_0, _1);
+private function set_daysIn(v:(stdgo._internal.time.Time_month.Month, stdgo.GoInt) -> stdgo.GoInt):(stdgo._internal.time.Time_month.Month, stdgo.GoInt) -> stdgo.GoInt {
         stdgo._internal.time.Time_daysIn.daysIn = v;
         return v;
     }
@@ -327,10 +327,10 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.time.Time.Timer_static_extension) abstract Timer(stdgo._internal.time.Time_Timer.Timer) from stdgo._internal.time.Time_Timer.Timer to stdgo._internal.time.Time_Timer.Timer {
-    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_Time.Time>;
-    function get_c():stdgo.Chan<stdgo._internal.time.Time_Time.Time> return this.c;
-    function set_c(v:stdgo.Chan<stdgo._internal.time.Time_Time.Time>):stdgo.Chan<stdgo._internal.time.Time_Time.Time> {
-        this.c = (v : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
+    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_time.Time>;
+    function get_c():stdgo.Chan<stdgo._internal.time.Time_time.Time> return this.c;
+    function set_c(v:stdgo.Chan<stdgo._internal.time.Time_time.Time>):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
+        this.c = (v : stdgo.Chan<stdgo._internal.time.Time_time.Time>);
         return v;
     }
     public var _r(get, set) : T_runtimeTimer;
@@ -339,15 +339,15 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
         this._r = v;
         return v;
     }
-    public function new(?c:stdgo.Chan<stdgo._internal.time.Time_Time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time_Timer.Timer((c : stdgo.Chan<stdgo._internal.time.Time_Time.Time>), _r);
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time_time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time_Timer.Timer((c : stdgo.Chan<stdgo._internal.time.Time_time.Time>), _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.time.Time.Ticker_static_extension) abstract Ticker(stdgo._internal.time.Time_Ticker.Ticker) from stdgo._internal.time.Time_Ticker.Ticker to stdgo._internal.time.Time_Ticker.Ticker {
-    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_Time.Time>;
-    function get_c():stdgo.Chan<stdgo._internal.time.Time_Time.Time> return this.c;
-    function set_c(v:stdgo.Chan<stdgo._internal.time.Time_Time.Time>):stdgo.Chan<stdgo._internal.time.Time_Time.Time> {
-        this.c = (v : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
+    public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_time.Time>;
+    function get_c():stdgo.Chan<stdgo._internal.time.Time_time.Time> return this.c;
+    function set_c(v:stdgo.Chan<stdgo._internal.time.Time_time.Time>):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
+        this.c = (v : stdgo.Chan<stdgo._internal.time.Time_time.Time>);
         return v;
     }
     public var _r(get, set) : T_runtimeTimer;
@@ -356,7 +356,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
         this._r = v;
         return v;
     }
-    public function new(?c:stdgo.Chan<stdgo._internal.time.Time_Time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time_Ticker.Ticker((c : stdgo.Chan<stdgo._internal.time.Time_Time.Time>), _r);
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time_time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time_Ticker.Ticker((c : stdgo.Chan<stdgo._internal.time.Time_time.Time>), _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -376,10 +376,10 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public var _loc(get, set) : Location;
     function get__loc():Location return this._loc;
     function set__loc(v:Location):Location {
-        this._loc = (v : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        this._loc = (v : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return v;
     }
-    public function new(?_wall:haxe.UInt64, ?_ext:haxe.Int64, ?_loc:Location) this = new stdgo._internal.time.Time_Time.Time((_wall : stdgo.GoUInt64), (_ext : stdgo.GoInt64), (_loc : stdgo.Ref<stdgo._internal.time.Time_Location.Location>));
+    public function new(?_wall:haxe.UInt64, ?_ext:haxe.Int64, ?_loc:Location) this = new stdgo._internal.time.Time_Time.Time((_wall : stdgo.GoUInt64), (_ext : stdgo.GoInt64), (_loc : stdgo.Ref<stdgo._internal.time.Time_location.Location>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -393,13 +393,13 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public var _zone(get, set) : Array<T_zone>;
     function get__zone():Array<T_zone> return [for (i in this._zone) i];
     function set__zone(v:Array<T_zone>):Array<T_zone> {
-        this._zone = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>);
+        this._zone = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_t_zone.T_zone>);
         return v;
     }
     public var _tx(get, set) : Array<T_zoneTrans>;
     function get__tx():Array<T_zoneTrans> return [for (i in this._tx) i];
     function set__tx(v:Array<T_zoneTrans>):Array<T_zoneTrans> {
-        this._tx = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_T_zoneTrans.T_zoneTrans>);
+        this._tx = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time_t_zonetrans.T_zoneTrans>);
         return v;
     }
     public var _extend(get, set) : String;
@@ -423,10 +423,10 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public var _cacheZone(get, set) : T_zone;
     function get__cacheZone():T_zone return this._cacheZone;
     function set__cacheZone(v:T_zone):T_zone {
-        this._cacheZone = (v : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>);
+        this._cacheZone = (v : stdgo.Ref<stdgo._internal.time.Time_t_zone.T_zone>);
         return v;
     }
-    public function new(?_name:String, ?_zone:Array<T_zone>, ?_tx:Array<T_zoneTrans>, ?_extend:String, ?_cacheStart:haxe.Int64, ?_cacheEnd:haxe.Int64, ?_cacheZone:T_zone) this = new stdgo._internal.time.Time_Location.Location((_name : stdgo.GoString), ([for (i in _zone) i] : stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>), ([for (i in _tx) i] : stdgo.Slice<stdgo._internal.time.Time_T_zoneTrans.T_zoneTrans>), (_extend : stdgo.GoString), (_cacheStart : stdgo.GoInt64), (_cacheEnd : stdgo.GoInt64), (_cacheZone : stdgo.Ref<stdgo._internal.time.Time_T_zone.T_zone>));
+    public function new(?_name:String, ?_zone:Array<T_zone>, ?_tx:Array<T_zoneTrans>, ?_extend:String, ?_cacheStart:haxe.Int64, ?_cacheEnd:haxe.Int64, ?_cacheZone:T_zone) this = new stdgo._internal.time.Time_Location.Location((_name : stdgo.GoString), ([for (i in _zone) i] : stdgo.Slice<stdgo._internal.time.Time_t_zone.T_zone>), ([for (i in _tx) i] : stdgo.Slice<stdgo._internal.time.Time_t_zonetrans.T_zoneTrans>), (_extend : stdgo.GoString), (_cacheStart : stdgo.GoInt64), (_cacheEnd : stdgo.GoInt64), (_cacheZone : stdgo.Ref<stdgo._internal.time.Time_t_zone.T_zone>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -547,7 +547,7 @@ class Rule_static_extension {
 typedef ParseErrorPointer = stdgo._internal.time.Time_ParseErrorPointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function error(_e:ParseError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.time.Time_ParseError.ParseError>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.time.Time_parseerror.ParseError>);
         return stdgo._internal.time.Time_ParseError_static_extension.ParseError_static_extension.error(_e);
     }
 }
@@ -558,22 +558,22 @@ class T_runtimeTimer_static_extension {
 typedef TimerPointer = stdgo._internal.time.Time_TimerPointer.TimerPointer;
 class Timer_static_extension {
     static public function reset(_t:Timer, _d:Duration):Bool {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>);
         return stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension.reset(_t, _d);
     }
     static public function stop(_t:Timer):Bool {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>);
         return stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension.stop(_t);
     }
 }
 typedef TickerPointer = stdgo._internal.time.Time_TickerPointer.TickerPointer;
 class Ticker_static_extension {
     static public function reset(_t:Ticker, _d:Duration):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Ticker.Ticker>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_ticker.Ticker>);
         stdgo._internal.time.Time_Ticker_static_extension.Ticker_static_extension.reset(_t, _d);
     }
     static public function stop(_t:Ticker):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Ticker.Ticker>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_ticker.Ticker>);
         stdgo._internal.time.Time_Ticker_static_extension.Ticker_static_extension.stop(_t);
     }
 }
@@ -589,7 +589,7 @@ class Time_static_extension {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.isDST(_t);
     }
     static public function unmarshalText(_t:Time_, _data:Array<std.UInt>):stdgo.Error {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.unmarshalText(_t, _data);
     }
@@ -600,7 +600,7 @@ class Time_static_extension {
         };
     }
     static public function unmarshalJSON(_t:Time_, _data:Array<std.UInt>):stdgo.Error {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.unmarshalJSON(_t, _data);
     }
@@ -611,7 +611,7 @@ class Time_static_extension {
         };
     }
     static public function gobDecode(_t:Time_, _data:Array<std.UInt>):stdgo.Error {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.gobDecode(_t, _data);
     }
@@ -622,7 +622,7 @@ class Time_static_extension {
         };
     }
     static public function unmarshalBinary(_t:Time_, _data:Array<std.UInt>):stdgo.Error {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.unmarshalBinary(_t, _data);
     }
@@ -660,7 +660,7 @@ class Time_static_extension {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.location(_t);
     }
     static public function in_(_t:Time_, _loc:Location):Time_ {
-        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.in_(_t, _loc);
     }
     static public function local(_t:Time_):Time_ {
@@ -757,38 +757,38 @@ class Time_static_extension {
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension.after(_t, _u);
     }
     static public function _mono(_t:Time_):haxe.Int64 {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension._mono(_t);
     }
     static public function _setMono(_t:Time_, _m:haxe.Int64):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _m = (_m : stdgo.GoInt64);
         stdgo._internal.time.Time_Time_static_extension.Time_static_extension._setMono(_t, _m);
     }
     static public function _stripMono(_t:Time_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         stdgo._internal.time.Time_Time_static_extension.Time_static_extension._stripMono(_t);
     }
     static public function _setLoc(_t:Time_, _loc:Location):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
-        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
+        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         stdgo._internal.time.Time_Time_static_extension.Time_static_extension._setLoc(_t, _loc);
     }
     static public function _addSec(_t:Time_, _d:haxe.Int64):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         final _d = (_d : stdgo.GoInt64);
         stdgo._internal.time.Time_Time_static_extension.Time_static_extension._addSec(_t, _d);
     }
     static public function _unixSec(_t:Time_):haxe.Int64 {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension._unixSec(_t);
     }
     static public function _sec(_t:Time_):haxe.Int64 {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension._sec(_t);
     }
     static public function _nsec(_t:Time_):StdTypes.Int {
-        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_Time.Time>);
+        final _t = (_t : stdgo.Ref<stdgo._internal.time.Time_time.Time>);
         return stdgo._internal.time.Time_Time_static_extension.Time_static_extension._nsec(_t);
     }
     static public function _appendStrictRFC3339(_t:Time_, _b:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
@@ -826,7 +826,7 @@ class Time_static_extension {
 typedef LocationPointer = stdgo._internal.time.Time_LocationPointer.LocationPointer;
 class Location_static_extension {
     static public function _lookupName(_l:Location, _name:String, _unix:haxe.Int64):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         final _name = (_name : stdgo.GoString);
         final _unix = (_unix : stdgo.GoInt64);
         return {
@@ -835,15 +835,15 @@ class Location_static_extension {
         };
     }
     static public function _firstZoneUsed(_l:Location):Bool {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_Location_static_extension.Location_static_extension._firstZoneUsed(_l);
     }
     static public function _lookupFirstZone(_l:Location):StdTypes.Int {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_Location_static_extension.Location_static_extension._lookupFirstZone(_l);
     }
     static public function _lookup(_l:Location, _sec:haxe.Int64):stdgo.Tuple.Tuple5<String, StdTypes.Int, haxe.Int64, haxe.Int64, Bool> {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         final _sec = (_sec : stdgo.GoInt64);
         return {
             final obj = stdgo._internal.time.Time_Location_static_extension.Location_static_extension._lookup(_l, _sec);
@@ -851,11 +851,11 @@ class Location_static_extension {
         };
     }
     static public function string(_l:Location):String {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_Location_static_extension.Location_static_extension.string(_l);
     }
     static public function _get(_l:Location):Location {
-        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _l = (_l : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_Location_static_extension.Location_static_extension._get(_l);
     }
 }
@@ -874,32 +874,32 @@ class T_rule_static_extension {
 typedef T_dataIOPointer = stdgo._internal.time.Time_T_dataIOPointer.T_dataIOPointer;
 class T_dataIO_static_extension {
     static public function _rest(_d:T_dataIO):Array<std.UInt> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         return [for (i in stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._rest(_d)) i];
     }
     static public function _byte(_d:T_dataIO):stdgo.Tuple<std.UInt, Bool> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         return {
             final obj = stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._byte(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _big8(_d:T_dataIO):stdgo.Tuple<haxe.UInt64, Bool> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         return {
             final obj = stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._big8(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _big4(_d:T_dataIO):stdgo.Tuple<std.UInt, Bool> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         return {
             final obj = stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._big4(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _read(_d:T_dataIO, _n:StdTypes.Int):Array<std.UInt> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         final _n = (_n : stdgo.GoInt);
         return [for (i in stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension._read(_d, _n)) i];
     }
@@ -1128,7 +1128,7 @@ class Time {
     static public inline function parseInLocation(_layout:String, _value:String, _loc:Location):stdgo.Tuple<Time_, stdgo.Error> {
         final _layout = (_layout : stdgo.GoString);
         final _value = (_value : stdgo.GoString);
-        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return {
             final obj = stdgo._internal.time.Time_parseInLocation.parseInLocation(_layout, _value, _loc);
             { _0 : obj._0, _1 : obj._1 };
@@ -1180,7 +1180,7 @@ class Time {
         until the timer fires. If efficiency is a concern, use NewTimer
         instead and call Timer.Stop if the timer is no longer needed.
     **/
-    static public inline function after(_d:Duration):stdgo.Chan<stdgo._internal.time.Time_Time.Time> {
+    static public inline function after(_d:Duration):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
         return stdgo._internal.time.Time_after.after(_d);
     }
     /**
@@ -1210,7 +1210,7 @@ class Time {
         Ticker cannot be recovered by the garbage collector; it "leaks".
         Unlike NewTicker, Tick will return nil if d <= 0.
     **/
-    static public inline function tick(_d:Duration):stdgo.Chan<stdgo._internal.time.Time_Time.Time> {
+    static public inline function tick(_d:Duration):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
         return stdgo._internal.time.Time_tick.tick(_d);
     }
     /**
@@ -1288,7 +1288,7 @@ class Time {
         final _min = (_min : stdgo.GoInt);
         final _sec = (_sec : stdgo.GoInt);
         final _nsec = (_nsec : stdgo.GoInt);
-        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
+        final _loc = (_loc : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         return stdgo._internal.time.Time_date.date(_year, _month, _day, _hour, _min, _sec, _nsec, _loc);
     }
     /**

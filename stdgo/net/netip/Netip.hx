@@ -6,13 +6,13 @@ package stdgo.net.netip;
         this._addr = v;
         return v;
     }
-    public var _z(get, set) : stdgo._internal.internal.intern.Intern_Value.Value;
-    function get__z():stdgo._internal.internal.intern.Intern_Value.Value return this._z;
-    function set__z(v:stdgo._internal.internal.intern.Intern_Value.Value):stdgo._internal.internal.intern.Intern_Value.Value {
-        this._z = (v : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
+    public var _z(get, set) : stdgo._internal.internal.intern.Intern_value.Value;
+    function get__z():stdgo._internal.internal.intern.Intern_value.Value return this._z;
+    function set__z(v:stdgo._internal.internal.intern.Intern_value.Value):stdgo._internal.internal.intern.Intern_value.Value {
+        this._z = (v : stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>);
         return v;
     }
-    public function new(?_addr:T_uint128, ?_z:stdgo._internal.internal.intern.Intern_Value.Value) this = new stdgo._internal.net.netip.Netip_Addr.Addr(_addr, (_z : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>));
+    public function new(?_addr:T_uint128, ?_z:stdgo._internal.internal.intern.Intern_value.Value) this = new stdgo._internal.net.netip.Netip_Addr.Addr(_addr, (_z : stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -93,7 +93,7 @@ package stdgo.net.netip;
 typedef AddrPointer = stdgo._internal.net.netip.Netip_AddrPointer.AddrPointer;
 class Addr_static_extension {
     static public function unmarshalBinary(_ip:Addr, _b:Array<std.UInt>):stdgo.Error {
-        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>);
+        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_addr.Addr>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.unmarshalBinary(_ip, _b);
     }
@@ -108,7 +108,7 @@ class Addr_static_extension {
         return [for (i in stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension._marshalBinaryWithTrailingBytes(_ip, _trailingBytes)) i];
     }
     static public function unmarshalText(_ip:Addr, _text:Array<std.UInt>):stdgo.Error {
-        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_Addr.Addr>);
+        final _ip = (_ip : stdgo.Ref<stdgo._internal.net.netip.Netip_addr.Addr>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Addr_static_extension.Addr_static_extension.unmarshalText(_ip, _text);
     }
@@ -250,7 +250,7 @@ class T_parseAddrError_static_extension {
 typedef AddrPortPointer = stdgo._internal.net.netip.Netip_AddrPortPointer.AddrPortPointer;
 class AddrPort_static_extension {
     static public function unmarshalBinary(_p:AddrPort, _b:Array<std.UInt>):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_addrport.AddrPort>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.unmarshalBinary(_p, _b);
     }
@@ -261,7 +261,7 @@ class AddrPort_static_extension {
         };
     }
     static public function unmarshalText(_p:AddrPort, _text:Array<std.UInt>):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_AddrPort.AddrPort>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_addrport.AddrPort>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_AddrPort_static_extension.AddrPort_static_extension.unmarshalText(_p, _text);
     }
@@ -294,7 +294,7 @@ class Prefix_static_extension {
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.string(_p);
     }
     static public function unmarshalBinary(_p:Prefix, _b:Array<std.UInt>):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_prefix.Prefix>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.unmarshalBinary(_p, _b);
     }
@@ -305,7 +305,7 @@ class Prefix_static_extension {
         };
     }
     static public function unmarshalText(_p:Prefix, _text:Array<std.UInt>):stdgo.Error {
-        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_Prefix.Prefix>);
+        final _p = (_p : stdgo.Ref<stdgo._internal.net.netip.Netip_prefix.Prefix>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.netip.Netip_Prefix_static_extension.Prefix_static_extension.unmarshalText(_p, _text);
     }
@@ -355,7 +355,7 @@ class T_uint128_static_extension {
         return stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._bitsSetFrom(_u, _bit);
     }
     static public function _halves(_u:T_uint128):haxe.ds.Vector<stdgo.Pointer<haxe.UInt64>> {
-        final _u = (_u : stdgo.Ref<stdgo._internal.net.netip.Netip_T_uint128.T_uint128>);
+        final _u = (_u : stdgo.Ref<stdgo._internal.net.netip.Netip_t_uint128.T_uint128>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.net.netip.Netip_T_uint128_static_extension.T_uint128_static_extension._halves(_u)) i]);
     }
     static public function _addOne(_u:T_uint128):T_uint128 {

@@ -1,6 +1,0 @@
-package stdgo._internal.internal.profile;
-var _valueTypeDecoder : stdgo.Slice<stdgo._internal.internal.profile.Profile_T_decoder.T_decoder> = (new stdgo.Slice<stdgo._internal.internal.profile.Profile_T_decoder.T_decoder>(3, 3, ...[null, function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_T_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
-        return stdgo._internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>) ?? throw "null pointer dereference")._typeX));
-    }, function(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_T_buffer.T_buffer>, _m:stdgo._internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
-        return stdgo._internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((@:checkr (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_ValueType_.ValueType_>) ?? throw "null pointer dereference")._unitX));
-    }]) : stdgo.Slice<stdgo._internal.internal.profile.Profile_T_decoder.T_decoder>);

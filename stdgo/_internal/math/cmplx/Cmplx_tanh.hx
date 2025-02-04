@@ -3,12 +3,12 @@ function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         {
             var __0 = ((_x : stdgo.GoComplex128).real : stdgo.GoFloat64), __1 = ((_x : stdgo.GoComplex128).imag : stdgo.GoFloat64);
 var _im = __1, _re = __0;
-            if (stdgo._internal.math.Math_isInf.isInf(_re, (0 : stdgo.GoInt))) {
-                if ((stdgo._internal.math.Math_isInf.isInf(_im, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_im) : Bool)) {
+            if (stdgo._internal.math.Math_isinf.isInf(_re, (0 : stdgo.GoInt))) {
+                if ((stdgo._internal.math.Math_isinf.isInf(_im, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isnan.isNaN(_im) : Bool)) {
                     return new stdgo.GoComplex128(stdgo._internal.math.Math_copysign.copysign((1 : stdgo.GoFloat64), _re), stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), _im));
                 };
                 return new stdgo.GoComplex128(stdgo._internal.math.Math_copysign.copysign((1 : stdgo.GoFloat64), _re), stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), stdgo._internal.math.Math_sin.sin(((2 : stdgo.GoFloat64) * _im : stdgo.GoFloat64))));
-            } else if (((_im == (0 : stdgo.GoFloat64)) && stdgo._internal.math.Math_isNaN.isNaN(_re) : Bool)) {
+            } else if (((_im == (0 : stdgo.GoFloat64)) && stdgo._internal.math.Math_isnan.isNaN(_re) : Bool)) {
                 return _x;
             };
         };

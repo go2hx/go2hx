@@ -65,7 +65,7 @@ class Adler32 {
         encoding.BinaryUnmarshaler to marshal and unmarshal the internal
         state of the hash.
     **/
-    static public inline function new_():stdgo._internal.hash.Hash_Hash32.Hash32 {
+    static public inline function new_():stdgo._internal.hash.Hash_hash32.Hash32 {
         return stdgo._internal.hash.adler32.Adler32_new_.new_();
     }
     /**
@@ -75,16 +75,16 @@ class Adler32 {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.adler32.Adler32_checksum.checksum(_data);
     }
-    static public inline function testGolden(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.hash.adler32.Adler32_testGolden.testGolden(_t);
     }
-    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.hash.adler32.Adler32_testGoldenMarshal.testGoldenMarshal(_t);
     }
-    static public inline function benchmarkAdler32KB(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkAdler32KB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.hash.adler32.Adler32_benchmarkAdler32KB.benchmarkAdler32KB(_b);
     }
 }

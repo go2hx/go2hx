@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testptrtypetotype___localname___type1_6414_static_extension.T_testPtrTypeToType___localname___Type1_6414_static_extension) typedef T_testPtrTypeToType___localname___Type1_6414Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testptrtypetotype___localname___type1_6414.T_testPtrTypeToType___localname___Type1_6414>;

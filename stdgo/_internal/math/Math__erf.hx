@@ -1,11 +1,11 @@
 package stdgo._internal.math;
 function _erf(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (stdgo._internal.math.Math_isNaN.isNaN(_x)) {
-            return stdgo._internal.math.Math_naN.naN();
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (1 : stdgo.GoInt))) {
+        if (stdgo._internal.math.Math_isnan.isNaN(_x)) {
+            return stdgo._internal.math.Math_nan.naN();
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (1 : stdgo.GoInt))) {
             return (1 : stdgo.GoFloat64);
-        } else if (stdgo._internal.math.Math_isInf.isInf(_x, (-1 : stdgo.GoInt))) {
+        } else if (stdgo._internal.math.Math_isinf.isInf(_x, (-1 : stdgo.GoInt))) {
             return (-1 : stdgo.GoFloat64);
         };
         var _sign = (false : Bool);

@@ -1,0 +1,2 @@
+package stdgo._internal.reflect;
+@:follow @:using(stdgo._internal.reflect.Reflect_t_chantype_static_extension.T_chanType_static_extension) typedef T_chanType = stdgo._internal.internal.abi.Abi_chantype.ChanType;

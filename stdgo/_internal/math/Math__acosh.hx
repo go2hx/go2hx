@@ -1,8 +1,8 @@
 package stdgo._internal.math;
 function _acosh(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         {};
-        if (((_x < (1 : stdgo.GoFloat64) : Bool) || stdgo._internal.math.Math_isNaN.isNaN(_x) : Bool)) {
-            return stdgo._internal.math.Math_naN.naN();
+        if (((_x < (1 : stdgo.GoFloat64) : Bool) || stdgo._internal.math.Math_isnan.isNaN(_x) : Bool)) {
+            return stdgo._internal.math.Math_nan.naN();
         } else if (_x == (1 : stdgo.GoFloat64)) {
             return (0 : stdgo.GoFloat64);
         } else if ((_x >= (2.68435456e+08 : stdgo.GoFloat64) : Bool)) {

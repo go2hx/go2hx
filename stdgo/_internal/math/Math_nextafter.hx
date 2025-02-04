@@ -1,8 +1,8 @@
 package stdgo._internal.math;
 function nextafter(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         var _r = (0 : stdgo.GoFloat64);
-        if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y) : Bool)) {
-            _r = stdgo._internal.math.Math_naN.naN();
+        if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isnan.isNaN(_y) : Bool)) {
+            _r = stdgo._internal.math.Math_nan.naN();
         } else if (_x == (_y)) {
             _r = _x;
         } else if (_x == (0 : stdgo.GoFloat64)) {

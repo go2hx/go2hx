@@ -1,0 +1,19 @@
+package stdgo._internal.encoding.json;
+var _allValue : stdgo._internal.encoding.json.Json_all.All = ({ bool_ : true, int_ : (2 : stdgo.GoInt), int8 : (3 : stdgo.GoInt8), int16 : (4 : stdgo.GoInt16), int32 : (5 : stdgo.GoInt32), int64 : (6i64 : stdgo.GoInt64), uint : (7u32 : stdgo.GoUInt), uint8 : (8 : stdgo.GoUInt8), uint16 : (9 : stdgo.GoUInt16), uint32 : (10u32 : stdgo.GoUInt32), uint64 : (11i64 : stdgo.GoUInt64), uintptr : (new stdgo.GoUIntptr(12) : stdgo.GoUIntptr), float32 : (14.100000381469727 : stdgo.GoFloat64), float64 : (15.1 : stdgo.GoFloat64), foo : ("foo" : stdgo.GoString), foo2 : ("foo2" : stdgo.GoString), intStr : (42i64 : stdgo.GoInt64), uintptrStr : (new stdgo.GoUIntptr(44) : stdgo.GoUIntptr), string : ("16" : stdgo.GoString), map_ : ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo._internal.encoding.json.Json_small.Small>();
+        x.__defaultValue__ = () -> ({} : stdgo._internal.encoding.json.Json_small.Small);
+        x.set(("17" : stdgo.GoString), ({ tag : ("tag17" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small));
+x.set(("18" : stdgo.GoString), ({ tag : ("tag18" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small));
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>), mapP : ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>();
+        x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>);
+        x.set(("19" : stdgo.GoString), ({ tag : ("tag19" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small));
+x.set(("20" : stdgo.GoString), null);
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>), emptyMap : ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo._internal.encoding.json.Json_small.Small>();
+        x.__defaultValue__ = () -> ({} : stdgo._internal.encoding.json.Json_small.Small);
+        {};
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>), slice : (new stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>(2, 2, ...[({ tag : ("tag20" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small), ({ tag : ("tag21" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.json.Json_small.Small)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>), sliceP : (new stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>(3, 3, ...[({ tag : ("tag22" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small), null, ({ tag : ("tag23" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>), emptySlice : (new stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.json.Json_small.Small)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>), stringSlice : (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("str24" : stdgo.GoString), ("str25" : stdgo.GoString), ("str26" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), byteSlice : (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(27 : stdgo.GoUInt8), (28 : stdgo.GoUInt8), (29 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), small : ({ tag : ("tag30" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small), pSmall : (stdgo.Go.setRef(({ tag : ("tag31" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_small.Small)) : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>), interface_ : stdgo.Go.toInterface((5.2 : stdgo.GoFloat64)) } : stdgo._internal.encoding.json.Json_all.All);

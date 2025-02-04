@@ -13,7 +13,7 @@ function _parsenum(_s:stdgo.GoString, _start:stdgo.GoInt, _end:stdgo.GoInt):{ va
         {
             _newi = _start;
             while ((((_newi < _end : Bool) && ((48 : stdgo.GoUInt8) <= _s[(_newi : stdgo.GoInt)] : Bool) : Bool) && (_s[(_newi : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
-                if (stdgo._internal.fmt.Fmt__tooLarge._tooLarge(_num)) {
+                if (stdgo._internal.fmt.Fmt__toolarge._tooLarge(_num)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; } = { _0 : (0 : stdgo.GoInt), _1 : false, _2 : _end };
                         _num = __tmp__._0;

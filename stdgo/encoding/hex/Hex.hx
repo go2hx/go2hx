@@ -6,9 +6,9 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         return v;
     }
 @:structInit @:using(stdgo.encoding.hex.Hex.T_encoder_static_extension) abstract T_encoder(stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder) from stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder to stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder {
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
@@ -24,14 +24,14 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         this._out = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_err:stdgo.Error, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder(_w, (_err : stdgo.Error), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_w:stdgo._internal.io.Io_writer.Writer, ?_err:stdgo.Error, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder(_w, (_err : stdgo.Error), ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.hex.Hex.T_decoder_static_extension) abstract T_decoder(stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder) from stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder to stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder {
-    public var _r(get, set) : stdgo._internal.io.Io_Reader.Reader;
-    function get__r():stdgo._internal.io.Io_Reader.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
+    function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
+    function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         this._r = v;
         return v;
     }
@@ -53,14 +53,14 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         this._arr = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_Reader.Reader, ?_err:stdgo.Error, ?_in:Array<std.UInt>, ?_arr:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder(_r, (_err : stdgo.Error), ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _arr) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_err:stdgo.Error, ?_in:Array<std.UInt>, ?_arr:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder(_r, (_err : stdgo.Error), ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _arr) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.hex.Hex.T_dumper_static_extension) abstract T_dumper(stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper) from stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper to stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper {
-    public var _w(get, set) : stdgo._internal.io.Io_Writer.Writer;
-    function get__w():stdgo._internal.io.Io_Writer.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
+    function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
+    function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this._w = v;
         return v;
     }
@@ -94,7 +94,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         this._closed = v;
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io_Writer.Writer, ?_rightChars:haxe.ds.Vector<std.UInt>, ?_buf:haxe.ds.Vector<std.UInt>, ?_used:StdTypes.Int, ?_n:std.UInt, ?_closed:Bool) this = new stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper(_w, ([for (i in _rightChars) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_used : stdgo.GoInt), (_n : stdgo.GoUInt), _closed);
+    public function new(?_w:stdgo._internal.io.Io_writer.Writer, ?_rightChars:haxe.ds.Vector<std.UInt>, ?_buf:haxe.ds.Vector<std.UInt>, ?_used:StdTypes.Int, ?_n:std.UInt, ?_closed:Bool) this = new stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper(_w, ([for (i in _rightChars) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_used : stdgo.GoInt), (_n : stdgo.GoUInt), _closed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -122,7 +122,7 @@ class T__struct_0_static_extension {
 typedef T__struct_0 = stdgo._internal.encoding.hex.Hex_T__struct_0.T__struct_0;
 typedef T__struct_1Pointer = stdgo._internal.encoding.hex.Hex_T__struct_1Pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
-    public static function read(__self__:stdgo._internal.encoding.hex.Hex_T__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function read(__self__:stdgo._internal.encoding.hex.Hex_t__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.hex.Hex_T__struct_1_static_extension.T__struct_1_static_extension.read(__self__, _0);
@@ -133,7 +133,7 @@ class T__struct_1_static_extension {
 typedef T__struct_1 = stdgo._internal.encoding.hex.Hex_T__struct_1.T__struct_1;
 typedef T__struct_2Pointer = stdgo._internal.encoding.hex.Hex_T__struct_2Pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
-    public static function write(__self__:stdgo._internal.encoding.hex.Hex_T__struct_2.T__struct_2, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function write(__self__:stdgo._internal.encoding.hex.Hex_t__struct_2.T__struct_2, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.hex.Hex_T__struct_2_static_extension.T__struct_2_static_extension.write(__self__, _0);
@@ -146,7 +146,7 @@ typedef InvalidByteError = stdgo._internal.encoding.hex.Hex_InvalidByteError.Inv
 typedef T_encoderPointer = stdgo._internal.encoding.hex.Hex_T_encoderPointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function write(_e:T_encoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.hex.Hex_T_encoder.T_encoder>);
+        final _e = (_e : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.hex.Hex_T_encoder_static_extension.T_encoder_static_extension.write(_e, _p);
@@ -157,7 +157,7 @@ class T_encoder_static_extension {
 typedef T_decoderPointer = stdgo._internal.encoding.hex.Hex_T_decoderPointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.hex.Hex_T_decoder.T_decoder>);
+        final _d = (_d : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.hex.Hex_T_decoder_static_extension.T_decoder_static_extension.read(_d, _p);
@@ -168,11 +168,11 @@ class T_decoder_static_extension {
 typedef T_dumperPointer = stdgo._internal.encoding.hex.Hex_T_dumperPointer.T_dumperPointer;
 class T_dumper_static_extension {
     static public function close(_h:T_dumper):stdgo.Error {
-        final _h = (_h : stdgo.Ref<stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper>);
         return stdgo._internal.encoding.hex.Hex_T_dumper_static_extension.T_dumper_static_extension.close(_h);
     }
     static public function write(_h:T_dumper, _data:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _h = (_h : stdgo.Ref<stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper>);
+        final _h = (_h : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
             final obj = stdgo._internal.encoding.hex.Hex_T_dumper_static_extension.T_dumper_static_extension.write(_h, _data);
@@ -283,14 +283,14 @@ class Hex {
     /**
         NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to w.
     **/
-    static public inline function newEncoder(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_Writer.Writer {
+    static public inline function newEncoder(_w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         return stdgo._internal.encoding.hex.Hex_newEncoder.newEncoder(_w);
     }
     /**
         NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
         NewDecoder expects that r contain only an even number of hexadecimal characters.
     **/
-    static public inline function newDecoder(_r:stdgo._internal.io.Io_Reader.Reader):stdgo._internal.io.Io_Reader.Reader {
+    static public inline function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.encoding.hex.Hex_newDecoder.newDecoder(_r);
     }
     /**
@@ -298,67 +298,67 @@ class Hex {
         w. The format of the dump matches the output of `hexdump -C` on the command
         line.
     **/
-    static public inline function dumper(_w:stdgo._internal.io.Io_Writer.Writer):stdgo._internal.io.Io_WriteCloser.WriteCloser {
+    static public inline function dumper(_w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writecloser.WriteCloser {
         return stdgo._internal.encoding.hex.Hex_dumper.dumper(_w);
     }
-    static public inline function testEncode(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testEncode(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testEncode.testEncode(_t);
     }
-    static public inline function testDecode(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecode(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDecode.testDecode(_t);
     }
-    static public inline function testEncodeToString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testEncodeToString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testEncodeToString.testEncodeToString(_t);
     }
-    static public inline function testDecodeString(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecodeString(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDecodeString.testDecodeString(_t);
     }
-    static public inline function testDecodeErr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecodeErr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDecodeErr.testDecodeErr(_t);
     }
-    static public inline function testDecodeStringErr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecodeStringErr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDecodeStringErr.testDecodeStringErr(_t);
     }
-    static public inline function testEncoderDecoder(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testEncoderDecoder(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testEncoderDecoder.testEncoderDecoder(_t);
     }
-    static public inline function testDecoderErr(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDecoderErr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDecoderErr.testDecoderErr(_t);
     }
-    static public inline function testDumper(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDumper(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDumper.testDumper(_t);
     }
-    static public inline function testDumper_doubleclose(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDumper_doubleclose(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDumper_doubleclose.testDumper_doubleclose(_t);
     }
-    static public inline function testDumper_earlyclose(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDumper_earlyclose(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDumper_earlyclose.testDumper_earlyclose(_t);
     }
-    static public inline function testDump(_t:stdgo._internal.testing.Testing_T_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>);
+    static public inline function testDump(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.encoding.hex.Hex_testDump.testDump(_t);
     }
-    static public inline function benchmarkEncode(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkEncode(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.encoding.hex.Hex_benchmarkEncode.benchmarkEncode(_b);
     }
-    static public inline function benchmarkDecode(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDecode(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.encoding.hex.Hex_benchmarkDecode.benchmarkDecode(_b);
     }
-    static public inline function benchmarkDump(_b:stdgo._internal.testing.Testing_B.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_B.B>);
+    static public inline function benchmarkDump(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.encoding.hex.Hex_benchmarkDump.benchmarkDump(_b);
     }
 }

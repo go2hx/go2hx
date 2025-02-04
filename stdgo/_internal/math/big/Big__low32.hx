@@ -1,5 +1,5 @@
 package stdgo._internal.math.big;
-function _low32(_x:stdgo._internal.math.big.Big_T_nat.T_nat):stdgo.GoUInt32 {
+function _low32(_x:stdgo._internal.math.big.Big_t_nat.T_nat):stdgo.GoUInt32 {
         if ((_x.length) == ((0 : stdgo.GoInt))) {
             return (0u32 : stdgo.GoUInt32);
         };

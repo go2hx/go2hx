@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_T_testSlice___localname___Type3_7005_static_extension.T_testSlice___localname___Type3_7005_static_extension) typedef T_testSlice___localname___Type3_7005Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_testSlice___localname___Type3_7005.T_testSlice___localname___Type3_7005>;

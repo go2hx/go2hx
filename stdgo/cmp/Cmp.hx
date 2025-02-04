@@ -2,7 +2,7 @@ package stdgo.cmp;
 class Ordered_static_extension {
 
 }
-@:union @:using(stdgo._internal.cmp.Cmp_Ordered_static_extension.Ordered_static_extension) typedef Ordered = {
+@:union @:using(stdgo._internal.cmp.Cmp_ordered_static_extension.Ordered_static_extension) typedef Ordered = {
 
 }
 typedef OrderedPointer = stdgo._internal.cmp.Cmp_OrderedPointer.OrderedPointer;

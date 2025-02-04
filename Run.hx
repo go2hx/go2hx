@@ -131,8 +131,8 @@ function clean() {
 function deleteDirectoryRecursively(dir:String):Int {
 	trace(dir);
 	#if !js
-	return Sys.command('find $dir -type f -delete');
-	//return Sys.command('git rm --cache -r $dir');
+	//return Sys.command('find $dir -type f -delete');
+	return Sys.command('git rm --cache -r -d $dir');
 	return 0;
 	#else
 	return 0;

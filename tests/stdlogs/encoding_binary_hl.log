@@ -201,7 +201,7 @@ got "binary.Write: some values are not fixed-sized in type *.encoding.binary.Per
 -- PASS: TestNoFixedSize
 
 === RUN  TestNativeEndian
-./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#5581B02DAC98}) -> pointerType({get : function#5581B02DACB8})
+./stdgo/_internal/unsafe/Unsafe.hx:51: unimplemented unsafe conversion: pointerType({get : function#559F862D5C98}) -> pointerType({get : function#559F862D5CB8})
 Exception: array out of bounds, index: 3 length: 0
 Called from stdgo._Slice.$Slice_Impl_.__boundsCheck__ (stdgo/Slice.hx line 150)
 Called from stdgo._Slice.$Slice_Impl_.__get__ (stdgo/Slice.hx line 157)

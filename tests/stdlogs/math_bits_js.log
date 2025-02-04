@@ -1,43 +1,57 @@
 === RUN  TestUintSize
+
 -- PASS: TestUintSize
 
 === RUN  TestLeadingZeros
+
 -- PASS: TestLeadingZeros
 
 === RUN  TestTrailingZeros
+
 -- PASS: TestTrailingZeros
 
 === RUN  TestOnesCount
+
 -- PASS: TestOnesCount
 
 === RUN  TestRotateLeft
+
 -- PASS: TestRotateLeft
 
 === RUN  TestReverse
+
 -- PASS: TestReverse
 
 === RUN  TestReverseBytes
+
 -- PASS: TestReverseBytes
 
 === RUN  TestLen
+
 -- PASS: TestLen
 
 === RUN  TestAddSubUint
+
 -- PASS: TestAddSubUint
 
 === RUN  TestAddSubUint32
+
 -- PASS: TestAddSubUint32
 
 === RUN  TestAddSubUint64
+
 -- PASS: TestAddSubUint64
 
 === RUN  TestAdd64OverflowPanic
+
 -- PASS: TestAdd64OverflowPanic
 
 === RUN  TestSub64OverflowPanic
+
 -- PASS: TestSub64OverflowPanic
 
 === RUN  TestMulDiv
+
 -- PASS: TestMulDiv
 
 === RUN  TestMulDiv32
@@ -53,30 +67,39 @@
 -- FAIL: TestMulDiv64
 
 === RUN  TestDivPanicOverflow
+
 -- PASS: TestDivPanicOverflow
 
 === RUN  TestDiv32PanicOverflow
+
 -- PASS: TestDiv32PanicOverflow
 
 === RUN  TestDiv64PanicOverflow
+
 -- PASS: TestDiv64PanicOverflow
 
 === RUN  TestDivPanicZero
+
 -- PASS: TestDivPanicZero
 
 === RUN  TestDiv32PanicZero
+
 -- PASS: TestDiv32PanicZero
 
 === RUN  TestDiv64PanicZero
+
 -- PASS: TestDiv64PanicZero
 
 === RUN  TestRem32
+
 -- PASS: TestRem32
 
 === RUN  TestRem32Overflow
+
 -- PASS: TestRem32Overflow
 
 === RUN  TestRem64
+
 -- PASS: TestRem64
 
 === RUN  TestRem64Overflow

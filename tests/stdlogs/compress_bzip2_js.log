@@ -29,11 +29,14 @@ want %!s(MISSING)
 -- FAIL: TestReader
 
 === RUN  TestBitReader
+
 -- PASS: TestBitReader
 
 === RUN  TestMTF
+
 -- PASS: TestMTF
 
 === RUN  TestZeroRead
+
 -- PASS: TestZeroRead
 

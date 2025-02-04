@@ -1,51 +1,63 @@
 === RUN  TestFormatFileInfo
+
 -- PASS: TestFormatFileInfo
 
 === RUN  TestFormatDirEntry
+
 -- PASS: TestFormatDirEntry
 
 === RUN  TestValidPath
+
 -- PASS: TestValidPath
 
 === RUN  TestGlob
 Exception: ENOENT: no such file or directory, scandir ''
-Called from .stdgo__$internal_io_fs_Fs_$readDir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24672 column 25)
+Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24672 column 25)
 Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24407 column 16)
-Called from .stdgo__$internal_io_fs_Fs_$_$globWithLimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21342 column 17)
+Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21342 column 17)
 Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21227 column 16)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testGlob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:21191:17)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:21191:17)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 58463 column 9)
 Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 43079 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66115:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66089:1
 
 -- FAIL: TestGlob
 
 === RUN  TestGlobError
+
 -- PASS: TestGlobError
 
 === RUN  TestCVE202230630
 -- SKIP: testCVE202230630
+
 -- PASS: TestCVE202230630
 
 === RUN  TestGlobMethod
+
 -- PASS: TestGlobMethod
 
 === RUN  TestReadDir
+
 -- PASS: TestReadDir
 
 === RUN  TestFileInfoToDirEntry
+
 -- PASS: TestFileInfoToDirEntry
 
 === RUN  TestReadFile
+
 -- PASS: TestReadFile
 
 === RUN  TestStat
+
 -- PASS: TestStat
 
 === RUN  TestSub
+
 -- PASS: TestSub
 
 === RUN  TestWalkDir
+
 -- PASS: TestWalkDir
 
 === RUN  TestIssue51617
@@ -56,21 +68,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'zszl6yd99n/a/bad'
+Error: EACCES: permission denied, scandir 'pxrimteaq9/a/bad'
     at Object.readdirSync (node:fs:1581:26)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52520:30)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52526:7)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52526:7)
-    at stdgo__$internal_os_Os_$removeAll_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52566:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:58995:4
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52303:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52309:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52309:7)
+    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52349:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:59040:4
     at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:58477:4)
     at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:43079:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66115:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:66116:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66089:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:66090:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'zszl6yd99n/a/bad'
+  path: 'pxrimteaq9/a/bad'
 }
 
 Node.js v23.7.0

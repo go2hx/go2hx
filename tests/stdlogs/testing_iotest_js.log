@@ -1,4 +1,5 @@
 === RUN  TestWriteLogger
+
 -- PASS: TestWriteLogger
 
 === RUN  TestWriteLogger_errorOnWrite
@@ -23,35 +24,46 @@ ReadLogger mismatch
 -- FAIL: TestReadLogger_errorOnRead
 
 === RUN  TestOneByteReader_nonEmptyReader
+
 -- PASS: TestOneByteReader_nonEmptyReader
 
 === RUN  TestOneByteReader_emptyReader
+
 -- PASS: TestOneByteReader_emptyReader
 
 === RUN  TestHalfReader_nonEmptyReader
+
 -- PASS: TestHalfReader_nonEmptyReader
 
 === RUN  TestHalfReader_emptyReader
+
 -- PASS: TestHalfReader_emptyReader
 
 === RUN  TestTimeOutReader_nonEmptyReader
+
 -- PASS: TestTimeOutReader_nonEmptyReader
 
 === RUN  TestTimeOutReader_emptyReader
+
 -- PASS: TestTimeOutReader_emptyReader
 
 === RUN  TestDataErrReader_nonEmptyReader
+
 -- PASS: TestDataErrReader_nonEmptyReader
 
 === RUN  TestDataErrReader_emptyReader
+
 -- PASS: TestDataErrReader_emptyReader
 
 === RUN  TestErrReader
+
 -- PASS: TestErrReader
 
 === RUN  TestStringsReader
+
 -- PASS: TestStringsReader
 
 === RUN  TestTruncateWriter
+
 -- PASS: TestTruncateWriter
 

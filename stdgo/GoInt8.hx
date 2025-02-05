@@ -49,6 +49,10 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 	public static function ofInt(x:Int):GoInt8
 		return x;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoInt8
+		return x.low;
+
 	@:op(A >> B) private static function shr(a:GoInt8, b:GoInt8):GoInt8 {
 		if (shiftGuard(b.toBasic()))
 			return 0;

@@ -55,6 +55,10 @@ abstract GoInt32(Int32) from Int32 to Int32 to Int {
 	public static function ofInt(x:Int):GoInt32
 		return x;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoInt32
+		return x.low;
+
 	@:op(A + B) private static function add(a:GoInt32, b:GoInt32):GoInt32
 		return a.toBasic() + b.toBasic();
 

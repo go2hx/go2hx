@@ -49,6 +49,10 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 	@:to inline function toFloat64():GoFloat64
 		return this;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoInt16
+		return x.low;
+
 	@:op(A >> B) private static function shr(a:GoInt16, b:GoInt16):GoInt16 {
 		if (shiftGuard(b.toBasic()))
 			return a < 0 ? -1 : 0;

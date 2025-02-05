@@ -49,6 +49,10 @@ abstract GoUInt16(UInt16) from UInt16 from Int to UInt16 {
 	@:to inline function toFloat64():GoFloat64
 		return this;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoUInt16
+		return x.low;
+
 	@:op(-A) private static function neg(a:GoUInt16):GoUInt16
 		return a * -1;
 

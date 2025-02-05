@@ -49,6 +49,10 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 	public static function ofInt(x:Int):GoUInt32
 		return x;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoUInt32
+		return x.low;
+
 	@:op(A + B) private static function add(a:GoUInt32, b:GoUInt32):GoUInt32
 		return clamp(a.toBasic() + b.toBasic());
 

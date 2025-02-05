@@ -51,6 +51,10 @@ abstract GoUInt8(UInt8) from UInt8 from Int to UInt8 {
 	@:to inline function toFloat64():GoFloat64
 		return this;
 
+	// could be untyped int
+	@:from static function fromInt64(x:haxe.Int64):GoUInt8
+		return x.low;
+
 	@:op(A > B) private static function gt(a:GoUInt8, b:GoUInt8):Bool
 		return a.toBasic() > b.toBasic();
 

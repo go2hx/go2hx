@@ -29,7 +29,6 @@ function create(outputPath:String, module:Module, root:String) {
 			actualPath = "_internal/" + actualPath;
 		}
 	}
-	//trace(actualPath);
 	// if stdgo
 	if (Typer.stdgoList.contains(Typer.toGoPath(stdFormatPath))) {
 		root = "stdgo";
@@ -761,8 +760,22 @@ function convertComplexType(ct:ComplexType, path:String):ComplexType {
 	// To extern version
 	switch ct {
 		case TPath(p):
-			if (p.pack.join("/").substr(0, path.length) == path) {
+			final b = (p.pack.slice(0, p.pack.length - 1).join("/")) == path;
+			if (b) {
 				ct = TPath({name: p.name, pack: [], sub: p.sub, params: p.params});
+			}else{
+				if (p.pack.length > 1 && p.pack[0] == "_internal") {
+					final pack = p.pack.copy();
+					pack.shift();
+					// regexp2,syntax,Syntax_code
+					pack.pop();
+					final lastPack = pack.pop();
+					pack.push(lastPack);
+					pack.push(Typer.title(lastPack));
+					ct = TPath({name: p.name, pack: pack, sub: p.sub, params: p.params});
+				}else{
+					ct = TPath({name: p.name, pack: p.pack, sub: p.sub, params: p.params});
+				}
 			}
 		default:
 	}

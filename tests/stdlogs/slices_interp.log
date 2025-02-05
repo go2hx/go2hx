@@ -1,94 +1,94 @@
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testclone.hx:22: characters 194-198
+[ERROR] ./stdgo/_internal/slices/Slices_testclone.hx:22: characters 194-198
 
- 22 | [2m                @:check2r _t.errorf(("Clone(%v) = %#v, want %#v" : stdgo.GoString), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)), stdgo.Go.toInterface([0m[1m_got[0m[2m), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)));[0m
-    |                                                                                                                                                                                                  [31m^^^^[0m
+ 22 |                 @:check2r _t.errorf(("Clone(%v) = %#v, want %#v" : stdgo.GoString), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)));
+    |                                                                                                                                                                                                  ^^^^
     | Any should be { length : stdgo.GoInt }
     | For function argument 'value'
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:9: characters 18-26
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:9: characters 18-26
 
-  9 | [2m        if ((_s2.[0m[1mcapacity[0m[2m < ((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt) : Bool)) {[0m
-    |                  [31m^^^^^^^^[0m
+  9 |         if ((_s2.capacity < ((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt) : Bool)) {
+    |                  ^^^^^^^^
     | Any has no field capacity
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 143-151
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 143-151
 
- 10 | [2m            @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2.[0m[1mcapacity[0m[2m), stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));[0m
-    |                                                                                                                                               [31m^^^^^^^^[0m
+ 10 |             @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2.capacity), stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));
+    |                                                                                                                                               ^^^^^^^^
     | Any has no field capacity
 
-    [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-     504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-         |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-    [30;41m -> [0m stdgo/Go.macro.hx:653: characters 11-31
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-     653 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-         |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-    [30;41m -> [0m ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 118-152
+     ->  ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 118-152
 
-      10 | [2m            @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), [0m[1mstdgo.Go.toInterface(_s2.capacity)[0m[2m, stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));[0m
-         |                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      10 |             @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2.capacity), stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));
+         |                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
          | For function argument ''
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 67-75
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 67-75
 
- 23 | [2m                stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.[0m[1mcapacity[0m[2m - (_s2.length) : stdgo.GoInt));[0m
-    |                                                                   [31m^^^^^^^^[0m
+ 23 |                 stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.capacity - (_s2.length) : stdgo.GoInt));
+    |                                                                   ^^^^^^^^
     | Any has no field capacity
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 83-89
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 83-89
 
- 23 | [2m                stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.capacity - (_s2.[0m[1mlength[0m[2m) : stdgo.GoInt));[0m
-    |                                                                                   [31m^^^^^^[0m
+ 23 |                 stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.capacity - (_s2.length) : stdgo.GoInt));
+    |                                                                                   ^^^^^^
     | Any has no field length
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 68-76
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 68-76
 
- 31 | [2m                stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.[0m[1mcapacity[0m[2m - (_s2.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));[0m
-    |                                                                    [31m^^^^^^^^[0m
+ 31 |                 stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.capacity - (_s2.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));
+    |                                                                    ^^^^^^^^
     | Any has no field capacity
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 84-90
+[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 84-90
 
- 31 | [2m                stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.capacity - (_s2.[0m[1mlength[0m[2m) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));[0m
-    |                                                                                    [31m^^^^^^[0m
+ 31 |                 stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.capacity - (_s2.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));
+    |                                                                                    ^^^^^^
     | Any has no field length
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testclip.hx:15: characters 17-25
+[ERROR] ./stdgo/_internal/slices/Slices_testclip.hx:15: characters 17-25
 
- 15 | [2m        if (_s2.[0m[1mcapacity[0m[2m != ((3 : stdgo.GoInt))) {[0m
-    |                 [31m^^^^^^^^[0m
+ 15 |         if (_s2.capacity != ((3 : stdgo.GoInt))) {
+    |                 ^^^^^^^^
     | Any has no field capacity
 
-[30;41m ERROR [0m ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 136-144
+[ERROR] ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 136-144
 
- 16 | [2m            @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_s2.[0m[1mcapacity[0m[2m));[0m
-    |                                                                                                                                        [31m^^^^^^^^[0m
+ 16 |             @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_s2.capacity));
+    |                                                                                                                                        ^^^^^^^^
     | Any has no field capacity
 
-    [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-     504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-         |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-    [30;41m -> [0m stdgo/Go.macro.hx:653: characters 11-31
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-     653 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-         |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-    [30;41m -> [0m ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 111-145
+     ->  ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 111-145
 
-      16 | [2m            @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), [0m[1mstdgo.Go.toInterface(_s2.capacity)[0m[2m);[0m
-         |                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      16 |             @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_s2.capacity));
+         |                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
          | For function argument ''

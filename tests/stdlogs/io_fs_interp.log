@@ -61,38 +61,38 @@ Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (./stdg
 === RUN  TestIssue51617
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
-[30;41m ERROR [0m ./stdgo/_internal/os/Os_removeall.hx:8: characters 39-73
+[ERROR] ./stdgo/_internal/os/Os_removeall.hx:8: characters 39-73
 
- 8 | [2m                        var entries = [0m[1msys.FileSystem.readDirectory(path)[0m[2m;[0m
-   |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Uncaught exception put4acpmqj/a/bad: Permission denied
+ 8 |                         var entries = sys.FileSystem.readDirectory(path);
+   |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | Uncaught exception ehkdol58ke/a/bad: Permission denied
 
-    11 | [2m                                [0m[1mdeleteRecursively(path + '/' + entry)[0m[2m;[0m
-       |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    11 |                                 deleteRecursively(path + '/' + entry);
+       |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 
        | Called from here
 
-    23 | [2m        deleteRecursively([0m[1m_path[0m[2m);[0m
-       |                           [31m^^^^^[0m
+    23 |         deleteRecursively(_path);
+       |                           ^^^^^
        | Called from here
 
-   [30;41m -> [0m ./stdgo/_internal/testing/Testing_t_common_static_extension.hx:21: characters 17-71
+    ->  ./stdgo/_internal/testing/Testing_t_common_static_extension.hx:21: characters 17-71
 
-    21 | [2m                [0m[1mstdgo._internal.os.Os_removeall.removeAll(_c._tempDir)[0m[2m;[0m
-       |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    21 |                 stdgo._internal.os.Os_removeall.removeAll(_c._tempDir);
+       |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 
-   [30;41m -> [0m ./stdgo/_internal/testing/Testing_m_static_extension.hx:45: characters 17-20
+    ->  ./stdgo/_internal/testing/Testing_m_static_extension.hx:45: characters 17-20
 
-    45 | [2m                [0m[1mf()[0m[2m;[0m
-       |                 [31m^^^[0m
+    45 |                 f();
+       |                 ^^^
        | Called from here
 
-   [30;41m -> [0m ./_internal/io/fs_dot_test/Fs_dot_test.hx:7: characters 50-58
+    ->  ./_internal/io/fs_dot_test/Fs_dot_test.hx:7: characters 50-58
 
-     7 | [2m        #if (sys || hxnodejs) Sys.exit(@:check2r [0m[1m_m.run()[0m[2m) #else null #end;[0m
-       |                                                  [31m^^^^^^^^[0m
+     7 |         #if (sys || hxnodejs) Sys.exit(@:check2r _m.run()) #else null #end;
+       |                                                  ^^^^^^^^
        | Called from here
 
 got directories [.], want [. a a/bad a/next]

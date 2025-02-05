@@ -1,38 +1,38 @@
-[30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 81-204
+[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 81-204
 
-  12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>)[0m[2m);[0m
-     |                                                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  12 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
+     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
      | For function argument '__self__'
 
-[30;41m ERROR [0m stdgo/Go.macro.hx:393: characters 30-35
+[ERROR] stdgo/Go.macro.hx:393: characters 30-35
 
- 393 | [2m         var e = macro $self.[0m[1mvalue[0m[2m.$methodName($a{callArgs});[0m
-     |                              [31m^^^^^[0m
+ 393 |          var e = macro $self.value.$methodName($a{callArgs});
+     |                              ^^^^^
      | _internal.runtime.debug_test.G<stdgo.GoInt> has no field value
 
-     [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 60-205
+      ->  ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 60-205
 
-      12 | [2mvar _dummy : _internal.runtime.debug_test.Debug_test_i.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>))[0m[2m;[0m
-         |                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      12 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
+         |                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from macro here
 
-[30;41m ERROR [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 82-295
+[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 82-295
 
-  12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface([0m[1m(new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>)[0m[2m);[0m
-     |                                                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  12 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
+     |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
      | For function argument '__self__'
 
-[30;41m ERROR [0m stdgo/Go.macro.hx:393: characters 30-35
+[ERROR] stdgo/Go.macro.hx:393: characters 30-35
 
- 393 | [2m         var e = macro $self.[0m[1mvalue[0m[2m.$methodName($a{callArgs});[0m
-     |                              [31m^^^^^[0m
+ 393 |          var e = macro $self.value.$methodName($a{callArgs});
+     |                              ^^^^^
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field value
 
-     [30;41m -> [0m ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 61-296
+      ->  ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 61-296
 
-      12 | [2mvar _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = [0m[1mstdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>))[0m[2m;[0m
-         |                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      12 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
+         |                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from macro here
 

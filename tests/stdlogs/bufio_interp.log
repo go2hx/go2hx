@@ -1,12 +1,12 @@
-[30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testunreadbyteothers.hx:17: characters 188-267
+[ERROR] ./_internal/bufio_test/Bufio_test_testunreadbyteothers.hx:17: characters 188-267
 
- 17 | [2m        var _readers = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[[0m[1m_internal.bufio_test.Bufio_test_reader_static_extension.Reader_static_extension[0m[2m.readBytes, _internal.bufio_test.Bufio_test_reader_static_extension.Reader_static_extension.readSlice, function(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {[0m
-    |                                                                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ 17 |         var _readers = (new stdgo.Slice<(stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>, stdgo.GoUInt8) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }>(3, 3, ...[_internal.bufio_test.Bufio_test_reader_static_extension.Reader_static_extension.readBytes, _internal.bufio_test.Bufio_test_reader_static_extension.Reader_static_extension.readSlice, function(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    |                                                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : _internal.bufio_test.Bufio_test_reader_static_extension
 
-[30;41m ERROR [0m ./_internal/bufio_test/Bufio_test_testunreadbyteothers.hx:21: characters 31-39
+[ERROR] ./_internal/bufio_test/Bufio_test_testunreadbyteothers.hx:21: characters 31-39
 
- 21 | [2m        for (_rno => _read in [0m[1m_readers[0m[2m) {[0m
-    |                               [31m^^^^^^^^[0m
+ 21 |         for (_rno => _read in _readers) {
+    |                               ^^^^^^^^
     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
 

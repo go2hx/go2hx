@@ -1,8 +1,8 @@
 package stdgo._internal.database.sql;
 @:interface typedef T_decimalCompose = stdgo.StructType & {
     /**
-        Compose sets the internal decimal value from parts. If the value cannot be
-        represented then an error should be returned.
+        * Compose sets the internal decimal value from parts. If the value cannot be
+        * represented then an error should be returned.
         
         
     **/

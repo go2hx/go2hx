@@ -1,10 +1,10 @@
 package stdgo.os.exec.internal.fdtest;
 /**
-    Package fdtest provides test helpers for working with file descriptors across exec.
+    * Package fdtest provides test helpers for working with file descriptors across exec.
 **/
 class Fdtest {
     /**
-        Exists returns true if fd is a valid file descriptor.
+        * Exists returns true if fd is a valid file descriptor.
     **/
     static public inline function exists(_fd:stdgo.GoUIntptr):Bool {
         final _fd = (_fd : stdgo.GoUIntptr);

@@ -158,18 +158,18 @@ class BuildInfo_static_extension {
 
 }
 /**
-    Package buildinfo provides access to information embedded in a Go binary
-    about how it was built. This includes the Go toolchain version, and the
-    set of modules used (for binaries built in module mode).
-    
-    Build information is available for the currently running binary in
-    runtime/debug.ReadBuildInfo.
+    * Package buildinfo provides access to information embedded in a Go binary
+    * about how it was built. This includes the Go toolchain version, and the
+    * set of modules used (for binaries built in module mode).
+    * 
+    * Build information is available for the currently running binary in
+    * runtime/debug.ReadBuildInfo.
 **/
 class Buildinfo {
     /**
-        ReadFile returns build information embedded in a Go binary
-        file at the given path. Most information is only available for binaries built
-        with module support.
+        * ReadFile returns build information embedded in a Go binary
+        * file at the given path. Most information is only available for binaries built
+        * with module support.
     **/
     static public inline function readFile(_name:String):stdgo.Tuple<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -179,9 +179,9 @@ class Buildinfo {
         };
     }
     /**
-        Read returns build information embedded in a Go binary file
-        accessed through the given ReaderAt. Most information is only available for
-        binaries built with module support.
+        * Read returns build information embedded in a Go binary file
+        * accessed through the given ReaderAt. Most information is only available for
+        * binaries built with module support.
     **/
     static public inline function read(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo, stdgo.Error> {
         return {

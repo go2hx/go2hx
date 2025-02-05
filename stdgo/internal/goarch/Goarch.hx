@@ -49,7 +49,7 @@ class ArchFamilyType_static_extension {
 
 }
 /**
-    package goarch contains GOARCH-specific constants.
+    * package goarch contains GOARCH-specific constants.
 **/
 class Goarch {
 

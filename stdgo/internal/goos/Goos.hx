@@ -20,7 +20,7 @@ final isWasip1 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isWasip1.isWas
 final isWindows : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isWindows.isWindows;
 final isZos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isZos.isZos;
 /**
-    package goos contains GOOS-specific constants.
+    * package goos contains GOOS-specific constants.
 **/
 class Goos {
 

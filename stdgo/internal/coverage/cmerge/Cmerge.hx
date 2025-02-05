@@ -76,8 +76,8 @@ class ModeMergePolicy_static_extension {
 }
 class Cmerge {
     /**
-        Saturating add does a saturating addition of 'dst' and 'src',
-        returning added value or math.MaxUint32 plus an overflow flag.
+        * Saturating add does a saturating addition of 'dst' and 'src',
+        * returning added value or math.MaxUint32 plus an overflow flag.
     **/
     static public inline function saturatingAdd(_dst:std.UInt, _src:std.UInt):stdgo.Tuple<std.UInt, Bool> {
         final _dst = (_dst : stdgo.GoUInt32);

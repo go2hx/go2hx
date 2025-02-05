@@ -343,13 +343,13 @@ class T_moveToFrontDecoder_static_extension {
     }
 }
 /**
-    Package bzip2 implements bzip2 decompression.
+    * Package bzip2 implements bzip2 decompression.
 **/
 class Bzip2 {
     /**
-        NewReader returns an io.Reader which decompresses bzip2 data from r.
-        If r does not also implement io.ByteReader,
-        the decompressor may read more data than necessary from r.
+        * NewReader returns an io.Reader which decompresses bzip2 data from r.
+        * If r does not also implement io.ByteReader,
+        * the decompressor may read more data than necessary from r.
     **/
     static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(_r);

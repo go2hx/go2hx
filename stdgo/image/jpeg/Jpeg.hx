@@ -659,13 +659,13 @@ class T_huffmanLUT_static_extension {
     }
 }
 /**
-    Package jpeg implements a JPEG image decoder and encoder.
-    
-    JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
+    * Package jpeg implements a JPEG image decoder and encoder.
+    * 
+    * JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
 **/
 class Jpeg {
     /**
-        Decode reads a JPEG image from r and returns it as an image.Image.
+        * Decode reads a JPEG image from r and returns it as an image.Image.
     **/
     static public inline function decode(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_image.Image, stdgo.Error> {
         return {
@@ -674,8 +674,8 @@ class Jpeg {
         };
     }
     /**
-        DecodeConfig returns the color model and dimensions of a JPEG image without
-        decoding the entire image.
+        * DecodeConfig returns the color model and dimensions of a JPEG image without
+        * decoding the entire image.
     **/
     static public inline function decodeConfig(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_config.Config, stdgo.Error> {
         return {
@@ -684,8 +684,8 @@ class Jpeg {
         };
     }
     /**
-        Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given
-        options. Default parameters are used if a nil *Options is passed.
+        * Encode writes the Image m to w in JPEG 4:2:0 baseline format with the given
+        * options. Default parameters are used if a nil *Options is passed.
     **/
     static public inline function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image, _o:Options):stdgo.Error {
         final _o = (_o : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_options.Options>);

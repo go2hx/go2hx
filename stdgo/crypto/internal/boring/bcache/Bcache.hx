@@ -69,7 +69,7 @@ class T_cacheTable_static_extension {
 
 }
 /**
-    Package bcache implements a GC-friendly cache (see [Cache]) for BoringCrypto.
+    * Package bcache implements a GC-friendly cache (see [Cache]) for BoringCrypto.
 **/
 class Bcache {
 

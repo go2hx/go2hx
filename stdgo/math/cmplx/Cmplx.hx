@@ -30,55 +30,55 @@ class T__struct_0Pointer_static_extension {
 
 }
 /**
-    Package cmplx provides basic constants and mathematical functions for
-    complex numbers. Special case handling conforms to the C99 standard
-    Annex G IEC 60559-compatible complex arithmetic.
+    * Package cmplx provides basic constants and mathematical functions for
+    * complex numbers. Special case handling conforms to the C99 standard
+    * Annex G IEC 60559-compatible complex arithmetic.
 **/
 class Cmplx {
     /**
-        Abs returns the absolute value (also called the modulus) of x.
+        * Abs returns the absolute value (also called the modulus) of x.
     **/
     static public inline function abs(_x:stdgo.GoComplex128):StdTypes.Float {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_abs.abs(_x);
     }
     /**
-        Asin returns the inverse sine of x.
+        * Asin returns the inverse sine of x.
     **/
     static public inline function asin(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_asin.asin(_x);
     }
     /**
-        Asinh returns the inverse hyperbolic sine of x.
+        * Asinh returns the inverse hyperbolic sine of x.
     **/
     static public inline function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_asinh.asinh(_x);
     }
     /**
-        Acos returns the inverse cosine of x.
+        * Acos returns the inverse cosine of x.
     **/
     static public inline function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_acos.acos(_x);
     }
     /**
-        Acosh returns the inverse hyperbolic cosine of x.
+        * Acosh returns the inverse hyperbolic cosine of x.
     **/
     static public inline function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_acosh.acosh(_x);
     }
     /**
-        Atan returns the inverse tangent of x.
+        * Atan returns the inverse tangent of x.
     **/
     static public inline function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_atan.atan(_x);
     }
     /**
-        Atanh returns the inverse hyperbolic tangent of x.
+        * Atanh returns the inverse hyperbolic tangent of x.
     **/
     static public inline function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
@@ -173,7 +173,7 @@ class Cmplx {
         stdgo._internal.math.cmplx.Cmplx_testTanh.testTanh(_t);
     }
     /**
-        See issue 17577
+        * See issue 17577
     **/
     static public inline function testInfiniteLoopIntanSeries(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
@@ -268,14 +268,14 @@ class Cmplx {
         stdgo._internal.math.cmplx.Cmplx_benchmarkTanh.benchmarkTanh(_b);
     }
     /**
-        Conj returns the complex conjugate of x.
+        * Conj returns the complex conjugate of x.
     **/
     static public inline function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_conj.conj(_x);
     }
     /**
-        Exp returns e**x, the base-e exponential of x.
+        * Exp returns e**x, the base-e exponential of x.
     **/
     static public inline function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
@@ -286,58 +286,58 @@ class Cmplx {
         stdgo._internal.math.cmplx.Cmplx_testTanHuge.testTanHuge(_t);
     }
     /**
-        IsInf reports whether either real(x) or imag(x) is an infinity.
+        * IsInf reports whether either real(x) or imag(x) is an infinity.
     **/
     static public inline function isInf(_x:stdgo.GoComplex128):Bool {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_isInf.isInf(_x);
     }
     /**
-        Inf returns a complex infinity, complex(+Inf, +Inf).
+        * Inf returns a complex infinity, complex(+Inf, +Inf).
     **/
     static public inline function inf():stdgo.GoComplex128 {
         return stdgo._internal.math.cmplx.Cmplx_inf.inf();
     }
     /**
-        IsNaN reports whether either real(x) or imag(x) is NaN
-        and neither is an infinity.
+        * IsNaN reports whether either real(x) or imag(x) is NaN
+        * and neither is an infinity.
     **/
     static public inline function isNaN(_x:stdgo.GoComplex128):Bool {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_isNaN.isNaN(_x);
     }
     /**
-        NaN returns a complex “not-a-number” value.
+        * NaN returns a complex “not-a-number” value.
     **/
     static public inline function naN():stdgo.GoComplex128 {
         return stdgo._internal.math.cmplx.Cmplx_naN.naN();
     }
     /**
-        Log returns the natural logarithm of x.
+        * Log returns the natural logarithm of x.
     **/
     static public inline function log(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_log.log(_x);
     }
     /**
-        Log10 returns the decimal logarithm of x.
+        * Log10 returns the decimal logarithm of x.
     **/
     static public inline function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_log10.log10(_x);
     }
     /**
-        Phase returns the phase (also called the argument) of x.
-        The returned value is in the range [-Pi, Pi].
+        * Phase returns the phase (also called the argument) of x.
+        * The returned value is in the range [-Pi, Pi].
     **/
     static public inline function phase(_x:stdgo.GoComplex128):StdTypes.Float {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_phase.phase(_x);
     }
     /**
-        Polar returns the absolute value r and phase θ of x,
-        such that x = r * e**θi.
-        The phase is in the range [-Pi, Pi].
+        * Polar returns the absolute value r and phase θ of x,
+        * such that x = r * e**θi.
+        * The phase is in the range [-Pi, Pi].
     **/
     static public inline function polar(_x:stdgo.GoComplex128):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
         final _x = (_x : stdgo.GoComplex128);
@@ -347,11 +347,11 @@ class Cmplx {
         };
     }
     /**
-        Pow returns x**y, the base-x exponential of y.
-        For generalized compatibility with math.Pow:
-        
-        	Pow(0, ±0) returns 1+0i
-        	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
+        * Pow returns x**y, the base-x exponential of y.
+        * For generalized compatibility with math.Pow:
+        * 
+        * 	Pow(0, ±0) returns 1+0i
+        * 	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
     **/
     static public inline function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
@@ -359,7 +359,7 @@ class Cmplx {
         return stdgo._internal.math.cmplx.Cmplx_pow.pow(_x, _y);
     }
     /**
-        Rect returns the complex number x with polar coordinates r, θ.
+        * Rect returns the complex number x with polar coordinates r, θ.
     **/
     static public inline function rect(_r:StdTypes.Float, __952:StdTypes.Float):stdgo.GoComplex128 {
         final _r = (_r : stdgo.GoFloat64);
@@ -367,57 +367,57 @@ class Cmplx {
         return stdgo._internal.math.cmplx.Cmplx_rect.rect(_r, __952);
     }
     /**
-        Sin returns the sine of x.
+        * Sin returns the sine of x.
     **/
     static public inline function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_sin.sin(_x);
     }
     /**
-        Sinh returns the hyperbolic sine of x.
+        * Sinh returns the hyperbolic sine of x.
     **/
     static public inline function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_sinh.sinh(_x);
     }
     /**
-        Cos returns the cosine of x.
+        * Cos returns the cosine of x.
     **/
     static public inline function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_cos.cos(_x);
     }
     /**
-        Cosh returns the hyperbolic cosine of x.
+        * Cosh returns the hyperbolic cosine of x.
     **/
     static public inline function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_cosh.cosh(_x);
     }
     /**
-        Sqrt returns the square root of x.
-        The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).
+        * Sqrt returns the square root of x.
+        * The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).
     **/
     static public inline function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_sqrt.sqrt(_x);
     }
     /**
-        Tan returns the tangent of x.
+        * Tan returns the tangent of x.
     **/
     static public inline function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_tan.tan(_x);
     }
     /**
-        Tanh returns the hyperbolic tangent of x.
+        * Tanh returns the hyperbolic tangent of x.
     **/
     static public inline function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);
         return stdgo._internal.math.cmplx.Cmplx_tanh.tanh(_x);
     }
     /**
-        Cot returns the cotangent of x.
+        * Cot returns the cotangent of x.
     **/
     static public inline function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
         final _x = (_x : stdgo.GoComplex128);

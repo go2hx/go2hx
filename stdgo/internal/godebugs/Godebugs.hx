@@ -45,13 +45,13 @@ class Info_static_extension {
 
 }
 /**
-    Package godebugs provides a table of known GODEBUG settings,
-    for use by a variety of other packages, including internal/godebug,
-    runtime, runtime/metrics, and cmd/go/internal/load.
+    * Package godebugs provides a table of known GODEBUG settings,
+    * for use by a variety of other packages, including internal/godebug,
+    * runtime, runtime/metrics, and cmd/go/internal/load.
 **/
 class Godebugs {
     /**
-        Lookup returns the Info with the given name.
+        * Lookup returns the Info with the given name.
     **/
     static public inline function lookup(_name:String):Info {
         final _name = (_name : stdgo.GoString);

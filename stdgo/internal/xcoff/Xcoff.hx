@@ -1589,12 +1589,12 @@ class Reloc64_static_extension {
 
 }
 /**
-    Package xcoff implements access to XCOFF (Extended Common Object File Format) files.
+    * Package xcoff implements access to XCOFF (Extended Common Object File Format) files.
 **/
 class Xcoff {
     /**
-        OpenArchive opens the named archive using os.Open and prepares it for use
-        as an AIX big archive.
+        * OpenArchive opens the named archive using os.Open and prepares it for use
+        * as an AIX big archive.
     **/
     static public inline function openArchive(_name:String):stdgo.Tuple<Archive, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -1604,7 +1604,7 @@ class Xcoff {
         };
     }
     /**
-        NewArchive creates a new Archive for accessing an AIX big archive in an underlying reader.
+        * NewArchive creates a new Archive for accessing an AIX big archive in an underlying reader.
     **/
     static public inline function newArchive(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<Archive, stdgo.Error> {
         return {
@@ -1613,7 +1613,7 @@ class Xcoff {
         };
     }
     /**
-        Open opens the named file using os.Open and prepares it for use as an XCOFF binary.
+        * Open opens the named file using os.Open and prepares it for use as an XCOFF binary.
     **/
     static public inline function open(_name:String):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -1623,7 +1623,7 @@ class Xcoff {
         };
     }
     /**
-        NewFile creates a new File for accessing an XCOFF binary in an underlying reader.
+        * NewFile creates a new File for accessing an XCOFF binary in an underlying reader.
     **/
     static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {

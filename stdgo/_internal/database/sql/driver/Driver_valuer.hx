@@ -1,8 +1,8 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef Valuer = stdgo.StructType & {
     /**
-        Value returns a driver Value.
-        Value must not panic.
+        * Value returns a driver Value.
+        * Value must not panic.
         
         
     **/

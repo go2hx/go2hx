@@ -105,21 +105,21 @@ class T_randReader_static_extension {
     }
 }
 /**
-    Package boring provides access to BoringCrypto implementation functions.
-    Check the constant Enabled to find out whether BoringCrypto is available.
-    If BoringCrypto is not available, the functions in this package all panic.
+    * Package boring provides access to BoringCrypto implementation functions.
+    * Check the constant Enabled to find out whether BoringCrypto is available.
+    * If BoringCrypto is not available, the functions in this package all panic.
 **/
 class Boring {
     /**
-        Unreachable marks code that should be unreachable
-        when BoringCrypto is in use. It is a no-op without BoringCrypto.
+        * Unreachable marks code that should be unreachable
+        * when BoringCrypto is in use. It is a no-op without BoringCrypto.
     **/
     static public inline function unreachable():Void {
         stdgo._internal.crypto.internal.boring.Boring_unreachable.unreachable();
     }
     /**
-        UnreachableExceptTests marks code that should be unreachable
-        when BoringCrypto is in use. It is a no-op without BoringCrypto.
+        * UnreachableExceptTests marks code that should be unreachable
+        * when BoringCrypto is in use. It is a no-op without BoringCrypto.
     **/
     static public inline function unreachableExceptTests():Void {
         stdgo._internal.crypto.internal.boring.Boring_unreachableExceptTests.unreachableExceptTests();

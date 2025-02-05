@@ -1,8 +1,8 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef DriverContext = stdgo.StructType & {
     /**
-        OpenConnector must parse the name in the same format that Driver.Open
-        parses the name parameter.
+        * OpenConnector must parse the name in the same format that Driver.Open
+        * parses the name parameter.
         
         
     **/

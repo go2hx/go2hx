@@ -113,8 +113,8 @@ class Result_static_extension {
 
 }
 /**
-    Package singleflight provides a duplicate function call suppression
-    mechanism.
+    * Package singleflight provides a duplicate function call suppression
+    * mechanism.
 **/
 class Singleflight {
 

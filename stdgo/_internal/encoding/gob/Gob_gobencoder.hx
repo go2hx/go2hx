@@ -1,9 +1,9 @@
 package stdgo._internal.encoding.gob;
 @:interface typedef GobEncoder = stdgo.StructType & {
     /**
-        GobEncode returns a byte slice representing the encoding of the
-        receiver for transmission to a GobDecoder, usually of the same
-        concrete type.
+        * GobEncode returns a byte slice representing the encoding of the
+        * receiver for transmission to a GobDecoder, usually of the same
+        * concrete type.
         
         
     **/

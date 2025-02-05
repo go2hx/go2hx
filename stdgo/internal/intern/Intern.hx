@@ -59,28 +59,28 @@ class T_key_static_extension {
     }
 }
 /**
-    Package intern lets you make smaller comparable values by boxing
-    a larger comparable value (such as a 16 byte string header) down
-    into a globally unique 8 byte pointer.
-    
-    The globally unique pointers are garbage collected with weak
-    references and finalizers. This package hides that.
+    * Package intern lets you make smaller comparable values by boxing
+    * a larger comparable value (such as a 16 byte string header) down
+    * into a globally unique 8 byte pointer.
+    * 
+    * The globally unique pointers are garbage collected with weak
+    * references and finalizers. This package hides that.
 **/
 class Intern {
     /**
-        Get returns a pointer representing the comparable value cmpVal.
-        
-        The returned pointer will be the same for Get(v) and Get(v2)
-        if and only if v == v2, and can be used as a map key.
+        * Get returns a pointer representing the comparable value cmpVal.
+        * 
+        * The returned pointer will be the same for Get(v) and Get(v2)
+        * if and only if v == v2, and can be used as a map key.
     **/
     static public inline function get(_cmpVal:stdgo.AnyInterface):Value {
         final _cmpVal = (_cmpVal : stdgo.AnyInterface);
         return stdgo._internal.internal.intern.Intern_get.get(_cmpVal);
     }
     /**
-        GetByString is identical to Get, except that it is specialized for strings.
-        This avoids an allocation from putting a string into an interface{}
-        to pass as an argument to Get.
+        * GetByString is identical to Get, except that it is specialized for strings.
+        * This avoids an allocation from putting a string into an interface{}
+        * to pass as an argument to Get.
     **/
     static public inline function getByString(_s:String):Value {
         final _s = (_s : stdgo.GoString);

@@ -1,12 +1,12 @@
 package stdgo.internal.race;
 final enabled : Bool = stdgo._internal.internal.race.Race_enabled.enabled;
 /**
-    /|*
-    Package race contains helper functions for manually instrumenting code for the race detector.
-    
-    The runtime package intentionally exports these functions only in the race build;
-    this package exports them unconditionally but without the "race" build tag they are no-ops.
-    *|/
+    * 
+    * Package race contains helper functions for manually instrumenting code for the race detector.
+    * 
+    * The runtime package intentionally exports these functions only in the race build;
+    * this package exports them unconditionally but without the "race" build tag they are no-ops.
+    * 
 **/
 class Race {
     static public inline function acquire(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {

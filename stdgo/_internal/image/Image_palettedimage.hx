@@ -2,7 +2,7 @@ package stdgo._internal.image;
 @:interface typedef PalettedImage = stdgo.StructType & {
     > stdgo._internal.image.Image_image.Image,
     /**
-        ColorIndexAt returns the palette index of the pixel at (x, y).
+        * ColorIndexAt returns the palette index of the pixel at (x, y).
         
         
     **/

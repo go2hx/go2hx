@@ -2,8 +2,8 @@ package stdgo._internal.io.fs;
 @:interface typedef ReadDirFS = stdgo.StructType & {
     > stdgo._internal.io.fs.Fs_fs.FS,
     /**
-        ReadDir reads the named directory
-        and returns a list of directory entries sorted by filename.
+        * ReadDir reads the named directory
+        * and returns a list of directory entries sorted by filename.
         
         
     **/

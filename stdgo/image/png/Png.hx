@@ -407,14 +407,14 @@ class CompressionLevel_static_extension {
 
 }
 /**
-    Package png implements a PNG image decoder and encoder.
-    
-    The PNG specification is at https://www.w3.org/TR/PNG/.
+    * Package png implements a PNG image decoder and encoder.
+    * 
+    * The PNG specification is at https://www.w3.org/TR/PNG/.
 **/
 class Png {
     /**
-        Decode reads a PNG image from r and returns it as an image.Image.
-        The type of Image returned depends on the PNG contents.
+        * Decode reads a PNG image from r and returns it as an image.Image.
+        * The type of Image returned depends on the PNG contents.
     **/
     static public inline function decode(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_image.Image, stdgo.Error> {
         return {
@@ -423,8 +423,8 @@ class Png {
         };
     }
     /**
-        DecodeConfig returns the color model and dimensions of a PNG image without
-        decoding the entire image.
+        * DecodeConfig returns the color model and dimensions of a PNG image without
+        * decoding the entire image.
     **/
     static public inline function decodeConfig(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_config.Config, stdgo.Error> {
         return {
@@ -433,8 +433,8 @@ class Png {
         };
     }
     /**
-        Encode writes the Image m to w in PNG format. Any Image may be
-        encoded, but images that are not image.NRGBA might be encoded lossily.
+        * Encode writes the Image m to w in PNG format. Any Image may be
+        * encoded, but images that are not image.NRGBA might be encoded lossily.
     **/
     static public inline function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image):stdgo.Error {
         return stdgo._internal.image.png.Png_encode.encode(_w, _m);

@@ -91,8 +91,8 @@ class Reader_static_extension {
 }
 class Stringtab {
     /**
-        NewReader creates a stringtab.Reader to read the contents
-        of a string table from 'r'.
+        * NewReader creates a stringtab.Reader to read the contents
+        * of a string table from 'r'.
     **/
     static public inline function newReader(_r:stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader):Reader {
         final _r = (_r : stdgo.Ref<stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader>);

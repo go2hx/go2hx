@@ -3321,17 +3321,17 @@ class R_SPARC_static_extension {
     }
 }
 /**
-    /|*
-    Package elf implements access to ELF object files.
-    
-    # Security
-    
-    This package is not designed to be hardened against adversarial inputs, and is
-    outside the scope of https://go.dev/security/policy. In particular, only basic
-    validation is done when parsing object files. As such, care should be taken when
-    parsing untrusted inputs, as parsing malformed files may consume significant
-    resources, or cause panics.
-    *|/
+    * 
+    * Package elf implements access to ELF object files.
+    * 
+    * # Security
+    * 
+    * This package is not designed to be hardened against adversarial inputs, and is
+    * outside the scope of https://go.dev/security/policy. In particular, only basic
+    * validation is done when parsing object files. As such, care should be taken when
+    * parsing untrusted inputs, as parsing malformed files may consume significant
+    * resources, or cause panics.
+    * 
 **/
 class Elf {
     static public inline function r_SYM32(_info:std.UInt):std.UInt {
@@ -3376,7 +3376,7 @@ class Elf {
         return stdgo._internal.debug.elf.Elf_r_INFO.r_INFO(_sym, _typ);
     }
     /**
-        Open opens the named file using os.Open and prepares it for use as an ELF binary.
+        * Open opens the named file using os.Open and prepares it for use as an ELF binary.
     **/
     static public inline function open(_name:String):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -3386,8 +3386,8 @@ class Elf {
         };
     }
     /**
-        NewFile creates a new File for accessing an ELF binary in an underlying reader.
-        The ELF binary is expected to start at position 0 in the ReaderAt.
+        * NewFile creates a new File for accessing an ELF binary in an underlying reader.
+        * The ELF binary is expected to start at position 0 in the ReaderAt.
     **/
     static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {

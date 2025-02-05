@@ -2,7 +2,7 @@ package stdgo._internal.io.fs;
 @:interface typedef SubFS = stdgo.StructType & {
     > stdgo._internal.io.fs.Fs_fs.FS,
     /**
-        Sub returns an FS corresponding to the subtree rooted at dir.
+        * Sub returns an FS corresponding to the subtree rooted at dir.
         
         
     **/

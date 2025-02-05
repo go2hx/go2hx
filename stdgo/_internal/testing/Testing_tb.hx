@@ -127,9 +127,9 @@ package stdgo._internal.testing;
     @:interfacetypeffun
     public dynamic function tempDir():stdgo.GoString;
     /**
-        A private method to prevent users implementing the
-        interface and so future additions to it will not
-        violate Go 1 compatibility.
+        * A private method to prevent users implementing the
+        * interface and so future additions to it will not
+        * violate Go 1 compatibility.
         
         
     **/

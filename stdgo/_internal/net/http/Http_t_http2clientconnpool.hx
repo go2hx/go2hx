@@ -1,12 +1,12 @@
 package stdgo._internal.net.http;
 @:interface typedef T_http2ClientConnPool = stdgo.StructType & {
     /**
-        GetClientConn returns a specific HTTP/2 connection (usually
-        a TLS-TCP connection) to an HTTP/2 server. On success, the
-        returned ClientConn accounts for the upcoming RoundTrip
-        call, so the caller should not omit it. If the caller needs
-        to, ClientConn.RoundTrip can be called with a bogus
-        new(http.Request) to release the stream reservation.
+        * GetClientConn returns a specific HTTP/2 connection (usually
+        * a TLS-TCP connection) to an HTTP/2 server. On success, the
+        * returned ClientConn accounts for the upcoming RoundTrip
+        * call, so the caller should not omit it. If the caller needs
+        * to, ClientConn.RoundTrip can be called with a bogus
+        * new(http.Request) to release the stream reservation.
         
         
     **/

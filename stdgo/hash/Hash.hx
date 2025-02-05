@@ -28,7 +28,7 @@ class Hash64_static_extension {
 }
 typedef Hash64 = stdgo._internal.hash.Hash_Hash64.Hash64;
 /**
-    Package hash provides interfaces for hash functions.
+    * Package hash provides interfaces for hash functions.
 **/
 class Hash {
 

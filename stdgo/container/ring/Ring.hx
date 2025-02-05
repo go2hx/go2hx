@@ -62,11 +62,11 @@ class Ring_static_extension {
     }
 }
 /**
-    Package ring implements operations on circular lists.
+    * Package ring implements operations on circular lists.
 **/
 class Ring {
     /**
-        New creates a ring of n elements.
+        * New creates a ring of n elements.
     **/
     static public inline function new_(_n:StdTypes.Int):Ring_ {
         final _n = (_n : stdgo.GoInt);

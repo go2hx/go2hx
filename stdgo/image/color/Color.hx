@@ -461,11 +461,11 @@ class Palette_static_extension {
     }
 }
 /**
-    Package color implements a basic color library.
+    * Package color implements a basic color library.
 **/
 class Color {
     /**
-        ModelFunc returns a Model that invokes f to implement the conversion.
+        * ModelFunc returns a Model that invokes f to implement the conversion.
     **/
     static public inline function modelFunc(_f:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):Model {
         final _f = _f;
@@ -476,7 +476,7 @@ class Color {
         stdgo._internal.image.color.Color_testSqDiff.testSqDiff(_t);
     }
     /**
-        RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
+        * RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
     **/
     static public inline function rGBToYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         final _r = (_r : stdgo.GoUInt8);
@@ -488,7 +488,7 @@ class Color {
         };
     }
     /**
-        YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
+        * YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
     **/
     static public inline function yCbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         final _y = (_y : stdgo.GoUInt8);
@@ -500,7 +500,7 @@ class Color {
         };
     }
     /**
-        RGBToCMYK converts an RGB triple to a CMYK quadruple.
+        * RGBToCMYK converts an RGB triple to a CMYK quadruple.
     **/
     static public inline function rGBToCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         final _r = (_r : stdgo.GoUInt8);
@@ -512,7 +512,7 @@ class Color {
         };
     }
     /**
-        CMYKToRGB converts a CMYK quadruple to an RGB triple.
+        * CMYKToRGB converts a CMYK quadruple to an RGB triple.
     **/
     static public inline function cMYKToRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         final _c = (_c : stdgo.GoUInt8);
@@ -525,62 +525,62 @@ class Color {
         };
     }
     /**
-        TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
-        and back to within 2/256 tolerance.
+        * TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
+        * and back to within 2/256 tolerance.
     **/
     static public inline function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrRoundtrip.testYCbCrRoundtrip(_t);
     }
     /**
-        TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
-        then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
-        bit color).
+        * TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
+        * then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
+        * bit color).
     **/
     static public inline function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrToRGBConsistency.testYCbCrToRGBConsistency(_t);
     }
     /**
-        TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
+        * TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
     **/
     static public inline function testYCbCrGray(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testYCbCrGray.testYCbCrGray(_t);
     }
     /**
-        TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
+        * TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
     **/
     static public inline function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAAlpha.testNYCbCrAAlpha(_t);
     }
     /**
-        TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
+        * TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
     **/
     static public inline function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testNYCbCrAYCbCr.testNYCbCrAYCbCr(_t);
     }
     /**
-        TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
-        and back to within 1/256 tolerance.
+        * TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
+        * and back to within 1/256 tolerance.
     **/
     static public inline function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testCMYKRoundtrip.testCMYKRoundtrip(_t);
     }
     /**
-        TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
-        then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
-        bit color).
+        * TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
+        * then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
+        * bit color).
     **/
     static public inline function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.image.color.Color_testCMYKToRGBConsistency.testCMYKToRGBConsistency(_t);
     }
     /**
-        TestCMYKGray tests that CMYK colors are a superset of Gray colors.
+        * TestCMYKGray tests that CMYK colors are a superset of Gray colors.
     **/
     static public inline function testCMYKGray(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);

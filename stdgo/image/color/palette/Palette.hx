@@ -12,7 +12,7 @@ private function set_webSafe(v:Array<stdgo._internal.image.color.Color_color.Col
         return v;
     }
 /**
-    Package palette provides standard color palettes.
+    * Package palette provides standard color palettes.
 **/
 class Palette {
 

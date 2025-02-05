@@ -685,34 +685,34 @@ class WaitStatus_static_extension {
     }
 }
 /**
-    Package syscall contains an interface to the low-level operating system
-    primitives. The details vary depending on the underlying system, and
-    by default, godoc will display the syscall documentation for the current
-    system. If you want godoc to display syscall documentation for another
-    system, set $GOOS and $GOARCH to the desired system. For example, if
-    you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
-    to freebsd and $GOARCH to arm.
-    The primary use of syscall is inside other packages that provide a more
-    portable interface to the system, such as "os", "time" and "net".  Use
-    those packages rather than this one if you can.
-    For details of the functions and data types in this package consult
-    the manuals for the appropriate operating system.
-    These calls return err == nil to indicate success; otherwise
-    err is an operating system error describing the failure.
-    On most systems, that error has type syscall.Errno.
-    
-    Deprecated: this package is locked down. Callers should use the
-    corresponding package in the golang.org/x/sys repository instead.
-    That is also where updates required by new systems or versions
-    should be applied. See https://golang.org/s/go1.4-syscall for more
-    information.
+    * Package syscall contains an interface to the low-level operating system
+    * primitives. The details vary depending on the underlying system, and
+    * by default, godoc will display the syscall documentation for the current
+    * system. If you want godoc to display syscall documentation for another
+    * system, set $GOOS and $GOARCH to the desired system. For example, if
+    * you want to view documentation for freebsd/arm on linux/amd64, set $GOOS
+    * to freebsd and $GOARCH to arm.
+    * The primary use of syscall is inside other packages that provide a more
+    * portable interface to the system, such as "os", "time" and "net".  Use
+    * those packages rather than this one if you can.
+    * For details of the functions and data types in this package consult
+    * the manuals for the appropriate operating system.
+    * These calls return err == nil to indicate success; otherwise
+    * err is an operating system error describing the failure.
+    * On most systems, that error has type syscall.Errno.
+    * 
+    * Deprecated: this package is locked down. Callers should use the
+    * corresponding package in the golang.org/x/sys repository instead.
+    * That is also where updates required by new systems or versions
+    * should be applied. See https://golang.org/s/go1.4-syscall for more
+    * information.
 **/
 class Syscall {
     /**
-        ParseDirent parses up to max directory entries in buf,
-        appending the names to names. It returns the number of
-        bytes consumed from buf, the number of entries added
-        to names, and the new names slice.
+        * ParseDirent parses up to max directory entries in buf,
+        * appending the names to names. It returns the number of
+        * bytes consumed from buf, the number of entries added
+        * to names, and the new names slice.
     **/
     static public inline function parseDirent(_buf:Array<std.UInt>, _max:StdTypes.Int, _names:Array<String>):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, Array<String>> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1046,20 +1046,20 @@ class Syscall {
         return stdgo._internal.syscall.Syscall_setNonblock.setNonblock(_fd, _nonblocking);
     }
     /**
-        StringByteSlice converts a string to a NUL-terminated []byte,
-        If s contains a NUL byte this function panics instead of
-        returning an error.
-        
-        Deprecated: Use ByteSliceFromString instead.
+        * StringByteSlice converts a string to a NUL-terminated []byte,
+        * If s contains a NUL byte this function panics instead of
+        * returning an error.
+        * 
+        * Deprecated: Use ByteSliceFromString instead.
     **/
     static public inline function stringByteSlice(_s:String):Array<std.UInt> {
         final _s = (_s : stdgo.GoString);
         return [for (i in stdgo._internal.syscall.Syscall_stringByteSlice.stringByteSlice(_s)) i];
     }
     /**
-        ByteSliceFromString returns a NUL-terminated slice of bytes
-        containing the text of s. If s contains a NUL byte at any
-        location, it returns (nil, EINVAL).
+        * ByteSliceFromString returns a NUL-terminated slice of bytes
+        * containing the text of s. If s contains a NUL byte at any
+        * location, it returns (nil, EINVAL).
     **/
     static public inline function byteSliceFromString(_s:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.GoString);
@@ -1069,20 +1069,20 @@ class Syscall {
         };
     }
     /**
-        StringBytePtr returns a pointer to a NUL-terminated array of bytes.
-        If s contains a NUL byte this function panics instead of returning
-        an error.
-        
-        Deprecated: Use BytePtrFromString instead.
+        * StringBytePtr returns a pointer to a NUL-terminated array of bytes.
+        * If s contains a NUL byte this function panics instead of returning
+        * an error.
+        * 
+        * Deprecated: Use BytePtrFromString instead.
     **/
     static public inline function stringBytePtr(_s:String):stdgo.Pointer<std.UInt> {
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.syscall.Syscall_stringBytePtr.stringBytePtr(_s);
     }
     /**
-        BytePtrFromString returns a pointer to a NUL-terminated array of
-        bytes containing the text of s. If s contains a NUL byte at any
-        location, it returns (nil, EINVAL).
+        * BytePtrFromString returns a pointer to a NUL-terminated array of
+        * bytes containing the text of s. If s contains a NUL byte at any
+        * location, it returns (nil, EINVAL).
     **/
     static public inline function bytePtrFromString(_s:String):stdgo.Tuple<stdgo.Pointer<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.GoString);
@@ -1221,26 +1221,26 @@ class Syscall {
         };
     }
     /**
-        TimespecToNsec returns the time stored in ts as nanoseconds.
+        * TimespecToNsec returns the time stored in ts as nanoseconds.
     **/
     static public inline function timespecToNsec(_ts:Timespec):haxe.Int64 {
         return stdgo._internal.syscall.Syscall_timespecToNsec.timespecToNsec(_ts);
     }
     /**
-        NsecToTimespec converts a number of nanoseconds into a Timespec.
+        * NsecToTimespec converts a number of nanoseconds into a Timespec.
     **/
     static public inline function nsecToTimespec(_nsec:haxe.Int64):Timespec {
         final _nsec = (_nsec : stdgo.GoInt64);
         return stdgo._internal.syscall.Syscall_nsecToTimespec.nsecToTimespec(_nsec);
     }
     /**
-        TimevalToNsec returns the time stored in tv as nanoseconds.
+        * TimevalToNsec returns the time stored in tv as nanoseconds.
     **/
     static public inline function timevalToNsec(_tv:Timeval):haxe.Int64 {
         return stdgo._internal.syscall.Syscall_timevalToNsec.timevalToNsec(_tv);
     }
     /**
-        NsecToTimeval converts a number of nanoseconds into a Timeval.
+        * NsecToTimeval converts a number of nanoseconds into a Timeval.
     **/
     static public inline function nsecToTimeval(_nsec:haxe.Int64):Timeval {
         final _nsec = (_nsec : stdgo.GoInt64);

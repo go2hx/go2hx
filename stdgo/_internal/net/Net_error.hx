@@ -4,14 +4,14 @@ package stdgo._internal.net;
     /**
         
         
-        Is the error a timeout?
+        * Is the error a timeout?
     **/
     @:interfacetypeffun
     public dynamic function timeout():Bool;
     /**
-        Deprecated: Temporary errors are not well-defined.
-        Most "temporary" errors are timeouts, and the few exceptions are surprising.
-        Do not use this method.
+        * Deprecated: Temporary errors are not well-defined.
+        * Most "temporary" errors are timeouts, and the few exceptions are surprising.
+        * Do not use this method.
         
         
     **/

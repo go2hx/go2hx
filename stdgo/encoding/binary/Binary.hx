@@ -820,65 +820,65 @@ class T_testNoFixedSize___localname___Person_12888_static_extension {
 
 }
 /**
-    Package binary implements simple translation between numbers and byte
-    sequences and encoding and decoding of varints.
-    
-    Numbers are translated by reading and writing fixed-size values.
-    A fixed-size value is either a fixed-size arithmetic
-    type (bool, int8, uint8, int16, float32, complex64, ...)
-    or an array or struct containing only fixed-size values.
-    
-    The varint functions encode and decode single integer values using
-    a variable-length encoding; smaller values require fewer bytes.
-    For a specification, see
-    https://developers.google.com/protocol-buffers/docs/encoding.
-    
-    This package favors simplicity over efficiency. Clients that require
-    high-performance serialization, especially for large data structures,
-    should look at more advanced solutions such as the encoding/gob
-    package or protocol buffers.
+    * Package binary implements simple translation between numbers and byte
+    * sequences and encoding and decoding of varints.
+    * 
+    * Numbers are translated by reading and writing fixed-size values.
+    * A fixed-size value is either a fixed-size arithmetic
+    * type (bool, int8, uint8, int16, float32, complex64, ...)
+    * or an array or struct containing only fixed-size values.
+    * 
+    * The varint functions encode and decode single integer values using
+    * a variable-length encoding; smaller values require fewer bytes.
+    * For a specification, see
+    * https://developers.google.com/protocol-buffers/docs/encoding.
+    * 
+    * This package favors simplicity over efficiency. Clients that require
+    * high-performance serialization, especially for large data structures,
+    * should look at more advanced solutions such as the encoding/gob
+    * package or protocol buffers.
 **/
 class Binary {
     /**
-        Read reads structured binary data from r into data.
-        Data must be a pointer to a fixed-size value or a slice
-        of fixed-size values.
-        Bytes read from r are decoded using the specified byte order
-        and written to successive fields of the data.
-        When decoding boolean values, a zero byte is decoded as false, and
-        any other non-zero byte is decoded as true.
-        When reading into structs, the field data for fields with
-        blank (_) field names is skipped; i.e., blank field names
-        may be used for padding.
-        When reading into a struct, all non-blank fields must be exported
-        or Read may panic.
-        
-        The error is EOF only if no bytes were read.
-        If an EOF happens after reading some but not all the bytes,
-        Read returns ErrUnexpectedEOF.
+        * Read reads structured binary data from r into data.
+        * Data must be a pointer to a fixed-size value or a slice
+        * of fixed-size values.
+        * Bytes read from r are decoded using the specified byte order
+        * and written to successive fields of the data.
+        * When decoding boolean values, a zero byte is decoded as false, and
+        * any other non-zero byte is decoded as true.
+        * When reading into structs, the field data for fields with
+        * blank (_) field names is skipped; i.e., blank field names
+        * may be used for padding.
+        * When reading into a struct, all non-blank fields must be exported
+        * or Read may panic.
+        * 
+        * The error is EOF only if no bytes were read.
+        * If an EOF happens after reading some but not all the bytes,
+        * Read returns ErrUnexpectedEOF.
     **/
     static public inline function read(_r:stdgo._internal.io.Io_reader.Reader, _order:ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
         final _data = (_data : stdgo.AnyInterface);
         return stdgo._internal.encoding.binary.Binary_read.read(_r, _order, _data);
     }
     /**
-        Write writes the binary representation of data into w.
-        Data must be a fixed-size value or a slice of fixed-size
-        values, or a pointer to such data.
-        Boolean values encode as one byte: 1 for true, and 0 for false.
-        Bytes written to w are encoded using the specified byte order
-        and read from successive fields of the data.
-        When writing structs, zero values are written for fields
-        with blank (_) field names.
+        * Write writes the binary representation of data into w.
+        * Data must be a fixed-size value or a slice of fixed-size
+        * values, or a pointer to such data.
+        * Boolean values encode as one byte: 1 for true, and 0 for false.
+        * Bytes written to w are encoded using the specified byte order
+        * and read from successive fields of the data.
+        * When writing structs, zero values are written for fields
+        * with blank (_) field names.
     **/
     static public inline function write(_w:stdgo._internal.io.Io_writer.Writer, _order:ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
         final _data = (_data : stdgo.AnyInterface);
         return stdgo._internal.encoding.binary.Binary_write.write(_w, _order, _data);
     }
     /**
-        Size returns how many bytes Write would generate to encode the value v, which
-        must be a fixed-size value or a slice of fixed-size values, or a pointer to such data.
-        If v is neither of these, Size returns -1.
+        * Size returns how many bytes Write would generate to encode the value v, which
+        * must be a fixed-size value or a slice of fixed-size values, or a pointer to such data.
+        * If v is neither of these, Size returns -1.
     **/
     static public inline function size(_v:stdgo.AnyInterface):StdTypes.Int {
         final _v = (_v : stdgo.AnyInterface);
@@ -1073,8 +1073,8 @@ class Binary {
         stdgo._internal.encoding.binary.Binary_testNativeEndian.testNativeEndian(_t);
     }
     /**
-        AppendUvarint appends the varint-encoded form of x,
-        as generated by PutUvarint, to buf and returns the extended buffer.
+        * AppendUvarint appends the varint-encoded form of x,
+        * as generated by PutUvarint, to buf and returns the extended buffer.
     **/
     static public inline function appendUvarint(_buf:Array<std.UInt>, _x:haxe.UInt64):Array<std.UInt> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1082,8 +1082,8 @@ class Binary {
         return [for (i in stdgo._internal.encoding.binary.Binary_appendUvarint.appendUvarint(_buf, _x)) i];
     }
     /**
-        PutUvarint encodes a uint64 into buf and returns the number of bytes written.
-        If the buffer is too small, PutUvarint will panic.
+        * PutUvarint encodes a uint64 into buf and returns the number of bytes written.
+        * If the buffer is too small, PutUvarint will panic.
     **/
     static public inline function putUvarint(_buf:Array<std.UInt>, _x:haxe.UInt64):StdTypes.Int {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1091,13 +1091,13 @@ class Binary {
         return stdgo._internal.encoding.binary.Binary_putUvarint.putUvarint(_buf, _x);
     }
     /**
-        Uvarint decodes a uint64 from buf and returns that value and the
-        number of bytes read (> 0). If an error occurred, the value is 0
-        and the number of bytes n is <= 0 meaning:
-        
-        	n == 0: buf too small
-        	n  < 0: value larger than 64 bits (overflow)
-        	        and -n is the number of bytes read
+        * Uvarint decodes a uint64 from buf and returns that value and the
+        * number of bytes read (> 0). If an error occurred, the value is 0
+        * and the number of bytes n is <= 0 meaning:
+        * 
+        * 	n == 0: buf too small
+        * 	n  < 0: value larger than 64 bits (overflow)
+        * 	        and -n is the number of bytes read
     **/
     static public inline function uvarint(_buf:Array<std.UInt>):stdgo.Tuple<haxe.UInt64, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1107,8 +1107,8 @@ class Binary {
         };
     }
     /**
-        AppendVarint appends the varint-encoded form of x,
-        as generated by PutVarint, to buf and returns the extended buffer.
+        * AppendVarint appends the varint-encoded form of x,
+        * as generated by PutVarint, to buf and returns the extended buffer.
     **/
     static public inline function appendVarint(_buf:Array<std.UInt>, _x:haxe.Int64):Array<std.UInt> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1116,8 +1116,8 @@ class Binary {
         return [for (i in stdgo._internal.encoding.binary.Binary_appendVarint.appendVarint(_buf, _x)) i];
     }
     /**
-        PutVarint encodes an int64 into buf and returns the number of bytes written.
-        If the buffer is too small, PutVarint will panic.
+        * PutVarint encodes an int64 into buf and returns the number of bytes written.
+        * If the buffer is too small, PutVarint will panic.
     **/
     static public inline function putVarint(_buf:Array<std.UInt>, _x:haxe.Int64):StdTypes.Int {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1125,13 +1125,13 @@ class Binary {
         return stdgo._internal.encoding.binary.Binary_putVarint.putVarint(_buf, _x);
     }
     /**
-        Varint decodes an int64 from buf and returns that value and the
-        number of bytes read (> 0). If an error occurred, the value is 0
-        and the number of bytes n is <= 0 with the following meaning:
-        
-        	n == 0: buf too small
-        	n  < 0: value larger than 64 bits (overflow)
-        	        and -n is the number of bytes read
+        * Varint decodes an int64 from buf and returns that value and the
+        * number of bytes read (> 0). If an error occurred, the value is 0
+        * and the number of bytes n is <= 0 with the following meaning:
+        * 
+        * 	n == 0: buf too small
+        * 	n  < 0: value larger than 64 bits (overflow)
+        * 	        and -n is the number of bytes read
     **/
     static public inline function varint(_buf:Array<std.UInt>):stdgo.Tuple<haxe.Int64, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1141,10 +1141,10 @@ class Binary {
         };
     }
     /**
-        ReadUvarint reads an encoded unsigned integer from r and returns it as a uint64.
-        The error is EOF only if no bytes were read.
-        If an EOF happens after reading some but not all the bytes,
-        ReadUvarint returns io.ErrUnexpectedEOF.
+        * ReadUvarint reads an encoded unsigned integer from r and returns it as a uint64.
+        * The error is EOF only if no bytes were read.
+        * If an EOF happens after reading some but not all the bytes,
+        * ReadUvarint returns io.ErrUnexpectedEOF.
     **/
     static public inline function readUvarint(_r:stdgo._internal.io.Io_bytereader.ByteReader):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
         return {
@@ -1153,10 +1153,10 @@ class Binary {
         };
     }
     /**
-        ReadVarint reads an encoded signed integer from r and returns it as an int64.
-        The error is EOF only if no bytes were read.
-        If an EOF happens after reading some but not all the bytes,
-        ReadVarint returns io.ErrUnexpectedEOF.
+        * ReadVarint reads an encoded signed integer from r and returns it as an int64.
+        * The error is EOF only if no bytes were read.
+        * If an EOF happens after reading some but not all the bytes,
+        * ReadVarint returns io.ErrUnexpectedEOF.
     **/
     static public inline function readVarint(_r:stdgo._internal.io.Io_bytereader.ByteReader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -1181,8 +1181,8 @@ class Binary {
         stdgo._internal.encoding.binary.Binary_testBufferTooSmall.testBufferTooSmall(_t);
     }
     /**
-        Ensure that we catch overflows of bytes going past MaxVarintLen64.
-        See issue https://golang.org/issues/41185
+        * Ensure that we catch overflows of bytes going past MaxVarintLen64.
+        * See issue https://golang.org/issues/41185
     **/
     static public inline function testBufferTooBigWithOverflow(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);

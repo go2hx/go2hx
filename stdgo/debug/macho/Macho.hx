@@ -2012,23 +2012,23 @@ class RelocTypeARM64_static_extension {
     }
 }
 /**
-    /|*
-    Package macho implements access to Mach-O object files.
-    
-    # Security
-    
-    This package is not designed to be hardened against adversarial inputs, and is
-    outside the scope of https://go.dev/security/policy. In particular, only basic
-    validation is done when parsing object files. As such, care should be taken when
-    parsing untrusted inputs, as parsing malformed files may consume significant
-    resources, or cause panics.
-    *|/
+    * 
+    * Package macho implements access to Mach-O object files.
+    * 
+    * # Security
+    * 
+    * This package is not designed to be hardened against adversarial inputs, and is
+    * outside the scope of https://go.dev/security/policy. In particular, only basic
+    * validation is done when parsing object files. As such, care should be taken when
+    * parsing untrusted inputs, as parsing malformed files may consume significant
+    * resources, or cause panics.
+    * 
 **/
 class Macho {
     /**
-        NewFatFile creates a new FatFile for accessing all the Mach-O images in a
-        universal binary. The Mach-O binary is expected to start at position 0 in
-        the ReaderAt.
+        * NewFatFile creates a new FatFile for accessing all the Mach-O images in a
+        * universal binary. The Mach-O binary is expected to start at position 0 in
+        * the ReaderAt.
     **/
     static public inline function newFatFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<FatFile, stdgo.Error> {
         return {
@@ -2037,8 +2037,8 @@ class Macho {
         };
     }
     /**
-        OpenFat opens the named file using os.Open and prepares it for use as a Mach-O
-        universal binary.
+        * OpenFat opens the named file using os.Open and prepares it for use as a Mach-O
+        * universal binary.
     **/
     static public inline function openFat(_name:String):stdgo.Tuple<FatFile, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -2048,7 +2048,7 @@ class Macho {
         };
     }
     /**
-        Open opens the named file using os.Open and prepares it for use as a Mach-O binary.
+        * Open opens the named file using os.Open and prepares it for use as a Mach-O binary.
     **/
     static public inline function open(_name:String):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -2058,8 +2058,8 @@ class Macho {
         };
     }
     /**
-        NewFile creates a new File for accessing a Mach-O binary in an underlying reader.
-        The Mach-O binary is expected to start at position 0 in the ReaderAt.
+        * NewFile creates a new File for accessing a Mach-O binary in an underlying reader.
+        * The Mach-O binary is expected to start at position 0 in the ReaderAt.
     **/
     static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {

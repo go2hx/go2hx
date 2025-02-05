@@ -2,9 +2,9 @@ package stdgo._internal.io.fs;
 @:interface typedef GlobFS = stdgo.StructType & {
     > stdgo._internal.io.fs.Fs_fs.FS,
     /**
-        Glob returns the names of all files matching pattern,
-        providing an implementation of the top-level
-        Glob function.
+        * Glob returns the names of all files matching pattern,
+        * providing an implementation of the top-level
+        * Glob function.
         
         
     **/

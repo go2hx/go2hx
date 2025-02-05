@@ -1,9 +1,9 @@
 package stdgo._internal.database.sql;
 @:interface typedef T_decimalDecompose = stdgo.StructType & {
     /**
-        Decompose returns the internal decimal state in parts.
-        If the provided buf has sufficient capacity, buf may be returned as the coefficient with
-        the value set and length set as appropriate.
+        * Decompose returns the internal decimal state in parts.
+        * If the provided buf has sufficient capacity, buf may be returned as the coefficient with
+        * the value set and length set as appropriate.
         
         
     **/

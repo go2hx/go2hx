@@ -1,8 +1,8 @@
 package stdgo._internal.compress.zlib;
 @:interface typedef Resetter = stdgo.StructType & {
     /**
-        Reset discards any buffered data and resets the Resetter as if it was
-        newly initialized with the given reader.
+        * Reset discards any buffered data and resets the Resetter as if it was
+        * newly initialized with the given reader.
         
         
     **/

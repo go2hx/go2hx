@@ -1,9 +1,9 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef ConnPrepareContext = stdgo.StructType & {
     /**
-        PrepareContext returns a prepared statement, bound to this connection.
-        context is for the preparation of the statement,
-        it must not store the context within the statement itself.
+        * PrepareContext returns a prepared statement, bound to this connection.
+        * context is for the preparation of the statement,
+        * it must not store the context within the statement itself.
         
         
     **/

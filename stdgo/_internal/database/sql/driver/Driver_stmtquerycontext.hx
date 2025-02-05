@@ -1,10 +1,10 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef StmtQueryContext = stdgo.StructType & {
     /**
-        QueryContext executes a query that may return rows, such as a
-        SELECT.
-        
-        QueryContext must honor the context timeout and return when it is canceled.
+        * QueryContext executes a query that may return rows, such as a
+        * SELECT.
+        * 
+        * QueryContext must honor the context timeout and return when it is canceled.
         
         
     **/

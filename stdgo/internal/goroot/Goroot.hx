@@ -30,8 +30,8 @@ class T_gccgoDirs_static_extension {
 }
 class Goroot {
     /**
-        IsStandardPackage reports whether path is a standard package,
-        given goroot and compiler.
+        * IsStandardPackage reports whether path is a standard package,
+        * given goroot and compiler.
     **/
     static public inline function isStandardPackage(_goroot:String, _compiler:String, _path:String):Bool {
         final _goroot = (_goroot : stdgo.GoString);

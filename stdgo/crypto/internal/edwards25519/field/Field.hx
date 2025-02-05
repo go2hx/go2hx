@@ -181,7 +181,7 @@ class T_uint128_static_extension {
 
 }
 /**
-    Package field implements fast arithmetic modulo 2^255-19.
+    * Package field implements fast arithmetic modulo 2^255-19.
 **/
 class Field {
 

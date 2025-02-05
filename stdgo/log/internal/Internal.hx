@@ -6,7 +6,7 @@ private function set_defaultOutput(v:(stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8
         return v;
     }
 /**
-    Package internal contains definitions used by both log and log/slog.
+    * Package internal contains definitions used by both log and log/slog.
 **/
 class Internal {
 

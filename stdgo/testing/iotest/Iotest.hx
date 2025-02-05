@@ -291,22 +291,22 @@ class T__struct_1Pointer_static_extension {
 
 }
 /**
-    Package iotest implements Readers and Writers useful mainly for testing.
+    * Package iotest implements Readers and Writers useful mainly for testing.
 **/
 class Iotest {
     /**
-        NewWriteLogger returns a writer that behaves like w except
-        that it logs (using log.Printf) each write to standard error,
-        printing the prefix and the hexadecimal data written.
+        * NewWriteLogger returns a writer that behaves like w except
+        * that it logs (using log.Printf) each write to standard error,
+        * printing the prefix and the hexadecimal data written.
     **/
     static public inline function newWriteLogger(_prefix:String, _w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         final _prefix = (_prefix : stdgo.GoString);
         return stdgo._internal.testing.iotest.Iotest_newWriteLogger.newWriteLogger(_prefix, _w);
     }
     /**
-        NewReadLogger returns a reader that behaves like r except
-        that it logs (using log.Printf) each read to standard error,
-        printing the prefix and the hexadecimal data read.
+        * NewReadLogger returns a reader that behaves like r except
+        * that it logs (using log.Printf) each read to standard error,
+        * printing the prefix and the hexadecimal data read.
     **/
     static public inline function newReadLogger(_prefix:String, _r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         final _prefix = (_prefix : stdgo.GoString);
@@ -329,51 +329,51 @@ class Iotest {
         stdgo._internal.testing.iotest.Iotest_testReadLogger_errorOnRead.testReadLogger_errorOnRead(_t);
     }
     /**
-        OneByteReader returns a Reader that implements
-        each non-empty Read by reading one byte from r.
+        * OneByteReader returns a Reader that implements
+        * each non-empty Read by reading one byte from r.
     **/
     static public inline function oneByteReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.testing.iotest.Iotest_oneByteReader.oneByteReader(_r);
     }
     /**
-        HalfReader returns a Reader that implements Read
-        by reading half as many requested bytes from r.
+        * HalfReader returns a Reader that implements Read
+        * by reading half as many requested bytes from r.
     **/
     static public inline function halfReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.testing.iotest.Iotest_halfReader.halfReader(_r);
     }
     /**
-        DataErrReader changes the way errors are handled by a Reader. Normally, a
-        Reader returns an error (typically EOF) from the first Read call after the
-        last piece of data is read. DataErrReader wraps a Reader and changes its
-        behavior so the final error is returned along with the final data, instead
-        of in the first call after the final data.
+        * DataErrReader changes the way errors are handled by a Reader. Normally, a
+        * Reader returns an error (typically EOF) from the first Read call after the
+        * last piece of data is read. DataErrReader wraps a Reader and changes its
+        * behavior so the final error is returned along with the final data, instead
+        * of in the first call after the final data.
     **/
     static public inline function dataErrReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.testing.iotest.Iotest_dataErrReader.dataErrReader(_r);
     }
     /**
-        TimeoutReader returns ErrTimeout on the second read
-        with no data. Subsequent calls to read succeed.
+        * TimeoutReader returns ErrTimeout on the second read
+        * with no data. Subsequent calls to read succeed.
     **/
     static public inline function timeoutReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         return stdgo._internal.testing.iotest.Iotest_timeoutReader.timeoutReader(_r);
     }
     /**
-        ErrReader returns an io.Reader that returns 0, err from all Read calls.
+        * ErrReader returns an io.Reader that returns 0, err from all Read calls.
     **/
     static public inline function errReader(_err:stdgo.Error):stdgo._internal.io.Io_reader.Reader {
         final _err = (_err : stdgo.Error);
         return stdgo._internal.testing.iotest.Iotest_errReader.errReader(_err);
     }
     /**
-        TestReader tests that reading from r returns the expected file content.
-        It does reads of different sizes, until EOF.
-        If r implements io.ReaderAt or io.Seeker, TestReader also checks
-        that those operations behave as they should.
-        
-        If TestReader finds any misbehaviors, it returns an error reporting them.
-        The error text may span multiple lines.
+        * TestReader tests that reading from r returns the expected file content.
+        * It does reads of different sizes, until EOF.
+        * If r implements io.ReaderAt or io.Seeker, TestReader also checks
+        * that those operations behave as they should.
+        * 
+        * If TestReader finds any misbehaviors, it returns an error reporting them.
+        * The error text may span multiple lines.
     **/
     static public inline function testReader(_r:stdgo._internal.io.Io_reader.Reader, _content:Array<std.UInt>):stdgo.Error {
         final _content = ([for (i in _content) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -420,8 +420,8 @@ class Iotest {
         stdgo._internal.testing.iotest.Iotest_testStringsReader.testStringsReader(_t);
     }
     /**
-        TruncateWriter returns a Writer that writes to w
-        but stops silently after n bytes.
+        * TruncateWriter returns a Writer that writes to w
+        * but stops silently after n bytes.
     **/
     static public inline function truncateWriter(_w:stdgo._internal.io.Io_writer.Writer, _n:haxe.Int64):stdgo._internal.io.Io_writer.Writer {
         final _n = (_n : stdgo.GoInt64);

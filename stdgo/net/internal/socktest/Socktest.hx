@@ -303,7 +303,7 @@ class Sockets_static_extension {
 
 }
 /**
-    Package socktest provides utilities for socket testing.
+    * Package socktest provides utilities for socket testing.
 **/
 class Socktest {
 

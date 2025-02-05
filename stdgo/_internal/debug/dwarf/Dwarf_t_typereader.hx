@@ -29,8 +29,8 @@ package stdgo._internal.debug.dwarf;
     @:interfacetypeffun
     public dynamic function _offset():stdgo._internal.debug.dwarf.Dwarf_offset.Offset;
     /**
-        AddressSize returns the size in bytes of addresses in the current
-        compilation unit.
+        * AddressSize returns the size in bytes of addresses in the current
+        * compilation unit.
         
         
     **/

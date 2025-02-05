@@ -240,26 +240,26 @@ class T_charsetError_static_extension {
     }
 }
 /**
-    /|*
-    Package mail implements parsing of mail messages.
-    
-    For the most part, this package follows the syntax as specified by RFC 5322 and
-    extended by RFC 6532.
-    Notable divergences:
-      - Obsolete address formats are not parsed, including addresses with
-        embedded route information.
-      - The full range of spacing (the CFWS syntax element) is not supported,
-        such as breaking addresses across lines.
-      - No unicode normalization is performed.
-      - The special characters ()[]:;@\, are allowed to appear unquoted in names.
-      - A leading From line is permitted, as in mbox format (RFC 4155).
-    *|/
+    * 
+    * Package mail implements parsing of mail messages.
+    * 
+    * For the most part, this package follows the syntax as specified by RFC 5322 and
+    * extended by RFC 6532.
+    * Notable divergences:
+    *   - Obsolete address formats are not parsed, including addresses with
+    *     embedded route information.
+    *   - The full range of spacing (the CFWS syntax element) is not supported,
+    *     such as breaking addresses across lines.
+    *   - No unicode normalization is performed.
+    *   - The special characters ()[]:;@\, are allowed to appear unquoted in names.
+    *   - A leading From line is permitted, as in mbox format (RFC 4155).
+    * 
 **/
 class Mail {
     /**
-        ReadMessage reads a message from r.
-        The headers are parsed, and the body of the message will be available
-        for reading from msg.Body.
+        * ReadMessage reads a message from r.
+        * The headers are parsed, and the body of the message will be available
+        * for reading from msg.Body.
     **/
     static public inline function readMessage(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<Message, stdgo.Error> {
         return {
@@ -268,7 +268,7 @@ class Mail {
         };
     }
     /**
-        ParseDate parses an RFC 5322 date string.
+        * ParseDate parses an RFC 5322 date string.
     **/
     static public inline function parseDate(_date:String):stdgo.Tuple<stdgo._internal.time.Time_time.Time, stdgo.Error> {
         final _date = (_date : stdgo.GoString);
@@ -278,7 +278,7 @@ class Mail {
         };
     }
     /**
-        ParseAddress parses a single RFC 5322 address, e.g. "Barry Gibbs <bg@example.com>"
+        * ParseAddress parses a single RFC 5322 address, e.g. "Barry Gibbs <bg@example.com>"
     **/
     static public inline function parseAddress(_address:String):stdgo.Tuple<Address, stdgo.Error> {
         final _address = (_address : stdgo.GoString);
@@ -288,7 +288,7 @@ class Mail {
         };
     }
     /**
-        ParseAddressList parses the given string as a list of addresses.
+        * ParseAddressList parses the given string as a list of addresses.
     **/
     static public inline function parseAddressList(_list:String):stdgo.Tuple<Array<Address>, stdgo.Error> {
         final _list = (_list : stdgo.GoString);

@@ -1,9 +1,9 @@
 package stdgo._internal.crypto.tls;
 @:interface typedef T_keyAgreement = stdgo.StructType & {
     /**
-        In the case that the key agreement protocol doesn't use a
-        ServerKeyExchange message, generateServerKeyExchange can return nil,
-        nil.
+        * In the case that the key agreement protocol doesn't use a
+        * ServerKeyExchange message, generateServerKeyExchange can return nil,
+        * nil.
         
         
     **/
@@ -17,8 +17,8 @@ package stdgo._internal.crypto.tls;
     @:interfacetypeffun
     public dynamic function _processClientKeyExchange(_0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _1:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>, _2:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>, _3:stdgo.GoUInt16):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
     /**
-        This method may not be called if the server doesn't send a
-        ServerKeyExchange message.
+        * This method may not be called if the server doesn't send a
+        * ServerKeyExchange message.
         
         
     **/

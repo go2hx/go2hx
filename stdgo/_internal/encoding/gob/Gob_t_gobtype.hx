@@ -24,7 +24,7 @@ package stdgo._internal.encoding.gob;
     /**
         
         
-        not public; only for debugging
+        * not public; only for debugging
     **/
     @:interfacetypeffun
     public dynamic function _string():stdgo.GoString;

@@ -12,7 +12,7 @@ private function set_localhostKey(v:Array<std.UInt>):Array<std.UInt> {
         return v;
     }
 /**
-    Package testcert contains a test-only localhost certificate.
+    * Package testcert contains a test-only localhost certificate.
 **/
 class Testcert {
 

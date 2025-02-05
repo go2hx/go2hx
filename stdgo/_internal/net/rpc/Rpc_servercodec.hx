@@ -22,7 +22,7 @@ package stdgo._internal.net.rpc;
     @:interfacetypeffun
     public dynamic function writeResponse(_0:stdgo.Ref<stdgo._internal.net.rpc.Rpc_response.Response>, _1:stdgo.AnyInterface):stdgo.Error;
     /**
-        Close can be called multiple times and must be idempotent.
+        * Close can be called multiple times and must be idempotent.
         
         
     **/

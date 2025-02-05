@@ -1,8 +1,8 @@
 package stdgo._internal.testing.quick;
 @:interface typedef Generator = stdgo.StructType & {
     /**
-        Generate returns a random instance of the type on which it is a
-        method using the size as a size hint.
+        * Generate returns a random instance of the type on which it is a
+        * method using the size as a size hint.
         
         
     **/

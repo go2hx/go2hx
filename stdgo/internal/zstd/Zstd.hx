@@ -710,12 +710,12 @@ class T_seqCode_static_extension {
 
 }
 /**
-    Package zstd provides a decompressor for zstd streams,
-    described in RFC 8878. It does not support dictionaries.
+    * Package zstd provides a decompressor for zstd streams,
+    * described in RFC 8878. It does not support dictionaries.
 **/
 class Zstd {
     /**
-        NewReader creates a new Reader that decompresses data from the given reader.
+        * NewReader creates a new Reader that decompresses data from the given reader.
     **/
     static public inline function newReader(_input:stdgo._internal.io.Io_reader.Reader):Reader {
         return stdgo._internal.internal.zstd.Zstd_newReader.newReader(_input);

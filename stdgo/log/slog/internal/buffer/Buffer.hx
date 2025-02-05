@@ -48,7 +48,7 @@ class Buffer_static_extension {
     }
 }
 /**
-    Package buffer provides a pool-allocated byte buffer.
+    * Package buffer provides a pool-allocated byte buffer.
 **/
 class Buffer {
     static public inline function new_():Buffer_ {

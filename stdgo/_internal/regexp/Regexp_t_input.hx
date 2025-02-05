@@ -3,14 +3,14 @@ package stdgo._internal.regexp;
     /**
         
         
-        advance one rune
+        * advance one rune
     **/
     @:interfacetypeffun
     public dynamic function _step(_pos:stdgo.GoInt):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; };
     /**
         
         
-        can we look ahead without losing info?
+        * can we look ahead without losing info?
     **/
     @:interfacetypeffun
     public dynamic function _canCheckPrefix():Bool;

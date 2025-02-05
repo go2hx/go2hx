@@ -132,22 +132,22 @@ class T_unmarshalTest_static_extension {
 
 }
 /**
-    Package sha1 implements the SHA-1 hash algorithm as defined in RFC 3174.
-    
-    SHA-1 is cryptographically broken and should not be used for secure
-    applications.
+    * Package sha1 implements the SHA-1 hash algorithm as defined in RFC 3174.
+    * 
+    * SHA-1 is cryptographically broken and should not be used for secure
+    * applications.
 **/
 class Sha1 {
     /**
-        New returns a new hash.Hash computing the SHA1 checksum. The Hash also
-        implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to
-        marshal and unmarshal the internal state of the hash.
+        * New returns a new hash.Hash computing the SHA1 checksum. The Hash also
+        * implements encoding.BinaryMarshaler and encoding.BinaryUnmarshaler to
+        * marshal and unmarshal the internal state of the hash.
     **/
     static public inline function new_():stdgo._internal.hash.Hash_hash.Hash {
         return stdgo._internal.crypto.sha1.Sha1_new_.new_();
     }
     /**
-        Sum returns the SHA-1 checksum of the data.
+        * Sum returns the SHA-1 checksum of the data.
     **/
     static public inline function sum(_data:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -170,7 +170,7 @@ class Sha1 {
         stdgo._internal.crypto.sha1.Sha1_testBlockSize.testBlockSize(_t);
     }
     /**
-        Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
+        * Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
     **/
     static public inline function testBlockGeneric(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);

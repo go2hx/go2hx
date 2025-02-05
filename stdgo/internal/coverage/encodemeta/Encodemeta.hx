@@ -165,8 +165,8 @@ class Encodemeta {
         };
     }
     /**
-        HashFuncDesc computes an md5 sum of a coverage.FuncDesc and returns
-        a digest for it.
+        * HashFuncDesc computes an md5 sum of a coverage.FuncDesc and returns
+        * a digest for it.
     **/
     static public inline function hashFuncDesc(_f:stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc):haxe.ds.Vector<std.UInt> {
         final _f = (_f : stdgo.Ref<stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc>);

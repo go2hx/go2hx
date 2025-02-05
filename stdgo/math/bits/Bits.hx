@@ -12,126 +12,126 @@ class T_errorString_static_extension {
     }
 }
 /**
-    Package bits implements bit counting and manipulation
-    functions for the predeclared unsigned integer types.
-    
-    Functions in this package may be implemented directly by
-    the compiler, for better performance. For those functions
-    the code in this package will not be used. Which
-    functions are implemented by the compiler depends on the
-    architecture and the Go release.
+    * Package bits implements bit counting and manipulation
+    * functions for the predeclared unsigned integer types.
+    * 
+    * Functions in this package may be implemented directly by
+    * the compiler, for better performance. For those functions
+    * the code in this package will not be used. Which
+    * functions are implemented by the compiler depends on the
+    * architecture and the Go release.
 **/
 class Bits {
     /**
-        LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
+        * LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
     **/
     static public inline function leadingZeros(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_leadingZeros.leadingZeros(_x);
     }
     /**
-        LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
+        * LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function leadingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
         return stdgo._internal.math.bits.Bits_leadingZeros8.leadingZeros8(_x);
     }
     /**
-        LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
+        * LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
     **/
     static public inline function leadingZeros16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_leadingZeros16.leadingZeros16(_x);
     }
     /**
-        LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
+        * LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
     **/
     static public inline function leadingZeros32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_leadingZeros32.leadingZeros32(_x);
     }
     /**
-        LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
+        * LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function leadingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_leadingZeros64.leadingZeros64(_x);
     }
     /**
-        TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
+        * TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
     **/
     static public inline function trailingZeros(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_trailingZeros.trailingZeros(_x);
     }
     /**
-        TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
+        * TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function trailingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
         return stdgo._internal.math.bits.Bits_trailingZeros8.trailingZeros8(_x);
     }
     /**
-        TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
+        * TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
     **/
     static public inline function trailingZeros16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_trailingZeros16.trailingZeros16(_x);
     }
     /**
-        TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
+        * TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
     **/
     static public inline function trailingZeros32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_trailingZeros32.trailingZeros32(_x);
     }
     /**
-        TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
+        * TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function trailingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_trailingZeros64.trailingZeros64(_x);
     }
     /**
-        OnesCount returns the number of one bits ("population count") in x.
+        * OnesCount returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_onesCount.onesCount(_x);
     }
     /**
-        OnesCount8 returns the number of one bits ("population count") in x.
+        * OnesCount8 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
         return stdgo._internal.math.bits.Bits_onesCount8.onesCount8(_x);
     }
     /**
-        OnesCount16 returns the number of one bits ("population count") in x.
+        * OnesCount16 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_onesCount16.onesCount16(_x);
     }
     /**
-        OnesCount32 returns the number of one bits ("population count") in x.
+        * OnesCount32 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_onesCount32.onesCount32(_x);
     }
     /**
-        OnesCount64 returns the number of one bits ("population count") in x.
+        * OnesCount64 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_onesCount64.onesCount64(_x);
     }
     /**
-        RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
-        To rotate x right by k bits, call RotateLeft(x, -k).
-        
-        This function's execution time does not depend on the inputs.
+        * RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
+        * To rotate x right by k bits, call RotateLeft(x, -k).
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function rotateLeft(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt);
@@ -139,10 +139,10 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rotateLeft.rotateLeft(_x, _k);
     }
     /**
-        RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
-        To rotate x right by k bits, call RotateLeft8(x, -k).
-        
-        This function's execution time does not depend on the inputs.
+        * RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
+        * To rotate x right by k bits, call RotateLeft8(x, -k).
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function rotateLeft8(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt8);
@@ -150,10 +150,10 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rotateLeft8.rotateLeft8(_x, _k);
     }
     /**
-        RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
-        To rotate x right by k bits, call RotateLeft16(x, -k).
-        
-        This function's execution time does not depend on the inputs.
+        * RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
+        * To rotate x right by k bits, call RotateLeft16(x, -k).
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function rotateLeft16(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt16);
@@ -161,10 +161,10 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rotateLeft16.rotateLeft16(_x, _k);
     }
     /**
-        RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
-        To rotate x right by k bits, call RotateLeft32(x, -k).
-        
-        This function's execution time does not depend on the inputs.
+        * RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
+        * To rotate x right by k bits, call RotateLeft32(x, -k).
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function rotateLeft32(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt32);
@@ -172,10 +172,10 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_x, _k);
     }
     /**
-        RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
-        To rotate x right by k bits, call RotateLeft64(x, -k).
-        
-        This function's execution time does not depend on the inputs.
+        * RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
+        * To rotate x right by k bits, call RotateLeft64(x, -k).
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function rotateLeft64(_x:haxe.UInt64, _k:StdTypes.Int):haxe.UInt64 {
         final _x = (_x : stdgo.GoUInt64);
@@ -183,117 +183,117 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rotateLeft64.rotateLeft64(_x, _k);
     }
     /**
-        Reverse returns the value of x with its bits in reversed order.
+        * Reverse returns the value of x with its bits in reversed order.
     **/
     static public inline function reverse(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_reverse.reverse(_x);
     }
     /**
-        Reverse8 returns the value of x with its bits in reversed order.
+        * Reverse8 returns the value of x with its bits in reversed order.
     **/
     static public inline function reverse8(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt8);
         return stdgo._internal.math.bits.Bits_reverse8.reverse8(_x);
     }
     /**
-        Reverse16 returns the value of x with its bits in reversed order.
+        * Reverse16 returns the value of x with its bits in reversed order.
     **/
     static public inline function reverse16(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_reverse16.reverse16(_x);
     }
     /**
-        Reverse32 returns the value of x with its bits in reversed order.
+        * Reverse32 returns the value of x with its bits in reversed order.
     **/
     static public inline function reverse32(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_reverse32.reverse32(_x);
     }
     /**
-        Reverse64 returns the value of x with its bits in reversed order.
+        * Reverse64 returns the value of x with its bits in reversed order.
     **/
     static public inline function reverse64(_x:haxe.UInt64):haxe.UInt64 {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_reverse64.reverse64(_x);
     }
     /**
-        ReverseBytes returns the value of x with its bytes in reversed order.
-        
-        This function's execution time does not depend on the inputs.
+        * ReverseBytes returns the value of x with its bytes in reversed order.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function reverseBytes(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_reverseBytes.reverseBytes(_x);
     }
     /**
-        ReverseBytes16 returns the value of x with its bytes in reversed order.
-        
-        This function's execution time does not depend on the inputs.
+        * ReverseBytes16 returns the value of x with its bytes in reversed order.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function reverseBytes16(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_reverseBytes16.reverseBytes16(_x);
     }
     /**
-        ReverseBytes32 returns the value of x with its bytes in reversed order.
-        
-        This function's execution time does not depend on the inputs.
+        * ReverseBytes32 returns the value of x with its bytes in reversed order.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function reverseBytes32(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_reverseBytes32.reverseBytes32(_x);
     }
     /**
-        ReverseBytes64 returns the value of x with its bytes in reversed order.
-        
-        This function's execution time does not depend on the inputs.
+        * ReverseBytes64 returns the value of x with its bytes in reversed order.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function reverseBytes64(_x:haxe.UInt64):haxe.UInt64 {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_reverseBytes64.reverseBytes64(_x);
     }
     /**
-        Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
+        * Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
     static public inline function len(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
         return stdgo._internal.math.bits.Bits_len.len(_x);
     }
     /**
-        Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
+        * Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
     static public inline function len8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
         return stdgo._internal.math.bits.Bits_len8.len8(_x);
     }
     /**
-        Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
+        * Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
     static public inline function len16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
         return stdgo._internal.math.bits.Bits_len16.len16(_x);
     }
     /**
-        Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
+        * Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
     static public inline function len32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
         return stdgo._internal.math.bits.Bits_len32.len32(_x);
     }
     /**
-        Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
+        * Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
     static public inline function len64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
         return stdgo._internal.math.bits.Bits_len64.len64(_x);
     }
     /**
-        Add returns the sum with carry of x, y and carry: sum = x + y + carry.
-        The carry input must be 0 or 1; otherwise the behavior is undefined.
-        The carryOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Add returns the sum with carry of x, y and carry: sum = x + y + carry.
+        * The carry input must be 0 or 1; otherwise the behavior is undefined.
+        * The carryOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function add(_x:std.UInt, _y:std.UInt, _carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt);
@@ -305,11 +305,11 @@ class Bits {
         };
     }
     /**
-        Add32 returns the sum with carry of x, y and carry: sum = x + y + carry.
-        The carry input must be 0 or 1; otherwise the behavior is undefined.
-        The carryOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Add32 returns the sum with carry of x, y and carry: sum = x + y + carry.
+        * The carry input must be 0 or 1; otherwise the behavior is undefined.
+        * The carryOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function add32(_x:std.UInt, _y:std.UInt, _carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt32);
@@ -321,11 +321,11 @@ class Bits {
         };
     }
     /**
-        Add64 returns the sum with carry of x, y and carry: sum = x + y + carry.
-        The carry input must be 0 or 1; otherwise the behavior is undefined.
-        The carryOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Add64 returns the sum with carry of x, y and carry: sum = x + y + carry.
+        * The carry input must be 0 or 1; otherwise the behavior is undefined.
+        * The carryOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function add64(_x:haxe.UInt64, _y:haxe.UInt64, _carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         final _x = (_x : stdgo.GoUInt64);
@@ -337,11 +337,11 @@ class Bits {
         };
     }
     /**
-        Sub returns the difference of x, y and borrow: diff = x - y - borrow.
-        The borrow input must be 0 or 1; otherwise the behavior is undefined.
-        The borrowOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Sub returns the difference of x, y and borrow: diff = x - y - borrow.
+        * The borrow input must be 0 or 1; otherwise the behavior is undefined.
+        * The borrowOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function sub(_x:std.UInt, _y:std.UInt, _borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt);
@@ -353,11 +353,11 @@ class Bits {
         };
     }
     /**
-        Sub32 returns the difference of x, y and borrow, diff = x - y - borrow.
-        The borrow input must be 0 or 1; otherwise the behavior is undefined.
-        The borrowOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Sub32 returns the difference of x, y and borrow, diff = x - y - borrow.
+        * The borrow input must be 0 or 1; otherwise the behavior is undefined.
+        * The borrowOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function sub32(_x:std.UInt, _y:std.UInt, _borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt32);
@@ -369,11 +369,11 @@ class Bits {
         };
     }
     /**
-        Sub64 returns the difference of x, y and borrow: diff = x - y - borrow.
-        The borrow input must be 0 or 1; otherwise the behavior is undefined.
-        The borrowOut output is guaranteed to be 0 or 1.
-        
-        This function's execution time does not depend on the inputs.
+        * Sub64 returns the difference of x, y and borrow: diff = x - y - borrow.
+        * The borrow input must be 0 or 1; otherwise the behavior is undefined.
+        * The borrowOut output is guaranteed to be 0 or 1.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function sub64(_x:haxe.UInt64, _y:haxe.UInt64, _borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         final _x = (_x : stdgo.GoUInt64);
@@ -385,11 +385,11 @@ class Bits {
         };
     }
     /**
-        Mul returns the full-width product of x and y: (hi, lo) = x * y
-        with the product bits' upper half returned in hi and the lower
-        half returned in lo.
-        
-        This function's execution time does not depend on the inputs.
+        * Mul returns the full-width product of x and y: (hi, lo) = x * y
+        * with the product bits' upper half returned in hi and the lower
+        * half returned in lo.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function mul(_x:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt);
@@ -400,11 +400,11 @@ class Bits {
         };
     }
     /**
-        Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y
-        with the product bits' upper half returned in hi and the lower
-        half returned in lo.
-        
-        This function's execution time does not depend on the inputs.
+        * Mul32 returns the 64-bit product of x and y: (hi, lo) = x * y
+        * with the product bits' upper half returned in hi and the lower
+        * half returned in lo.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function mul32(_x:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _x = (_x : stdgo.GoUInt32);
@@ -415,11 +415,11 @@ class Bits {
         };
     }
     /**
-        Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y
-        with the product bits' upper half returned in hi and the lower
-        half returned in lo.
-        
-        This function's execution time does not depend on the inputs.
+        * Mul64 returns the 128-bit product of x and y: (hi, lo) = x * y
+        * with the product bits' upper half returned in hi and the lower
+        * half returned in lo.
+        * 
+        * This function's execution time does not depend on the inputs.
     **/
     static public inline function mul64(_x:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         final _x = (_x : stdgo.GoUInt64);
@@ -430,10 +430,10 @@ class Bits {
         };
     }
     /**
-        Div returns the quotient and remainder of (hi, lo) divided by y:
-        quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
-        half in parameter hi and the lower half in parameter lo.
-        Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+        * Div returns the quotient and remainder of (hi, lo) divided by y:
+        * quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+        * half in parameter hi and the lower half in parameter lo.
+        * Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
     static public inline function div(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _hi = (_hi : stdgo.GoUInt);
@@ -445,10 +445,10 @@ class Bits {
         };
     }
     /**
-        Div32 returns the quotient and remainder of (hi, lo) divided by y:
-        quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
-        half in parameter hi and the lower half in parameter lo.
-        Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+        * Div32 returns the quotient and remainder of (hi, lo) divided by y:
+        * quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+        * half in parameter hi and the lower half in parameter lo.
+        * Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
     static public inline function div32(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         final _hi = (_hi : stdgo.GoUInt32);
@@ -460,10 +460,10 @@ class Bits {
         };
     }
     /**
-        Div64 returns the quotient and remainder of (hi, lo) divided by y:
-        quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
-        half in parameter hi and the lower half in parameter lo.
-        Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
+        * Div64 returns the quotient and remainder of (hi, lo) divided by y:
+        * quo = (hi, lo)/y, rem = (hi, lo)%y with the dividend bits' upper
+        * half in parameter hi and the lower half in parameter lo.
+        * Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
     static public inline function div64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         final _hi = (_hi : stdgo.GoUInt64);
@@ -475,9 +475,9 @@ class Bits {
         };
     }
     /**
-        Rem returns the remainder of (hi, lo) divided by y. Rem panics for
-        y == 0 (division by zero) but, unlike Div, it doesn't panic on a
-        quotient overflow.
+        * Rem returns the remainder of (hi, lo) divided by y. Rem panics for
+        * y == 0 (division by zero) but, unlike Div, it doesn't panic on a
+        * quotient overflow.
     **/
     static public inline function rem(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):std.UInt {
         final _hi = (_hi : stdgo.GoUInt);
@@ -486,9 +486,9 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rem.rem(_hi, _lo, _y);
     }
     /**
-        Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
-        for y == 0 (division by zero) but, unlike Div32, it doesn't panic
-        on a quotient overflow.
+        * Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
+        * for y == 0 (division by zero) but, unlike Div32, it doesn't panic
+        * on a quotient overflow.
     **/
     static public inline function rem32(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):std.UInt {
         final _hi = (_hi : stdgo.GoUInt32);
@@ -497,9 +497,9 @@ class Bits {
         return stdgo._internal.math.bits.Bits_rem32.rem32(_hi, _lo, _y);
     }
     /**
-        Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
-        for y == 0 (division by zero) but, unlike Div64, it doesn't panic
-        on a quotient overflow.
+        * Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
+        * for y == 0 (division by zero) but, unlike Div64, it doesn't panic
+        * on a quotient overflow.
     **/
     static public inline function rem64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):haxe.UInt64 {
         final _hi = (_hi : stdgo.GoUInt64);

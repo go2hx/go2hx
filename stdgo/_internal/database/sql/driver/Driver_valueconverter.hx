@@ -1,7 +1,7 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef ValueConverter = stdgo.StructType & {
     /**
-        ConvertValue converts a value to a driver Value.
+        * ConvertValue converts a value to a driver Value.
         
         
     **/

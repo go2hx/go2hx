@@ -2,8 +2,8 @@ package stdgo._internal.io.fs;
 @:interface typedef StatFS = stdgo.StructType & {
     > stdgo._internal.io.fs.Fs_fs.FS,
     /**
-        Stat returns a FileInfo describing the file.
-        If there is an error, it should be of type *PathError.
+        * Stat returns a FileInfo describing the file.
+        * If there is an error, it should be of type *PathError.
         
         
     **/

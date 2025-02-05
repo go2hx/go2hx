@@ -10,7 +10,7 @@ package stdgo._internal.os;
     /**
         
         
-        to distinguish from other Stringers
+        * to distinguish from other Stringers
     **/
     @:interfacetypeffun
     public dynamic function signal():Void;

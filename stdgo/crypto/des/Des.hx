@@ -85,16 +85,16 @@ class KeySizeError_static_extension {
     }
 }
 /**
-    Package des implements the Data Encryption Standard (DES) and the
-    Triple Data Encryption Algorithm (TDEA) as defined
-    in U.S. Federal Information Processing Standards Publication 46-3.
-    
-    DES is cryptographically broken and should not be used for secure
-    applications.
+    * Package des implements the Data Encryption Standard (DES) and the
+    * Triple Data Encryption Algorithm (TDEA) as defined
+    * in U.S. Federal Information Processing Standards Publication 46-3.
+    * 
+    * DES is cryptographically broken and should not be used for secure
+    * applications.
 **/
 class Des {
     /**
-        NewCipher creates and returns a new cipher.Block.
+        * NewCipher creates and returns a new cipher.Block.
     **/
     static public inline function newCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error> {
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -104,7 +104,7 @@ class Des {
         };
     }
     /**
-        NewTripleDESCipher creates and returns a new cipher.Block.
+        * NewTripleDESCipher creates and returns a new cipher.Block.
     **/
     static public inline function newTripleDESCipher(_key:Array<std.UInt>):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error> {
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

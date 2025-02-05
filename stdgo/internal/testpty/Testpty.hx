@@ -40,14 +40,14 @@ class PtyError_static_extension {
     }
 }
 /**
-    Package testpty is a simple pseudo-terminal package for Unix systems,
-    implemented by calling C functions via cgo.
+    * Package testpty is a simple pseudo-terminal package for Unix systems,
+    * implemented by calling C functions via cgo.
 **/
 class Testpty {
     /**
-        Open returns a control pty and the name of the linked process tty.
-        
-        If Open is not implemented on this platform, it returns ErrNotSupported.
+        * Open returns a control pty and the name of the linked process tty.
+        * 
+        * If Open is not implemented on this platform, it returns ErrNotSupported.
     **/
     static public inline function open():stdgo.Tuple.Tuple3<stdgo._internal.os.Os_file.File, String, stdgo.Error> {
         return {

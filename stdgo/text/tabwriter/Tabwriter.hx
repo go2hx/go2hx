@@ -241,18 +241,18 @@ class T_osError_static_extension {
 
 }
 /**
-    Package tabwriter implements a write filter (tabwriter.Writer) that
-    translates tabbed columns in input into properly aligned text.
-    
-    The package is using the Elastic Tabstops algorithm described at
-    http://nickgravgaard.com/elastictabstops/index.html.
-    
-    The text/tabwriter package is frozen and is not accepting new features.
+    * Package tabwriter implements a write filter (tabwriter.Writer) that
+    * translates tabbed columns in input into properly aligned text.
+    * 
+    * The package is using the Elastic Tabstops algorithm described at
+    * http://nickgravgaard.com/elastictabstops/index.html.
+    * 
+    * The text/tabwriter package is frozen and is not accepting new features.
 **/
 class Tabwriter {
     /**
-        NewWriter allocates and initializes a new tabwriter.Writer.
-        The parameters are the same as for the Init function.
+        * NewWriter allocates and initializes a new tabwriter.Writer.
+        * The parameters are the same as for the Init function.
     **/
     static public inline function newWriter(_output:stdgo._internal.io.Io_writer.Writer, _minwidth:StdTypes.Int, _tabwidth:StdTypes.Int, _padding:StdTypes.Int, _padchar:std.UInt, _flags:std.UInt):Writer {
         final _minwidth = (_minwidth : stdgo.GoInt);

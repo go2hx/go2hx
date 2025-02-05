@@ -22,8 +22,8 @@ package stdgo._internal.net.http;
     @:interfacetypeffun
     public dynamic function closeConn():stdgo.Error;
     /**
-        HeaderEncoder returns an HPACK encoder that writes to the
-        returned buffer.
+        * HeaderEncoder returns an HPACK encoder that writes to the
+        * returned buffer.
         
         
     **/

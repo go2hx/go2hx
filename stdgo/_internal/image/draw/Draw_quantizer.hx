@@ -1,8 +1,8 @@
 package stdgo._internal.image.draw;
 @:interface typedef Quantizer = stdgo.StructType & {
     /**
-        Quantize appends up to cap(p) - len(p) colors to p and returns the
-        updated palette suitable for converting m to a paletted image.
+        * Quantize appends up to cap(p) - len(p) colors to p and returns the
+        * updated palette suitable for converting m to a paletted image.
         
         
     **/

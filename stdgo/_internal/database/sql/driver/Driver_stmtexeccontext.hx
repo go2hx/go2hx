@@ -1,10 +1,10 @@
 package stdgo._internal.database.sql.driver;
 @:interface typedef StmtExecContext = stdgo.StructType & {
     /**
-        ExecContext executes a query that doesn't return rows, such
-        as an INSERT or UPDATE.
-        
-        ExecContext must honor the context timeout and return when it is canceled.
+        * ExecContext executes a query that doesn't return rows, such
+        * as an INSERT or UPDATE.
+        * 
+        * ExecContext must honor the context timeout and return when it is canceled.
         
         
     **/

@@ -371,34 +371,34 @@ class CorruptInputError_static_extension {
     }
 }
 /**
-    Package base64 implements base64 encoding as specified by RFC 4648.
+    * Package base64 implements base64 encoding as specified by RFC 4648.
 **/
 class Base64 {
     /**
-        NewEncoding returns a new padded Encoding defined by the given alphabet,
-        which must be a 64-byte string that does not contain the padding character
-        or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
-        without any special treatment for multi-byte UTF-8.
-        The resulting Encoding uses the default padding character ('='),
-        which may be changed or disabled via WithPadding.
+        * NewEncoding returns a new padded Encoding defined by the given alphabet,
+        * which must be a 64-byte string that does not contain the padding character
+        * or CR / LF ('\r', '\n'). The alphabet is treated as sequence of byte values
+        * without any special treatment for multi-byte UTF-8.
+        * The resulting Encoding uses the default padding character ('='),
+        * which may be changed or disabled via WithPadding.
     **/
     static public inline function newEncoding(_encoder:String):Encoding {
         final _encoder = (_encoder : stdgo.GoString);
         return stdgo._internal.encoding.base64.Base64_newEncoding.newEncoding(_encoder);
     }
     /**
-        NewEncoder returns a new base64 stream encoder. Data written to
-        the returned writer will be encoded using enc and then written to w.
-        Base64 encodings operate in 4-byte blocks; when finished
-        writing, the caller must Close the returned encoder to flush any
-        partially written blocks.
+        * NewEncoder returns a new base64 stream encoder. Data written to
+        * the returned writer will be encoded using enc and then written to w.
+        * Base64 encodings operate in 4-byte blocks; when finished
+        * writing, the caller must Close the returned encoder to flush any
+        * partially written blocks.
     **/
     static public inline function newEncoder(_enc:Encoding, _w:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writecloser.WriteCloser {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>);
         return stdgo._internal.encoding.base64.Base64_newEncoder.newEncoder(_enc, _w);
     }
     /**
-        NewDecoder constructs a new base64 stream decoder.
+        * NewDecoder constructs a new base64 stream decoder.
     **/
     static public inline function newDecoder(_enc:Encoding, _r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>);
@@ -453,7 +453,7 @@ class Base64 {
         stdgo._internal.encoding.base64.Base64_testNewLineCharacters.testNewLineCharacters(_t);
     }
     /**
-        tests that we don't ignore errors from our underlying reader
+        * tests that we don't ignore errors from our underlying reader
     **/
     static public inline function testDecoderIssue3577(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);

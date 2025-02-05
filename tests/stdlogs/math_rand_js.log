@@ -1,24 +1,24 @@
-[30;41m ERROR [0m ./_internal/math/rand_test/Rand_test__dodefaulttest.hx:412: characters 25-28
+[ERROR] ./_internal/math/rand_test/Rand_test__dodefaulttest.hx:412: characters 25-28
 
- 412 | [2m        for (_i => _ in [0m[1m_ch[0m[2m) {[0m
-     |                         [31m^^^[0m
+ 412 |         for (_i => _ in _ch) {
+     |                         ^^^
      | stdgo.Chan<stdgo.GoUInt64> has no field keyValueIterator
 
-[30;41m ERROR [0m ./_internal/math/rand_test/Rand_test__initnorm.hx:21: characters 85-88
+[ERROR] ./_internal/math/rand_test/Rand_test__initnorm.hx:21: characters 85-88
 
-  21 | [2m        var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__rn._rn, __1 = [0m[1m_dn[0m[2m, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64);[0m
-     |                                                                                     [31m^^^[0m
+  21 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__rn._rn, __1 = _dn, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64);
+     |                                                                                     ^^^
      | Unknown identifier : _dn
 
-[30;41m ERROR [0m ./_internal/math/rand_test/Rand_test__initexp.hx:21: characters 85-88
+[ERROR] ./_internal/math/rand_test/Rand_test__initexp.hx:21: characters 85-88
 
-  21 | [2m        var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__re._re, __1 = [0m[1m_de[0m[2m, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64);[0m
-     |                                                                                     [31m^^^[0m
+  21 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__re._re, __1 = _de, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64);
+     |                                                                                     ^^^
      | Unknown identifier : _de
 
-[30;41m ERROR [0m ./_internal/math/rand_test/Rand_test__testreaduniformity.hx:28: characters 166-173
+[ERROR] ./_internal/math/rand_test/Rand_test__testreaduniformity.hx:28: characters 166-173
 
-  28 | [2m        var __0 = (127.5 : stdgo.GoFloat64), __1 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math_sqrt.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2 = ([0m[1m_stddev[0m[2m / stdgo._internal.math.Math_sqrt.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64);[0m
-     |                                                                                                                                                                      [31m^^^^^^^[0m
+  28 |         var __0 = (127.5 : stdgo.GoFloat64), __1 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math_sqrt.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2 = (_stddev / stdgo._internal.math.Math_sqrt.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64);
+     |                                                                                                                                                                      ^^^^^^^
      | Unknown identifier : _stddev
 

@@ -1,6 +1,6 @@
-[30;41m ERROR [0m ./stdgo/_internal/net/http/Http_errschememismatch.hx:2: characters 39-76
+[ERROR] ./stdgo/_internal/net/http/Http_errschememismatch.hx:2: characters 39-76
 
- 2 | [2mvar errSchemeMismatch : stdgo.Error = [0m[1mstdgo._internal.net.http.Http__errors[0m[2m._errors.new_(("http: server gave HTTP response to HTTPS client" : stdgo.GoString));[0m
-   |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ 2 | var errSchemeMismatch : stdgo.Error = stdgo._internal.net.http.Http__errors._errors.new_(("http: server gave HTTP response to HTTPS client" : stdgo.GoString));
+   |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    | Type not found : stdgo._internal.net.http.Http__errors
 

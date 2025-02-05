@@ -442,7 +442,9 @@ private function testStd() { // standard library package tests
 		final args = [hxml].concat(outCmd);
 		// remove ANSI escape codes for colours
 		args.push("-D message.no-color");
-		tasks.push({command: ciBool ? "npx haxe" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
+		if (ciBool)
+			args.unshift("haxe");
+		tasks.push({command: ciBool ? "npx " : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
 		Sys.println(args.join(" "));
 	}
 	Sys.println("______________________");

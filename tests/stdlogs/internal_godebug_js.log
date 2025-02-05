@@ -2,10 +2,10 @@
 Exception: T_:testing.setenv is not yet implemented
 Called from stdgo__$internal_testing_T_$_$static_$extension.setenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 15094 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testget_testGet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:14377:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54106 column 9)
-Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35344 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63460:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63461:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54124 column 9)
+Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35356 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63478:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63479:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -15,10 +15,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 NonDefault kind = <invalid reflect.Value>, want uint64Exception: Setting:internal.godebug.incNonDefault is not yet implemented
 Called from stdgo__$internal_internal_godebug_Setting_$static_$extension.incNonDefault (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 15286 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testmetrics_testMetrics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:15412:63)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54106 column 9)
-Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35344 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63460:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63461:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54124 column 9)
+Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35356 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63478:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63479:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
@@ -26,13 +26,13 @@ Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
 
 === RUN  TestCmdBisect
 Exception: :os.getenv is not yet implemented
-Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 16494 column 23)
-Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 16480 column 12)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testcmdbisect_testCmdBisect [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:16405:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54106 column 9)
-Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35344 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63460:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63461:3)
+Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 16497 column 23)
+Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 16483 column 12)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testcmdbisect_testCmdBisect [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:16408:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 54124 column 9)
+Called from ._$internal_internal_godebug_$dot_$test_Godebug_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 35356 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63478:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:63479:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestCmdBisect

@@ -118,7 +118,6 @@ class Go {
 	 * @param expr 
 	 * @return Expr
 	 */
-	@:deprecated
 	@:dox(hide)
 	public static macro function str(expr:Expr):Expr;
 	@:deprecated

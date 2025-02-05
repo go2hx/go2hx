@@ -5,7 +5,7 @@
 Go2hx is a haxe compiler, that compiles Go code to haxe
 
 > [!WARNING]  
-> prealpha version, not able to compile most Go code correctly
+> Alpha version, not able to compile most Go code correctly
 
 # Table of contents
 
@@ -74,6 +74,18 @@ Precompiled libs are avaliable with no setup required: [go2hxlibs](https://githu
 
 ```sh
 haxelib git go2hx https://github.com/go2hx/go2hx
+```
+
+### haxelib git too slow or does not work?
+
+```sh
+git clone --depth 1 https://github.com/go2hx/go2hx
+haxelib dev go2hx go2hx
+```
+If you want updates, you can convert the shallow clone to an unshallow one:
+```sh
+cd go2hx
+git fetch  --unshallow
 ```
 
 ## First compile

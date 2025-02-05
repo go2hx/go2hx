@@ -8505,15 +8505,16 @@ private function sanatizeComment(source:String):String {
 	// sanatize comments
 	if (source == "")
 		return source;
-	source = StringTools.replace(source, "/*", "/|*");
-	source = StringTools.replace(source, "*/", "*|/");
-	final lines = source.split("\n");
+	source = StringTools.replace(source, "/*", "");
+	source = StringTools.replace(source, "*/", "");
+	var lines = source.split("\n");
 	for (i in 0...lines.length) {
 		if (lines[i].substr(0,3) == "// ")
 			lines[i] = lines[i].substr(3);
 		if (lines[i].substr(0,2) == "//")
 			lines[i] = lines[i].substr(2);
 	}
+	lines = lines.map(line -> '* $line');
 	return lines.join("\n");
 }
 

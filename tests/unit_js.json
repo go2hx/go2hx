@@ -151,5 +151,8 @@
  "js|newnilstructkeymap1",
  "js|newniluinptrkeymap0",
  "js|chantimer",
- "js|filecasing"
+ "js|filecasing",
+ "js|base64DecoderIssue3577",
+ "js|base64chan",
+ "js|select1"
 ]

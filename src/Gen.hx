@@ -326,7 +326,7 @@ function copyField(field:Field, kind:FieldType):Field {
 function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
-	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name);
+	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
 	final p:TypePath = {pack: pack, name: td.name, params: params};
 	final ct = TPath(p);
 	var fields = [];
@@ -444,7 +444,7 @@ function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
-				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]) + "_" + td.name, pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
+				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(), pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
 				isExtern: td.isExtern,
 			};
 		default:
@@ -485,7 +485,7 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 		case TDField(FVar(type, e), access):
 			final access = access.copy();
 			final pack = path.split("/");
-			pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name);
+			pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
 			final name = macro $p{pack.concat([td.name])};
 			if (access.indexOf(AFinal) != -1) {
 				return [{
@@ -562,10 +562,10 @@ function externGenFun(name:String, f:Function, path:String, staticExtensionName:
 	final pathArray = path.split("/");
 	var last = Typer.title(pathArray[pathArray.length - 1]);
 	if (staticExtensionName != "") {
-		pathArray.push(last + "_" + staticExtensionName);
+		pathArray.push(last + "_" + staticExtensionName.toLowerCase());
 		pathArray.push(staticExtensionName);
 	}else{
-		pathArray.push(last + "_" + name);
+		pathArray.push(last + "_" + name.toLowerCase());
 	}
 	pathArray.push(name);
 	var expr = macro $p{pathArray}($a{exprArgs});

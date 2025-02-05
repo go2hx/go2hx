@@ -1,13 +1,13 @@
 package stdgo.compress.lzw;
-final lSB : Order = stdgo._internal.compress.lzw.Lzw_lSB.lSB;
-final mSB = stdgo._internal.compress.lzw.Lzw_mSB.mSB;
+final lSB : Order = stdgo._internal.compress.lzw.Lzw_lsb.lSB;
+final mSB = stdgo._internal.compress.lzw.Lzw_msb.mSB;
 class T_writer_static_extension {
     static public function flush(t:stdgo._internal.compress.lzw.Lzw_t_writer.T_writer):stdgo.Error {
-        return stdgo._internal.compress.lzw.Lzw_T_writer_static_extension.T_writer_static_extension.flush(t);
+        return stdgo._internal.compress.lzw.Lzw_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-typedef T_writer = stdgo._internal.compress.lzw.Lzw_T_writer.T_writer;
-@:structInit @:using(stdgo.compress.lzw.Lzw.Reader_static_extension) abstract Reader(stdgo._internal.compress.lzw.Lzw_Reader.Reader) from stdgo._internal.compress.lzw.Lzw_Reader.Reader to stdgo._internal.compress.lzw.Lzw_Reader.Reader {
+typedef T_writer = stdgo._internal.compress.lzw.Lzw_t_writer.T_writer;
+@:structInit @:using(stdgo.compress.lzw.Lzw.Reader_static_extension) abstract Reader(stdgo._internal.compress.lzw.Lzw_reader.Reader) from stdgo._internal.compress.lzw.Lzw_reader.Reader to stdgo._internal.compress.lzw.Lzw_reader.Reader {
     public var _r(get, set) : stdgo._internal.io.Io_bytereader.ByteReader;
     function get__r():stdgo._internal.io.Io_bytereader.ByteReader return this._r;
     function set__r(v:stdgo._internal.io.Io_bytereader.ByteReader):stdgo._internal.io.Io_bytereader.ByteReader {
@@ -110,7 +110,7 @@ typedef T_writer = stdgo._internal.compress.lzw.Lzw_T_writer.T_writer;
         this._toRead = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_bits:std.UInt, ?_nBits:std.UInt, ?_width:std.UInt, ?_read:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader> -> { var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; }, ?_litWidth:StdTypes.Int, ?_err:stdgo.Error, ?_clear:std.UInt, ?_eof:std.UInt, ?_hi:std.UInt, ?_overflow:std.UInt, ?_last:std.UInt, ?_suffix:haxe.ds.Vector<std.UInt>, ?_prefix:haxe.ds.Vector<std.UInt>, ?_output:haxe.ds.Vector<std.UInt>, ?_o:StdTypes.Int, ?_toRead:Array<std.UInt>) this = new stdgo._internal.compress.lzw.Lzw_Reader.Reader(
+    public function new(?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_bits:std.UInt, ?_nBits:std.UInt, ?_width:std.UInt, ?_read:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader> -> { var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; }, ?_litWidth:StdTypes.Int, ?_err:stdgo.Error, ?_clear:std.UInt, ?_eof:std.UInt, ?_hi:std.UInt, ?_overflow:std.UInt, ?_last:std.UInt, ?_suffix:haxe.ds.Vector<std.UInt>, ?_prefix:haxe.ds.Vector<std.UInt>, ?_output:haxe.ds.Vector<std.UInt>, ?_o:StdTypes.Int, ?_toRead:Array<std.UInt>) this = new stdgo._internal.compress.lzw.Lzw_reader.Reader(
 _r,
 (_bits : stdgo.GoUInt32),
 (_nBits : stdgo.GoUInt),
@@ -131,7 +131,7 @@ _read,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.lzw.Lzw.Writer_static_extension) abstract Writer(stdgo._internal.compress.lzw.Lzw_Writer.Writer) from stdgo._internal.compress.lzw.Lzw_Writer.Writer to stdgo._internal.compress.lzw.Lzw_Writer.Writer {
+@:structInit @:using(stdgo.compress.lzw.Lzw.Writer_static_extension) abstract Writer(stdgo._internal.compress.lzw.Lzw_writer.Writer) from stdgo._internal.compress.lzw.Lzw_writer.Writer to stdgo._internal.compress.lzw.Lzw_writer.Writer {
     public var _w(get, set) : T_writer;
     function get__w():T_writer return this._w;
     function set__w(v:T_writer):T_writer {
@@ -204,7 +204,7 @@ _read,
         this._table = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?_w:T_writer, ?_order:Order, ?_write:(stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, stdgo.GoUInt32) -> stdgo.Error, ?_bits:std.UInt, ?_nBits:std.UInt, ?_width:std.UInt, ?_litWidth:std.UInt, ?_hi:std.UInt, ?_overflow:std.UInt, ?_savedCode:std.UInt, ?_err:stdgo.Error, ?_table:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.lzw.Lzw_Writer.Writer(
+    public function new(?_w:T_writer, ?_order:Order, ?_write:(stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, stdgo.GoUInt32) -> stdgo.Error, ?_bits:std.UInt, ?_nBits:std.UInt, ?_width:std.UInt, ?_litWidth:std.UInt, ?_hi:std.UInt, ?_overflow:std.UInt, ?_savedCode:std.UInt, ?_err:stdgo.Error, ?_table:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.lzw.Lzw_writer.Writer(
 _w,
 _order,
 _write,
@@ -220,90 +220,90 @@ _write,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef Order = stdgo._internal.compress.lzw.Lzw_Order.Order;
-typedef ReaderPointer = stdgo._internal.compress.lzw.Lzw_ReaderPointer.ReaderPointer;
+typedef Order = stdgo._internal.compress.lzw.Lzw_order.Order;
+typedef ReaderPointer = stdgo._internal.compress.lzw.Lzw_readerpointer.ReaderPointer;
 class Reader_static_extension {
     static public function _init(_r:Reader, _src:stdgo._internal.io.Io_reader.Reader, _order:Order, _litWidth:StdTypes.Int):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
         final _litWidth = (_litWidth : stdgo.GoInt);
-        stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension._init(_r, _src, _order, _litWidth);
+        stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._init(_r, _src, _order, _litWidth);
     }
     static public function reset(_r:Reader, _src:stdgo._internal.io.Io_reader.Reader, _order:Order, _litWidth:StdTypes.Int):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
         final _litWidth = (_litWidth : stdgo.GoInt);
-        stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension.reset(_r, _src, _order, _litWidth);
+        stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension.reset(_r, _src, _order, _litWidth);
     }
     static public function close(_r:Reader):stdgo.Error {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
-        return stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension.close(_r);
+        return stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension.close(_r);
     }
     static public function _decode(_r:Reader):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
-        stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension._decode(_r);
+        stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._decode(_r);
     }
     static public function read(_r:Reader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension.read(_r, _b);
+            final obj = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readMSB(_r:Reader):stdgo.Tuple<std.UInt, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
         return {
-            final obj = stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension._readMSB(_r);
+            final obj = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readMSB(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readLSB(_r:Reader):stdgo.Tuple<std.UInt, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>);
         return {
-            final obj = stdgo._internal.compress.lzw.Lzw_Reader_static_extension.Reader_static_extension._readLSB(_r);
+            final obj = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readLSB(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef WriterPointer = stdgo._internal.compress.lzw.Lzw_WriterPointer.WriterPointer;
+typedef WriterPointer = stdgo._internal.compress.lzw.Lzw_writerpointer.WriterPointer;
 class Writer_static_extension {
     static public function _init(_w:Writer, _dst:stdgo._internal.io.Io_writer.Writer, _order:Order, _litWidth:StdTypes.Int):Void {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
         final _litWidth = (_litWidth : stdgo.GoInt);
-        stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._init(_w, _dst, _order, _litWidth);
+        stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._init(_w, _dst, _order, _litWidth);
     }
     static public function reset(_w:Writer, _dst:stdgo._internal.io.Io_writer.Writer, _order:Order, _litWidth:StdTypes.Int):Void {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
         final _litWidth = (_litWidth : stdgo.GoInt);
-        stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension.reset(_w, _dst, _order, _litWidth);
+        stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension.reset(_w, _dst, _order, _litWidth);
     }
     static public function close(_w:Writer):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
-        return stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension.close(_w);
+        return stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension.close(_w);
     }
     static public function write(_w:Writer, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension.write(_w, _p);
+            final obj = stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension.write(_w, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _incHi(_w:Writer):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
-        return stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._incHi(_w);
+        return stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._incHi(_w);
     }
     static public function _writeMSB(_w:Writer, _c:std.UInt):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
         final _c = (_c : stdgo.GoUInt32);
-        return stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeMSB(_w, _c);
+        return stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeMSB(_w, _c);
     }
     static public function _writeLSB(_w:Writer, _c:std.UInt):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>);
         final _c = (_c : stdgo.GoUInt32);
-        return stdgo._internal.compress.lzw.Lzw_Writer_static_extension.Writer_static_extension._writeLSB(_w, _c);
+        return stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeLSB(_w, _c);
     }
 }
-typedef OrderPointer = stdgo._internal.compress.lzw.Lzw_OrderPointer.OrderPointer;
+typedef OrderPointer = stdgo._internal.compress.lzw.Lzw_orderpointer.OrderPointer;
 class Order_static_extension {
 
 }
@@ -337,7 +337,7 @@ class Lzw {
     **/
     static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader, _order:Order, _litWidth:StdTypes.Int):stdgo._internal.io.Io_readcloser.ReadCloser {
         final _litWidth = (_litWidth : stdgo.GoInt);
-        return stdgo._internal.compress.lzw.Lzw_newReader.newReader(_r, _order, _litWidth);
+        return stdgo._internal.compress.lzw.Lzw_newreader.newReader(_r, _order, _litWidth);
     }
     /**
         * NewWriter creates a new io.WriteCloser.
@@ -352,6 +352,6 @@ class Lzw {
     **/
     static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer, _order:Order, _litWidth:StdTypes.Int):stdgo._internal.io.Io_writecloser.WriteCloser {
         final _litWidth = (_litWidth : stdgo.GoInt);
-        return stdgo._internal.compress.lzw.Lzw_newWriter.newWriter(_w, _order, _litWidth);
+        return stdgo._internal.compress.lzw.Lzw_newwriter.newWriter(_w, _order, _litWidth);
     }
 }

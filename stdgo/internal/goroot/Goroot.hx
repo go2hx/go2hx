@@ -1,5 +1,5 @@
 package stdgo.internal.goroot;
-@:structInit @:using(stdgo.internal.goroot.Goroot.T_gccgoDirs_static_extension) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs {
+@:structInit @:using(stdgo.internal.goroot.Goroot.T_gccgoDirs_static_extension) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
@@ -12,20 +12,20 @@ package stdgo.internal.goroot;
         this._dirs = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_once:stdgo._internal.sync.Sync_once.Once, ?_dirs:Array<String>) this = new stdgo._internal.internal.goroot.Goroot_T_gccgoDirs.T_gccgoDirs(_once, ([for (i in _dirs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_once:stdgo._internal.sync.Sync_once.Once, ?_dirs:Array<String>) this = new stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs(_once, ([for (i in _dirs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_gccgoDirsPointer = stdgo._internal.internal.goroot.Goroot_T_gccgoDirsPointer.T_gccgoDirsPointer;
+typedef T_gccgoDirsPointer = stdgo._internal.internal.goroot.Goroot_t_gccgodirspointer.T_gccgoDirsPointer;
 class T_gccgoDirs_static_extension {
     static public function _isStandard(_gd:T_gccgoDirs, _path:String):Bool {
         final _gd = (_gd : stdgo.Ref<stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs>);
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.internal.goroot.Goroot_T_gccgoDirs_static_extension.T_gccgoDirs_static_extension._isStandard(_gd, _path);
+        return stdgo._internal.internal.goroot.Goroot_t_gccgodirs_static_extension.T_gccgoDirs_static_extension._isStandard(_gd, _path);
     }
     static public function _init(_gd:T_gccgoDirs):Void {
         final _gd = (_gd : stdgo.Ref<stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs>);
-        stdgo._internal.internal.goroot.Goroot_T_gccgoDirs_static_extension.T_gccgoDirs_static_extension._init(_gd);
+        stdgo._internal.internal.goroot.Goroot_t_gccgodirs_static_extension.T_gccgoDirs_static_extension._init(_gd);
     }
 }
 class Goroot {
@@ -37,6 +37,6 @@ class Goroot {
         final _goroot = (_goroot : stdgo.GoString);
         final _compiler = (_compiler : stdgo.GoString);
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.internal.goroot.Goroot_isStandardPackage.isStandardPackage(_goroot, _compiler, _path);
+        return stdgo._internal.internal.goroot.Goroot_isstandardpackage.isStandardPackage(_goroot, _compiler, _path);
     }
 }

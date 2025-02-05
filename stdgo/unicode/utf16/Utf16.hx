@@ -1,6 +1,6 @@
 package stdgo.unicode.utf16;
-final maxRune : StdTypes.Int = stdgo._internal.unicode.utf16.Utf16_maxRune.maxRune;
-final replacementChar : StdTypes.Int = stdgo._internal.unicode.utf16.Utf16_replacementChar.replacementChar;
+final maxRune : StdTypes.Int = stdgo._internal.unicode.utf16.Utf16_maxrune.maxRune;
+final replacementChar : StdTypes.Int = stdgo._internal.unicode.utf16.Utf16_replacementchar.replacementChar;
 /**
     * Package utf16 implements encoding and decoding of UTF-16 sequences.
 **/
@@ -11,7 +11,7 @@ class Utf16 {
     **/
     static public inline function isSurrogate(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.utf16.Utf16_isSurrogate.isSurrogate(_r);
+        return stdgo._internal.unicode.utf16.Utf16_issurrogate.isSurrogate(_r);
     }
     /**
         * DecodeRune returns the UTF-16 decoding of a surrogate pair.
@@ -21,7 +21,7 @@ class Utf16 {
     static public inline function decodeRune(_r1:StdTypes.Int, _r2:StdTypes.Int):StdTypes.Int {
         final _r1 = (_r1 : stdgo.GoInt32);
         final _r2 = (_r2 : stdgo.GoInt32);
-        return stdgo._internal.unicode.utf16.Utf16_decodeRune.decodeRune(_r1, _r2);
+        return stdgo._internal.unicode.utf16.Utf16_decoderune.decodeRune(_r1, _r2);
     }
     /**
         * EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune.
@@ -31,7 +31,7 @@ class Utf16 {
     static public inline function encodeRune(_r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _r = (_r : stdgo.GoInt32);
         return {
-            final obj = stdgo._internal.unicode.utf16.Utf16_encodeRune.encodeRune(_r);
+            final obj = stdgo._internal.unicode.utf16.Utf16_encoderune.encodeRune(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -50,7 +50,7 @@ class Utf16 {
     static public inline function appendRune(_a:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
         final _a = ([for (i in _a) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>);
         final _r = (_r : stdgo.GoInt32);
-        return [for (i in stdgo._internal.unicode.utf16.Utf16_appendRune.appendRune(_a, _r)) i];
+        return [for (i in stdgo._internal.unicode.utf16.Utf16_appendrune.appendRune(_a, _r)) i];
     }
     /**
         * Decode returns the Unicode code point sequence represented

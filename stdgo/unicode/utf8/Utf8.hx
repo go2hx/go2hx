@@ -1,9 +1,9 @@
 package stdgo.unicode.utf8;
-final runeError : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_runeError.runeError;
-final runeSelf : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_runeSelf.runeSelf;
-final maxRune : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_maxRune.maxRune;
-final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_uTFMax.uTFMax;
-@:structInit @:using(stdgo.unicode.utf8.Utf8.T_acceptRange_static_extension) abstract T_acceptRange(stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange) from stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange to stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange {
+final runeError : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_runeerror.runeError;
+final runeSelf : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_runeself.runeSelf;
+final maxRune : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_maxrune.maxRune;
+final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_utfmax.uTFMax;
+@:structInit @:using(stdgo.unicode.utf8.Utf8.T_acceptRange_static_extension) abstract T_acceptRange(stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange) from stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange to stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange {
     public var _lo(get, set) : std.UInt;
     function get__lo():std.UInt return this._lo;
     function set__lo(v:std.UInt):std.UInt {
@@ -16,11 +16,11 @@ final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_uTFMax.uTFMax;
         this._hi = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?_lo:std.UInt, ?_hi:std.UInt) this = new stdgo._internal.unicode.utf8.Utf8_T_acceptRange.T_acceptRange((_lo : stdgo.GoUInt8), (_hi : stdgo.GoUInt8));
+    public function new(?_lo:std.UInt, ?_hi:std.UInt) this = new stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange((_lo : stdgo.GoUInt8), (_hi : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_acceptRangePointer = stdgo._internal.unicode.utf8.Utf8_T_acceptRangePointer.T_acceptRangePointer;
+typedef T_acceptRangePointer = stdgo._internal.unicode.utf8.Utf8_t_acceptrangepointer.T_acceptRangePointer;
 class T_acceptRange_static_extension {
 
 }
@@ -36,14 +36,14 @@ class Utf8 {
     **/
     static public inline function fullRune(_p:Array<std.UInt>):Bool {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.unicode.utf8.Utf8_fullRune.fullRune(_p);
+        return stdgo._internal.unicode.utf8.Utf8_fullrune.fullRune(_p);
     }
     /**
         * FullRuneInString is like FullRune but its input is a string.
     **/
     static public inline function fullRuneInString(_s:String):Bool {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.unicode.utf8.Utf8_fullRuneInString.fullRuneInString(_s);
+        return stdgo._internal.unicode.utf8.Utf8_fullruneinstring.fullRuneInString(_s);
     }
     /**
         * DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and
@@ -58,7 +58,7 @@ class Utf8 {
     static public inline function decodeRune(_p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune(_p);
+            final obj = stdgo._internal.unicode.utf8.Utf8_decoderune.decodeRune(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -75,7 +75,7 @@ class Utf8 {
     static public inline function decodeRuneInString(_s:String):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s);
+            final obj = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -92,7 +92,7 @@ class Utf8 {
     static public inline function decodeLastRune(_p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.unicode.utf8.Utf8_decodeLastRune.decodeLastRune(_p);
+            final obj = stdgo._internal.unicode.utf8.Utf8_decodelastrune.decodeLastRune(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -109,7 +109,7 @@ class Utf8 {
     static public inline function decodeLastRuneInString(_s:String):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.unicode.utf8.Utf8_decodeLastRuneInString.decodeLastRuneInString(_s);
+            final obj = stdgo._internal.unicode.utf8.Utf8_decodelastruneinstring.decodeLastRuneInString(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -119,7 +119,7 @@ class Utf8 {
     **/
     static public inline function runeLen(_r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.utf8.Utf8_runeLen.runeLen(_r);
+        return stdgo._internal.unicode.utf8.Utf8_runelen.runeLen(_r);
     }
     /**
         * EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.
@@ -129,7 +129,7 @@ class Utf8 {
     static public inline function encodeRune(_p:Array<std.UInt>, _r:StdTypes.Int):StdTypes.Int {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune(_p, _r);
+        return stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune(_p, _r);
     }
     /**
         * AppendRune appends the UTF-8 encoding of r to the end of p and
@@ -139,7 +139,7 @@ class Utf8 {
     static public inline function appendRune(_p:Array<std.UInt>, _r:StdTypes.Int):Array<std.UInt> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _r = (_r : stdgo.GoInt32);
-        return [for (i in stdgo._internal.unicode.utf8.Utf8_appendRune.appendRune(_p, _r)) i];
+        return [for (i in stdgo._internal.unicode.utf8.Utf8_appendrune.appendRune(_p, _r)) i];
     }
     /**
         * RuneCount returns the number of runes in p. Erroneous and short
@@ -147,14 +147,14 @@ class Utf8 {
     **/
     static public inline function runeCount(_p:Array<std.UInt>):StdTypes.Int {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.unicode.utf8.Utf8_runeCount.runeCount(_p);
+        return stdgo._internal.unicode.utf8.Utf8_runecount.runeCount(_p);
     }
     /**
         * RuneCountInString is like RuneCount but its input is a string.
     **/
     static public inline function runeCountInString(_s:String):StdTypes.Int {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.unicode.utf8.Utf8_runeCountInString.runeCountInString(_s);
+        return stdgo._internal.unicode.utf8.Utf8_runecountinstring.runeCountInString(_s);
     }
     /**
         * RuneStart reports whether the byte could be the first byte of an encoded,
@@ -163,7 +163,7 @@ class Utf8 {
     **/
     static public inline function runeStart(_b:std.UInt):Bool {
         final _b = (_b : stdgo.GoUInt8);
-        return stdgo._internal.unicode.utf8.Utf8_runeStart.runeStart(_b);
+        return stdgo._internal.unicode.utf8.Utf8_runestart.runeStart(_b);
     }
     /**
         * Valid reports whether p consists entirely of valid UTF-8-encoded runes.
@@ -177,7 +177,7 @@ class Utf8 {
     **/
     static public inline function validString(_s:String):Bool {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.unicode.utf8.Utf8_validString.validString(_s);
+        return stdgo._internal.unicode.utf8.Utf8_validstring.validString(_s);
     }
     /**
         * ValidRune reports whether r can be legally encoded as UTF-8.
@@ -185,6 +185,6 @@ class Utf8 {
     **/
     static public inline function validRune(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.utf8.Utf8_validRune.validRune(_r);
+        return stdgo._internal.unicode.utf8.Utf8_validrune.validRune(_r);
     }
 }

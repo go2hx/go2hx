@@ -9,18 +9,18 @@ class Sig {
         * BoringCrypto indicates that the BoringCrypto module is present.
     **/
     static public inline function boringCrypto():Void {
-        stdgo._internal.crypto.internal.boring.sig.Sig_boringCrypto.boringCrypto();
+        stdgo._internal.crypto.internal.boring.sig.Sig_boringcrypto.boringCrypto();
     }
     /**
         * FIPSOnly indicates that package crypto/tls/fipsonly is present.
     **/
     static public inline function fIPSOnly():Void {
-        stdgo._internal.crypto.internal.boring.sig.Sig_fIPSOnly.fIPSOnly();
+        stdgo._internal.crypto.internal.boring.sig.Sig_fipsonly.fIPSOnly();
     }
     /**
         * StandardCrypto indicates that standard Go crypto is present.
     **/
     static public inline function standardCrypto():Void {
-        stdgo._internal.crypto.internal.boring.sig.Sig_standardCrypto.standardCrypto();
+        stdgo._internal.crypto.internal.boring.sig.Sig_standardcrypto.standardCrypto();
     }
 }

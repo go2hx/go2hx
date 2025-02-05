@@ -1,38 +1,38 @@
 package stdgo.mime;
-final bEncoding : WordEncoder = stdgo._internal.mime.Mime_bEncoding.bEncoding;
-final qEncoding : WordEncoder = stdgo._internal.mime.Mime_qEncoding.qEncoding;
+final bEncoding : WordEncoder = stdgo._internal.mime.Mime_bencoding.bEncoding;
+final qEncoding : WordEncoder = stdgo._internal.mime.Mime_qencoding.qEncoding;
 var errInvalidMediaParameter(get, set) : stdgo.Error;
-private function get_errInvalidMediaParameter():stdgo.Error return stdgo._internal.mime.Mime_errInvalidMediaParameter.errInvalidMediaParameter;
+private function get_errInvalidMediaParameter():stdgo.Error return stdgo._internal.mime.Mime_errinvalidmediaparameter.errInvalidMediaParameter;
 private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.mime.Mime_errInvalidMediaParameter.errInvalidMediaParameter = (v : stdgo.Error);
+        stdgo._internal.mime.Mime_errinvalidmediaparameter.errInvalidMediaParameter = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.mime.Mime.WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_WordDecoder.WordDecoder) from stdgo._internal.mime.Mime_WordDecoder.WordDecoder to stdgo._internal.mime.Mime_WordDecoder.WordDecoder {
+@:structInit @:using(stdgo.mime.Mime.WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_worddecoder.WordDecoder) from stdgo._internal.mime.Mime_worddecoder.WordDecoder to stdgo._internal.mime.Mime_worddecoder.WordDecoder {
     public var charsetReader(get, set) : (stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
     function get_charsetReader():(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return (_0, _1) -> this.charsetReader(_0, _1);
     function set_charsetReader(v:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
         this.charsetReader = v;
         return v;
     }
-    public function new(?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }) this = new stdgo._internal.mime.Mime_WordDecoder.WordDecoder(charsetReader);
+    public function new(?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder(charsetReader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef WordEncoder = stdgo._internal.mime.Mime_WordEncoder.WordEncoder;
-typedef WordDecoderPointer = stdgo._internal.mime.Mime_WordDecoderPointer.WordDecoderPointer;
+typedef WordEncoder = stdgo._internal.mime.Mime_wordencoder.WordEncoder;
+typedef WordDecoderPointer = stdgo._internal.mime.Mime_worddecoderpointer.WordDecoderPointer;
 class WordDecoder_static_extension {
     static public function _convert(_d:WordDecoder, _buf:stdgo._internal.strings.Strings_builder.Builder, _charset:String, _content:Array<std.UInt>):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.mime.Mime_worddecoder.WordDecoder>);
         final _buf = (_buf : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         final _charset = (_charset : stdgo.GoString);
         final _content = ([for (i in _content) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.mime.Mime_WordDecoder_static_extension.WordDecoder_static_extension._convert(_d, _buf, _charset, _content);
+        return stdgo._internal.mime.Mime_worddecoder_static_extension.WordDecoder_static_extension._convert(_d, _buf, _charset, _content);
     }
     static public function decodeHeader(_d:WordDecoder, _header:String):stdgo.Tuple<String, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.mime.Mime_worddecoder.WordDecoder>);
         final _header = (_header : stdgo.GoString);
         return {
-            final obj = stdgo._internal.mime.Mime_WordDecoder_static_extension.WordDecoder_static_extension.decodeHeader(_d, _header);
+            final obj = stdgo._internal.mime.Mime_worddecoder_static_extension.WordDecoder_static_extension.decodeHeader(_d, _header);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -40,44 +40,44 @@ class WordDecoder_static_extension {
         final _d = (_d : stdgo.Ref<stdgo._internal.mime.Mime_worddecoder.WordDecoder>);
         final _word = (_word : stdgo.GoString);
         return {
-            final obj = stdgo._internal.mime.Mime_WordDecoder_static_extension.WordDecoder_static_extension.decode(_d, _word);
+            final obj = stdgo._internal.mime.Mime_worddecoder_static_extension.WordDecoder_static_extension.decode(_d, _word);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef WordEncoderPointer = stdgo._internal.mime.Mime_WordEncoderPointer.WordEncoderPointer;
+typedef WordEncoderPointer = stdgo._internal.mime.Mime_wordencoderpointer.WordEncoderPointer;
 class WordEncoder_static_extension {
     static public function _splitWord(_e:WordEncoder, _buf:stdgo._internal.strings.Strings_builder.Builder, _charset:String):Void {
         final _buf = (_buf : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         final _charset = (_charset : stdgo.GoString);
-        stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._splitWord(_e, _buf, _charset);
+        stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension._splitWord(_e, _buf, _charset);
     }
     static public function _openWord(_e:WordEncoder, _buf:stdgo._internal.strings.Strings_builder.Builder, _charset:String):Void {
         final _buf = (_buf : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         final _charset = (_charset : stdgo.GoString);
-        stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._openWord(_e, _buf, _charset);
+        stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension._openWord(_e, _buf, _charset);
     }
     static public function _qEncode(_e:WordEncoder, _buf:stdgo._internal.strings.Strings_builder.Builder, _charset:String, _s:String):Void {
         final _buf = (_buf : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         final _charset = (_charset : stdgo.GoString);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._qEncode(_e, _buf, _charset, _s);
+        stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension._qEncode(_e, _buf, _charset, _s);
     }
     static public function _bEncode(_e:WordEncoder, _buf:stdgo._internal.strings.Strings_builder.Builder, _charset:String, _s:String):Void {
         final _buf = (_buf : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);
         final _charset = (_charset : stdgo.GoString);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._bEncode(_e, _buf, _charset, _s);
+        stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension._bEncode(_e, _buf, _charset, _s);
     }
     static public function _encodeWord(_e:WordEncoder, _charset:String, _s:String):String {
         final _charset = (_charset : stdgo.GoString);
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension._encodeWord(_e, _charset, _s);
+        return stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension._encodeWord(_e, _charset, _s);
     }
     static public function encode(_e:WordEncoder, _charset:String, _s:String):String {
         final _charset = (_charset : stdgo.GoString);
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.mime.Mime_WordEncoder_static_extension.WordEncoder_static_extension.encode(_e, _charset, _s);
+        return stdgo._internal.mime.Mime_wordencoder_static_extension.WordEncoder_static_extension.encode(_e, _charset, _s);
     }
 }
 /**
@@ -94,7 +94,7 @@ class Mime {
     static public inline function formatMediaType(_t:String, _param:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):String {
         final _t = (_t : stdgo.GoString);
         final _param = (_param : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        return stdgo._internal.mime.Mime_formatMediaType.formatMediaType(_t, _param);
+        return stdgo._internal.mime.Mime_formatmediatype.formatMediaType(_t, _param);
     }
     /**
         * ParseMediaType parses a media type value and any optional
@@ -111,7 +111,7 @@ class Mime {
     static public inline function parseMediaType(_v:String):stdgo.Tuple.Tuple3<String, stdgo.GoMap<stdgo.GoString, stdgo.GoString>, stdgo.Error> {
         final _v = (_v : stdgo.GoString);
         return {
-            final obj = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v);
+            final obj = stdgo._internal.mime.Mime_parsemediatype.parseMediaType(_v);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -138,7 +138,7 @@ class Mime {
     **/
     static public inline function typeByExtension(_ext:String):String {
         final _ext = (_ext : stdgo.GoString);
-        return stdgo._internal.mime.Mime_typeByExtension.typeByExtension(_ext);
+        return stdgo._internal.mime.Mime_typebyextension.typeByExtension(_ext);
     }
     /**
         * ExtensionsByType returns the extensions known to be associated with the MIME
@@ -149,7 +149,7 @@ class Mime {
     static public inline function extensionsByType(_typ:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _typ = (_typ : stdgo.GoString);
         return {
-            final obj = stdgo._internal.mime.Mime_extensionsByType.extensionsByType(_typ);
+            final obj = stdgo._internal.mime.Mime_extensionsbytype.extensionsByType(_typ);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -161,6 +161,6 @@ class Mime {
     static public inline function addExtensionType(_ext:String, _typ:String):stdgo.Error {
         final _ext = (_ext : stdgo.GoString);
         final _typ = (_typ : stdgo.GoString);
-        return stdgo._internal.mime.Mime_addExtensionType.addExtensionType(_ext, _typ);
+        return stdgo._internal.mime.Mime_addextensiontype.addExtensionType(_ext, _typ);
     }
 }

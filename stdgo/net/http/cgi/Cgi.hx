@@ -1,5 +1,5 @@
 package stdgo.net.http.cgi;
-@:structInit @:using(stdgo.net.http.cgi.Cgi.T_response_static_extension) abstract T_response(stdgo._internal.net.http.cgi.Cgi_T_response.T_response) from stdgo._internal.net.http.cgi.Cgi_T_response.T_response to stdgo._internal.net.http.cgi.Cgi_T_response.T_response {
+@:structInit @:using(stdgo.net.http.cgi.Cgi.T_response_static_extension) abstract T_response(stdgo._internal.net.http.cgi.Cgi_t_response.T_response) from stdgo._internal.net.http.cgi.Cgi_t_response.T_response to stdgo._internal.net.http.cgi.Cgi_t_response.T_response {
     public var _req(get, set) : stdgo._internal.net.http.Http_request.Request;
     function get__req():stdgo._internal.net.http.Http_request.Request return this._req;
     function set__req(v:stdgo._internal.net.http.Http_request.Request):stdgo._internal.net.http.Http_request.Request {
@@ -36,11 +36,11 @@ package stdgo.net.http.cgi;
         this._bufw = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>);
         return v;
     }
-    public function new(?_req:stdgo._internal.net.http.Http_request.Request, ?_header:stdgo._internal.net.http.Http_header.Header, ?_code:StdTypes.Int, ?_wroteHeader:Bool, ?_wroteCGIHeader:Bool, ?_bufw:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.net.http.cgi.Cgi_T_response.T_response((_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _header, (_code : stdgo.GoInt), _wroteHeader, _wroteCGIHeader, (_bufw : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>));
+    public function new(?_req:stdgo._internal.net.http.Http_request.Request, ?_header:stdgo._internal.net.http.Http_header.Header, ?_code:StdTypes.Int, ?_wroteHeader:Bool, ?_wroteCGIHeader:Bool, ?_bufw:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.net.http.cgi.Cgi_t_response.T_response((_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _header, (_code : stdgo.GoInt), _wroteHeader, _wroteCGIHeader, (_bufw : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.cgi.Cgi.Handler_static_extension) abstract Handler(stdgo._internal.net.http.cgi.Cgi_Handler.Handler) from stdgo._internal.net.http.cgi.Cgi_Handler.Handler to stdgo._internal.net.http.cgi.Cgi_Handler.Handler {
+@:structInit @:using(stdgo.net.http.cgi.Cgi.Handler_static_extension) abstract Handler(stdgo._internal.net.http.cgi.Cgi_handler.Handler) from stdgo._internal.net.http.cgi.Cgi_handler.Handler to stdgo._internal.net.http.cgi.Cgi_handler.Handler {
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
@@ -95,60 +95,60 @@ package stdgo.net.http.cgi;
         this.pathLocationHandler = v;
         return v;
     }
-    public function new(?path:String, ?root:String, ?dir:String, ?env:Array<String>, ?inheritEnv:Array<String>, ?logger:stdgo._internal.log.Log_logger.Logger, ?args:Array<String>, ?stderr:stdgo._internal.io.Io_writer.Writer, ?pathLocationHandler:stdgo._internal.net.http.Http_handler.Handler) this = new stdgo._internal.net.http.cgi.Cgi_Handler.Handler((path : stdgo.GoString), (root : stdgo.GoString), (dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in inheritEnv) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (logger : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>), ([for (i in args) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), stderr, pathLocationHandler);
+    public function new(?path:String, ?root:String, ?dir:String, ?env:Array<String>, ?inheritEnv:Array<String>, ?logger:stdgo._internal.log.Log_logger.Logger, ?args:Array<String>, ?stderr:stdgo._internal.io.Io_writer.Writer, ?pathLocationHandler:stdgo._internal.net.http.Http_handler.Handler) this = new stdgo._internal.net.http.cgi.Cgi_handler.Handler((path : stdgo.GoString), (root : stdgo.GoString), (dir : stdgo.GoString), ([for (i in env) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in inheritEnv) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (logger : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>), ([for (i in args) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), stderr, pathLocationHandler);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_responsePointer = stdgo._internal.net.http.cgi.Cgi_T_responsePointer.T_responsePointer;
+typedef T_responsePointer = stdgo._internal.net.http.cgi.Cgi_t_responsepointer.T_responsePointer;
 class T_response_static_extension {
     static public function _writeCGIHeader(_r:T_response, _p:Array<std.UInt>):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension._writeCGIHeader(_r, _p);
+        stdgo._internal.net.http.cgi.Cgi_t_response_static_extension.T_response_static_extension._writeCGIHeader(_r, _p);
     }
     static public function writeHeader(_r:T_response, _code:StdTypes.Int):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
         final _code = (_code : stdgo.GoInt);
-        stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension.writeHeader(_r, _code);
+        stdgo._internal.net.http.cgi.Cgi_t_response_static_extension.T_response_static_extension.writeHeader(_r, _code);
     }
     static public function write(_r:T_response, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension.write(_r, _p);
+            final obj = stdgo._internal.net.http.cgi.Cgi_t_response_static_extension.T_response_static_extension.write(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function header(_r:T_response):stdgo._internal.net.http.Http_header.Header {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
-        return stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension.header(_r);
+        return stdgo._internal.net.http.cgi.Cgi_t_response_static_extension.T_response_static_extension.header(_r);
     }
     static public function flush(_r:T_response):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
-        stdgo._internal.net.http.cgi.Cgi_T_response_static_extension.T_response_static_extension.flush(_r);
+        stdgo._internal.net.http.cgi.Cgi_t_response_static_extension.T_response_static_extension.flush(_r);
     }
 }
-typedef HandlerPointer = stdgo._internal.net.http.cgi.Cgi_HandlerPointer.HandlerPointer;
+typedef HandlerPointer = stdgo._internal.net.http.cgi.Cgi_handlerpointer.HandlerPointer;
 class Handler_static_extension {
     static public function _handleInternalRedirect(_h:Handler, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _req:stdgo._internal.net.http.Http_request.Request, _path:String):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler>);
         final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         final _path = (_path : stdgo.GoString);
-        stdgo._internal.net.http.cgi.Cgi_Handler_static_extension.Handler_static_extension._handleInternalRedirect(_h, _rw, _req, _path);
+        stdgo._internal.net.http.cgi.Cgi_handler_static_extension.Handler_static_extension._handleInternalRedirect(_h, _rw, _req, _path);
     }
     static public function _printf(_h:Handler, _format:String, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler>);
         final _format = (_format : stdgo.GoString);
-        stdgo._internal.net.http.cgi.Cgi_Handler_static_extension.Handler_static_extension._printf(_h, _format, ...[for (i in _v) i]);
+        stdgo._internal.net.http.cgi.Cgi_handler_static_extension.Handler_static_extension._printf(_h, _format, ...[for (i in _v) i]);
     }
     static public function serveHTTP(_h:Handler, _rw:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _req:stdgo._internal.net.http.Http_request.Request):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler>);
         final _req = (_req : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
-        stdgo._internal.net.http.cgi.Cgi_Handler_static_extension.Handler_static_extension.serveHTTP(_h, _rw, _req);
+        stdgo._internal.net.http.cgi.Cgi_handler_static_extension.Handler_static_extension.serveHTTP(_h, _rw, _req);
     }
     static public function _stderr(_h:Handler):stdgo._internal.io.Io_writer.Writer {
         final _h = (_h : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler>);
-        return stdgo._internal.net.http.cgi.Cgi_Handler_static_extension.Handler_static_extension._stderr(_h);
+        return stdgo._internal.net.http.cgi.Cgi_handler_static_extension.Handler_static_extension._stderr(_h);
     }
 }
 /**
@@ -180,7 +180,7 @@ class Cgi {
     static public inline function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
         final _params = (_params : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         return {
-            final obj = stdgo._internal.net.http.cgi.Cgi_requestFromMap.requestFromMap(_params);
+            final obj = stdgo._internal.net.http.cgi.Cgi_requestfrommap.requestFromMap(_params);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

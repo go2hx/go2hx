@@ -2,28 +2,28 @@ package stdgo.internal.testlog;
 class Interface_static_extension {
     static public function chdir(t:stdgo._internal.internal.testlog.Testlog_interface.Interface, _dir:String):Void {
         final _dir = (_dir : stdgo.GoString);
-        stdgo._internal.internal.testlog.Testlog_Interface_static_extension.Interface_static_extension.chdir(t, _dir);
+        stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.chdir(t, _dir);
     }
     static public function open(t:stdgo._internal.internal.testlog.Testlog_interface.Interface, _file:String):Void {
         final _file = (_file : stdgo.GoString);
-        stdgo._internal.internal.testlog.Testlog_Interface_static_extension.Interface_static_extension.open(t, _file);
+        stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.open(t, _file);
     }
     static public function stat(t:stdgo._internal.internal.testlog.Testlog_interface.Interface, _file:String):Void {
         final _file = (_file : stdgo.GoString);
-        stdgo._internal.internal.testlog.Testlog_Interface_static_extension.Interface_static_extension.stat(t, _file);
+        stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.stat(t, _file);
     }
     static public function getenv(t:stdgo._internal.internal.testlog.Testlog_interface.Interface, _key:String):Void {
         final _key = (_key : stdgo.GoString);
-        stdgo._internal.internal.testlog.Testlog_Interface_static_extension.Interface_static_extension.getenv(t, _key);
+        stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.getenv(t, _key);
     }
 }
-typedef Interface = stdgo._internal.internal.testlog.Testlog_Interface.Interface;
-typedef T__struct_0Pointer = stdgo._internal.internal.testlog.Testlog_T__struct_0Pointer.T__struct_0Pointer;
+typedef Interface = stdgo._internal.internal.testlog.Testlog_interface.Interface;
+typedef T__struct_0Pointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.internal.testlog.Testlog_T__struct_0.T__struct_0;
-typedef T__struct_0PointerPointer = stdgo._internal.internal.testlog.Testlog_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0 = stdgo._internal.internal.testlog.Testlog_t__struct_0.T__struct_0;
+typedef T__struct_0PointerPointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
@@ -41,20 +41,20 @@ class Testlog {
         * does not cause a test to pass.
     **/
     static public inline function panicOnExit0():Bool {
-        return stdgo._internal.internal.testlog.Testlog_panicOnExit0.panicOnExit0();
+        return stdgo._internal.internal.testlog.Testlog_paniconexit0.panicOnExit0();
     }
     /**
         * SetPanicOnExit0 sets panicOnExit0 to v.
     **/
     static public inline function setPanicOnExit0(_v:Bool):Void {
-        stdgo._internal.internal.testlog.Testlog_setPanicOnExit0.setPanicOnExit0(_v);
+        stdgo._internal.internal.testlog.Testlog_setpaniconexit0.setPanicOnExit0(_v);
     }
     /**
         * SetLogger sets the test logger implementation for the current process.
         * It must be called only once, at process startup.
     **/
     static public inline function setLogger(_impl:Interface):Void {
-        stdgo._internal.internal.testlog.Testlog_setLogger.setLogger(_impl);
+        stdgo._internal.internal.testlog.Testlog_setlogger.setLogger(_impl);
     }
     /**
         * Logger returns the current test logger implementation.

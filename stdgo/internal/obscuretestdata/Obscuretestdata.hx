@@ -20,7 +20,7 @@ class Obscuretestdata {
     static public inline function decodeToTempFile(_name:String):stdgo.Tuple<String, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.internal.obscuretestdata.Obscuretestdata_decodeToTempFile.decodeToTempFile(_name);
+            final obj = stdgo._internal.internal.obscuretestdata.Obscuretestdata_decodetotempfile.decodeToTempFile(_name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -30,7 +30,7 @@ class Obscuretestdata {
     static public inline function readFile(_name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.internal.obscuretestdata.Obscuretestdata_readFile.readFile(_name);
+            final obj = stdgo._internal.internal.obscuretestdata.Obscuretestdata_readfile.readFile(_name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }

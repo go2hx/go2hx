@@ -1,5 +1,5 @@
 package stdgo.compress.bzip2;
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_bitReader_static_extension) abstract T_bitReader(stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader) from stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader to stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_bitReader_static_extension) abstract T_bitReader(stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader) from stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader to stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader {
     public var _r(get, set) : stdgo._internal.io.Io_bytereader.ByteReader;
     function get__r():stdgo._internal.io.Io_bytereader.ByteReader return this._r;
     function set__r(v:stdgo._internal.io.Io_bytereader.ByteReader):stdgo._internal.io.Io_bytereader.ByteReader {
@@ -24,11 +24,11 @@ package stdgo.compress.bzip2;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_n:haxe.UInt64, ?_bits:std.UInt, ?_err:stdgo.Error) this = new stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader(_r, (_n : stdgo.GoUInt64), (_bits : stdgo.GoUInt), (_err : stdgo.Error));
+    public function new(?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_n:haxe.UInt64, ?_bits:std.UInt, ?_err:stdgo.Error) this = new stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader(_r, (_n : stdgo.GoUInt64), (_bits : stdgo.GoUInt), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_reader_static_extension) abstract T_reader(stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader) from stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader to stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_reader_static_extension) abstract T_reader(stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader) from stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader to stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader {
     public var _br(get, set) : T_bitReader;
     function get__br():T_bitReader return this._br;
     function set__br(v:T_bitReader):T_bitReader {
@@ -119,7 +119,7 @@ package stdgo.compress.bzip2;
         this._repeats = (v : stdgo.GoUInt);
         return v;
     }
-    public function new(?_br:T_bitReader, ?_fileCRC:std.UInt, ?_blockCRC:std.UInt, ?_wantBlockCRC:std.UInt, ?_setupDone:Bool, ?_blockSize:StdTypes.Int, ?_eof:Bool, ?_c:haxe.ds.Vector<std.UInt>, ?_tt:Array<std.UInt>, ?_tPos:std.UInt, ?_preRLE:Array<std.UInt>, ?_preRLEUsed:StdTypes.Int, ?_lastByte:StdTypes.Int, ?_byteRepeats:std.UInt, ?_repeats:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader(
+    public function new(?_br:T_bitReader, ?_fileCRC:std.UInt, ?_blockCRC:std.UInt, ?_wantBlockCRC:std.UInt, ?_setupDone:Bool, ?_blockSize:StdTypes.Int, ?_eof:Bool, ?_c:haxe.ds.Vector<std.UInt>, ?_tt:Array<std.UInt>, ?_tPos:std.UInt, ?_preRLE:Array<std.UInt>, ?_preRLEUsed:StdTypes.Int, ?_lastByte:StdTypes.Int, ?_byteRepeats:std.UInt, ?_repeats:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader(
 _br,
 (_fileCRC : stdgo.GoUInt32),
 (_blockCRC : stdgo.GoUInt32),
@@ -138,7 +138,7 @@ _eof,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanTree_static_extension) abstract T_huffmanTree(stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree) from stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree to stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanTree_static_extension) abstract T_huffmanTree(stdgo._internal.compress.bzip2.Bzip2_t_huffmantree.T_huffmanTree) from stdgo._internal.compress.bzip2.Bzip2_t_huffmantree.T_huffmanTree to stdgo._internal.compress.bzip2.Bzip2_t_huffmantree.T_huffmanTree {
     public var _nodes(get, set) : Array<T_huffmanNode>;
     function get__nodes():Array<T_huffmanNode> return [for (i in this._nodes) i];
     function set__nodes(v:Array<T_huffmanNode>):Array<T_huffmanNode> {
@@ -151,11 +151,11 @@ _eof,
         this._nextNode = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_nodes:Array<T_huffmanNode>, ?_nextNode:StdTypes.Int) this = new stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree(([for (i in _nodes) i] : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode>), (_nextNode : stdgo.GoInt));
+    public function new(?_nodes:Array<T_huffmanNode>, ?_nextNode:StdTypes.Int) this = new stdgo._internal.compress.bzip2.Bzip2_t_huffmantree.T_huffmanTree(([for (i in _nodes) i] : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode>), (_nextNode : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanNode_static_extension) abstract T_huffmanNode(stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode) from stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode to stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanNode_static_extension) abstract T_huffmanNode(stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode) from stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode to stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode {
     public var _left(get, set) : std.UInt;
     function get__left():std.UInt return this._left;
     function set__left(v:std.UInt):std.UInt {
@@ -180,11 +180,11 @@ _eof,
         this._rightValue = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?_left:std.UInt, ?_right:std.UInt, ?_leftValue:std.UInt, ?_rightValue:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_T_huffmanNode.T_huffmanNode((_left : stdgo.GoUInt16), (_right : stdgo.GoUInt16), (_leftValue : stdgo.GoUInt16), (_rightValue : stdgo.GoUInt16));
+    public function new(?_left:std.UInt, ?_right:std.UInt, ?_leftValue:std.UInt, ?_rightValue:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode((_left : stdgo.GoUInt16), (_right : stdgo.GoUInt16), (_leftValue : stdgo.GoUInt16), (_rightValue : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanSymbolLengthPair_static_extension) abstract T_huffmanSymbolLengthPair(stdgo._internal.compress.bzip2.Bzip2_T_huffmanSymbolLengthPair.T_huffmanSymbolLengthPair) from stdgo._internal.compress.bzip2.Bzip2_T_huffmanSymbolLengthPair.T_huffmanSymbolLengthPair to stdgo._internal.compress.bzip2.Bzip2_T_huffmanSymbolLengthPair.T_huffmanSymbolLengthPair {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanSymbolLengthPair_static_extension) abstract T_huffmanSymbolLengthPair(stdgo._internal.compress.bzip2.Bzip2_t_huffmansymbollengthpair.T_huffmanSymbolLengthPair) from stdgo._internal.compress.bzip2.Bzip2_t_huffmansymbollengthpair.T_huffmanSymbolLengthPair to stdgo._internal.compress.bzip2.Bzip2_t_huffmansymbollengthpair.T_huffmanSymbolLengthPair {
     public var _value(get, set) : std.UInt;
     function get__value():std.UInt return this._value;
     function set__value(v:std.UInt):std.UInt {
@@ -197,11 +197,11 @@ _eof,
         this._length = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?_value:std.UInt, ?_length:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_T_huffmanSymbolLengthPair.T_huffmanSymbolLengthPair((_value : stdgo.GoUInt16), (_length : stdgo.GoUInt8));
+    public function new(?_value:std.UInt, ?_length:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_t_huffmansymbollengthpair.T_huffmanSymbolLengthPair((_value : stdgo.GoUInt16), (_length : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanCode_static_extension) abstract T_huffmanCode(stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode) from stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode to stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode {
+@:structInit @:using(stdgo.compress.bzip2.Bzip2.T_huffmanCode_static_extension) abstract T_huffmanCode(stdgo._internal.compress.bzip2.Bzip2_t_huffmancode.T_huffmanCode) from stdgo._internal.compress.bzip2.Bzip2_t_huffmancode.T_huffmanCode to stdgo._internal.compress.bzip2.Bzip2_t_huffmancode.T_huffmanCode {
     public var _code(get, set) : std.UInt;
     function get__code():std.UInt return this._code;
     function set__code(v:std.UInt):std.UInt {
@@ -220,126 +220,126 @@ _eof,
         this._value = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?_code:std.UInt, ?_codeLen:std.UInt, ?_value:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode((_code : stdgo.GoUInt32), (_codeLen : stdgo.GoUInt8), (_value : stdgo.GoUInt16));
+    public function new(?_code:std.UInt, ?_codeLen:std.UInt, ?_value:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2_t_huffmancode.T_huffmanCode((_code : stdgo.GoUInt32), (_codeLen : stdgo.GoUInt8), (_value : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.compress.bzip2.Bzip2_T__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_1Pointer.T__struct_1Pointer;
+typedef T__struct_0 = stdgo._internal.compress.bzip2.Bzip2_t__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_1pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.compress.bzip2.Bzip2_T__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_2Pointer.T__struct_2Pointer;
+typedef T__struct_1 = stdgo._internal.compress.bzip2.Bzip2_t__struct_1.T__struct_1;
+typedef T__struct_2Pointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_2pointer.T__struct_2Pointer;
 class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.compress.bzip2.Bzip2_T__struct_2.T__struct_2;
-typedef StructuralError = stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError;
-typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder;
-typedef T_bitReaderPointer = stdgo._internal.compress.bzip2.Bzip2_T_bitReaderPointer.T_bitReaderPointer;
+typedef T__struct_2 = stdgo._internal.compress.bzip2.Bzip2_t__struct_2.T__struct_2;
+typedef StructuralError = stdgo._internal.compress.bzip2.Bzip2_structuralerror.StructuralError;
+typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.Bzip2_t_movetofrontdecoder.T_moveToFrontDecoder;
+typedef T_bitReaderPointer = stdgo._internal.compress.bzip2.Bzip2_t_bitreaderpointer.T_bitReaderPointer;
 class T_bitReader_static_extension {
     static public function err(_br:T_bitReader):stdgo.Error {
         final _br = (_br : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_bitReader_static_extension.T_bitReader_static_extension.err(_br);
+        return stdgo._internal.compress.bzip2.Bzip2_t_bitreader_static_extension.T_bitReader_static_extension.err(_br);
     }
     static public function readBit(_br:T_bitReader):Bool {
         final _br = (_br : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_bitReader_static_extension.T_bitReader_static_extension.readBit(_br);
+        return stdgo._internal.compress.bzip2.Bzip2_t_bitreader_static_extension.T_bitReader_static_extension.readBit(_br);
     }
     static public function readBits(_br:T_bitReader, _bits:std.UInt):StdTypes.Int {
         final _br = (_br : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader>);
         final _bits = (_bits : stdgo.GoUInt);
-        return stdgo._internal.compress.bzip2.Bzip2_T_bitReader_static_extension.T_bitReader_static_extension.readBits(_br, _bits);
+        return stdgo._internal.compress.bzip2.Bzip2_t_bitreader_static_extension.T_bitReader_static_extension.readBits(_br, _bits);
     }
     static public function readBits64(_br:T_bitReader, _bits:std.UInt):haxe.UInt64 {
         final _br = (_br : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader>);
         final _bits = (_bits : stdgo.GoUInt);
-        return stdgo._internal.compress.bzip2.Bzip2_T_bitReader_static_extension.T_bitReader_static_extension.readBits64(_br, _bits);
+        return stdgo._internal.compress.bzip2.Bzip2_t_bitreader_static_extension.T_bitReader_static_extension.readBits64(_br, _bits);
     }
 }
-typedef T_readerPointer = stdgo._internal.compress.bzip2.Bzip2_T_readerPointer.T_readerPointer;
+typedef T_readerPointer = stdgo._internal.compress.bzip2.Bzip2_t_readerpointer.T_readerPointer;
 class T_reader_static_extension {
     static public function _readBlock(_bz2:T_reader):stdgo.Error {
         final _bz2 = (_bz2 : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_reader_static_extension.T_reader_static_extension._readBlock(_bz2);
+        return stdgo._internal.compress.bzip2.Bzip2_t_reader_static_extension.T_reader_static_extension._readBlock(_bz2);
     }
     static public function _read(_bz2:T_reader, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _bz2 = (_bz2 : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.compress.bzip2.Bzip2_T_reader_static_extension.T_reader_static_extension._read(_bz2, _buf);
+            final obj = stdgo._internal.compress.bzip2.Bzip2_t_reader_static_extension.T_reader_static_extension._read(_bz2, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readFromBlock(_bz2:T_reader, _buf:Array<std.UInt>):StdTypes.Int {
         final _bz2 = (_bz2 : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_reader_static_extension.T_reader_static_extension._readFromBlock(_bz2, _buf);
+        return stdgo._internal.compress.bzip2.Bzip2_t_reader_static_extension.T_reader_static_extension._readFromBlock(_bz2, _buf);
     }
     static public function read(_bz2:T_reader, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _bz2 = (_bz2 : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.compress.bzip2.Bzip2_T_reader_static_extension.T_reader_static_extension.read(_bz2, _buf);
+            final obj = stdgo._internal.compress.bzip2.Bzip2_t_reader_static_extension.T_reader_static_extension.read(_bz2, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _setup(_bz2:T_reader, _needMagic:Bool):stdgo.Error {
         final _bz2 = (_bz2 : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_reader.T_reader>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_reader_static_extension.T_reader_static_extension._setup(_bz2, _needMagic);
+        return stdgo._internal.compress.bzip2.Bzip2_t_reader_static_extension.T_reader_static_extension._setup(_bz2, _needMagic);
     }
 }
-typedef T_huffmanTreePointer = stdgo._internal.compress.bzip2.Bzip2_T_huffmanTreePointer.T_huffmanTreePointer;
+typedef T_huffmanTreePointer = stdgo._internal.compress.bzip2.Bzip2_t_huffmantreepointer.T_huffmanTreePointer;
 class T_huffmanTree_static_extension {
     static public function decode(_t:T_huffmanTree, _br:T_bitReader):std.UInt {
         final _t = (_t : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_huffmantree.T_huffmanTree>);
         final _br = (_br : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_bitreader.T_bitReader>);
-        return stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree_static_extension.T_huffmanTree_static_extension.decode(_t, _br);
+        return stdgo._internal.compress.bzip2.Bzip2_t_huffmantree_static_extension.T_huffmanTree_static_extension.decode(_t, _br);
     }
 }
-typedef T_huffmanNodePointer = stdgo._internal.compress.bzip2.Bzip2_T_huffmanNodePointer.T_huffmanNodePointer;
+typedef T_huffmanNodePointer = stdgo._internal.compress.bzip2.Bzip2_t_huffmannodepointer.T_huffmanNodePointer;
 class T_huffmanNode_static_extension {
 
 }
-typedef T_huffmanSymbolLengthPairPointer = stdgo._internal.compress.bzip2.Bzip2_T_huffmanSymbolLengthPairPointer.T_huffmanSymbolLengthPairPointer;
+typedef T_huffmanSymbolLengthPairPointer = stdgo._internal.compress.bzip2.Bzip2_t_huffmansymbollengthpairpointer.T_huffmanSymbolLengthPairPointer;
 class T_huffmanSymbolLengthPair_static_extension {
 
 }
-typedef T_huffmanCodePointer = stdgo._internal.compress.bzip2.Bzip2_T_huffmanCodePointer.T_huffmanCodePointer;
+typedef T_huffmanCodePointer = stdgo._internal.compress.bzip2.Bzip2_t_huffmancodepointer.T_huffmanCodePointer;
 class T_huffmanCode_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_1PointerPointer.T__struct_1PointerPointer;
+typedef T__struct_1PointerPointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_1pointerpointer.T__struct_1PointerPointer;
 class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.compress.bzip2.Bzip2_T__struct_2PointerPointer.T__struct_2PointerPointer;
+typedef T__struct_2PointerPointer = stdgo._internal.compress.bzip2.Bzip2_t__struct_2pointerpointer.T__struct_2PointerPointer;
 class T__struct_2Pointer_static_extension {
 
 }
-typedef StructuralErrorPointer = stdgo._internal.compress.bzip2.Bzip2_StructuralErrorPointer.StructuralErrorPointer;
+typedef StructuralErrorPointer = stdgo._internal.compress.bzip2.Bzip2_structuralerrorpointer.StructuralErrorPointer;
 class StructuralError_static_extension {
     static public function error(_s:StructuralError):String {
-        return stdgo._internal.compress.bzip2.Bzip2_StructuralError_static_extension.StructuralError_static_extension.error(_s);
+        return stdgo._internal.compress.bzip2.Bzip2_structuralerror_static_extension.StructuralError_static_extension.error(_s);
     }
 }
-typedef T_moveToFrontDecoderPointer = stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoderPointer.T_moveToFrontDecoderPointer;
+typedef T_moveToFrontDecoderPointer = stdgo._internal.compress.bzip2.Bzip2_t_movetofrontdecoderpointer.T_moveToFrontDecoderPointer;
 class T_moveToFrontDecoder_static_extension {
     static public function first(_m:T_moveToFrontDecoder):std.UInt {
-        return stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder_static_extension.T_moveToFrontDecoder_static_extension.first(_m);
+        return stdgo._internal.compress.bzip2.Bzip2_t_movetofrontdecoder_static_extension.T_moveToFrontDecoder_static_extension.first(_m);
     }
     static public function decode(_m:T_moveToFrontDecoder, _n:StdTypes.Int):std.UInt {
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder_static_extension.T_moveToFrontDecoder_static_extension.decode(_m, _n);
+        return stdgo._internal.compress.bzip2.Bzip2_t_movetofrontdecoder_static_extension.T_moveToFrontDecoder_static_extension.decode(_m, _n);
     }
 }
 /**
@@ -352,34 +352,34 @@ class Bzip2 {
         * the decompressor may read more data than necessary from r.
     **/
     static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
-        return stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(_r);
+        return stdgo._internal.compress.bzip2.Bzip2_newreader.newReader(_r);
     }
     static public inline function testReader(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.compress.bzip2.Bzip2_testReader.testReader(_t);
+        stdgo._internal.compress.bzip2.Bzip2_testreader.testReader(_t);
     }
     static public inline function testBitReader(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.compress.bzip2.Bzip2_testBitReader.testBitReader(_t);
+        stdgo._internal.compress.bzip2.Bzip2_testbitreader.testBitReader(_t);
     }
     static public inline function testMTF(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.compress.bzip2.Bzip2_testMTF.testMTF(_t);
+        stdgo._internal.compress.bzip2.Bzip2_testmtf.testMTF(_t);
     }
     static public inline function testZeroRead(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.compress.bzip2.Bzip2_testZeroRead.testZeroRead(_t);
+        stdgo._internal.compress.bzip2.Bzip2_testzeroread.testZeroRead(_t);
     }
     static public inline function benchmarkDecodeDigits(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.compress.bzip2.Bzip2_benchmarkDecodeDigits.benchmarkDecodeDigits(_b);
+        stdgo._internal.compress.bzip2.Bzip2_benchmarkdecodedigits.benchmarkDecodeDigits(_b);
     }
     static public inline function benchmarkDecodeNewton(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.compress.bzip2.Bzip2_benchmarkDecodeNewton.benchmarkDecodeNewton(_b);
+        stdgo._internal.compress.bzip2.Bzip2_benchmarkdecodenewton.benchmarkDecodeNewton(_b);
     }
     static public inline function benchmarkDecodeRand(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.compress.bzip2.Bzip2_benchmarkDecodeRand.benchmarkDecodeRand(_b);
+        stdgo._internal.compress.bzip2.Bzip2_benchmarkdecoderand.benchmarkDecodeRand(_b);
     }
 }

@@ -1,31 +1,31 @@
 package stdgo.internal.goexperiment;
 final arenas : Bool = stdgo._internal.internal.goexperiment.Goexperiment_arenas.arenas;
-final arenasInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_arenasInt.arenasInt;
-final boringCrypto : Bool = stdgo._internal.internal.goexperiment.Goexperiment_boringCrypto.boringCrypto;
-final boringCryptoInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_boringCryptoInt.boringCryptoInt;
-final cacheProg : Bool = stdgo._internal.internal.goexperiment.Goexperiment_cacheProg.cacheProg;
-final cacheProgInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_cacheProgInt.cacheProgInt;
-final cgoCheck2 : Bool = stdgo._internal.internal.goexperiment.Goexperiment_cgoCheck2.cgoCheck2;
-final cgoCheck2Int : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_cgoCheck2Int.cgoCheck2Int;
-final coverageRedesign : Bool = stdgo._internal.internal.goexperiment.Goexperiment_coverageRedesign.coverageRedesign;
-final coverageRedesignInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_coverageRedesignInt.coverageRedesignInt;
-final fieldTrack : Bool = stdgo._internal.internal.goexperiment.Goexperiment_fieldTrack.fieldTrack;
-final fieldTrackInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_fieldTrackInt.fieldTrackInt;
-final heapMinimum512KiB : Bool = stdgo._internal.internal.goexperiment.Goexperiment_heapMinimum512KiB.heapMinimum512KiB;
-final heapMinimum512KiBInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_heapMinimum512KiBInt.heapMinimum512KiBInt;
-final loopVar : Bool = stdgo._internal.internal.goexperiment.Goexperiment_loopVar.loopVar;
-final loopVarInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_loopVarInt.loopVarInt;
-final pageTrace : Bool = stdgo._internal.internal.goexperiment.Goexperiment_pageTrace.pageTrace;
-final pageTraceInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_pageTraceInt.pageTraceInt;
-final preemptibleLoops : Bool = stdgo._internal.internal.goexperiment.Goexperiment_preemptibleLoops.preemptibleLoops;
-final preemptibleLoopsInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_preemptibleLoopsInt.preemptibleLoopsInt;
-final regabiArgs : Bool = stdgo._internal.internal.goexperiment.Goexperiment_regabiArgs.regabiArgs;
-final regabiArgsInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_regabiArgsInt.regabiArgsInt;
-final regabiWrappers : Bool = stdgo._internal.internal.goexperiment.Goexperiment_regabiWrappers.regabiWrappers;
-final regabiWrappersInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_regabiWrappersInt.regabiWrappersInt;
-final staticLockRanking : Bool = stdgo._internal.internal.goexperiment.Goexperiment_staticLockRanking.staticLockRanking;
-final staticLockRankingInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_staticLockRankingInt.staticLockRankingInt;
-@:structInit @:using(stdgo.internal.goexperiment.Goexperiment.Flags_static_extension) abstract Flags(stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags) from stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags to stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags {
+final arenasInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_arenasint.arenasInt;
+final boringCrypto : Bool = stdgo._internal.internal.goexperiment.Goexperiment_boringcrypto.boringCrypto;
+final boringCryptoInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_boringcryptoint.boringCryptoInt;
+final cacheProg : Bool = stdgo._internal.internal.goexperiment.Goexperiment_cacheprog.cacheProg;
+final cacheProgInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_cacheprogint.cacheProgInt;
+final cgoCheck2 : Bool = stdgo._internal.internal.goexperiment.Goexperiment_cgocheck2.cgoCheck2;
+final cgoCheck2Int : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_cgocheck2int.cgoCheck2Int;
+final coverageRedesign : Bool = stdgo._internal.internal.goexperiment.Goexperiment_coverageredesign.coverageRedesign;
+final coverageRedesignInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_coverageredesignint.coverageRedesignInt;
+final fieldTrack : Bool = stdgo._internal.internal.goexperiment.Goexperiment_fieldtrack.fieldTrack;
+final fieldTrackInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_fieldtrackint.fieldTrackInt;
+final heapMinimum512KiB : Bool = stdgo._internal.internal.goexperiment.Goexperiment_heapminimum512kib.heapMinimum512KiB;
+final heapMinimum512KiBInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_heapminimum512kibint.heapMinimum512KiBInt;
+final loopVar : Bool = stdgo._internal.internal.goexperiment.Goexperiment_loopvar.loopVar;
+final loopVarInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_loopvarint.loopVarInt;
+final pageTrace : Bool = stdgo._internal.internal.goexperiment.Goexperiment_pagetrace.pageTrace;
+final pageTraceInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_pagetraceint.pageTraceInt;
+final preemptibleLoops : Bool = stdgo._internal.internal.goexperiment.Goexperiment_preemptibleloops.preemptibleLoops;
+final preemptibleLoopsInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_preemptibleloopsint.preemptibleLoopsInt;
+final regabiArgs : Bool = stdgo._internal.internal.goexperiment.Goexperiment_regabiargs.regabiArgs;
+final regabiArgsInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_regabiargsint.regabiArgsInt;
+final regabiWrappers : Bool = stdgo._internal.internal.goexperiment.Goexperiment_regabiwrappers.regabiWrappers;
+final regabiWrappersInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_regabiwrappersint.regabiWrappersInt;
+final staticLockRanking : Bool = stdgo._internal.internal.goexperiment.Goexperiment_staticlockranking.staticLockRanking;
+final staticLockRankingInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_staticlockrankingint.staticLockRankingInt;
+@:structInit @:using(stdgo.internal.goexperiment.Goexperiment.Flags_static_extension) abstract Flags(stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags) from stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags to stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {
     public var fieldTrack(get, set) : Bool;
     function get_fieldTrack():Bool return this.fieldTrack;
     function set_fieldTrack(v:Bool):Bool {
@@ -104,7 +104,7 @@ final staticLockRankingInt : haxe.UInt64 = stdgo._internal.internal.goexperiment
         this.cacheProg = v;
         return v;
     }
-    public function new(?fieldTrack:Bool, ?preemptibleLoops:Bool, ?staticLockRanking:Bool, ?boringCrypto:Bool, ?regabiWrappers:Bool, ?regabiArgs:Bool, ?heapMinimum512KiB:Bool, ?coverageRedesign:Bool, ?arenas:Bool, ?pageTrace:Bool, ?cgoCheck2:Bool, ?loopVar:Bool, ?cacheProg:Bool) this = new stdgo._internal.internal.goexperiment.Goexperiment_Flags.Flags(
+    public function new(?fieldTrack:Bool, ?preemptibleLoops:Bool, ?staticLockRanking:Bool, ?boringCrypto:Bool, ?regabiWrappers:Bool, ?regabiArgs:Bool, ?heapMinimum512KiB:Bool, ?coverageRedesign:Bool, ?arenas:Bool, ?pageTrace:Bool, ?cgoCheck2:Bool, ?loopVar:Bool, ?cacheProg:Bool) this = new stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags(
 fieldTrack,
 preemptibleLoops,
 staticLockRanking,
@@ -121,7 +121,7 @@ cacheProg);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef FlagsPointer = stdgo._internal.internal.goexperiment.Goexperiment_FlagsPointer.FlagsPointer;
+typedef FlagsPointer = stdgo._internal.internal.goexperiment.Goexperiment_flagspointer.FlagsPointer;
 class Flags_static_extension {
 
 }

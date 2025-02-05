@@ -1,71 +1,71 @@
 package stdgo.encoding.asn1;
-final tagBoolean : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagBoolean.tagBoolean;
-final tagInteger : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagInteger.tagInteger;
-final tagBitString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagBitString.tagBitString;
-final tagOctetString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagOctetString.tagOctetString;
-final tagNull : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagNull.tagNull;
-final tagOID : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagOID.tagOID;
-final tagEnum : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagEnum.tagEnum;
-final tagUTF8String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagUTF8String.tagUTF8String;
-final tagSequence : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagSequence.tagSequence;
-final tagSet : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagSet.tagSet;
-final tagNumericString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagNumericString.tagNumericString;
-final tagPrintableString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagPrintableString.tagPrintableString;
-final tagT61String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagT61String.tagT61String;
-final tagIA5String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagIA5String.tagIA5String;
-final tagUTCTime : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagUTCTime.tagUTCTime;
-final tagGeneralizedTime : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagGeneralizedTime.tagGeneralizedTime;
-final tagGeneralString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagGeneralString.tagGeneralString;
-final tagBMPString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagBMPString.tagBMPString;
-final classUniversal : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classUniversal.classUniversal;
-final classApplication : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classApplication.classApplication;
-final classContextSpecific : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classContextSpecific.classContextSpecific;
-final classPrivate : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classPrivate.classPrivate;
+final tagBoolean : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagboolean.tagBoolean;
+final tagInteger : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_taginteger.tagInteger;
+final tagBitString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagbitstring.tagBitString;
+final tagOctetString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagoctetstring.tagOctetString;
+final tagNull : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagnull.tagNull;
+final tagOID : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagoid.tagOID;
+final tagEnum : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagenum.tagEnum;
+final tagUTF8String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagutf8string.tagUTF8String;
+final tagSequence : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagsequence.tagSequence;
+final tagSet : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagset.tagSet;
+final tagNumericString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagnumericstring.tagNumericString;
+final tagPrintableString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagprintablestring.tagPrintableString;
+final tagT61String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagt61string.tagT61String;
+final tagIA5String : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagia5string.tagIA5String;
+final tagUTCTime : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagutctime.tagUTCTime;
+final tagGeneralizedTime : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_taggeneralizedtime.tagGeneralizedTime;
+final tagGeneralString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_taggeneralstring.tagGeneralString;
+final tagBMPString : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_tagbmpstring.tagBMPString;
+final classUniversal : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classuniversal.classUniversal;
+final classApplication : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classapplication.classApplication;
+final classContextSpecific : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classcontextspecific.classContextSpecific;
+final classPrivate : haxe.UInt64 = stdgo._internal.encoding.asn1.Asn1_classprivate.classPrivate;
 var nullRawValue(get, set) : RawValue;
-private function get_nullRawValue():RawValue return stdgo._internal.encoding.asn1.Asn1_nullRawValue.nullRawValue;
+private function get_nullRawValue():RawValue return stdgo._internal.encoding.asn1.Asn1_nullrawvalue.nullRawValue;
 private function set_nullRawValue(v:RawValue):RawValue {
-        stdgo._internal.encoding.asn1.Asn1_nullRawValue.nullRawValue = v;
+        stdgo._internal.encoding.asn1.Asn1_nullrawvalue.nullRawValue = v;
         return v;
     }
 var nullBytes(get, set) : Array<std.UInt>;
-private function get_nullBytes():Array<std.UInt> return [for (i in stdgo._internal.encoding.asn1.Asn1_nullBytes.nullBytes) i];
+private function get_nullBytes():Array<std.UInt> return [for (i in stdgo._internal.encoding.asn1.Asn1_nullbytes.nullBytes) i];
 private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
-        stdgo._internal.encoding.asn1.Asn1_nullBytes.nullBytes = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.asn1.Asn1_nullbytes.nullBytes = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
 class T_encoder_static_extension {
     static public function encode(t:stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_encoder_static_extension.T_encoder_static_extension.encode(t, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_encoder_static_extension.T_encoder_static_extension.encode(t, _dst);
     }
     static public function len(t:stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_encoder_static_extension.T_encoder_static_extension.len(t);
+        return stdgo._internal.encoding.asn1.Asn1_t_encoder_static_extension.T_encoder_static_extension.len(t);
     }
 }
-typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
-@:structInit @:using(stdgo.encoding.asn1.Asn1.StructuralError_static_extension) abstract StructuralError(stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError) from stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError to stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError {
+typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder;
+@:structInit @:using(stdgo.encoding.asn1.Asn1.StructuralError_static_extension) abstract StructuralError(stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError) from stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError to stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
         this.msg = (v : stdgo.GoString);
         return v;
     }
-    public function new(?msg:String) this = new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError((msg : stdgo.GoString));
+    public function new(?msg:String) this = new stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError((msg : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError) from stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError to stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError) from stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError to stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
         this.msg = (v : stdgo.GoString);
         return v;
     }
-    public function new(?msg:String) this = new stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError((msg : stdgo.GoString));
+    public function new(?msg:String) this = new stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError((msg : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.BitString_static_extension) abstract BitString(stdgo._internal.encoding.asn1.Asn1_BitString.BitString) from stdgo._internal.encoding.asn1.Asn1_BitString.BitString to stdgo._internal.encoding.asn1.Asn1_BitString.BitString {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.BitString_static_extension) abstract BitString(stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) from stdgo._internal.encoding.asn1.Asn1_bitstring.BitString to stdgo._internal.encoding.asn1.Asn1_bitstring.BitString {
     public var bytes(get, set) : Array<std.UInt>;
     function get_bytes():Array<std.UInt> return [for (i in this.bytes) i];
     function set_bytes(v:Array<std.UInt>):Array<std.UInt> {
@@ -78,11 +78,11 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
         this.bitLength = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?bytes:Array<std.UInt>, ?bitLength:StdTypes.Int) this = new stdgo._internal.encoding.asn1.Asn1_BitString.BitString(([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (bitLength : stdgo.GoInt));
+    public function new(?bytes:Array<std.UInt>, ?bitLength:StdTypes.Int) this = new stdgo._internal.encoding.asn1.Asn1_bitstring.BitString(([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (bitLength : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.RawValue_static_extension) abstract RawValue(stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue) from stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue to stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.RawValue_static_extension) abstract RawValue(stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) from stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue to stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue {
     public var class_(get, set) : StdTypes.Int;
     function get_class_():StdTypes.Int return this.class_;
     function set_class_(v:StdTypes.Int):StdTypes.Int {
@@ -113,22 +113,22 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
         this.fullBytes = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?class_:StdTypes.Int, ?tag:StdTypes.Int, ?isCompound:Bool, ?bytes:Array<std.UInt>, ?fullBytes:Array<std.UInt>) this = new stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue((class_ : stdgo.GoInt), (tag : stdgo.GoInt), isCompound, ([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in fullBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?class_:StdTypes.Int, ?tag:StdTypes.Int, ?isCompound:Bool, ?bytes:Array<std.UInt>, ?fullBytes:Array<std.UInt>) this = new stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue((class_ : stdgo.GoInt), (tag : stdgo.GoInt), isCompound, ([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in fullBytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_invalidUnmarshalError_static_extension) abstract T_invalidUnmarshalError(stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError) from stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError to stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.T_invalidUnmarshalError_static_extension) abstract T_invalidUnmarshalError(stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError) from stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError to stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError {
     public var type(get, set) : stdgo._internal.reflect.Reflect_type_.Type_;
     function get_type():stdgo._internal.reflect.Reflect_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.reflect.Reflect_type_.Type_ {
         this.type = v;
         return v;
     }
-    public function new(?type:stdgo._internal.reflect.Reflect_type_.Type_) this = new stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError.T_invalidUnmarshalError(type);
+    public function new(?type:stdgo._internal.reflect.Reflect_type_.Type_) this = new stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError(type);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_tagAndLength_static_extension) abstract T_tagAndLength(stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength) from stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength to stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.T_tagAndLength_static_extension) abstract T_tagAndLength(stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength) from stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength to stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength {
     public var _class(get, set) : StdTypes.Int;
     function get__class():StdTypes.Int return this._class;
     function set__class(v:StdTypes.Int):StdTypes.Int {
@@ -153,11 +153,11 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
         this._isCompound = v;
         return v;
     }
-    public function new(?_class:StdTypes.Int, ?_tag:StdTypes.Int, ?_length:StdTypes.Int, ?_isCompound:Bool) this = new stdgo._internal.encoding.asn1.Asn1_T_tagAndLength.T_tagAndLength((_class : stdgo.GoInt), (_tag : stdgo.GoInt), (_length : stdgo.GoInt), _isCompound);
+    public function new(?_class:StdTypes.Int, ?_tag:StdTypes.Int, ?_length:StdTypes.Int, ?_isCompound:Bool) this = new stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength((_class : stdgo.GoInt), (_tag : stdgo.GoInt), (_length : stdgo.GoInt), _isCompound);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_fieldParameters_static_extension) abstract T_fieldParameters(stdgo._internal.encoding.asn1.Asn1_T_fieldParameters.T_fieldParameters) from stdgo._internal.encoding.asn1.Asn1_T_fieldParameters.T_fieldParameters to stdgo._internal.encoding.asn1.Asn1_T_fieldParameters.T_fieldParameters {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.T_fieldParameters_static_extension) abstract T_fieldParameters(stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters) from stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters to stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters {
     public var _optional(get, set) : Bool;
     function get__optional():Bool return this._optional;
     function set__optional(v:Bool):Bool {
@@ -218,11 +218,11 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
         this._omitEmpty = v;
         return v;
     }
-    public function new(?_optional:Bool, ?_explicit:Bool, ?_application:Bool, ?_private:Bool, ?_defaultValue:stdgo.Pointer<haxe.Int64>, ?_tag:stdgo.Pointer<StdTypes.Int>, ?_stringType:StdTypes.Int, ?_timeType:StdTypes.Int, ?_set:Bool, ?_omitEmpty:Bool) this = new stdgo._internal.encoding.asn1.Asn1_T_fieldParameters.T_fieldParameters(_optional, _explicit, _application, _private, _defaultValue, _tag, (_stringType : stdgo.GoInt), (_timeType : stdgo.GoInt), _set, _omitEmpty);
+    public function new(?_optional:Bool, ?_explicit:Bool, ?_application:Bool, ?_private:Bool, ?_defaultValue:stdgo.Pointer<haxe.Int64>, ?_tag:stdgo.Pointer<StdTypes.Int>, ?_stringType:StdTypes.Int, ?_timeType:StdTypes.Int, ?_set:Bool, ?_omitEmpty:Bool) this = new stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters(_optional, _explicit, _application, _private, _defaultValue, _tag, (_stringType : stdgo.GoInt), (_timeType : stdgo.GoInt), _set, _omitEmpty);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_taggedEncoder_static_extension) abstract T_taggedEncoder(stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder) from stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder to stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder {
+@:structInit @:using(stdgo.encoding.asn1.Asn1.T_taggedEncoder_static_extension) abstract T_taggedEncoder(stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder) from stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder to stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder {
     public var _scratch(get, set) : haxe.ds.Vector<std.UInt>;
     function get__scratch():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._scratch) i]);
     function set__scratch(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -241,184 +241,184 @@ typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder;
         this._body = v;
         return v;
     }
-    public function new(?_scratch:haxe.ds.Vector<std.UInt>, ?_tag:T_encoder, ?_body:T_encoder) this = new stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder.T_taggedEncoder(([for (i in _scratch) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _tag, _body);
+    public function new(?_scratch:haxe.ds.Vector<std.UInt>, ?_tag:T_encoder, ?_body:T_encoder) this = new stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder(([for (i in _scratch) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _tag, _body);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef ObjectIdentifier = stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier;
-typedef Enumerated = stdgo._internal.encoding.asn1.Asn1_Enumerated.Enumerated;
-typedef Flag = stdgo._internal.encoding.asn1.Asn1_Flag.Flag;
-typedef T_asteriskFlag = stdgo._internal.encoding.asn1.Asn1_T_asteriskFlag.T_asteriskFlag;
-typedef T_ampersandFlag = stdgo._internal.encoding.asn1.Asn1_T_ampersandFlag.T_ampersandFlag;
-typedef RawContent = stdgo._internal.encoding.asn1.Asn1_RawContent.RawContent;
-typedef T_byteEncoder = stdgo._internal.encoding.asn1.Asn1_T_byteEncoder.T_byteEncoder;
-typedef T_bytesEncoder = stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder.T_bytesEncoder;
-typedef T_stringEncoder = stdgo._internal.encoding.asn1.Asn1_T_stringEncoder.T_stringEncoder;
-typedef T_multiEncoder = stdgo._internal.encoding.asn1.Asn1_T_multiEncoder.T_multiEncoder;
-typedef T_setEncoder = stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder;
-typedef T_int64Encoder = stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder;
-typedef T_bitStringEncoder = stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoder.T_bitStringEncoder;
-typedef T_oidEncoder = stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder;
-typedef StructuralErrorPointer = stdgo._internal.encoding.asn1.Asn1_StructuralErrorPointer.StructuralErrorPointer;
+typedef ObjectIdentifier = stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
+typedef Enumerated = stdgo._internal.encoding.asn1.Asn1_enumerated.Enumerated;
+typedef Flag = stdgo._internal.encoding.asn1.Asn1_flag.Flag;
+typedef T_asteriskFlag = stdgo._internal.encoding.asn1.Asn1_t_asteriskflag.T_asteriskFlag;
+typedef T_ampersandFlag = stdgo._internal.encoding.asn1.Asn1_t_ampersandflag.T_ampersandFlag;
+typedef RawContent = stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent;
+typedef T_byteEncoder = stdgo._internal.encoding.asn1.Asn1_t_byteencoder.T_byteEncoder;
+typedef T_bytesEncoder = stdgo._internal.encoding.asn1.Asn1_t_bytesencoder.T_bytesEncoder;
+typedef T_stringEncoder = stdgo._internal.encoding.asn1.Asn1_t_stringencoder.T_stringEncoder;
+typedef T_multiEncoder = stdgo._internal.encoding.asn1.Asn1_t_multiencoder.T_multiEncoder;
+typedef T_setEncoder = stdgo._internal.encoding.asn1.Asn1_t_setencoder.T_setEncoder;
+typedef T_int64Encoder = stdgo._internal.encoding.asn1.Asn1_t_int64encoder.T_int64Encoder;
+typedef T_bitStringEncoder = stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder.T_bitStringEncoder;
+typedef T_oidEncoder = stdgo._internal.encoding.asn1.Asn1_t_oidencoder.T_oidEncoder;
+typedef StructuralErrorPointer = stdgo._internal.encoding.asn1.Asn1_structuralerrorpointer.StructuralErrorPointer;
 class StructuralError_static_extension {
     static public function error(_e:StructuralError):String {
-        return stdgo._internal.encoding.asn1.Asn1_StructuralError_static_extension.StructuralError_static_extension.error(_e);
+        return stdgo._internal.encoding.asn1.Asn1_structuralerror_static_extension.StructuralError_static_extension.error(_e);
     }
 }
-typedef SyntaxErrorPointer = stdgo._internal.encoding.asn1.Asn1_SyntaxErrorPointer.SyntaxErrorPointer;
+typedef SyntaxErrorPointer = stdgo._internal.encoding.asn1.Asn1_syntaxerrorpointer.SyntaxErrorPointer;
 class SyntaxError_static_extension {
     static public function error(_e:SyntaxError):String {
-        return stdgo._internal.encoding.asn1.Asn1_SyntaxError_static_extension.SyntaxError_static_extension.error(_e);
+        return stdgo._internal.encoding.asn1.Asn1_syntaxerror_static_extension.SyntaxError_static_extension.error(_e);
     }
 }
-typedef BitStringPointer = stdgo._internal.encoding.asn1.Asn1_BitStringPointer.BitStringPointer;
+typedef BitStringPointer = stdgo._internal.encoding.asn1.Asn1_bitstringpointer.BitStringPointer;
 class BitString_static_extension {
     static public function rightAlign(_b:BitString):Array<std.UInt> {
-        return [for (i in stdgo._internal.encoding.asn1.Asn1_BitString_static_extension.BitString_static_extension.rightAlign(_b)) i];
+        return [for (i in stdgo._internal.encoding.asn1.Asn1_bitstring_static_extension.BitString_static_extension.rightAlign(_b)) i];
     }
     static public function at(_b:BitString, _i:StdTypes.Int):StdTypes.Int {
         final _i = (_i : stdgo.GoInt);
-        return stdgo._internal.encoding.asn1.Asn1_BitString_static_extension.BitString_static_extension.at(_b, _i);
+        return stdgo._internal.encoding.asn1.Asn1_bitstring_static_extension.BitString_static_extension.at(_b, _i);
     }
 }
-typedef RawValuePointer = stdgo._internal.encoding.asn1.Asn1_RawValuePointer.RawValuePointer;
+typedef RawValuePointer = stdgo._internal.encoding.asn1.Asn1_rawvaluepointer.RawValuePointer;
 class RawValue_static_extension {
 
 }
-typedef T_invalidUnmarshalErrorPointer = stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalErrorPointer.T_invalidUnmarshalErrorPointer;
+typedef T_invalidUnmarshalErrorPointer = stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerrorpointer.T_invalidUnmarshalErrorPointer;
 class T_invalidUnmarshalError_static_extension {
     static public function error(_e:T_invalidUnmarshalError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError>);
-        return stdgo._internal.encoding.asn1.Asn1_T_invalidUnmarshalError_static_extension.T_invalidUnmarshalError_static_extension.error(_e);
+        return stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror_static_extension.T_invalidUnmarshalError_static_extension.error(_e);
     }
 }
-typedef T_tagAndLengthPointer = stdgo._internal.encoding.asn1.Asn1_T_tagAndLengthPointer.T_tagAndLengthPointer;
+typedef T_tagAndLengthPointer = stdgo._internal.encoding.asn1.Asn1_t_tagandlengthpointer.T_tagAndLengthPointer;
 class T_tagAndLength_static_extension {
 
 }
-typedef T_fieldParametersPointer = stdgo._internal.encoding.asn1.Asn1_T_fieldParametersPointer.T_fieldParametersPointer;
+typedef T_fieldParametersPointer = stdgo._internal.encoding.asn1.Asn1_t_fieldparameterspointer.T_fieldParametersPointer;
 class T_fieldParameters_static_extension {
 
 }
-typedef T_taggedEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_taggedEncoderPointer.T_taggedEncoderPointer;
+typedef T_taggedEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_taggedencoderpointer.T_taggedEncoderPointer;
 class T_taggedEncoder_static_extension {
     static public function encode(_t:T_taggedEncoder, _dst:Array<std.UInt>):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder_static_extension.T_taggedEncoder_static_extension.encode(_t, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_taggedencoder_static_extension.T_taggedEncoder_static_extension.encode(_t, _dst);
     }
     static public function len(_t:T_taggedEncoder):StdTypes.Int {
         final _t = (_t : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder>);
-        return stdgo._internal.encoding.asn1.Asn1_T_taggedEncoder_static_extension.T_taggedEncoder_static_extension.len(_t);
+        return stdgo._internal.encoding.asn1.Asn1_t_taggedencoder_static_extension.T_taggedEncoder_static_extension.len(_t);
     }
 }
-typedef ObjectIdentifierPointer = stdgo._internal.encoding.asn1.Asn1_ObjectIdentifierPointer.ObjectIdentifierPointer;
+typedef ObjectIdentifierPointer = stdgo._internal.encoding.asn1.Asn1_objectidentifierpointer.ObjectIdentifierPointer;
 class ObjectIdentifier_static_extension {
     static public function string(_oi:ObjectIdentifier):String {
-        return stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension.string(_oi);
+        return stdgo._internal.encoding.asn1.Asn1_objectidentifier_static_extension.ObjectIdentifier_static_extension.string(_oi);
     }
     static public function equal(_oi:ObjectIdentifier, _other:ObjectIdentifier):Bool {
-        return stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier_static_extension.ObjectIdentifier_static_extension.equal(_oi, _other);
+        return stdgo._internal.encoding.asn1.Asn1_objectidentifier_static_extension.ObjectIdentifier_static_extension.equal(_oi, _other);
     }
 }
-typedef EnumeratedPointer = stdgo._internal.encoding.asn1.Asn1_EnumeratedPointer.EnumeratedPointer;
+typedef EnumeratedPointer = stdgo._internal.encoding.asn1.Asn1_enumeratedpointer.EnumeratedPointer;
 class Enumerated_static_extension {
 
 }
-typedef FlagPointer = stdgo._internal.encoding.asn1.Asn1_FlagPointer.FlagPointer;
+typedef FlagPointer = stdgo._internal.encoding.asn1.Asn1_flagpointer.FlagPointer;
 class Flag_static_extension {
 
 }
-typedef T_asteriskFlagPointer = stdgo._internal.encoding.asn1.Asn1_T_asteriskFlagPointer.T_asteriskFlagPointer;
+typedef T_asteriskFlagPointer = stdgo._internal.encoding.asn1.Asn1_t_asteriskflagpointer.T_asteriskFlagPointer;
 class T_asteriskFlag_static_extension {
 
 }
-typedef T_ampersandFlagPointer = stdgo._internal.encoding.asn1.Asn1_T_ampersandFlagPointer.T_ampersandFlagPointer;
+typedef T_ampersandFlagPointer = stdgo._internal.encoding.asn1.Asn1_t_ampersandflagpointer.T_ampersandFlagPointer;
 class T_ampersandFlag_static_extension {
 
 }
-typedef RawContentPointer = stdgo._internal.encoding.asn1.Asn1_RawContentPointer.RawContentPointer;
+typedef RawContentPointer = stdgo._internal.encoding.asn1.Asn1_rawcontentpointer.RawContentPointer;
 class RawContent_static_extension {
 
 }
-typedef T_byteEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_byteEncoderPointer.T_byteEncoderPointer;
+typedef T_byteEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_byteencoderpointer.T_byteEncoderPointer;
 class T_byteEncoder_static_extension {
     static public function encode(_c:T_byteEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_byteEncoder_static_extension.T_byteEncoder_static_extension.encode(_c, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_byteencoder_static_extension.T_byteEncoder_static_extension.encode(_c, _dst);
     }
     static public function len(_c:T_byteEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_byteEncoder_static_extension.T_byteEncoder_static_extension.len(_c);
+        return stdgo._internal.encoding.asn1.Asn1_t_byteencoder_static_extension.T_byteEncoder_static_extension.len(_c);
     }
 }
-typedef T_bytesEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_bytesEncoderPointer.T_bytesEncoderPointer;
+typedef T_bytesEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_bytesencoderpointer.T_bytesEncoderPointer;
 class T_bytesEncoder_static_extension {
     static public function encode(_b:T_bytesEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder_static_extension.T_bytesEncoder_static_extension.encode(_b, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_bytesencoder_static_extension.T_bytesEncoder_static_extension.encode(_b, _dst);
     }
     static public function len(_b:T_bytesEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_bytesEncoder_static_extension.T_bytesEncoder_static_extension.len(_b);
+        return stdgo._internal.encoding.asn1.Asn1_t_bytesencoder_static_extension.T_bytesEncoder_static_extension.len(_b);
     }
 }
-typedef T_stringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_stringEncoderPointer.T_stringEncoderPointer;
+typedef T_stringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_stringencoderpointer.T_stringEncoderPointer;
 class T_stringEncoder_static_extension {
     static public function encode(_s:T_stringEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_stringEncoder_static_extension.T_stringEncoder_static_extension.encode(_s, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_stringencoder_static_extension.T_stringEncoder_static_extension.encode(_s, _dst);
     }
     static public function len(_s:T_stringEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_stringEncoder_static_extension.T_stringEncoder_static_extension.len(_s);
+        return stdgo._internal.encoding.asn1.Asn1_t_stringencoder_static_extension.T_stringEncoder_static_extension.len(_s);
     }
 }
-typedef T_multiEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_multiEncoderPointer.T_multiEncoderPointer;
+typedef T_multiEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_multiencoderpointer.T_multiEncoderPointer;
 class T_multiEncoder_static_extension {
     static public function encode(_m:T_multiEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_multiEncoder_static_extension.T_multiEncoder_static_extension.encode(_m, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_multiencoder_static_extension.T_multiEncoder_static_extension.encode(_m, _dst);
     }
     static public function len(_m:T_multiEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_multiEncoder_static_extension.T_multiEncoder_static_extension.len(_m);
+        return stdgo._internal.encoding.asn1.Asn1_t_multiencoder_static_extension.T_multiEncoder_static_extension.len(_m);
     }
 }
-typedef T_setEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_setEncoderPointer.T_setEncoderPointer;
+typedef T_setEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_setencoderpointer.T_setEncoderPointer;
 class T_setEncoder_static_extension {
     static public function encode(_s:T_setEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_setEncoder_static_extension.T_setEncoder_static_extension.encode(_s, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_setencoder_static_extension.T_setEncoder_static_extension.encode(_s, _dst);
     }
     static public function len(_s:T_setEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_setEncoder_static_extension.T_setEncoder_static_extension.len(_s);
+        return stdgo._internal.encoding.asn1.Asn1_t_setencoder_static_extension.T_setEncoder_static_extension.len(_s);
     }
 }
-typedef T_int64EncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_int64EncoderPointer.T_int64EncoderPointer;
+typedef T_int64EncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_int64encoderpointer.T_int64EncoderPointer;
 class T_int64Encoder_static_extension {
     static public function encode(_i:T_int64Encoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_int64Encoder_static_extension.T_int64Encoder_static_extension.encode(_i, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_int64encoder_static_extension.T_int64Encoder_static_extension.encode(_i, _dst);
     }
     static public function len(_i:T_int64Encoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_int64Encoder_static_extension.T_int64Encoder_static_extension.len(_i);
+        return stdgo._internal.encoding.asn1.Asn1_t_int64encoder_static_extension.T_int64Encoder_static_extension.len(_i);
     }
 }
-typedef T_bitStringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoderPointer.T_bitStringEncoderPointer;
+typedef T_bitStringEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_bitstringencoderpointer.T_bitStringEncoderPointer;
 class T_bitStringEncoder_static_extension {
     static public function encode(_b:T_bitStringEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoder_static_extension.T_bitStringEncoder_static_extension.encode(_b, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder_static_extension.T_bitStringEncoder_static_extension.encode(_b, _dst);
     }
     static public function len(_b:T_bitStringEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_bitStringEncoder_static_extension.T_bitStringEncoder_static_extension.len(_b);
+        return stdgo._internal.encoding.asn1.Asn1_t_bitstringencoder_static_extension.T_bitStringEncoder_static_extension.len(_b);
     }
 }
-typedef T_oidEncoderPointer = stdgo._internal.encoding.asn1.Asn1_T_oidEncoderPointer.T_oidEncoderPointer;
+typedef T_oidEncoderPointer = stdgo._internal.encoding.asn1.Asn1_t_oidencoderpointer.T_oidEncoderPointer;
 class T_oidEncoder_static_extension {
     static public function encode(_oid:T_oidEncoder, _dst:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.asn1.Asn1_T_oidEncoder_static_extension.T_oidEncoder_static_extension.encode(_oid, _dst);
+        stdgo._internal.encoding.asn1.Asn1_t_oidencoder_static_extension.T_oidEncoder_static_extension.encode(_oid, _dst);
     }
     static public function len(_oid:T_oidEncoder):StdTypes.Int {
-        return stdgo._internal.encoding.asn1.Asn1_T_oidEncoder_static_extension.T_oidEncoder_static_extension.len(_oid);
+        return stdgo._internal.encoding.asn1.Asn1_t_oidencoder_static_extension.T_oidEncoder_static_extension.len(_oid);
     }
 }
 /**
@@ -518,7 +518,7 @@ class Asn1 {
         final _val = (_val : stdgo.AnyInterface);
         final _params = (_params : stdgo.GoString);
         return {
-            final obj = stdgo._internal.encoding.asn1.Asn1_unmarshalWithParams.unmarshalWithParams(_b, _val, _params);
+            final obj = stdgo._internal.encoding.asn1.Asn1_unmarshalwithparams.unmarshalWithParams(_b, _val, _params);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -550,7 +550,7 @@ class Asn1 {
         final _val = (_val : stdgo.AnyInterface);
         final _params = (_params : stdgo.GoString);
         return {
-            final obj = stdgo._internal.encoding.asn1.Asn1_marshalWithParams.marshalWithParams(_val, _params);
+            final obj = stdgo._internal.encoding.asn1.Asn1_marshalwithparams.marshalWithParams(_val, _params);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }

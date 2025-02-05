@@ -1,29 +1,29 @@
 package stdgo.encoding.csv;
 var errBareQuote(get, set) : stdgo.Error;
-private function get_errBareQuote():stdgo.Error return stdgo._internal.encoding.csv.Csv_errBareQuote.errBareQuote;
+private function get_errBareQuote():stdgo.Error return stdgo._internal.encoding.csv.Csv_errbarequote.errBareQuote;
 private function set_errBareQuote(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.encoding.csv.Csv_errBareQuote.errBareQuote = (v : stdgo.Error);
+        stdgo._internal.encoding.csv.Csv_errbarequote.errBareQuote = (v : stdgo.Error);
         return v;
     }
 var errQuote(get, set) : stdgo.Error;
-private function get_errQuote():stdgo.Error return stdgo._internal.encoding.csv.Csv_errQuote.errQuote;
+private function get_errQuote():stdgo.Error return stdgo._internal.encoding.csv.Csv_errquote.errQuote;
 private function set_errQuote(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.encoding.csv.Csv_errQuote.errQuote = (v : stdgo.Error);
+        stdgo._internal.encoding.csv.Csv_errquote.errQuote = (v : stdgo.Error);
         return v;
     }
 var errFieldCount(get, set) : stdgo.Error;
-private function get_errFieldCount():stdgo.Error return stdgo._internal.encoding.csv.Csv_errFieldCount.errFieldCount;
+private function get_errFieldCount():stdgo.Error return stdgo._internal.encoding.csv.Csv_errfieldcount.errFieldCount;
 private function set_errFieldCount(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.encoding.csv.Csv_errFieldCount.errFieldCount = (v : stdgo.Error);
+        stdgo._internal.encoding.csv.Csv_errfieldcount.errFieldCount = (v : stdgo.Error);
         return v;
     }
 var errTrailingComma(get, set) : stdgo.Error;
-private function get_errTrailingComma():stdgo.Error return stdgo._internal.encoding.csv.Csv_errTrailingComma.errTrailingComma;
+private function get_errTrailingComma():stdgo.Error return stdgo._internal.encoding.csv.Csv_errtrailingcomma.errTrailingComma;
 private function set_errTrailingComma(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.encoding.csv.Csv_errTrailingComma.errTrailingComma = (v : stdgo.Error);
+        stdgo._internal.encoding.csv.Csv_errtrailingcomma.errTrailingComma = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.encoding.csv.Csv.ParseError_static_extension) abstract ParseError(stdgo._internal.encoding.csv.Csv_ParseError.ParseError) from stdgo._internal.encoding.csv.Csv_ParseError.ParseError to stdgo._internal.encoding.csv.Csv_ParseError.ParseError {
+@:structInit @:using(stdgo.encoding.csv.Csv.ParseError_static_extension) abstract ParseError(stdgo._internal.encoding.csv.Csv_parseerror.ParseError) from stdgo._internal.encoding.csv.Csv_parseerror.ParseError to stdgo._internal.encoding.csv.Csv_parseerror.ParseError {
     public var startLine(get, set) : StdTypes.Int;
     function get_startLine():StdTypes.Int return this.startLine;
     function set_startLine(v:StdTypes.Int):StdTypes.Int {
@@ -48,11 +48,11 @@ private function set_errTrailingComma(v:stdgo.Error):stdgo.Error {
         this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?startLine:StdTypes.Int, ?line:StdTypes.Int, ?column:StdTypes.Int, ?err:stdgo.Error) this = new stdgo._internal.encoding.csv.Csv_ParseError.ParseError((startLine : stdgo.GoInt), (line : stdgo.GoInt), (column : stdgo.GoInt), (err : stdgo.Error));
+    public function new(?startLine:StdTypes.Int, ?line:StdTypes.Int, ?column:StdTypes.Int, ?err:stdgo.Error) this = new stdgo._internal.encoding.csv.Csv_parseerror.ParseError((startLine : stdgo.GoInt), (line : stdgo.GoInt), (column : stdgo.GoInt), (err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.Reader_static_extension) abstract Reader(stdgo._internal.encoding.csv.Csv_Reader.Reader) from stdgo._internal.encoding.csv.Csv_Reader.Reader to stdgo._internal.encoding.csv.Csv_Reader.Reader {
+@:structInit @:using(stdgo.encoding.csv.Csv.Reader_static_extension) abstract Reader(stdgo._internal.encoding.csv.Csv_reader.Reader) from stdgo._internal.encoding.csv.Csv_reader.Reader to stdgo._internal.encoding.csv.Csv_reader.Reader {
     public var comma(get, set) : StdTypes.Int;
     function get_comma():StdTypes.Int return this.comma;
     function set_comma(v:StdTypes.Int):StdTypes.Int {
@@ -143,7 +143,7 @@ private function set_errTrailingComma(v:stdgo.Error):stdgo.Error {
         this._lastRecord = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?comma:StdTypes.Int, ?comment:StdTypes.Int, ?fieldsPerRecord:StdTypes.Int, ?lazyQuotes:Bool, ?trimLeadingSpace:Bool, ?reuseRecord:Bool, ?trailingComma:Bool, ?_r:stdgo._internal.bufio.Bufio_reader.Reader, ?_numLine:StdTypes.Int, ?_offset:haxe.Int64, ?_rawBuffer:Array<std.UInt>, ?_recordBuffer:Array<std.UInt>, ?_fieldIndexes:Array<StdTypes.Int>, ?_fieldPositions:Array<T_position>, ?_lastRecord:Array<String>) this = new stdgo._internal.encoding.csv.Csv_Reader.Reader(
+    public function new(?comma:StdTypes.Int, ?comment:StdTypes.Int, ?fieldsPerRecord:StdTypes.Int, ?lazyQuotes:Bool, ?trimLeadingSpace:Bool, ?reuseRecord:Bool, ?trailingComma:Bool, ?_r:stdgo._internal.bufio.Bufio_reader.Reader, ?_numLine:StdTypes.Int, ?_offset:haxe.Int64, ?_rawBuffer:Array<std.UInt>, ?_recordBuffer:Array<std.UInt>, ?_fieldIndexes:Array<StdTypes.Int>, ?_fieldPositions:Array<T_position>, ?_lastRecord:Array<String>) this = new stdgo._internal.encoding.csv.Csv_reader.Reader(
 (comma : stdgo.GoInt32),
 (comment : stdgo.GoInt32),
 (fieldsPerRecord : stdgo.GoInt),
@@ -162,7 +162,7 @@ trailingComma,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.T_position_static_extension) abstract T_position(stdgo._internal.encoding.csv.Csv_T_position.T_position) from stdgo._internal.encoding.csv.Csv_T_position.T_position to stdgo._internal.encoding.csv.Csv_T_position.T_position {
+@:structInit @:using(stdgo.encoding.csv.Csv.T_position_static_extension) abstract T_position(stdgo._internal.encoding.csv.Csv_t_position.T_position) from stdgo._internal.encoding.csv.Csv_t_position.T_position to stdgo._internal.encoding.csv.Csv_t_position.T_position {
     public var _line(get, set) : StdTypes.Int;
     function get__line():StdTypes.Int return this._line;
     function set__line(v:StdTypes.Int):StdTypes.Int {
@@ -175,11 +175,11 @@ trailingComma,
         this._col = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_line:StdTypes.Int, ?_col:StdTypes.Int) this = new stdgo._internal.encoding.csv.Csv_T_position.T_position((_line : stdgo.GoInt), (_col : stdgo.GoInt));
+    public function new(?_line:StdTypes.Int, ?_col:StdTypes.Int) this = new stdgo._internal.encoding.csv.Csv_t_position.T_position((_line : stdgo.GoInt), (_col : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.Writer_static_extension) abstract Writer(stdgo._internal.encoding.csv.Csv_Writer.Writer) from stdgo._internal.encoding.csv.Csv_Writer.Writer to stdgo._internal.encoding.csv.Csv_Writer.Writer {
+@:structInit @:using(stdgo.encoding.csv.Csv.Writer_static_extension) abstract Writer(stdgo._internal.encoding.csv.Csv_writer.Writer) from stdgo._internal.encoding.csv.Csv_writer.Writer to stdgo._internal.encoding.csv.Csv_writer.Writer {
     public var comma(get, set) : StdTypes.Int;
     function get_comma():StdTypes.Int return this.comma;
     function set_comma(v:StdTypes.Int):StdTypes.Int {
@@ -198,93 +198,93 @@ trailingComma,
         this._w = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>);
         return v;
     }
-    public function new(?comma:StdTypes.Int, ?useCRLF:Bool, ?_w:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.encoding.csv.Csv_Writer.Writer((comma : stdgo.GoInt32), useCRLF, (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>));
+    public function new(?comma:StdTypes.Int, ?useCRLF:Bool, ?_w:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.encoding.csv.Csv_writer.Writer((comma : stdgo.GoInt32), useCRLF, (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef ParseErrorPointer = stdgo._internal.encoding.csv.Csv_ParseErrorPointer.ParseErrorPointer;
+typedef ParseErrorPointer = stdgo._internal.encoding.csv.Csv_parseerrorpointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function unwrap(_e:ParseError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.csv.Csv_parseerror.ParseError>);
-        return stdgo._internal.encoding.csv.Csv_ParseError_static_extension.ParseError_static_extension.unwrap(_e);
+        return stdgo._internal.encoding.csv.Csv_parseerror_static_extension.ParseError_static_extension.unwrap(_e);
     }
     static public function error(_e:ParseError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.csv.Csv_parseerror.ParseError>);
-        return stdgo._internal.encoding.csv.Csv_ParseError_static_extension.ParseError_static_extension.error(_e);
+        return stdgo._internal.encoding.csv.Csv_parseerror_static_extension.ParseError_static_extension.error(_e);
     }
 }
-typedef ReaderPointer = stdgo._internal.encoding.csv.Csv_ReaderPointer.ReaderPointer;
+typedef ReaderPointer = stdgo._internal.encoding.csv.Csv_readerpointer.ReaderPointer;
 class Reader_static_extension {
     static public function _readRecord(_r:Reader, _dst:Array<String>):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
         final _dst = ([for (i in _dst) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return {
-            final obj = stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension._readRecord(_r, _dst);
+            final obj = stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension._readRecord(_r, _dst);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _readLine(_r:Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
         return {
-            final obj = stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension._readLine(_r);
+            final obj = stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension._readLine(_r);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function readAll(_r:Reader):stdgo.Tuple<Array<Array<String>>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
         return {
-            final obj = stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension.readAll(_r);
+            final obj = stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension.readAll(_r);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : obj._1 };
         };
     }
     static public function inputOffset(_r:Reader):haxe.Int64 {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
-        return stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension.inputOffset(_r);
+        return stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension.inputOffset(_r);
     }
     static public function fieldPos(_r:Reader, _field:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
         final _field = (_field : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension.fieldPos(_r, _field);
+            final obj = stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension.fieldPos(_r, _field);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function read(_r:Reader):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_reader.Reader>);
         return {
-            final obj = stdgo._internal.encoding.csv.Csv_Reader_static_extension.Reader_static_extension.read(_r);
+            final obj = stdgo._internal.encoding.csv.Csv_reader_static_extension.Reader_static_extension.read(_r);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_positionPointer = stdgo._internal.encoding.csv.Csv_T_positionPointer.T_positionPointer;
+typedef T_positionPointer = stdgo._internal.encoding.csv.Csv_t_positionpointer.T_positionPointer;
 class T_position_static_extension {
 
 }
-typedef WriterPointer = stdgo._internal.encoding.csv.Csv_WriterPointer.WriterPointer;
+typedef WriterPointer = stdgo._internal.encoding.csv.Csv_writerpointer.WriterPointer;
 class Writer_static_extension {
     static public function _fieldNeedsQuotes(_w:Writer, _field:String):Bool {
         final _w = (_w : stdgo.Ref<stdgo._internal.encoding.csv.Csv_writer.Writer>);
         final _field = (_field : stdgo.GoString);
-        return stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension._fieldNeedsQuotes(_w, _field);
+        return stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension._fieldNeedsQuotes(_w, _field);
     }
     static public function writeAll(_w:Writer, _records:Array<Array<String>>):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.encoding.csv.Csv_writer.Writer>);
         final _records = ([for (i in _records) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.Slice<stdgo.Slice<stdgo.GoString>>);
-        return stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension.writeAll(_w, _records);
+        return stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension.writeAll(_w, _records);
     }
     static public function error(_w:Writer):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.encoding.csv.Csv_writer.Writer>);
-        return stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension.error(_w);
+        return stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension.error(_w);
     }
     static public function flush(_w:Writer):Void {
         final _w = (_w : stdgo.Ref<stdgo._internal.encoding.csv.Csv_writer.Writer>);
-        stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension.flush(_w);
+        stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension.flush(_w);
     }
     static public function write(_w:Writer, _record:Array<String>):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.encoding.csv.Csv_writer.Writer>);
         final _record = ([for (i in _record) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        return stdgo._internal.encoding.csv.Csv_Writer_static_extension.Writer_static_extension.write(_w, _record);
+        return stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension.write(_w, _record);
     }
 }
 /**
@@ -341,12 +341,12 @@ class Csv {
         * NewReader returns a new Reader that reads from r.
     **/
     static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):Reader {
-        return stdgo._internal.encoding.csv.Csv_newReader.newReader(_r);
+        return stdgo._internal.encoding.csv.Csv_newreader.newReader(_r);
     }
     /**
         * NewWriter returns a new Writer that writes to w.
     **/
     static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer):Writer {
-        return stdgo._internal.encoding.csv.Csv_newWriter.newWriter(_w);
+        return stdgo._internal.encoding.csv.Csv_newwriter.newWriter(_w);
     }
 }

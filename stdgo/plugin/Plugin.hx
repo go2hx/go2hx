@@ -1,5 +1,5 @@
 package stdgo.plugin;
-@:structInit @:using(stdgo.plugin.Plugin.Plugin_static_extension) abstract Plugin_(stdgo._internal.plugin.Plugin_Plugin.Plugin) from stdgo._internal.plugin.Plugin_Plugin.Plugin to stdgo._internal.plugin.Plugin_Plugin.Plugin {
+@:structInit @:using(stdgo.plugin.Plugin.Plugin_static_extension) abstract Plugin_(stdgo._internal.plugin.Plugin_plugin.Plugin) from stdgo._internal.plugin.Plugin_plugin.Plugin to stdgo._internal.plugin.Plugin_plugin.Plugin {
     public var _pluginpath(get, set) : String;
     function get__pluginpath():String return this._pluginpath;
     function set__pluginpath(v:String):String {
@@ -24,32 +24,32 @@ package stdgo.plugin;
         this._syms = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         return v;
     }
-    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_Plugin.Plugin((_pluginpath : stdgo.GoString), (_err : stdgo.GoString), (_loaded : stdgo.Chan<{ }>), (_syms : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>));
+    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_plugin.Plugin((_pluginpath : stdgo.GoString), (_err : stdgo.GoString), (_loaded : stdgo.Chan<{ }>), (_syms : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.plugin.Plugin_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.plugin.Plugin_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.plugin.Plugin_T__struct_0.T__struct_0;
-typedef Symbol = stdgo._internal.plugin.Plugin_Symbol.Symbol;
-typedef PluginPointer = stdgo._internal.plugin.Plugin_PluginPointer.PluginPointer;
+typedef T__struct_0 = stdgo._internal.plugin.Plugin_t__struct_0.T__struct_0;
+typedef Symbol = stdgo._internal.plugin.Plugin_symbol.Symbol;
+typedef PluginPointer = stdgo._internal.plugin.Plugin_pluginpointer.PluginPointer;
 class Plugin_static_extension {
     static public function lookup(_p:Plugin_, _symName:String):stdgo.Tuple<Symbol, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.plugin.Plugin_plugin.Plugin>);
         final _symName = (_symName : stdgo.GoString);
         return {
-            final obj = stdgo._internal.plugin.Plugin_Plugin_static_extension.Plugin_static_extension.lookup(_p, _symName);
+            final obj = stdgo._internal.plugin.Plugin_plugin_static_extension.Plugin_static_extension.lookup(_p, _symName);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.plugin.Plugin_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.plugin.Plugin_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef SymbolPointer = stdgo._internal.plugin.Plugin_SymbolPointer.SymbolPointer;
+typedef SymbolPointer = stdgo._internal.plugin.Plugin_symbolpointer.SymbolPointer;
 class Symbol_static_extension {
 
 }

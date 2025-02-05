@@ -16,7 +16,7 @@ class Race {
         stdgo._internal.internal.race.Race_release.release(_addr);
     }
     static public inline function releaseMerge(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
-        stdgo._internal.internal.race.Race_releaseMerge.releaseMerge(_addr);
+        stdgo._internal.internal.race.Race_releasemerge.releaseMerge(_addr);
     }
     static public inline function disable():Void {
         stdgo._internal.internal.race.Race_disable.disable();
@@ -32,11 +32,11 @@ class Race {
     }
     static public inline function readRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
         final _len = (_len : stdgo.GoInt);
-        stdgo._internal.internal.race.Race_readRange.readRange(_addr, _len);
+        stdgo._internal.internal.race.Race_readrange.readRange(_addr, _len);
     }
     static public inline function writeRange(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer, _len:StdTypes.Int):Void {
         final _len = (_len : stdgo.GoInt);
-        stdgo._internal.internal.race.Race_writeRange.writeRange(_addr, _len);
+        stdgo._internal.internal.race.Race_writerange.writeRange(_addr, _len);
     }
     static public inline function errors():StdTypes.Int {
         return stdgo._internal.internal.race.Race_errors.errors();

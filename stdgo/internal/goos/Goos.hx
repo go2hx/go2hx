@@ -1,24 +1,24 @@
 package stdgo.internal.goos;
-final isUnix : Bool = stdgo._internal.internal.goos.Goos_isUnix.isUnix;
-final gOOS : String = stdgo._internal.internal.goos.Goos_gOOS.gOOS;
-final isAix : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isAix.isAix;
-final isAndroid : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isAndroid.isAndroid;
-final isDarwin : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isDarwin.isDarwin;
-final isDragonfly : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isDragonfly.isDragonfly;
-final isFreebsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isFreebsd.isFreebsd;
-final isHurd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isHurd.isHurd;
-final isIllumos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isIllumos.isIllumos;
-final isIos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isIos.isIos;
-final isJs : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isJs.isJs;
-final isLinux : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isLinux.isLinux;
-final isNacl : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isNacl.isNacl;
-final isNetbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isNetbsd.isNetbsd;
-final isOpenbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isOpenbsd.isOpenbsd;
-final isPlan9 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isPlan9.isPlan9;
-final isSolaris : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isSolaris.isSolaris;
-final isWasip1 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isWasip1.isWasip1;
-final isWindows : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isWindows.isWindows;
-final isZos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isZos.isZos;
+final isUnix : Bool = stdgo._internal.internal.goos.Goos_isunix.isUnix;
+final gOOS : String = stdgo._internal.internal.goos.Goos_goos.gOOS;
+final isAix : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isaix.isAix;
+final isAndroid : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isandroid.isAndroid;
+final isDarwin : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isdarwin.isDarwin;
+final isDragonfly : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isdragonfly.isDragonfly;
+final isFreebsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isfreebsd.isFreebsd;
+final isHurd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_ishurd.isHurd;
+final isIllumos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isillumos.isIllumos;
+final isIos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isios.isIos;
+final isJs : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isjs.isJs;
+final isLinux : haxe.UInt64 = stdgo._internal.internal.goos.Goos_islinux.isLinux;
+final isNacl : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isnacl.isNacl;
+final isNetbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isnetbsd.isNetbsd;
+final isOpenbsd : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isopenbsd.isOpenbsd;
+final isPlan9 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_isplan9.isPlan9;
+final isSolaris : haxe.UInt64 = stdgo._internal.internal.goos.Goos_issolaris.isSolaris;
+final isWasip1 : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iswasip1.isWasip1;
+final isWindows : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iswindows.isWindows;
+final isZos : haxe.UInt64 = stdgo._internal.internal.goos.Goos_iszos.isZos;
 /**
     * package goos contains GOOS-specific constants.
 **/

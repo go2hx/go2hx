@@ -1,31 +1,31 @@
 package stdgo.runtime.internal.sys;
-final stackGuardMultiplier : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackGuardMultiplier.stackGuardMultiplier;
-final defaultPhysPageSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_defaultPhysPageSize.defaultPhysPageSize;
-final pCQuantum : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_pCQuantum.pCQuantum;
-final int64Align : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_int64Align.int64Align;
-final minFrameSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_minFrameSize.minFrameSize;
-final stackAlign : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackAlign.stackAlign;
-@:structInit @:using(stdgo.runtime.internal.sys.Sys_.T_nih_static_extension) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_T_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_T_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_T_nih.T_nih {
-    public function new() this = new stdgo._internal.runtime.internal.sys.Sys_T_nih.T_nih();
+final stackGuardMultiplier : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackguardmultiplier.stackGuardMultiplier;
+final defaultPhysPageSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_defaultphyspagesize.defaultPhysPageSize;
+final pCQuantum : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_pcquantum.pCQuantum;
+final int64Align : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_int64align.int64Align;
+final minFrameSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_minframesize.minFrameSize;
+final stackAlign : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackalign.stackAlign;
+@:structInit @:using(stdgo.runtime.internal.sys.Sys_.T_nih_static_extension) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih {
+    public function new() this = new stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.internal.sys.Sys_.NotInHeap_static_extension) abstract NotInHeap(stdgo._internal.runtime.internal.sys.Sys_NotInHeap.NotInHeap) from stdgo._internal.runtime.internal.sys.Sys_NotInHeap.NotInHeap to stdgo._internal.runtime.internal.sys.Sys_NotInHeap.NotInHeap {
+@:structInit @:using(stdgo.runtime.internal.sys.Sys_.NotInHeap_static_extension) abstract NotInHeap(stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap) from stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap to stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap {
     public var __1(get, set) : T_nih;
     function get___1():T_nih return this.__1;
     function set___1(v:T_nih):T_nih {
         this.__1 = v;
         return v;
     }
-    public function new(?__1:T_nih) this = new stdgo._internal.runtime.internal.sys.Sys_NotInHeap.NotInHeap(__1);
+    public function new(?__1:T_nih) this = new stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap(__1);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_nihPointer = stdgo._internal.runtime.internal.sys.Sys_T_nihPointer.T_nihPointer;
+typedef T_nihPointer = stdgo._internal.runtime.internal.sys.Sys_t_nihpointer.T_nihPointer;
 class T_nih_static_extension {
 
 }
-typedef NotInHeapPointer = stdgo._internal.runtime.internal.sys.Sys_NotInHeapPointer.NotInHeapPointer;
+typedef NotInHeapPointer = stdgo._internal.runtime.internal.sys.Sys_notinheappointer.NotInHeapPointer;
 class NotInHeap_static_extension {
 
 }
@@ -39,21 +39,21 @@ class Sys {
     **/
     static public inline function trailingZeros32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
-        return stdgo._internal.runtime.internal.sys.Sys_trailingZeros32.trailingZeros32(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_trailingzeros32.trailingZeros32(_x);
     }
     /**
         * TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function trailingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.runtime.internal.sys.Sys_trailingZeros64.trailingZeros64(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_trailingzeros64.trailingZeros64(_x);
     }
     /**
         * TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function trailingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
-        return stdgo._internal.runtime.internal.sys.Sys_trailingZeros8.trailingZeros8(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_trailingzeros8.trailingZeros8(_x);
     }
     /**
         * Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
@@ -71,21 +71,21 @@ class Sys {
     **/
     static public inline function onesCount64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.runtime.internal.sys.Sys_onesCount64.onesCount64(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_onescount64.onesCount64(_x);
     }
     /**
         * LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function leadingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.runtime.internal.sys.Sys_leadingZeros64.leadingZeros64(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_leadingzeros64.leadingZeros64(_x);
     }
     /**
         * LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function leadingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
-        return stdgo._internal.runtime.internal.sys.Sys_leadingZeros8.leadingZeros8(_x);
+        return stdgo._internal.runtime.internal.sys.Sys_leadingzeros8.leadingZeros8(_x);
     }
     /**
         * Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
@@ -131,6 +131,6 @@ class Sys {
     **/
     static public inline function prefetchStreamed(_addr:stdgo.GoUIntptr):Void {
         final _addr = (_addr : stdgo.GoUIntptr);
-        stdgo._internal.runtime.internal.sys.Sys_prefetchStreamed.prefetchStreamed(_addr);
+        stdgo._internal.runtime.internal.sys.Sys_prefetchstreamed.prefetchStreamed(_addr);
     }
 }

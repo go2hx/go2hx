@@ -1,138 +1,138 @@
 package stdgo.crypto.tls;
-final tLS_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_RC4_128_SHA.tLS_RSA_WITH_RC4_128_SHA;
-final tLS_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_3DES_EDE_CBC_SHA.tLS_RSA_WITH_3DES_EDE_CBC_SHA;
-final tLS_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_CBC_SHA.tLS_RSA_WITH_AES_128_CBC_SHA;
-final tLS_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_256_CBC_SHA.tLS_RSA_WITH_AES_256_CBC_SHA;
-final tLS_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_CBC_SHA256.tLS_RSA_WITH_AES_128_CBC_SHA256;
-final tLS_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_128_GCM_SHA256.tLS_RSA_WITH_AES_128_GCM_SHA256;
-final tLS_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_RSA_WITH_AES_256_GCM_SHA384.tLS_RSA_WITH_AES_256_GCM_SHA384;
-final tLS_ECDHE_ECDSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_RC4_128_SHA.tLS_ECDHE_ECDSA_WITH_RC4_128_SHA;
-final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA;
-final tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA.tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA;
-final tLS_ECDHE_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_RC4_128_SHA.tLS_ECDHE_RSA_WITH_RC4_128_SHA;
-final tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA.tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA;
-final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA;
-final tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA.tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA;
-final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256;
-final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256;
-final tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256.tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256;
-final tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256.tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256;
-final tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384.tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384;
-final tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384.tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384;
-final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256;
-final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256;
-final tLS_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_AES_128_GCM_SHA256.tLS_AES_128_GCM_SHA256;
-final tLS_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_AES_256_GCM_SHA384.tLS_AES_256_GCM_SHA384;
-final tLS_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_CHACHA20_POLY1305_SHA256.tLS_CHACHA20_POLY1305_SHA256;
-final tLS_FALLBACK_SCSV : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_FALLBACK_SCSV.tLS_FALLBACK_SCSV;
-final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305;
-final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305;
-final versionTLS10 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS10.versionTLS10;
-final versionTLS11 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS11.versionTLS11;
-final versionTLS12 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS12.versionTLS12;
-final versionTLS13 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionTLS13.versionTLS13;
-final versionSSL30 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionSSL30.versionSSL30;
-final curveP256 : CurveID = stdgo._internal.crypto.tls.Tls_curveP256.curveP256;
-final curveP384 : CurveID = stdgo._internal.crypto.tls.Tls_curveP384.curveP384;
-final curveP521 : CurveID = stdgo._internal.crypto.tls.Tls_curveP521.curveP521;
+final tLS_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_rc4_128_sha.tLS_RSA_WITH_RC4_128_SHA;
+final tLS_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_3des_ede_cbc_sha.tLS_RSA_WITH_3DES_EDE_CBC_SHA;
+final tLS_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_aes_128_cbc_sha.tLS_RSA_WITH_AES_128_CBC_SHA;
+final tLS_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_aes_256_cbc_sha.tLS_RSA_WITH_AES_256_CBC_SHA;
+final tLS_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_aes_128_cbc_sha256.tLS_RSA_WITH_AES_128_CBC_SHA256;
+final tLS_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_aes_128_gcm_sha256.tLS_RSA_WITH_AES_128_GCM_SHA256;
+final tLS_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_rsa_with_aes_256_gcm_sha384.tLS_RSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_ECDSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_rc4_128_sha.tLS_ECDHE_ECDSA_WITH_RC4_128_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_aes_128_cbc_sha.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_aes_256_cbc_sha.tLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_RC4_128_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_rc4_128_sha.tLS_ECDHE_RSA_WITH_RC4_128_SHA;
+final tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_3des_ede_cbc_sha.tLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_aes_128_cbc_sha.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA;
+final tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_aes_256_cbc_sha.tLS_ECDHE_RSA_WITH_AES_256_CBC_SHA;
+final tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_aes_128_cbc_sha256.tLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_aes_128_cbc_sha256.tLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_aes_128_gcm_sha256.tLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256;
+final tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_aes_128_gcm_sha256.tLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256;
+final tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_aes_256_gcm_sha384.tLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_aes_256_gcm_sha384.tLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384;
+final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_chacha20_poly1305_sha256.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256;
+final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_chacha20_poly1305_sha256.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256;
+final tLS_AES_128_GCM_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_aes_128_gcm_sha256.tLS_AES_128_GCM_SHA256;
+final tLS_AES_256_GCM_SHA384 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_aes_256_gcm_sha384.tLS_AES_256_GCM_SHA384;
+final tLS_CHACHA20_POLY1305_SHA256 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_chacha20_poly1305_sha256.tLS_CHACHA20_POLY1305_SHA256;
+final tLS_FALLBACK_SCSV : std.UInt = stdgo._internal.crypto.tls.Tls_tls_fallback_scsv.tLS_FALLBACK_SCSV;
+final tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_rsa_with_chacha20_poly1305.tLS_ECDHE_RSA_WITH_CHACHA20_POLY1305;
+final tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305 : std.UInt = stdgo._internal.crypto.tls.Tls_tls_ecdhe_ecdsa_with_chacha20_poly1305.tLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305;
+final versionTLS10 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versiontls10.versionTLS10;
+final versionTLS11 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versiontls11.versionTLS11;
+final versionTLS12 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versiontls12.versionTLS12;
+final versionTLS13 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versiontls13.versionTLS13;
+final versionSSL30 : haxe.UInt64 = stdgo._internal.crypto.tls.Tls_versionssl30.versionSSL30;
+final curveP256 : CurveID = stdgo._internal.crypto.tls.Tls_curvep256.curveP256;
+final curveP384 : CurveID = stdgo._internal.crypto.tls.Tls_curvep384.curveP384;
+final curveP521 : CurveID = stdgo._internal.crypto.tls.Tls_curvep521.curveP521;
 final x25519 : CurveID = stdgo._internal.crypto.tls.Tls_x25519.x25519;
-final noClientCert : ClientAuthType = stdgo._internal.crypto.tls.Tls_noClientCert.noClientCert;
-final requestClientCert = stdgo._internal.crypto.tls.Tls_requestClientCert.requestClientCert;
-final requireAnyClientCert = stdgo._internal.crypto.tls.Tls_requireAnyClientCert.requireAnyClientCert;
-final verifyClientCertIfGiven = stdgo._internal.crypto.tls.Tls_verifyClientCertIfGiven.verifyClientCertIfGiven;
-final requireAndVerifyClientCert = stdgo._internal.crypto.tls.Tls_requireAndVerifyClientCert.requireAndVerifyClientCert;
-final pKCS1WithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA256.pKCS1WithSHA256;
-final pKCS1WithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA384.pKCS1WithSHA384;
-final pKCS1WithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA512.pKCS1WithSHA512;
-final pSSWithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA256.pSSWithSHA256;
-final pSSWithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA384.pSSWithSHA384;
-final pSSWithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pSSWithSHA512.pSSWithSHA512;
-final eCDSAWithP256AndSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP256AndSHA256.eCDSAWithP256AndSHA256;
-final eCDSAWithP384AndSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP384AndSHA384.eCDSAWithP384AndSHA384;
-final eCDSAWithP521AndSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithP521AndSHA512.eCDSAWithP521AndSHA512;
+final noClientCert : ClientAuthType = stdgo._internal.crypto.tls.Tls_noclientcert.noClientCert;
+final requestClientCert = stdgo._internal.crypto.tls.Tls_requestclientcert.requestClientCert;
+final requireAnyClientCert = stdgo._internal.crypto.tls.Tls_requireanyclientcert.requireAnyClientCert;
+final verifyClientCertIfGiven = stdgo._internal.crypto.tls.Tls_verifyclientcertifgiven.verifyClientCertIfGiven;
+final requireAndVerifyClientCert = stdgo._internal.crypto.tls.Tls_requireandverifyclientcert.requireAndVerifyClientCert;
+final pKCS1WithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withsha256.pKCS1WithSHA256;
+final pKCS1WithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withsha384.pKCS1WithSHA384;
+final pKCS1WithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withsha512.pKCS1WithSHA512;
+final pSSWithSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithsha256.pSSWithSHA256;
+final pSSWithSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithsha384.pSSWithSHA384;
+final pSSWithSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_psswithsha512.pSSWithSHA512;
+final eCDSAWithP256AndSHA256 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithp256andsha256.eCDSAWithP256AndSHA256;
+final eCDSAWithP384AndSHA384 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithp384andsha384.eCDSAWithP384AndSHA384;
+final eCDSAWithP521AndSHA512 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithp521andsha512.eCDSAWithP521AndSHA512;
 final ed25519 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ed25519.ed25519;
-final pKCS1WithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pKCS1WithSHA1.pKCS1WithSHA1;
-final eCDSAWithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_eCDSAWithSHA1.eCDSAWithSHA1;
-final renegotiateNever : RenegotiationSupport = stdgo._internal.crypto.tls.Tls_renegotiateNever.renegotiateNever;
-final renegotiateOnceAsClient = stdgo._internal.crypto.tls.Tls_renegotiateOnceAsClient.renegotiateOnceAsClient;
-final renegotiateFreelyAsClient = stdgo._internal.crypto.tls.Tls_renegotiateFreelyAsClient.renegotiateFreelyAsClient;
-final qUICEncryptionLevelInitial : QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelInitial.qUICEncryptionLevelInitial;
-final qUICEncryptionLevelEarly = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelEarly.qUICEncryptionLevelEarly;
-final qUICEncryptionLevelHandshake = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelHandshake.qUICEncryptionLevelHandshake;
-final qUICEncryptionLevelApplication = stdgo._internal.crypto.tls.Tls_qUICEncryptionLevelApplication.qUICEncryptionLevelApplication;
-final qUICNoEvent : QUICEventKind = stdgo._internal.crypto.tls.Tls_qUICNoEvent.qUICNoEvent;
-final qUICSetReadSecret = stdgo._internal.crypto.tls.Tls_qUICSetReadSecret.qUICSetReadSecret;
-final qUICSetWriteSecret = stdgo._internal.crypto.tls.Tls_qUICSetWriteSecret.qUICSetWriteSecret;
-final qUICWriteData = stdgo._internal.crypto.tls.Tls_qUICWriteData.qUICWriteData;
-final qUICTransportParameters = stdgo._internal.crypto.tls.Tls_qUICTransportParameters.qUICTransportParameters;
-final qUICTransportParametersRequired = stdgo._internal.crypto.tls.Tls_qUICTransportParametersRequired.qUICTransportParametersRequired;
-final qUICRejectedEarlyData = stdgo._internal.crypto.tls.Tls_qUICRejectedEarlyData.qUICRejectedEarlyData;
-final qUICHandshakeDone = stdgo._internal.crypto.tls.Tls_qUICHandshakeDone.qUICHandshakeDone;
+final pKCS1WithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_pkcs1withsha1.pKCS1WithSHA1;
+final eCDSAWithSHA1 : SignatureScheme = stdgo._internal.crypto.tls.Tls_ecdsawithsha1.eCDSAWithSHA1;
+final renegotiateNever : RenegotiationSupport = stdgo._internal.crypto.tls.Tls_renegotiatenever.renegotiateNever;
+final renegotiateOnceAsClient = stdgo._internal.crypto.tls.Tls_renegotiateonceasclient.renegotiateOnceAsClient;
+final renegotiateFreelyAsClient = stdgo._internal.crypto.tls.Tls_renegotiatefreelyasclient.renegotiateFreelyAsClient;
+final qUICEncryptionLevelInitial : QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_quicencryptionlevelinitial.qUICEncryptionLevelInitial;
+final qUICEncryptionLevelEarly = stdgo._internal.crypto.tls.Tls_quicencryptionlevelearly.qUICEncryptionLevelEarly;
+final qUICEncryptionLevelHandshake = stdgo._internal.crypto.tls.Tls_quicencryptionlevelhandshake.qUICEncryptionLevelHandshake;
+final qUICEncryptionLevelApplication = stdgo._internal.crypto.tls.Tls_quicencryptionlevelapplication.qUICEncryptionLevelApplication;
+final qUICNoEvent : QUICEventKind = stdgo._internal.crypto.tls.Tls_quicnoevent.qUICNoEvent;
+final qUICSetReadSecret = stdgo._internal.crypto.tls.Tls_quicsetreadsecret.qUICSetReadSecret;
+final qUICSetWriteSecret = stdgo._internal.crypto.tls.Tls_quicsetwritesecret.qUICSetWriteSecret;
+final qUICWriteData = stdgo._internal.crypto.tls.Tls_quicwritedata.qUICWriteData;
+final qUICTransportParameters = stdgo._internal.crypto.tls.Tls_quictransportparameters.qUICTransportParameters;
+final qUICTransportParametersRequired = stdgo._internal.crypto.tls.Tls_quictransportparametersrequired.qUICTransportParametersRequired;
+final qUICRejectedEarlyData = stdgo._internal.crypto.tls.Tls_quicrejectedearlydata.qUICRejectedEarlyData;
+final qUICHandshakeDone = stdgo._internal.crypto.tls.Tls_quichandshakedone.qUICHandshakeDone;
 class T_aead_static_extension {
     static public function _explicitNonceLen(t:stdgo._internal.crypto.tls.Tls_t_aead.T_aead):StdTypes.Int {
-        return stdgo._internal.crypto.tls.Tls_T_aead_static_extension.T_aead_static_extension._explicitNonceLen(t);
+        return stdgo._internal.crypto.tls.Tls_t_aead_static_extension.T_aead_static_extension._explicitNonceLen(t);
     }
 }
-typedef T_aead = stdgo._internal.crypto.tls.Tls_T_aead.T_aead;
+typedef T_aead = stdgo._internal.crypto.tls.Tls_t_aead.T_aead;
 class T_constantTimeHash_static_extension {
     static public function constantTimeSum(t:stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash, _b:Array<std.UInt>):Array<std.UInt> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_constantTimeHash_static_extension.T_constantTimeHash_static_extension.constantTimeSum(t, _b)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_constanttimehash_static_extension.T_constantTimeHash_static_extension.constantTimeSum(t, _b)) i];
     }
 }
-typedef T_constantTimeHash = stdgo._internal.crypto.tls.Tls_T_constantTimeHash.T_constantTimeHash;
+typedef T_constantTimeHash = stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash;
 class ClientSessionCache_static_extension {
     static public function put(t:stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache, _sessionKey:String, _cs:ClientSessionState):Void {
         final _sessionKey = (_sessionKey : stdgo.GoString);
         final _cs = (_cs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>);
-        stdgo._internal.crypto.tls.Tls_ClientSessionCache_static_extension.ClientSessionCache_static_extension.put(t, _sessionKey, _cs);
+        stdgo._internal.crypto.tls.Tls_clientsessioncache_static_extension.ClientSessionCache_static_extension.put(t, _sessionKey, _cs);
     }
     static public function get(t:stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache, _sessionKey:String):stdgo.Tuple<ClientSessionState, Bool> {
         final _sessionKey = (_sessionKey : stdgo.GoString);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_ClientSessionCache_static_extension.ClientSessionCache_static_extension.get(t, _sessionKey);
+            final obj = stdgo._internal.crypto.tls.Tls_clientsessioncache_static_extension.ClientSessionCache_static_extension.get(t, _sessionKey);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_ClientSessionCache.ClientSessionCache;
+typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache;
 class T_handshakeMessage_static_extension {
     static public function _unmarshal(t:stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage, _0:Array<std.UInt>):Bool {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_handshakeMessage_static_extension.T_handshakeMessage_static_extension._unmarshal(t, _0);
+        return stdgo._internal.crypto.tls.Tls_t_handshakemessage_static_extension.T_handshakeMessage_static_extension._unmarshal(t, _0);
     }
     static public function _marshal(t:stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_handshakeMessage_static_extension.T_handshakeMessage_static_extension._marshal(t);
+            final obj = stdgo._internal.crypto.tls.Tls_t_handshakemessage_static_extension.T_handshakeMessage_static_extension._marshal(t);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_handshakeMessage = stdgo._internal.crypto.tls.Tls_T_handshakeMessage.T_handshakeMessage;
+typedef T_handshakeMessage = stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage;
 class T_cbcMode_static_extension {
     static public function setIV(t:stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode, _0:Array<std.UInt>):Void {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_T_cbcMode_static_extension.T_cbcMode_static_extension.setIV(t, _0);
+        stdgo._internal.crypto.tls.Tls_t_cbcmode_static_extension.T_cbcMode_static_extension.setIV(t, _0);
     }
 }
-typedef T_cbcMode = stdgo._internal.crypto.tls.Tls_T_cbcMode.T_cbcMode;
+typedef T_cbcMode = stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode;
 class T_transcriptHash_static_extension {
     static public function write(t:stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_transcriptHash_static_extension.T_transcriptHash_static_extension.write(t, _0);
+            final obj = stdgo._internal.crypto.tls.Tls_t_transcripthash_static_extension.T_transcriptHash_static_extension.write(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_transcriptHash = stdgo._internal.crypto.tls.Tls_T_transcriptHash.T_transcriptHash;
+typedef T_transcriptHash = stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash;
 class T_keyAgreement_static_extension {
     static public function _generateClientKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:Config, _1:T_clientHelloMsg, _2:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _2 = (_2 : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_keyAgreement_static_extension.T_keyAgreement_static_extension._generateClientKeyExchange(t, _0, _1, _2);
+            final obj = stdgo._internal.crypto.tls.Tls_t_keyagreement_static_extension.T_keyAgreement_static_extension._generateClientKeyExchange(t, _0, _1, _2);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -142,7 +142,7 @@ class T_keyAgreement_static_extension {
         final _2 = (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         final _3 = (_3 : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         final _4 = (_4 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>);
-        return stdgo._internal.crypto.tls.Tls_T_keyAgreement_static_extension.T_keyAgreement_static_extension._processServerKeyExchange(t, _0, _1, _2, _3, _4);
+        return stdgo._internal.crypto.tls.Tls_t_keyagreement_static_extension.T_keyAgreement_static_extension._processServerKeyExchange(t, _0, _1, _2, _3, _4);
     }
     static public function _processClientKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:Config, _1:Certificate, _2:T_clientKeyExchangeMsg, _3:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
@@ -150,7 +150,7 @@ class T_keyAgreement_static_extension {
         final _2 = (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>);
         final _3 = (_3 : stdgo.GoUInt16);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_keyAgreement_static_extension.T_keyAgreement_static_extension._processClientKeyExchange(t, _0, _1, _2, _3);
+            final obj = stdgo._internal.crypto.tls.Tls_t_keyagreement_static_extension.T_keyAgreement_static_extension._processClientKeyExchange(t, _0, _1, _2, _3);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -160,13 +160,13 @@ class T_keyAgreement_static_extension {
         final _2 = (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _3 = (_3 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_keyAgreement_static_extension.T_keyAgreement_static_extension._generateServerKeyExchange(t, _0, _1, _2, _3);
+            final obj = stdgo._internal.crypto.tls.Tls_t_keyagreement_static_extension.T_keyAgreement_static_extension._generateServerKeyExchange(t, _0, _1, _2, _3);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgreement;
-@:structInit @:using(stdgo.crypto.tls.Tls.T_cacheEntry_static_extension) abstract T_cacheEntry(stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry) from stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry to stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry {
+typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement;
+@:structInit @:using(stdgo.crypto.tls.Tls.T_cacheEntry_static_extension) abstract T_cacheEntry(stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry {
     public var _refs(get, set) : stdgo._internal.sync.atomic_.Atomic__int64_.Int64_;
     function get__refs():stdgo._internal.sync.atomic_.Atomic__int64_.Int64_ return this._refs;
     function set__refs(v:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_):stdgo._internal.sync.atomic_.Atomic__int64_.Int64_ {
@@ -179,33 +179,33 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._cert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return v;
     }
-    public function new(?_refs:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_cert:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_T_cacheEntry.T_cacheEntry(_refs, (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
+    public function new(?_refs:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_cert:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry(_refs, (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certCache_static_extension) abstract T_certCache(stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache) from stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache to stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certCache_static_extension) abstract T_certCache(stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache) from stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache to stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache {
     public var map_(get, set) : stdgo._internal.sync.Sync_map_.Map_;
     function get_map_():stdgo._internal.sync.Sync_map_.Map_ return this.map_;
     function set_map_(v:stdgo._internal.sync.Sync_map_.Map_):stdgo._internal.sync.Sync_map_.Map_ {
         this.map_ = v;
         return v;
     }
-    public function new(?map_:stdgo._internal.sync.Sync_map_.Map_) this = new stdgo._internal.crypto.tls.Tls_T_certCache.T_certCache(map_);
+    public function new(?map_:stdgo._internal.sync.Sync_map_.Map_) this = new stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache(map_);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_activeCert_static_extension) abstract T_activeCert(stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert) from stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert to stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_activeCert_static_extension) abstract T_activeCert(stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert) from stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert to stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert {
     public var _cert(get, set) : stdgo._internal.crypto.x509.X509_certificate.Certificate;
     function get__cert():stdgo._internal.crypto.x509.X509_certificate.Certificate return this._cert;
     function set__cert(v:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo._internal.crypto.x509.X509_certificate.Certificate {
         this._cert = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return v;
     }
-    public function new(?_cert:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_T_activeCert.T_activeCert((_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
+    public function new(?_cert:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert((_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.CipherSuite_static_extension) abstract CipherSuite(stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite) from stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite to stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite {
+@:structInit @:using(stdgo.crypto.tls.Tls.CipherSuite_static_extension) abstract CipherSuite(stdgo._internal.crypto.tls.Tls_ciphersuite.CipherSuite) from stdgo._internal.crypto.tls.Tls_ciphersuite.CipherSuite to stdgo._internal.crypto.tls.Tls_ciphersuite.CipherSuite {
     public var iD(get, set) : std.UInt;
     function get_iD():std.UInt return this.iD;
     function set_iD(v:std.UInt):std.UInt {
@@ -230,11 +230,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this.insecure = v;
         return v;
     }
-    public function new(?iD:std.UInt, ?name:String, ?supportedVersions:Array<std.UInt>, ?insecure:Bool) this = new stdgo._internal.crypto.tls.Tls_CipherSuite.CipherSuite((iD : stdgo.GoUInt16), (name : stdgo.GoString), ([for (i in supportedVersions) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), insecure);
+    public function new(?iD:std.UInt, ?name:String, ?supportedVersions:Array<std.UInt>, ?insecure:Bool) this = new stdgo._internal.crypto.tls.Tls_ciphersuite.CipherSuite((iD : stdgo.GoUInt16), (name : stdgo.GoString), ([for (i in supportedVersions) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), insecure);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_cipherSuite_static_extension) abstract T_cipherSuite(stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite) from stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite to stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_cipherSuite_static_extension) abstract T_cipherSuite(stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite) from stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite to stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite {
     public var _id(get, set) : std.UInt;
     function get__id():std.UInt return this._id;
     function set__id(v:std.UInt):std.UInt {
@@ -289,11 +289,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._aead = v;
         return v;
     }
-    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_macLen:StdTypes.Int, ?_ivLen:StdTypes.Int, ?_ka:stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, ?_flags:StdTypes.Int, ?_cipher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface, ?_mac:stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead) this = new stdgo._internal.crypto.tls.Tls_T_cipherSuite.T_cipherSuite((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), (_macLen : stdgo.GoInt), (_ivLen : stdgo.GoInt), _ka, (_flags : stdgo.GoInt), _cipher, _mac, _aead);
+    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_macLen:StdTypes.Int, ?_ivLen:StdTypes.Int, ?_ka:stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, ?_flags:StdTypes.Int, ?_cipher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface, ?_mac:stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), (_macLen : stdgo.GoInt), (_ivLen : stdgo.GoInt), _ka, (_flags : stdgo.GoInt), _cipher, _mac, _aead);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_cipherSuiteTLS13_static_extension) abstract T_cipherSuiteTLS13(stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13.T_cipherSuiteTLS13) from stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13.T_cipherSuiteTLS13 to stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13.T_cipherSuiteTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_cipherSuiteTLS13_static_extension) abstract T_cipherSuiteTLS13(stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13) from stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13 to stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13 {
     public var _id(get, set) : std.UInt;
     function get__id():std.UInt return this._id;
     function set__id(v:std.UInt):std.UInt {
@@ -318,11 +318,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._hash = v;
         return v;
     }
-    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead, ?_hash:stdgo._internal.crypto.Crypto_hash.Hash) this = new stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13.T_cipherSuiteTLS13((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), _aead, _hash);
+    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead, ?_hash:stdgo._internal.crypto.Crypto_hash.Hash) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), _aead, _hash);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_prefixNonceAEAD_static_extension) abstract T_prefixNonceAEAD(stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD) from stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD to stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_prefixNonceAEAD_static_extension) abstract T_prefixNonceAEAD(stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD) from stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD to stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD {
     public var _nonce(get, set) : haxe.ds.Vector<std.UInt>;
     function get__nonce():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._nonce) i]);
     function set__nonce(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -335,11 +335,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._aead = v;
         return v;
     }
-    public function new(?_nonce:haxe.ds.Vector<std.UInt>, ?_aead:stdgo._internal.crypto.cipher.Cipher_aead.AEAD) this = new stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD.T_prefixNonceAEAD(([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _aead);
+    public function new(?_nonce:haxe.ds.Vector<std.UInt>, ?_aead:stdgo._internal.crypto.cipher.Cipher_aead.AEAD) this = new stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD(([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _aead);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_xorNonceAEAD_static_extension) abstract T_xorNonceAEAD(stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD) from stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD to stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_xorNonceAEAD_static_extension) abstract T_xorNonceAEAD(stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD) from stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD to stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD {
     public var _nonceMask(get, set) : haxe.ds.Vector<std.UInt>;
     function get__nonceMask():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._nonceMask) i]);
     function set__nonceMask(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -352,22 +352,22 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._aead = v;
         return v;
     }
-    public function new(?_nonceMask:haxe.ds.Vector<std.UInt>, ?_aead:stdgo._internal.crypto.cipher.Cipher_aead.AEAD) this = new stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD(([for (i in _nonceMask) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _aead);
+    public function new(?_nonceMask:haxe.ds.Vector<std.UInt>, ?_aead:stdgo._internal.crypto.cipher.Cipher_aead.AEAD) this = new stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD(([for (i in _nonceMask) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _aead);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_cthWrapper_static_extension) abstract T_cthWrapper(stdgo._internal.crypto.tls.Tls_T_cthWrapper.T_cthWrapper) from stdgo._internal.crypto.tls.Tls_T_cthWrapper.T_cthWrapper to stdgo._internal.crypto.tls.Tls_T_cthWrapper.T_cthWrapper {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_cthWrapper_static_extension) abstract T_cthWrapper(stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper) from stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper to stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper {
     public var _h(get, set) : T_constantTimeHash;
     function get__h():T_constantTimeHash return this._h;
     function set__h(v:T_constantTimeHash):T_constantTimeHash {
         this._h = v;
         return v;
     }
-    public function new(?_h:T_constantTimeHash) this = new stdgo._internal.crypto.tls.Tls_T_cthWrapper.T_cthWrapper(_h);
+    public function new(?_h:T_constantTimeHash) this = new stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper(_h);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_keyShare_static_extension) abstract T_keyShare(stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare) from stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare to stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_keyShare_static_extension) abstract T_keyShare(stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare) from stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare to stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare {
     public var _group(get, set) : CurveID;
     function get__group():CurveID return this._group;
     function set__group(v:CurveID):CurveID {
@@ -380,11 +380,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._data = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_group:CurveID, ?_data:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare(_group, ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_group:CurveID, ?_data:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare(_group, ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_pskIdentity_static_extension) abstract T_pskIdentity(stdgo._internal.crypto.tls.Tls_T_pskIdentity.T_pskIdentity) from stdgo._internal.crypto.tls.Tls_T_pskIdentity.T_pskIdentity to stdgo._internal.crypto.tls.Tls_T_pskIdentity.T_pskIdentity {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_pskIdentity_static_extension) abstract T_pskIdentity(stdgo._internal.crypto.tls.Tls_t_pskidentity.T_pskIdentity) from stdgo._internal.crypto.tls.Tls_t_pskidentity.T_pskIdentity to stdgo._internal.crypto.tls.Tls_t_pskidentity.T_pskIdentity {
     public var _label(get, set) : Array<std.UInt>;
     function get__label():Array<std.UInt> return [for (i in this._label) i];
     function set__label(v:Array<std.UInt>):Array<std.UInt> {
@@ -397,11 +397,11 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._obfuscatedTicketAge = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?_label:Array<std.UInt>, ?_obfuscatedTicketAge:std.UInt) this = new stdgo._internal.crypto.tls.Tls_T_pskIdentity.T_pskIdentity(([for (i in _label) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_obfuscatedTicketAge : stdgo.GoUInt32));
+    public function new(?_label:Array<std.UInt>, ?_obfuscatedTicketAge:std.UInt) this = new stdgo._internal.crypto.tls.Tls_t_pskidentity.T_pskIdentity(([for (i in _label) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_obfuscatedTicketAge : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.ConnectionState_static_extension) abstract ConnectionState(stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState) from stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState to stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState {
+@:structInit @:using(stdgo.crypto.tls.Tls.ConnectionState_static_extension) abstract ConnectionState(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) from stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState to stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState {
     public var version(get, set) : std.UInt;
     function get_version():std.UInt return this.version;
     function set_version(v:std.UInt):std.UInt {
@@ -480,7 +480,7 @@ typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_T_keyAgreement.T_keyAgre
         this._ekm = v;
         return v;
     }
-    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?oCSPResponse:Array<std.UInt>, ?tLSUnique:Array<std.UInt>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState(
+    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?oCSPResponse:Array<std.UInt>, ?tLSUnique:Array<std.UInt>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState(
 (version : stdgo.GoUInt16),
 handshakeComplete,
 didResume,
@@ -497,7 +497,7 @@ _ekm);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.ClientHelloInfo_static_extension) abstract ClientHelloInfo(stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo) from stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo to stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo {
+@:structInit @:using(stdgo.crypto.tls.Tls.ClientHelloInfo_static_extension) abstract ClientHelloInfo(stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo) from stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo to stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo {
     public var cipherSuites(get, set) : Array<std.UInt>;
     function get_cipherSuites():Array<std.UInt> return [for (i in this.cipherSuites) i];
     function set_cipherSuites(v:Array<std.UInt>):Array<std.UInt> {
@@ -558,11 +558,11 @@ _ekm);
         this._ctx = v;
         return v;
     }
-    public function new(?cipherSuites:Array<std.UInt>, ?serverName:String, ?supportedCurves:Array<CurveID>, ?supportedPoints:Array<std.UInt>, ?signatureSchemes:Array<SignatureScheme>, ?supportedProtos:Array<String>, ?supportedVersions:Array<std.UInt>, ?conn:stdgo._internal.net.Net_conn.Conn, ?_config:Config, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo(([for (i in cipherSuites) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), (serverName : stdgo.GoString), ([for (i in supportedCurves) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_curveid.CurveID>), ([for (i in supportedPoints) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signatureSchemes) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in supportedProtos) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in supportedVersions) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), conn, (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>), _ctx);
+    public function new(?cipherSuites:Array<std.UInt>, ?serverName:String, ?supportedCurves:Array<CurveID>, ?supportedPoints:Array<std.UInt>, ?signatureSchemes:Array<SignatureScheme>, ?supportedProtos:Array<String>, ?supportedVersions:Array<std.UInt>, ?conn:stdgo._internal.net.Net_conn.Conn, ?_config:Config, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo(([for (i in cipherSuites) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), (serverName : stdgo.GoString), ([for (i in supportedCurves) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_curveid.CurveID>), ([for (i in supportedPoints) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signatureSchemes) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in supportedProtos) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in supportedVersions) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>), conn, (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>), _ctx);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.CertificateRequestInfo_static_extension) abstract CertificateRequestInfo(stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo) from stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo to stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo {
+@:structInit @:using(stdgo.crypto.tls.Tls.CertificateRequestInfo_static_extension) abstract CertificateRequestInfo(stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo) from stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo to stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo {
     public var acceptableCAs(get, set) : Array<Array<std.UInt>>;
     function get_acceptableCAs():Array<Array<std.UInt>> return [for (i in this.acceptableCAs) [for (i in i) i]];
     function set_acceptableCAs(v:Array<Array<std.UInt>>):Array<Array<std.UInt>> {
@@ -587,11 +587,11 @@ _ekm);
         this._ctx = v;
         return v;
     }
-    public function new(?acceptableCAs:Array<Array<std.UInt>>, ?signatureSchemes:Array<SignatureScheme>, ?version:std.UInt, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo(([for (i in acceptableCAs) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), ([for (i in signatureSchemes) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), (version : stdgo.GoUInt16), _ctx);
+    public function new(?acceptableCAs:Array<Array<std.UInt>>, ?signatureSchemes:Array<SignatureScheme>, ?version:std.UInt, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo(([for (i in acceptableCAs) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), ([for (i in signatureSchemes) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), (version : stdgo.GoUInt16), _ctx);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.Config_static_extension) abstract Config(stdgo._internal.crypto.tls.Tls_Config.Config) from stdgo._internal.crypto.tls.Tls_Config.Config to stdgo._internal.crypto.tls.Tls_Config.Config {
+@:structInit @:using(stdgo.crypto.tls.Tls.Config_static_extension) abstract Config(stdgo._internal.crypto.tls.Tls_config.Config) from stdgo._internal.crypto.tls.Tls_config.Config to stdgo._internal.crypto.tls.Tls_config.Config {
     public var rand(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get_rand():stdgo._internal.io.Io_reader.Reader return this.rand;
     function set_rand(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -778,7 +778,7 @@ _ekm);
         this._autoSessionTicketKeys = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>);
         return v;
     }
-    public function new(?rand:stdgo._internal.io.Io_reader.Reader, ?time:() -> stdgo._internal.time.Time_time.Time, ?certificates:Array<Certificate>, ?nameToCertificate:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>, ?getCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getClientCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getConfigForClient:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; }, ?verifyPeerCertificate:(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error, ?verifyConnection:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error, ?rootCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?nextProtos:Array<String>, ?serverName:String, ?clientAuth:ClientAuthType, ?clientCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?insecureSkipVerify:Bool, ?cipherSuites:Array<std.UInt>, ?preferServerCipherSuites:Bool, ?sessionTicketsDisabled:Bool, ?sessionTicketKey:haxe.ds.Vector<std.UInt>, ?clientSessionCache:ClientSessionCache, ?unwrapSession:(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; }, ?wrapSession:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?minVersion:std.UInt, ?maxVersion:std.UInt, ?curvePreferences:Array<CurveID>, ?dynamicRecordSizingDisabled:Bool, ?renegotiation:RenegotiationSupport, ?keyLogWriter:stdgo._internal.io.Io_writer.Writer, ?_mutex:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sessionTicketKeys:Array<T_ticketKey>, ?_autoSessionTicketKeys:Array<T_ticketKey>) this = new stdgo._internal.crypto.tls.Tls_Config.Config(
+    public function new(?rand:stdgo._internal.io.Io_reader.Reader, ?time:() -> stdgo._internal.time.Time_time.Time, ?certificates:Array<Certificate>, ?nameToCertificate:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>, ?getCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getClientCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getConfigForClient:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; }, ?verifyPeerCertificate:(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error, ?verifyConnection:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error, ?rootCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?nextProtos:Array<String>, ?serverName:String, ?clientAuth:ClientAuthType, ?clientCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?insecureSkipVerify:Bool, ?cipherSuites:Array<std.UInt>, ?preferServerCipherSuites:Bool, ?sessionTicketsDisabled:Bool, ?sessionTicketKey:haxe.ds.Vector<std.UInt>, ?clientSessionCache:ClientSessionCache, ?unwrapSession:(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; }, ?wrapSession:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?minVersion:std.UInt, ?maxVersion:std.UInt, ?curvePreferences:Array<CurveID>, ?dynamicRecordSizingDisabled:Bool, ?renegotiation:RenegotiationSupport, ?keyLogWriter:stdgo._internal.io.Io_writer.Writer, ?_mutex:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sessionTicketKeys:Array<T_ticketKey>, ?_autoSessionTicketKeys:Array<T_ticketKey>) this = new stdgo._internal.crypto.tls.Tls_config.Config(
 rand,
 time,
 ([for (i in certificates) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_certificate.Certificate>),
@@ -813,7 +813,7 @@ _mutex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_ticketKey_static_extension) abstract T_ticketKey(stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey) from stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey to stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_ticketKey_static_extension) abstract T_ticketKey(stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey) from stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey to stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey {
     public var _aesKey(get, set) : haxe.ds.Vector<std.UInt>;
     function get__aesKey():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._aesKey) i]);
     function set__aesKey(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -832,11 +832,11 @@ _mutex,
         this._created = v;
         return v;
     }
-    public function new(?_aesKey:haxe.ds.Vector<std.UInt>, ?_hmacKey:haxe.ds.Vector<std.UInt>, ?_created:stdgo._internal.time.Time_time.Time) this = new stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey(([for (i in _aesKey) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _hmacKey) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _created);
+    public function new(?_aesKey:haxe.ds.Vector<std.UInt>, ?_hmacKey:haxe.ds.Vector<std.UInt>, ?_created:stdgo._internal.time.Time_time.Time) this = new stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey(([for (i in _aesKey) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _hmacKey) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _created);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.Certificate_static_extension) abstract Certificate(stdgo._internal.crypto.tls.Tls_Certificate.Certificate) from stdgo._internal.crypto.tls.Tls_Certificate.Certificate to stdgo._internal.crypto.tls.Tls_Certificate.Certificate {
+@:structInit @:using(stdgo.crypto.tls.Tls.Certificate_static_extension) abstract Certificate(stdgo._internal.crypto.tls.Tls_certificate.Certificate) from stdgo._internal.crypto.tls.Tls_certificate.Certificate to stdgo._internal.crypto.tls.Tls_certificate.Certificate {
     public var certificate(get, set) : Array<Array<std.UInt>>;
     function get_certificate():Array<Array<std.UInt>> return [for (i in this.certificate) [for (i in i) i]];
     function set_certificate(v:Array<Array<std.UInt>>):Array<Array<std.UInt>> {
@@ -873,11 +873,11 @@ _mutex,
         this.leaf = (v : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return v;
     }
-    public function new(?certificate:Array<Array<std.UInt>>, ?privateKey:stdgo._internal.crypto.Crypto_privatekey.PrivateKey, ?supportedSignatureAlgorithms:Array<SignatureScheme>, ?oCSPStaple:Array<std.UInt>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?leaf:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_Certificate.Certificate(([for (i in certificate) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), privateKey, ([for (i in supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in oCSPStaple) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signedCertificateTimestamps) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), (leaf : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
+    public function new(?certificate:Array<Array<std.UInt>>, ?privateKey:stdgo._internal.crypto.Crypto_privatekey.PrivateKey, ?supportedSignatureAlgorithms:Array<SignatureScheme>, ?oCSPStaple:Array<std.UInt>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?leaf:stdgo._internal.crypto.x509.X509_certificate.Certificate) this = new stdgo._internal.crypto.tls.Tls_certificate.Certificate(([for (i in certificate) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), privateKey, ([for (i in supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in oCSPStaple) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in signedCertificateTimestamps) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), (leaf : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_lruSessionCache_static_extension) abstract T_lruSessionCache(stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache) from stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache to stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_lruSessionCache_static_extension) abstract T_lruSessionCache(stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache) from stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache to stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache {
     public var mutex(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get_mutex():stdgo._internal.sync.Sync_mutex.Mutex return this.mutex;
     function set_mutex(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -902,11 +902,11 @@ _mutex,
         this._capacity = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>, ?_q:stdgo._internal.container.list.List_list.List, ?_capacity:StdTypes.Int) this = new stdgo._internal.crypto.tls.Tls_T_lruSessionCache.T_lruSessionCache(mutex, (_m : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>), (_q : stdgo.Ref<stdgo._internal.container.list.List_list.List>), (_capacity : stdgo.GoInt));
+    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>, ?_q:stdgo._internal.container.list.List_list.List, ?_capacity:StdTypes.Int) this = new stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache(mutex, (_m : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>), (_q : stdgo.Ref<stdgo._internal.container.list.List_list.List>), (_capacity : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_lruSessionCacheEntry_static_extension) abstract T_lruSessionCacheEntry(stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry) from stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry to stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_lruSessionCacheEntry_static_extension) abstract T_lruSessionCacheEntry(stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry) from stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry to stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry {
     public var _sessionKey(get, set) : String;
     function get__sessionKey():String return this._sessionKey;
     function set__sessionKey(v:String):String {
@@ -919,11 +919,11 @@ _mutex,
         this._state = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>);
         return v;
     }
-    public function new(?_sessionKey:String, ?_state:ClientSessionState) this = new stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntry.T_lruSessionCacheEntry((_sessionKey : stdgo.GoString), (_state : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>));
+    public function new(?_sessionKey:String, ?_state:ClientSessionState) this = new stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry((_sessionKey : stdgo.GoString), (_state : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.CertificateVerificationError_static_extension) abstract CertificateVerificationError(stdgo._internal.crypto.tls.Tls_CertificateVerificationError.CertificateVerificationError) from stdgo._internal.crypto.tls.Tls_CertificateVerificationError.CertificateVerificationError to stdgo._internal.crypto.tls.Tls_CertificateVerificationError.CertificateVerificationError {
+@:structInit @:using(stdgo.crypto.tls.Tls.CertificateVerificationError_static_extension) abstract CertificateVerificationError(stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError) from stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError to stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError {
     public var unverifiedCertificates(get, set) : Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>;
     function get_unverifiedCertificates():Array<stdgo._internal.crypto.x509.X509_certificate.Certificate> return [for (i in this.unverifiedCertificates) i];
     function set_unverifiedCertificates(v:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Array<stdgo._internal.crypto.x509.X509_certificate.Certificate> {
@@ -936,11 +936,11 @@ _mutex,
         this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?unverifiedCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?err:stdgo.Error) this = new stdgo._internal.crypto.tls.Tls_CertificateVerificationError.CertificateVerificationError(([for (i in unverifiedCertificates) (i : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>), (err : stdgo.Error));
+    public function new(?unverifiedCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?err:stdgo.Error) this = new stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError(([for (i in unverifiedCertificates) (i : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>), (err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.Conn_static_extension) abstract Conn(stdgo._internal.crypto.tls.Tls_Conn.Conn) from stdgo._internal.crypto.tls.Tls_Conn.Conn to stdgo._internal.crypto.tls.Tls_Conn.Conn {
+@:structInit @:using(stdgo.crypto.tls.Tls.Conn_static_extension) abstract Conn(stdgo._internal.crypto.tls.Tls_conn.Conn) from stdgo._internal.crypto.tls.Tls_conn.Conn to stdgo._internal.crypto.tls.Tls_conn.Conn {
     public var _conn(get, set) : stdgo._internal.net.Net_conn.Conn;
     function get__conn():stdgo._internal.net.Net_conn.Conn return this._conn;
     function set__conn(v:stdgo._internal.net.Net_conn.Conn):stdgo._internal.net.Net_conn.Conn {
@@ -1193,7 +1193,7 @@ _mutex,
         this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_conn:stdgo._internal.net.Net_conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_Conn.Conn(
+    public function new(?_conn:stdgo._internal.net.Net_conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_conn.Conn(
 _conn,
 _isClient,
 _handshakeFn,
@@ -1239,7 +1239,7 @@ _activeCall,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_halfConn_static_extension) abstract T_halfConn(stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn) from stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn to stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_halfConn_static_extension) abstract T_halfConn(stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn) from stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn to stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn {
     public var mutex(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get_mutex():stdgo._internal.sync.Sync_mutex.Mutex return this.mutex;
     function set_mutex(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -1306,7 +1306,7 @@ _activeCall,
         this._trafficSecret = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_err:stdgo.Error, ?_version:std.UInt, ?_cipher:stdgo.AnyInterface, ?_mac:stdgo._internal.hash.Hash_hash.Hash, ?_seq:haxe.ds.Vector<std.UInt>, ?_scratchBuf:haxe.ds.Vector<std.UInt>, ?_nextCipher:stdgo.AnyInterface, ?_nextMac:stdgo._internal.hash.Hash_hash.Hash, ?_level:QUICEncryptionLevel, ?_trafficSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn(
+    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_err:stdgo.Error, ?_version:std.UInt, ?_cipher:stdgo.AnyInterface, ?_mac:stdgo._internal.hash.Hash_hash.Hash, ?_seq:haxe.ds.Vector<std.UInt>, ?_scratchBuf:haxe.ds.Vector<std.UInt>, ?_nextCipher:stdgo.AnyInterface, ?_nextMac:stdgo._internal.hash.Hash_hash.Hash, ?_level:QUICEncryptionLevel, ?_trafficSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn(
 mutex,
 (_err : stdgo.Error),
 (_version : stdgo.GoUInt16),
@@ -1321,18 +1321,18 @@ _level,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_permanentError_static_extension) abstract T_permanentError(stdgo._internal.crypto.tls.Tls_T_permanentError.T_permanentError) from stdgo._internal.crypto.tls.Tls_T_permanentError.T_permanentError to stdgo._internal.crypto.tls.Tls_T_permanentError.T_permanentError {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_permanentError_static_extension) abstract T_permanentError(stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError) from stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError to stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError {
     public var _err(get, set) : stdgo._internal.net.Net_error.Error;
     function get__err():stdgo._internal.net.Net_error.Error return this._err;
     function set__err(v:stdgo._internal.net.Net_error.Error):stdgo._internal.net.Net_error.Error {
         this._err = v;
         return v;
     }
-    public function new(?_err:stdgo._internal.net.Net_error.Error) this = new stdgo._internal.crypto.tls.Tls_T_permanentError.T_permanentError(_err);
+    public function new(?_err:stdgo._internal.net.Net_error.Error) this = new stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError(_err);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.RecordHeaderError_static_extension) abstract RecordHeaderError(stdgo._internal.crypto.tls.Tls_RecordHeaderError.RecordHeaderError) from stdgo._internal.crypto.tls.Tls_RecordHeaderError.RecordHeaderError to stdgo._internal.crypto.tls.Tls_RecordHeaderError.RecordHeaderError {
+@:structInit @:using(stdgo.crypto.tls.Tls.RecordHeaderError_static_extension) abstract RecordHeaderError(stdgo._internal.crypto.tls.Tls_recordheadererror.RecordHeaderError) from stdgo._internal.crypto.tls.Tls_recordheadererror.RecordHeaderError to stdgo._internal.crypto.tls.Tls_recordheadererror.RecordHeaderError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
@@ -1351,11 +1351,11 @@ _level,
         this.conn = v;
         return v;
     }
-    public function new(?msg:String, ?recordHeader:haxe.ds.Vector<std.UInt>, ?conn:stdgo._internal.net.Net_conn.Conn) this = new stdgo._internal.crypto.tls.Tls_RecordHeaderError.RecordHeaderError((msg : stdgo.GoString), ([for (i in recordHeader) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), conn);
+    public function new(?msg:String, ?recordHeader:haxe.ds.Vector<std.UInt>, ?conn:stdgo._internal.net.Net_conn.Conn) this = new stdgo._internal.crypto.tls.Tls_recordheadererror.RecordHeaderError((msg : stdgo.GoString), ([for (i in recordHeader) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), conn);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_atLeastReader_static_extension) abstract T_atLeastReader(stdgo._internal.crypto.tls.Tls_T_atLeastReader.T_atLeastReader) from stdgo._internal.crypto.tls.Tls_T_atLeastReader.T_atLeastReader to stdgo._internal.crypto.tls.Tls_T_atLeastReader.T_atLeastReader {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_atLeastReader_static_extension) abstract T_atLeastReader(stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader) from stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader to stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader {
     public var r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get_r():stdgo._internal.io.Io_reader.Reader return this.r;
     function set_r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -1368,11 +1368,11 @@ _level,
         this.n = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?r:stdgo._internal.io.Io_reader.Reader, ?n:haxe.Int64) this = new stdgo._internal.crypto.tls.Tls_T_atLeastReader.T_atLeastReader(r, (n : stdgo.GoInt64));
+    public function new(?r:stdgo._internal.io.Io_reader.Reader, ?n:haxe.Int64) this = new stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader(r, (n : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHandshakeState_static_extension) abstract T_clientHandshakeState(stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState) from stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState to stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHandshakeState_static_extension) abstract T_clientHandshakeState(stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState) from stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState to stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState {
     public var _c(get, set) : Conn;
     function get__c():Conn return this._c;
     function set__c(v:Conn):Conn {
@@ -1427,11 +1427,11 @@ _level,
         this._ticket = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_serverHello:T_serverHelloMsg, ?_hello:T_clientHelloMsg, ?_suite:T_cipherSuite, ?_finishedHash:T_finishedHash, ?_masterSecret:Array<std.UInt>, ?_session:SessionState, ?_ticket:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState((_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>), _ctx, (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>), (_hello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>), (_suite : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite>), _finishedHash, ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_session : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>), ([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_serverHello:T_serverHelloMsg, ?_hello:T_clientHelloMsg, ?_suite:T_cipherSuite, ?_finishedHash:T_finishedHash, ?_masterSecret:Array<std.UInt>, ?_session:SessionState, ?_ticket:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState((_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>), _ctx, (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>), (_hello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>), (_suite : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite>), _finishedHash, ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_session : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>), ([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHandshakeStateTLS13_static_extension) abstract T_clientHandshakeStateTLS13(stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13) from stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13 to stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHandshakeStateTLS13_static_extension) abstract T_clientHandshakeStateTLS13(stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13) from stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13 to stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13 {
     public var _c(get, set) : Conn;
     function get__c():Conn return this._c;
     function set__c(v:Conn):Conn {
@@ -1522,7 +1522,7 @@ _level,
         this._trafficSecret = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_serverHello:T_serverHelloMsg, ?_hello:T_clientHelloMsg, ?_ecdheKey:stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey, ?_session:SessionState, ?_earlySecret:Array<std.UInt>, ?_binderKey:Array<std.UInt>, ?_certReq:T_certificateRequestMsgTLS13, ?_usingPSK:Bool, ?_sentDummyCCS:Bool, ?_suite:T_cipherSuiteTLS13, ?_transcript:stdgo._internal.hash.Hash_hash.Hash, ?_masterSecret:Array<std.UInt>, ?_trafficSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13(
+    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_serverHello:T_serverHelloMsg, ?_hello:T_clientHelloMsg, ?_ecdheKey:stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey, ?_session:SessionState, ?_earlySecret:Array<std.UInt>, ?_binderKey:Array<std.UInt>, ?_certReq:T_certificateRequestMsgTLS13, ?_usingPSK:Bool, ?_sentDummyCCS:Bool, ?_suite:T_cipherSuiteTLS13, ?_transcript:stdgo._internal.hash.Hash_hash.Hash, ?_masterSecret:Array<std.UInt>, ?_trafficSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13(
 (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>),
 _ctx,
 (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>),
@@ -1541,7 +1541,7 @@ _transcript,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHelloMsg_static_extension) abstract T_clientHelloMsg(stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg) from stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg to stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_clientHelloMsg_static_extension) abstract T_clientHelloMsg(stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg) from stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg to stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -1704,7 +1704,7 @@ _transcript,
         this._quicTransportParameters = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_vers:std.UInt, ?_random:Array<std.UInt>, ?_sessionId:Array<std.UInt>, ?_cipherSuites:Array<std.UInt>, ?_compressionMethods:Array<std.UInt>, ?_serverName:String, ?_ocspStapling:Bool, ?_supportedCurves:Array<CurveID>, ?_supportedPoints:Array<std.UInt>, ?_ticketSupported:Bool, ?_sessionTicket:Array<std.UInt>, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_supportedSignatureAlgorithmsCert:Array<SignatureScheme>, ?_secureRenegotiationSupported:Bool, ?_secureRenegotiation:Array<std.UInt>, ?_extendedMasterSecret:Bool, ?_alpnProtocols:Array<String>, ?_scts:Bool, ?_supportedVersions:Array<std.UInt>, ?_cookie:Array<std.UInt>, ?_keyShares:Array<T_keyShare>, ?_earlyData:Bool, ?_pskModes:Array<std.UInt>, ?_pskIdentities:Array<T_pskIdentity>, ?_pskBinders:Array<Array<std.UInt>>, ?_quicTransportParameters:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg(
+    public function new(?_raw:Array<std.UInt>, ?_vers:std.UInt, ?_random:Array<std.UInt>, ?_sessionId:Array<std.UInt>, ?_cipherSuites:Array<std.UInt>, ?_compressionMethods:Array<std.UInt>, ?_serverName:String, ?_ocspStapling:Bool, ?_supportedCurves:Array<CurveID>, ?_supportedPoints:Array<std.UInt>, ?_ticketSupported:Bool, ?_sessionTicket:Array<std.UInt>, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_supportedSignatureAlgorithmsCert:Array<SignatureScheme>, ?_secureRenegotiationSupported:Bool, ?_secureRenegotiation:Array<std.UInt>, ?_extendedMasterSecret:Bool, ?_alpnProtocols:Array<String>, ?_scts:Bool, ?_supportedVersions:Array<std.UInt>, ?_cookie:Array<std.UInt>, ?_keyShares:Array<T_keyShare>, ?_earlyData:Bool, ?_pskModes:Array<std.UInt>, ?_pskIdentities:Array<T_pskIdentity>, ?_pskBinders:Array<Array<std.UInt>>, ?_quicTransportParameters:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg(
 ([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 (_vers : stdgo.GoUInt16),
 ([for (i in _random) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
@@ -1735,7 +1735,7 @@ _earlyData,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHelloMsg_static_extension) abstract T_serverHelloMsg(stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg) from stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg to stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHelloMsg_static_extension) abstract T_serverHelloMsg(stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg) from stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg to stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -1856,7 +1856,7 @@ _earlyData,
         this._selectedGroup = v;
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_vers:std.UInt, ?_random:Array<std.UInt>, ?_sessionId:Array<std.UInt>, ?_cipherSuite:std.UInt, ?_compressionMethod:std.UInt, ?_ocspStapling:Bool, ?_ticketSupported:Bool, ?_secureRenegotiationSupported:Bool, ?_secureRenegotiation:Array<std.UInt>, ?_extendedMasterSecret:Bool, ?_alpnProtocol:String, ?_scts:Array<Array<std.UInt>>, ?_supportedVersion:std.UInt, ?_serverShare:T_keyShare, ?_selectedIdentityPresent:Bool, ?_selectedIdentity:std.UInt, ?_supportedPoints:Array<std.UInt>, ?_cookie:Array<std.UInt>, ?_selectedGroup:CurveID) this = new stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg(
+    public function new(?_raw:Array<std.UInt>, ?_vers:std.UInt, ?_random:Array<std.UInt>, ?_sessionId:Array<std.UInt>, ?_cipherSuite:std.UInt, ?_compressionMethod:std.UInt, ?_ocspStapling:Bool, ?_ticketSupported:Bool, ?_secureRenegotiationSupported:Bool, ?_secureRenegotiation:Array<std.UInt>, ?_extendedMasterSecret:Bool, ?_alpnProtocol:String, ?_scts:Array<Array<std.UInt>>, ?_supportedVersion:std.UInt, ?_serverShare:T_keyShare, ?_selectedIdentityPresent:Bool, ?_selectedIdentity:std.UInt, ?_supportedPoints:Array<std.UInt>, ?_cookie:Array<std.UInt>, ?_selectedGroup:CurveID) this = new stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg(
 ([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 (_vers : stdgo.GoUInt16),
 ([for (i in _random) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
@@ -1880,7 +1880,7 @@ _selectedGroup);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_encryptedExtensionsMsg_static_extension) abstract T_encryptedExtensionsMsg(stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg) from stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg to stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_encryptedExtensionsMsg_static_extension) abstract T_encryptedExtensionsMsg(stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg) from stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg to stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -1905,16 +1905,16 @@ _selectedGroup);
         this._earlyData = v;
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_alpnProtocol:String, ?_quicTransportParameters:Array<std.UInt>, ?_earlyData:Bool) this = new stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_alpnProtocol : stdgo.GoString), ([for (i in _quicTransportParameters) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _earlyData);
+    public function new(?_raw:Array<std.UInt>, ?_alpnProtocol:String, ?_quicTransportParameters:Array<std.UInt>, ?_earlyData:Bool) this = new stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_alpnProtocol : stdgo.GoString), ([for (i in _quicTransportParameters) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _earlyData);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_endOfEarlyDataMsg_static_extension) abstract T_endOfEarlyDataMsg(stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg) from stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg to stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg {
-    public function new() this = new stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg();
+@:structInit @:using(stdgo.crypto.tls.Tls.T_endOfEarlyDataMsg_static_extension) abstract T_endOfEarlyDataMsg(stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg) from stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg to stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg {
+    public function new() this = new stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_keyUpdateMsg_static_extension) abstract T_keyUpdateMsg(stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg) from stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg to stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_keyUpdateMsg_static_extension) abstract T_keyUpdateMsg(stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg) from stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg to stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -1927,11 +1927,11 @@ _selectedGroup);
         this._updateRequested = v;
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_updateRequested:Bool) this = new stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _updateRequested);
+    public function new(?_raw:Array<std.UInt>, ?_updateRequested:Bool) this = new stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _updateRequested);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_newSessionTicketMsgTLS13_static_extension) abstract T_newSessionTicketMsgTLS13(stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13) from stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13 to stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_newSessionTicketMsgTLS13_static_extension) abstract T_newSessionTicketMsgTLS13(stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13) from stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13 to stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13 {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -1968,11 +1968,11 @@ _selectedGroup);
         this._maxEarlyData = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_lifetime:std.UInt, ?_ageAdd:std.UInt, ?_nonce:Array<std.UInt>, ?_label:Array<std.UInt>, ?_maxEarlyData:std.UInt) this = new stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13.T_newSessionTicketMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_lifetime : stdgo.GoUInt32), (_ageAdd : stdgo.GoUInt32), ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _label) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_maxEarlyData : stdgo.GoUInt32));
+    public function new(?_raw:Array<std.UInt>, ?_lifetime:std.UInt, ?_ageAdd:std.UInt, ?_nonce:Array<std.UInt>, ?_label:Array<std.UInt>, ?_maxEarlyData:std.UInt) this = new stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_lifetime : stdgo.GoUInt32), (_ageAdd : stdgo.GoUInt32), ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _label) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_maxEarlyData : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateRequestMsgTLS13_static_extension) abstract T_certificateRequestMsgTLS13(stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13) from stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13 to stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateRequestMsgTLS13_static_extension) abstract T_certificateRequestMsgTLS13(stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13) from stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13 to stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13 {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2009,11 +2009,11 @@ _selectedGroup);
         this._certificateAuthorities = ([for (i in v) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_ocspStapling:Bool, ?_scts:Bool, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_supportedSignatureAlgorithmsCert:Array<SignatureScheme>, ?_certificateAuthorities:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13.T_certificateRequestMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _ocspStapling, _scts, ([for (i in _supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _supportedSignatureAlgorithmsCert) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _certificateAuthorities) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
+    public function new(?_raw:Array<std.UInt>, ?_ocspStapling:Bool, ?_scts:Bool, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_supportedSignatureAlgorithmsCert:Array<SignatureScheme>, ?_certificateAuthorities:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _ocspStapling, _scts, ([for (i in _supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _supportedSignatureAlgorithmsCert) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _certificateAuthorities) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateMsg_static_extension) abstract T_certificateMsg(stdgo._internal.crypto.tls.Tls_T_certificateMsg.T_certificateMsg) from stdgo._internal.crypto.tls.Tls_T_certificateMsg.T_certificateMsg to stdgo._internal.crypto.tls.Tls_T_certificateMsg.T_certificateMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateMsg_static_extension) abstract T_certificateMsg(stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg) from stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg to stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2026,11 +2026,11 @@ _selectedGroup);
         this._certificates = ([for (i in v) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_certificates:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_T_certificateMsg.T_certificateMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _certificates) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
+    public function new(?_raw:Array<std.UInt>, ?_certificates:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _certificates) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateMsgTLS13_static_extension) abstract T_certificateMsgTLS13(stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13) from stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13 to stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateMsgTLS13_static_extension) abstract T_certificateMsgTLS13(stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13) from stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13 to stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13 {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2055,11 +2055,11 @@ _selectedGroup);
         this._scts = v;
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_certificate:Certificate, ?_ocspStapling:Bool, ?_scts:Bool) this = new stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _certificate, _ocspStapling, _scts);
+    public function new(?_raw:Array<std.UInt>, ?_certificate:Certificate, ?_ocspStapling:Bool, ?_scts:Bool) this = new stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _certificate, _ocspStapling, _scts);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_serverKeyExchangeMsg_static_extension) abstract T_serverKeyExchangeMsg(stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg.T_serverKeyExchangeMsg) from stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg.T_serverKeyExchangeMsg to stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg.T_serverKeyExchangeMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_serverKeyExchangeMsg_static_extension) abstract T_serverKeyExchangeMsg(stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg) from stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg to stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2072,11 +2072,11 @@ _selectedGroup);
         this._key = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_key:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg.T_serverKeyExchangeMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_key:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateStatusMsg_static_extension) abstract T_certificateStatusMsg(stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg.T_certificateStatusMsg) from stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg.T_certificateStatusMsg to stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg.T_certificateStatusMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateStatusMsg_static_extension) abstract T_certificateStatusMsg(stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg) from stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg to stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2089,16 +2089,16 @@ _selectedGroup);
         this._response = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_response:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg.T_certificateStatusMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _response) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_response:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _response) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHelloDoneMsg_static_extension) abstract T_serverHelloDoneMsg(stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg.T_serverHelloDoneMsg) from stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg.T_serverHelloDoneMsg to stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg.T_serverHelloDoneMsg {
-    public function new() this = new stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg.T_serverHelloDoneMsg();
+@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHelloDoneMsg_static_extension) abstract T_serverHelloDoneMsg(stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg) from stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg to stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg {
+    public function new() this = new stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_clientKeyExchangeMsg_static_extension) abstract T_clientKeyExchangeMsg(stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg) from stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg to stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_clientKeyExchangeMsg_static_extension) abstract T_clientKeyExchangeMsg(stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg) from stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg to stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2111,11 +2111,11 @@ _selectedGroup);
         this._ciphertext = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_ciphertext:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_ciphertext:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_finishedMsg_static_extension) abstract T_finishedMsg(stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg) from stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg to stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_finishedMsg_static_extension) abstract T_finishedMsg(stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg) from stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg to stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2128,11 +2128,11 @@ _selectedGroup);
         this._verifyData = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_verifyData:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _verifyData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_verifyData:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _verifyData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateRequestMsg_static_extension) abstract T_certificateRequestMsg(stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg.T_certificateRequestMsg) from stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg.T_certificateRequestMsg to stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg.T_certificateRequestMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateRequestMsg_static_extension) abstract T_certificateRequestMsg(stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg) from stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg to stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2163,11 +2163,11 @@ _selectedGroup);
         this._certificateAuthorities = ([for (i in v) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_hasSignatureAlgorithm:Bool, ?_certificateTypes:Array<std.UInt>, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_certificateAuthorities:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg.T_certificateRequestMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _hasSignatureAlgorithm, ([for (i in _certificateTypes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _certificateAuthorities) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
+    public function new(?_raw:Array<std.UInt>, ?_hasSignatureAlgorithm:Bool, ?_certificateTypes:Array<std.UInt>, ?_supportedSignatureAlgorithms:Array<SignatureScheme>, ?_certificateAuthorities:Array<Array<std.UInt>>) this = new stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _hasSignatureAlgorithm, ([for (i in _certificateTypes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _supportedSignatureAlgorithms) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>), ([for (i in _certificateAuthorities) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateVerifyMsg_static_extension) abstract T_certificateVerifyMsg(stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg) from stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg to stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_certificateVerifyMsg_static_extension) abstract T_certificateVerifyMsg(stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg) from stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg to stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2192,11 +2192,11 @@ _selectedGroup);
         this._signature = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_hasSignatureAlgorithm:Bool, ?_signatureAlgorithm:SignatureScheme, ?_signature:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _hasSignatureAlgorithm, _signatureAlgorithm, ([for (i in _signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_hasSignatureAlgorithm:Bool, ?_signatureAlgorithm:SignatureScheme, ?_signature:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _hasSignatureAlgorithm, _signatureAlgorithm, ([for (i in _signature) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_newSessionTicketMsg_static_extension) abstract T_newSessionTicketMsg(stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg) from stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg to stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_newSessionTicketMsg_static_extension) abstract T_newSessionTicketMsg(stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg) from stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg to stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg {
     public var _raw(get, set) : Array<std.UInt>;
     function get__raw():Array<std.UInt> return [for (i in this._raw) i];
     function set__raw(v:Array<std.UInt>):Array<std.UInt> {
@@ -2209,16 +2209,16 @@ _selectedGroup);
         this._ticket = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_raw:Array<std.UInt>, ?_ticket:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg.T_newSessionTicketMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_raw:Array<std.UInt>, ?_ticket:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg(([for (i in _raw) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_helloRequestMsg_static_extension) abstract T_helloRequestMsg(stdgo._internal.crypto.tls.Tls_T_helloRequestMsg.T_helloRequestMsg) from stdgo._internal.crypto.tls.Tls_T_helloRequestMsg.T_helloRequestMsg to stdgo._internal.crypto.tls.Tls_T_helloRequestMsg.T_helloRequestMsg {
-    public function new() this = new stdgo._internal.crypto.tls.Tls_T_helloRequestMsg.T_helloRequestMsg();
+@:structInit @:using(stdgo.crypto.tls.Tls.T_helloRequestMsg_static_extension) abstract T_helloRequestMsg(stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg) from stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg to stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg {
+    public function new() this = new stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHandshakeState_static_extension) abstract T_serverHandshakeState(stdgo._internal.crypto.tls.Tls_T_serverHandshakeState.T_serverHandshakeState) from stdgo._internal.crypto.tls.Tls_T_serverHandshakeState.T_serverHandshakeState to stdgo._internal.crypto.tls.Tls_T_serverHandshakeState.T_serverHandshakeState {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHandshakeState_static_extension) abstract T_serverHandshakeState(stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState) from stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState to stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState {
     public var _c(get, set) : Conn;
     function get__c():Conn return this._c;
     function set__c(v:Conn):Conn {
@@ -2297,7 +2297,7 @@ _selectedGroup);
         this._cert = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
         return v;
     }
-    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_clientHello:T_clientHelloMsg, ?_hello:T_serverHelloMsg, ?_suite:T_cipherSuite, ?_ecdheOk:Bool, ?_ecSignOk:Bool, ?_rsaDecryptOk:Bool, ?_rsaSignOk:Bool, ?_sessionState:SessionState, ?_finishedHash:T_finishedHash, ?_masterSecret:Array<std.UInt>, ?_cert:Certificate) this = new stdgo._internal.crypto.tls.Tls_T_serverHandshakeState.T_serverHandshakeState(
+    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_clientHello:T_clientHelloMsg, ?_hello:T_serverHelloMsg, ?_suite:T_cipherSuite, ?_ecdheOk:Bool, ?_ecSignOk:Bool, ?_rsaDecryptOk:Bool, ?_rsaSignOk:Bool, ?_sessionState:SessionState, ?_finishedHash:T_finishedHash, ?_masterSecret:Array<std.UInt>, ?_cert:Certificate) this = new stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState(
 (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>),
 _ctx,
 (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>),
@@ -2314,7 +2314,7 @@ _finishedHash,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHandshakeStateTLS13_static_extension) abstract T_serverHandshakeStateTLS13(stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13) from stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13 to stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13 {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_serverHandshakeStateTLS13_static_extension) abstract T_serverHandshakeStateTLS13(stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13) from stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13 to stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13 {
     public var _c(get, set) : Conn;
     function get__c():Conn return this._c;
     function set__c(v:Conn):Conn {
@@ -2417,7 +2417,7 @@ _finishedHash,
         this._clientFinished = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_clientHello:T_clientHelloMsg, ?_hello:T_serverHelloMsg, ?_sentDummyCCS:Bool, ?_usingPSK:Bool, ?_earlyData:Bool, ?_suite:T_cipherSuiteTLS13, ?_cert:Certificate, ?_sigAlg:SignatureScheme, ?_earlySecret:Array<std.UInt>, ?_sharedKey:Array<std.UInt>, ?_handshakeSecret:Array<std.UInt>, ?_masterSecret:Array<std.UInt>, ?_trafficSecret:Array<std.UInt>, ?_transcript:stdgo._internal.hash.Hash_hash.Hash, ?_clientFinished:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13(
+    public function new(?_c:Conn, ?_ctx:stdgo._internal.context.Context_context.Context, ?_clientHello:T_clientHelloMsg, ?_hello:T_serverHelloMsg, ?_sentDummyCCS:Bool, ?_usingPSK:Bool, ?_earlyData:Bool, ?_suite:T_cipherSuiteTLS13, ?_cert:Certificate, ?_sigAlg:SignatureScheme, ?_earlySecret:Array<std.UInt>, ?_sharedKey:Array<std.UInt>, ?_handshakeSecret:Array<std.UInt>, ?_masterSecret:Array<std.UInt>, ?_trafficSecret:Array<std.UInt>, ?_transcript:stdgo._internal.hash.Hash_hash.Hash, ?_clientFinished:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13(
 (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>),
 _ctx,
 (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>),
@@ -2438,12 +2438,12 @@ _transcript,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_rsaKeyAgreement_static_extension) abstract T_rsaKeyAgreement(stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement.T_rsaKeyAgreement) from stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement.T_rsaKeyAgreement to stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement.T_rsaKeyAgreement {
-    public function new() this = new stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement.T_rsaKeyAgreement();
+@:structInit @:using(stdgo.crypto.tls.Tls.T_rsaKeyAgreement_static_extension) abstract T_rsaKeyAgreement(stdgo._internal.crypto.tls.Tls_t_rsakeyagreement.T_rsaKeyAgreement) from stdgo._internal.crypto.tls.Tls_t_rsakeyagreement.T_rsaKeyAgreement to stdgo._internal.crypto.tls.Tls_t_rsakeyagreement.T_rsaKeyAgreement {
+    public function new() this = new stdgo._internal.crypto.tls.Tls_t_rsakeyagreement.T_rsaKeyAgreement();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_ecdheKeyAgreement_static_extension) abstract T_ecdheKeyAgreement(stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement) from stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement to stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_ecdheKeyAgreement_static_extension) abstract T_ecdheKeyAgreement(stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement) from stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement to stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement {
     public var _version(get, set) : std.UInt;
     function get__version():std.UInt return this._version;
     function set__version(v:std.UInt):std.UInt {
@@ -2474,11 +2474,11 @@ _transcript,
         this._preMasterSecret = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_version:std.UInt, ?_isRSA:Bool, ?_key:stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey, ?_ckx:T_clientKeyExchangeMsg, ?_preMasterSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement((_version : stdgo.GoUInt16), _isRSA, (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>), (_ckx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>), ([for (i in _preMasterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_version:std.UInt, ?_isRSA:Bool, ?_key:stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey, ?_ckx:T_clientKeyExchangeMsg, ?_preMasterSecret:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement((_version : stdgo.GoUInt16), _isRSA, (_key : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>), (_ckx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>), ([for (i in _preMasterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_finishedHash_static_extension) abstract T_finishedHash(stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash) from stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash to stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_finishedHash_static_extension) abstract T_finishedHash(stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash) from stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash to stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash {
     public var _client(get, set) : stdgo._internal.hash.Hash_hash.Hash;
     function get__client():stdgo._internal.hash.Hash_hash.Hash return this._client;
     function set__client(v:stdgo._internal.hash.Hash_hash.Hash):stdgo._internal.hash.Hash_hash.Hash {
@@ -2521,11 +2521,11 @@ _transcript,
         this._prf = v;
         return v;
     }
-    public function new(?_client:stdgo._internal.hash.Hash_hash.Hash, ?_server:stdgo._internal.hash.Hash_hash.Hash, ?_clientMD5:stdgo._internal.hash.Hash_hash.Hash, ?_serverMD5:stdgo._internal.hash.Hash_hash.Hash, ?_buffer:Array<std.UInt>, ?_version:std.UInt, ?_prf:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void) this = new stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash(_client, _server, _clientMD5, _serverMD5, ([for (i in _buffer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_version : stdgo.GoUInt16), _prf);
+    public function new(?_client:stdgo._internal.hash.Hash_hash.Hash, ?_server:stdgo._internal.hash.Hash_hash.Hash, ?_clientMD5:stdgo._internal.hash.Hash_hash.Hash, ?_serverMD5:stdgo._internal.hash.Hash_hash.Hash, ?_buffer:Array<std.UInt>, ?_version:std.UInt, ?_prf:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void) this = new stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash(_client, _server, _clientMD5, _serverMD5, ([for (i in _buffer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_version : stdgo.GoUInt16), _prf);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.QUICConn_static_extension) abstract QUICConn(stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn) from stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn to stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn {
+@:structInit @:using(stdgo.crypto.tls.Tls.QUICConn_static_extension) abstract QUICConn(stdgo._internal.crypto.tls.Tls_quicconn.QUICConn) from stdgo._internal.crypto.tls.Tls_quicconn.QUICConn to stdgo._internal.crypto.tls.Tls_quicconn.QUICConn {
     public var _conn(get, set) : Conn;
     function get__conn():Conn return this._conn;
     function set__conn(v:Conn):Conn {
@@ -2538,22 +2538,22 @@ _transcript,
         this._sessionTicketSent = v;
         return v;
     }
-    public function new(?_conn:Conn, ?_sessionTicketSent:Bool) this = new stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn((_conn : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>), _sessionTicketSent);
+    public function new(?_conn:Conn, ?_sessionTicketSent:Bool) this = new stdgo._internal.crypto.tls.Tls_quicconn.QUICConn((_conn : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>), _sessionTicketSent);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.QUICConfig_static_extension) abstract QUICConfig(stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig) from stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig to stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig {
+@:structInit @:using(stdgo.crypto.tls.Tls.QUICConfig_static_extension) abstract QUICConfig(stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig) from stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig to stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig {
     public var tLSConfig(get, set) : Config;
     function get_tLSConfig():Config return this.tLSConfig;
     function set_tLSConfig(v:Config):Config {
         this.tLSConfig = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         return v;
     }
-    public function new(?tLSConfig:Config) this = new stdgo._internal.crypto.tls.Tls_QUICConfig.QUICConfig((tLSConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+    public function new(?tLSConfig:Config) this = new stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig((tLSConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.QUICEvent_static_extension) abstract QUICEvent(stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent) from stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent to stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent {
+@:structInit @:using(stdgo.crypto.tls.Tls.QUICEvent_static_extension) abstract QUICEvent(stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent) from stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent to stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent {
     public var kind(get, set) : QUICEventKind;
     function get_kind():QUICEventKind return this.kind;
     function set_kind(v:QUICEventKind):QUICEventKind {
@@ -2578,11 +2578,11 @@ _transcript,
         this.suite = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?kind:QUICEventKind, ?level:QUICEncryptionLevel, ?data:Array<std.UInt>, ?suite:std.UInt) this = new stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent(kind, level, ([for (i in data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (suite : stdgo.GoUInt16));
+    public function new(?kind:QUICEventKind, ?level:QUICEncryptionLevel, ?data:Array<std.UInt>, ?suite:std.UInt) this = new stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent(kind, level, ([for (i in data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (suite : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_quicState_static_extension) abstract T_quicState(stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState) from stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState to stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_quicState_static_extension) abstract T_quicState(stdgo._internal.crypto.tls.Tls_t_quicstate.T_quicState) from stdgo._internal.crypto.tls.Tls_t_quicstate.T_quicState to stdgo._internal.crypto.tls.Tls_t_quicstate.T_quicState {
     public var _events(get, set) : Array<QUICEvent>;
     function get__events():Array<QUICEvent> return [for (i in this._events) i];
     function set__events(v:Array<QUICEvent>):Array<QUICEvent> {
@@ -2643,22 +2643,22 @@ _transcript,
         this._transportParams = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_events:Array<QUICEvent>, ?_nextEvent:StdTypes.Int, ?_eventArr:haxe.ds.Vector<QUICEvent>, ?_started:Bool, ?_signalc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_blockedc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_cancelc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc, ?_readbuf:Array<std.UInt>, ?_transportParams:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState(([for (i in _events) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent>), (_nextEvent : stdgo.GoInt), ([for (i in _eventArr) i] : stdgo.GoArray<stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent>), _started, (_signalc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), (_blockedc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), (_cancelc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), _cancel, ([for (i in _readbuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _transportParams) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_events:Array<QUICEvent>, ?_nextEvent:StdTypes.Int, ?_eventArr:haxe.ds.Vector<QUICEvent>, ?_started:Bool, ?_signalc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_blockedc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_cancelc:stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>, ?_cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc, ?_readbuf:Array<std.UInt>, ?_transportParams:Array<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_t_quicstate.T_quicState(([for (i in _events) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent>), (_nextEvent : stdgo.GoInt), ([for (i in _eventArr) i] : stdgo.GoArray<stdgo._internal.crypto.tls.Tls_quicevent.QUICEvent>), _started, (_signalc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), (_blockedc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), (_cancelc : stdgo.Chan<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>), _cancel, ([for (i in _readbuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _transportParams) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.QUICSessionTicketOptions_static_extension) abstract QUICSessionTicketOptions(stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptions.QUICSessionTicketOptions) from stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptions.QUICSessionTicketOptions to stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptions.QUICSessionTicketOptions {
+@:structInit @:using(stdgo.crypto.tls.Tls.QUICSessionTicketOptions_static_extension) abstract QUICSessionTicketOptions(stdgo._internal.crypto.tls.Tls_quicsessionticketoptions.QUICSessionTicketOptions) from stdgo._internal.crypto.tls.Tls_quicsessionticketoptions.QUICSessionTicketOptions to stdgo._internal.crypto.tls.Tls_quicsessionticketoptions.QUICSessionTicketOptions {
     public var earlyData(get, set) : Bool;
     function get_earlyData():Bool return this.earlyData;
     function set_earlyData(v:Bool):Bool {
         this.earlyData = v;
         return v;
     }
-    public function new(?earlyData:Bool) this = new stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptions.QUICSessionTicketOptions(earlyData);
+    public function new(?earlyData:Bool) this = new stdgo._internal.crypto.tls.Tls_quicsessionticketoptions.QUICSessionTicketOptions(earlyData);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.SessionState_static_extension) abstract SessionState(stdgo._internal.crypto.tls.Tls_SessionState.SessionState) from stdgo._internal.crypto.tls.Tls_SessionState.SessionState to stdgo._internal.crypto.tls.Tls_SessionState.SessionState {
+@:structInit @:using(stdgo.crypto.tls.Tls.SessionState_static_extension) abstract SessionState(stdgo._internal.crypto.tls.Tls_sessionstate.SessionState) from stdgo._internal.crypto.tls.Tls_sessionstate.SessionState to stdgo._internal.crypto.tls.Tls_sessionstate.SessionState {
     public var extra(get, set) : Array<Array<std.UInt>>;
     function get_extra():Array<Array<std.UInt>> return [for (i in this.extra) [for (i in i) i]];
     function set_extra(v:Array<Array<std.UInt>>):Array<Array<std.UInt>> {
@@ -2755,7 +2755,7 @@ _transcript,
         this._ageAdd = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?extra:Array<Array<std.UInt>>, ?earlyData:Bool, ?_version:std.UInt, ?_isClient:Bool, ?_cipherSuite:std.UInt, ?_createdAt:haxe.UInt64, ?_secret:Array<std.UInt>, ?_extMasterSecret:Bool, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_alpnProtocol:String, ?_useBy:haxe.UInt64, ?_ageAdd:std.UInt) this = new stdgo._internal.crypto.tls.Tls_SessionState.SessionState(
+    public function new(?extra:Array<Array<std.UInt>>, ?earlyData:Bool, ?_version:std.UInt, ?_isClient:Bool, ?_cipherSuite:std.UInt, ?_createdAt:haxe.UInt64, ?_secret:Array<std.UInt>, ?_extMasterSecret:Bool, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_alpnProtocol:String, ?_useBy:haxe.UInt64, ?_ageAdd:std.UInt) this = new stdgo._internal.crypto.tls.Tls_sessionstate.SessionState(
 ([for (i in extra) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>),
 earlyData,
 (_version : stdgo.GoUInt16),
@@ -2775,7 +2775,7 @@ _extMasterSecret,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.ClientSessionState_static_extension) abstract ClientSessionState(stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState) from stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState to stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState {
+@:structInit @:using(stdgo.crypto.tls.Tls.ClientSessionState_static_extension) abstract ClientSessionState(stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState) from stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState to stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState {
     public var _ticket(get, set) : Array<std.UInt>;
     function get__ticket():Array<std.UInt> return [for (i in this._ticket) i];
     function set__ticket(v:Array<std.UInt>):Array<std.UInt> {
@@ -2788,11 +2788,11 @@ _extMasterSecret,
         this._session = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>);
         return v;
     }
-    public function new(?_ticket:Array<std.UInt>, ?_session:SessionState) this = new stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState(([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_session : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>));
+    public function new(?_ticket:Array<std.UInt>, ?_session:SessionState) this = new stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState(([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_session : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_listener_static_extension) abstract T_listener(stdgo._internal.crypto.tls.Tls_T_listener.T_listener) from stdgo._internal.crypto.tls.Tls_T_listener.T_listener to stdgo._internal.crypto.tls.Tls_T_listener.T_listener {
+@:structInit @:using(stdgo.crypto.tls.Tls.T_listener_static_extension) abstract T_listener(stdgo._internal.crypto.tls.Tls_t_listener.T_listener) from stdgo._internal.crypto.tls.Tls_t_listener.T_listener to stdgo._internal.crypto.tls.Tls_t_listener.T_listener {
     public var listener(get, set) : stdgo._internal.net.Net_listener.Listener;
     function get_listener():stdgo._internal.net.Net_listener.Listener return this.listener;
     function set_listener(v:stdgo._internal.net.Net_listener.Listener):stdgo._internal.net.Net_listener.Listener {
@@ -2805,16 +2805,16 @@ _extMasterSecret,
         this._config = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         return v;
     }
-    public function new(?listener:stdgo._internal.net.Net_listener.Listener, ?_config:Config) this = new stdgo._internal.crypto.tls.Tls_T_listener.T_listener(listener, (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+    public function new(?listener:stdgo._internal.net.Net_listener.Listener, ?_config:Config) this = new stdgo._internal.crypto.tls.Tls_t_listener.T_listener(listener, (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.T_timeoutError_static_extension) abstract T_timeoutError(stdgo._internal.crypto.tls.Tls_T_timeoutError.T_timeoutError) from stdgo._internal.crypto.tls.Tls_T_timeoutError.T_timeoutError to stdgo._internal.crypto.tls.Tls_T_timeoutError.T_timeoutError {
-    public function new() this = new stdgo._internal.crypto.tls.Tls_T_timeoutError.T_timeoutError();
+@:structInit @:using(stdgo.crypto.tls.Tls.T_timeoutError_static_extension) abstract T_timeoutError(stdgo._internal.crypto.tls.Tls_t_timeouterror.T_timeoutError) from stdgo._internal.crypto.tls.Tls_t_timeouterror.T_timeoutError to stdgo._internal.crypto.tls.Tls_t_timeouterror.T_timeoutError {
+    public function new() this = new stdgo._internal.crypto.tls.Tls_t_timeouterror.T_timeoutError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.tls.Tls.Dialer_static_extension) abstract Dialer(stdgo._internal.crypto.tls.Tls_Dialer.Dialer) from stdgo._internal.crypto.tls.Tls_Dialer.Dialer to stdgo._internal.crypto.tls.Tls_Dialer.Dialer {
+@:structInit @:using(stdgo.crypto.tls.Tls.Dialer_static_extension) abstract Dialer(stdgo._internal.crypto.tls.Tls_dialer.Dialer) from stdgo._internal.crypto.tls.Tls_dialer.Dialer to stdgo._internal.crypto.tls.Tls_dialer.Dialer {
     public var netDialer(get, set) : stdgo._internal.net.Net_dialer.Dialer;
     function get_netDialer():stdgo._internal.net.Net_dialer.Dialer return this.netDialer;
     function set_netDialer(v:stdgo._internal.net.Net_dialer.Dialer):stdgo._internal.net.Net_dialer.Dialer {
@@ -2827,179 +2827,179 @@ _extMasterSecret,
         this.config = (v : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         return v;
     }
-    public function new(?netDialer:stdgo._internal.net.Net_dialer.Dialer, ?config:Config) this = new stdgo._internal.crypto.tls.Tls_Dialer.Dialer((netDialer : stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer>), (config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+    public function new(?netDialer:stdgo._internal.net.Net_dialer.Dialer, ?config:Config) this = new stdgo._internal.crypto.tls.Tls_dialer.Dialer((netDialer : stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer>), (config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.crypto.tls.Tls_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.crypto.tls.Tls_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.crypto.tls.Tls_T__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.crypto.tls.Tls_T__struct_1Pointer.T__struct_1Pointer;
+typedef T__struct_0 = stdgo._internal.crypto.tls.Tls_t__struct_0.T__struct_0;
+typedef T__struct_1Pointer = stdgo._internal.crypto.tls.Tls_t__struct_1pointer.T__struct_1Pointer;
 class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.crypto.tls.Tls_T__struct_1.T__struct_1;
-typedef AlertError = stdgo._internal.crypto.tls.Tls_AlertError.AlertError;
-typedef T_alert = stdgo._internal.crypto.tls.Tls_T_alert.T_alert;
-typedef T_recordType = stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType;
-typedef CurveID = stdgo._internal.crypto.tls.Tls_CurveID.CurveID;
-typedef ClientAuthType = stdgo._internal.crypto.tls.Tls_ClientAuthType.ClientAuthType;
-typedef SignatureScheme = stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme;
-typedef RenegotiationSupport = stdgo._internal.crypto.tls.Tls_RenegotiationSupport.RenegotiationSupport;
-typedef T_marshalingFunction = stdgo._internal.crypto.tls.Tls_T_marshalingFunction.T_marshalingFunction;
-typedef QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel;
-typedef QUICEventKind = stdgo._internal.crypto.tls.Tls_QUICEventKind.QUICEventKind;
+typedef T__struct_1 = stdgo._internal.crypto.tls.Tls_t__struct_1.T__struct_1;
+typedef AlertError = stdgo._internal.crypto.tls.Tls_alerterror.AlertError;
+typedef T_alert = stdgo._internal.crypto.tls.Tls_t_alert.T_alert;
+typedef T_recordType = stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType;
+typedef CurveID = stdgo._internal.crypto.tls.Tls_curveid.CurveID;
+typedef ClientAuthType = stdgo._internal.crypto.tls.Tls_clientauthtype.ClientAuthType;
+typedef SignatureScheme = stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme;
+typedef RenegotiationSupport = stdgo._internal.crypto.tls.Tls_renegotiationsupport.RenegotiationSupport;
+typedef T_marshalingFunction = stdgo._internal.crypto.tls.Tls_t_marshalingfunction.T_marshalingFunction;
+typedef QUICEncryptionLevel = stdgo._internal.crypto.tls.Tls_quicencryptionlevel.QUICEncryptionLevel;
+typedef QUICEventKind = stdgo._internal.crypto.tls.Tls_quiceventkind.QUICEventKind;
 class T__cloneHash___localname___binaryMarshaler_12373_static_extension {
     static public function unmarshalBinary(t:stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373, _data:Array<std.UInt>):stdgo.Error {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T__cloneHash___localname___binaryMarshaler_12373_static_extension.T__cloneHash___localname___binaryMarshaler_12373_static_extension.unmarshalBinary(t, _data);
+        return stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373_static_extension.T__cloneHash___localname___binaryMarshaler_12373_static_extension.unmarshalBinary(t, _data);
     }
     static public function marshalBinary(t:stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T__cloneHash___localname___binaryMarshaler_12373_static_extension.T__cloneHash___localname___binaryMarshaler_12373_static_extension.marshalBinary(t);
+            final obj = stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373_static_extension.T__cloneHash___localname___binaryMarshaler_12373_static_extension.marshalBinary(t);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T__cloneHash___localname___binaryMarshaler_12373 = stdgo._internal.crypto.tls.Tls_T__cloneHash___localname___binaryMarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373;
-typedef T_cacheEntryPointer = stdgo._internal.crypto.tls.Tls_T_cacheEntryPointer.T_cacheEntryPointer;
+typedef T__cloneHash___localname___binaryMarshaler_12373 = stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373;
+typedef T_cacheEntryPointer = stdgo._internal.crypto.tls.Tls_t_cacheentrypointer.T_cacheEntryPointer;
 class T_cacheEntry_static_extension {
 
 }
-typedef T_certCachePointer = stdgo._internal.crypto.tls.Tls_T_certCachePointer.T_certCachePointer;
+typedef T_certCachePointer = stdgo._internal.crypto.tls.Tls_t_certcachepointer.T_certCachePointer;
 class T_certCache_static_extension {
     static public function _newCert(_cc:T_certCache, _der:Array<std.UInt>):stdgo.Tuple<T_activeCert, stdgo.Error> {
         final _cc = (_cc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>);
         final _der = ([for (i in _der) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._newCert(_cc, _der);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._newCert(_cc, _der);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _evict(_cc:T_certCache, _e:T_cacheEntry):Void {
         final _cc = (_cc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>);
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>);
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._evict(_cc, _e);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._evict(_cc, _e);
     }
     static public function _active(_cc:T_certCache, _e:T_cacheEntry):T_activeCert {
         final _cc = (_cc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>);
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>);
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._active(_cc, _e);
+        return stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._active(_cc, _e);
     }
     public static function _missLocked(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache):Void {
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._missLocked(__self__);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._missLocked(__self__);
     }
     public static function _loadReadOnly(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache):stdgo._internal.sync.Sync_t_readonly.T_readOnly {
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._loadReadOnly(__self__);
+        return stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._loadReadOnly(__self__);
     }
     public static function _dirtyLocked(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache):Void {
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension._dirtyLocked(__self__);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension._dirtyLocked(__self__);
     }
     public static function swap(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _0 = (_0 : stdgo.AnyInterface);
         final _1 = (_1 : stdgo.AnyInterface);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.swap(__self__, _0, _1);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.swap(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function store(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Void {
         final _0 = (_0 : stdgo.AnyInterface);
         final _1 = (_1 : stdgo.AnyInterface);
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.store(__self__, _0, _1);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.store(__self__, _0, _1);
     }
     public static function range(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void {
         final _0 = _0;
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.range(__self__, _0);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.range(__self__, _0);
     }
     public static function loadOrStore(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _0 = (_0 : stdgo.AnyInterface);
         final _1 = (_1 : stdgo.AnyInterface);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadOrStore(__self__, _0, _1);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.loadOrStore(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function loadAndDelete(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _0 = (_0 : stdgo.AnyInterface);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.loadAndDelete(__self__, _0);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.loadAndDelete(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function load(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _0 = (_0 : stdgo.AnyInterface);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.load(__self__, _0);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.load(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function delete(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface):Void {
         final _0 = (_0 : stdgo.AnyInterface);
-        stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.delete(__self__, _0);
+        stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.delete(__self__, _0);
     }
     public static function compareAndSwap(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface, _2:stdgo.AnyInterface):Bool {
         final _0 = (_0 : stdgo.AnyInterface);
         final _1 = (_1 : stdgo.AnyInterface);
         final _2 = (_2 : stdgo.AnyInterface);
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndSwap(__self__, _0, _1, _2);
+        return stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.compareAndSwap(__self__, _0, _1, _2);
     }
     public static function compareAndDelete(__self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache, _0:stdgo.AnyInterface, _1:stdgo.AnyInterface):Bool {
         final _0 = (_0 : stdgo.AnyInterface);
         final _1 = (_1 : stdgo.AnyInterface);
-        return stdgo._internal.crypto.tls.Tls_T_certCache_static_extension.T_certCache_static_extension.compareAndDelete(__self__, _0, _1);
+        return stdgo._internal.crypto.tls.Tls_t_certcache_static_extension.T_certCache_static_extension.compareAndDelete(__self__, _0, _1);
     }
 }
-typedef T_activeCertPointer = stdgo._internal.crypto.tls.Tls_T_activeCertPointer.T_activeCertPointer;
+typedef T_activeCertPointer = stdgo._internal.crypto.tls.Tls_t_activecertpointer.T_activeCertPointer;
 class T_activeCert_static_extension {
 
 }
-typedef CipherSuitePointer = stdgo._internal.crypto.tls.Tls_CipherSuitePointer.CipherSuitePointer;
+typedef CipherSuitePointer = stdgo._internal.crypto.tls.Tls_ciphersuitepointer.CipherSuitePointer;
 class CipherSuite_static_extension {
 
 }
-typedef T_cipherSuitePointer = stdgo._internal.crypto.tls.Tls_T_cipherSuitePointer.T_cipherSuitePointer;
+typedef T_cipherSuitePointer = stdgo._internal.crypto.tls.Tls_t_ciphersuitepointer.T_cipherSuitePointer;
 class T_cipherSuite_static_extension {
 
 }
-typedef T_cipherSuiteTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13Pointer.T_cipherSuiteTLS13Pointer;
+typedef T_cipherSuiteTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13pointer.T_cipherSuiteTLS13Pointer;
 class T_cipherSuiteTLS13_static_extension {
     static public function _exportKeyingMaterial(_c:T_cipherSuiteTLS13, _masterSecret:Array<std.UInt>, _transcript:stdgo._internal.hash.Hash_hash.Hash):(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _masterSecret = ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return (_0, _1, _2) -> stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._exportKeyingMaterial(_c, _masterSecret, _transcript)(_0, [for (i in _1) i], _2);
+        return (_0, _1, _2) -> stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._exportKeyingMaterial(_c, _masterSecret, _transcript)(_0, [for (i in _1) i], _2);
     }
     static public function _finishedHash(_c:T_cipherSuiteTLS13, _baseKey:Array<std.UInt>, _transcript:stdgo._internal.hash.Hash_hash.Hash):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _baseKey = ([for (i in _baseKey) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._finishedHash(_c, _baseKey, _transcript)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._finishedHash(_c, _baseKey, _transcript)) i];
     }
     static public function _trafficKey(_c:T_cipherSuiteTLS13, _trafficSecret:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, Array<std.UInt>> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _trafficSecret = ([for (i in _trafficSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._trafficKey(_c, _trafficSecret);
+            final obj = stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._trafficKey(_c, _trafficSecret);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i] };
         };
     }
     static public function _nextTrafficSecret(_c:T_cipherSuiteTLS13, _trafficSecret:Array<std.UInt>):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _trafficSecret = ([for (i in _trafficSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._nextTrafficSecret(_c, _trafficSecret)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._nextTrafficSecret(_c, _trafficSecret)) i];
     }
     static public function _extract(_c:T_cipherSuiteTLS13, _newSecret:Array<std.UInt>, _currentSecret:Array<std.UInt>):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _newSecret = ([for (i in _newSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _currentSecret = ([for (i in _currentSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._extract(_c, _newSecret, _currentSecret)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._extract(_c, _newSecret, _currentSecret)) i];
     }
     static public function _deriveSecret(_c:T_cipherSuiteTLS13, _secret:Array<std.UInt>, _label:String, _transcript:stdgo._internal.hash.Hash_hash.Hash):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _secret = ([for (i in _secret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _label = (_label : stdgo.GoString);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._deriveSecret(_c, _secret, _label, _transcript)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._deriveSecret(_c, _secret, _label, _transcript)) i];
     }
     static public function _expandLabel(_c:T_cipherSuiteTLS13, _secret:Array<std.UInt>, _label:String, _context:Array<std.UInt>, _length:StdTypes.Int):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
@@ -3007,10 +3007,10 @@ class T_cipherSuiteTLS13_static_extension {
         final _label = (_label : stdgo.GoString);
         final _context = ([for (i in _context) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _length = (_length : stdgo.GoInt);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cipherSuiteTLS13_static_extension.T_cipherSuiteTLS13_static_extension._expandLabel(_c, _secret, _label, _context, _length)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._expandLabel(_c, _secret, _label, _context, _length)) i];
     }
 }
-typedef T_prefixNonceAEADPointer = stdgo._internal.crypto.tls.Tls_T_prefixNonceAEADPointer.T_prefixNonceAEADPointer;
+typedef T_prefixNonceAEADPointer = stdgo._internal.crypto.tls.Tls_t_prefixnonceaeadpointer.T_prefixNonceAEADPointer;
 class T_prefixNonceAEAD_static_extension {
     static public function open(_f:T_prefixNonceAEAD, _out:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD>);
@@ -3019,7 +3019,7 @@ class T_prefixNonceAEAD_static_extension {
         final _ciphertext = ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension.open(_f, _out, _nonce, _ciphertext, _additionalData);
+            final obj = stdgo._internal.crypto.tls.Tls_t_prefixnonceaead_static_extension.T_prefixNonceAEAD_static_extension.open(_f, _out, _nonce, _ciphertext, _additionalData);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3029,22 +3029,22 @@ class T_prefixNonceAEAD_static_extension {
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _plaintext = ([for (i in _plaintext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension.seal(_f, _out, _nonce, _plaintext, _additionalData)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_prefixnonceaead_static_extension.T_prefixNonceAEAD_static_extension.seal(_f, _out, _nonce, _plaintext, _additionalData)) i];
     }
     static public function _explicitNonceLen(_f:T_prefixNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension._explicitNonceLen(_f);
+        return stdgo._internal.crypto.tls.Tls_t_prefixnonceaead_static_extension.T_prefixNonceAEAD_static_extension._explicitNonceLen(_f);
     }
     static public function overhead(_f:T_prefixNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension.overhead(_f);
+        return stdgo._internal.crypto.tls.Tls_t_prefixnonceaead_static_extension.T_prefixNonceAEAD_static_extension.overhead(_f);
     }
     static public function nonceSize(_f:T_prefixNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_prefixnonceaead.T_prefixNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_prefixNonceAEAD_static_extension.T_prefixNonceAEAD_static_extension.nonceSize(_f);
+        return stdgo._internal.crypto.tls.Tls_t_prefixnonceaead_static_extension.T_prefixNonceAEAD_static_extension.nonceSize(_f);
     }
 }
-typedef T_xorNonceAEADPointer = stdgo._internal.crypto.tls.Tls_T_xorNonceAEADPointer.T_xorNonceAEADPointer;
+typedef T_xorNonceAEADPointer = stdgo._internal.crypto.tls.Tls_t_xornonceaeadpointer.T_xorNonceAEADPointer;
 class T_xorNonceAEAD_static_extension {
     static public function open(_f:T_xorNonceAEAD, _out:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD>);
@@ -3053,7 +3053,7 @@ class T_xorNonceAEAD_static_extension {
         final _ciphertext = ([for (i in _ciphertext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension.open(_f, _out, _nonce, _ciphertext, _additionalData);
+            final obj = stdgo._internal.crypto.tls.Tls_t_xornonceaead_static_extension.T_xorNonceAEAD_static_extension.open(_f, _out, _nonce, _ciphertext, _additionalData);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3063,58 +3063,58 @@ class T_xorNonceAEAD_static_extension {
         final _nonce = ([for (i in _nonce) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _plaintext = ([for (i in _plaintext) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _additionalData = ([for (i in _additionalData) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension.seal(_f, _out, _nonce, _plaintext, _additionalData)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_xornonceaead_static_extension.T_xorNonceAEAD_static_extension.seal(_f, _out, _nonce, _plaintext, _additionalData)) i];
     }
     static public function _explicitNonceLen(_f:T_xorNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension._explicitNonceLen(_f);
+        return stdgo._internal.crypto.tls.Tls_t_xornonceaead_static_extension.T_xorNonceAEAD_static_extension._explicitNonceLen(_f);
     }
     static public function overhead(_f:T_xorNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension.overhead(_f);
+        return stdgo._internal.crypto.tls.Tls_t_xornonceaead_static_extension.T_xorNonceAEAD_static_extension.overhead(_f);
     }
     static public function nonceSize(_f:T_xorNonceAEAD):StdTypes.Int {
         final _f = (_f : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_xornonceaead.T_xorNonceAEAD>);
-        return stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD_static_extension.T_xorNonceAEAD_static_extension.nonceSize(_f);
+        return stdgo._internal.crypto.tls.Tls_t_xornonceaead_static_extension.T_xorNonceAEAD_static_extension.nonceSize(_f);
     }
 }
-typedef T_cthWrapperPointer = stdgo._internal.crypto.tls.Tls_T_cthWrapperPointer.T_cthWrapperPointer;
+typedef T_cthWrapperPointer = stdgo._internal.crypto.tls.Tls_t_cthwrapperpointer.T_cthWrapperPointer;
 class T_cthWrapper_static_extension {
     static public function sum(_c:T_cthWrapper, _b:Array<std.UInt>):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.sum(_c, _b)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_cthwrapper_static_extension.T_cthWrapper_static_extension.sum(_c, _b)) i];
     }
     static public function write(_c:T_cthWrapper, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.write(_c, _p);
+            final obj = stdgo._internal.crypto.tls.Tls_t_cthwrapper_static_extension.T_cthWrapper_static_extension.write(_c, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function reset(_c:T_cthWrapper):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper>);
-        stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.reset(_c);
+        stdgo._internal.crypto.tls.Tls_t_cthwrapper_static_extension.T_cthWrapper_static_extension.reset(_c);
     }
     static public function blockSize(_c:T_cthWrapper):StdTypes.Int {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper>);
-        return stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.blockSize(_c);
+        return stdgo._internal.crypto.tls.Tls_t_cthwrapper_static_extension.T_cthWrapper_static_extension.blockSize(_c);
     }
     static public function size(_c:T_cthWrapper):StdTypes.Int {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cthwrapper.T_cthWrapper>);
-        return stdgo._internal.crypto.tls.Tls_T_cthWrapper_static_extension.T_cthWrapper_static_extension.size(_c);
+        return stdgo._internal.crypto.tls.Tls_t_cthwrapper_static_extension.T_cthWrapper_static_extension.size(_c);
     }
 }
-typedef T_keySharePointer = stdgo._internal.crypto.tls.Tls_T_keySharePointer.T_keySharePointer;
+typedef T_keySharePointer = stdgo._internal.crypto.tls.Tls_t_keysharepointer.T_keySharePointer;
 class T_keyShare_static_extension {
 
 }
-typedef T_pskIdentityPointer = stdgo._internal.crypto.tls.Tls_T_pskIdentityPointer.T_pskIdentityPointer;
+typedef T_pskIdentityPointer = stdgo._internal.crypto.tls.Tls_t_pskidentitypointer.T_pskIdentityPointer;
 class T_pskIdentity_static_extension {
 
 }
-typedef ConnectionStatePointer = stdgo._internal.crypto.tls.Tls_ConnectionStatePointer.ConnectionStatePointer;
+typedef ConnectionStatePointer = stdgo._internal.crypto.tls.Tls_connectionstatepointer.ConnectionStatePointer;
 class ConnectionState_static_extension {
     static public function exportKeyingMaterial(_cs:ConnectionState, _label:String, _context:Array<std.UInt>, _length:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _cs = (_cs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState>);
@@ -3122,48 +3122,48 @@ class ConnectionState_static_extension {
         final _context = ([for (i in _context) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _length = (_length : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_ConnectionState_static_extension.ConnectionState_static_extension.exportKeyingMaterial(_cs, _label, _context, _length);
+            final obj = stdgo._internal.crypto.tls.Tls_connectionstate_static_extension.ConnectionState_static_extension.exportKeyingMaterial(_cs, _label, _context, _length);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef ClientHelloInfoPointer = stdgo._internal.crypto.tls.Tls_ClientHelloInfoPointer.ClientHelloInfoPointer;
+typedef ClientHelloInfoPointer = stdgo._internal.crypto.tls.Tls_clienthelloinfopointer.ClientHelloInfoPointer;
 class ClientHelloInfo_static_extension {
     static public function supportsCertificate(_chi:ClientHelloInfo, _c:Certificate):stdgo.Error {
         final _chi = (_chi : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo>);
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
-        return stdgo._internal.crypto.tls.Tls_ClientHelloInfo_static_extension.ClientHelloInfo_static_extension.supportsCertificate(_chi, _c);
+        return stdgo._internal.crypto.tls.Tls_clienthelloinfo_static_extension.ClientHelloInfo_static_extension.supportsCertificate(_chi, _c);
     }
     static public function context(_c:ClientHelloInfo):stdgo._internal.context.Context_context.Context {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo>);
-        return stdgo._internal.crypto.tls.Tls_ClientHelloInfo_static_extension.ClientHelloInfo_static_extension.context(_c);
+        return stdgo._internal.crypto.tls.Tls_clienthelloinfo_static_extension.ClientHelloInfo_static_extension.context(_c);
     }
 }
-typedef CertificateRequestInfoPointer = stdgo._internal.crypto.tls.Tls_CertificateRequestInfoPointer.CertificateRequestInfoPointer;
+typedef CertificateRequestInfoPointer = stdgo._internal.crypto.tls.Tls_certificaterequestinfopointer.CertificateRequestInfoPointer;
 class CertificateRequestInfo_static_extension {
     static public function supportsCertificate(_cri:CertificateRequestInfo, _c:Certificate):stdgo.Error {
         final _cri = (_cri : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo>);
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
-        return stdgo._internal.crypto.tls.Tls_CertificateRequestInfo_static_extension.CertificateRequestInfo_static_extension.supportsCertificate(_cri, _c);
+        return stdgo._internal.crypto.tls.Tls_certificaterequestinfo_static_extension.CertificateRequestInfo_static_extension.supportsCertificate(_cri, _c);
     }
     static public function context(_c:CertificateRequestInfo):stdgo._internal.context.Context_context.Context {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo>);
-        return stdgo._internal.crypto.tls.Tls_CertificateRequestInfo_static_extension.CertificateRequestInfo_static_extension.context(_c);
+        return stdgo._internal.crypto.tls.Tls_certificaterequestinfo_static_extension.CertificateRequestInfo_static_extension.context(_c);
     }
 }
-typedef ConfigPointer = stdgo._internal.crypto.tls.Tls_ConfigPointer.ConfigPointer;
+typedef ConfigPointer = stdgo._internal.crypto.tls.Tls_configpointer.ConfigPointer;
 class Config_static_extension {
     static public function _decryptTicket(_c:Config, _encrypted:Array<std.UInt>, _ticketKeys:Array<T_ticketKey>):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _encrypted = ([for (i in _encrypted) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ticketKeys = ([for (i in _ticketKeys) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._decryptTicket(_c, _encrypted, _ticketKeys)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._decryptTicket(_c, _encrypted, _ticketKeys)) i];
     }
     static public function decryptTicket(_c:Config, _identity:Array<std.UInt>, _cs:ConnectionState):stdgo.Tuple<SessionState, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _identity = ([for (i in _identity) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension.decryptTicket(_c, _identity, _cs);
+            final obj = stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension.decryptTicket(_c, _identity, _cs);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3172,7 +3172,7 @@ class Config_static_extension {
         final _state = ([for (i in _state) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _ticketKeys = ([for (i in _ticketKeys) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._encryptTicket(_c, _state, _ticketKeys);
+            final obj = stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._encryptTicket(_c, _state, _ticketKeys);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3180,7 +3180,7 @@ class Config_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _ss = (_ss : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension.encryptTicket(_c, _cs, _ss);
+            final obj = stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension.encryptTicket(_c, _cs, _ss);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3189,17 +3189,17 @@ class Config_static_extension {
         final _label = (_label : stdgo.GoString);
         final _clientRandom = ([for (i in _clientRandom) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _secret = ([for (i in _secret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._writeKeyLog(_c, _label, _clientRandom, _secret);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._writeKeyLog(_c, _label, _clientRandom, _secret);
     }
     static public function buildNameToCertificate(_c:Config):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension.buildNameToCertificate(_c);
+        stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension.buildNameToCertificate(_c);
     }
     static public function _getCertificate(_c:Config, _clientHello:ClientHelloInfo):stdgo.Tuple<Certificate, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _clientHello = (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._getCertificate(_c, _clientHello);
+            final obj = stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._getCertificate(_c, _clientHello);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3207,83 +3207,83 @@ class Config_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _peerVersions = ([for (i in _peerVersions) (i : stdgo.GoUInt16)] : stdgo.Slice<stdgo.GoUInt16>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._mutualVersion(_c, _isClient, _peerVersions);
+            final obj = stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._mutualVersion(_c, _isClient, _peerVersions);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _supportsCurve(_c:Config, _curve:CurveID):Bool {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._supportsCurve(_c, _curve);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._supportsCurve(_c, _curve);
     }
     static public function _curvePreferences(_c:Config):Array<CurveID> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._curvePreferences(_c)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._curvePreferences(_c)) i];
     }
     static public function _maxSupportedVersion(_c:Config, _isClient:Bool):std.UInt {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._maxSupportedVersion(_c, _isClient);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._maxSupportedVersion(_c, _isClient);
     }
     static public function _supportedVersions(_c:Config, _isClient:Bool):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._supportedVersions(_c, _isClient)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._supportedVersions(_c, _isClient)) i];
     }
     static public function _cipherSuites(_c:Config):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._cipherSuites(_c)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._cipherSuites(_c)) i];
     }
     static public function _time(_c:Config):stdgo._internal.time.Time_time.Time {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._time(_c);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._time(_c);
     }
     static public function _rand(_c:Config):stdgo._internal.io.Io_reader.Reader {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._rand(_c);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._rand(_c);
     }
     static public function setSessionTicketKeys(_c:Config, _keys:Array<haxe.ds.Vector<std.UInt>>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _keys = ([for (i in _keys) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt8>>);
-        stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension.setSessionTicketKeys(_c, _keys);
+        stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension.setSessionTicketKeys(_c, _keys);
     }
     static public function _ticketKeys(_c:Config, _configForClient:Config):Array<T_ticketKey> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _configForClient = (_configForClient : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._ticketKeys(_c, _configForClient)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._ticketKeys(_c, _configForClient)) i];
     }
     static public function _initLegacySessionTicketKeyRLocked(_c:Config):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._initLegacySessionTicketKeyRLocked(_c);
+        stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._initLegacySessionTicketKeyRLocked(_c);
     }
     static public function clone(_c:Config):Config {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension.clone(_c);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension.clone(_c);
     }
     static public function _ticketKeyFromBytes(_c:Config, _b:haxe.ds.Vector<std.UInt>):T_ticketKey {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_Config_static_extension.Config_static_extension._ticketKeyFromBytes(_c, _b);
+        return stdgo._internal.crypto.tls.Tls_config_static_extension.Config_static_extension._ticketKeyFromBytes(_c, _b);
     }
 }
-typedef T_ticketKeyPointer = stdgo._internal.crypto.tls.Tls_T_ticketKeyPointer.T_ticketKeyPointer;
+typedef T_ticketKeyPointer = stdgo._internal.crypto.tls.Tls_t_ticketkeypointer.T_ticketKeyPointer;
 class T_ticketKey_static_extension {
 
 }
-typedef CertificatePointer = stdgo._internal.crypto.tls.Tls_CertificatePointer.CertificatePointer;
+typedef CertificatePointer = stdgo._internal.crypto.tls.Tls_certificatepointer.CertificatePointer;
 class Certificate_static_extension {
     static public function _leaf(_c:Certificate):stdgo.Tuple<stdgo._internal.crypto.x509.X509_certificate.Certificate, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Certificate_static_extension.Certificate_static_extension._leaf(_c);
+            final obj = stdgo._internal.crypto.tls.Tls_certificate_static_extension.Certificate_static_extension._leaf(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_lruSessionCachePointer = stdgo._internal.crypto.tls.Tls_T_lruSessionCachePointer.T_lruSessionCachePointer;
+typedef T_lruSessionCachePointer = stdgo._internal.crypto.tls.Tls_t_lrusessioncachepointer.T_lruSessionCachePointer;
 class T_lruSessionCache_static_extension {
     static public function get(_c:T_lruSessionCache, _sessionKey:String):stdgo.Tuple<ClientSessionState, Bool> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache>);
         final _sessionKey = (_sessionKey : stdgo.GoString);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.get(_c, _sessionKey);
+            final obj = stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension.get(_c, _sessionKey);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3291,227 +3291,227 @@ class T_lruSessionCache_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache>);
         final _sessionKey = (_sessionKey : stdgo.GoString);
         final _cs = (_cs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>);
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.put(_c, _sessionKey, _cs);
+        stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension.put(_c, _sessionKey, _cs);
     }
     public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension._unlockSlow(__self__, _0);
+        stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension._unlockSlow(__self__, _0);
     }
     public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache):Void {
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension._lockSlow(__self__);
+        stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension._lockSlow(__self__);
     }
     public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache):Void {
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.unlock(__self__);
+        stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.tryLock(__self__);
+        return stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension.tryLock(__self__);
     }
     public static function lock(__self__:stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache):Void {
-        stdgo._internal.crypto.tls.Tls_T_lruSessionCache_static_extension.T_lruSessionCache_static_extension.lock(__self__);
+        stdgo._internal.crypto.tls.Tls_t_lrusessioncache_static_extension.T_lruSessionCache_static_extension.lock(__self__);
     }
 }
-typedef T_lruSessionCacheEntryPointer = stdgo._internal.crypto.tls.Tls_T_lruSessionCacheEntryPointer.T_lruSessionCacheEntryPointer;
+typedef T_lruSessionCacheEntryPointer = stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentrypointer.T_lruSessionCacheEntryPointer;
 class T_lruSessionCacheEntry_static_extension {
 
 }
-typedef CertificateVerificationErrorPointer = stdgo._internal.crypto.tls.Tls_CertificateVerificationErrorPointer.CertificateVerificationErrorPointer;
+typedef CertificateVerificationErrorPointer = stdgo._internal.crypto.tls.Tls_certificateverificationerrorpointer.CertificateVerificationErrorPointer;
 class CertificateVerificationError_static_extension {
     static public function unwrap(_e:CertificateVerificationError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError>);
-        return stdgo._internal.crypto.tls.Tls_CertificateVerificationError_static_extension.CertificateVerificationError_static_extension.unwrap(_e);
+        return stdgo._internal.crypto.tls.Tls_certificateverificationerror_static_extension.CertificateVerificationError_static_extension.unwrap(_e);
     }
     static public function error(_e:CertificateVerificationError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificateverificationerror.CertificateVerificationError>);
-        return stdgo._internal.crypto.tls.Tls_CertificateVerificationError_static_extension.CertificateVerificationError_static_extension.error(_e);
+        return stdgo._internal.crypto.tls.Tls_certificateverificationerror_static_extension.CertificateVerificationError_static_extension.error(_e);
     }
 }
-typedef ConnPointer = stdgo._internal.crypto.tls.Tls_ConnPointer.ConnPointer;
+typedef ConnPointer = stdgo._internal.crypto.tls.Tls_connpointer.ConnPointer;
 class Conn_static_extension {
     static public function _sessionState(_c:Conn):stdgo.Tuple<SessionState, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._sessionState(_c);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._sessionState(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _quicWaitForSignal(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicWaitForSignal(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicWaitForSignal(_c);
     }
     static public function _quicRejectedEarlyData(_c:Conn):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicRejectedEarlyData(_c);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicRejectedEarlyData(_c);
     }
     static public function _quicHandshakeComplete(_c:Conn):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicHandshakeComplete(_c);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicHandshakeComplete(_c);
     }
     static public function _quicGetTransportParameters(_c:Conn):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicGetTransportParameters(_c);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicGetTransportParameters(_c);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _quicSetTransportParameters(_c:Conn, _params:Array<std.UInt>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _params = ([for (i in _params) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicSetTransportParameters(_c, _params);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicSetTransportParameters(_c, _params);
     }
     static public function _quicWriteCryptoData(_c:Conn, _level:QUICEncryptionLevel, _data:Array<std.UInt>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicWriteCryptoData(_c, _level, _data);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicWriteCryptoData(_c, _level, _data);
     }
     static public function _quicSetWriteSecret(_c:Conn, _level:QUICEncryptionLevel, _suite:std.UInt, _secret:Array<std.UInt>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _suite = (_suite : stdgo.GoUInt16);
         final _secret = ([for (i in _secret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicSetWriteSecret(_c, _level, _suite, _secret);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicSetWriteSecret(_c, _level, _suite, _secret);
     }
     static public function _quicSetReadSecret(_c:Conn, _level:QUICEncryptionLevel, _suite:std.UInt, _secret:Array<std.UInt>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _suite = (_suite : stdgo.GoUInt16);
         final _secret = ([for (i in _secret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicSetReadSecret(_c, _level, _suite, _secret);
+        stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicSetReadSecret(_c, _level, _suite, _secret);
     }
     static public function _quicReadHandshakeBytes(_c:Conn, _n:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._quicReadHandshakeBytes(_c, _n);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._quicReadHandshakeBytes(_c, _n);
     }
     static public function _sendSessionTicket(_c:Conn, _earlyData:Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._sendSessionTicket(_c, _earlyData);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._sendSessionTicket(_c, _earlyData);
     }
     static public function _processCertsFromClient(_c:Conn, _certificate:Certificate):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._processCertsFromClient(_c, _certificate);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._processCertsFromClient(_c, _certificate);
     }
     static public function _readClientHello(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Tuple<T_clientHelloMsg, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readClientHello(_c, _ctx);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readClientHello(_c, _ctx);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _serverHandshake(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._serverHandshake(_c, _ctx);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._serverHandshake(_c, _ctx);
     }
     static public function _handleNewSessionTicket(_c:Conn, _msg:T_newSessionTicketMsgTLS13):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _msg = (_msg : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._handleNewSessionTicket(_c, _msg);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._handleNewSessionTicket(_c, _msg);
     }
     static public function _clientSessionCacheKey(_c:Conn):String {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._clientSessionCacheKey(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._clientSessionCacheKey(_c);
     }
     static public function _getClientCertificate(_c:Conn, _cri:CertificateRequestInfo):stdgo.Tuple<Certificate, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _cri = (_cri : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._getClientCertificate(_c, _cri);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._getClientCertificate(_c, _cri);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _verifyServerCertificate(_c:Conn, _certificates:Array<Array<std.UInt>>):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _certificates = ([for (i in _certificates) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._verifyServerCertificate(_c, _certificates);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._verifyServerCertificate(_c, _certificates);
     }
     static public function _pickTLSVersion(_c:Conn, _serverHello:T_serverHelloMsg):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _serverHello = (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._pickTLSVersion(_c, _serverHello);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._pickTLSVersion(_c, _serverHello);
     }
     static public function _loadSession(_c:Conn, _hello:T_clientHelloMsg):stdgo.Tuple.Tuple4<SessionState, Array<std.UInt>, Array<std.UInt>, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _hello = (_hello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._loadSession(_c, _hello);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._loadSession(_c, _hello);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : [for (i in obj._2) i], _3 : obj._3 };
         };
     }
     static public function _clientHandshake(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._clientHandshake(_c, _ctx);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._clientHandshake(_c, _ctx);
     }
     static public function _makeClientHello(_c:Conn):stdgo.Tuple.Tuple3<T_clientHelloMsg, stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._makeClientHello(_c);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._makeClientHello(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function verifyHostname(_c:Conn, _host:String):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _host = (_host : stdgo.GoString);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.verifyHostname(_c, _host);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.verifyHostname(_c, _host);
     }
     static public function oCSPResponse(_c:Conn):Array<std.UInt> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.oCSPResponse(_c)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.oCSPResponse(_c)) i];
     }
     static public function _connectionStateLocked(_c:Conn):ConnectionState {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._connectionStateLocked(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._connectionStateLocked(_c);
     }
     static public function connectionState(_c:Conn):ConnectionState {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.connectionState(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.connectionState(_c);
     }
     static public function _handshakeContext(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._handshakeContext(_c, _ctx);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._handshakeContext(_c, _ctx);
     }
     static public function handshakeContext(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.handshakeContext(_c, _ctx);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.handshakeContext(_c, _ctx);
     }
     static public function handshake(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.handshake(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.handshake(_c);
     }
     static public function _closeNotify(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._closeNotify(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._closeNotify(_c);
     }
     static public function closeWrite(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.closeWrite(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.closeWrite(_c);
     }
     static public function close(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.close(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.close(_c);
     }
     static public function read(_c:Conn, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.read(_c, _b);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.read(_c, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _handleKeyUpdate(_c:Conn, _keyUpdate:T_keyUpdateMsg):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _keyUpdate = (_keyUpdate : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._handleKeyUpdate(_c, _keyUpdate);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._handleKeyUpdate(_c, _keyUpdate);
     }
     static public function _handlePostHandshakeMessage(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._handlePostHandshakeMessage(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._handlePostHandshakeMessage(_c);
     }
     static public function _handleRenegotiation(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._handleRenegotiation(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._handleRenegotiation(_c);
     }
     static public function write(_c:Conn, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.write(_c, _b);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.write(_c, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3519,30 +3519,30 @@ class Conn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._unmarshalHandshakeMessage(_c, _data, _transcript);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._unmarshalHandshakeMessage(_c, _data, _transcript);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readHandshake(_c:Conn, _transcript:T_transcriptHash):stdgo.Tuple<stdgo.AnyInterface, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readHandshake(_c, _transcript);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readHandshake(_c, _transcript);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _readHandshakeBytes(_c:Conn, _n:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readHandshakeBytes(_c, _n);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readHandshakeBytes(_c, _n);
     }
     static public function _writeChangeCipherRecord(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._writeChangeCipherRecord(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._writeChangeCipherRecord(_c);
     }
     static public function _writeHandshakeRecord(_c:Conn, _msg:T_handshakeMessage, _transcript:T_transcriptHash):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._writeHandshakeRecord(_c, _msg, _transcript);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._writeHandshakeRecord(_c, _msg, _transcript);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3550,14 +3550,14 @@ class Conn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._writeRecordLocked(_c, _typ, _data);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._writeRecordLocked(_c, _typ, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _flush(_c:Conn):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._flush(_c);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._flush(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3565,81 +3565,81 @@ class Conn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._write(_c, _data);
+            final obj = stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._write(_c, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _maxPayloadSizeForWrite(_c:Conn, _typ:T_recordType):StdTypes.Int {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._maxPayloadSizeForWrite(_c, _typ);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._maxPayloadSizeForWrite(_c, _typ);
     }
     static public function _sendAlert(_c:Conn, _err:T_alert):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._sendAlert(_c, _err);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._sendAlert(_c, _err);
     }
     static public function _sendAlertLocked(_c:Conn, _err:T_alert):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._sendAlertLocked(_c, _err);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._sendAlertLocked(_c, _err);
     }
     static public function _readFromUntil(_c:Conn, _r:stdgo._internal.io.Io_reader.Reader, _n:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readFromUntil(_c, _r, _n);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readFromUntil(_c, _r, _n);
     }
     static public function _retryReadRecord(_c:Conn, _expectChangeCipherSpec:Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._retryReadRecord(_c, _expectChangeCipherSpec);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._retryReadRecord(_c, _expectChangeCipherSpec);
     }
     static public function _readRecordOrCCS(_c:Conn, _expectChangeCipherSpec:Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readRecordOrCCS(_c, _expectChangeCipherSpec);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readRecordOrCCS(_c, _expectChangeCipherSpec);
     }
     static public function _readChangeCipherSpec(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readChangeCipherSpec(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readChangeCipherSpec(_c);
     }
     static public function _readRecord(_c:Conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._readRecord(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._readRecord(_c);
     }
     static public function _newRecordHeaderError(_c:Conn, _conn:stdgo._internal.net.Net_conn.Conn, _msg:String):RecordHeaderError {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
         final _msg = (_msg : stdgo.GoString);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension._newRecordHeaderError(_c, _conn, _msg);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension._newRecordHeaderError(_c, _conn, _msg);
     }
     static public function netConn(_c:Conn):stdgo._internal.net.Net_conn.Conn {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.netConn(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.netConn(_c);
     }
     static public function setWriteDeadline(_c:Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.setWriteDeadline(_c, _t);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.setWriteDeadline(_c, _t);
     }
     static public function setReadDeadline(_c:Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.setReadDeadline(_c, _t);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.setReadDeadline(_c, _t);
     }
     static public function setDeadline(_c:Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.setDeadline(_c, _t);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.setDeadline(_c, _t);
     }
     static public function remoteAddr(_c:Conn):stdgo._internal.net.Net_addr.Addr {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.remoteAddr(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.remoteAddr(_c);
     }
     static public function localAddr(_c:Conn):stdgo._internal.net.Net_addr.Addr {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        return stdgo._internal.crypto.tls.Tls_Conn_static_extension.Conn_static_extension.localAddr(_c);
+        return stdgo._internal.crypto.tls.Tls_conn_static_extension.Conn_static_extension.localAddr(_c);
     }
 }
-typedef T_halfConnPointer = stdgo._internal.crypto.tls.Tls_T_halfConnPointer.T_halfConnPointer;
+typedef T_halfConnPointer = stdgo._internal.crypto.tls.Tls_t_halfconnpointer.T_halfConnPointer;
 class T_halfConn_static_extension {
     static public function _encrypt(_hc:T_halfConn, _record:Array<std.UInt>, _payload:Array<std.UInt>, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
         final _record = ([for (i in _record) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _payload = ([for (i in _payload) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._encrypt(_hc, _record, _payload, _rand);
+            final obj = stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._encrypt(_hc, _record, _payload, _rand);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3647,586 +3647,586 @@ class T_halfConn_static_extension {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
         final _record = ([for (i in _record) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._decrypt(_hc, _record);
+            final obj = stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._decrypt(_hc, _record);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function _explicitNonceLen(_hc:T_halfConn):StdTypes.Int {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
-        return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._explicitNonceLen(_hc);
+        return stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._explicitNonceLen(_hc);
     }
     static public function _incSeq(_hc:T_halfConn):Void {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._incSeq(_hc);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._incSeq(_hc);
     }
     static public function _setTrafficSecret(_hc:T_halfConn, _suite:T_cipherSuiteTLS13, _level:QUICEncryptionLevel, _secret:Array<std.UInt>):Void {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
         final _suite = (_suite : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _secret = ([for (i in _secret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._setTrafficSecret(_hc, _suite, _level, _secret);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._setTrafficSecret(_hc, _suite, _level, _secret);
     }
     static public function _changeCipherSpec(_hc:T_halfConn):stdgo.Error {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
-        return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._changeCipherSpec(_hc);
+        return stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._changeCipherSpec(_hc);
     }
     static public function _prepareCipherSpec(_hc:T_halfConn, _version:std.UInt, _cipher:stdgo.AnyInterface, _mac:stdgo._internal.hash.Hash_hash.Hash):Void {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
         final _version = (_version : stdgo.GoUInt16);
         final _cipher = (_cipher : stdgo.AnyInterface);
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._prepareCipherSpec(_hc, _version, _cipher, _mac);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._prepareCipherSpec(_hc, _version, _cipher, _mac);
     }
     static public function _setErrorLocked(_hc:T_halfConn, _err:stdgo.Error):stdgo.Error {
         final _hc = (_hc : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn>);
         final _err = (_err : stdgo.Error);
-        return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._setErrorLocked(_hc, _err);
+        return stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._setErrorLocked(_hc, _err);
     }
     public static function _unlockSlow(__self__:stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._unlockSlow(__self__, _0);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._unlockSlow(__self__, _0);
     }
     public static function _lockSlow(__self__:stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn):Void {
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension._lockSlow(__self__);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension._lockSlow(__self__);
     }
     public static function unlock(__self__:stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn):Void {
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.unlock(__self__);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension.unlock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.tryLock(__self__);
+        return stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension.tryLock(__self__);
     }
     public static function lock(__self__:stdgo._internal.crypto.tls.Tls_t_halfconn.T_halfConn):Void {
-        stdgo._internal.crypto.tls.Tls_T_halfConn_static_extension.T_halfConn_static_extension.lock(__self__);
+        stdgo._internal.crypto.tls.Tls_t_halfconn_static_extension.T_halfConn_static_extension.lock(__self__);
     }
 }
-typedef T_permanentErrorPointer = stdgo._internal.crypto.tls.Tls_T_permanentErrorPointer.T_permanentErrorPointer;
+typedef T_permanentErrorPointer = stdgo._internal.crypto.tls.Tls_t_permanenterrorpointer.T_permanentErrorPointer;
 class T_permanentError_static_extension {
     static public function temporary(_e:T_permanentError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError>);
-        return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.temporary(_e);
+        return stdgo._internal.crypto.tls.Tls_t_permanenterror_static_extension.T_permanentError_static_extension.temporary(_e);
     }
     static public function timeout(_e:T_permanentError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError>);
-        return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.timeout(_e);
+        return stdgo._internal.crypto.tls.Tls_t_permanenterror_static_extension.T_permanentError_static_extension.timeout(_e);
     }
     static public function unwrap(_e:T_permanentError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError>);
-        return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.unwrap(_e);
+        return stdgo._internal.crypto.tls.Tls_t_permanenterror_static_extension.T_permanentError_static_extension.unwrap(_e);
     }
     static public function error(_e:T_permanentError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_permanenterror.T_permanentError>);
-        return stdgo._internal.crypto.tls.Tls_T_permanentError_static_extension.T_permanentError_static_extension.error(_e);
+        return stdgo._internal.crypto.tls.Tls_t_permanenterror_static_extension.T_permanentError_static_extension.error(_e);
     }
 }
-typedef RecordHeaderErrorPointer = stdgo._internal.crypto.tls.Tls_RecordHeaderErrorPointer.RecordHeaderErrorPointer;
+typedef RecordHeaderErrorPointer = stdgo._internal.crypto.tls.Tls_recordheadererrorpointer.RecordHeaderErrorPointer;
 class RecordHeaderError_static_extension {
     static public function error(_e:RecordHeaderError):String {
-        return stdgo._internal.crypto.tls.Tls_RecordHeaderError_static_extension.RecordHeaderError_static_extension.error(_e);
+        return stdgo._internal.crypto.tls.Tls_recordheadererror_static_extension.RecordHeaderError_static_extension.error(_e);
     }
 }
-typedef T_atLeastReaderPointer = stdgo._internal.crypto.tls.Tls_T_atLeastReaderPointer.T_atLeastReaderPointer;
+typedef T_atLeastReaderPointer = stdgo._internal.crypto.tls.Tls_t_atleastreaderpointer.T_atLeastReaderPointer;
 class T_atLeastReader_static_extension {
     static public function read(_r:T_atLeastReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_atLeastReader_static_extension.T_atLeastReader_static_extension.read(_r, _p);
+            final obj = stdgo._internal.crypto.tls.Tls_t_atleastreader_static_extension.T_atLeastReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_clientHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_T_clientHandshakeStatePointer.T_clientHandshakeStatePointer;
+typedef T_clientHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_t_clienthandshakestatepointer.T_clientHandshakeStatePointer;
 class T_clientHandshakeState_static_extension {
     static public function _sendFinished(_hs:T_clientHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._sendFinished(_hs, _out);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._sendFinished(_hs, _out);
     }
     static public function _saveSessionTicket(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._saveSessionTicket(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._saveSessionTicket(_hs);
     }
     static public function _readSessionTicket(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._readSessionTicket(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._readSessionTicket(_hs);
     }
     static public function _readFinished(_hs:T_clientHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._readFinished(_hs, _out);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._readFinished(_hs, _out);
     }
     static public function _processServerHello(_hs:T_clientHandshakeState):stdgo.Tuple<Bool, stdgo.Error> {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._processServerHello(_hs);
+            final obj = stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._processServerHello(_hs);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _serverResumedSession(_hs:T_clientHandshakeState):Bool {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._serverResumedSession(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._serverResumedSession(_hs);
     }
     static public function _establishKeys(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._establishKeys(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._establishKeys(_hs);
     }
     static public function _doFullHandshake(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._doFullHandshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._doFullHandshake(_hs);
     }
     static public function _pickCipherSuite(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._pickCipherSuite(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._pickCipherSuite(_hs);
     }
     static public function _handshake(_hs:T_clientHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestate.T_clientHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeState_static_extension.T_clientHandshakeState_static_extension._handshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestate_static_extension.T_clientHandshakeState_static_extension._handshake(_hs);
     }
 }
-typedef T_clientHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13Pointer.T_clientHandshakeStateTLS13Pointer;
+typedef T_clientHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13pointer.T_clientHandshakeStateTLS13Pointer;
 class T_clientHandshakeStateTLS13_static_extension {
     static public function _sendClientFinished(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendClientFinished(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendClientFinished(_hs);
     }
     static public function _sendClientCertificate(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendClientCertificate(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendClientCertificate(_hs);
     }
     static public function _readServerFinished(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerFinished(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerFinished(_hs);
     }
     static public function _readServerCertificate(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerCertificate(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerCertificate(_hs);
     }
     static public function _readServerParameters(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerParameters(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._readServerParameters(_hs);
     }
     static public function _establishHandshakeKeys(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._establishHandshakeKeys(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._establishHandshakeKeys(_hs);
     }
     static public function _processServerHello(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._processServerHello(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._processServerHello(_hs);
     }
     static public function _processHelloRetryRequest(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._processHelloRetryRequest(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._processHelloRetryRequest(_hs);
     }
     static public function _sendDummyChangeCipherSpec(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendDummyChangeCipherSpec(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._sendDummyChangeCipherSpec(_hs);
     }
     static public function _checkServerHelloOrHRR(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._checkServerHelloOrHRR(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._checkServerHelloOrHRR(_hs);
     }
     static public function _handshake(_hs:T_clientHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13.T_clientHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13_static_extension.T_clientHandshakeStateTLS13_static_extension._handshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_clienthandshakestatetls13_static_extension.T_clientHandshakeStateTLS13_static_extension._handshake(_hs);
     }
 }
-typedef T_clientHelloMsgPointer = stdgo._internal.crypto.tls.Tls_T_clientHelloMsgPointer.T_clientHelloMsgPointer;
+typedef T_clientHelloMsgPointer = stdgo._internal.crypto.tls.Tls_t_clienthellomsgpointer.T_clientHelloMsgPointer;
 class T_clientHelloMsg_static_extension {
     static public function _unmarshal(_m:T_clientHelloMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHelloMsg_static_extension.T_clientHelloMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_clienthellomsg_static_extension.T_clientHelloMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _updateBinders(_m:T_clientHelloMsg, _pskBinders:Array<Array<std.UInt>>):stdgo.Error {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _pskBinders = ([for (i in _pskBinders) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
-        return stdgo._internal.crypto.tls.Tls_T_clientHelloMsg_static_extension.T_clientHelloMsg_static_extension._updateBinders(_m, _pskBinders);
+        return stdgo._internal.crypto.tls.Tls_t_clienthellomsg_static_extension.T_clientHelloMsg_static_extension._updateBinders(_m, _pskBinders);
     }
     static public function _marshalWithoutBinders(_m:T_clientHelloMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_clientHelloMsg_static_extension.T_clientHelloMsg_static_extension._marshalWithoutBinders(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_clienthellomsg_static_extension.T_clientHelloMsg_static_extension._marshalWithoutBinders(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _marshal(_m:T_clientHelloMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_clientHelloMsg_static_extension.T_clientHelloMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_clienthellomsg_static_extension.T_clientHelloMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_serverHelloMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverHelloMsgPointer.T_serverHelloMsgPointer;
+typedef T_serverHelloMsgPointer = stdgo._internal.crypto.tls.Tls_t_serverhellomsgpointer.T_serverHelloMsgPointer;
 class T_serverHelloMsg_static_extension {
     static public function _unmarshal(_m:T_serverHelloMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHelloMsg_static_extension.T_serverHelloMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_serverhellomsg_static_extension.T_serverHelloMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_serverHelloMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_serverHelloMsg_static_extension.T_serverHelloMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_serverhellomsg_static_extension.T_serverHelloMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_encryptedExtensionsMsgPointer = stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsgPointer.T_encryptedExtensionsMsgPointer;
+typedef T_encryptedExtensionsMsgPointer = stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsgpointer.T_encryptedExtensionsMsgPointer;
 class T_encryptedExtensionsMsg_static_extension {
     static public function _unmarshal(_m:T_encryptedExtensionsMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg_static_extension.T_encryptedExtensionsMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg_static_extension.T_encryptedExtensionsMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_encryptedExtensionsMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg.T_encryptedExtensionsMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg_static_extension.T_encryptedExtensionsMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_encryptedextensionsmsg_static_extension.T_encryptedExtensionsMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_endOfEarlyDataMsgPointer = stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsgPointer.T_endOfEarlyDataMsgPointer;
+typedef T_endOfEarlyDataMsgPointer = stdgo._internal.crypto.tls.Tls_t_endofearlydatamsgpointer.T_endOfEarlyDataMsgPointer;
 class T_endOfEarlyDataMsg_static_extension {
     static public function _unmarshal(_m:T_endOfEarlyDataMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg_static_extension.T_endOfEarlyDataMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg_static_extension.T_endOfEarlyDataMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_endOfEarlyDataMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg.T_endOfEarlyDataMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg_static_extension.T_endOfEarlyDataMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_endofearlydatamsg_static_extension.T_endOfEarlyDataMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_keyUpdateMsgPointer = stdgo._internal.crypto.tls.Tls_T_keyUpdateMsgPointer.T_keyUpdateMsgPointer;
+typedef T_keyUpdateMsgPointer = stdgo._internal.crypto.tls.Tls_t_keyupdatemsgpointer.T_keyUpdateMsgPointer;
 class T_keyUpdateMsg_static_extension {
     static public function _unmarshal(_m:T_keyUpdateMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg_static_extension.T_keyUpdateMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_keyupdatemsg_static_extension.T_keyUpdateMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_keyUpdateMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyupdatemsg.T_keyUpdateMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg_static_extension.T_keyUpdateMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_keyupdatemsg_static_extension.T_keyUpdateMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_newSessionTicketMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13Pointer.T_newSessionTicketMsgTLS13Pointer;
+typedef T_newSessionTicketMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13pointer.T_newSessionTicketMsgTLS13Pointer;
 class T_newSessionTicketMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_newSessionTicketMsgTLS13, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13_static_extension.T_newSessionTicketMsgTLS13_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13_static_extension.T_newSessionTicketMsgTLS13_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_newSessionTicketMsgTLS13):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13.T_newSessionTicketMsgTLS13>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgTLS13_static_extension.T_newSessionTicketMsgTLS13_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgtls13_static_extension.T_newSessionTicketMsgTLS13_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateRequestMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13Pointer.T_certificateRequestMsgTLS13Pointer;
+typedef T_certificateRequestMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13pointer.T_certificateRequestMsgTLS13Pointer;
 class T_certificateRequestMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_certificateRequestMsgTLS13, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13_static_extension.T_certificateRequestMsgTLS13_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13_static_extension.T_certificateRequestMsgTLS13_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateRequestMsgTLS13):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13.T_certificateRequestMsgTLS13>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgTLS13_static_extension.T_certificateRequestMsgTLS13_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgtls13_static_extension.T_certificateRequestMsgTLS13_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateMsgPointer.T_certificateMsgPointer;
+typedef T_certificateMsgPointer = stdgo._internal.crypto.tls.Tls_t_certificatemsgpointer.T_certificateMsgPointer;
 class T_certificateMsg_static_extension {
     static public function _unmarshal(_m:T_certificateMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateMsg_static_extension.T_certificateMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificatemsg_static_extension.T_certificateMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatemsg.T_certificateMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateMsg_static_extension.T_certificateMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificatemsg_static_extension.T_certificateMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13Pointer.T_certificateMsgTLS13Pointer;
+typedef T_certificateMsgTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13pointer.T_certificateMsgTLS13Pointer;
 class T_certificateMsgTLS13_static_extension {
     static public function _unmarshal(_m:T_certificateMsgTLS13, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13_static_extension.T_certificateMsgTLS13_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13_static_extension.T_certificateMsgTLS13_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateMsgTLS13):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13.T_certificateMsgTLS13>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13_static_extension.T_certificateMsgTLS13_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificatemsgtls13_static_extension.T_certificateMsgTLS13_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_serverKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsgPointer.T_serverKeyExchangeMsgPointer;
+typedef T_serverKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsgpointer.T_serverKeyExchangeMsgPointer;
 class T_serverKeyExchangeMsg_static_extension {
     static public function _unmarshal(_m:T_serverKeyExchangeMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg_static_extension.T_serverKeyExchangeMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg_static_extension.T_serverKeyExchangeMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_serverKeyExchangeMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_serverKeyExchangeMsg_static_extension.T_serverKeyExchangeMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg_static_extension.T_serverKeyExchangeMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateStatusMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateStatusMsgPointer.T_certificateStatusMsgPointer;
+typedef T_certificateStatusMsgPointer = stdgo._internal.crypto.tls.Tls_t_certificatestatusmsgpointer.T_certificateStatusMsgPointer;
 class T_certificateStatusMsg_static_extension {
     static public function _unmarshal(_m:T_certificateStatusMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg_static_extension.T_certificateStatusMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg_static_extension.T_certificateStatusMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateStatusMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg.T_certificateStatusMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateStatusMsg_static_extension.T_certificateStatusMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificatestatusmsg_static_extension.T_certificateStatusMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_serverHelloDoneMsgPointer = stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsgPointer.T_serverHelloDoneMsgPointer;
+typedef T_serverHelloDoneMsgPointer = stdgo._internal.crypto.tls.Tls_t_serverhellodonemsgpointer.T_serverHelloDoneMsgPointer;
 class T_serverHelloDoneMsg_static_extension {
     static public function _unmarshal(_m:T_serverHelloDoneMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg_static_extension.T_serverHelloDoneMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg_static_extension.T_serverHelloDoneMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_serverHelloDoneMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg.T_serverHelloDoneMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_serverHelloDoneMsg_static_extension.T_serverHelloDoneMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_serverhellodonemsg_static_extension.T_serverHelloDoneMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_clientKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsgPointer.T_clientKeyExchangeMsgPointer;
+typedef T_clientKeyExchangeMsgPointer = stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsgpointer.T_clientKeyExchangeMsgPointer;
 class T_clientKeyExchangeMsg_static_extension {
     static public function _unmarshal(_m:T_clientKeyExchangeMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg_static_extension.T_clientKeyExchangeMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg_static_extension.T_clientKeyExchangeMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_clientKeyExchangeMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg_static_extension.T_clientKeyExchangeMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg_static_extension.T_clientKeyExchangeMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_finishedMsgPointer = stdgo._internal.crypto.tls.Tls_T_finishedMsgPointer.T_finishedMsgPointer;
+typedef T_finishedMsgPointer = stdgo._internal.crypto.tls.Tls_t_finishedmsgpointer.T_finishedMsgPointer;
 class T_finishedMsg_static_extension {
     static public function _unmarshal(_m:T_finishedMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_finishedMsg_static_extension.T_finishedMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_finishedmsg_static_extension.T_finishedMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_finishedMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_finishedMsg_static_extension.T_finishedMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_finishedmsg_static_extension.T_finishedMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateRequestMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsgPointer.T_certificateRequestMsgPointer;
+typedef T_certificateRequestMsgPointer = stdgo._internal.crypto.tls.Tls_t_certificaterequestmsgpointer.T_certificateRequestMsgPointer;
 class T_certificateRequestMsg_static_extension {
     static public function _unmarshal(_m:T_certificateRequestMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg_static_extension.T_certificateRequestMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg_static_extension.T_certificateRequestMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateRequestMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg.T_certificateRequestMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateRequestMsg_static_extension.T_certificateRequestMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificaterequestmsg_static_extension.T_certificateRequestMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_certificateVerifyMsgPointer = stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsgPointer.T_certificateVerifyMsgPointer;
+typedef T_certificateVerifyMsgPointer = stdgo._internal.crypto.tls.Tls_t_certificateverifymsgpointer.T_certificateVerifyMsgPointer;
 class T_certificateVerifyMsg_static_extension {
     static public function _unmarshal(_m:T_certificateVerifyMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg_static_extension.T_certificateVerifyMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_certificateverifymsg_static_extension.T_certificateVerifyMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_certificateVerifyMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certificateverifymsg.T_certificateVerifyMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg_static_extension.T_certificateVerifyMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_certificateverifymsg_static_extension.T_certificateVerifyMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_newSessionTicketMsgPointer = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsgPointer.T_newSessionTicketMsgPointer;
+typedef T_newSessionTicketMsgPointer = stdgo._internal.crypto.tls.Tls_t_newsessionticketmsgpointer.T_newSessionTicketMsgPointer;
 class T_newSessionTicketMsg_static_extension {
     static public function _unmarshal(_m:T_newSessionTicketMsg, _data:Array<std.UInt>):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg_static_extension.T_newSessionTicketMsg_static_extension._unmarshal(_m, _data);
+        return stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg_static_extension.T_newSessionTicketMsg_static_extension._unmarshal(_m, _data);
     }
     static public function _marshal(_m:T_newSessionTicketMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _m = (_m : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg.T_newSessionTicketMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_newSessionTicketMsg_static_extension.T_newSessionTicketMsg_static_extension._marshal(_m);
+            final obj = stdgo._internal.crypto.tls.Tls_t_newsessionticketmsg_static_extension.T_newSessionTicketMsg_static_extension._marshal(_m);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_helloRequestMsgPointer = stdgo._internal.crypto.tls.Tls_T_helloRequestMsgPointer.T_helloRequestMsgPointer;
+typedef T_helloRequestMsgPointer = stdgo._internal.crypto.tls.Tls_t_hellorequestmsgpointer.T_helloRequestMsgPointer;
 class T_helloRequestMsg_static_extension {
     static public function _unmarshal(_:T_helloRequestMsg, _data:Array<std.UInt>):Bool {
         final _ = (_ : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_helloRequestMsg_static_extension.T_helloRequestMsg_static_extension._unmarshal(_, _data);
+        return stdgo._internal.crypto.tls.Tls_t_hellorequestmsg_static_extension.T_helloRequestMsg_static_extension._unmarshal(_, _data);
     }
     static public function _marshal(_:T_helloRequestMsg):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _ = (_ : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_hellorequestmsg.T_helloRequestMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_helloRequestMsg_static_extension.T_helloRequestMsg_static_extension._marshal(_);
+            final obj = stdgo._internal.crypto.tls.Tls_t_hellorequestmsg_static_extension.T_helloRequestMsg_static_extension._marshal(_);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_serverHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_T_serverHandshakeStatePointer.T_serverHandshakeStatePointer;
+typedef T_serverHandshakeStatePointer = stdgo._internal.crypto.tls.Tls_t_serverhandshakestatepointer.T_serverHandshakeStatePointer;
 class T_serverHandshakeState_static_extension {
     static public function _sendFinished(_hs:T_serverHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._sendFinished(_hs, _out);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._sendFinished(_hs, _out);
     }
     static public function _sendSessionTicket(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._sendSessionTicket(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._sendSessionTicket(_hs);
     }
     static public function _readFinished(_hs:T_serverHandshakeState, _out:Array<std.UInt>):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
         final _out = ([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._readFinished(_hs, _out);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._readFinished(_hs, _out);
     }
     static public function _establishKeys(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._establishKeys(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._establishKeys(_hs);
     }
     static public function _doFullHandshake(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._doFullHandshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._doFullHandshake(_hs);
     }
     static public function _doResumeHandshake(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._doResumeHandshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._doResumeHandshake(_hs);
     }
     static public function _checkForResumption(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._checkForResumption(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._checkForResumption(_hs);
     }
     static public function _cipherSuiteOk(_hs:T_serverHandshakeState, _c:T_cipherSuite):Bool {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._cipherSuiteOk(_hs, _c);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._cipherSuiteOk(_hs, _c);
     }
     static public function _pickCipherSuite(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._pickCipherSuite(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._pickCipherSuite(_hs);
     }
     static public function _processClientHello(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._processClientHello(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._processClientHello(_hs);
     }
     static public function _handshake(_hs:T_serverHandshakeState):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestate.T_serverHandshakeState>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeState_static_extension.T_serverHandshakeState_static_extension._handshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestate_static_extension.T_serverHandshakeState_static_extension._handshake(_hs);
     }
 }
-typedef T_serverHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13Pointer.T_serverHandshakeStateTLS13Pointer;
+typedef T_serverHandshakeStateTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13pointer.T_serverHandshakeStateTLS13Pointer;
 class T_serverHandshakeStateTLS13_static_extension {
     static public function _readClientFinished(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._readClientFinished(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._readClientFinished(_hs);
     }
     static public function _readClientCertificate(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._readClientCertificate(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._readClientCertificate(_hs);
     }
     static public function _sendSessionTickets(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendSessionTickets(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendSessionTickets(_hs);
     }
     static public function _shouldSendSessionTickets(_hs:T_serverHandshakeStateTLS13):Bool {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._shouldSendSessionTickets(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._shouldSendSessionTickets(_hs);
     }
     static public function _sendServerFinished(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerFinished(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerFinished(_hs);
     }
     static public function _sendServerCertificate(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerCertificate(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerCertificate(_hs);
     }
     static public function _requestClientCert(_hs:T_serverHandshakeStateTLS13):Bool {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._requestClientCert(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._requestClientCert(_hs);
     }
     static public function _sendServerParameters(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerParameters(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendServerParameters(_hs);
     }
     static public function _doHelloRetryRequest(_hs:T_serverHandshakeStateTLS13, _selectedGroup:CurveID):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._doHelloRetryRequest(_hs, _selectedGroup);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._doHelloRetryRequest(_hs, _selectedGroup);
     }
     static public function _sendDummyChangeCipherSpec(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendDummyChangeCipherSpec(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._sendDummyChangeCipherSpec(_hs);
     }
     static public function _pickCertificate(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._pickCertificate(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._pickCertificate(_hs);
     }
     static public function _checkForResumption(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._checkForResumption(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._checkForResumption(_hs);
     }
     static public function _processClientHello(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._processClientHello(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._processClientHello(_hs);
     }
     static public function _handshake(_hs:T_serverHandshakeStateTLS13):stdgo.Error {
         final _hs = (_hs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>);
-        return stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13_static_extension.T_serverHandshakeStateTLS13_static_extension._handshake(_hs);
+        return stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13_static_extension.T_serverHandshakeStateTLS13_static_extension._handshake(_hs);
     }
 }
-typedef T_rsaKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreementPointer.T_rsaKeyAgreementPointer;
+typedef T_rsaKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_t_rsakeyagreementpointer.T_rsaKeyAgreementPointer;
 class T_rsaKeyAgreement_static_extension {
     static public function _generateClientKeyExchange(_ka:T_rsaKeyAgreement, _config:Config, _clientHello:T_clientHelloMsg, _cert:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         final _clientHello = (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement_static_extension.T_rsaKeyAgreement_static_extension._generateClientKeyExchange(_ka, _config, _clientHello, _cert);
+            final obj = stdgo._internal.crypto.tls.Tls_t_rsakeyagreement_static_extension.T_rsaKeyAgreement_static_extension._generateClientKeyExchange(_ka, _config, _clientHello, _cert);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -4236,7 +4236,7 @@ class T_rsaKeyAgreement_static_extension {
         final _serverHello = (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         final _skx = (_skx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>);
-        return stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement_static_extension.T_rsaKeyAgreement_static_extension._processServerKeyExchange(_ka, _config, _clientHello, _serverHello, _cert, _skx);
+        return stdgo._internal.crypto.tls.Tls_t_rsakeyagreement_static_extension.T_rsaKeyAgreement_static_extension._processServerKeyExchange(_ka, _config, _clientHello, _serverHello, _cert, _skx);
     }
     static public function _processClientKeyExchange(_ka:T_rsaKeyAgreement, _config:Config, _cert:Certificate, _ckx:T_clientKeyExchangeMsg, _version:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
@@ -4244,7 +4244,7 @@ class T_rsaKeyAgreement_static_extension {
         final _ckx = (_ckx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>);
         final _version = (_version : stdgo.GoUInt16);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement_static_extension.T_rsaKeyAgreement_static_extension._processClientKeyExchange(_ka, _config, _cert, _ckx, _version);
+            final obj = stdgo._internal.crypto.tls.Tls_t_rsakeyagreement_static_extension.T_rsaKeyAgreement_static_extension._processClientKeyExchange(_ka, _config, _cert, _ckx, _version);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -4254,12 +4254,12 @@ class T_rsaKeyAgreement_static_extension {
         final _clientHello = (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _hello = (_hello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_rsaKeyAgreement_static_extension.T_rsaKeyAgreement_static_extension._generateServerKeyExchange(_ka, _config, _cert, _clientHello, _hello);
+            final obj = stdgo._internal.crypto.tls.Tls_t_rsakeyagreement_static_extension.T_rsaKeyAgreement_static_extension._generateServerKeyExchange(_ka, _config, _cert, _clientHello, _hello);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_ecdheKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreementPointer.T_ecdheKeyAgreementPointer;
+typedef T_ecdheKeyAgreementPointer = stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreementpointer.T_ecdheKeyAgreementPointer;
 class T_ecdheKeyAgreement_static_extension {
     static public function _generateClientKeyExchange(_ka:T_ecdheKeyAgreement, _config:Config, _clientHello:T_clientHelloMsg, _cert:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         final _ka = (_ka : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement>);
@@ -4267,7 +4267,7 @@ class T_ecdheKeyAgreement_static_extension {
         final _clientHello = (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement_static_extension.T_ecdheKeyAgreement_static_extension._generateClientKeyExchange(_ka, _config, _clientHello, _cert);
+            final obj = stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement_static_extension.T_ecdheKeyAgreement_static_extension._generateClientKeyExchange(_ka, _config, _clientHello, _cert);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -4278,7 +4278,7 @@ class T_ecdheKeyAgreement_static_extension {
         final _serverHello = (_serverHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         final _cert = (_cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         final _skx = (_skx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>);
-        return stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement_static_extension.T_ecdheKeyAgreement_static_extension._processServerKeyExchange(_ka, _config, _clientHello, _serverHello, _cert, _skx);
+        return stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement_static_extension.T_ecdheKeyAgreement_static_extension._processServerKeyExchange(_ka, _config, _clientHello, _serverHello, _cert, _skx);
     }
     static public function _processClientKeyExchange(_ka:T_ecdheKeyAgreement, _config:Config, _cert:Certificate, _ckx:T_clientKeyExchangeMsg, _version:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _ka = (_ka : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement>);
@@ -4287,7 +4287,7 @@ class T_ecdheKeyAgreement_static_extension {
         final _ckx = (_ckx : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clientkeyexchangemsg.T_clientKeyExchangeMsg>);
         final _version = (_version : stdgo.GoUInt16);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement_static_extension.T_ecdheKeyAgreement_static_extension._processClientKeyExchange(_ka, _config, _cert, _ckx, _version);
+            final obj = stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement_static_extension.T_ecdheKeyAgreement_static_extension._processClientKeyExchange(_ka, _config, _cert, _ckx, _version);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -4298,226 +4298,226 @@ class T_ecdheKeyAgreement_static_extension {
         final _clientHello = (_clientHello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>);
         final _hello = (_hello : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement_static_extension.T_ecdheKeyAgreement_static_extension._generateServerKeyExchange(_ka, _config, _cert, _clientHello, _hello);
+            final obj = stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement_static_extension.T_ecdheKeyAgreement_static_extension._generateServerKeyExchange(_ka, _config, _cert, _clientHello, _hello);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_finishedHashPointer = stdgo._internal.crypto.tls.Tls_T_finishedHashPointer.T_finishedHashPointer;
+typedef T_finishedHashPointer = stdgo._internal.crypto.tls.Tls_t_finishedhashpointer.T_finishedHashPointer;
 class T_finishedHash_static_extension {
     static public function _discardHandshakeBuffer(_h:T_finishedHash):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash>);
-        stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension._discardHandshakeBuffer(_h);
+        stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension._discardHandshakeBuffer(_h);
     }
     static public function _hashForClientCertificate(_h:T_finishedHash, _sigType:std.UInt, _hashAlg:stdgo._internal.crypto.Crypto_hash.Hash):Array<std.UInt> {
         final _sigType = (_sigType : stdgo.GoUInt8);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension._hashForClientCertificate(_h, _sigType, _hashAlg)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension._hashForClientCertificate(_h, _sigType, _hashAlg)) i];
     }
     static public function _serverSum(_h:T_finishedHash, _masterSecret:Array<std.UInt>):Array<std.UInt> {
         final _masterSecret = ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension._serverSum(_h, _masterSecret)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension._serverSum(_h, _masterSecret)) i];
     }
     static public function _clientSum(_h:T_finishedHash, _masterSecret:Array<std.UInt>):Array<std.UInt> {
         final _masterSecret = ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension._clientSum(_h, _masterSecret)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension._clientSum(_h, _masterSecret)) i];
     }
     static public function sum(_h:T_finishedHash):Array<std.UInt> {
-        return [for (i in stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension.sum(_h)) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension.sum(_h)) i];
     }
     static public function write(_h:T_finishedHash, _msg:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _h = (_h : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash>);
         final _msg = ([for (i in _msg) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_finishedHash_static_extension.T_finishedHash_static_extension.write(_h, _msg);
+            final obj = stdgo._internal.crypto.tls.Tls_t_finishedhash_static_extension.T_finishedHash_static_extension.write(_h, _msg);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef QUICConnPointer = stdgo._internal.crypto.tls.Tls_QUICConnPointer.QUICConnPointer;
+typedef QUICConnPointer = stdgo._internal.crypto.tls.Tls_quicconnpointer.QUICConnPointer;
 class QUICConn_static_extension {
     static public function setTransportParameters(_q:QUICConn, _params:Array<std.UInt>):Void {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
         final _params = ([for (i in _params) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.setTransportParameters(_q, _params);
+        stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.setTransportParameters(_q, _params);
     }
     static public function connectionState(_q:QUICConn):ConnectionState {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.connectionState(_q);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.connectionState(_q);
     }
     static public function sendSessionTicket(_q:QUICConn, _opts:QUICSessionTicketOptions):stdgo.Error {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.sendSessionTicket(_q, _opts);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.sendSessionTicket(_q, _opts);
     }
     static public function handleData(_q:QUICConn, _level:QUICEncryptionLevel, _data:Array<std.UInt>):stdgo.Error {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.handleData(_q, _level, _data);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.handleData(_q, _level, _data);
     }
     static public function close(_q:QUICConn):stdgo.Error {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.close(_q);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.close(_q);
     }
     static public function nextEvent(_q:QUICConn):QUICEvent {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.nextEvent(_q);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.nextEvent(_q);
     }
     static public function start(_q:QUICConn, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         final _q = (_q : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconn.QUICConn>);
-        return stdgo._internal.crypto.tls.Tls_QUICConn_static_extension.QUICConn_static_extension.start(_q, _ctx);
+        return stdgo._internal.crypto.tls.Tls_quicconn_static_extension.QUICConn_static_extension.start(_q, _ctx);
     }
 }
-typedef QUICConfigPointer = stdgo._internal.crypto.tls.Tls_QUICConfigPointer.QUICConfigPointer;
+typedef QUICConfigPointer = stdgo._internal.crypto.tls.Tls_quicconfigpointer.QUICConfigPointer;
 class QUICConfig_static_extension {
 
 }
-typedef QUICEventPointer = stdgo._internal.crypto.tls.Tls_QUICEventPointer.QUICEventPointer;
+typedef QUICEventPointer = stdgo._internal.crypto.tls.Tls_quiceventpointer.QUICEventPointer;
 class QUICEvent_static_extension {
 
 }
-typedef T_quicStatePointer = stdgo._internal.crypto.tls.Tls_T_quicStatePointer.T_quicStatePointer;
+typedef T_quicStatePointer = stdgo._internal.crypto.tls.Tls_t_quicstatepointer.T_quicStatePointer;
 class T_quicState_static_extension {
 
 }
-typedef QUICSessionTicketOptionsPointer = stdgo._internal.crypto.tls.Tls_QUICSessionTicketOptionsPointer.QUICSessionTicketOptionsPointer;
+typedef QUICSessionTicketOptionsPointer = stdgo._internal.crypto.tls.Tls_quicsessionticketoptionspointer.QUICSessionTicketOptionsPointer;
 class QUICSessionTicketOptions_static_extension {
 
 }
-typedef SessionStatePointer = stdgo._internal.crypto.tls.Tls_SessionStatePointer.SessionStatePointer;
+typedef SessionStatePointer = stdgo._internal.crypto.tls.Tls_sessionstatepointer.SessionStatePointer;
 class SessionState_static_extension {
     static public function bytes(_s:SessionState):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_SessionState_static_extension.SessionState_static_extension.bytes(_s);
+            final obj = stdgo._internal.crypto.tls.Tls_sessionstate_static_extension.SessionState_static_extension.bytes(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef ClientSessionStatePointer = stdgo._internal.crypto.tls.Tls_ClientSessionStatePointer.ClientSessionStatePointer;
+typedef ClientSessionStatePointer = stdgo._internal.crypto.tls.Tls_clientsessionstatepointer.ClientSessionStatePointer;
 class ClientSessionState_static_extension {
     static public function resumptionState(_cs:ClientSessionState):stdgo.Tuple.Tuple3<Array<std.UInt>, SessionState, stdgo.Error> {
         final _cs = (_cs : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clientsessionstate.ClientSessionState>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_ClientSessionState_static_extension.ClientSessionState_static_extension.resumptionState(_cs);
+            final obj = stdgo._internal.crypto.tls.Tls_clientsessionstate_static_extension.ClientSessionState_static_extension.resumptionState(_cs);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
 }
-typedef T_listenerPointer = stdgo._internal.crypto.tls.Tls_T_listenerPointer.T_listenerPointer;
+typedef T_listenerPointer = stdgo._internal.crypto.tls.Tls_t_listenerpointer.T_listenerPointer;
 class T_listener_static_extension {
     static public function accept(_l:T_listener):stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_listener.T_listener>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_T_listener_static_extension.T_listener_static_extension.accept(_l);
+            final obj = stdgo._internal.crypto.tls.Tls_t_listener_static_extension.T_listener_static_extension.accept(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.crypto.tls.Tls_t_listener.T_listener):stdgo.Error {
-        return stdgo._internal.crypto.tls.Tls_T_listener_static_extension.T_listener_static_extension.close(__self__);
+        return stdgo._internal.crypto.tls.Tls_t_listener_static_extension.T_listener_static_extension.close(__self__);
     }
     public static function addr(__self__:stdgo._internal.crypto.tls.Tls_t_listener.T_listener):stdgo._internal.net.Net_addr.Addr {
-        return stdgo._internal.crypto.tls.Tls_T_listener_static_extension.T_listener_static_extension.addr(__self__);
+        return stdgo._internal.crypto.tls.Tls_t_listener_static_extension.T_listener_static_extension.addr(__self__);
     }
 }
-typedef T_timeoutErrorPointer = stdgo._internal.crypto.tls.Tls_T_timeoutErrorPointer.T_timeoutErrorPointer;
+typedef T_timeoutErrorPointer = stdgo._internal.crypto.tls.Tls_t_timeouterrorpointer.T_timeoutErrorPointer;
 class T_timeoutError_static_extension {
     static public function temporary(_:T_timeoutError):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_timeoutError_static_extension.T_timeoutError_static_extension.temporary(_);
+        return stdgo._internal.crypto.tls.Tls_t_timeouterror_static_extension.T_timeoutError_static_extension.temporary(_);
     }
     static public function timeout(_:T_timeoutError):Bool {
-        return stdgo._internal.crypto.tls.Tls_T_timeoutError_static_extension.T_timeoutError_static_extension.timeout(_);
+        return stdgo._internal.crypto.tls.Tls_t_timeouterror_static_extension.T_timeoutError_static_extension.timeout(_);
     }
     static public function error(_:T_timeoutError):String {
-        return stdgo._internal.crypto.tls.Tls_T_timeoutError_static_extension.T_timeoutError_static_extension.error(_);
+        return stdgo._internal.crypto.tls.Tls_t_timeouterror_static_extension.T_timeoutError_static_extension.error(_);
     }
 }
-typedef DialerPointer = stdgo._internal.crypto.tls.Tls_DialerPointer.DialerPointer;
+typedef DialerPointer = stdgo._internal.crypto.tls.Tls_dialerpointer.DialerPointer;
 class Dialer_static_extension {
     static public function dialContext(_d:Dialer, _ctx:stdgo._internal.context.Context_context.Context, _network:String, _addr:String):stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.tls.Tls_dialer.Dialer>);
         final _network = (_network : stdgo.GoString);
         final _addr = (_addr : stdgo.GoString);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Dialer_static_extension.Dialer_static_extension.dialContext(_d, _ctx, _network, _addr);
+            final obj = stdgo._internal.crypto.tls.Tls_dialer_static_extension.Dialer_static_extension.dialContext(_d, _ctx, _network, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _netDialer(_d:Dialer):stdgo._internal.net.Net_dialer.Dialer {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.tls.Tls_dialer.Dialer>);
-        return stdgo._internal.crypto.tls.Tls_Dialer_static_extension.Dialer_static_extension._netDialer(_d);
+        return stdgo._internal.crypto.tls.Tls_dialer_static_extension.Dialer_static_extension._netDialer(_d);
     }
     static public function dial(_d:Dialer, _network:String, _addr:String):stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.tls.Tls_dialer.Dialer>);
         final _network = (_network : stdgo.GoString);
         final _addr = (_addr : stdgo.GoString);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_Dialer_static_extension.Dialer_static_extension.dial(_d, _network, _addr);
+            final obj = stdgo._internal.crypto.tls.Tls_dialer_static_extension.Dialer_static_extension.dial(_d, _network, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.crypto.tls.Tls_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.crypto.tls.Tls_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.crypto.tls.Tls_T__struct_1PointerPointer.T__struct_1PointerPointer;
+typedef T__struct_1PointerPointer = stdgo._internal.crypto.tls.Tls_t__struct_1pointerpointer.T__struct_1PointerPointer;
 class T__struct_1Pointer_static_extension {
 
 }
-typedef AlertErrorPointer = stdgo._internal.crypto.tls.Tls_AlertErrorPointer.AlertErrorPointer;
+typedef AlertErrorPointer = stdgo._internal.crypto.tls.Tls_alerterrorpointer.AlertErrorPointer;
 class AlertError_static_extension {
     static public function error(_e:AlertError):String {
-        return stdgo._internal.crypto.tls.Tls_AlertError_static_extension.AlertError_static_extension.error(_e);
+        return stdgo._internal.crypto.tls.Tls_alerterror_static_extension.AlertError_static_extension.error(_e);
     }
 }
-typedef T_alertPointer = stdgo._internal.crypto.tls.Tls_T_alertPointer.T_alertPointer;
+typedef T_alertPointer = stdgo._internal.crypto.tls.Tls_t_alertpointer.T_alertPointer;
 class T_alert_static_extension {
     static public function error(_e:T_alert):String {
-        return stdgo._internal.crypto.tls.Tls_T_alert_static_extension.T_alert_static_extension.error(_e);
+        return stdgo._internal.crypto.tls.Tls_t_alert_static_extension.T_alert_static_extension.error(_e);
     }
     static public function string(_e:T_alert):String {
-        return stdgo._internal.crypto.tls.Tls_T_alert_static_extension.T_alert_static_extension.string(_e);
+        return stdgo._internal.crypto.tls.Tls_t_alert_static_extension.T_alert_static_extension.string(_e);
     }
 }
-typedef T_recordTypePointer = stdgo._internal.crypto.tls.Tls_T_recordTypePointer.T_recordTypePointer;
+typedef T_recordTypePointer = stdgo._internal.crypto.tls.Tls_t_recordtypepointer.T_recordTypePointer;
 class T_recordType_static_extension {
 
 }
-typedef CurveIDPointer = stdgo._internal.crypto.tls.Tls_CurveIDPointer.CurveIDPointer;
+typedef CurveIDPointer = stdgo._internal.crypto.tls.Tls_curveidpointer.CurveIDPointer;
 class CurveID_static_extension {
     static public function string(_i:CurveID):String {
-        return stdgo._internal.crypto.tls.Tls_CurveID_static_extension.CurveID_static_extension.string(_i);
+        return stdgo._internal.crypto.tls.Tls_curveid_static_extension.CurveID_static_extension.string(_i);
     }
 }
-typedef ClientAuthTypePointer = stdgo._internal.crypto.tls.Tls_ClientAuthTypePointer.ClientAuthTypePointer;
+typedef ClientAuthTypePointer = stdgo._internal.crypto.tls.Tls_clientauthtypepointer.ClientAuthTypePointer;
 class ClientAuthType_static_extension {
     static public function string(_i:ClientAuthType):String {
-        return stdgo._internal.crypto.tls.Tls_ClientAuthType_static_extension.ClientAuthType_static_extension.string(_i);
+        return stdgo._internal.crypto.tls.Tls_clientauthtype_static_extension.ClientAuthType_static_extension.string(_i);
     }
 }
-typedef SignatureSchemePointer = stdgo._internal.crypto.tls.Tls_SignatureSchemePointer.SignatureSchemePointer;
+typedef SignatureSchemePointer = stdgo._internal.crypto.tls.Tls_signatureschemepointer.SignatureSchemePointer;
 class SignatureScheme_static_extension {
     static public function string(_i:SignatureScheme):String {
-        return stdgo._internal.crypto.tls.Tls_SignatureScheme_static_extension.SignatureScheme_static_extension.string(_i);
+        return stdgo._internal.crypto.tls.Tls_signaturescheme_static_extension.SignatureScheme_static_extension.string(_i);
     }
 }
-typedef RenegotiationSupportPointer = stdgo._internal.crypto.tls.Tls_RenegotiationSupportPointer.RenegotiationSupportPointer;
+typedef RenegotiationSupportPointer = stdgo._internal.crypto.tls.Tls_renegotiationsupportpointer.RenegotiationSupportPointer;
 class RenegotiationSupport_static_extension {
 
 }
-typedef T_marshalingFunctionPointer = stdgo._internal.crypto.tls.Tls_T_marshalingFunctionPointer.T_marshalingFunctionPointer;
+typedef T_marshalingFunctionPointer = stdgo._internal.crypto.tls.Tls_t_marshalingfunctionpointer.T_marshalingFunctionPointer;
 class T_marshalingFunction_static_extension {
     static public function marshal(_f:T_marshalingFunction, _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder):stdgo.Error {
         final _b = (_b : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>);
-        return stdgo._internal.crypto.tls.Tls_T_marshalingFunction_static_extension.T_marshalingFunction_static_extension.marshal(_f, _b);
+        return stdgo._internal.crypto.tls.Tls_t_marshalingfunction_static_extension.T_marshalingFunction_static_extension.marshal(_f, _b);
     }
 }
-typedef QUICEncryptionLevelPointer = stdgo._internal.crypto.tls.Tls_QUICEncryptionLevelPointer.QUICEncryptionLevelPointer;
+typedef QUICEncryptionLevelPointer = stdgo._internal.crypto.tls.Tls_quicencryptionlevelpointer.QUICEncryptionLevelPointer;
 class QUICEncryptionLevel_static_extension {
     static public function string(_l:QUICEncryptionLevel):String {
-        return stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel_static_extension.QUICEncryptionLevel_static_extension.string(_l);
+        return stdgo._internal.crypto.tls.Tls_quicencryptionlevel_static_extension.QUICEncryptionLevel_static_extension.string(_l);
     }
 }
-typedef QUICEventKindPointer = stdgo._internal.crypto.tls.Tls_QUICEventKindPointer.QUICEventKindPointer;
+typedef QUICEventKindPointer = stdgo._internal.crypto.tls.Tls_quiceventkindpointer.QUICEventKindPointer;
 class QUICEventKind_static_extension {
 
 }
@@ -4536,7 +4536,7 @@ class Tls {
         * and might not match those returned by this function.
     **/
     static public inline function cipherSuites():Array<CipherSuite> {
-        return [for (i in stdgo._internal.crypto.tls.Tls_cipherSuites.cipherSuites()) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_ciphersuites.cipherSuites()) i];
     }
     /**
         * InsecureCipherSuites returns a list of cipher suites currently implemented by
@@ -4546,7 +4546,7 @@ class Tls {
         * only use those returned by CipherSuites.
     **/
     static public inline function insecureCipherSuites():Array<CipherSuite> {
-        return [for (i in stdgo._internal.crypto.tls.Tls_insecureCipherSuites.insecureCipherSuites()) i];
+        return [for (i in stdgo._internal.crypto.tls.Tls_insecureciphersuites.insecureCipherSuites()) i];
     }
     /**
         * CipherSuiteName returns the standard name for the passed cipher suite ID
@@ -4555,7 +4555,7 @@ class Tls {
     **/
     static public inline function cipherSuiteName(_id:std.UInt):String {
         final _id = (_id : stdgo.GoUInt16);
-        return stdgo._internal.crypto.tls.Tls_cipherSuiteName.cipherSuiteName(_id);
+        return stdgo._internal.crypto.tls.Tls_ciphersuitename.cipherSuiteName(_id);
     }
     /**
         * VersionName returns the name for the provided TLS version number
@@ -4564,7 +4564,7 @@ class Tls {
     **/
     static public inline function versionName(_version:std.UInt):String {
         final _version = (_version : stdgo.GoUInt16);
-        return stdgo._internal.crypto.tls.Tls_versionName.versionName(_version);
+        return stdgo._internal.crypto.tls.Tls_versionname.versionName(_version);
     }
     /**
         * NewLRUClientSessionCache returns a ClientSessionCache with the given
@@ -4573,7 +4573,7 @@ class Tls {
     **/
     static public inline function newLRUClientSessionCache(_capacity:StdTypes.Int):ClientSessionCache {
         final _capacity = (_capacity : stdgo.GoInt);
-        return stdgo._internal.crypto.tls.Tls_newLRUClientSessionCache.newLRUClientSessionCache(_capacity);
+        return stdgo._internal.crypto.tls.Tls_newlruclientsessioncache.newLRUClientSessionCache(_capacity);
     }
     /**
         * QUICClient returns a new TLS client side connection using QUICTransport as the
@@ -4583,7 +4583,7 @@ class Tls {
     **/
     static public inline function qUICClient(_config:QUICConfig):QUICConn {
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig>);
-        return stdgo._internal.crypto.tls.Tls_qUICClient.qUICClient(_config);
+        return stdgo._internal.crypto.tls.Tls_quicclient.qUICClient(_config);
     }
     /**
         * QUICServer returns a new TLS server side connection using QUICTransport as the
@@ -4593,7 +4593,7 @@ class Tls {
     **/
     static public inline function qUICServer(_config:QUICConfig):QUICConn {
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_quicconfig.QUICConfig>);
-        return stdgo._internal.crypto.tls.Tls_qUICServer.qUICServer(_config);
+        return stdgo._internal.crypto.tls.Tls_quicserver.qUICServer(_config);
     }
     /**
         * ParseSessionState parses a [SessionState] encoded by [SessionState.Bytes].
@@ -4601,7 +4601,7 @@ class Tls {
     static public inline function parseSessionState(_data:Array<std.UInt>):stdgo.Tuple<SessionState, stdgo.Error> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_parseSessionState.parseSessionState(_data);
+            final obj = stdgo._internal.crypto.tls.Tls_parsesessionstate.parseSessionState(_data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -4616,7 +4616,7 @@ class Tls {
         final _ticket = ([for (i in _ticket) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _state = (_state : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_newResumptionState.newResumptionState(_ticket, _state);
+            final obj = stdgo._internal.crypto.tls.Tls_newresumptionstate.newResumptionState(_ticket, _state);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -4648,7 +4648,7 @@ class Tls {
     **/
     static public inline function newListener(_inner:stdgo._internal.net.Net_listener.Listener, _config:Config):stdgo._internal.net.Net_listener.Listener {
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
-        return stdgo._internal.crypto.tls.Tls_newListener.newListener(_inner, _config);
+        return stdgo._internal.crypto.tls.Tls_newlistener.newListener(_inner, _config);
     }
     /**
         * Listen creates a TLS listener accepting connections on the
@@ -4683,7 +4683,7 @@ class Tls {
         final _addr = (_addr : stdgo.GoString);
         final _config = (_config : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_dialWithDialer.dialWithDialer(_dialer, _network, _addr, _config);
+            final obj = stdgo._internal.crypto.tls.Tls_dialwithdialer.dialWithDialer(_dialer, _network, _addr, _config);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -4715,7 +4715,7 @@ class Tls {
         final _certFile = (_certFile : stdgo.GoString);
         final _keyFile = (_keyFile : stdgo.GoString);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_loadX509KeyPair.loadX509KeyPair(_certFile, _keyFile);
+            final obj = stdgo._internal.crypto.tls.Tls_loadx509keypair.loadX509KeyPair(_certFile, _keyFile);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -4728,7 +4728,7 @@ class Tls {
         final _certPEMBlock = ([for (i in _certPEMBlock) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _keyPEMBlock = ([for (i in _keyPEMBlock) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.tls.Tls_x509KeyPair.x509KeyPair(_certPEMBlock, _keyPEMBlock);
+            final obj = stdgo._internal.crypto.tls.Tls_x509keypair.x509KeyPair(_certPEMBlock, _keyPEMBlock);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

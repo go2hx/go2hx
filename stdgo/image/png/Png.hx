@@ -1,25 +1,25 @@
 package stdgo.image.png;
-final defaultCompression : CompressionLevel = stdgo._internal.image.png.Png_defaultCompression.defaultCompression;
-final noCompression : CompressionLevel = stdgo._internal.image.png.Png_noCompression.noCompression;
-final bestSpeed : CompressionLevel = stdgo._internal.image.png.Png_bestSpeed.bestSpeed;
-final bestCompression : CompressionLevel = stdgo._internal.image.png.Png_bestCompression.bestCompression;
+final defaultCompression : CompressionLevel = stdgo._internal.image.png.Png_defaultcompression.defaultCompression;
+final noCompression : CompressionLevel = stdgo._internal.image.png.Png_nocompression.noCompression;
+final bestSpeed : CompressionLevel = stdgo._internal.image.png.Png_bestspeed.bestSpeed;
+final bestCompression : CompressionLevel = stdgo._internal.image.png.Png_bestcompression.bestCompression;
 class EncoderBufferPool_static_extension {
     static public function put(t:stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool, _0:EncoderBuffer):Void {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.image.png.Png_encoderbuffer.EncoderBuffer>);
-        stdgo._internal.image.png.Png_EncoderBufferPool_static_extension.EncoderBufferPool_static_extension.put(t, _0);
+        stdgo._internal.image.png.Png_encoderbufferpool_static_extension.EncoderBufferPool_static_extension.put(t, _0);
     }
     static public function get(t:stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool):EncoderBuffer {
-        return stdgo._internal.image.png.Png_EncoderBufferPool_static_extension.EncoderBufferPool_static_extension.get(t);
+        return stdgo._internal.image.png.Png_encoderbufferpool_static_extension.EncoderBufferPool_static_extension.get(t);
     }
 }
-typedef EncoderBufferPool = stdgo._internal.image.png.Png_EncoderBufferPool.EncoderBufferPool;
+typedef EncoderBufferPool = stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool;
 class T_opaquer_static_extension {
     static public function opaque(t:stdgo._internal.image.png.Png_t_opaquer.T_opaquer):Bool {
-        return stdgo._internal.image.png.Png_T_opaquer_static_extension.T_opaquer_static_extension.opaque(t);
+        return stdgo._internal.image.png.Png_t_opaquer_static_extension.T_opaquer_static_extension.opaque(t);
     }
 }
-typedef T_opaquer = stdgo._internal.image.png.Png_T_opaquer.T_opaquer;
-@:structInit @:using(stdgo.image.png.Png.T_interlaceScan_static_extension) abstract T_interlaceScan(stdgo._internal.image.png.Png_T_interlaceScan.T_interlaceScan) from stdgo._internal.image.png.Png_T_interlaceScan.T_interlaceScan to stdgo._internal.image.png.Png_T_interlaceScan.T_interlaceScan {
+typedef T_opaquer = stdgo._internal.image.png.Png_t_opaquer.T_opaquer;
+@:structInit @:using(stdgo.image.png.Png.T_interlaceScan_static_extension) abstract T_interlaceScan(stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan) from stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan to stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan {
     public var _xFactor(get, set) : StdTypes.Int;
     function get__xFactor():StdTypes.Int return this._xFactor;
     function set__xFactor(v:StdTypes.Int):StdTypes.Int {
@@ -44,11 +44,11 @@ typedef T_opaquer = stdgo._internal.image.png.Png_T_opaquer.T_opaquer;
         this._yOffset = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_xFactor:StdTypes.Int, ?_yFactor:StdTypes.Int, ?_xOffset:StdTypes.Int, ?_yOffset:StdTypes.Int) this = new stdgo._internal.image.png.Png_T_interlaceScan.T_interlaceScan((_xFactor : stdgo.GoInt), (_yFactor : stdgo.GoInt), (_xOffset : stdgo.GoInt), (_yOffset : stdgo.GoInt));
+    public function new(?_xFactor:StdTypes.Int, ?_yFactor:StdTypes.Int, ?_xOffset:StdTypes.Int, ?_yOffset:StdTypes.Int) this = new stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan((_xFactor : stdgo.GoInt), (_yFactor : stdgo.GoInt), (_xOffset : stdgo.GoInt), (_yOffset : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.T_decoder_static_extension) abstract T_decoder(stdgo._internal.image.png.Png_T_decoder.T_decoder) from stdgo._internal.image.png.Png_T_decoder.T_decoder to stdgo._internal.image.png.Png_T_decoder.T_decoder {
+@:structInit @:using(stdgo.image.png.Png.T_decoder_static_extension) abstract T_decoder(stdgo._internal.image.png.Png_t_decoder.T_decoder) from stdgo._internal.image.png.Png_t_decoder.T_decoder to stdgo._internal.image.png.Png_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -133,7 +133,7 @@ typedef T_opaquer = stdgo._internal.image.png.Png_T_opaquer.T_opaquer;
         this._transparent = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_img:stdgo._internal.image.Image_image.Image, ?_crc:stdgo._internal.hash.Hash_hash32.Hash32, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_depth:StdTypes.Int, ?_palette:stdgo._internal.image.color.Color_palette.Palette, ?_cb:StdTypes.Int, ?_stage:StdTypes.Int, ?_idatLength:std.UInt, ?_tmp:haxe.ds.Vector<std.UInt>, ?_interlace:StdTypes.Int, ?_useTransparent:Bool, ?_transparent:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.png.Png_T_decoder.T_decoder(
+    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_img:stdgo._internal.image.Image_image.Image, ?_crc:stdgo._internal.hash.Hash_hash32.Hash32, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_depth:StdTypes.Int, ?_palette:stdgo._internal.image.color.Color_palette.Palette, ?_cb:StdTypes.Int, ?_stage:StdTypes.Int, ?_idatLength:std.UInt, ?_tmp:haxe.ds.Vector<std.UInt>, ?_interlace:StdTypes.Int, ?_useTransparent:Bool, ?_transparent:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.png.Png_t_decoder.T_decoder(
 _r,
 _img,
 _crc,
@@ -151,7 +151,7 @@ _useTransparent,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.Encoder_static_extension) abstract Encoder(stdgo._internal.image.png.Png_Encoder.Encoder) from stdgo._internal.image.png.Png_Encoder.Encoder to stdgo._internal.image.png.Png_Encoder.Encoder {
+@:structInit @:using(stdgo.image.png.Png.Encoder_static_extension) abstract Encoder(stdgo._internal.image.png.Png_encoder.Encoder) from stdgo._internal.image.png.Png_encoder.Encoder to stdgo._internal.image.png.Png_encoder.Encoder {
     public var compressionLevel(get, set) : CompressionLevel;
     function get_compressionLevel():CompressionLevel return this.compressionLevel;
     function set_compressionLevel(v:CompressionLevel):CompressionLevel {
@@ -164,11 +164,11 @@ _useTransparent,
         this.bufferPool = v;
         return v;
     }
-    public function new(?compressionLevel:CompressionLevel, ?bufferPool:EncoderBufferPool) this = new stdgo._internal.image.png.Png_Encoder.Encoder(compressionLevel, bufferPool);
+    public function new(?compressionLevel:CompressionLevel, ?bufferPool:EncoderBufferPool) this = new stdgo._internal.image.png.Png_encoder.Encoder(compressionLevel, bufferPool);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.T_encoder_static_extension) abstract T_encoder(stdgo._internal.image.png.Png_T_encoder.T_encoder) from stdgo._internal.image.png.Png_T_encoder.T_encoder to stdgo._internal.image.png.Png_T_encoder.T_encoder {
+@:structInit @:using(stdgo.image.png.Png.T_encoder_static_extension) abstract T_encoder(stdgo._internal.image.png.Png_t_encoder.T_encoder) from stdgo._internal.image.png.Png_t_encoder.T_encoder to stdgo._internal.image.png.Png_t_encoder.T_encoder {
     public var _enc(get, set) : Encoder;
     function get__enc():Encoder return this._enc;
     function set__enc(v:Encoder):Encoder {
@@ -247,7 +247,7 @@ _useTransparent,
         this._bw = (v : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>);
         return v;
     }
-    public function new(?_enc:Encoder, ?_w:stdgo._internal.io.Io_writer.Writer, ?_m:stdgo._internal.image.Image_image.Image, ?_cb:StdTypes.Int, ?_err:stdgo.Error, ?_header:haxe.ds.Vector<std.UInt>, ?_footer:haxe.ds.Vector<std.UInt>, ?_tmp:haxe.ds.Vector<std.UInt>, ?_cr:haxe.ds.Vector<Array<std.UInt>>, ?_pr:Array<std.UInt>, ?_zw:stdgo._internal.compress.zlib.Zlib_writer.Writer, ?_zwLevel:StdTypes.Int, ?_bw:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.image.png.Png_T_encoder.T_encoder(
+    public function new(?_enc:Encoder, ?_w:stdgo._internal.io.Io_writer.Writer, ?_m:stdgo._internal.image.Image_image.Image, ?_cb:StdTypes.Int, ?_err:stdgo.Error, ?_header:haxe.ds.Vector<std.UInt>, ?_footer:haxe.ds.Vector<std.UInt>, ?_tmp:haxe.ds.Vector<std.UInt>, ?_cr:haxe.ds.Vector<Array<std.UInt>>, ?_pr:Array<std.UInt>, ?_zw:stdgo._internal.compress.zlib.Zlib_writer.Writer, ?_zwLevel:StdTypes.Int, ?_bw:stdgo._internal.bufio.Bufio_writer.Writer) this = new stdgo._internal.image.png.Png_t_encoder.T_encoder(
 (_enc : stdgo.Ref<stdgo._internal.image.png.Png_encoder.Encoder>),
 _w,
 _m,
@@ -264,55 +264,55 @@ _m,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef FormatError = stdgo._internal.image.png.Png_FormatError.FormatError;
-typedef UnsupportedError = stdgo._internal.image.png.Png_UnsupportedError.UnsupportedError;
-typedef EncoderBuffer = stdgo._internal.image.png.Png_EncoderBuffer.EncoderBuffer;
-typedef CompressionLevel = stdgo._internal.image.png.Png_CompressionLevel.CompressionLevel;
-typedef T_interlaceScanPointer = stdgo._internal.image.png.Png_T_interlaceScanPointer.T_interlaceScanPointer;
+typedef FormatError = stdgo._internal.image.png.Png_formaterror.FormatError;
+typedef UnsupportedError = stdgo._internal.image.png.Png_unsupportederror.UnsupportedError;
+typedef EncoderBuffer = stdgo._internal.image.png.Png_encoderbuffer.EncoderBuffer;
+typedef CompressionLevel = stdgo._internal.image.png.Png_compressionlevel.CompressionLevel;
+typedef T_interlaceScanPointer = stdgo._internal.image.png.Png_t_interlacescanpointer.T_interlaceScanPointer;
 class T_interlaceScan_static_extension {
 
 }
-typedef T_decoderPointer = stdgo._internal.image.png.Png_T_decoderPointer.T_decoderPointer;
+typedef T_decoderPointer = stdgo._internal.image.png.Png_t_decoderpointer.T_decoderPointer;
 class T_decoder_static_extension {
     static public function _checkHeader(_d:T_decoder):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._checkHeader(_d);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._checkHeader(_d);
     }
     static public function _verifyChecksum(_d:T_decoder):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._verifyChecksum(_d);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._verifyChecksum(_d);
     }
     static public function _parseChunk(_d:T_decoder, _configOnly:Bool):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parseChunk(_d, _configOnly);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parseChunk(_d, _configOnly);
     }
     static public function _parseIEND(_d:T_decoder, _length:std.UInt):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _length = (_length : stdgo.GoUInt32);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parseIEND(_d, _length);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parseIEND(_d, _length);
     }
     static public function _parseIDAT(_d:T_decoder, _length:std.UInt):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _length = (_length : stdgo.GoUInt32);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parseIDAT(_d, _length);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parseIDAT(_d, _length);
     }
     static public function _mergePassInto(_d:T_decoder, _dst:stdgo._internal.image.Image_image.Image, _src:stdgo._internal.image.Image_image.Image, _pass:StdTypes.Int):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _pass = (_pass : stdgo.GoInt);
-        stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._mergePassInto(_d, _dst, _src, _pass);
+        stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._mergePassInto(_d, _dst, _src, _pass);
     }
     static public function _readImagePass(_d:T_decoder, _r:stdgo._internal.io.Io_reader.Reader, _pass:StdTypes.Int, _allocateOnly:Bool):stdgo.Tuple<stdgo._internal.image.Image_image.Image, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _pass = (_pass : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._readImagePass(_d, _r, _pass, _allocateOnly);
+            final obj = stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._readImagePass(_d, _r, _pass, _allocateOnly);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _decode(_d:T_decoder):stdgo.Tuple<stdgo._internal.image.Image_image.Image, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         return {
-            final obj = stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._decode(_d);
+            final obj = stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._decode(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -320,89 +320,89 @@ class T_decoder_static_extension {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension.read(_d, _p);
+            final obj = stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension.read(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _parsetRNS(_d:T_decoder, _length:std.UInt):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _length = (_length : stdgo.GoUInt32);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parsetRNS(_d, _length);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parsetRNS(_d, _length);
     }
     static public function _parsePLTE(_d:T_decoder, _length:std.UInt):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _length = (_length : stdgo.GoUInt32);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parsePLTE(_d, _length);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parsePLTE(_d, _length);
     }
     static public function _parseIHDR(_d:T_decoder, _length:std.UInt):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.png.Png_t_decoder.T_decoder>);
         final _length = (_length : stdgo.GoUInt32);
-        return stdgo._internal.image.png.Png_T_decoder_static_extension.T_decoder_static_extension._parseIHDR(_d, _length);
+        return stdgo._internal.image.png.Png_t_decoder_static_extension.T_decoder_static_extension._parseIHDR(_d, _length);
     }
 }
-typedef EncoderPointer = stdgo._internal.image.png.Png_EncoderPointer.EncoderPointer;
+typedef EncoderPointer = stdgo._internal.image.png.Png_encoderpointer.EncoderPointer;
 class Encoder_static_extension {
     static public function encode(_enc:Encoder, _w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.image.png.Png_encoder.Encoder>);
-        return stdgo._internal.image.png.Png_Encoder_static_extension.Encoder_static_extension.encode(_enc, _w, _m);
+        return stdgo._internal.image.png.Png_encoder_static_extension.Encoder_static_extension.encode(_enc, _w, _m);
     }
 }
-typedef T_encoderPointer = stdgo._internal.image.png.Png_T_encoderPointer.T_encoderPointer;
+typedef T_encoderPointer = stdgo._internal.image.png.Png_t_encoderpointer.T_encoderPointer;
 class T_encoder_static_extension {
     static public function _writeIEND(_e:T_encoder):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
-        stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeIEND(_e);
+        stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writeIEND(_e);
     }
     static public function _writeIDATs(_e:T_encoder):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
-        stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeIDATs(_e);
+        stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writeIDATs(_e);
     }
     static public function _writeImage(_e:T_encoder, _w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image.Image_image.Image, _cb:StdTypes.Int, _level:StdTypes.Int):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
         final _cb = (_cb : stdgo.GoInt);
         final _level = (_level : stdgo.GoInt);
-        return stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeImage(_e, _w, _m, _cb, _level);
+        return stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writeImage(_e, _w, _m, _cb, _level);
     }
     static public function write(_e:T_encoder, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension.write(_e, _b);
+            final obj = stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension.write(_e, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _writePLTEAndTRNS(_e:T_encoder, _p:stdgo._internal.image.color.Color_palette.Palette):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
-        stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writePLTEAndTRNS(_e, _p);
+        stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writePLTEAndTRNS(_e, _p);
     }
     static public function _writeIHDR(_e:T_encoder):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
-        stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeIHDR(_e);
+        stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writeIHDR(_e);
     }
     static public function _writeChunk(_e:T_encoder, _b:Array<std.UInt>, _name:String):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _name = (_name : stdgo.GoString);
-        stdgo._internal.image.png.Png_T_encoder_static_extension.T_encoder_static_extension._writeChunk(_e, _b, _name);
+        stdgo._internal.image.png.Png_t_encoder_static_extension.T_encoder_static_extension._writeChunk(_e, _b, _name);
     }
 }
-typedef FormatErrorPointer = stdgo._internal.image.png.Png_FormatErrorPointer.FormatErrorPointer;
+typedef FormatErrorPointer = stdgo._internal.image.png.Png_formaterrorpointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
-        return stdgo._internal.image.png.Png_FormatError_static_extension.FormatError_static_extension.error(_e);
+        return stdgo._internal.image.png.Png_formaterror_static_extension.FormatError_static_extension.error(_e);
     }
 }
-typedef UnsupportedErrorPointer = stdgo._internal.image.png.Png_UnsupportedErrorPointer.UnsupportedErrorPointer;
+typedef UnsupportedErrorPointer = stdgo._internal.image.png.Png_unsupportederrorpointer.UnsupportedErrorPointer;
 class UnsupportedError_static_extension {
     static public function error(_e:UnsupportedError):String {
-        return stdgo._internal.image.png.Png_UnsupportedError_static_extension.UnsupportedError_static_extension.error(_e);
+        return stdgo._internal.image.png.Png_unsupportederror_static_extension.UnsupportedError_static_extension.error(_e);
     }
 }
-typedef EncoderBufferPointer = stdgo._internal.image.png.Png_EncoderBufferPointer.EncoderBufferPointer;
+typedef EncoderBufferPointer = stdgo._internal.image.png.Png_encoderbufferpointer.EncoderBufferPointer;
 class EncoderBuffer_static_extension {
 
 }
-typedef CompressionLevelPointer = stdgo._internal.image.png.Png_CompressionLevelPointer.CompressionLevelPointer;
+typedef CompressionLevelPointer = stdgo._internal.image.png.Png_compressionlevelpointer.CompressionLevelPointer;
 class CompressionLevel_static_extension {
 
 }
@@ -428,7 +428,7 @@ class Png {
     **/
     static public inline function decodeConfig(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<stdgo._internal.image.Image_config.Config, stdgo.Error> {
         return {
-            final obj = stdgo._internal.image.png.Png_decodeConfig.decodeConfig(_r);
+            final obj = stdgo._internal.image.png.Png_decodeconfig.decodeConfig(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

@@ -15,6 +15,6 @@ class Imageutil {
     static public inline function drawYCbCr(_dst:stdgo._internal.image.Image_rgba.RGBA, _r:stdgo._internal.image.Image_rectangle.Rectangle, _src:stdgo._internal.image.Image_ycbcr.YCbCr, _sp:stdgo._internal.image.Image_point.Point):Bool {
         final _dst = (_dst : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         final _src = (_src : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>);
-        return stdgo._internal.image.internal.imageutil.Imageutil_drawYCbCr.drawYCbCr(_dst, _r, _src, _sp);
+        return stdgo._internal.image.internal.imageutil.Imageutil_drawycbcr.drawYCbCr(_dst, _r, _src, _sp);
     }
 }

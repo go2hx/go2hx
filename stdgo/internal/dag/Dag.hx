@@ -1,5 +1,5 @@
 package stdgo.internal.dag;
-@:structInit @:using(stdgo.internal.dag.Dag.Graph_static_extension) abstract Graph(stdgo._internal.internal.dag.Dag_Graph.Graph) from stdgo._internal.internal.dag.Dag_Graph.Graph to stdgo._internal.internal.dag.Dag_Graph.Graph {
+@:structInit @:using(stdgo.internal.dag.Dag.Graph_static_extension) abstract Graph(stdgo._internal.internal.dag.Dag_graph.Graph) from stdgo._internal.internal.dag.Dag_graph.Graph to stdgo._internal.internal.dag.Dag_graph.Graph {
     public var nodes(get, set) : Array<String>;
     function get_nodes():Array<String> return [for (i in this.nodes) i];
     function set_nodes(v:Array<String>):Array<String> {
@@ -18,11 +18,11 @@ package stdgo.internal.dag;
         this._edges = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>);
         return v;
     }
-    public function new(?nodes:Array<String>, ?_byLabel:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_edges:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>) this = new stdgo._internal.internal.dag.Dag_Graph.Graph(([for (i in nodes) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (_byLabel : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), (_edges : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>));
+    public function new(?nodes:Array<String>, ?_byLabel:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_edges:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>) this = new stdgo._internal.internal.dag.Dag_graph.Graph(([for (i in nodes) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (_byLabel : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), (_edges : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.dag.Dag.T_rule_static_extension) abstract T_rule(stdgo._internal.internal.dag.Dag_T_rule.T_rule) from stdgo._internal.internal.dag.Dag_T_rule.T_rule to stdgo._internal.internal.dag.Dag_T_rule.T_rule {
+@:structInit @:using(stdgo.internal.dag.Dag.T_rule_static_extension) abstract T_rule(stdgo._internal.internal.dag.Dag_t_rule.T_rule) from stdgo._internal.internal.dag.Dag_t_rule.T_rule to stdgo._internal.internal.dag.Dag_t_rule.T_rule {
     public var _less(get, set) : Array<String>;
     function get__less():Array<String> return [for (i in this._less) i];
     function set__less(v:Array<String>):Array<String> {
@@ -41,11 +41,11 @@ package stdgo.internal.dag;
         this._def = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_less:Array<String>, ?_op:String, ?_def:Array<String>) this = new stdgo._internal.internal.dag.Dag_T_rule.T_rule(([for (i in _less) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (_op : stdgo.GoString), ([for (i in _def) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_less:Array<String>, ?_op:String, ?_def:Array<String>) this = new stdgo._internal.internal.dag.Dag_t_rule.T_rule(([for (i in _less) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (_op : stdgo.GoString), ([for (i in _def) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.dag.Dag.T_rulesParser_static_extension) abstract T_rulesParser(stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser) from stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser to stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser {
+@:structInit @:using(stdgo.internal.dag.Dag.T_rulesParser_static_extension) abstract T_rulesParser(stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser) from stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser to stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser {
     public var _lineno(get, set) : StdTypes.Int;
     function get__lineno():StdTypes.Int return this._lineno;
     function set__lineno(v:StdTypes.Int):StdTypes.Int {
@@ -64,81 +64,81 @@ package stdgo.internal.dag;
         this._text = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_lineno:StdTypes.Int, ?_lastWord:String, ?_text:String) this = new stdgo._internal.internal.dag.Dag_T_rulesParser.T_rulesParser((_lineno : stdgo.GoInt), (_lastWord : stdgo.GoString), (_text : stdgo.GoString));
+    public function new(?_lineno:StdTypes.Int, ?_lastWord:String, ?_text:String) this = new stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser((_lineno : stdgo.GoInt), (_lastWord : stdgo.GoString), (_text : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_syntaxError = stdgo._internal.internal.dag.Dag_T_syntaxError.T_syntaxError;
-typedef GraphPointer = stdgo._internal.internal.dag.Dag_GraphPointer.GraphPointer;
+typedef T_syntaxError = stdgo._internal.internal.dag.Dag_t_syntaxerror.T_syntaxError;
+typedef GraphPointer = stdgo._internal.internal.dag.Dag_graphpointer.GraphPointer;
 class Graph_static_extension {
     static public function edges(_g:Graph, _from:String):Array<String> {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
-        return [for (i in stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.edges(_g, _from)) i];
+        return [for (i in stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.edges(_g, _from)) i];
     }
     static public function hasEdge(_g:Graph, _from:String, _to:String):Bool {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
-        return stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.hasEdge(_g, _from, _to);
+        return stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.hasEdge(_g, _from, _to);
     }
     static public function delEdge(_g:Graph, _from:String, _to:String):Void {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
-        stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.delEdge(_g, _from, _to);
+        stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.delEdge(_g, _from, _to);
     }
     static public function addEdge(_g:Graph, _from:String, _to:String):Void {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _from = (_from : stdgo.GoString);
         final _to = (_to : stdgo.GoString);
-        stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.addEdge(_g, _from, _to);
+        stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.addEdge(_g, _from, _to);
     }
     static public function _addNode(_g:Graph, _label:String):Bool {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
         final _label = (_label : stdgo.GoString);
-        return stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension._addNode(_g, _label);
+        return stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension._addNode(_g, _label);
     }
     static public function transitiveReduction(_g:Graph):Void {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
-        stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.transitiveReduction(_g);
+        stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.transitiveReduction(_g);
     }
     static public function topo(_g:Graph):Array<String> {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
-        return [for (i in stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.topo(_g)) i];
+        return [for (i in stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.topo(_g)) i];
     }
     static public function transpose(_g:Graph):Void {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>);
-        stdgo._internal.internal.dag.Dag_Graph_static_extension.Graph_static_extension.transpose(_g);
+        stdgo._internal.internal.dag.Dag_graph_static_extension.Graph_static_extension.transpose(_g);
     }
 }
-typedef T_rulePointer = stdgo._internal.internal.dag.Dag_T_rulePointer.T_rulePointer;
+typedef T_rulePointer = stdgo._internal.internal.dag.Dag_t_rulepointer.T_rulePointer;
 class T_rule_static_extension {
 
 }
-typedef T_rulesParserPointer = stdgo._internal.internal.dag.Dag_T_rulesParserPointer.T_rulesParserPointer;
+typedef T_rulesParserPointer = stdgo._internal.internal.dag.Dag_t_rulesparserpointer.T_rulesParserPointer;
 class T_rulesParser_static_extension {
     static public function _nextToken(_p:T_rulesParser):String {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
-        return stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._nextToken(_p);
+        return stdgo._internal.internal.dag.Dag_t_rulesparser_static_extension.T_rulesParser_static_extension._nextToken(_p);
     }
     static public function _nextList(_p:T_rulesParser):stdgo.Tuple<Array<String>, String> {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
         return {
-            final obj = stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._nextList(_p);
+            final obj = stdgo._internal.internal.dag.Dag_t_rulesparser_static_extension.T_rulesParser_static_extension._nextList(_p);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _syntaxError(_p:T_rulesParser, _msg:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser>);
         final _msg = (_msg : stdgo.GoString);
-        stdgo._internal.internal.dag.Dag_T_rulesParser_static_extension.T_rulesParser_static_extension._syntaxError(_p, _msg);
+        stdgo._internal.internal.dag.Dag_t_rulesparser_static_extension.T_rulesParser_static_extension._syntaxError(_p, _msg);
     }
 }
-typedef T_syntaxErrorPointer = stdgo._internal.internal.dag.Dag_T_syntaxErrorPointer.T_syntaxErrorPointer;
+typedef T_syntaxErrorPointer = stdgo._internal.internal.dag.Dag_t_syntaxerrorpointer.T_syntaxErrorPointer;
 class T_syntaxError_static_extension {
     static public function error(_e:T_syntaxError):String {
-        return stdgo._internal.internal.dag.Dag_T_syntaxError_static_extension.T_syntaxError_static_extension.error(_e);
+        return stdgo._internal.internal.dag.Dag_t_syntaxerror_static_extension.T_syntaxError_static_extension.error(_e);
     }
 }
 /**

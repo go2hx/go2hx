@@ -5,7 +5,7 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
         stdgo._internal.internal.platform.Platform_list.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform_osarch.OSArch>);
         return v;
     }
-@:structInit @:using(stdgo.internal.platform.Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_OSArch.OSArch) from stdgo._internal.internal.platform.Platform_OSArch.OSArch to stdgo._internal.internal.platform.Platform_OSArch.OSArch {
+@:structInit @:using(stdgo.internal.platform.Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_osarch.OSArch) from stdgo._internal.internal.platform.Platform_osarch.OSArch to stdgo._internal.internal.platform.Platform_osarch.OSArch {
     public var gOOS(get, set) : String;
     function get_gOOS():String return this.gOOS;
     function set_gOOS(v:String):String {
@@ -18,11 +18,11 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
         this.gOARCH = (v : stdgo.GoString);
         return v;
     }
-    public function new(?gOOS:String, ?gOARCH:String) this = new stdgo._internal.internal.platform.Platform_OSArch.OSArch((gOOS : stdgo.GoString), (gOARCH : stdgo.GoString));
+    public function new(?gOOS:String, ?gOARCH:String) this = new stdgo._internal.internal.platform.Platform_osarch.OSArch((gOOS : stdgo.GoString), (gOARCH : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.platform.Platform.T_osArchInfo_static_extension) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_T_osArchInfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_T_osArchInfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_T_osArchInfo.T_osArchInfo {
+@:structInit @:using(stdgo.internal.platform.Platform.T_osArchInfo_static_extension) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo {
     public var cgoSupported(get, set) : Bool;
     function get_cgoSupported():Bool return this.cgoSupported;
     function set_cgoSupported(v:Bool):Bool {
@@ -41,17 +41,17 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
         this.broken = v;
         return v;
     }
-    public function new(?cgoSupported:Bool, ?firstClass:Bool, ?broken:Bool) this = new stdgo._internal.internal.platform.Platform_T_osArchInfo.T_osArchInfo(cgoSupported, firstClass, broken);
+    public function new(?cgoSupported:Bool, ?firstClass:Bool, ?broken:Bool) this = new stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo(cgoSupported, firstClass, broken);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef OSArchPointer = stdgo._internal.internal.platform.Platform_OSArchPointer.OSArchPointer;
+typedef OSArchPointer = stdgo._internal.internal.platform.Platform_osarchpointer.OSArchPointer;
 class OSArch_static_extension {
     static public function string(_p:OSArch):String {
-        return stdgo._internal.internal.platform.Platform_OSArch_static_extension.OSArch_static_extension.string(_p);
+        return stdgo._internal.internal.platform.Platform_osarch_static_extension.OSArch_static_extension.string(_p);
     }
 }
-typedef T_osArchInfoPointer = stdgo._internal.internal.platform.Platform_T_osArchInfoPointer.T_osArchInfoPointer;
+typedef T_osArchInfoPointer = stdgo._internal.internal.platform.Platform_t_osarchinfopointer.T_osArchInfoPointer;
 class T_osArchInfo_static_extension {
 
 }
@@ -66,7 +66,7 @@ class Platform {
     static public inline function raceDetectorSupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_raceDetectorSupported.raceDetectorSupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_racedetectorsupported.raceDetectorSupported(_goos, _goarch);
     }
     /**
         * MSanSupported reports whether goos/goarch supports the memory
@@ -75,7 +75,7 @@ class Platform {
     static public inline function mSanSupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_mSanSupported.mSanSupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_msansupported.mSanSupported(_goos, _goarch);
     }
     /**
         * ASanSupported reports whether goos/goarch supports the address
@@ -84,7 +84,7 @@ class Platform {
     static public inline function aSanSupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_aSanSupported.aSanSupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_asansupported.aSanSupported(_goos, _goarch);
     }
     /**
         * FuzzSupported reports whether goos/goarch supports fuzzing
@@ -93,7 +93,7 @@ class Platform {
     static public inline function fuzzSupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_fuzzSupported.fuzzSupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_fuzzsupported.fuzzSupported(_goos, _goarch);
     }
     /**
         * FuzzInstrumented reports whether fuzzing on goos/goarch uses coverage
@@ -102,7 +102,7 @@ class Platform {
     static public inline function fuzzInstrumented(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_fuzzInstrumented.fuzzInstrumented(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_fuzzinstrumented.fuzzInstrumented(_goos, _goarch);
     }
     /**
         * MustLinkExternal reports whether goos/goarch requires external linking
@@ -111,7 +111,7 @@ class Platform {
     static public inline function mustLinkExternal(_goos:String, _goarch:String, _withCgo:Bool):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_mustLinkExternal.mustLinkExternal(_goos, _goarch, _withCgo);
+        return stdgo._internal.internal.platform.Platform_mustlinkexternal.mustLinkExternal(_goos, _goarch, _withCgo);
     }
     /**
         * BuildModeSupported reports whether goos/goarch supports the given build mode
@@ -123,12 +123,12 @@ class Platform {
         final _buildmode = (_buildmode : stdgo.GoString);
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_buildModeSupported.buildModeSupported(_compiler, _buildmode, _goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_buildmodesupported.buildModeSupported(_compiler, _buildmode, _goos, _goarch);
     }
     static public inline function internalLinkPIESupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_internalLinkPIESupported.internalLinkPIESupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_internallinkpiesupported.internalLinkPIESupported(_goos, _goarch);
     }
     /**
         * DefaultPIE reports whether goos/goarch produces a PIE binary when using the
@@ -138,7 +138,7 @@ class Platform {
     static public inline function defaultPIE(_goos:String, _goarch:String, _isRace:Bool):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_defaultPIE.defaultPIE(_goos, _goarch, _isRace);
+        return stdgo._internal.internal.platform.Platform_defaultpie.defaultPIE(_goos, _goarch, _isRace);
     }
     /**
         * ExecutableHasDWARF reports whether the linked executable includes DWARF
@@ -147,7 +147,7 @@ class Platform {
     static public inline function executableHasDWARF(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_executableHasDWARF.executableHasDWARF(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_executablehasdwarf.executableHasDWARF(_goos, _goarch);
     }
     /**
         * CgoSupported reports whether goos/goarch supports cgo.
@@ -155,7 +155,7 @@ class Platform {
     static public inline function cgoSupported(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_cgoSupported.cgoSupported(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_cgosupported.cgoSupported(_goos, _goarch);
     }
     /**
         * FirstClass reports whether goos/goarch is considered a “first class” port.
@@ -164,7 +164,7 @@ class Platform {
     static public inline function firstClass(_goos:String, _goarch:String):Bool {
         final _goos = (_goos : stdgo.GoString);
         final _goarch = (_goarch : stdgo.GoString);
-        return stdgo._internal.internal.platform.Platform_firstClass.firstClass(_goos, _goarch);
+        return stdgo._internal.internal.platform.Platform_firstclass.firstClass(_goos, _goarch);
     }
     /**
         * Broken reportsr whether goos/goarch is considered a broken port.

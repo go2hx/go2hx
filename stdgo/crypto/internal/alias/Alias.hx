@@ -11,7 +11,7 @@ class Alias {
     static public inline function anyOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
         final _x = ([for (i in _x) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _y = ([for (i in _y) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.internal.alias.Alias_anyOverlap.anyOverlap(_x, _y);
+        return stdgo._internal.crypto.internal.alias.Alias_anyoverlap.anyOverlap(_x, _y);
     }
     /**
         * InexactOverlap reports whether x and y share memory at any non-corresponding
@@ -24,6 +24,6 @@ class Alias {
     static public inline function inexactOverlap(_x:Array<std.UInt>, _y:Array<std.UInt>):Bool {
         final _x = ([for (i in _x) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _y = ([for (i in _y) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.crypto.internal.alias.Alias_inexactOverlap.inexactOverlap(_x, _y);
+        return stdgo._internal.crypto.internal.alias.Alias_inexactoverlap.inexactOverlap(_x, _y);
     }
 }

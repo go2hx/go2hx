@@ -5,7 +5,7 @@ class Ordered_static_extension {
 @:union @:using(stdgo._internal.cmp.Cmp_ordered_static_extension.Ordered_static_extension) typedef Ordered = {
 
 }
-typedef OrderedPointer = stdgo._internal.cmp.Cmp_OrderedPointer.OrderedPointer;
+typedef OrderedPointer = stdgo._internal.cmp.Cmp_orderedpointer.OrderedPointer;
 /**
     * Package cmp provides types and functions related to comparing
     * ordered values.

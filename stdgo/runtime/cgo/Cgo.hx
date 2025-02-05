@@ -1,21 +1,21 @@
 package stdgo.runtime.cgo;
-typedef T__struct_0Pointer = stdgo._internal.runtime.cgo.Cgo_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_T__struct_0.T__struct_0;
-typedef Handle = stdgo._internal.runtime.cgo.Cgo_Handle.Handle;
-typedef T__struct_0PointerPointer = stdgo._internal.runtime.cgo.Cgo_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_t__struct_0.T__struct_0;
+typedef Handle = stdgo._internal.runtime.cgo.Cgo_handle.Handle;
+typedef T__struct_0PointerPointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef HandlePointer = stdgo._internal.runtime.cgo.Cgo_HandlePointer.HandlePointer;
+typedef HandlePointer = stdgo._internal.runtime.cgo.Cgo_handlepointer.HandlePointer;
 class Handle_static_extension {
     static public function delete(_h:Handle):Void {
-        stdgo._internal.runtime.cgo.Cgo_Handle_static_extension.Handle_static_extension.delete(_h);
+        stdgo._internal.runtime.cgo.Cgo_handle_static_extension.Handle_static_extension.delete(_h);
     }
     static public function value(_h:Handle):stdgo.AnyInterface {
-        return stdgo._internal.runtime.cgo.Cgo_Handle_static_extension.Handle_static_extension.value(_h);
+        return stdgo._internal.runtime.cgo.Cgo_handle_static_extension.Handle_static_extension.value(_h);
     }
 }
 class Cgo {
@@ -32,6 +32,6 @@ class Cgo {
     **/
     static public inline function newHandle(_v:stdgo.AnyInterface):Handle {
         final _v = (_v : stdgo.AnyInterface);
-        return stdgo._internal.runtime.cgo.Cgo_newHandle.newHandle(_v);
+        return stdgo._internal.runtime.cgo.Cgo_newhandle.newHandle(_v);
     }
 }

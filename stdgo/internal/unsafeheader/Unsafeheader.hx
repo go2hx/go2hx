@@ -1,5 +1,5 @@
 package stdgo.internal.unsafeheader;
-@:structInit @:using(stdgo.internal.unsafeheader.Unsafeheader.Slice__static_extension) abstract Slice_(stdgo._internal.internal.unsafeheader.Unsafeheader_Slice_.Slice_) from stdgo._internal.internal.unsafeheader.Unsafeheader_Slice_.Slice_ to stdgo._internal.internal.unsafeheader.Unsafeheader_Slice_.Slice_ {
+@:structInit @:using(stdgo.internal.unsafeheader.Unsafeheader.Slice__static_extension) abstract Slice_(stdgo._internal.internal.unsafeheader.Unsafeheader_slice_.Slice_) from stdgo._internal.internal.unsafeheader.Unsafeheader_slice_.Slice_ to stdgo._internal.internal.unsafeheader.Unsafeheader_slice_.Slice_ {
     public var data(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
     function get_data():stdgo._internal.unsafe.Unsafe.UnsafePointer return this.data;
     function set_data(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
@@ -18,11 +18,11 @@ package stdgo.internal.unsafeheader;
         this.cap = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?data:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?len:StdTypes.Int, ?cap:StdTypes.Int) this = new stdgo._internal.internal.unsafeheader.Unsafeheader_Slice_.Slice_(data, (len : stdgo.GoInt), (cap : stdgo.GoInt));
+    public function new(?data:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?len:StdTypes.Int, ?cap:StdTypes.Int) this = new stdgo._internal.internal.unsafeheader.Unsafeheader_slice_.Slice_(data, (len : stdgo.GoInt), (cap : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.unsafeheader.Unsafeheader.String__static_extension) abstract String_(stdgo._internal.internal.unsafeheader.Unsafeheader_String_.String_) from stdgo._internal.internal.unsafeheader.Unsafeheader_String_.String_ to stdgo._internal.internal.unsafeheader.Unsafeheader_String_.String_ {
+@:structInit @:using(stdgo.internal.unsafeheader.Unsafeheader.String__static_extension) abstract String_(stdgo._internal.internal.unsafeheader.Unsafeheader_string_.String_) from stdgo._internal.internal.unsafeheader.Unsafeheader_string_.String_ to stdgo._internal.internal.unsafeheader.Unsafeheader_string_.String_ {
     public var data(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
     function get_data():stdgo._internal.unsafe.Unsafe.UnsafePointer return this.data;
     function set_data(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
@@ -35,15 +35,15 @@ package stdgo.internal.unsafeheader;
         this.len = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?data:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?len:StdTypes.Int) this = new stdgo._internal.internal.unsafeheader.Unsafeheader_String_.String_(data, (len : stdgo.GoInt));
+    public function new(?data:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?len:StdTypes.Int) this = new stdgo._internal.internal.unsafeheader.Unsafeheader_string_.String_(data, (len : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef Slice_Pointer = stdgo._internal.internal.unsafeheader.Unsafeheader_Slice_Pointer.Slice_Pointer;
+typedef Slice_Pointer = stdgo._internal.internal.unsafeheader.Unsafeheader_slice_pointer.Slice_Pointer;
 class Slice__static_extension {
 
 }
-typedef String_Pointer = stdgo._internal.internal.unsafeheader.Unsafeheader_String_Pointer.String_Pointer;
+typedef String_Pointer = stdgo._internal.internal.unsafeheader.Unsafeheader_string_pointer.String_Pointer;
 class String__static_extension {
 
 }

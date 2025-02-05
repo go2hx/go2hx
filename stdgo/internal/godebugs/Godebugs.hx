@@ -5,7 +5,7 @@ private function set_all(v:Array<Info>):Array<Info> {
         stdgo._internal.internal.godebugs.Godebugs_all.all = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs_info.Info>);
         return v;
     }
-@:structInit @:using(stdgo.internal.godebugs.Godebugs.Info_static_extension) abstract Info(stdgo._internal.internal.godebugs.Godebugs_Info.Info) from stdgo._internal.internal.godebugs.Godebugs_Info.Info to stdgo._internal.internal.godebugs.Godebugs_Info.Info {
+@:structInit @:using(stdgo.internal.godebugs.Godebugs.Info_static_extension) abstract Info(stdgo._internal.internal.godebugs.Godebugs_info.Info) from stdgo._internal.internal.godebugs.Godebugs_info.Info to stdgo._internal.internal.godebugs.Godebugs_info.Info {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -36,11 +36,11 @@ private function set_all(v:Array<Info>):Array<Info> {
         this.opaque = v;
         return v;
     }
-    public function new(?name:String, ?package_:String, ?changed:StdTypes.Int, ?old:String, ?opaque:Bool) this = new stdgo._internal.internal.godebugs.Godebugs_Info.Info((name : stdgo.GoString), (package_ : stdgo.GoString), (changed : stdgo.GoInt), (old : stdgo.GoString), opaque);
+    public function new(?name:String, ?package_:String, ?changed:StdTypes.Int, ?old:String, ?opaque:Bool) this = new stdgo._internal.internal.godebugs.Godebugs_info.Info((name : stdgo.GoString), (package_ : stdgo.GoString), (changed : stdgo.GoInt), (old : stdgo.GoString), opaque);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef InfoPointer = stdgo._internal.internal.godebugs.Godebugs_InfoPointer.InfoPointer;
+typedef InfoPointer = stdgo._internal.internal.godebugs.Godebugs_infopointer.InfoPointer;
 class Info_static_extension {
 
 }

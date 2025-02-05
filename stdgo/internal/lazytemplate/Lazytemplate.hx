@@ -1,5 +1,5 @@
 package stdgo.internal.lazytemplate;
-@:structInit @:using(stdgo.internal.lazytemplate.Lazytemplate.Template_static_extension) abstract Template(stdgo._internal.internal.lazytemplate.Lazytemplate_Template.Template) from stdgo._internal.internal.lazytemplate.Lazytemplate_Template.Template to stdgo._internal.internal.lazytemplate.Lazytemplate_Template.Template {
+@:structInit @:using(stdgo.internal.lazytemplate.Lazytemplate.Template_static_extension) abstract Template(stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template) from stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template to stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -24,24 +24,24 @@ package stdgo.internal.lazytemplate;
         this._tmpl = (v : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
         return v;
     }
-    public function new(?_name:String, ?_text:String, ?_once:stdgo._internal.sync.Sync_once.Once, ?_tmpl:stdgo._internal.text.template.Template_template.Template) this = new stdgo._internal.internal.lazytemplate.Lazytemplate_Template.Template((_name : stdgo.GoString), (_text : stdgo.GoString), _once, (_tmpl : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
+    public function new(?_name:String, ?_text:String, ?_once:stdgo._internal.sync.Sync_once.Once, ?_tmpl:stdgo._internal.text.template.Template_template.Template) this = new stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template((_name : stdgo.GoString), (_text : stdgo.GoString), _once, (_tmpl : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef TemplatePointer = stdgo._internal.internal.lazytemplate.Lazytemplate_TemplatePointer.TemplatePointer;
+typedef TemplatePointer = stdgo._internal.internal.lazytemplate.Lazytemplate_templatepointer.TemplatePointer;
 class Template_static_extension {
     static public function execute(_r:Template, _w:stdgo._internal.io.Io_writer.Writer, _data:stdgo.AnyInterface):stdgo.Error {
         final _r = (_r : stdgo.Ref<stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template>);
         final _data = (_data : stdgo.AnyInterface);
-        return stdgo._internal.internal.lazytemplate.Lazytemplate_Template_static_extension.Template_static_extension.execute(_r, _w, _data);
+        return stdgo._internal.internal.lazytemplate.Lazytemplate_template_static_extension.Template_static_extension.execute(_r, _w, _data);
     }
     static public function _build(_r:Template):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template>);
-        stdgo._internal.internal.lazytemplate.Lazytemplate_Template_static_extension.Template_static_extension._build(_r);
+        stdgo._internal.internal.lazytemplate.Lazytemplate_template_static_extension.Template_static_extension._build(_r);
     }
     static public function _tp(_r:Template):stdgo._internal.text.template.Template_template.Template {
         final _r = (_r : stdgo.Ref<stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template>);
-        return stdgo._internal.internal.lazytemplate.Lazytemplate_Template_static_extension.Template_static_extension._tp(_r);
+        return stdgo._internal.internal.lazytemplate.Lazytemplate_template_static_extension.Template_static_extension._tp(_r);
     }
 }
 /**

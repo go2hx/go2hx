@@ -1,5 +1,5 @@
 package stdgo.reflect.internal.example1;
-@:structInit @:using(stdgo.reflect.internal.example1.Example1.MyStruct_static_extension) abstract MyStruct(stdgo._internal.reflect.internal.example1.Example1_MyStruct.MyStruct) from stdgo._internal.reflect.internal.example1.Example1_MyStruct.MyStruct to stdgo._internal.reflect.internal.example1.Example1_MyStruct.MyStruct {
+@:structInit @:using(stdgo.reflect.internal.example1.Example1.MyStruct_static_extension) abstract MyStruct(stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct) from stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct to stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct {
     public var myStructs(get, set) : Array<MyStruct>;
     function get_myStructs():Array<MyStruct> return [for (i in this.myStructs) i];
     function set_myStructs(v:Array<MyStruct>):Array<MyStruct> {
@@ -12,11 +12,11 @@ package stdgo.reflect.internal.example1;
         this.myStruct = (v : stdgo.Ref<stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct>);
         return v;
     }
-    public function new(?myStructs:Array<MyStruct>, ?myStruct:MyStruct) this = new stdgo._internal.reflect.internal.example1.Example1_MyStruct.MyStruct(([for (i in myStructs) i] : stdgo.Slice<stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct>), (myStruct : stdgo.Ref<stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct>));
+    public function new(?myStructs:Array<MyStruct>, ?myStruct:MyStruct) this = new stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct(([for (i in myStructs) i] : stdgo.Slice<stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct>), (myStruct : stdgo.Ref<stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef MyStructPointer = stdgo._internal.reflect.internal.example1.Example1_MyStructPointer.MyStructPointer;
+typedef MyStructPointer = stdgo._internal.reflect.internal.example1.Example1_mystructpointer.MyStructPointer;
 class MyStruct_static_extension {
 
 }

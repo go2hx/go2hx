@@ -1,67 +1,67 @@
 package stdgo.encoding.xml;
 final header : String = stdgo._internal.encoding.xml.Xml_header.header;
 var hTMLEntity(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-private function get_hTMLEntity():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return stdgo._internal.encoding.xml.Xml_hTMLEntity.hTMLEntity;
+private function get_hTMLEntity():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity;
 private function set_hTMLEntity(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        stdgo._internal.encoding.xml.Xml_hTMLEntity.hTMLEntity = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         return v;
     }
 var hTMLAutoClose(get, set) : Array<String>;
-private function get_hTMLAutoClose():Array<String> return [for (i in stdgo._internal.encoding.xml.Xml_hTMLAutoClose.hTMLAutoClose) i];
+private function get_hTMLAutoClose():Array<String> return [for (i in stdgo._internal.encoding.xml.Xml_htmlautoclose.hTMLAutoClose) i];
 private function set_hTMLAutoClose(v:Array<String>):Array<String> {
-        stdgo._internal.encoding.xml.Xml_hTMLAutoClose.hTMLAutoClose = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
+        stdgo._internal.encoding.xml.Xml_htmlautoclose.hTMLAutoClose = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
 class Marshaler_static_extension {
     static public function marshalXML(t:stdgo._internal.encoding.xml.Xml_marshaler.Marshaler, _e:Encoder, _start:StartElement):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
-        return stdgo._internal.encoding.xml.Xml_Marshaler_static_extension.Marshaler_static_extension.marshalXML(t, _e, _start);
+        return stdgo._internal.encoding.xml.Xml_marshaler_static_extension.Marshaler_static_extension.marshalXML(t, _e, _start);
     }
 }
-typedef Marshaler = stdgo._internal.encoding.xml.Xml_Marshaler.Marshaler;
+typedef Marshaler = stdgo._internal.encoding.xml.Xml_marshaler.Marshaler;
 class MarshalerAttr_static_extension {
     static public function marshalXMLAttr(t:stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr, _name:Name):stdgo.Tuple<Attr, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_MarshalerAttr_static_extension.MarshalerAttr_static_extension.marshalXMLAttr(t, _name);
+            final obj = stdgo._internal.encoding.xml.Xml_marshalerattr_static_extension.MarshalerAttr_static_extension.marshalXMLAttr(t, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef MarshalerAttr = stdgo._internal.encoding.xml.Xml_MarshalerAttr.MarshalerAttr;
+typedef MarshalerAttr = stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr;
 class Unmarshaler_static_extension {
     static public function unmarshalXML(t:stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler, _d:Decoder, _start:StartElement):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalXML(t, _d, _start);
+        return stdgo._internal.encoding.xml.Xml_unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalXML(t, _d, _start);
     }
 }
-typedef Unmarshaler = stdgo._internal.encoding.xml.Xml_Unmarshaler.Unmarshaler;
+typedef Unmarshaler = stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler;
 class UnmarshalerAttr_static_extension {
     static public function unmarshalXMLAttr(t:stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr, _attr:Attr):stdgo.Error {
-        return stdgo._internal.encoding.xml.Xml_UnmarshalerAttr_static_extension.UnmarshalerAttr_static_extension.unmarshalXMLAttr(t, _attr);
+        return stdgo._internal.encoding.xml.Xml_unmarshalerattr_static_extension.UnmarshalerAttr_static_extension.unmarshalXMLAttr(t, _attr);
     }
 }
-typedef UnmarshalerAttr = stdgo._internal.encoding.xml.Xml_UnmarshalerAttr.UnmarshalerAttr;
+typedef UnmarshalerAttr = stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr;
 class TokenReader_static_extension {
     static public function token(t:stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader):stdgo.Tuple<Token, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_TokenReader_static_extension.TokenReader_static_extension.token(t);
+            final obj = stdgo._internal.encoding.xml.Xml_tokenreader_static_extension.TokenReader_static_extension.token(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef TokenReader = stdgo._internal.encoding.xml.Xml_TokenReader.TokenReader;
-@:structInit @:using(stdgo.encoding.xml.Xml.Encoder_static_extension) abstract Encoder(stdgo._internal.encoding.xml.Xml_Encoder.Encoder) from stdgo._internal.encoding.xml.Xml_Encoder.Encoder to stdgo._internal.encoding.xml.Xml_Encoder.Encoder {
+typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
+@:structInit @:using(stdgo.encoding.xml.Xml.Encoder_static_extension) abstract Encoder(stdgo._internal.encoding.xml.Xml_encoder.Encoder) from stdgo._internal.encoding.xml.Xml_encoder.Encoder to stdgo._internal.encoding.xml.Xml_encoder.Encoder {
     public var _p(get, set) : T_printer;
     function get__p():T_printer return this._p;
     function set__p(v:T_printer):T_printer {
         this._p = v;
         return v;
     }
-    public function new(?_p:T_printer) this = new stdgo._internal.encoding.xml.Xml_Encoder.Encoder(_p);
+    public function new(?_p:T_printer) this = new stdgo._internal.encoding.xml.Xml_encoder.Encoder(_p);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_printer_static_extension) abstract T_printer(stdgo._internal.encoding.xml.Xml_T_printer.T_printer) from stdgo._internal.encoding.xml.Xml_T_printer.T_printer to stdgo._internal.encoding.xml.Xml_T_printer.T_printer {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_printer_static_extension) abstract T_printer(stdgo._internal.encoding.xml.Xml_t_printer.T_printer) from stdgo._internal.encoding.xml.Xml_t_printer.T_printer to stdgo._internal.encoding.xml.Xml_t_printer.T_printer {
     public var _w(get, set) : stdgo._internal.bufio.Bufio_writer.Writer;
     function get__w():stdgo._internal.bufio.Bufio_writer.Writer return this._w;
     function set__w(v:stdgo._internal.bufio.Bufio_writer.Writer):stdgo._internal.bufio.Bufio_writer.Writer {
@@ -146,7 +146,7 @@ typedef TokenReader = stdgo._internal.encoding.xml.Xml_TokenReader.TokenReader;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_encoder:Encoder, ?_seq:StdTypes.Int, ?_indent:String, ?_prefix:String, ?_depth:StdTypes.Int, ?_indentedIn:Bool, ?_putNewline:Bool, ?_attrNS:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_attrPrefix:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_prefixes:Array<String>, ?_tags:Array<Name>, ?_closed:Bool, ?_err:stdgo.Error) this = new stdgo._internal.encoding.xml.Xml_T_printer.T_printer(
+    public function new(?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_encoder:Encoder, ?_seq:StdTypes.Int, ?_indent:String, ?_prefix:String, ?_depth:StdTypes.Int, ?_indentedIn:Bool, ?_putNewline:Bool, ?_attrNS:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_attrPrefix:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_prefixes:Array<String>, ?_tags:Array<Name>, ?_closed:Bool, ?_err:stdgo.Error) this = new stdgo._internal.encoding.xml.Xml_t_printer.T_printer(
 (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>),
 (_encoder : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>),
 (_seq : stdgo.GoInt),
@@ -164,7 +164,7 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_parentStack_static_extension) abstract T_parentStack(stdgo._internal.encoding.xml.Xml_T_parentStack.T_parentStack) from stdgo._internal.encoding.xml.Xml_T_parentStack.T_parentStack to stdgo._internal.encoding.xml.Xml_T_parentStack.T_parentStack {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_parentStack_static_extension) abstract T_parentStack(stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack) from stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack to stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack {
     public var _p(get, set) : T_printer;
     function get__p():T_printer return this._p;
     function set__p(v:T_printer):T_printer {
@@ -177,22 +177,22 @@ _closed,
         this._stack = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_p:T_printer, ?_stack:Array<String>) this = new stdgo._internal.encoding.xml.Xml_T_parentStack.T_parentStack((_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>), ([for (i in _stack) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_p:T_printer, ?_stack:Array<String>) this = new stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack((_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>), ([for (i in _stack) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.UnsupportedTypeError_static_extension) abstract UnsupportedTypeError(stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError) from stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError to stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError {
+@:structInit @:using(stdgo.encoding.xml.Xml.UnsupportedTypeError_static_extension) abstract UnsupportedTypeError(stdgo._internal.encoding.xml.Xml_unsupportedtypeerror.UnsupportedTypeError) from stdgo._internal.encoding.xml.Xml_unsupportedtypeerror.UnsupportedTypeError to stdgo._internal.encoding.xml.Xml_unsupportedtypeerror.UnsupportedTypeError {
     public var type(get, set) : stdgo._internal.reflect.Reflect_type_.Type_;
     function get_type():stdgo._internal.reflect.Reflect_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.reflect.Reflect_type_.Type_ {
         this.type = v;
         return v;
     }
-    public function new(?type:stdgo._internal.reflect.Reflect_type_.Type_) this = new stdgo._internal.encoding.xml.Xml_UnsupportedTypeError.UnsupportedTypeError(type);
+    public function new(?type:stdgo._internal.reflect.Reflect_type_.Type_) this = new stdgo._internal.encoding.xml.Xml_unsupportedtypeerror.UnsupportedTypeError(type);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_typeInfo_static_extension) abstract T_typeInfo(stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo) from stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo to stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_typeInfo_static_extension) abstract T_typeInfo(stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo) from stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo to stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo {
     public var _xmlname(get, set) : T_fieldInfo;
     function get__xmlname():T_fieldInfo return this._xmlname;
     function set__xmlname(v:T_fieldInfo):T_fieldInfo {
@@ -205,11 +205,11 @@ _closed,
         this._fields = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
         return v;
     }
-    public function new(?_xmlname:T_fieldInfo, ?_fields:Array<T_fieldInfo>) this = new stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo((_xmlname : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>), ([for (i in _fields) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>));
+    public function new(?_xmlname:T_fieldInfo, ?_fields:Array<T_fieldInfo>) this = new stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo((_xmlname : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>), ([for (i in _fields) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_fieldInfo_static_extension) abstract T_fieldInfo(stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo) from stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo to stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_fieldInfo_static_extension) abstract T_fieldInfo(stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo) from stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo to stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo {
     public var _idx(get, set) : Array<StdTypes.Int>;
     function get__idx():Array<StdTypes.Int> return [for (i in this._idx) i];
     function set__idx(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
@@ -240,11 +240,11 @@ _closed,
         this._parents = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_idx:Array<StdTypes.Int>, ?_name:String, ?_xmlns:String, ?_flags:T_fieldFlags, ?_parents:Array<String>) this = new stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo(([for (i in _idx) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_name : stdgo.GoString), (_xmlns : stdgo.GoString), _flags, ([for (i in _parents) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_idx:Array<StdTypes.Int>, ?_name:String, ?_xmlns:String, ?_flags:T_fieldFlags, ?_parents:Array<String>) this = new stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo(([for (i in _idx) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_name : stdgo.GoString), (_xmlns : stdgo.GoString), _flags, ([for (i in _parents) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.TagPathError_static_extension) abstract TagPathError(stdgo._internal.encoding.xml.Xml_TagPathError.TagPathError) from stdgo._internal.encoding.xml.Xml_TagPathError.TagPathError to stdgo._internal.encoding.xml.Xml_TagPathError.TagPathError {
+@:structInit @:using(stdgo.encoding.xml.Xml.TagPathError_static_extension) abstract TagPathError(stdgo._internal.encoding.xml.Xml_tagpatherror.TagPathError) from stdgo._internal.encoding.xml.Xml_tagpatherror.TagPathError to stdgo._internal.encoding.xml.Xml_tagpatherror.TagPathError {
     public var struct_(get, set) : stdgo._internal.reflect.Reflect_type_.Type_;
     function get_struct_():stdgo._internal.reflect.Reflect_type_.Type_ return this.struct_;
     function set_struct_(v:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.reflect.Reflect_type_.Type_ {
@@ -275,11 +275,11 @@ _closed,
         this.tag2 = (v : stdgo.GoString);
         return v;
     }
-    public function new(?struct_:stdgo._internal.reflect.Reflect_type_.Type_, ?field1:String, ?tag1:String, ?field2:String, ?tag2:String) this = new stdgo._internal.encoding.xml.Xml_TagPathError.TagPathError(struct_, (field1 : stdgo.GoString), (tag1 : stdgo.GoString), (field2 : stdgo.GoString), (tag2 : stdgo.GoString));
+    public function new(?struct_:stdgo._internal.reflect.Reflect_type_.Type_, ?field1:String, ?tag1:String, ?field2:String, ?tag2:String) this = new stdgo._internal.encoding.xml.Xml_tagpatherror.TagPathError(struct_, (field1 : stdgo.GoString), (tag1 : stdgo.GoString), (field2 : stdgo.GoString), (tag2 : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.xml.Xml_SyntaxError.SyntaxError) from stdgo._internal.encoding.xml.Xml_SyntaxError.SyntaxError to stdgo._internal.encoding.xml.Xml_SyntaxError.SyntaxError {
+@:structInit @:using(stdgo.encoding.xml.Xml.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.xml.Xml_syntaxerror.SyntaxError) from stdgo._internal.encoding.xml.Xml_syntaxerror.SyntaxError to stdgo._internal.encoding.xml.Xml_syntaxerror.SyntaxError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
@@ -292,11 +292,11 @@ _closed,
         this.line = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?msg:String, ?line:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_SyntaxError.SyntaxError((msg : stdgo.GoString), (line : stdgo.GoInt));
+    public function new(?msg:String, ?line:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_syntaxerror.SyntaxError((msg : stdgo.GoString), (line : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.Name_static_extension) abstract Name(stdgo._internal.encoding.xml.Xml_Name.Name) from stdgo._internal.encoding.xml.Xml_Name.Name to stdgo._internal.encoding.xml.Xml_Name.Name {
+@:structInit @:using(stdgo.encoding.xml.Xml.Name_static_extension) abstract Name(stdgo._internal.encoding.xml.Xml_name.Name) from stdgo._internal.encoding.xml.Xml_name.Name to stdgo._internal.encoding.xml.Xml_name.Name {
     public var space(get, set) : String;
     function get_space():String return this.space;
     function set_space(v:String):String {
@@ -309,11 +309,11 @@ _closed,
         this.local = (v : stdgo.GoString);
         return v;
     }
-    public function new(?space:String, ?local:String) this = new stdgo._internal.encoding.xml.Xml_Name.Name((space : stdgo.GoString), (local : stdgo.GoString));
+    public function new(?space:String, ?local:String) this = new stdgo._internal.encoding.xml.Xml_name.Name((space : stdgo.GoString), (local : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.Attr_static_extension) abstract Attr(stdgo._internal.encoding.xml.Xml_Attr.Attr) from stdgo._internal.encoding.xml.Xml_Attr.Attr to stdgo._internal.encoding.xml.Xml_Attr.Attr {
+@:structInit @:using(stdgo.encoding.xml.Xml.Attr_static_extension) abstract Attr(stdgo._internal.encoding.xml.Xml_attr.Attr) from stdgo._internal.encoding.xml.Xml_attr.Attr to stdgo._internal.encoding.xml.Xml_attr.Attr {
     public var name(get, set) : Name;
     function get_name():Name return this.name;
     function set_name(v:Name):Name {
@@ -326,11 +326,11 @@ _closed,
         this.value = (v : stdgo.GoString);
         return v;
     }
-    public function new(?name:Name, ?value:String) this = new stdgo._internal.encoding.xml.Xml_Attr.Attr(name, (value : stdgo.GoString));
+    public function new(?name:Name, ?value:String) this = new stdgo._internal.encoding.xml.Xml_attr.Attr(name, (value : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.StartElement_static_extension) abstract StartElement(stdgo._internal.encoding.xml.Xml_StartElement.StartElement) from stdgo._internal.encoding.xml.Xml_StartElement.StartElement to stdgo._internal.encoding.xml.Xml_StartElement.StartElement {
+@:structInit @:using(stdgo.encoding.xml.Xml.StartElement_static_extension) abstract StartElement(stdgo._internal.encoding.xml.Xml_startelement.StartElement) from stdgo._internal.encoding.xml.Xml_startelement.StartElement to stdgo._internal.encoding.xml.Xml_startelement.StartElement {
     public var name(get, set) : Name;
     function get_name():Name return this.name;
     function set_name(v:Name):Name {
@@ -343,22 +343,22 @@ _closed,
         this.attr = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_attr.Attr>);
         return v;
     }
-    public function new(?name:Name, ?attr:Array<Attr>) this = new stdgo._internal.encoding.xml.Xml_StartElement.StartElement(name, ([for (i in attr) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_attr.Attr>));
+    public function new(?name:Name, ?attr:Array<Attr>) this = new stdgo._internal.encoding.xml.Xml_startelement.StartElement(name, ([for (i in attr) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_attr.Attr>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.EndElement_static_extension) abstract EndElement(stdgo._internal.encoding.xml.Xml_EndElement.EndElement) from stdgo._internal.encoding.xml.Xml_EndElement.EndElement to stdgo._internal.encoding.xml.Xml_EndElement.EndElement {
+@:structInit @:using(stdgo.encoding.xml.Xml.EndElement_static_extension) abstract EndElement(stdgo._internal.encoding.xml.Xml_endelement.EndElement) from stdgo._internal.encoding.xml.Xml_endelement.EndElement to stdgo._internal.encoding.xml.Xml_endelement.EndElement {
     public var name(get, set) : Name;
     function get_name():Name return this.name;
     function set_name(v:Name):Name {
         this.name = v;
         return v;
     }
-    public function new(?name:Name) this = new stdgo._internal.encoding.xml.Xml_EndElement.EndElement(name);
+    public function new(?name:Name) this = new stdgo._internal.encoding.xml.Xml_endelement.EndElement(name);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.ProcInst_static_extension) abstract ProcInst(stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst) from stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst to stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst {
+@:structInit @:using(stdgo.encoding.xml.Xml.ProcInst_static_extension) abstract ProcInst(stdgo._internal.encoding.xml.Xml_procinst.ProcInst) from stdgo._internal.encoding.xml.Xml_procinst.ProcInst to stdgo._internal.encoding.xml.Xml_procinst.ProcInst {
     public var target(get, set) : String;
     function get_target():String return this.target;
     function set_target(v:String):String {
@@ -371,11 +371,11 @@ _closed,
         this.inst = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?target:String, ?inst:Array<std.UInt>) this = new stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst((target : stdgo.GoString), ([for (i in inst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?target:String, ?inst:Array<std.UInt>) this = new stdgo._internal.encoding.xml.Xml_procinst.ProcInst((target : stdgo.GoString), ([for (i in inst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.Decoder_static_extension) abstract Decoder(stdgo._internal.encoding.xml.Xml_Decoder.Decoder) from stdgo._internal.encoding.xml.Xml_Decoder.Decoder to stdgo._internal.encoding.xml.Xml_Decoder.Decoder {
+@:structInit @:using(stdgo.encoding.xml.Xml.Decoder_static_extension) abstract Decoder(stdgo._internal.encoding.xml.Xml_decoder.Decoder) from stdgo._internal.encoding.xml.Xml_decoder.Decoder to stdgo._internal.encoding.xml.Xml_decoder.Decoder {
     public var strict(get, set) : Bool;
     function get_strict():Bool return this.strict;
     function set_strict(v:Bool):Bool {
@@ -502,7 +502,7 @@ _closed,
         this._unmarshalDepth = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?strict:Bool, ?autoClose:Array<String>, ?entity:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }, ?defaultSpace:String, ?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_t:TokenReader, ?_buf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_saved:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_stk:T_stack, ?_free:T_stack, ?_needClose:Bool, ?_toClose:Name, ?_nextToken:Token, ?_nextByte:StdTypes.Int, ?_ns:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_err:stdgo.Error, ?_line:StdTypes.Int, ?_linestart:haxe.Int64, ?_offset:haxe.Int64, ?_unmarshalDepth:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_Decoder.Decoder(
+    public function new(?strict:Bool, ?autoClose:Array<String>, ?entity:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }, ?defaultSpace:String, ?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_t:TokenReader, ?_buf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_saved:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_stk:T_stack, ?_free:T_stack, ?_needClose:Bool, ?_toClose:Name, ?_nextToken:Token, ?_nextByte:StdTypes.Int, ?_ns:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_err:stdgo.Error, ?_line:StdTypes.Int, ?_linestart:haxe.Int64, ?_offset:haxe.Int64, ?_unmarshalDepth:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_decoder.Decoder(
 strict,
 ([for (i in autoClose) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (entity : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
@@ -527,7 +527,7 @@ _nextToken,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_stack_static_extension) abstract T_stack(stdgo._internal.encoding.xml.Xml_T_stack.T_stack) from stdgo._internal.encoding.xml.Xml_T_stack.T_stack to stdgo._internal.encoding.xml.Xml_T_stack.T_stack {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_stack_static_extension) abstract T_stack(stdgo._internal.encoding.xml.Xml_t_stack.T_stack) from stdgo._internal.encoding.xml.Xml_t_stack.T_stack to stdgo._internal.encoding.xml.Xml_t_stack.T_stack {
     public var _next(get, set) : T_stack;
     function get__next():T_stack return this._next;
     function set__next(v:T_stack):T_stack {
@@ -552,77 +552,77 @@ _nextToken,
         this._ok = v;
         return v;
     }
-    public function new(?_next:T_stack, ?_kind:StdTypes.Int, ?_name:Name, ?_ok:Bool) this = new stdgo._internal.encoding.xml.Xml_T_stack.T_stack((_next : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_stack.T_stack>), (_kind : stdgo.GoInt), _name, _ok);
+    public function new(?_next:T_stack, ?_kind:StdTypes.Int, ?_name:Name, ?_ok:Bool) this = new stdgo._internal.encoding.xml.Xml_t_stack.T_stack((_next : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_stack.T_stack>), (_kind : stdgo.GoInt), _name, _ok);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef UnmarshalError = stdgo._internal.encoding.xml.Xml_UnmarshalError.UnmarshalError;
-typedef T_fieldFlags = stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags;
-typedef Token = stdgo._internal.encoding.xml.Xml_Token.Token;
-typedef CharData = stdgo._internal.encoding.xml.Xml_CharData.CharData;
-typedef Comment = stdgo._internal.encoding.xml.Xml_Comment.Comment;
-typedef Directive = stdgo._internal.encoding.xml.Xml_Directive.Directive;
-typedef EncoderPointer = stdgo._internal.encoding.xml.Xml_EncoderPointer.EncoderPointer;
+typedef UnmarshalError = stdgo._internal.encoding.xml.Xml_unmarshalerror.UnmarshalError;
+typedef T_fieldFlags = stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags;
+typedef Token = stdgo._internal.encoding.xml.Xml_token.Token;
+typedef CharData = stdgo._internal.encoding.xml.Xml_chardata.CharData;
+typedef Comment = stdgo._internal.encoding.xml.Xml_comment.Comment;
+typedef Directive = stdgo._internal.encoding.xml.Xml_directive.Directive;
+typedef EncoderPointer = stdgo._internal.encoding.xml.Xml_encoderpointer.EncoderPointer;
 class Encoder_static_extension {
     static public function close(_enc:Encoder):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
-        return stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.close(_enc);
+        return stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.close(_enc);
     }
     static public function flush(_enc:Encoder):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
-        return stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.flush(_enc);
+        return stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.flush(_enc);
     }
     static public function encodeToken(_enc:Encoder, _t:Token):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
-        return stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.encodeToken(_enc, _t);
+        return stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.encodeToken(_enc, _t);
     }
     static public function encodeElement(_enc:Encoder, _v:stdgo.AnyInterface, _start:StartElement):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
         final _v = (_v : stdgo.AnyInterface);
-        return stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.encodeElement(_enc, _v, _start);
+        return stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.encodeElement(_enc, _v, _start);
     }
     static public function encode(_enc:Encoder, _v:stdgo.AnyInterface):stdgo.Error {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
         final _v = (_v : stdgo.AnyInterface);
-        return stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.encode(_enc, _v);
+        return stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.encode(_enc, _v);
     }
     static public function indent(_enc:Encoder, _prefix:String, _indent:String):Void {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>);
         final _prefix = (_prefix : stdgo.GoString);
         final _indent = (_indent : stdgo.GoString);
-        stdgo._internal.encoding.xml.Xml_Encoder_static_extension.Encoder_static_extension.indent(_enc, _prefix, _indent);
+        stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.indent(_enc, _prefix, _indent);
     }
 }
-typedef T_printerPointer = stdgo._internal.encoding.xml.Xml_T_printerPointer.T_printerPointer;
+typedef T_printerPointer = stdgo._internal.encoding.xml.Xml_t_printerpointer.T_printerPointer;
 class T_printer_static_extension {
     static public function escapeString(_p:T_printer, _s:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension.escapeString(_p, _s);
+        stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension.escapeString(_p, _s);
     }
     static public function _writeIndent(_p:T_printer, _depthDelta:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _depthDelta = (_depthDelta : stdgo.GoInt);
-        stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._writeIndent(_p, _depthDelta);
+        stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._writeIndent(_p, _depthDelta);
     }
     static public function _cachedWriteError(_p:T_printer):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._cachedWriteError(_p);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._cachedWriteError(_p);
     }
     static public function close(_p:T_printer):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension.close(_p);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension.close(_p);
     }
     static public function writeByte(_p:T_printer, _c:std.UInt):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _c = (_c : stdgo.GoUInt8);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension.writeByte(_p, _c);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension.writeByte(_p, _c);
     }
     static public function writeString(_p:T_printer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension.writeString(_p, _s);
+            final obj = stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension.writeString(_p, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -630,285 +630,285 @@ class T_printer_static_extension {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension.write(_p, _b);
+            final obj = stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension.write(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _marshalStruct(_p:T_printer, _tinfo:T_typeInfo, _val:stdgo._internal.reflect.Reflect_value.Value):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _tinfo = (_tinfo : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalStruct(_p, _tinfo, _val);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalStruct(_p, _tinfo, _val);
     }
     static public function _marshalSimple(_p:T_printer, _typ:stdgo._internal.reflect.Reflect_type_.Type_, _val:stdgo._internal.reflect.Reflect_value.Value):stdgo.Tuple.Tuple3<String, Array<std.UInt>, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalSimple(_p, _typ, _val);
+            final obj = stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalSimple(_p, _typ, _val);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
     static public function _writeEnd(_p:T_printer, _name:Name):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._writeEnd(_p, _name);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._writeEnd(_p, _name);
     }
     static public function _writeStart(_p:T_printer, _start:StartElement):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._writeStart(_p, _start);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._writeStart(_p, _start);
     }
     static public function _marshalTextInterface(_p:T_printer, _val:stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler, _start:StartElement):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalTextInterface(_p, _val, _start);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalTextInterface(_p, _val, _start);
     }
     static public function _marshalInterface(_p:T_printer, _val:Marshaler, _start:StartElement):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalInterface(_p, _val, _start);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalInterface(_p, _val, _start);
     }
     static public function _marshalAttr(_p:T_printer, _start:StartElement, _name:Name, _val:stdgo._internal.reflect.Reflect_value.Value):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalAttr(_p, _start, _name, _val);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalAttr(_p, _start, _name, _val);
     }
     static public function _marshalValue(_p:T_printer, _val:stdgo._internal.reflect.Reflect_value.Value, _finfo:T_fieldInfo, _startTemplate:StartElement):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _finfo = (_finfo : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
         final _startTemplate = (_startTemplate : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._marshalValue(_p, _val, _finfo, _startTemplate);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._marshalValue(_p, _val, _finfo, _startTemplate);
     }
     static public function _popPrefix(_p:T_printer):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._popPrefix(_p);
+        stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._popPrefix(_p);
     }
     static public function _markPrefix(_p:T_printer):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
-        stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._markPrefix(_p);
+        stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._markPrefix(_p);
     }
     static public function _deleteAttrPrefix(_p:T_printer, _prefix:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _prefix = (_prefix : stdgo.GoString);
-        stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._deleteAttrPrefix(_p, _prefix);
+        stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._deleteAttrPrefix(_p, _prefix);
     }
     static public function _createAttrPrefix(_p:T_printer, _url:String):String {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _url = (_url : stdgo.GoString);
-        return stdgo._internal.encoding.xml.Xml_T_printer_static_extension.T_printer_static_extension._createAttrPrefix(_p, _url);
+        return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._createAttrPrefix(_p, _url);
     }
 }
-typedef T_parentStackPointer = stdgo._internal.encoding.xml.Xml_T_parentStackPointer.T_parentStackPointer;
+typedef T_parentStackPointer = stdgo._internal.encoding.xml.Xml_t_parentstackpointer.T_parentStackPointer;
 class T_parentStack_static_extension {
     static public function _push(_s:T_parentStack, _parents:Array<String>):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack>);
         final _parents = ([for (i in _parents) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        return stdgo._internal.encoding.xml.Xml_T_parentStack_static_extension.T_parentStack_static_extension._push(_s, _parents);
+        return stdgo._internal.encoding.xml.Xml_t_parentstack_static_extension.T_parentStack_static_extension._push(_s, _parents);
     }
     static public function _trim(_s:T_parentStack, _parents:Array<String>):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack>);
         final _parents = ([for (i in _parents) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        return stdgo._internal.encoding.xml.Xml_T_parentStack_static_extension.T_parentStack_static_extension._trim(_s, _parents);
+        return stdgo._internal.encoding.xml.Xml_t_parentstack_static_extension.T_parentStack_static_extension._trim(_s, _parents);
     }
 }
-typedef UnsupportedTypeErrorPointer = stdgo._internal.encoding.xml.Xml_UnsupportedTypeErrorPointer.UnsupportedTypeErrorPointer;
+typedef UnsupportedTypeErrorPointer = stdgo._internal.encoding.xml.Xml_unsupportedtypeerrorpointer.UnsupportedTypeErrorPointer;
 class UnsupportedTypeError_static_extension {
     static public function error(_e:UnsupportedTypeError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.xml.Xml_unsupportedtypeerror.UnsupportedTypeError>);
-        return stdgo._internal.encoding.xml.Xml_UnsupportedTypeError_static_extension.UnsupportedTypeError_static_extension.error(_e);
+        return stdgo._internal.encoding.xml.Xml_unsupportedtypeerror_static_extension.UnsupportedTypeError_static_extension.error(_e);
     }
 }
-typedef T_typeInfoPointer = stdgo._internal.encoding.xml.Xml_T_typeInfoPointer.T_typeInfoPointer;
+typedef T_typeInfoPointer = stdgo._internal.encoding.xml.Xml_t_typeinfopointer.T_typeInfoPointer;
 class T_typeInfo_static_extension {
 
 }
-typedef T_fieldInfoPointer = stdgo._internal.encoding.xml.Xml_T_fieldInfoPointer.T_fieldInfoPointer;
+typedef T_fieldInfoPointer = stdgo._internal.encoding.xml.Xml_t_fieldinfopointer.T_fieldInfoPointer;
 class T_fieldInfo_static_extension {
     static public function _value(_finfo:T_fieldInfo, _v:stdgo._internal.reflect.Reflect_value.Value, _shouldInitNilPointers:Bool):stdgo._internal.reflect.Reflect_value.Value {
         final _finfo = (_finfo : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
-        return stdgo._internal.encoding.xml.Xml_T_fieldInfo_static_extension.T_fieldInfo_static_extension._value(_finfo, _v, _shouldInitNilPointers);
+        return stdgo._internal.encoding.xml.Xml_t_fieldinfo_static_extension.T_fieldInfo_static_extension._value(_finfo, _v, _shouldInitNilPointers);
     }
 }
-typedef TagPathErrorPointer = stdgo._internal.encoding.xml.Xml_TagPathErrorPointer.TagPathErrorPointer;
+typedef TagPathErrorPointer = stdgo._internal.encoding.xml.Xml_tagpatherrorpointer.TagPathErrorPointer;
 class TagPathError_static_extension {
     static public function error(_e:TagPathError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.xml.Xml_tagpatherror.TagPathError>);
-        return stdgo._internal.encoding.xml.Xml_TagPathError_static_extension.TagPathError_static_extension.error(_e);
+        return stdgo._internal.encoding.xml.Xml_tagpatherror_static_extension.TagPathError_static_extension.error(_e);
     }
 }
-typedef SyntaxErrorPointer = stdgo._internal.encoding.xml.Xml_SyntaxErrorPointer.SyntaxErrorPointer;
+typedef SyntaxErrorPointer = stdgo._internal.encoding.xml.Xml_syntaxerrorpointer.SyntaxErrorPointer;
 class SyntaxError_static_extension {
     static public function error(_e:SyntaxError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.xml.Xml_syntaxerror.SyntaxError>);
-        return stdgo._internal.encoding.xml.Xml_SyntaxError_static_extension.SyntaxError_static_extension.error(_e);
+        return stdgo._internal.encoding.xml.Xml_syntaxerror_static_extension.SyntaxError_static_extension.error(_e);
     }
 }
-typedef NamePointer = stdgo._internal.encoding.xml.Xml_NamePointer.NamePointer;
+typedef NamePointer = stdgo._internal.encoding.xml.Xml_namepointer.NamePointer;
 class Name_static_extension {
 
 }
-typedef AttrPointer = stdgo._internal.encoding.xml.Xml_AttrPointer.AttrPointer;
+typedef AttrPointer = stdgo._internal.encoding.xml.Xml_attrpointer.AttrPointer;
 class Attr_static_extension {
 
 }
-typedef StartElementPointer = stdgo._internal.encoding.xml.Xml_StartElementPointer.StartElementPointer;
+typedef StartElementPointer = stdgo._internal.encoding.xml.Xml_startelementpointer.StartElementPointer;
 class StartElement_static_extension {
     static public function end(_e:StartElement):EndElement {
-        return stdgo._internal.encoding.xml.Xml_StartElement_static_extension.StartElement_static_extension.end(_e);
+        return stdgo._internal.encoding.xml.Xml_startelement_static_extension.StartElement_static_extension.end(_e);
     }
     static public function copy(_e:StartElement):StartElement {
-        return stdgo._internal.encoding.xml.Xml_StartElement_static_extension.StartElement_static_extension.copy(_e);
+        return stdgo._internal.encoding.xml.Xml_startelement_static_extension.StartElement_static_extension.copy(_e);
     }
 }
-typedef EndElementPointer = stdgo._internal.encoding.xml.Xml_EndElementPointer.EndElementPointer;
+typedef EndElementPointer = stdgo._internal.encoding.xml.Xml_endelementpointer.EndElementPointer;
 class EndElement_static_extension {
 
 }
-typedef ProcInstPointer = stdgo._internal.encoding.xml.Xml_ProcInstPointer.ProcInstPointer;
+typedef ProcInstPointer = stdgo._internal.encoding.xml.Xml_procinstpointer.ProcInstPointer;
 class ProcInst_static_extension {
     static public function copy(_p:ProcInst):ProcInst {
-        return stdgo._internal.encoding.xml.Xml_ProcInst_static_extension.ProcInst_static_extension.copy(_p);
+        return stdgo._internal.encoding.xml.Xml_procinst_static_extension.ProcInst_static_extension.copy(_p);
     }
 }
-typedef DecoderPointer = stdgo._internal.encoding.xml.Xml_DecoderPointer.DecoderPointer;
+typedef DecoderPointer = stdgo._internal.encoding.xml.Xml_decoderpointer.DecoderPointer;
 class Decoder_static_extension {
     static public function _readName(_d:Decoder):Bool {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._readName(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._readName(_d);
     }
     static public function _name(_d:Decoder):stdgo.Tuple<String, Bool> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._name(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._name(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _nsname(_d:Decoder):stdgo.Tuple<Name, Bool> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._nsname(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._nsname(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _text(_d:Decoder, _quote:StdTypes.Int, _cdata:Bool):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _quote = (_quote : stdgo.GoInt);
-        return [for (i in stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._text(_d, _quote, _cdata)) i];
+        return [for (i in stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._text(_d, _quote, _cdata)) i];
     }
     static public function _ungetc(_d:Decoder, _b:std.UInt):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _b = (_b : stdgo.GoUInt8);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._ungetc(_d, _b);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._ungetc(_d, _b);
     }
     static public function _mustgetc(_d:Decoder):stdgo.Tuple<std.UInt, Bool> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._mustgetc(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._mustgetc(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _savedOffset(_d:Decoder):StdTypes.Int {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._savedOffset(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._savedOffset(_d);
     }
     static public function inputPos(_d:Decoder):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.inputPos(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.inputPos(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function inputOffset(_d:Decoder):haxe.Int64 {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.inputOffset(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.inputOffset(_d);
     }
     static public function _getc(_d:Decoder):stdgo.Tuple<std.UInt, Bool> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._getc(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._getc(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _space(_d:Decoder):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._space(_d);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._space(_d);
     }
     static public function _attrval(_d:Decoder):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return [for (i in stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._attrval(_d)) i];
+        return [for (i in stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._attrval(_d)) i];
     }
     static public function _rawToken(_d:Decoder):stdgo.Tuple<Token, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._rawToken(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._rawToken(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function rawToken(_d:Decoder):stdgo.Tuple<Token, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.rawToken(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.rawToken(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _autoClose(_d:Decoder, _t:Token):stdgo.Tuple<Token, Bool> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._autoClose(_d, _t);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._autoClose(_d, _t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _popElement(_d:Decoder, _t:EndElement):Bool {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _t = (_t : stdgo.Ref<stdgo._internal.encoding.xml.Xml_endelement.EndElement>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._popElement(_d, _t);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._popElement(_d, _t);
     }
     static public function _syntaxError(_d:Decoder, _msg:String):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _msg = (_msg : stdgo.GoString);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._syntaxError(_d, _msg);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._syntaxError(_d, _msg);
     }
     static public function _pushNs(_d:Decoder, _local:String, _url:String, _ok:Bool):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _local = (_local : stdgo.GoString);
         final _url = (_url : stdgo.GoString);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._pushNs(_d, _local, _url, _ok);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._pushNs(_d, _local, _url, _ok);
     }
     static public function _pushElement(_d:Decoder, _name:Name):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._pushElement(_d, _name);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._pushElement(_d, _name);
     }
     static public function _popEOF(_d:Decoder):Bool {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._popEOF(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._popEOF(_d);
     }
     static public function _pushEOF(_d:Decoder):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._pushEOF(_d);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._pushEOF(_d);
     }
     static public function _pop(_d:Decoder):T_stack {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._pop(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._pop(_d);
     }
     static public function _push(_d:Decoder, _kind:StdTypes.Int):T_stack {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _kind = (_kind : stdgo.GoInt);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._push(_d, _kind);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._push(_d, _kind);
     }
     static public function _switchToReader(_d:Decoder, _r:stdgo._internal.io.Io_reader.Reader):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._switchToReader(_d, _r);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._switchToReader(_d, _r);
     }
     static public function _translate(_d:Decoder, _n:Name, _isElementName:Bool):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _n = (_n : stdgo.Ref<stdgo._internal.encoding.xml.Xml_name.Name>);
-        stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._translate(_d, _n, _isElementName);
+        stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._translate(_d, _n, _isElementName);
     }
     static public function token(_d:Decoder):stdgo.Tuple<Token, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.token(_d);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.token(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function skip(_d:Decoder):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.skip(_d);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.skip(_d);
     }
     static public function _unmarshalPath(_d:Decoder, _tinfo:T_typeInfo, _sv:stdgo._internal.reflect.Reflect_value.Value, _parents:Array<String>, _start:StartElement, _depth:StdTypes.Int):stdgo.Tuple<Bool, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
@@ -917,7 +917,7 @@ class Decoder_static_extension {
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
         final _depth = (_depth : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._unmarshalPath(_d, _tinfo, _sv, _parents, _start, _depth);
+            final obj = stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._unmarshalPath(_d, _tinfo, _sv, _parents, _start, _depth);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -925,67 +925,67 @@ class Decoder_static_extension {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
         final _depth = (_depth : stdgo.GoInt);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._unmarshal(_d, _val, _start, _depth);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._unmarshal(_d, _val, _start, _depth);
     }
     static public function _unmarshalAttr(_d:Decoder, _val:stdgo._internal.reflect.Reflect_value.Value, _attr:Attr):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._unmarshalAttr(_d, _val, _attr);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._unmarshalAttr(_d, _val, _attr);
     }
     static public function _unmarshalTextInterface(_d:Decoder, _val:stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._unmarshalTextInterface(_d, _val);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._unmarshalTextInterface(_d, _val);
     }
     static public function _unmarshalInterface(_d:Decoder, _val:Unmarshaler, _start:StartElement):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension._unmarshalInterface(_d, _val, _start);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension._unmarshalInterface(_d, _val, _start);
     }
     static public function decodeElement(_d:Decoder, _v:stdgo.AnyInterface, _start:StartElement):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _v = (_v : stdgo.AnyInterface);
         final _start = (_start : stdgo.Ref<stdgo._internal.encoding.xml.Xml_startelement.StartElement>);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.decodeElement(_d, _v, _start);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.decodeElement(_d, _v, _start);
     }
     static public function decode(_d:Decoder, _v:stdgo.AnyInterface):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         final _v = (_v : stdgo.AnyInterface);
-        return stdgo._internal.encoding.xml.Xml_Decoder_static_extension.Decoder_static_extension.decode(_d, _v);
+        return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.decode(_d, _v);
     }
 }
-typedef T_stackPointer = stdgo._internal.encoding.xml.Xml_T_stackPointer.T_stackPointer;
+typedef T_stackPointer = stdgo._internal.encoding.xml.Xml_t_stackpointer.T_stackPointer;
 class T_stack_static_extension {
 
 }
-typedef UnmarshalErrorPointer = stdgo._internal.encoding.xml.Xml_UnmarshalErrorPointer.UnmarshalErrorPointer;
+typedef UnmarshalErrorPointer = stdgo._internal.encoding.xml.Xml_unmarshalerrorpointer.UnmarshalErrorPointer;
 class UnmarshalError_static_extension {
     static public function error(_e:UnmarshalError):String {
-        return stdgo._internal.encoding.xml.Xml_UnmarshalError_static_extension.UnmarshalError_static_extension.error(_e);
+        return stdgo._internal.encoding.xml.Xml_unmarshalerror_static_extension.UnmarshalError_static_extension.error(_e);
     }
 }
-typedef T_fieldFlagsPointer = stdgo._internal.encoding.xml.Xml_T_fieldFlagsPointer.T_fieldFlagsPointer;
+typedef T_fieldFlagsPointer = stdgo._internal.encoding.xml.Xml_t_fieldflagspointer.T_fieldFlagsPointer;
 class T_fieldFlags_static_extension {
 
 }
-typedef TokenPointer = stdgo._internal.encoding.xml.Xml_TokenPointer.TokenPointer;
+typedef TokenPointer = stdgo._internal.encoding.xml.Xml_tokenpointer.TokenPointer;
 class Token_static_extension {
 
 }
-typedef CharDataPointer = stdgo._internal.encoding.xml.Xml_CharDataPointer.CharDataPointer;
+typedef CharDataPointer = stdgo._internal.encoding.xml.Xml_chardatapointer.CharDataPointer;
 class CharData_static_extension {
     static public function copy(_c:CharData):CharData {
-        return stdgo._internal.encoding.xml.Xml_CharData_static_extension.CharData_static_extension.copy(_c);
+        return stdgo._internal.encoding.xml.Xml_chardata_static_extension.CharData_static_extension.copy(_c);
     }
 }
-typedef CommentPointer = stdgo._internal.encoding.xml.Xml_CommentPointer.CommentPointer;
+typedef CommentPointer = stdgo._internal.encoding.xml.Xml_commentpointer.CommentPointer;
 class Comment_static_extension {
     static public function copy(_c:Comment):Comment {
-        return stdgo._internal.encoding.xml.Xml_Comment_static_extension.Comment_static_extension.copy(_c);
+        return stdgo._internal.encoding.xml.Xml_comment_static_extension.Comment_static_extension.copy(_c);
     }
 }
-typedef DirectivePointer = stdgo._internal.encoding.xml.Xml_DirectivePointer.DirectivePointer;
+typedef DirectivePointer = stdgo._internal.encoding.xml.Xml_directivepointer.DirectivePointer;
 class Directive_static_extension {
     static public function copy(_d:Directive):Directive {
-        return stdgo._internal.encoding.xml.Xml_Directive_static_extension.Directive_static_extension.copy(_d);
+        return stdgo._internal.encoding.xml.Xml_directive_static_extension.Directive_static_extension.copy(_d);
     }
 }
 /**
@@ -1066,7 +1066,7 @@ class Xml {
         final _prefix = (_prefix : stdgo.GoString);
         final _indent = (_indent : stdgo.GoString);
         return {
-            final obj = stdgo._internal.encoding.xml.Xml_marshalIndent.marshalIndent(_v, _prefix, _indent);
+            final obj = stdgo._internal.encoding.xml.Xml_marshalindent.marshalIndent(_v, _prefix, _indent);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1074,7 +1074,7 @@ class Xml {
         * NewEncoder returns a new encoder that writes to w.
     **/
     static public inline function newEncoder(_w:stdgo._internal.io.Io_writer.Writer):Encoder {
-        return stdgo._internal.encoding.xml.Xml_newEncoder.newEncoder(_w);
+        return stdgo._internal.encoding.xml.Xml_newencoder.newEncoder(_w);
     }
     /**
         * Unmarshal parses the XML-encoded data and stores the result in
@@ -1195,7 +1195,7 @@ class Xml {
         * CopyToken returns a copy of a Token.
     **/
     static public inline function copyToken(_t:Token):Token {
-        return stdgo._internal.encoding.xml.Xml_copyToken.copyToken(_t);
+        return stdgo._internal.encoding.xml.Xml_copytoken.copyToken(_t);
     }
     /**
         * NewDecoder creates a new XML parser reading from r.
@@ -1203,13 +1203,13 @@ class Xml {
         * do its own buffering.
     **/
     static public inline function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):Decoder {
-        return stdgo._internal.encoding.xml.Xml_newDecoder.newDecoder(_r);
+        return stdgo._internal.encoding.xml.Xml_newdecoder.newDecoder(_r);
     }
     /**
         * NewTokenDecoder creates a new XML parser using an underlying token stream.
     **/
     static public inline function newTokenDecoder(_t:TokenReader):Decoder {
-        return stdgo._internal.encoding.xml.Xml_newTokenDecoder.newTokenDecoder(_t);
+        return stdgo._internal.encoding.xml.Xml_newtokendecoder.newTokenDecoder(_t);
     }
     /**
         * EscapeText writes to w the properly escaped XML equivalent
@@ -1217,7 +1217,7 @@ class Xml {
     **/
     static public inline function escapeText(_w:stdgo._internal.io.Io_writer.Writer, _s:Array<std.UInt>):stdgo.Error {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.xml.Xml_escapeText.escapeText(_w, _s);
+        return stdgo._internal.encoding.xml.Xml_escapetext.escapeText(_w, _s);
     }
     /**
         * Escape is like EscapeText but omits the error return value.

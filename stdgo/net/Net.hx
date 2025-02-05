@@ -1,211 +1,211 @@
 package stdgo.net;
-final flagUp : Flags = stdgo._internal.net.Net_flagUp.flagUp;
-final flagBroadcast = stdgo._internal.net.Net_flagBroadcast.flagBroadcast;
-final flagLoopback = stdgo._internal.net.Net_flagLoopback.flagLoopback;
-final flagPointToPoint = stdgo._internal.net.Net_flagPointToPoint.flagPointToPoint;
-final flagMulticast = stdgo._internal.net.Net_flagMulticast.flagMulticast;
-final flagRunning = stdgo._internal.net.Net_flagRunning.flagRunning;
-final iPv4len : haxe.UInt64 = stdgo._internal.net.Net_iPv4len.iPv4len;
-final iPv6len : haxe.UInt64 = stdgo._internal.net.Net_iPv6len.iPv6len;
+final flagUp : Flags = stdgo._internal.net.Net_flagup.flagUp;
+final flagBroadcast = stdgo._internal.net.Net_flagbroadcast.flagBroadcast;
+final flagLoopback = stdgo._internal.net.Net_flagloopback.flagLoopback;
+final flagPointToPoint = stdgo._internal.net.Net_flagpointtopoint.flagPointToPoint;
+final flagMulticast = stdgo._internal.net.Net_flagmulticast.flagMulticast;
+final flagRunning = stdgo._internal.net.Net_flagrunning.flagRunning;
+final iPv4len : haxe.UInt64 = stdgo._internal.net.Net_ipv4len.iPv4len;
+final iPv6len : haxe.UInt64 = stdgo._internal.net.Net_ipv6len.iPv6len;
 var iPv4bcast(get, set) : IP;
-private function get_iPv4bcast():IP return stdgo._internal.net.Net_iPv4bcast.iPv4bcast;
+private function get_iPv4bcast():IP return stdgo._internal.net.Net_ipv4bcast.iPv4bcast;
 private function set_iPv4bcast(v:IP):IP {
-        stdgo._internal.net.Net_iPv4bcast.iPv4bcast = v;
+        stdgo._internal.net.Net_ipv4bcast.iPv4bcast = v;
         return v;
     }
 var iPv4allsys(get, set) : IP;
-private function get_iPv4allsys():IP return stdgo._internal.net.Net_iPv4allsys.iPv4allsys;
+private function get_iPv4allsys():IP return stdgo._internal.net.Net_ipv4allsys.iPv4allsys;
 private function set_iPv4allsys(v:IP):IP {
-        stdgo._internal.net.Net_iPv4allsys.iPv4allsys = v;
+        stdgo._internal.net.Net_ipv4allsys.iPv4allsys = v;
         return v;
     }
 var iPv4allrouter(get, set) : IP;
-private function get_iPv4allrouter():IP return stdgo._internal.net.Net_iPv4allrouter.iPv4allrouter;
+private function get_iPv4allrouter():IP return stdgo._internal.net.Net_ipv4allrouter.iPv4allrouter;
 private function set_iPv4allrouter(v:IP):IP {
-        stdgo._internal.net.Net_iPv4allrouter.iPv4allrouter = v;
+        stdgo._internal.net.Net_ipv4allrouter.iPv4allrouter = v;
         return v;
     }
 var iPv4zero(get, set) : IP;
-private function get_iPv4zero():IP return stdgo._internal.net.Net_iPv4zero.iPv4zero;
+private function get_iPv4zero():IP return stdgo._internal.net.Net_ipv4zero.iPv4zero;
 private function set_iPv4zero(v:IP):IP {
-        stdgo._internal.net.Net_iPv4zero.iPv4zero = v;
+        stdgo._internal.net.Net_ipv4zero.iPv4zero = v;
         return v;
     }
 var iPv6zero(get, set) : IP;
-private function get_iPv6zero():IP return stdgo._internal.net.Net_iPv6zero.iPv6zero;
+private function get_iPv6zero():IP return stdgo._internal.net.Net_ipv6zero.iPv6zero;
 private function set_iPv6zero(v:IP):IP {
-        stdgo._internal.net.Net_iPv6zero.iPv6zero = v;
+        stdgo._internal.net.Net_ipv6zero.iPv6zero = v;
         return v;
     }
 var iPv6unspecified(get, set) : IP;
-private function get_iPv6unspecified():IP return stdgo._internal.net.Net_iPv6unspecified.iPv6unspecified;
+private function get_iPv6unspecified():IP return stdgo._internal.net.Net_ipv6unspecified.iPv6unspecified;
 private function set_iPv6unspecified(v:IP):IP {
-        stdgo._internal.net.Net_iPv6unspecified.iPv6unspecified = v;
+        stdgo._internal.net.Net_ipv6unspecified.iPv6unspecified = v;
         return v;
     }
 var iPv6loopback(get, set) : IP;
-private function get_iPv6loopback():IP return stdgo._internal.net.Net_iPv6loopback.iPv6loopback;
+private function get_iPv6loopback():IP return stdgo._internal.net.Net_ipv6loopback.iPv6loopback;
 private function set_iPv6loopback(v:IP):IP {
-        stdgo._internal.net.Net_iPv6loopback.iPv6loopback = v;
+        stdgo._internal.net.Net_ipv6loopback.iPv6loopback = v;
         return v;
     }
 var iPv6interfacelocalallnodes(get, set) : IP;
-private function get_iPv6interfacelocalallnodes():IP return stdgo._internal.net.Net_iPv6interfacelocalallnodes.iPv6interfacelocalallnodes;
+private function get_iPv6interfacelocalallnodes():IP return stdgo._internal.net.Net_ipv6interfacelocalallnodes.iPv6interfacelocalallnodes;
 private function set_iPv6interfacelocalallnodes(v:IP):IP {
-        stdgo._internal.net.Net_iPv6interfacelocalallnodes.iPv6interfacelocalallnodes = v;
+        stdgo._internal.net.Net_ipv6interfacelocalallnodes.iPv6interfacelocalallnodes = v;
         return v;
     }
 var iPv6linklocalallnodes(get, set) : IP;
-private function get_iPv6linklocalallnodes():IP return stdgo._internal.net.Net_iPv6linklocalallnodes.iPv6linklocalallnodes;
+private function get_iPv6linklocalallnodes():IP return stdgo._internal.net.Net_ipv6linklocalallnodes.iPv6linklocalallnodes;
 private function set_iPv6linklocalallnodes(v:IP):IP {
-        stdgo._internal.net.Net_iPv6linklocalallnodes.iPv6linklocalallnodes = v;
+        stdgo._internal.net.Net_ipv6linklocalallnodes.iPv6linklocalallnodes = v;
         return v;
     }
 var iPv6linklocalallrouters(get, set) : IP;
-private function get_iPv6linklocalallrouters():IP return stdgo._internal.net.Net_iPv6linklocalallrouters.iPv6linklocalallrouters;
+private function get_iPv6linklocalallrouters():IP return stdgo._internal.net.Net_ipv6linklocalallrouters.iPv6linklocalallrouters;
 private function set_iPv6linklocalallrouters(v:IP):IP {
-        stdgo._internal.net.Net_iPv6linklocalallrouters.iPv6linklocalallrouters = v;
+        stdgo._internal.net.Net_ipv6linklocalallrouters.iPv6linklocalallrouters = v;
         return v;
     }
 var defaultResolver(get, set) : Resolver;
-private function get_defaultResolver():Resolver return stdgo._internal.net.Net_defaultResolver.defaultResolver;
+private function get_defaultResolver():Resolver return stdgo._internal.net.Net_defaultresolver.defaultResolver;
 private function set_defaultResolver(v:Resolver):Resolver {
-        stdgo._internal.net.Net_defaultResolver.defaultResolver = (v : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
+        stdgo._internal.net.Net_defaultresolver.defaultResolver = (v : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         return v;
     }
 var errWriteToConnected(get, set) : stdgo.Error;
-private function get_errWriteToConnected():stdgo.Error return stdgo._internal.net.Net_errWriteToConnected.errWriteToConnected;
+private function get_errWriteToConnected():stdgo.Error return stdgo._internal.net.Net_errwritetoconnected.errWriteToConnected;
 private function set_errWriteToConnected(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.net.Net_errWriteToConnected.errWriteToConnected = (v : stdgo.Error);
+        stdgo._internal.net.Net_errwritetoconnected.errWriteToConnected = (v : stdgo.Error);
         return v;
     }
 var errClosed(get, set) : stdgo.Error;
-private function get_errClosed():stdgo.Error return stdgo._internal.net.Net_errClosed.errClosed;
+private function get_errClosed():stdgo.Error return stdgo._internal.net.Net_errclosed.errClosed;
 private function set_errClosed(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.net.Net_errClosed.errClosed = (v : stdgo.Error);
+        stdgo._internal.net.Net_errclosed.errClosed = (v : stdgo.Error);
         return v;
     }
 class Addr_static_extension {
     static public function string(t:stdgo._internal.net.Net_addr.Addr):String {
-        return stdgo._internal.net.Net_Addr_static_extension.Addr_static_extension.string(t);
+        return stdgo._internal.net.Net_addr_static_extension.Addr_static_extension.string(t);
     }
     static public function network(t:stdgo._internal.net.Net_addr.Addr):String {
-        return stdgo._internal.net.Net_Addr_static_extension.Addr_static_extension.network(t);
+        return stdgo._internal.net.Net_addr_static_extension.Addr_static_extension.network(t);
     }
 }
-typedef Addr = stdgo._internal.net.Net_Addr.Addr;
+typedef Addr = stdgo._internal.net.Net_addr.Addr;
 class Conn_static_extension {
     static public function setWriteDeadline(t:stdgo._internal.net.Net_conn.Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.setWriteDeadline(t, _t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.setWriteDeadline(t, _t);
     }
     static public function setReadDeadline(t:stdgo._internal.net.Net_conn.Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.setReadDeadline(t, _t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.setReadDeadline(t, _t);
     }
     static public function setDeadline(t:stdgo._internal.net.Net_conn.Conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.setDeadline(t, _t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.setDeadline(t, _t);
     }
     static public function remoteAddr(t:stdgo._internal.net.Net_conn.Conn):Addr {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.remoteAddr(t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.remoteAddr(t);
     }
     static public function localAddr(t:stdgo._internal.net.Net_conn.Conn):Addr {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.localAddr(t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.localAddr(t);
     }
     static public function close(t:stdgo._internal.net.Net_conn.Conn):stdgo.Error {
-        return stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.close(t);
+        return stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.close(t);
     }
     static public function write(t:stdgo._internal.net.Net_conn.Conn, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.write(t, _b);
+            final obj = stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.write(t, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function read(t:stdgo._internal.net.Net_conn.Conn, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_Conn_static_extension.Conn_static_extension.read(t, _b);
+            final obj = stdgo._internal.net.Net_conn_static_extension.Conn_static_extension.read(t, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef Conn = stdgo._internal.net.Net_Conn.Conn;
+typedef Conn = stdgo._internal.net.Net_conn.Conn;
 class PacketConn_static_extension {
     static public function setWriteDeadline(t:stdgo._internal.net.Net_packetconn.PacketConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.setWriteDeadline(t, _t);
+        return stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.setWriteDeadline(t, _t);
     }
     static public function setReadDeadline(t:stdgo._internal.net.Net_packetconn.PacketConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.setReadDeadline(t, _t);
+        return stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.setReadDeadline(t, _t);
     }
     static public function setDeadline(t:stdgo._internal.net.Net_packetconn.PacketConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.setDeadline(t, _t);
+        return stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.setDeadline(t, _t);
     }
     static public function localAddr(t:stdgo._internal.net.Net_packetconn.PacketConn):Addr {
-        return stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.localAddr(t);
+        return stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.localAddr(t);
     }
     static public function close(t:stdgo._internal.net.Net_packetconn.PacketConn):stdgo.Error {
-        return stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.close(t);
+        return stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.close(t);
     }
     static public function writeTo(t:stdgo._internal.net.Net_packetconn.PacketConn, _p:Array<std.UInt>, _addr:Addr):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.writeTo(t, _p, _addr);
+            final obj = stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.writeTo(t, _p, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function readFrom(t:stdgo._internal.net.Net_packetconn.PacketConn, _p:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, Addr, stdgo.Error> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_PacketConn_static_extension.PacketConn_static_extension.readFrom(t, _p);
+            final obj = stdgo._internal.net.Net_packetconn_static_extension.PacketConn_static_extension.readFrom(t, _p);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
 }
-typedef PacketConn = stdgo._internal.net.Net_PacketConn.PacketConn;
+typedef PacketConn = stdgo._internal.net.Net_packetconn.PacketConn;
 class Listener_static_extension {
     static public function addr(t:stdgo._internal.net.Net_listener.Listener):Addr {
-        return stdgo._internal.net.Net_Listener_static_extension.Listener_static_extension.addr(t);
+        return stdgo._internal.net.Net_listener_static_extension.Listener_static_extension.addr(t);
     }
     static public function close(t:stdgo._internal.net.Net_listener.Listener):stdgo.Error {
-        return stdgo._internal.net.Net_Listener_static_extension.Listener_static_extension.close(t);
+        return stdgo._internal.net.Net_listener_static_extension.Listener_static_extension.close(t);
     }
     static public function accept(t:stdgo._internal.net.Net_listener.Listener):stdgo.Tuple<Conn, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_Listener_static_extension.Listener_static_extension.accept(t);
+            final obj = stdgo._internal.net.Net_listener_static_extension.Listener_static_extension.accept(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef Listener = stdgo._internal.net.Net_Listener.Listener;
+typedef Listener = stdgo._internal.net.Net_listener.Listener;
 class Error_static_extension {
     static public function temporary(t:stdgo._internal.net.Net_error.Error):Bool {
-        return stdgo._internal.net.Net_Error_static_extension.Error_static_extension.temporary(t);
+        return stdgo._internal.net.Net_error_static_extension.Error_static_extension.temporary(t);
     }
     static public function timeout(t:stdgo._internal.net.Net_error.Error):Bool {
-        return stdgo._internal.net.Net_Error_static_extension.Error_static_extension.timeout(t);
+        return stdgo._internal.net.Net_error_static_extension.Error_static_extension.timeout(t);
     }
 }
-typedef Error = stdgo._internal.net.Net_Error.Error;
+typedef Error = stdgo._internal.net.Net_error.Error;
 class T_timeout_static_extension {
     static public function timeout(t:stdgo._internal.net.Net_t_timeout.T_timeout):Bool {
-        return stdgo._internal.net.Net_T_timeout_static_extension.T_timeout_static_extension.timeout(t);
+        return stdgo._internal.net.Net_t_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
-typedef T_timeout = stdgo._internal.net.Net_T_timeout.T_timeout;
+typedef T_timeout = stdgo._internal.net.Net_t_timeout.T_timeout;
 class T_temporary_static_extension {
     static public function temporary(t:stdgo._internal.net.Net_t_temporary.T_temporary):Bool {
-        return stdgo._internal.net.Net_T_temporary_static_extension.T_temporary_static_extension.temporary(t);
+        return stdgo._internal.net.Net_t_temporary_static_extension.T_temporary_static_extension.temporary(t);
     }
 }
-typedef T_temporary = stdgo._internal.net.Net_T_temporary.T_temporary;
+typedef T_temporary = stdgo._internal.net.Net_t_temporary.T_temporary;
 class T_buffersWriter_static_extension {
 
 }
-typedef T_buffersWriter = stdgo._internal.net.Net_T_buffersWriter.T_buffersWriter;
+typedef T_buffersWriter = stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter;
 class T_sockaddr_static_extension {
 
 }
-typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
-@:structInit @:using(stdgo.net.Net.T_ipAttr_static_extension) abstract T_ipAttr(stdgo._internal.net.Net_T_ipAttr.T_ipAttr) from stdgo._internal.net.Net_T_ipAttr.T_ipAttr to stdgo._internal.net.Net_T_ipAttr.T_ipAttr {
+typedef T_sockaddr = stdgo._internal.net.Net_t_sockaddr.T_sockaddr;
+@:structInit @:using(stdgo.net.Net.T_ipAttr_static_extension) abstract T_ipAttr(stdgo._internal.net.Net_t_ipattr.T_ipAttr) from stdgo._internal.net.Net_t_ipattr.T_ipAttr to stdgo._internal.net.Net_t_ipattr.T_ipAttr {
     public var scope(get, set) : T_scope;
     function get_scope():T_scope return this.scope;
     function set_scope(v:T_scope):T_scope {
@@ -224,16 +224,16 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.label = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?scope:T_scope, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_T_ipAttr.T_ipAttr(scope, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
+    public function new(?scope:T_scope, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_t_ipattr.T_ipAttr(scope, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_byRFC6724_static_extension) abstract T_byRFC6724(stdgo._internal.net.Net_T_byRFC6724.T_byRFC6724) from stdgo._internal.net.Net_T_byRFC6724.T_byRFC6724 to stdgo._internal.net.Net_T_byRFC6724.T_byRFC6724 {
-    public function new() this = new stdgo._internal.net.Net_T_byRFC6724.T_byRFC6724();
+@:structInit @:using(stdgo.net.Net.T_byRFC6724_static_extension) abstract T_byRFC6724(stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724) from stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724 to stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724 {
+    public function new() this = new stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_policyTableEntry_static_extension) abstract T_policyTableEntry(stdgo._internal.net.Net_T_policyTableEntry.T_policyTableEntry) from stdgo._internal.net.Net_T_policyTableEntry.T_policyTableEntry to stdgo._internal.net.Net_T_policyTableEntry.T_policyTableEntry {
+@:structInit @:using(stdgo.net.Net.T_policyTableEntry_static_extension) abstract T_policyTableEntry(stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry) from stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry to stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry {
     public var prefix(get, set) : Prefix;
     function get_prefix():Prefix return this.prefix;
     function set_prefix(v:Prefix):Prefix {
@@ -252,11 +252,11 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.label = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?prefix:Prefix, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_T_policyTableEntry.T_policyTableEntry(prefix, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
+    public function new(?prefix:Prefix, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry(prefix, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.Dialer_static_extension) abstract Dialer(stdgo._internal.net.Net_Dialer.Dialer) from stdgo._internal.net.Net_Dialer.Dialer to stdgo._internal.net.Net_Dialer.Dialer {
+@:structInit @:using(stdgo.net.Net.Dialer_static_extension) abstract Dialer(stdgo._internal.net.Net_dialer.Dialer) from stdgo._internal.net.Net_dialer.Dialer to stdgo._internal.net.Net_dialer.Dialer {
     public var timeout(get, set) : stdgo._internal.time.Time_duration.Duration;
     function get_timeout():stdgo._internal.time.Time_duration.Duration return this.timeout;
     function set_timeout(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
@@ -317,22 +317,22 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.controlContext = v;
         return v;
     }
-    public function new(?timeout:stdgo._internal.time.Time_duration.Duration, ?deadline:stdgo._internal.time.Time_time.Time, ?localAddr:Addr, ?dualStack:Bool, ?fallbackDelay:stdgo._internal.time.Time_duration.Duration, ?keepAlive:stdgo._internal.time.Time_duration.Duration, ?resolver:Resolver, ?cancel:stdgo.Chan<{ }>, ?control:(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?controlContext:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error) this = new stdgo._internal.net.Net_Dialer.Dialer(timeout, deadline, localAddr, dualStack, fallbackDelay, keepAlive, (resolver : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>), (cancel : stdgo.Chan<{ }>), control, controlContext);
+    public function new(?timeout:stdgo._internal.time.Time_duration.Duration, ?deadline:stdgo._internal.time.Time_time.Time, ?localAddr:Addr, ?dualStack:Bool, ?fallbackDelay:stdgo._internal.time.Time_duration.Duration, ?keepAlive:stdgo._internal.time.Time_duration.Duration, ?resolver:Resolver, ?cancel:stdgo.Chan<{ }>, ?control:(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?controlContext:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error) this = new stdgo._internal.net.Net_dialer.Dialer(timeout, deadline, localAddr, dualStack, fallbackDelay, keepAlive, (resolver : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>), (cancel : stdgo.Chan<{ }>), control, controlContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_sysDialer_static_extension) abstract T_sysDialer(stdgo._internal.net.Net_T_sysDialer.T_sysDialer) from stdgo._internal.net.Net_T_sysDialer.T_sysDialer to stdgo._internal.net.Net_T_sysDialer.T_sysDialer {
+@:structInit @:using(stdgo.net.Net.T_sysDialer_static_extension) abstract T_sysDialer(stdgo._internal.net.Net_t_sysdialer.T_sysDialer) from stdgo._internal.net.Net_t_sysdialer.T_sysDialer to stdgo._internal.net.Net_t_sysdialer.T_sysDialer {
     public var dialer(get, set) : Dialer;
     function get_dialer():Dialer return this.dialer;
     function set_dialer(v:Dialer):Dialer {
         this.dialer = v;
         return v;
     }
-    public function new(?dialer:Dialer) this = new stdgo._internal.net.Net_T_sysDialer.T_sysDialer(dialer);
+    public function new(?dialer:Dialer) this = new stdgo._internal.net.Net_t_sysdialer.T_sysDialer(dialer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.ListenConfig_static_extension) abstract ListenConfig(stdgo._internal.net.Net_ListenConfig.ListenConfig) from stdgo._internal.net.Net_ListenConfig.ListenConfig to stdgo._internal.net.Net_ListenConfig.ListenConfig {
+@:structInit @:using(stdgo.net.Net.ListenConfig_static_extension) abstract ListenConfig(stdgo._internal.net.Net_listenconfig.ListenConfig) from stdgo._internal.net.Net_listenconfig.ListenConfig to stdgo._internal.net.Net_listenconfig.ListenConfig {
     public var control(get, set) : (stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error;
     function get_control():(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error return (_0, _1, _2) -> this.control(_0, _1, _2);
     function set_control(v:(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error):(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error {
@@ -345,22 +345,22 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.keepAlive = v;
         return v;
     }
-    public function new(?control:(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?keepAlive:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.Net_ListenConfig.ListenConfig(control, keepAlive);
+    public function new(?control:(stdgo.GoString, stdgo.GoString, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?keepAlive:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.Net_listenconfig.ListenConfig(control, keepAlive);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_sysListener_static_extension) abstract T_sysListener(stdgo._internal.net.Net_T_sysListener.T_sysListener) from stdgo._internal.net.Net_T_sysListener.T_sysListener to stdgo._internal.net.Net_T_sysListener.T_sysListener {
+@:structInit @:using(stdgo.net.Net.T_sysListener_static_extension) abstract T_sysListener(stdgo._internal.net.Net_t_syslistener.T_sysListener) from stdgo._internal.net.Net_t_syslistener.T_sysListener to stdgo._internal.net.Net_t_syslistener.T_sysListener {
     public var listenConfig(get, set) : ListenConfig;
     function get_listenConfig():ListenConfig return this.listenConfig;
     function set_listenConfig(v:ListenConfig):ListenConfig {
         this.listenConfig = v;
         return v;
     }
-    public function new(?listenConfig:ListenConfig) this = new stdgo._internal.net.Net_T_sysListener.T_sysListener(listenConfig);
+    public function new(?listenConfig:ListenConfig) this = new stdgo._internal.net.Net_t_syslistener.T_sysListener(listenConfig);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.SRV_static_extension) abstract SRV(stdgo._internal.net.Net_SRV.SRV) from stdgo._internal.net.Net_SRV.SRV to stdgo._internal.net.Net_SRV.SRV {
+@:structInit @:using(stdgo.net.Net.SRV_static_extension) abstract SRV(stdgo._internal.net.Net_srv.SRV) from stdgo._internal.net.Net_srv.SRV to stdgo._internal.net.Net_srv.SRV {
     public var target(get, set) : String;
     function get_target():String return this.target;
     function set_target(v:String):String {
@@ -385,11 +385,11 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.weight = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?target:String, ?port:std.UInt, ?priority:std.UInt, ?weight:std.UInt) this = new stdgo._internal.net.Net_SRV.SRV((target : stdgo.GoString), (port : stdgo.GoUInt16), (priority : stdgo.GoUInt16), (weight : stdgo.GoUInt16));
+    public function new(?target:String, ?port:std.UInt, ?priority:std.UInt, ?weight:std.UInt) this = new stdgo._internal.net.Net_srv.SRV((target : stdgo.GoString), (port : stdgo.GoUInt16), (priority : stdgo.GoUInt16), (weight : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.MX_static_extension) abstract MX(stdgo._internal.net.Net_MX.MX) from stdgo._internal.net.Net_MX.MX to stdgo._internal.net.Net_MX.MX {
+@:structInit @:using(stdgo.net.Net.MX_static_extension) abstract MX(stdgo._internal.net.Net_mx.MX) from stdgo._internal.net.Net_mx.MX to stdgo._internal.net.Net_mx.MX {
     public var host(get, set) : String;
     function get_host():String return this.host;
     function set_host(v:String):String {
@@ -402,32 +402,32 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.pref = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?host:String, ?pref:std.UInt) this = new stdgo._internal.net.Net_MX.MX((host : stdgo.GoString), (pref : stdgo.GoUInt16));
+    public function new(?host:String, ?pref:std.UInt) this = new stdgo._internal.net.Net_mx.MX((host : stdgo.GoString), (pref : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.NS_static_extension) abstract NS(stdgo._internal.net.Net_NS.NS) from stdgo._internal.net.Net_NS.NS to stdgo._internal.net.Net_NS.NS {
+@:structInit @:using(stdgo.net.Net.NS_static_extension) abstract NS(stdgo._internal.net.Net_ns.NS) from stdgo._internal.net.Net_ns.NS to stdgo._internal.net.Net_ns.NS {
     public var host(get, set) : String;
     function get_host():String return this.host;
     function set_host(v:String):String {
         this.host = (v : stdgo.GoString);
         return v;
     }
-    public function new(?host:String) this = new stdgo._internal.net.Net_NS.NS((host : stdgo.GoString));
+    public function new(?host:String) this = new stdgo._internal.net.Net_ns.NS((host : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_dnsConfig_static_extension) abstract T_dnsConfig(stdgo._internal.net.Net_T_dnsConfig.T_dnsConfig) from stdgo._internal.net.Net_T_dnsConfig.T_dnsConfig to stdgo._internal.net.Net_T_dnsConfig.T_dnsConfig {
-    public function new() this = new stdgo._internal.net.Net_T_dnsConfig.T_dnsConfig();
+@:structInit @:using(stdgo.net.Net.T_dnsConfig_static_extension) abstract T_dnsConfig(stdgo._internal.net.Net_t_dnsconfig.T_dnsConfig) from stdgo._internal.net.Net_t_dnsconfig.T_dnsConfig to stdgo._internal.net.Net_t_dnsconfig.T_dnsConfig {
+    public function new() this = new stdgo._internal.net.Net_t_dnsconfig.T_dnsConfig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_byName_static_extension) abstract T_byName(stdgo._internal.net.Net_T_byName.T_byName) from stdgo._internal.net.Net_T_byName.T_byName to stdgo._internal.net.Net_T_byName.T_byName {
-    public function new() this = new stdgo._internal.net.Net_T_byName.T_byName();
+@:structInit @:using(stdgo.net.Net.T_byName_static_extension) abstract T_byName(stdgo._internal.net.Net_t_byname.T_byName) from stdgo._internal.net.Net_t_byname.T_byName to stdgo._internal.net.Net_t_byname.T_byName {
+    public function new() this = new stdgo._internal.net.Net_t_byname.T_byName();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.Interface_static_extension) abstract Interface(stdgo._internal.net.Net_Interface.Interface) from stdgo._internal.net.Net_Interface.Interface to stdgo._internal.net.Net_Interface.Interface {
+@:structInit @:using(stdgo.net.Net.Interface_static_extension) abstract Interface(stdgo._internal.net.Net_interface.Interface) from stdgo._internal.net.Net_interface.Interface to stdgo._internal.net.Net_interface.Interface {
     public var index(get, set) : StdTypes.Int;
     function get_index():StdTypes.Int return this.index;
     function set_index(v:StdTypes.Int):StdTypes.Int {
@@ -458,22 +458,22 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.flags = v;
         return v;
     }
-    public function new(?index:StdTypes.Int, ?mTU:StdTypes.Int, ?name:String, ?hardwareAddr:HardwareAddr, ?flags:Flags) this = new stdgo._internal.net.Net_Interface.Interface((index : stdgo.GoInt), (mTU : stdgo.GoInt), (name : stdgo.GoString), hardwareAddr, flags);
+    public function new(?index:StdTypes.Int, ?mTU:StdTypes.Int, ?name:String, ?hardwareAddr:HardwareAddr, ?flags:Flags) this = new stdgo._internal.net.Net_interface.Interface((index : stdgo.GoInt), (mTU : stdgo.GoInt), (name : stdgo.GoString), hardwareAddr, flags);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_ipv6ZoneCache_static_extension) abstract T_ipv6ZoneCache(stdgo._internal.net.Net_T_ipv6ZoneCache.T_ipv6ZoneCache) from stdgo._internal.net.Net_T_ipv6ZoneCache.T_ipv6ZoneCache to stdgo._internal.net.Net_T_ipv6ZoneCache.T_ipv6ZoneCache {
+@:structInit @:using(stdgo.net.Net.T_ipv6ZoneCache_static_extension) abstract T_ipv6ZoneCache(stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache) from stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache to stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache {
     public var rWMutex(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
     function get_rWMutex():stdgo._internal.sync.Sync_rwmutex.RWMutex return this.rWMutex;
     function set_rWMutex(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
         this.rWMutex = v;
         return v;
     }
-    public function new(?rWMutex:stdgo._internal.sync.Sync_rwmutex.RWMutex) this = new stdgo._internal.net.Net_T_ipv6ZoneCache.T_ipv6ZoneCache(rWMutex);
+    public function new(?rWMutex:stdgo._internal.sync.Sync_rwmutex.RWMutex) this = new stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache(rWMutex);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.IPNet_static_extension) abstract IPNet(stdgo._internal.net.Net_IPNet.IPNet) from stdgo._internal.net.Net_IPNet.IPNet to stdgo._internal.net.Net_IPNet.IPNet {
+@:structInit @:using(stdgo.net.Net.IPNet_static_extension) abstract IPNet(stdgo._internal.net.Net_ipnet.IPNet) from stdgo._internal.net.Net_ipnet.IPNet to stdgo._internal.net.Net_ipnet.IPNet {
     public var iP(get, set) : IP;
     function get_iP():IP return this.iP;
     function set_iP(v:IP):IP {
@@ -486,11 +486,11 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.mask = v;
         return v;
     }
-    public function new(?iP:IP, ?mask:IPMask) this = new stdgo._internal.net.Net_IPNet.IPNet(iP, mask);
+    public function new(?iP:IP, ?mask:IPMask) this = new stdgo._internal.net.Net_ipnet.IPNet(iP, mask);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.IPAddr_static_extension) abstract IPAddr(stdgo._internal.net.Net_IPAddr.IPAddr) from stdgo._internal.net.Net_IPAddr.IPAddr to stdgo._internal.net.Net_IPAddr.IPAddr {
+@:structInit @:using(stdgo.net.Net.IPAddr_static_extension) abstract IPAddr(stdgo._internal.net.Net_ipaddr.IPAddr) from stdgo._internal.net.Net_ipaddr.IPAddr to stdgo._internal.net.Net_ipaddr.IPAddr {
     public var iP(get, set) : IP;
     function get_iP():IP return this.iP;
     function set_iP(v:IP):IP {
@@ -503,27 +503,27 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.zone = (v : stdgo.GoString);
         return v;
     }
-    public function new(?iP:IP, ?zone:String) this = new stdgo._internal.net.Net_IPAddr.IPAddr(iP, (zone : stdgo.GoString));
+    public function new(?iP:IP, ?zone:String) this = new stdgo._internal.net.Net_ipaddr.IPAddr(iP, (zone : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.IPConn_static_extension) abstract IPConn(stdgo._internal.net.Net_IPConn.IPConn) from stdgo._internal.net.Net_IPConn.IPConn to stdgo._internal.net.Net_IPConn.IPConn {
-    public function new() this = new stdgo._internal.net.Net_IPConn.IPConn();
+@:structInit @:using(stdgo.net.Net.IPConn_static_extension) abstract IPConn(stdgo._internal.net.Net_ipconn.IPConn) from stdgo._internal.net.Net_ipconn.IPConn to stdgo._internal.net.Net_ipconn.IPConn {
+    public function new() this = new stdgo._internal.net.Net_ipconn.IPConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_ipStackCapabilities_static_extension) abstract T_ipStackCapabilities(stdgo._internal.net.Net_T_ipStackCapabilities.T_ipStackCapabilities) from stdgo._internal.net.Net_T_ipStackCapabilities.T_ipStackCapabilities to stdgo._internal.net.Net_T_ipStackCapabilities.T_ipStackCapabilities {
+@:structInit @:using(stdgo.net.Net.T_ipStackCapabilities_static_extension) abstract T_ipStackCapabilities(stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities) from stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities to stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities {
     public var once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get_once():stdgo._internal.sync.Sync_once.Once return this.once;
     function set_once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
         this.once = v;
         return v;
     }
-    public function new(?once:stdgo._internal.sync.Sync_once.Once) this = new stdgo._internal.net.Net_T_ipStackCapabilities.T_ipStackCapabilities(once);
+    public function new(?once:stdgo._internal.sync.Sync_once.Once) this = new stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities(once);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.Resolver_static_extension) abstract Resolver(stdgo._internal.net.Net_Resolver.Resolver) from stdgo._internal.net.Net_Resolver.Resolver to stdgo._internal.net.Net_Resolver.Resolver {
+@:structInit @:using(stdgo.net.Net.Resolver_static_extension) abstract Resolver(stdgo._internal.net.Net_resolver.Resolver) from stdgo._internal.net.Net_resolver.Resolver to stdgo._internal.net.Net_resolver.Resolver {
     public var preferGo(get, set) : Bool;
     function get_preferGo():Bool return this.preferGo;
     function set_preferGo(v:Bool):Bool {
@@ -542,32 +542,32 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.dial = v;
         return v;
     }
-    public function new(?preferGo:Bool, ?strictErrors:Bool, ?dial:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }) this = new stdgo._internal.net.Net_Resolver.Resolver(preferGo, strictErrors, dial);
+    public function new(?preferGo:Bool, ?strictErrors:Bool, ?dial:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }) this = new stdgo._internal.net.Net_resolver.Resolver(preferGo, strictErrors, dial);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_onlyValuesCtx_static_extension) abstract T_onlyValuesCtx(stdgo._internal.net.Net_T_onlyValuesCtx.T_onlyValuesCtx) from stdgo._internal.net.Net_T_onlyValuesCtx.T_onlyValuesCtx to stdgo._internal.net.Net_T_onlyValuesCtx.T_onlyValuesCtx {
+@:structInit @:using(stdgo.net.Net.T_onlyValuesCtx_static_extension) abstract T_onlyValuesCtx(stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx) from stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx to stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx {
     public var context(get, set) : stdgo._internal.context.Context_context.Context;
     function get_context():stdgo._internal.context.Context_context.Context return this.context;
     function set_context(v:stdgo._internal.context.Context_context.Context):stdgo._internal.context.Context_context.Context {
         this.context = v;
         return v;
     }
-    public function new(?context:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.net.Net_T_onlyValuesCtx.T_onlyValuesCtx(context);
+    public function new(?context:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx(context);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_conn_static_extension) abstract T_conn(stdgo._internal.net.Net_T_conn.T_conn) from stdgo._internal.net.Net_T_conn.T_conn to stdgo._internal.net.Net_T_conn.T_conn {
-    public function new() this = new stdgo._internal.net.Net_T_conn.T_conn();
+@:structInit @:using(stdgo.net.Net.T_conn_static_extension) abstract T_conn(stdgo._internal.net.Net_t_conn.T_conn) from stdgo._internal.net.Net_t_conn.T_conn to stdgo._internal.net.Net_t_conn.T_conn {
+    public function new() this = new stdgo._internal.net.Net_t_conn.T_conn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_canceledError_static_extension) abstract T_canceledError(stdgo._internal.net.Net_T_canceledError.T_canceledError) from stdgo._internal.net.Net_T_canceledError.T_canceledError to stdgo._internal.net.Net_T_canceledError.T_canceledError {
-    public function new() this = new stdgo._internal.net.Net_T_canceledError.T_canceledError();
+@:structInit @:using(stdgo.net.Net.T_canceledError_static_extension) abstract T_canceledError(stdgo._internal.net.Net_t_cancelederror.T_canceledError) from stdgo._internal.net.Net_t_cancelederror.T_canceledError to stdgo._internal.net.Net_t_cancelederror.T_canceledError {
+    public function new() this = new stdgo._internal.net.Net_t_cancelederror.T_canceledError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.OpError_static_extension) abstract OpError(stdgo._internal.net.Net_OpError.OpError) from stdgo._internal.net.Net_OpError.OpError to stdgo._internal.net.Net_OpError.OpError {
+@:structInit @:using(stdgo.net.Net.OpError_static_extension) abstract OpError(stdgo._internal.net.Net_operror.OpError) from stdgo._internal.net.Net_operror.OpError to stdgo._internal.net.Net_operror.OpError {
     public var op(get, set) : String;
     function get_op():String return this.op;
     function set_op(v:String):String {
@@ -598,11 +598,11 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?op:String, ?net:String, ?source:Addr, ?addr:Addr, ?err:stdgo.Error) this = new stdgo._internal.net.Net_OpError.OpError((op : stdgo.GoString), (net : stdgo.GoString), source, addr, (err : stdgo.Error));
+    public function new(?op:String, ?net:String, ?source:Addr, ?addr:Addr, ?err:stdgo.Error) this = new stdgo._internal.net.Net_operror.OpError((op : stdgo.GoString), (net : stdgo.GoString), source, addr, (err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.ParseError_static_extension) abstract ParseError(stdgo._internal.net.Net_ParseError.ParseError) from stdgo._internal.net.Net_ParseError.ParseError to stdgo._internal.net.Net_ParseError.ParseError {
+@:structInit @:using(stdgo.net.Net.ParseError_static_extension) abstract ParseError(stdgo._internal.net.Net_parseerror.ParseError) from stdgo._internal.net.Net_parseerror.ParseError to stdgo._internal.net.Net_parseerror.ParseError {
     public var type(get, set) : String;
     function get_type():String return this.type;
     function set_type(v:String):String {
@@ -615,11 +615,11 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.text = (v : stdgo.GoString);
         return v;
     }
-    public function new(?type:String, ?text:String) this = new stdgo._internal.net.Net_ParseError.ParseError((type : stdgo.GoString), (text : stdgo.GoString));
+    public function new(?type:String, ?text:String) this = new stdgo._internal.net.Net_parseerror.ParseError((type : stdgo.GoString), (text : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.AddrError_static_extension) abstract AddrError(stdgo._internal.net.Net_AddrError.AddrError) from stdgo._internal.net.Net_AddrError.AddrError to stdgo._internal.net.Net_AddrError.AddrError {
+@:structInit @:using(stdgo.net.Net.AddrError_static_extension) abstract AddrError(stdgo._internal.net.Net_addrerror.AddrError) from stdgo._internal.net.Net_addrerror.AddrError to stdgo._internal.net.Net_addrerror.AddrError {
     public var err(get, set) : String;
     function get_err():String return this.err;
     function set_err(v:String):String {
@@ -632,27 +632,27 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.addr = (v : stdgo.GoString);
         return v;
     }
-    public function new(?err:String, ?addr:String) this = new stdgo._internal.net.Net_AddrError.AddrError((err : stdgo.GoString), (addr : stdgo.GoString));
+    public function new(?err:String, ?addr:String) this = new stdgo._internal.net.Net_addrerror.AddrError((err : stdgo.GoString), (addr : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_timeoutError_static_extension) abstract T_timeoutError(stdgo._internal.net.Net_T_timeoutError.T_timeoutError) from stdgo._internal.net.Net_T_timeoutError.T_timeoutError to stdgo._internal.net.Net_T_timeoutError.T_timeoutError {
-    public function new() this = new stdgo._internal.net.Net_T_timeoutError.T_timeoutError();
+@:structInit @:using(stdgo.net.Net.T_timeoutError_static_extension) abstract T_timeoutError(stdgo._internal.net.Net_t_timeouterror.T_timeoutError) from stdgo._internal.net.Net_t_timeouterror.T_timeoutError to stdgo._internal.net.Net_t_timeouterror.T_timeoutError {
+    public function new() this = new stdgo._internal.net.Net_t_timeouterror.T_timeoutError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.DNSConfigError_static_extension) abstract DNSConfigError(stdgo._internal.net.Net_DNSConfigError.DNSConfigError) from stdgo._internal.net.Net_DNSConfigError.DNSConfigError to stdgo._internal.net.Net_DNSConfigError.DNSConfigError {
+@:structInit @:using(stdgo.net.Net.DNSConfigError_static_extension) abstract DNSConfigError(stdgo._internal.net.Net_dnsconfigerror.DNSConfigError) from stdgo._internal.net.Net_dnsconfigerror.DNSConfigError to stdgo._internal.net.Net_dnsconfigerror.DNSConfigError {
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
         this.err = (v : stdgo.Error);
         return v;
     }
-    public function new(?err:stdgo.Error) this = new stdgo._internal.net.Net_DNSConfigError.DNSConfigError((err : stdgo.Error));
+    public function new(?err:stdgo.Error) this = new stdgo._internal.net.Net_dnsconfigerror.DNSConfigError((err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.DNSError_static_extension) abstract DNSError(stdgo._internal.net.Net_DNSError.DNSError) from stdgo._internal.net.Net_DNSError.DNSError to stdgo._internal.net.Net_DNSError.DNSError {
+@:structInit @:using(stdgo.net.Net.DNSError_static_extension) abstract DNSError(stdgo._internal.net.Net_dnserror.DNSError) from stdgo._internal.net.Net_dnserror.DNSError to stdgo._internal.net.Net_dnserror.DNSError {
     public var err(get, set) : String;
     function get_err():String return this.err;
     function set_err(v:String):String {
@@ -689,92 +689,92 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.isNotFound = v;
         return v;
     }
-    public function new(?err:String, ?name:String, ?server:String, ?isTimeout:Bool, ?isTemporary:Bool, ?isNotFound:Bool) this = new stdgo._internal.net.Net_DNSError.DNSError((err : stdgo.GoString), (name : stdgo.GoString), (server : stdgo.GoString), isTimeout, isTemporary, isNotFound);
+    public function new(?err:String, ?name:String, ?server:String, ?isTimeout:Bool, ?isTemporary:Bool, ?isNotFound:Bool) this = new stdgo._internal.net.Net_dnserror.DNSError((err : stdgo.GoString), (name : stdgo.GoString), (server : stdgo.GoString), isTimeout, isTemporary, isNotFound);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_writerOnly_static_extension) abstract T_writerOnly(stdgo._internal.net.Net_T_writerOnly.T_writerOnly) from stdgo._internal.net.Net_T_writerOnly.T_writerOnly to stdgo._internal.net.Net_T_writerOnly.T_writerOnly {
+@:structInit @:using(stdgo.net.Net.T_writerOnly_static_extension) abstract T_writerOnly(stdgo._internal.net.Net_t_writeronly.T_writerOnly) from stdgo._internal.net.Net_t_writeronly.T_writerOnly to stdgo._internal.net.Net_t_writeronly.T_writerOnly {
     public var writer(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_writer():stdgo._internal.io.Io_writer.Writer return this.writer;
     function set_writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
         this.writer = v;
         return v;
     }
-    public function new(?writer:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.net.Net_T_writerOnly.T_writerOnly(writer);
+    public function new(?writer:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.net.Net_t_writeronly.T_writerOnly(writer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_fakeNetAddr_static_extension) abstract T_fakeNetAddr(stdgo._internal.net.Net_T_fakeNetAddr.T_fakeNetAddr) from stdgo._internal.net.Net_T_fakeNetAddr.T_fakeNetAddr to stdgo._internal.net.Net_T_fakeNetAddr.T_fakeNetAddr {
-    public function new() this = new stdgo._internal.net.Net_T_fakeNetAddr.T_fakeNetAddr();
+@:structInit @:using(stdgo.net.Net.T_fakeNetAddr_static_extension) abstract T_fakeNetAddr(stdgo._internal.net.Net_t_fakenetaddr.T_fakeNetAddr) from stdgo._internal.net.Net_t_fakenetaddr.T_fakeNetAddr to stdgo._internal.net.Net_t_fakenetaddr.T_fakeNetAddr {
+    public function new() this = new stdgo._internal.net.Net_t_fakenetaddr.T_fakeNetAddr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_fakeNetFD_static_extension) abstract T_fakeNetFD(stdgo._internal.net.Net_T_fakeNetFD.T_fakeNetFD) from stdgo._internal.net.Net_T_fakeNetFD.T_fakeNetFD to stdgo._internal.net.Net_T_fakeNetFD.T_fakeNetFD {
-    public function new() this = new stdgo._internal.net.Net_T_fakeNetFD.T_fakeNetFD();
+@:structInit @:using(stdgo.net.Net.T_fakeNetFD_static_extension) abstract T_fakeNetFD(stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD) from stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD to stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD {
+    public function new() this = new stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_bufferedPipe_static_extension) abstract T_bufferedPipe(stdgo._internal.net.Net_T_bufferedPipe.T_bufferedPipe) from stdgo._internal.net.Net_T_bufferedPipe.T_bufferedPipe to stdgo._internal.net.Net_T_bufferedPipe.T_bufferedPipe {
-    public function new() this = new stdgo._internal.net.Net_T_bufferedPipe.T_bufferedPipe();
+@:structInit @:using(stdgo.net.Net.T_bufferedPipe_static_extension) abstract T_bufferedPipe(stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe) from stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe to stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe {
+    public function new() this = new stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_netFD_static_extension) abstract T_netFD(stdgo._internal.net.Net_T_netFD.T_netFD) from stdgo._internal.net.Net_T_netFD.T_netFD to stdgo._internal.net.Net_T_netFD.T_netFD {
-    public function new() this = new stdgo._internal.net.Net_T_netFD.T_netFD();
+@:structInit @:using(stdgo.net.Net.T_netFD_static_extension) abstract T_netFD(stdgo._internal.net.Net_t_netfd.T_netFD) from stdgo._internal.net.Net_t_netfd.T_netFD to stdgo._internal.net.Net_t_netfd.T_netFD {
+    public function new() this = new stdgo._internal.net.Net_t_netfd.T_netFD();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_nsswitchConfig_static_extension) abstract T_nsswitchConfig(stdgo._internal.net.Net_T_nsswitchConfig.T_nsswitchConfig) from stdgo._internal.net.Net_T_nsswitchConfig.T_nsswitchConfig to stdgo._internal.net.Net_T_nsswitchConfig.T_nsswitchConfig {
-    public function new() this = new stdgo._internal.net.Net_T_nsswitchConfig.T_nsswitchConfig();
+@:structInit @:using(stdgo.net.Net.T_nsswitchConfig_static_extension) abstract T_nsswitchConfig(stdgo._internal.net.Net_t_nsswitchconfig.T_nsswitchConfig) from stdgo._internal.net.Net_t_nsswitchconfig.T_nsswitchConfig to stdgo._internal.net.Net_t_nsswitchconfig.T_nsswitchConfig {
+    public function new() this = new stdgo._internal.net.Net_t_nsswitchconfig.T_nsswitchConfig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_nssConf_static_extension) abstract T_nssConf(stdgo._internal.net.Net_T_nssConf.T_nssConf) from stdgo._internal.net.Net_T_nssConf.T_nssConf to stdgo._internal.net.Net_T_nssConf.T_nssConf {
-    public function new() this = new stdgo._internal.net.Net_T_nssConf.T_nssConf();
+@:structInit @:using(stdgo.net.Net.T_nssConf_static_extension) abstract T_nssConf(stdgo._internal.net.Net_t_nssconf.T_nssConf) from stdgo._internal.net.Net_t_nssconf.T_nssConf to stdgo._internal.net.Net_t_nssconf.T_nssConf {
+    public function new() this = new stdgo._internal.net.Net_t_nssconf.T_nssConf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_nssSource_static_extension) abstract T_nssSource(stdgo._internal.net.Net_T_nssSource.T_nssSource) from stdgo._internal.net.Net_T_nssSource.T_nssSource to stdgo._internal.net.Net_T_nssSource.T_nssSource {
-    public function new() this = new stdgo._internal.net.Net_T_nssSource.T_nssSource();
+@:structInit @:using(stdgo.net.Net.T_nssSource_static_extension) abstract T_nssSource(stdgo._internal.net.Net_t_nsssource.T_nssSource) from stdgo._internal.net.Net_t_nsssource.T_nssSource to stdgo._internal.net.Net_t_nsssource.T_nssSource {
+    public function new() this = new stdgo._internal.net.Net_t_nsssource.T_nssSource();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_nssCriterion_static_extension) abstract T_nssCriterion(stdgo._internal.net.Net_T_nssCriterion.T_nssCriterion) from stdgo._internal.net.Net_T_nssCriterion.T_nssCriterion to stdgo._internal.net.Net_T_nssCriterion.T_nssCriterion {
-    public function new() this = new stdgo._internal.net.Net_T_nssCriterion.T_nssCriterion();
+@:structInit @:using(stdgo.net.Net.T_nssCriterion_static_extension) abstract T_nssCriterion(stdgo._internal.net.Net_t_nsscriterion.T_nssCriterion) from stdgo._internal.net.Net_t_nsscriterion.T_nssCriterion to stdgo._internal.net.Net_t_nsscriterion.T_nssCriterion {
+    public function new() this = new stdgo._internal.net.Net_t_nsscriterion.T_nssCriterion();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_file_static_extension) abstract T_file(stdgo._internal.net.Net_T_file.T_file) from stdgo._internal.net.Net_T_file.T_file to stdgo._internal.net.Net_T_file.T_file {
-    public function new() this = new stdgo._internal.net.Net_T_file.T_file();
+@:structInit @:using(stdgo.net.Net.T_file_static_extension) abstract T_file(stdgo._internal.net.Net_t_file.T_file) from stdgo._internal.net.Net_t_file.T_file to stdgo._internal.net.Net_t_file.T_file {
+    public function new() this = new stdgo._internal.net.Net_t_file.T_file();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_pipeDeadline_static_extension) abstract T_pipeDeadline(stdgo._internal.net.Net_T_pipeDeadline.T_pipeDeadline) from stdgo._internal.net.Net_T_pipeDeadline.T_pipeDeadline to stdgo._internal.net.Net_T_pipeDeadline.T_pipeDeadline {
-    public function new() this = new stdgo._internal.net.Net_T_pipeDeadline.T_pipeDeadline();
+@:structInit @:using(stdgo.net.Net.T_pipeDeadline_static_extension) abstract T_pipeDeadline(stdgo._internal.net.Net_t_pipedeadline.T_pipeDeadline) from stdgo._internal.net.Net_t_pipedeadline.T_pipeDeadline to stdgo._internal.net.Net_t_pipedeadline.T_pipeDeadline {
+    public function new() this = new stdgo._internal.net.Net_t_pipedeadline.T_pipeDeadline();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_pipeAddr_static_extension) abstract T_pipeAddr(stdgo._internal.net.Net_T_pipeAddr.T_pipeAddr) from stdgo._internal.net.Net_T_pipeAddr.T_pipeAddr to stdgo._internal.net.Net_T_pipeAddr.T_pipeAddr {
-    public function new() this = new stdgo._internal.net.Net_T_pipeAddr.T_pipeAddr();
+@:structInit @:using(stdgo.net.Net.T_pipeAddr_static_extension) abstract T_pipeAddr(stdgo._internal.net.Net_t_pipeaddr.T_pipeAddr) from stdgo._internal.net.Net_t_pipeaddr.T_pipeAddr to stdgo._internal.net.Net_t_pipeaddr.T_pipeAddr {
+    public function new() this = new stdgo._internal.net.Net_t_pipeaddr.T_pipeAddr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_pipe_static_extension) abstract T_pipe(stdgo._internal.net.Net_T_pipe.T_pipe) from stdgo._internal.net.Net_T_pipe.T_pipe to stdgo._internal.net.Net_T_pipe.T_pipe {
-    public function new() this = new stdgo._internal.net.Net_T_pipe.T_pipe();
+@:structInit @:using(stdgo.net.Net.T_pipe_static_extension) abstract T_pipe(stdgo._internal.net.Net_t_pipe.T_pipe) from stdgo._internal.net.Net_t_pipe.T_pipe to stdgo._internal.net.Net_t_pipe.T_pipe {
+    public function new() this = new stdgo._internal.net.Net_t_pipe.T_pipe();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_rawConn_static_extension) abstract T_rawConn(stdgo._internal.net.Net_T_rawConn.T_rawConn) from stdgo._internal.net.Net_T_rawConn.T_rawConn to stdgo._internal.net.Net_T_rawConn.T_rawConn {
-    public function new() this = new stdgo._internal.net.Net_T_rawConn.T_rawConn();
+@:structInit @:using(stdgo.net.Net.T_rawConn_static_extension) abstract T_rawConn(stdgo._internal.net.Net_t_rawconn.T_rawConn) from stdgo._internal.net.Net_t_rawconn.T_rawConn to stdgo._internal.net.Net_t_rawconn.T_rawConn {
+    public function new() this = new stdgo._internal.net.Net_t_rawconn.T_rawConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_rawListener_static_extension) abstract T_rawListener(stdgo._internal.net.Net_T_rawListener.T_rawListener) from stdgo._internal.net.Net_T_rawListener.T_rawListener to stdgo._internal.net.Net_T_rawListener.T_rawListener {
-    public function new() this = new stdgo._internal.net.Net_T_rawListener.T_rawListener();
+@:structInit @:using(stdgo.net.Net.T_rawListener_static_extension) abstract T_rawListener(stdgo._internal.net.Net_t_rawlistener.T_rawListener) from stdgo._internal.net.Net_t_rawlistener.T_rawListener to stdgo._internal.net.Net_t_rawlistener.T_rawListener {
+    public function new() this = new stdgo._internal.net.Net_t_rawlistener.T_rawListener();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.TCPAddr_static_extension) abstract TCPAddr(stdgo._internal.net.Net_TCPAddr.TCPAddr) from stdgo._internal.net.Net_TCPAddr.TCPAddr to stdgo._internal.net.Net_TCPAddr.TCPAddr {
+@:structInit @:using(stdgo.net.Net.TCPAddr_static_extension) abstract TCPAddr(stdgo._internal.net.Net_tcpaddr.TCPAddr) from stdgo._internal.net.Net_tcpaddr.TCPAddr to stdgo._internal.net.Net_tcpaddr.TCPAddr {
     public var iP(get, set) : IP;
     function get_iP():IP return this.iP;
     function set_iP(v:IP):IP {
@@ -793,21 +793,21 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.zone = (v : stdgo.GoString);
         return v;
     }
-    public function new(?iP:IP, ?port:StdTypes.Int, ?zone:String) this = new stdgo._internal.net.Net_TCPAddr.TCPAddr(iP, (port : stdgo.GoInt), (zone : stdgo.GoString));
+    public function new(?iP:IP, ?port:StdTypes.Int, ?zone:String) this = new stdgo._internal.net.Net_tcpaddr.TCPAddr(iP, (port : stdgo.GoInt), (zone : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.TCPConn_static_extension) abstract TCPConn(stdgo._internal.net.Net_TCPConn.TCPConn) from stdgo._internal.net.Net_TCPConn.TCPConn to stdgo._internal.net.Net_TCPConn.TCPConn {
-    public function new() this = new stdgo._internal.net.Net_TCPConn.TCPConn();
+@:structInit @:using(stdgo.net.Net.TCPConn_static_extension) abstract TCPConn(stdgo._internal.net.Net_tcpconn.TCPConn) from stdgo._internal.net.Net_tcpconn.TCPConn to stdgo._internal.net.Net_tcpconn.TCPConn {
+    public function new() this = new stdgo._internal.net.Net_tcpconn.TCPConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.TCPListener_static_extension) abstract TCPListener(stdgo._internal.net.Net_TCPListener.TCPListener) from stdgo._internal.net.Net_TCPListener.TCPListener to stdgo._internal.net.Net_TCPListener.TCPListener {
-    public function new() this = new stdgo._internal.net.Net_TCPListener.TCPListener();
+@:structInit @:using(stdgo.net.Net.TCPListener_static_extension) abstract TCPListener(stdgo._internal.net.Net_tcplistener.TCPListener) from stdgo._internal.net.Net_tcplistener.TCPListener to stdgo._internal.net.Net_tcplistener.TCPListener {
+    public function new() this = new stdgo._internal.net.Net_tcplistener.TCPListener();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.UDPAddr_static_extension) abstract UDPAddr(stdgo._internal.net.Net_UDPAddr.UDPAddr) from stdgo._internal.net.Net_UDPAddr.UDPAddr to stdgo._internal.net.Net_UDPAddr.UDPAddr {
+@:structInit @:using(stdgo.net.Net.UDPAddr_static_extension) abstract UDPAddr(stdgo._internal.net.Net_udpaddr.UDPAddr) from stdgo._internal.net.Net_udpaddr.UDPAddr to stdgo._internal.net.Net_udpaddr.UDPAddr {
     public var iP(get, set) : IP;
     function get_iP():IP return this.iP;
     function set_iP(v:IP):IP {
@@ -826,27 +826,27 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.zone = (v : stdgo.GoString);
         return v;
     }
-    public function new(?iP:IP, ?port:StdTypes.Int, ?zone:String) this = new stdgo._internal.net.Net_UDPAddr.UDPAddr(iP, (port : stdgo.GoInt), (zone : stdgo.GoString));
+    public function new(?iP:IP, ?port:StdTypes.Int, ?zone:String) this = new stdgo._internal.net.Net_udpaddr.UDPAddr(iP, (port : stdgo.GoInt), (zone : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.T_addrPortUDPAddr_static_extension) abstract T_addrPortUDPAddr(stdgo._internal.net.Net_T_addrPortUDPAddr.T_addrPortUDPAddr) from stdgo._internal.net.Net_T_addrPortUDPAddr.T_addrPortUDPAddr to stdgo._internal.net.Net_T_addrPortUDPAddr.T_addrPortUDPAddr {
+@:structInit @:using(stdgo.net.Net.T_addrPortUDPAddr_static_extension) abstract T_addrPortUDPAddr(stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr) from stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr to stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr {
     public var addrPort(get, set) : AddrPort;
     function get_addrPort():AddrPort return this.addrPort;
     function set_addrPort(v:AddrPort):AddrPort {
         this.addrPort = v;
         return v;
     }
-    public function new(?addrPort:AddrPort) this = new stdgo._internal.net.Net_T_addrPortUDPAddr.T_addrPortUDPAddr(addrPort);
+    public function new(?addrPort:AddrPort) this = new stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr(addrPort);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.UDPConn_static_extension) abstract UDPConn(stdgo._internal.net.Net_UDPConn.UDPConn) from stdgo._internal.net.Net_UDPConn.UDPConn to stdgo._internal.net.Net_UDPConn.UDPConn {
-    public function new() this = new stdgo._internal.net.Net_UDPConn.UDPConn();
+@:structInit @:using(stdgo.net.Net.UDPConn_static_extension) abstract UDPConn(stdgo._internal.net.Net_udpconn.UDPConn) from stdgo._internal.net.Net_udpconn.UDPConn to stdgo._internal.net.Net_udpconn.UDPConn {
+    public function new() this = new stdgo._internal.net.Net_udpconn.UDPConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.UnixAddr_static_extension) abstract UnixAddr(stdgo._internal.net.Net_UnixAddr.UnixAddr) from stdgo._internal.net.Net_UnixAddr.UnixAddr to stdgo._internal.net.Net_UnixAddr.UnixAddr {
+@:structInit @:using(stdgo.net.Net.UnixAddr_static_extension) abstract UnixAddr(stdgo._internal.net.Net_unixaddr.UnixAddr) from stdgo._internal.net.Net_unixaddr.UnixAddr to stdgo._internal.net.Net_unixaddr.UnixAddr {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -859,74 +859,74 @@ typedef T_sockaddr = stdgo._internal.net.Net_T_sockaddr.T_sockaddr;
         this.net = (v : stdgo.GoString);
         return v;
     }
-    public function new(?name:String, ?net:String) this = new stdgo._internal.net.Net_UnixAddr.UnixAddr((name : stdgo.GoString), (net : stdgo.GoString));
+    public function new(?name:String, ?net:String) this = new stdgo._internal.net.Net_unixaddr.UnixAddr((name : stdgo.GoString), (net : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.UnixConn_static_extension) abstract UnixConn(stdgo._internal.net.Net_UnixConn.UnixConn) from stdgo._internal.net.Net_UnixConn.UnixConn to stdgo._internal.net.Net_UnixConn.UnixConn {
-    public function new() this = new stdgo._internal.net.Net_UnixConn.UnixConn();
+@:structInit @:using(stdgo.net.Net.UnixConn_static_extension) abstract UnixConn(stdgo._internal.net.Net_unixconn.UnixConn) from stdgo._internal.net.Net_unixconn.UnixConn to stdgo._internal.net.Net_unixconn.UnixConn {
+    public function new() this = new stdgo._internal.net.Net_unixconn.UnixConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.Net.UnixListener_static_extension) abstract UnixListener(stdgo._internal.net.Net_UnixListener.UnixListener) from stdgo._internal.net.Net_UnixListener.UnixListener to stdgo._internal.net.Net_UnixListener.UnixListener {
-    public function new() this = new stdgo._internal.net.Net_UnixListener.UnixListener();
+@:structInit @:using(stdgo.net.Net.UnixListener_static_extension) abstract UnixListener(stdgo._internal.net.Net_unixlistener.UnixListener) from stdgo._internal.net.Net_unixlistener.UnixListener to stdgo._internal.net.Net_unixlistener.UnixListener {
+    public function new() this = new stdgo._internal.net.Net_unixlistener.UnixListener();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.net.Net_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.net.Net_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.net.Net_T__struct_0.T__struct_0;
-typedef T_policyTable = stdgo._internal.net.Net_T_policyTable.T_policyTable;
-typedef T_scope = stdgo._internal.net.Net_T_scope.T_scope;
-typedef T_mptcpStatus = stdgo._internal.net.Net_T_mptcpStatus.T_mptcpStatus;
-typedef T_byPriorityWeight = stdgo._internal.net.Net_T_byPriorityWeight.T_byPriorityWeight;
-typedef T_byPref = stdgo._internal.net.Net_T_byPref.T_byPref;
-typedef T_fileAddr = stdgo._internal.net.Net_T_fileAddr.T_fileAddr;
-typedef Flags = stdgo._internal.net.Net_Flags.Flags;
-typedef IP = stdgo._internal.net.Net_IP.IP;
-typedef IPMask = stdgo._internal.net.Net_IPMask.IPMask;
-typedef T_addrList = stdgo._internal.net.Net_T_addrList.T_addrList;
-typedef HardwareAddr = stdgo._internal.net.Net_HardwareAddr.HardwareAddr;
-typedef UnknownNetworkError = stdgo._internal.net.Net_UnknownNetworkError.UnknownNetworkError;
-typedef InvalidAddrError = stdgo._internal.net.Net_InvalidAddrError.InvalidAddrError;
-typedef Buffers = stdgo._internal.net.Net_Buffers.Buffers;
-typedef T_ipAttrPointer = stdgo._internal.net.Net_T_ipAttrPointer.T_ipAttrPointer;
+typedef T__struct_0 = stdgo._internal.net.Net_t__struct_0.T__struct_0;
+typedef T_policyTable = stdgo._internal.net.Net_t_policytable.T_policyTable;
+typedef T_scope = stdgo._internal.net.Net_t_scope.T_scope;
+typedef T_mptcpStatus = stdgo._internal.net.Net_t_mptcpstatus.T_mptcpStatus;
+typedef T_byPriorityWeight = stdgo._internal.net.Net_t_bypriorityweight.T_byPriorityWeight;
+typedef T_byPref = stdgo._internal.net.Net_t_bypref.T_byPref;
+typedef T_fileAddr = stdgo._internal.net.Net_t_fileaddr.T_fileAddr;
+typedef Flags = stdgo._internal.net.Net_flags.Flags;
+typedef IP = stdgo._internal.net.Net_ip.IP;
+typedef IPMask = stdgo._internal.net.Net_ipmask.IPMask;
+typedef T_addrList = stdgo._internal.net.Net_t_addrlist.T_addrList;
+typedef HardwareAddr = stdgo._internal.net.Net_hardwareaddr.HardwareAddr;
+typedef UnknownNetworkError = stdgo._internal.net.Net_unknownnetworkerror.UnknownNetworkError;
+typedef InvalidAddrError = stdgo._internal.net.Net_invalidaddrerror.InvalidAddrError;
+typedef Buffers = stdgo._internal.net.Net_buffers.Buffers;
+typedef T_ipAttrPointer = stdgo._internal.net.Net_t_ipattrpointer.T_ipAttrPointer;
 class T_ipAttr_static_extension {
 
 }
-typedef T_byRFC6724Pointer = stdgo._internal.net.Net_T_byRFC6724Pointer.T_byRFC6724Pointer;
+typedef T_byRFC6724Pointer = stdgo._internal.net.Net_t_byrfc6724pointer.T_byRFC6724Pointer;
 class T_byRFC6724_static_extension {
     static public function less(_s:T_byRFC6724, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        return stdgo._internal.net.Net_T_byRFC6724_static_extension.T_byRFC6724_static_extension.less(_s, _i, _j);
+        return stdgo._internal.net.Net_t_byrfc6724_static_extension.T_byRFC6724_static_extension.less(_s, _i, _j);
     }
     static public function swap(_s:T_byRFC6724, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724>);
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        stdgo._internal.net.Net_T_byRFC6724_static_extension.T_byRFC6724_static_extension.swap(_s, _i, _j);
+        stdgo._internal.net.Net_t_byrfc6724_static_extension.T_byRFC6724_static_extension.swap(_s, _i, _j);
     }
     static public function len(_s:T_byRFC6724):StdTypes.Int {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.Net_t_byrfc6724.T_byRFC6724>);
-        return stdgo._internal.net.Net_T_byRFC6724_static_extension.T_byRFC6724_static_extension.len(_s);
+        return stdgo._internal.net.Net_t_byrfc6724_static_extension.T_byRFC6724_static_extension.len(_s);
     }
 }
-typedef T_policyTableEntryPointer = stdgo._internal.net.Net_T_policyTableEntryPointer.T_policyTableEntryPointer;
+typedef T_policyTableEntryPointer = stdgo._internal.net.Net_t_policytableentrypointer.T_policyTableEntryPointer;
 class T_policyTableEntry_static_extension {
 
 }
-typedef DialerPointer = stdgo._internal.net.Net_DialerPointer.DialerPointer;
+typedef DialerPointer = stdgo._internal.net.Net_dialerpointer.DialerPointer;
 class Dialer_static_extension {
     static public function dialContext(_d:Dialer, _ctx:stdgo._internal.context.Context_context.Context, _network:String, _address:String):stdgo.Tuple<Conn, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer>);
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Dialer_static_extension.Dialer_static_extension.dialContext(_d, _ctx, _network, _address);
+            final obj = stdgo._internal.net.Net_dialer_static_extension.Dialer_static_extension.dialContext(_d, _ctx, _network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -935,44 +935,44 @@ class Dialer_static_extension {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Dialer_static_extension.Dialer_static_extension.dial(_d, _network, _address);
+            final obj = stdgo._internal.net.Net_dialer_static_extension.Dialer_static_extension.dial(_d, _network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setMultipathTCP(_d:Dialer, _use:Bool):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer>);
-        stdgo._internal.net.Net_Dialer_static_extension.Dialer_static_extension.setMultipathTCP(_d, _use);
+        stdgo._internal.net.Net_dialer_static_extension.Dialer_static_extension.setMultipathTCP(_d, _use);
     }
     static public function multipathTCP(_d:Dialer):Bool {
         final _d = (_d : stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer>);
-        return stdgo._internal.net.Net_Dialer_static_extension.Dialer_static_extension.multipathTCP(_d);
+        return stdgo._internal.net.Net_dialer_static_extension.Dialer_static_extension.multipathTCP(_d);
     }
 }
-typedef T_sysDialerPointer = stdgo._internal.net.Net_T_sysDialerPointer.T_sysDialerPointer;
+typedef T_sysDialerPointer = stdgo._internal.net.Net_t_sysdialerpointer.T_sysDialerPointer;
 class T_sysDialer_static_extension {
     public static function _resolver(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer):Resolver {
-        return stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension._resolver(__self__);
+        return stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension._resolver(__self__);
     }
     public static function _fallbackDelay(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer):stdgo._internal.time.Time_duration.Duration {
-        return stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension._fallbackDelay(__self__);
+        return stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension._fallbackDelay(__self__);
     }
     public static function _dualStack(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer):Bool {
-        return stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension._dualStack(__self__);
+        return stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension._dualStack(__self__);
     }
     public static function _deadline(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
-        return stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension._deadline(__self__, _0, _1);
+        return stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension._deadline(__self__, _0, _1);
     }
     public static function setMultipathTCP(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer, _0:Bool):Void {
-        stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension.setMultipathTCP(__self__, _0);
+        stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension.setMultipathTCP(__self__, _0);
     }
     public static function multipathTCP(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer):Bool {
-        return stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension.multipathTCP(__self__);
+        return stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension.multipathTCP(__self__);
     }
     public static function dialContext(__self__:stdgo._internal.net.Net_t_sysdialer.T_sysDialer, _0:stdgo._internal.context.Context_context.Context, _1:String, _2:String):stdgo.Tuple<Conn, stdgo.Error> {
         final _1 = (_1 : stdgo.GoString);
         final _2 = (_2 : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension.dialContext(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension.dialContext(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -980,19 +980,19 @@ class T_sysDialer_static_extension {
         final _0 = (_0 : stdgo.GoString);
         final _1 = (_1 : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_T_sysDialer_static_extension.T_sysDialer_static_extension.dial(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_sysdialer_static_extension.T_sysDialer_static_extension.dial(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef ListenConfigPointer = stdgo._internal.net.Net_ListenConfigPointer.ListenConfigPointer;
+typedef ListenConfigPointer = stdgo._internal.net.Net_listenconfigpointer.ListenConfigPointer;
 class ListenConfig_static_extension {
     static public function listenPacket(_lc:ListenConfig, _ctx:stdgo._internal.context.Context_context.Context, _network:String, _address:String):stdgo.Tuple<PacketConn, stdgo.Error> {
         final _lc = (_lc : stdgo.Ref<stdgo._internal.net.Net_listenconfig.ListenConfig>);
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_ListenConfig_static_extension.ListenConfig_static_extension.listenPacket(_lc, _ctx, _network, _address);
+            final obj = stdgo._internal.net.Net_listenconfig_static_extension.ListenConfig_static_extension.listenPacket(_lc, _ctx, _network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1001,32 +1001,32 @@ class ListenConfig_static_extension {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_ListenConfig_static_extension.ListenConfig_static_extension.listen(_lc, _ctx, _network, _address);
+            final obj = stdgo._internal.net.Net_listenconfig_static_extension.ListenConfig_static_extension.listen(_lc, _ctx, _network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setMultipathTCP(_lc:ListenConfig, _use:Bool):Void {
         final _lc = (_lc : stdgo.Ref<stdgo._internal.net.Net_listenconfig.ListenConfig>);
-        stdgo._internal.net.Net_ListenConfig_static_extension.ListenConfig_static_extension.setMultipathTCP(_lc, _use);
+        stdgo._internal.net.Net_listenconfig_static_extension.ListenConfig_static_extension.setMultipathTCP(_lc, _use);
     }
     static public function multipathTCP(_lc:ListenConfig):Bool {
         final _lc = (_lc : stdgo.Ref<stdgo._internal.net.Net_listenconfig.ListenConfig>);
-        return stdgo._internal.net.Net_ListenConfig_static_extension.ListenConfig_static_extension.multipathTCP(_lc);
+        return stdgo._internal.net.Net_listenconfig_static_extension.ListenConfig_static_extension.multipathTCP(_lc);
     }
 }
-typedef T_sysListenerPointer = stdgo._internal.net.Net_T_sysListenerPointer.T_sysListenerPointer;
+typedef T_sysListenerPointer = stdgo._internal.net.Net_t_syslistenerpointer.T_sysListenerPointer;
 class T_sysListener_static_extension {
     public static function setMultipathTCP(__self__:stdgo._internal.net.Net_t_syslistener.T_sysListener, _0:Bool):Void {
-        stdgo._internal.net.Net_T_sysListener_static_extension.T_sysListener_static_extension.setMultipathTCP(__self__, _0);
+        stdgo._internal.net.Net_t_syslistener_static_extension.T_sysListener_static_extension.setMultipathTCP(__self__, _0);
     }
     public static function multipathTCP(__self__:stdgo._internal.net.Net_t_syslistener.T_sysListener):Bool {
-        return stdgo._internal.net.Net_T_sysListener_static_extension.T_sysListener_static_extension.multipathTCP(__self__);
+        return stdgo._internal.net.Net_t_syslistener_static_extension.T_sysListener_static_extension.multipathTCP(__self__);
     }
     public static function listenPacket(__self__:stdgo._internal.net.Net_t_syslistener.T_sysListener, _0:stdgo._internal.context.Context_context.Context, _1:String, _2:String):stdgo.Tuple<PacketConn, stdgo.Error> {
         final _1 = (_1 : stdgo.GoString);
         final _2 = (_2 : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_T_sysListener_static_extension.T_sysListener_static_extension.listenPacket(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_syslistener_static_extension.T_sysListener_static_extension.listenPacket(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1034,103 +1034,103 @@ class T_sysListener_static_extension {
         final _1 = (_1 : stdgo.GoString);
         final _2 = (_2 : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_T_sysListener_static_extension.T_sysListener_static_extension.listen(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_syslistener_static_extension.T_sysListener_static_extension.listen(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef SRVPointer = stdgo._internal.net.Net_SRVPointer.SRVPointer;
+typedef SRVPointer = stdgo._internal.net.Net_srvpointer.SRVPointer;
 class SRV_static_extension {
 
 }
-typedef MXPointer = stdgo._internal.net.Net_MXPointer.MXPointer;
+typedef MXPointer = stdgo._internal.net.Net_mxpointer.MXPointer;
 class MX_static_extension {
 
 }
-typedef NSPointer = stdgo._internal.net.Net_NSPointer.NSPointer;
+typedef NSPointer = stdgo._internal.net.Net_nspointer.NSPointer;
 class NS_static_extension {
 
 }
-typedef T_dnsConfigPointer = stdgo._internal.net.Net_T_dnsConfigPointer.T_dnsConfigPointer;
+typedef T_dnsConfigPointer = stdgo._internal.net.Net_t_dnsconfigpointer.T_dnsConfigPointer;
 class T_dnsConfig_static_extension {
 
 }
-typedef T_byNamePointer = stdgo._internal.net.Net_T_byNamePointer.T_byNamePointer;
+typedef T_byNamePointer = stdgo._internal.net.Net_t_bynamepointer.T_byNamePointer;
 class T_byName_static_extension {
 
 }
-typedef InterfacePointer = stdgo._internal.net.Net_InterfacePointer.InterfacePointer;
+typedef InterfacePointer = stdgo._internal.net.Net_interfacepointer.InterfacePointer;
 class Interface_static_extension {
     static public function multicastAddrs(_ifi:Interface):stdgo.Tuple<Array<Addr>, stdgo.Error> {
         final _ifi = (_ifi : stdgo.Ref<stdgo._internal.net.Net_interface.Interface>);
         return {
-            final obj = stdgo._internal.net.Net_Interface_static_extension.Interface_static_extension.multicastAddrs(_ifi);
+            final obj = stdgo._internal.net.Net_interface_static_extension.Interface_static_extension.multicastAddrs(_ifi);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function addrs(_ifi:Interface):stdgo.Tuple<Array<Addr>, stdgo.Error> {
         final _ifi = (_ifi : stdgo.Ref<stdgo._internal.net.Net_interface.Interface>);
         return {
-            final obj = stdgo._internal.net.Net_Interface_static_extension.Interface_static_extension.addrs(_ifi);
+            final obj = stdgo._internal.net.Net_interface_static_extension.Interface_static_extension.addrs(_ifi);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_ipv6ZoneCachePointer = stdgo._internal.net.Net_T_ipv6ZoneCachePointer.T_ipv6ZoneCachePointer;
+typedef T_ipv6ZoneCachePointer = stdgo._internal.net.Net_t_ipv6zonecachepointer.T_ipv6ZoneCachePointer;
 class T_ipv6ZoneCache_static_extension {
     public static function _rUnlockSlow(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
-        stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension._rUnlockSlow(__self__, _0);
+        stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension._rUnlockSlow(__self__, _0);
     }
     public static function unlock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Void {
-        stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.unlock(__self__);
+        stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.unlock(__self__);
     }
     public static function tryRLock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Bool {
-        return stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.tryRLock(__self__);
+        return stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.tryRLock(__self__);
     }
     public static function tryLock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Bool {
-        return stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.tryLock(__self__);
+        return stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.tryLock(__self__);
     }
     public static function rUnlock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Void {
-        stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.rUnlock(__self__);
+        stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.rUnlock(__self__);
     }
     public static function rLocker(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):stdgo._internal.sync.Sync_locker.Locker {
-        return stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.rLocker(__self__);
+        return stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.rLocker(__self__);
     }
     public static function rLock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Void {
-        stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.rLock(__self__);
+        stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.rLock(__self__);
     }
     public static function lock(__self__:stdgo._internal.net.Net_t_ipv6zonecache.T_ipv6ZoneCache):Void {
-        stdgo._internal.net.Net_T_ipv6ZoneCache_static_extension.T_ipv6ZoneCache_static_extension.lock(__self__);
+        stdgo._internal.net.Net_t_ipv6zonecache_static_extension.T_ipv6ZoneCache_static_extension.lock(__self__);
     }
 }
-typedef IPNetPointer = stdgo._internal.net.Net_IPNetPointer.IPNetPointer;
+typedef IPNetPointer = stdgo._internal.net.Net_ipnetpointer.IPNetPointer;
 class IPNet_static_extension {
     static public function string(_n:IPNet):String {
         final _n = (_n : stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>);
-        return stdgo._internal.net.Net_IPNet_static_extension.IPNet_static_extension.string(_n);
+        return stdgo._internal.net.Net_ipnet_static_extension.IPNet_static_extension.string(_n);
     }
     static public function network(_n:IPNet):String {
         final _n = (_n : stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>);
-        return stdgo._internal.net.Net_IPNet_static_extension.IPNet_static_extension.network(_n);
+        return stdgo._internal.net.Net_ipnet_static_extension.IPNet_static_extension.network(_n);
     }
     static public function contains(_n:IPNet, _ip:IP):Bool {
         final _n = (_n : stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>);
-        return stdgo._internal.net.Net_IPNet_static_extension.IPNet_static_extension.contains(_n, _ip);
+        return stdgo._internal.net.Net_ipnet_static_extension.IPNet_static_extension.contains(_n, _ip);
     }
 }
-typedef IPAddrPointer = stdgo._internal.net.Net_IPAddrPointer.IPAddrPointer;
+typedef IPAddrPointer = stdgo._internal.net.Net_ipaddrpointer.IPAddrPointer;
 class IPAddr_static_extension {
     static public function string(_a:IPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
-        return stdgo._internal.net.Net_IPAddr_static_extension.IPAddr_static_extension.string(_a);
+        return stdgo._internal.net.Net_ipaddr_static_extension.IPAddr_static_extension.string(_a);
     }
     static public function network(_a:IPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
-        return stdgo._internal.net.Net_IPAddr_static_extension.IPAddr_static_extension.network(_a);
+        return stdgo._internal.net.Net_ipaddr_static_extension.IPAddr_static_extension.network(_a);
     }
 }
-typedef IPConnPointer = stdgo._internal.net.Net_IPConnPointer.IPConnPointer;
+typedef IPConnPointer = stdgo._internal.net.Net_ipconnpointer.IPConnPointer;
 class IPConn_static_extension {
     static public function writeMsgIP(_c:IPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>, _addr:IPAddr):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_ipconn.IPConn>);
@@ -1138,7 +1138,7 @@ class IPConn_static_extension {
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.writeMsgIP(_c, _b, _oob, _addr);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.writeMsgIP(_c, _b, _oob, _addr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1146,7 +1146,7 @@ class IPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_ipconn.IPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.writeTo(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.writeTo(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1155,7 +1155,7 @@ class IPConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.writeToIP(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.writeToIP(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1164,7 +1164,7 @@ class IPConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.readMsgIP(_c, _b, _oob);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.readMsgIP(_c, _b, _oob);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
@@ -1172,7 +1172,7 @@ class IPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_ipconn.IPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.readFrom(_c, _b);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.readFrom(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1180,85 +1180,85 @@ class IPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_ipconn.IPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.readFromIP(_c, _b);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.readFromIP(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function syscallConn(_c:IPConn):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_ipconn.IPConn>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.syscallConn(_c);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.syscallConn(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _ok(__self__:stdgo._internal.net.Net_ipconn.IPConn):Bool {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension._ok(__self__);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension._ok(__self__);
     }
     public static function write(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function setWriteDeadline(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.setWriteDeadline(__self__, _0);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.setWriteDeadline(__self__, _0);
     }
     public static function setWriteBuffer(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.setWriteBuffer(__self__, _0);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.setWriteBuffer(__self__, _0);
     }
     public static function setReadDeadline(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.setReadDeadline(__self__, _0);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.setReadDeadline(__self__, _0);
     }
     public static function setReadBuffer(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.setReadBuffer(__self__, _0);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.setReadBuffer(__self__, _0);
     }
     public static function setDeadline(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.setDeadline(__self__, _0);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.setDeadline(__self__, _0);
     }
     public static function remoteAddr(__self__:stdgo._internal.net.Net_ipconn.IPConn):Addr {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.remoteAddr(__self__);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.remoteAddr(__self__);
     }
     public static function read(__self__:stdgo._internal.net.Net_ipconn.IPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.read(__self__, _0);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function localAddr(__self__:stdgo._internal.net.Net_ipconn.IPConn):Addr {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.localAddr(__self__);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.localAddr(__self__);
     }
     public static function file(__self__:stdgo._internal.net.Net_ipconn.IPConn):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.file(__self__);
+            final obj = stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.file(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.net.Net_ipconn.IPConn):stdgo.Error {
-        return stdgo._internal.net.Net_IPConn_static_extension.IPConn_static_extension.close(__self__);
+        return stdgo._internal.net.Net_ipconn_static_extension.IPConn_static_extension.close(__self__);
     }
 }
-typedef T_ipStackCapabilitiesPointer = stdgo._internal.net.Net_T_ipStackCapabilitiesPointer.T_ipStackCapabilitiesPointer;
+typedef T_ipStackCapabilitiesPointer = stdgo._internal.net.Net_t_ipstackcapabilitiespointer.T_ipStackCapabilitiesPointer;
 class T_ipStackCapabilities_static_extension {
     public static function _doSlow(__self__:stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities, _0:() -> Void):Void {
         final _0 = _0;
-        stdgo._internal.net.Net_T_ipStackCapabilities_static_extension.T_ipStackCapabilities_static_extension._doSlow(__self__, _0);
+        stdgo._internal.net.Net_t_ipstackcapabilities_static_extension.T_ipStackCapabilities_static_extension._doSlow(__self__, _0);
     }
     public static function do_(__self__:stdgo._internal.net.Net_t_ipstackcapabilities.T_ipStackCapabilities, _0:() -> Void):Void {
         final _0 = _0;
-        stdgo._internal.net.Net_T_ipStackCapabilities_static_extension.T_ipStackCapabilities_static_extension.do_(__self__, _0);
+        stdgo._internal.net.Net_t_ipstackcapabilities_static_extension.T_ipStackCapabilities_static_extension.do_(__self__, _0);
     }
 }
-typedef ResolverPointer = stdgo._internal.net.Net_ResolverPointer.ResolverPointer;
+typedef ResolverPointer = stdgo._internal.net.Net_resolverpointer.ResolverPointer;
 class Resolver_static_extension {
     static public function lookupAddr(_r:Resolver, _ctx:stdgo._internal.context.Context_context.Context, _addr:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _addr = (_addr : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupAddr(_r, _ctx, _addr);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupAddr(_r, _ctx, _addr);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1266,7 +1266,7 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupTXT(_r, _ctx, _name);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupTXT(_r, _ctx, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1274,7 +1274,7 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupNS(_r, _ctx, _name);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupNS(_r, _ctx, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1282,7 +1282,7 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupMX(_r, _ctx, _name);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupMX(_r, _ctx, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1292,7 +1292,7 @@ class Resolver_static_extension {
         final _proto = (_proto : stdgo.GoString);
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupSRV(_r, _ctx, _service, _proto, _name);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupSRV(_r, _ctx, _service, _proto, _name);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -1300,7 +1300,7 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupCNAME(_r, _ctx, _host);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupCNAME(_r, _ctx, _host);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1309,7 +1309,7 @@ class Resolver_static_extension {
         final _network = (_network : stdgo.GoString);
         final _service = (_service : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupPort(_r, _ctx, _network, _service);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupPort(_r, _ctx, _network, _service);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1318,7 +1318,7 @@ class Resolver_static_extension {
         final _network = (_network : stdgo.GoString);
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupNetIP(_r, _ctx, _network, _host);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupNetIP(_r, _ctx, _network, _host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1327,7 +1327,7 @@ class Resolver_static_extension {
         final _network = (_network : stdgo.GoString);
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupIP(_r, _ctx, _network, _host);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupIP(_r, _ctx, _network, _host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1335,7 +1335,7 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupIPAddr(_r, _ctx, _host);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupIPAddr(_r, _ctx, _host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1343,79 +1343,79 @@ class Resolver_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_Resolver_static_extension.Resolver_static_extension.lookupHost(_r, _ctx, _host);
+            final obj = stdgo._internal.net.Net_resolver_static_extension.Resolver_static_extension.lookupHost(_r, _ctx, _host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
-typedef T_onlyValuesCtxPointer = stdgo._internal.net.Net_T_onlyValuesCtxPointer.T_onlyValuesCtxPointer;
+typedef T_onlyValuesCtxPointer = stdgo._internal.net.Net_t_onlyvaluesctxpointer.T_onlyValuesCtxPointer;
 class T_onlyValuesCtx_static_extension {
     static public function value(_ovc:T_onlyValuesCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
         final _ovc = (_ovc : stdgo.Ref<stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx>);
         final _key = (_key : stdgo.AnyInterface);
-        return stdgo._internal.net.Net_T_onlyValuesCtx_static_extension.T_onlyValuesCtx_static_extension.value(_ovc, _key);
+        return stdgo._internal.net.Net_t_onlyvaluesctx_static_extension.T_onlyValuesCtx_static_extension.value(_ovc, _key);
     }
     public static function err(__self__:stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx):stdgo.Error {
-        return stdgo._internal.net.Net_T_onlyValuesCtx_static_extension.T_onlyValuesCtx_static_extension.err(__self__);
+        return stdgo._internal.net.Net_t_onlyvaluesctx_static_extension.T_onlyValuesCtx_static_extension.err(__self__);
     }
     public static function done(__self__:stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx):stdgo.Chan<{ }> {
-        return stdgo._internal.net.Net_T_onlyValuesCtx_static_extension.T_onlyValuesCtx_static_extension.done(__self__);
+        return stdgo._internal.net.Net_t_onlyvaluesctx_static_extension.T_onlyValuesCtx_static_extension.done(__self__);
     }
     public static function deadline(__self__:stdgo._internal.net.Net_t_onlyvaluesctx.T_onlyValuesCtx):stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool> {
         return {
-            final obj = stdgo._internal.net.Net_T_onlyValuesCtx_static_extension.T_onlyValuesCtx_static_extension.deadline(__self__);
+            final obj = stdgo._internal.net.Net_t_onlyvaluesctx_static_extension.T_onlyValuesCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_connPointer = stdgo._internal.net.Net_T_connPointer.T_connPointer;
+typedef T_connPointer = stdgo._internal.net.Net_t_connpointer.T_connPointer;
 class T_conn_static_extension {
     static public function file(_c:T_conn):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
         return {
-            final obj = stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.file(_c);
+            final obj = stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.file(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setWriteBuffer(_c:T_conn, _bytes:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
         final _bytes = (_bytes : stdgo.GoInt);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.setWriteBuffer(_c, _bytes);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.setWriteBuffer(_c, _bytes);
     }
     static public function setReadBuffer(_c:T_conn, _bytes:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
         final _bytes = (_bytes : stdgo.GoInt);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.setReadBuffer(_c, _bytes);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.setReadBuffer(_c, _bytes);
     }
     static public function setWriteDeadline(_c:T_conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.setWriteDeadline(_c, _t);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.setWriteDeadline(_c, _t);
     }
     static public function setReadDeadline(_c:T_conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.setReadDeadline(_c, _t);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.setReadDeadline(_c, _t);
     }
     static public function setDeadline(_c:T_conn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.setDeadline(_c, _t);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.setDeadline(_c, _t);
     }
     static public function remoteAddr(_c:T_conn):Addr {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.remoteAddr(_c);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.remoteAddr(_c);
     }
     static public function localAddr(_c:T_conn):Addr {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.localAddr(_c);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.localAddr(_c);
     }
     static public function close(_c:T_conn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
-        return stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.close(_c);
+        return stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.close(_c);
     }
     static public function write(_c:T_conn, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.write(_c, _b);
+            final obj = stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.write(_c, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1423,161 +1423,161 @@ class T_conn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_conn.T_conn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_conn_static_extension.T_conn_static_extension.read(_c, _b);
+            final obj = stdgo._internal.net.Net_t_conn_static_extension.T_conn_static_extension.read(_c, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_canceledErrorPointer = stdgo._internal.net.Net_T_canceledErrorPointer.T_canceledErrorPointer;
+typedef T_canceledErrorPointer = stdgo._internal.net.Net_t_cancelederrorpointer.T_canceledErrorPointer;
 class T_canceledError_static_extension {
     static public function is_(_:T_canceledError, _err:stdgo.Error):Bool {
         final _err = (_err : stdgo.Error);
-        return stdgo._internal.net.Net_T_canceledError_static_extension.T_canceledError_static_extension.is_(_, _err);
+        return stdgo._internal.net.Net_t_cancelederror_static_extension.T_canceledError_static_extension.is_(_, _err);
     }
     static public function error(_:T_canceledError):String {
-        return stdgo._internal.net.Net_T_canceledError_static_extension.T_canceledError_static_extension.error(_);
+        return stdgo._internal.net.Net_t_cancelederror_static_extension.T_canceledError_static_extension.error(_);
     }
 }
-typedef OpErrorPointer = stdgo._internal.net.Net_OpErrorPointer.OpErrorPointer;
+typedef OpErrorPointer = stdgo._internal.net.Net_operrorpointer.OpErrorPointer;
 class OpError_static_extension {
     static public function temporary(_e:OpError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_operror.OpError>);
-        return stdgo._internal.net.Net_OpError_static_extension.OpError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_operror_static_extension.OpError_static_extension.temporary(_e);
     }
     static public function timeout(_e:OpError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_operror.OpError>);
-        return stdgo._internal.net.Net_OpError_static_extension.OpError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_operror_static_extension.OpError_static_extension.timeout(_e);
     }
     static public function error(_e:OpError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_operror.OpError>);
-        return stdgo._internal.net.Net_OpError_static_extension.OpError_static_extension.error(_e);
+        return stdgo._internal.net.Net_operror_static_extension.OpError_static_extension.error(_e);
     }
     static public function unwrap(_e:OpError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_operror.OpError>);
-        return stdgo._internal.net.Net_OpError_static_extension.OpError_static_extension.unwrap(_e);
+        return stdgo._internal.net.Net_operror_static_extension.OpError_static_extension.unwrap(_e);
     }
 }
-typedef ParseErrorPointer = stdgo._internal.net.Net_ParseErrorPointer.ParseErrorPointer;
+typedef ParseErrorPointer = stdgo._internal.net.Net_parseerrorpointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function temporary(_e:ParseError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_parseerror.ParseError>);
-        return stdgo._internal.net.Net_ParseError_static_extension.ParseError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_parseerror_static_extension.ParseError_static_extension.temporary(_e);
     }
     static public function timeout(_e:ParseError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_parseerror.ParseError>);
-        return stdgo._internal.net.Net_ParseError_static_extension.ParseError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_parseerror_static_extension.ParseError_static_extension.timeout(_e);
     }
     static public function error(_e:ParseError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_parseerror.ParseError>);
-        return stdgo._internal.net.Net_ParseError_static_extension.ParseError_static_extension.error(_e);
+        return stdgo._internal.net.Net_parseerror_static_extension.ParseError_static_extension.error(_e);
     }
 }
-typedef AddrErrorPointer = stdgo._internal.net.Net_AddrErrorPointer.AddrErrorPointer;
+typedef AddrErrorPointer = stdgo._internal.net.Net_addrerrorpointer.AddrErrorPointer;
 class AddrError_static_extension {
     static public function temporary(_e:AddrError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_addrerror.AddrError>);
-        return stdgo._internal.net.Net_AddrError_static_extension.AddrError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_addrerror_static_extension.AddrError_static_extension.temporary(_e);
     }
     static public function timeout(_e:AddrError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_addrerror.AddrError>);
-        return stdgo._internal.net.Net_AddrError_static_extension.AddrError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_addrerror_static_extension.AddrError_static_extension.timeout(_e);
     }
     static public function error(_e:AddrError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_addrerror.AddrError>);
-        return stdgo._internal.net.Net_AddrError_static_extension.AddrError_static_extension.error(_e);
+        return stdgo._internal.net.Net_addrerror_static_extension.AddrError_static_extension.error(_e);
     }
 }
-typedef T_timeoutErrorPointer = stdgo._internal.net.Net_T_timeoutErrorPointer.T_timeoutErrorPointer;
+typedef T_timeoutErrorPointer = stdgo._internal.net.Net_t_timeouterrorpointer.T_timeoutErrorPointer;
 class T_timeoutError_static_extension {
     static public function is_(_e:T_timeoutError, _err:stdgo.Error):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_t_timeouterror.T_timeoutError>);
         final _err = (_err : stdgo.Error);
-        return stdgo._internal.net.Net_T_timeoutError_static_extension.T_timeoutError_static_extension.is_(_e, _err);
+        return stdgo._internal.net.Net_t_timeouterror_static_extension.T_timeoutError_static_extension.is_(_e, _err);
     }
     static public function temporary(_e:T_timeoutError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_t_timeouterror.T_timeoutError>);
-        return stdgo._internal.net.Net_T_timeoutError_static_extension.T_timeoutError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_t_timeouterror_static_extension.T_timeoutError_static_extension.temporary(_e);
     }
     static public function timeout(_e:T_timeoutError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_t_timeouterror.T_timeoutError>);
-        return stdgo._internal.net.Net_T_timeoutError_static_extension.T_timeoutError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_t_timeouterror_static_extension.T_timeoutError_static_extension.timeout(_e);
     }
     static public function error(_e:T_timeoutError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_t_timeouterror.T_timeoutError>);
-        return stdgo._internal.net.Net_T_timeoutError_static_extension.T_timeoutError_static_extension.error(_e);
+        return stdgo._internal.net.Net_t_timeouterror_static_extension.T_timeoutError_static_extension.error(_e);
     }
 }
-typedef DNSConfigErrorPointer = stdgo._internal.net.Net_DNSConfigErrorPointer.DNSConfigErrorPointer;
+typedef DNSConfigErrorPointer = stdgo._internal.net.Net_dnsconfigerrorpointer.DNSConfigErrorPointer;
 class DNSConfigError_static_extension {
     static public function temporary(_e:DNSConfigError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnsconfigerror.DNSConfigError>);
-        return stdgo._internal.net.Net_DNSConfigError_static_extension.DNSConfigError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_dnsconfigerror_static_extension.DNSConfigError_static_extension.temporary(_e);
     }
     static public function timeout(_e:DNSConfigError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnsconfigerror.DNSConfigError>);
-        return stdgo._internal.net.Net_DNSConfigError_static_extension.DNSConfigError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_dnsconfigerror_static_extension.DNSConfigError_static_extension.timeout(_e);
     }
     static public function error(_e:DNSConfigError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnsconfigerror.DNSConfigError>);
-        return stdgo._internal.net.Net_DNSConfigError_static_extension.DNSConfigError_static_extension.error(_e);
+        return stdgo._internal.net.Net_dnsconfigerror_static_extension.DNSConfigError_static_extension.error(_e);
     }
     static public function unwrap(_e:DNSConfigError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnsconfigerror.DNSConfigError>);
-        return stdgo._internal.net.Net_DNSConfigError_static_extension.DNSConfigError_static_extension.unwrap(_e);
+        return stdgo._internal.net.Net_dnsconfigerror_static_extension.DNSConfigError_static_extension.unwrap(_e);
     }
 }
-typedef DNSErrorPointer = stdgo._internal.net.Net_DNSErrorPointer.DNSErrorPointer;
+typedef DNSErrorPointer = stdgo._internal.net.Net_dnserrorpointer.DNSErrorPointer;
 class DNSError_static_extension {
     static public function temporary(_e:DNSError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnserror.DNSError>);
-        return stdgo._internal.net.Net_DNSError_static_extension.DNSError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_dnserror_static_extension.DNSError_static_extension.temporary(_e);
     }
     static public function timeout(_e:DNSError):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnserror.DNSError>);
-        return stdgo._internal.net.Net_DNSError_static_extension.DNSError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_dnserror_static_extension.DNSError_static_extension.timeout(_e);
     }
     static public function error(_e:DNSError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.Net_dnserror.DNSError>);
-        return stdgo._internal.net.Net_DNSError_static_extension.DNSError_static_extension.error(_e);
+        return stdgo._internal.net.Net_dnserror_static_extension.DNSError_static_extension.error(_e);
     }
 }
-typedef T_writerOnlyPointer = stdgo._internal.net.Net_T_writerOnlyPointer.T_writerOnlyPointer;
+typedef T_writerOnlyPointer = stdgo._internal.net.Net_t_writeronlypointer.T_writerOnlyPointer;
 class T_writerOnly_static_extension {
     public static function write(__self__:stdgo._internal.net.Net_t_writeronly.T_writerOnly, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_writerOnly_static_extension.T_writerOnly_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_t_writeronly_static_extension.T_writerOnly_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_fakeNetAddrPointer = stdgo._internal.net.Net_T_fakeNetAddrPointer.T_fakeNetAddrPointer;
+typedef T_fakeNetAddrPointer = stdgo._internal.net.Net_t_fakenetaddrpointer.T_fakeNetAddrPointer;
 class T_fakeNetAddr_static_extension {
 
 }
-typedef T_fakeNetFDPointer = stdgo._internal.net.Net_T_fakeNetFDPointer.T_fakeNetFDPointer;
+typedef T_fakeNetFDPointer = stdgo._internal.net.Net_t_fakenetfdpointer.T_fakeNetFDPointer;
 class T_fakeNetFD_static_extension {
     static public function setWriteDeadline(_fd:T_fakeNetFD, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
-        return stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.setWriteDeadline(_fd, _t);
+        return stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.setWriteDeadline(_fd, _t);
     }
     static public function setReadDeadline(_fd:T_fakeNetFD, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
-        return stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.setReadDeadline(_fd, _t);
+        return stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.setReadDeadline(_fd, _t);
     }
     static public function setDeadline(_fd:T_fakeNetFD, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
-        return stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.setDeadline(_fd, _t);
+        return stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.setDeadline(_fd, _t);
     }
     static public function close(_fd:T_fakeNetFD):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
-        return stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.close(_fd);
+        return stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.close(_fd);
     }
     static public function write(_fd:T_fakeNetFD, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.write(_fd, _p);
+            final obj = stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.write(_fd, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1585,30 +1585,30 @@ class T_fakeNetFD_static_extension {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.net.Net_t_fakenetfd.T_fakeNetFD>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_fakeNetFD_static_extension.T_fakeNetFD_static_extension.read(_fd, _p);
+            final obj = stdgo._internal.net.Net_t_fakenetfd_static_extension.T_fakeNetFD_static_extension.read(_fd, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_bufferedPipePointer = stdgo._internal.net.Net_T_bufferedPipePointer.T_bufferedPipePointer;
+typedef T_bufferedPipePointer = stdgo._internal.net.Net_t_bufferedpipepointer.T_bufferedPipePointer;
 class T_bufferedPipe_static_extension {
     static public function setWriteDeadline(_p:T_bufferedPipe, _t:stdgo._internal.time.Time_time.Time):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe>);
-        stdgo._internal.net.Net_T_bufferedPipe_static_extension.T_bufferedPipe_static_extension.setWriteDeadline(_p, _t);
+        stdgo._internal.net.Net_t_bufferedpipe_static_extension.T_bufferedPipe_static_extension.setWriteDeadline(_p, _t);
     }
     static public function setReadDeadline(_p:T_bufferedPipe, _t:stdgo._internal.time.Time_time.Time):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe>);
-        stdgo._internal.net.Net_T_bufferedPipe_static_extension.T_bufferedPipe_static_extension.setReadDeadline(_p, _t);
+        stdgo._internal.net.Net_t_bufferedpipe_static_extension.T_bufferedPipe_static_extension.setReadDeadline(_p, _t);
     }
     static public function close(_p:T_bufferedPipe):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe>);
-        stdgo._internal.net.Net_T_bufferedPipe_static_extension.T_bufferedPipe_static_extension.close(_p);
+        stdgo._internal.net.Net_t_bufferedpipe_static_extension.T_bufferedPipe_static_extension.close(_p);
     }
     static public function write(_p:T_bufferedPipe, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_bufferedPipe_static_extension.T_bufferedPipe_static_extension.write(_p, _b);
+            final obj = stdgo._internal.net.Net_t_bufferedpipe_static_extension.T_bufferedPipe_static_extension.write(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1616,18 +1616,18 @@ class T_bufferedPipe_static_extension {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_bufferedpipe.T_bufferedPipe>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_bufferedPipe_static_extension.T_bufferedPipe_static_extension.read(_p, _b);
+            final obj = stdgo._internal.net.Net_t_bufferedpipe_static_extension.T_bufferedPipe_static_extension.read(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_netFDPointer = stdgo._internal.net.Net_T_netFDPointer.T_netFDPointer;
+typedef T_netFDPointer = stdgo._internal.net.Net_t_netfdpointer.T_netFDPointer;
 class T_netFD_static_extension {
     public static function _writeToInet6(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:Array<std.UInt>, _1:stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeToInet6(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeToInet6(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1635,14 +1635,14 @@ class T_netFD_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeToInet4(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeToInet4(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _writeTo(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:Array<std.UInt>, _1:stdgo._internal.syscall.Syscall_sockaddr.Sockaddr):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeTo(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeTo(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1651,7 +1651,7 @@ class T_netFD_static_extension {
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _2 = (_2 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeMsgInet6(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeMsgInet6(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1660,7 +1660,7 @@ class T_netFD_static_extension {
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _2 = (_2 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeMsgInet4(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeMsgInet4(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1668,7 +1668,7 @@ class T_netFD_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._writeMsg(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._writeMsg(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1678,7 +1678,7 @@ class T_netFD_static_extension {
         final _2 = (_2 : stdgo.GoInt);
         final _3 = (_3 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readMsgInet6(__self__, _0, _1, _2, _3);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readMsgInet6(__self__, _0, _1, _2, _3);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -1688,7 +1688,7 @@ class T_netFD_static_extension {
         final _2 = (_2 : stdgo.GoInt);
         final _3 = (_3 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readMsgInet4(__self__, _0, _1, _2, _3);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readMsgInet4(__self__, _0, _1, _2, _3);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -1697,7 +1697,7 @@ class T_netFD_static_extension {
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _2 = (_2 : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readMsg(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readMsg(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
@@ -1705,7 +1705,7 @@ class T_netFD_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readFromInet6(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readFromInet6(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1713,124 +1713,124 @@ class T_netFD_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readFromInet4(__self__, _0, _1);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readFromInet4(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _readFrom(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._readFrom(__self__, _0);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._readFrom(__self__, _0);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     public static function _dup(__self__:stdgo._internal.net.Net_t_netfd.T_netFD):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._dup(__self__);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._dup(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _connect(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:stdgo._internal.context.Context_context.Context, _1:stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, _2:stdgo._internal.syscall.Syscall_sockaddr.Sockaddr):stdgo.Tuple<stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._connect(__self__, _0, _1, _2);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._connect(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _closeWrite(__self__:stdgo._internal.net.Net_t_netfd.T_netFD):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._closeWrite(__self__);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._closeWrite(__self__);
     }
     public static function _closeRead(__self__:stdgo._internal.net.Net_t_netfd.T_netFD):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._closeRead(__self__);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._closeRead(__self__);
     }
     public static function _accept(__self__:stdgo._internal.net.Net_t_netfd.T_netFD):stdgo.Tuple<T_netFD, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension._accept(__self__);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension._accept(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function write(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function setWriteDeadline(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.setWriteDeadline(__self__, _0);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.setWriteDeadline(__self__, _0);
     }
     public static function setReadDeadline(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.setReadDeadline(__self__, _0);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.setReadDeadline(__self__, _0);
     }
     public static function setDeadline(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.setDeadline(__self__, _0);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.setDeadline(__self__, _0);
     }
     public static function read(__self__:stdgo._internal.net.Net_t_netfd.T_netFD, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.read(__self__, _0);
+            final obj = stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.net.Net_t_netfd.T_netFD):stdgo.Error {
-        return stdgo._internal.net.Net_T_netFD_static_extension.T_netFD_static_extension.close(__self__);
+        return stdgo._internal.net.Net_t_netfd_static_extension.T_netFD_static_extension.close(__self__);
     }
 }
-typedef T_nsswitchConfigPointer = stdgo._internal.net.Net_T_nsswitchConfigPointer.T_nsswitchConfigPointer;
+typedef T_nsswitchConfigPointer = stdgo._internal.net.Net_t_nsswitchconfigpointer.T_nsswitchConfigPointer;
 class T_nsswitchConfig_static_extension {
 
 }
-typedef T_nssConfPointer = stdgo._internal.net.Net_T_nssConfPointer.T_nssConfPointer;
+typedef T_nssConfPointer = stdgo._internal.net.Net_t_nssconfpointer.T_nssConfPointer;
 class T_nssConf_static_extension {
 
 }
-typedef T_nssSourcePointer = stdgo._internal.net.Net_T_nssSourcePointer.T_nssSourcePointer;
+typedef T_nssSourcePointer = stdgo._internal.net.Net_t_nsssourcepointer.T_nssSourcePointer;
 class T_nssSource_static_extension {
 
 }
-typedef T_nssCriterionPointer = stdgo._internal.net.Net_T_nssCriterionPointer.T_nssCriterionPointer;
+typedef T_nssCriterionPointer = stdgo._internal.net.Net_t_nsscriterionpointer.T_nssCriterionPointer;
 class T_nssCriterion_static_extension {
 
 }
-typedef T_filePointer = stdgo._internal.net.Net_T_filePointer.T_filePointer;
+typedef T_filePointer = stdgo._internal.net.Net_t_filepointer.T_filePointer;
 class T_file_static_extension {
 
 }
-typedef T_pipeDeadlinePointer = stdgo._internal.net.Net_T_pipeDeadlinePointer.T_pipeDeadlinePointer;
+typedef T_pipeDeadlinePointer = stdgo._internal.net.Net_t_pipedeadlinepointer.T_pipeDeadlinePointer;
 class T_pipeDeadline_static_extension {
 
 }
-typedef T_pipeAddrPointer = stdgo._internal.net.Net_T_pipeAddrPointer.T_pipeAddrPointer;
+typedef T_pipeAddrPointer = stdgo._internal.net.Net_t_pipeaddrpointer.T_pipeAddrPointer;
 class T_pipeAddr_static_extension {
     static public function string(_:T_pipeAddr):String {
-        return stdgo._internal.net.Net_T_pipeAddr_static_extension.T_pipeAddr_static_extension.string(_);
+        return stdgo._internal.net.Net_t_pipeaddr_static_extension.T_pipeAddr_static_extension.string(_);
     }
     static public function network(_:T_pipeAddr):String {
-        return stdgo._internal.net.Net_T_pipeAddr_static_extension.T_pipeAddr_static_extension.network(_);
+        return stdgo._internal.net.Net_t_pipeaddr_static_extension.T_pipeAddr_static_extension.network(_);
     }
 }
-typedef T_pipePointer = stdgo._internal.net.Net_T_pipePointer.T_pipePointer;
+typedef T_pipePointer = stdgo._internal.net.Net_t_pipepointer.T_pipePointer;
 class T_pipe_static_extension {
     static public function close(_p:T_pipe):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.close(_p);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.close(_p);
     }
     static public function setWriteDeadline(_p:T_pipe, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.setWriteDeadline(_p, _t);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.setWriteDeadline(_p, _t);
     }
     static public function setReadDeadline(_p:T_pipe, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.setReadDeadline(_p, _t);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.setReadDeadline(_p, _t);
     }
     static public function setDeadline(_p:T_pipe, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.setDeadline(_p, _t);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.setDeadline(_p, _t);
     }
     static public function write(_p:T_pipe, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.write(_p, _b);
+            final obj = stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.write(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1838,285 +1838,285 @@ class T_pipe_static_extension {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.read(_p, _b);
+            final obj = stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.read(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function remoteAddr(_:T_pipe):Addr {
         final _ = (_ : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.remoteAddr(_);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.remoteAddr(_);
     }
     static public function localAddr(_:T_pipe):Addr {
         final _ = (_ : stdgo.Ref<stdgo._internal.net.Net_t_pipe.T_pipe>);
-        return stdgo._internal.net.Net_T_pipe_static_extension.T_pipe_static_extension.localAddr(_);
+        return stdgo._internal.net.Net_t_pipe_static_extension.T_pipe_static_extension.localAddr(_);
     }
 }
-typedef T_rawConnPointer = stdgo._internal.net.Net_T_rawConnPointer.T_rawConnPointer;
+typedef T_rawConnPointer = stdgo._internal.net.Net_t_rawconnpointer.T_rawConnPointer;
 class T_rawConn_static_extension {
     static public function pollFD(_c:T_rawConn):stdgo._internal.internal.poll.Poll_fd.FD {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_rawconn.T_rawConn>);
-        return stdgo._internal.net.Net_T_rawConn_static_extension.T_rawConn_static_extension.pollFD(_c);
+        return stdgo._internal.net.Net_t_rawconn_static_extension.T_rawConn_static_extension.pollFD(_c);
     }
     static public function write(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_rawconn.T_rawConn>);
         final _f = _f;
-        return stdgo._internal.net.Net_T_rawConn_static_extension.T_rawConn_static_extension.write(_c, _f);
+        return stdgo._internal.net.Net_t_rawconn_static_extension.T_rawConn_static_extension.write(_c, _f);
     }
     static public function read(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_rawconn.T_rawConn>);
         final _f = _f;
-        return stdgo._internal.net.Net_T_rawConn_static_extension.T_rawConn_static_extension.read(_c, _f);
+        return stdgo._internal.net.Net_t_rawconn_static_extension.T_rawConn_static_extension.read(_c, _f);
     }
     static public function control(_c:T_rawConn, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_t_rawconn.T_rawConn>);
         final _f = _f;
-        return stdgo._internal.net.Net_T_rawConn_static_extension.T_rawConn_static_extension.control(_c, _f);
+        return stdgo._internal.net.Net_t_rawconn_static_extension.T_rawConn_static_extension.control(_c, _f);
     }
 }
-typedef T_rawListenerPointer = stdgo._internal.net.Net_T_rawListenerPointer.T_rawListenerPointer;
+typedef T_rawListenerPointer = stdgo._internal.net.Net_t_rawlistenerpointer.T_rawListenerPointer;
 class T_rawListener_static_extension {
     static public function write(_l:T_rawListener, _0:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_t_rawlistener.T_rawListener>);
         final _0 = _0;
-        return stdgo._internal.net.Net_T_rawListener_static_extension.T_rawListener_static_extension.write(_l, _0);
+        return stdgo._internal.net.Net_t_rawlistener_static_extension.T_rawListener_static_extension.write(_l, _0);
     }
     static public function read(_l:T_rawListener, _0:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_t_rawlistener.T_rawListener>);
         final _0 = _0;
-        return stdgo._internal.net.Net_T_rawListener_static_extension.T_rawListener_static_extension.read(_l, _0);
+        return stdgo._internal.net.Net_t_rawlistener_static_extension.T_rawListener_static_extension.read(_l, _0);
     }
     public static function _ok(__self__:stdgo._internal.net.Net_t_rawlistener.T_rawListener):Bool {
-        return stdgo._internal.net.Net_T_rawListener_static_extension.T_rawListener_static_extension._ok(__self__);
+        return stdgo._internal.net.Net_t_rawlistener_static_extension.T_rawListener_static_extension._ok(__self__);
     }
     public static function pollFD(__self__:stdgo._internal.net.Net_t_rawlistener.T_rawListener):stdgo._internal.internal.poll.Poll_fd.FD {
-        return stdgo._internal.net.Net_T_rawListener_static_extension.T_rawListener_static_extension.pollFD(__self__);
+        return stdgo._internal.net.Net_t_rawlistener_static_extension.T_rawListener_static_extension.pollFD(__self__);
     }
     public static function control(__self__:stdgo._internal.net.Net_t_rawlistener.T_rawListener, _0:stdgo.GoUIntptr -> Void):stdgo.Error {
         final _0 = _0;
-        return stdgo._internal.net.Net_T_rawListener_static_extension.T_rawListener_static_extension.control(__self__, _0);
+        return stdgo._internal.net.Net_t_rawlistener_static_extension.T_rawListener_static_extension.control(__self__, _0);
     }
 }
-typedef TCPAddrPointer = stdgo._internal.net.Net_TCPAddrPointer.TCPAddrPointer;
+typedef TCPAddrPointer = stdgo._internal.net.Net_tcpaddrpointer.TCPAddrPointer;
 class TCPAddr_static_extension {
     static public function string(_a:TCPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
-        return stdgo._internal.net.Net_TCPAddr_static_extension.TCPAddr_static_extension.string(_a);
+        return stdgo._internal.net.Net_tcpaddr_static_extension.TCPAddr_static_extension.string(_a);
     }
     static public function network(_a:TCPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
-        return stdgo._internal.net.Net_TCPAddr_static_extension.TCPAddr_static_extension.network(_a);
+        return stdgo._internal.net.Net_tcpaddr_static_extension.TCPAddr_static_extension.network(_a);
     }
     static public function addrPort(_a:TCPAddr):AddrPort {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
-        return stdgo._internal.net.Net_TCPAddr_static_extension.TCPAddr_static_extension.addrPort(_a);
+        return stdgo._internal.net.Net_tcpaddr_static_extension.TCPAddr_static_extension.addrPort(_a);
     }
 }
-typedef TCPConnPointer = stdgo._internal.net.Net_TCPConnPointer.TCPConnPointer;
+typedef TCPConnPointer = stdgo._internal.net.Net_tcpconnpointer.TCPConnPointer;
 class TCPConn_static_extension {
     static public function multipathTCP(_c:TCPConn):stdgo.Tuple<Bool, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.multipathTCP(_c);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.multipathTCP(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setNoDelay(_c:TCPConn, _noDelay:Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setNoDelay(_c, _noDelay);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setNoDelay(_c, _noDelay);
     }
     static public function setKeepAlivePeriod(_c:TCPConn, _d:stdgo._internal.time.Time_duration.Duration):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setKeepAlivePeriod(_c, _d);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setKeepAlivePeriod(_c, _d);
     }
     static public function setKeepAlive(_c:TCPConn, _keepalive:Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setKeepAlive(_c, _keepalive);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setKeepAlive(_c, _keepalive);
     }
     static public function setLinger(_c:TCPConn, _sec:StdTypes.Int):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
         final _sec = (_sec : stdgo.GoInt);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setLinger(_c, _sec);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setLinger(_c, _sec);
     }
     static public function closeWrite(_c:TCPConn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.closeWrite(_c);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.closeWrite(_c);
     }
     static public function closeRead(_c:TCPConn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.closeRead(_c);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.closeRead(_c);
     }
     static public function readFrom(_c:TCPConn, _r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.readFrom(_c, _r);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.readFrom(_c, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function syscallConn(_c:TCPConn):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_tcpconn.TCPConn>);
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.syscallConn(_c);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.syscallConn(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _ok(__self__:stdgo._internal.net.Net_tcpconn.TCPConn):Bool {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension._ok(__self__);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension._ok(__self__);
     }
     public static function write(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function setWriteDeadline(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setWriteDeadline(__self__, _0);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setWriteDeadline(__self__, _0);
     }
     public static function setWriteBuffer(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setWriteBuffer(__self__, _0);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setWriteBuffer(__self__, _0);
     }
     public static function setReadDeadline(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setReadDeadline(__self__, _0);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setReadDeadline(__self__, _0);
     }
     public static function setReadBuffer(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setReadBuffer(__self__, _0);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setReadBuffer(__self__, _0);
     }
     public static function setDeadline(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.setDeadline(__self__, _0);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.setDeadline(__self__, _0);
     }
     public static function remoteAddr(__self__:stdgo._internal.net.Net_tcpconn.TCPConn):Addr {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.remoteAddr(__self__);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.remoteAddr(__self__);
     }
     public static function read(__self__:stdgo._internal.net.Net_tcpconn.TCPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.read(__self__, _0);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function localAddr(__self__:stdgo._internal.net.Net_tcpconn.TCPConn):Addr {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.localAddr(__self__);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.localAddr(__self__);
     }
     public static function file(__self__:stdgo._internal.net.Net_tcpconn.TCPConn):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.file(__self__);
+            final obj = stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.file(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.net.Net_tcpconn.TCPConn):stdgo.Error {
-        return stdgo._internal.net.Net_TCPConn_static_extension.TCPConn_static_extension.close(__self__);
+        return stdgo._internal.net.Net_tcpconn_static_extension.TCPConn_static_extension.close(__self__);
     }
 }
-typedef TCPListenerPointer = stdgo._internal.net.Net_TCPListenerPointer.TCPListenerPointer;
+typedef TCPListenerPointer = stdgo._internal.net.Net_tcplistenerpointer.TCPListenerPointer;
 class TCPListener_static_extension {
     static public function file(_l:TCPListener):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
         return {
-            final obj = stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.file(_l);
+            final obj = stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.file(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setDeadline(_l:TCPListener, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
-        return stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.setDeadline(_l, _t);
+        return stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.setDeadline(_l, _t);
     }
     static public function addr(_l:TCPListener):Addr {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
-        return stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.addr(_l);
+        return stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.addr(_l);
     }
     static public function close(_l:TCPListener):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
-        return stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.close(_l);
+        return stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.close(_l);
     }
     static public function accept(_l:TCPListener):stdgo.Tuple<Conn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
         return {
-            final obj = stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.accept(_l);
+            final obj = stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.accept(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function acceptTCP(_l:TCPListener):stdgo.Tuple<TCPConn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
         return {
-            final obj = stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.acceptTCP(_l);
+            final obj = stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.acceptTCP(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function syscallConn(_l:TCPListener):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_tcplistener.TCPListener>);
         return {
-            final obj = stdgo._internal.net.Net_TCPListener_static_extension.TCPListener_static_extension.syscallConn(_l);
+            final obj = stdgo._internal.net.Net_tcplistener_static_extension.TCPListener_static_extension.syscallConn(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef UDPAddrPointer = stdgo._internal.net.Net_UDPAddrPointer.UDPAddrPointer;
+typedef UDPAddrPointer = stdgo._internal.net.Net_udpaddrpointer.UDPAddrPointer;
 class UDPAddr_static_extension {
     static public function string(_a:UDPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
-        return stdgo._internal.net.Net_UDPAddr_static_extension.UDPAddr_static_extension.string(_a);
+        return stdgo._internal.net.Net_udpaddr_static_extension.UDPAddr_static_extension.string(_a);
     }
     static public function network(_a:UDPAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
-        return stdgo._internal.net.Net_UDPAddr_static_extension.UDPAddr_static_extension.network(_a);
+        return stdgo._internal.net.Net_udpaddr_static_extension.UDPAddr_static_extension.network(_a);
     }
     static public function addrPort(_a:UDPAddr):AddrPort {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
-        return stdgo._internal.net.Net_UDPAddr_static_extension.UDPAddr_static_extension.addrPort(_a);
+        return stdgo._internal.net.Net_udpaddr_static_extension.UDPAddr_static_extension.addrPort(_a);
     }
 }
-typedef T_addrPortUDPAddrPointer = stdgo._internal.net.Net_T_addrPortUDPAddrPointer.T_addrPortUDPAddrPointer;
+typedef T_addrPortUDPAddrPointer = stdgo._internal.net.Net_t_addrportudpaddrpointer.T_addrPortUDPAddrPointer;
 class T_addrPortUDPAddr_static_extension {
     static public function network(_:T_addrPortUDPAddr):String {
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.network(_);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.network(_);
     }
     public static function unmarshalText(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr, _0:Array<std.UInt>):stdgo.Error {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.unmarshalText(__self__, _0);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.unmarshalText(__self__, _0);
     }
     public static function unmarshalBinary(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr, _0:Array<std.UInt>):stdgo.Error {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.unmarshalBinary(__self__, _0);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.unmarshalBinary(__self__, _0);
     }
     public static function string(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):String {
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.string(__self__);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.string(__self__);
     }
     public static function port(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):std.UInt {
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.port(__self__);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.port(__self__);
     }
     public static function marshalText(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.marshalText(__self__);
+            final obj = stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.marshalText(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     public static function marshalBinary(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.marshalBinary(__self__);
+            final obj = stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.marshalBinary(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     public static function isValid(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):Bool {
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.isValid(__self__);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.isValid(__self__);
     }
     public static function appendTo(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr, _0:Array<std.UInt>):Array<std.UInt> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.appendTo(__self__, _0)) i];
+        return [for (i in stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.appendTo(__self__, _0)) i];
     }
     public static function addr(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):Addr {
-        return stdgo._internal.net.Net_T_addrPortUDPAddr_static_extension.T_addrPortUDPAddr_static_extension.addr(__self__);
+        return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.addr(__self__);
     }
 }
-typedef UDPConnPointer = stdgo._internal.net.Net_UDPConnPointer.UDPConnPointer;
+typedef UDPConnPointer = stdgo._internal.net.Net_udpconnpointer.UDPConnPointer;
 class UDPConn_static_extension {
     static public function writeMsgUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>, _addr:AddrPort):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.writeMsgUDPAddrPort(_c, _b, _oob, _addr);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.writeMsgUDPAddrPort(_c, _b, _oob, _addr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2126,7 +2126,7 @@ class UDPConn_static_extension {
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.writeMsgUDP(_c, _b, _oob, _addr);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.writeMsgUDP(_c, _b, _oob, _addr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2134,7 +2134,7 @@ class UDPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.writeTo(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.writeTo(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2142,7 +2142,7 @@ class UDPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.writeToUDPAddrPort(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.writeToUDPAddrPort(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2151,7 +2151,7 @@ class UDPConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.writeToUDP(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.writeToUDP(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2160,7 +2160,7 @@ class UDPConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.readMsgUDPAddrPort(_c, _b, _oob);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.readMsgUDPAddrPort(_c, _b, _oob);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
@@ -2169,7 +2169,7 @@ class UDPConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.readMsgUDP(_c, _b, _oob);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.readMsgUDP(_c, _b, _oob);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
@@ -2177,7 +2177,7 @@ class UDPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.readFromUDPAddrPort(_c, _b);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.readFromUDPAddrPort(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2185,7 +2185,7 @@ class UDPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.readFrom(_c, _b);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.readFrom(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2193,79 +2193,79 @@ class UDPConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.readFromUDP(_c, _b);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.readFromUDP(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function syscallConn(_c:UDPConn):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.syscallConn(_c);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.syscallConn(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _ok(__self__:stdgo._internal.net.Net_udpconn.UDPConn):Bool {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension._ok(__self__);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension._ok(__self__);
     }
     public static function write(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function setWriteDeadline(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.setWriteDeadline(__self__, _0);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.setWriteDeadline(__self__, _0);
     }
     public static function setWriteBuffer(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.setWriteBuffer(__self__, _0);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.setWriteBuffer(__self__, _0);
     }
     public static function setReadDeadline(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.setReadDeadline(__self__, _0);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.setReadDeadline(__self__, _0);
     }
     public static function setReadBuffer(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.setReadBuffer(__self__, _0);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.setReadBuffer(__self__, _0);
     }
     public static function setDeadline(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.setDeadline(__self__, _0);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.setDeadline(__self__, _0);
     }
     public static function remoteAddr(__self__:stdgo._internal.net.Net_udpconn.UDPConn):Addr {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.remoteAddr(__self__);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.remoteAddr(__self__);
     }
     public static function read(__self__:stdgo._internal.net.Net_udpconn.UDPConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.read(__self__, _0);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function localAddr(__self__:stdgo._internal.net.Net_udpconn.UDPConn):Addr {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.localAddr(__self__);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.localAddr(__self__);
     }
     public static function file(__self__:stdgo._internal.net.Net_udpconn.UDPConn):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.file(__self__);
+            final obj = stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.file(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.net.Net_udpconn.UDPConn):stdgo.Error {
-        return stdgo._internal.net.Net_UDPConn_static_extension.UDPConn_static_extension.close(__self__);
+        return stdgo._internal.net.Net_udpconn_static_extension.UDPConn_static_extension.close(__self__);
     }
 }
-typedef UnixAddrPointer = stdgo._internal.net.Net_UnixAddrPointer.UnixAddrPointer;
+typedef UnixAddrPointer = stdgo._internal.net.Net_unixaddrpointer.UnixAddrPointer;
 class UnixAddr_static_extension {
     static public function string(_a:UnixAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
-        return stdgo._internal.net.Net_UnixAddr_static_extension.UnixAddr_static_extension.string(_a);
+        return stdgo._internal.net.Net_unixaddr_static_extension.UnixAddr_static_extension.string(_a);
     }
     static public function network(_a:UnixAddr):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
-        return stdgo._internal.net.Net_UnixAddr_static_extension.UnixAddr_static_extension.network(_a);
+        return stdgo._internal.net.Net_unixaddr_static_extension.UnixAddr_static_extension.network(_a);
     }
 }
-typedef UnixConnPointer = stdgo._internal.net.Net_UnixConnPointer.UnixConnPointer;
+typedef UnixConnPointer = stdgo._internal.net.Net_unixconnpointer.UnixConnPointer;
 class UnixConn_static_extension {
     static public function writeMsgUnix(_c:UnixConn, _b:Array<std.UInt>, _oob:Array<std.UInt>, _addr:UnixAddr):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
@@ -2273,7 +2273,7 @@ class UnixConn_static_extension {
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.writeMsgUnix(_c, _b, _oob, _addr);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.writeMsgUnix(_c, _b, _oob, _addr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2281,7 +2281,7 @@ class UnixConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.writeTo(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.writeTo(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2290,7 +2290,7 @@ class UnixConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _addr = (_addr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.writeToUnix(_c, _b, _addr);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.writeToUnix(_c, _b, _addr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2299,7 +2299,7 @@ class UnixConn_static_extension {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.readMsgUnix(_c, _b, _oob);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.readMsgUnix(_c, _b, _oob);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
@@ -2307,7 +2307,7 @@ class UnixConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.readFrom(_c, _b);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.readFrom(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -2315,303 +2315,303 @@ class UnixConn_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.readFromUnix(_c, _b);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.readFromUnix(_c, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function closeWrite(_c:UnixConn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.closeWrite(_c);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.closeWrite(_c);
     }
     static public function closeRead(_c:UnixConn):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.closeRead(_c);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.closeRead(_c);
     }
     static public function syscallConn(_c:UnixConn):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_unixconn.UnixConn>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.syscallConn(_c);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.syscallConn(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _ok(__self__:stdgo._internal.net.Net_unixconn.UnixConn):Bool {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension._ok(__self__);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension._ok(__self__);
     }
     public static function write(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.write(__self__, _0);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.write(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function setWriteDeadline(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.setWriteDeadline(__self__, _0);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.setWriteDeadline(__self__, _0);
     }
     public static function setWriteBuffer(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.setWriteBuffer(__self__, _0);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.setWriteBuffer(__self__, _0);
     }
     public static function setReadDeadline(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.setReadDeadline(__self__, _0);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.setReadDeadline(__self__, _0);
     }
     public static function setReadBuffer(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:StdTypes.Int):stdgo.Error {
         final _0 = (_0 : stdgo.GoInt);
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.setReadBuffer(__self__, _0);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.setReadBuffer(__self__, _0);
     }
     public static function setDeadline(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.setDeadline(__self__, _0);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.setDeadline(__self__, _0);
     }
     public static function remoteAddr(__self__:stdgo._internal.net.Net_unixconn.UnixConn):Addr {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.remoteAddr(__self__);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.remoteAddr(__self__);
     }
     public static function read(__self__:stdgo._internal.net.Net_unixconn.UnixConn, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.read(__self__, _0);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.read(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function localAddr(__self__:stdgo._internal.net.Net_unixconn.UnixConn):Addr {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.localAddr(__self__);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.localAddr(__self__);
     }
     public static function file(__self__:stdgo._internal.net.Net_unixconn.UnixConn):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.file(__self__);
+            final obj = stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.file(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.net.Net_unixconn.UnixConn):stdgo.Error {
-        return stdgo._internal.net.Net_UnixConn_static_extension.UnixConn_static_extension.close(__self__);
+        return stdgo._internal.net.Net_unixconn_static_extension.UnixConn_static_extension.close(__self__);
     }
 }
-typedef UnixListenerPointer = stdgo._internal.net.Net_UnixListenerPointer.UnixListenerPointer;
+typedef UnixListenerPointer = stdgo._internal.net.Net_unixlistenerpointer.UnixListenerPointer;
 class UnixListener_static_extension {
     static public function setUnlinkOnClose(_l:UnixListener, _unlink:Bool):Void {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
-        stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.setUnlinkOnClose(_l, _unlink);
+        stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.setUnlinkOnClose(_l, _unlink);
     }
     static public function file(_l:UnixListener):stdgo.Tuple<stdgo._internal.os.Os_file.File, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
         return {
-            final obj = stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.file(_l);
+            final obj = stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.file(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function setDeadline(_l:UnixListener, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
-        return stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.setDeadline(_l, _t);
+        return stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.setDeadline(_l, _t);
     }
     static public function addr(_l:UnixListener):Addr {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
-        return stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.addr(_l);
+        return stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.addr(_l);
     }
     static public function close(_l:UnixListener):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
-        return stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.close(_l);
+        return stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.close(_l);
     }
     static public function accept(_l:UnixListener):stdgo.Tuple<Conn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
         return {
-            final obj = stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.accept(_l);
+            final obj = stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.accept(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function acceptUnix(_l:UnixListener):stdgo.Tuple<UnixConn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
         return {
-            final obj = stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.acceptUnix(_l);
+            final obj = stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.acceptUnix(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function syscallConn(_l:UnixListener):stdgo.Tuple<stdgo._internal.syscall.Syscall_rawconn.RawConn, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.net.Net_unixlistener.UnixListener>);
         return {
-            final obj = stdgo._internal.net.Net_UnixListener_static_extension.UnixListener_static_extension.syscallConn(_l);
+            final obj = stdgo._internal.net.Net_unixlistener_static_extension.UnixListener_static_extension.syscallConn(_l);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.net.Net_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.net.Net_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef T_policyTablePointer = stdgo._internal.net.Net_T_policyTablePointer.T_policyTablePointer;
+typedef T_policyTablePointer = stdgo._internal.net.Net_t_policytablepointer.T_policyTablePointer;
 class T_policyTable_static_extension {
     static public function classify(_t:T_policyTable, _ip:Addr):T_policyTableEntry {
-        return stdgo._internal.net.Net_T_policyTable_static_extension.T_policyTable_static_extension.classify(_t, _ip);
+        return stdgo._internal.net.Net_t_policytable_static_extension.T_policyTable_static_extension.classify(_t, _ip);
     }
 }
-typedef T_scopePointer = stdgo._internal.net.Net_T_scopePointer.T_scopePointer;
+typedef T_scopePointer = stdgo._internal.net.Net_t_scopepointer.T_scopePointer;
 class T_scope_static_extension {
 
 }
-typedef T_mptcpStatusPointer = stdgo._internal.net.Net_T_mptcpStatusPointer.T_mptcpStatusPointer;
+typedef T_mptcpStatusPointer = stdgo._internal.net.Net_t_mptcpstatuspointer.T_mptcpStatusPointer;
 class T_mptcpStatus_static_extension {
 
 }
-typedef T_byPriorityWeightPointer = stdgo._internal.net.Net_T_byPriorityWeightPointer.T_byPriorityWeightPointer;
+typedef T_byPriorityWeightPointer = stdgo._internal.net.Net_t_bypriorityweightpointer.T_byPriorityWeightPointer;
 class T_byPriorityWeight_static_extension {
     static public function swap(_s:T_byPriorityWeight, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        stdgo._internal.net.Net_T_byPriorityWeight_static_extension.T_byPriorityWeight_static_extension.swap(_s, _i, _j);
+        stdgo._internal.net.Net_t_bypriorityweight_static_extension.T_byPriorityWeight_static_extension.swap(_s, _i, _j);
     }
     static public function less(_s:T_byPriorityWeight, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        return stdgo._internal.net.Net_T_byPriorityWeight_static_extension.T_byPriorityWeight_static_extension.less(_s, _i, _j);
+        return stdgo._internal.net.Net_t_bypriorityweight_static_extension.T_byPriorityWeight_static_extension.less(_s, _i, _j);
     }
     static public function len(_s:T_byPriorityWeight):StdTypes.Int {
-        return stdgo._internal.net.Net_T_byPriorityWeight_static_extension.T_byPriorityWeight_static_extension.len(_s);
+        return stdgo._internal.net.Net_t_bypriorityweight_static_extension.T_byPriorityWeight_static_extension.len(_s);
     }
 }
-typedef T_byPrefPointer = stdgo._internal.net.Net_T_byPrefPointer.T_byPrefPointer;
+typedef T_byPrefPointer = stdgo._internal.net.Net_t_byprefpointer.T_byPrefPointer;
 class T_byPref_static_extension {
     static public function swap(_s:T_byPref, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        stdgo._internal.net.Net_T_byPref_static_extension.T_byPref_static_extension.swap(_s, _i, _j);
+        stdgo._internal.net.Net_t_bypref_static_extension.T_byPref_static_extension.swap(_s, _i, _j);
     }
     static public function less(_s:T_byPref, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
-        return stdgo._internal.net.Net_T_byPref_static_extension.T_byPref_static_extension.less(_s, _i, _j);
+        return stdgo._internal.net.Net_t_bypref_static_extension.T_byPref_static_extension.less(_s, _i, _j);
     }
     static public function len(_s:T_byPref):StdTypes.Int {
-        return stdgo._internal.net.Net_T_byPref_static_extension.T_byPref_static_extension.len(_s);
+        return stdgo._internal.net.Net_t_bypref_static_extension.T_byPref_static_extension.len(_s);
     }
 }
-typedef T_fileAddrPointer = stdgo._internal.net.Net_T_fileAddrPointer.T_fileAddrPointer;
+typedef T_fileAddrPointer = stdgo._internal.net.Net_t_fileaddrpointer.T_fileAddrPointer;
 class T_fileAddr_static_extension {
     static public function string(_f:T_fileAddr):String {
-        return stdgo._internal.net.Net_T_fileAddr_static_extension.T_fileAddr_static_extension.string(_f);
+        return stdgo._internal.net.Net_t_fileaddr_static_extension.T_fileAddr_static_extension.string(_f);
     }
     static public function network(_:T_fileAddr):String {
-        return stdgo._internal.net.Net_T_fileAddr_static_extension.T_fileAddr_static_extension.network(_);
+        return stdgo._internal.net.Net_t_fileaddr_static_extension.T_fileAddr_static_extension.network(_);
     }
 }
-typedef FlagsPointer = stdgo._internal.net.Net_FlagsPointer.FlagsPointer;
+typedef FlagsPointer = stdgo._internal.net.Net_flagspointer.FlagsPointer;
 class Flags_static_extension {
     static public function string(_f:Flags):String {
-        return stdgo._internal.net.Net_Flags_static_extension.Flags_static_extension.string(_f);
+        return stdgo._internal.net.Net_flags_static_extension.Flags_static_extension.string(_f);
     }
 }
-typedef IPPointer = stdgo._internal.net.Net_IPPointer.IPPointer;
+typedef IPPointer = stdgo._internal.net.Net_ippointer.IPPointer;
 class IP_static_extension {
     static public function equal(_ip:IP, _x:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.equal(_ip, _x);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.equal(_ip, _x);
     }
     static public function unmarshalText(_ip:IP, _text:Array<std.UInt>):stdgo.Error {
         final _ip = (_ip : stdgo.Ref<stdgo._internal.net.Net_ip.IP>);
         final _text = ([for (i in _text) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.unmarshalText(_ip, _text);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.unmarshalText(_ip, _text);
     }
     static public function marshalText(_ip:IP):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_IP_static_extension.IP_static_extension.marshalText(_ip);
+            final obj = stdgo._internal.net.Net_ip_static_extension.IP_static_extension.marshalText(_ip);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function string(_ip:IP):String {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.string(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.string(_ip);
     }
     static public function mask(_ip:IP, _mask:IPMask):IP {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.mask(_ip, _mask);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.mask(_ip, _mask);
     }
     static public function defaultMask(_ip:IP):IPMask {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.defaultMask(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.defaultMask(_ip);
     }
     static public function to16(_ip:IP):IP {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.to16(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.to16(_ip);
     }
     static public function to4(_ip:IP):IP {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.to4(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.to4(_ip);
     }
     static public function isGlobalUnicast(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isGlobalUnicast(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isGlobalUnicast(_ip);
     }
     static public function isLinkLocalUnicast(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isLinkLocalUnicast(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isLinkLocalUnicast(_ip);
     }
     static public function isLinkLocalMulticast(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isLinkLocalMulticast(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isLinkLocalMulticast(_ip);
     }
     static public function isInterfaceLocalMulticast(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isInterfaceLocalMulticast(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isInterfaceLocalMulticast(_ip);
     }
     static public function isMulticast(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isMulticast(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isMulticast(_ip);
     }
     static public function isPrivate(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isPrivate(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isPrivate(_ip);
     }
     static public function isLoopback(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isLoopback(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isLoopback(_ip);
     }
     static public function isUnspecified(_ip:IP):Bool {
-        return stdgo._internal.net.Net_IP_static_extension.IP_static_extension.isUnspecified(_ip);
+        return stdgo._internal.net.Net_ip_static_extension.IP_static_extension.isUnspecified(_ip);
     }
 }
-typedef IPMaskPointer = stdgo._internal.net.Net_IPMaskPointer.IPMaskPointer;
+typedef IPMaskPointer = stdgo._internal.net.Net_ipmaskpointer.IPMaskPointer;
 class IPMask_static_extension {
     static public function string(_m:IPMask):String {
-        return stdgo._internal.net.Net_IPMask_static_extension.IPMask_static_extension.string(_m);
+        return stdgo._internal.net.Net_ipmask_static_extension.IPMask_static_extension.string(_m);
     }
     static public function size(_m:IPMask):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.net.Net_IPMask_static_extension.IPMask_static_extension.size(_m);
+            final obj = stdgo._internal.net.Net_ipmask_static_extension.IPMask_static_extension.size(_m);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_addrListPointer = stdgo._internal.net.Net_T_addrListPointer.T_addrListPointer;
+typedef T_addrListPointer = stdgo._internal.net.Net_t_addrlistpointer.T_addrListPointer;
 class T_addrList_static_extension {
 
 }
-typedef HardwareAddrPointer = stdgo._internal.net.Net_HardwareAddrPointer.HardwareAddrPointer;
+typedef HardwareAddrPointer = stdgo._internal.net.Net_hardwareaddrpointer.HardwareAddrPointer;
 class HardwareAddr_static_extension {
     static public function string(_a:HardwareAddr):String {
-        return stdgo._internal.net.Net_HardwareAddr_static_extension.HardwareAddr_static_extension.string(_a);
+        return stdgo._internal.net.Net_hardwareaddr_static_extension.HardwareAddr_static_extension.string(_a);
     }
 }
-typedef UnknownNetworkErrorPointer = stdgo._internal.net.Net_UnknownNetworkErrorPointer.UnknownNetworkErrorPointer;
+typedef UnknownNetworkErrorPointer = stdgo._internal.net.Net_unknownnetworkerrorpointer.UnknownNetworkErrorPointer;
 class UnknownNetworkError_static_extension {
     static public function temporary(_e:UnknownNetworkError):Bool {
-        return stdgo._internal.net.Net_UnknownNetworkError_static_extension.UnknownNetworkError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_unknownnetworkerror_static_extension.UnknownNetworkError_static_extension.temporary(_e);
     }
     static public function timeout(_e:UnknownNetworkError):Bool {
-        return stdgo._internal.net.Net_UnknownNetworkError_static_extension.UnknownNetworkError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_unknownnetworkerror_static_extension.UnknownNetworkError_static_extension.timeout(_e);
     }
     static public function error(_e:UnknownNetworkError):String {
-        return stdgo._internal.net.Net_UnknownNetworkError_static_extension.UnknownNetworkError_static_extension.error(_e);
+        return stdgo._internal.net.Net_unknownnetworkerror_static_extension.UnknownNetworkError_static_extension.error(_e);
     }
 }
-typedef InvalidAddrErrorPointer = stdgo._internal.net.Net_InvalidAddrErrorPointer.InvalidAddrErrorPointer;
+typedef InvalidAddrErrorPointer = stdgo._internal.net.Net_invalidaddrerrorpointer.InvalidAddrErrorPointer;
 class InvalidAddrError_static_extension {
     static public function temporary(_e:InvalidAddrError):Bool {
-        return stdgo._internal.net.Net_InvalidAddrError_static_extension.InvalidAddrError_static_extension.temporary(_e);
+        return stdgo._internal.net.Net_invalidaddrerror_static_extension.InvalidAddrError_static_extension.temporary(_e);
     }
     static public function timeout(_e:InvalidAddrError):Bool {
-        return stdgo._internal.net.Net_InvalidAddrError_static_extension.InvalidAddrError_static_extension.timeout(_e);
+        return stdgo._internal.net.Net_invalidaddrerror_static_extension.InvalidAddrError_static_extension.timeout(_e);
     }
     static public function error(_e:InvalidAddrError):String {
-        return stdgo._internal.net.Net_InvalidAddrError_static_extension.InvalidAddrError_static_extension.error(_e);
+        return stdgo._internal.net.Net_invalidaddrerror_static_extension.InvalidAddrError_static_extension.error(_e);
     }
 }
-typedef BuffersPointer = stdgo._internal.net.Net_BuffersPointer.BuffersPointer;
+typedef BuffersPointer = stdgo._internal.net.Net_bufferspointer.BuffersPointer;
 class Buffers_static_extension {
     static public function read(_v:Buffers, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _v = (_v : stdgo.Ref<stdgo._internal.net.Net_buffers.Buffers>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.Net_Buffers_static_extension.Buffers_static_extension.read(_v, _p);
+            final obj = stdgo._internal.net.Net_buffers_static_extension.Buffers_static_extension.read(_v, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function writeTo(_v:Buffers, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _v = (_v : stdgo.Ref<stdgo._internal.net.Net_buffers.Buffers>);
         return {
-            final obj = stdgo._internal.net.Net_Buffers_static_extension.Buffers_static_extension.writeTo(_v, _w);
+            final obj = stdgo._internal.net.Net_buffers_static_extension.Buffers_static_extension.writeTo(_v, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2771,7 +2771,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_dialTimeout.dialTimeout(_network, _address, _timeout);
+            final obj = stdgo._internal.net.Net_dialtimeout.dialTimeout(_network, _address, _timeout);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2837,7 +2837,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_listenPacket.listenPacket(_network, _address);
+            final obj = stdgo._internal.net.Net_listenpacket.listenPacket(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2850,7 +2850,7 @@ class Net {
     static public inline function fileConn(_f:stdgo._internal.os.Os_file.File):stdgo.Tuple<Conn, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
-            final obj = stdgo._internal.net.Net_fileConn.fileConn(_f);
+            final obj = stdgo._internal.net.Net_fileconn.fileConn(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2863,7 +2863,7 @@ class Net {
     static public inline function fileListener(_f:stdgo._internal.os.Os_file.File):stdgo.Tuple<Listener, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
-            final obj = stdgo._internal.net.Net_fileListener.fileListener(_f);
+            final obj = stdgo._internal.net.Net_filelistener.fileListener(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2876,7 +2876,7 @@ class Net {
     static public inline function filePacketConn(_f:stdgo._internal.os.Os_file.File):stdgo.Tuple<PacketConn, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.os.Os_file.File>);
         return {
-            final obj = stdgo._internal.net.Net_filePacketConn.filePacketConn(_f);
+            final obj = stdgo._internal.net.Net_filepacketconn.filePacketConn(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2898,7 +2898,7 @@ class Net {
     **/
     static public inline function interfaceAddrs():stdgo.Tuple<Array<Addr>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.net.Net_interfaceAddrs.interfaceAddrs();
+            final obj = stdgo._internal.net.Net_interfaceaddrs.interfaceAddrs();
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -2912,7 +2912,7 @@ class Net {
     static public inline function interfaceByIndex(_index:StdTypes.Int):stdgo.Tuple<Interface, stdgo.Error> {
         final _index = (_index : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.net.Net_interfaceByIndex.interfaceByIndex(_index);
+            final obj = stdgo._internal.net.Net_interfacebyindex.interfaceByIndex(_index);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2922,7 +2922,7 @@ class Net {
     static public inline function interfaceByName(_name:String):stdgo.Tuple<Interface, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_interfaceByName.interfaceByName(_name);
+            final obj = stdgo._internal.net.Net_interfacebyname.interfaceByName(_name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2935,7 +2935,7 @@ class Net {
         final _b = (_b : stdgo.GoUInt8);
         final _c = (_c : stdgo.GoUInt8);
         final _d = (_d : stdgo.GoUInt8);
-        return stdgo._internal.net.Net_iPv4.iPv4(_a, _b, _c, _d);
+        return stdgo._internal.net.Net_ipv4.iPv4(_a, _b, _c, _d);
     }
     /**
         * IPv4Mask returns the IP mask (in 4-byte form) of the
@@ -2946,7 +2946,7 @@ class Net {
         final _b = (_b : stdgo.GoUInt8);
         final _c = (_c : stdgo.GoUInt8);
         final _d = (_d : stdgo.GoUInt8);
-        return stdgo._internal.net.Net_iPv4Mask.iPv4Mask(_a, _b, _c, _d);
+        return stdgo._internal.net.Net_ipv4mask.iPv4Mask(_a, _b, _c, _d);
     }
     /**
         * CIDRMask returns an IPMask consisting of 'ones' 1 bits
@@ -2956,7 +2956,7 @@ class Net {
     static public inline function cIDRMask(_ones:StdTypes.Int, _bits:StdTypes.Int):IPMask {
         final _ones = (_ones : stdgo.GoInt);
         final _bits = (_bits : stdgo.GoInt);
-        return stdgo._internal.net.Net_cIDRMask.cIDRMask(_ones, _bits);
+        return stdgo._internal.net.Net_cidrmask.cIDRMask(_ones, _bits);
     }
     /**
         * ParseIP parses s as an IP address, returning the result.
@@ -2967,7 +2967,7 @@ class Net {
     **/
     static public inline function parseIP(_s:String):IP {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.net.Net_parseIP.parseIP(_s);
+        return stdgo._internal.net.Net_parseip.parseIP(_s);
     }
     /**
         * ParseCIDR parses s as a CIDR notation IP address and prefix length,
@@ -2982,7 +2982,7 @@ class Net {
     static public inline function parseCIDR(_s:String):stdgo.Tuple.Tuple3<IP, IPNet, stdgo.Error> {
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_parseCIDR.parseCIDR(_s);
+            final obj = stdgo._internal.net.Net_parsecidr.parseCIDR(_s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -3005,7 +3005,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_resolveIPAddr.resolveIPAddr(_network, _address);
+            final obj = stdgo._internal.net.Net_resolveipaddr.resolveIPAddr(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3023,7 +3023,7 @@ class Net {
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
         final _raddr = (_raddr : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_dialIP.dialIP(_network, _laddr, _raddr);
+            final obj = stdgo._internal.net.Net_dialip.dialIP(_network, _laddr, _raddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3040,7 +3040,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_ipaddr.IPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenIP.listenIP(_network, _laddr);
+            final obj = stdgo._internal.net.Net_listenip.listenIP(_network, _laddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3058,7 +3058,7 @@ class Net {
     static public inline function splitHostPort(_hostport:String):stdgo.Tuple.Tuple3<String, String, stdgo.Error> {
         final _hostport = (_hostport : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_splitHostPort.splitHostPort(_hostport);
+            final obj = stdgo._internal.net.Net_splithostport.splitHostPort(_hostport);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -3072,7 +3072,7 @@ class Net {
     static public inline function joinHostPort(_host:String, _port:String):String {
         final _host = (_host : stdgo.GoString);
         final _port = (_port : stdgo.GoString);
-        return stdgo._internal.net.Net_joinHostPort.joinHostPort(_host, _port);
+        return stdgo._internal.net.Net_joinhostport.joinHostPort(_host, _port);
     }
     /**
         * LookupHost looks up the given host using the local resolver.
@@ -3084,7 +3084,7 @@ class Net {
     static public inline function lookupHost(_host:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupHost.lookupHost(_host);
+            final obj = stdgo._internal.net.Net_lookuphost.lookupHost(_host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3095,7 +3095,7 @@ class Net {
     static public inline function lookupIP(_host:String):stdgo.Tuple<Array<IP>, stdgo.Error> {
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupIP.lookupIP(_host);
+            final obj = stdgo._internal.net.Net_lookupip.lookupIP(_host);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3109,7 +3109,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _service = (_service : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupPort.lookupPort(_network, _service);
+            final obj = stdgo._internal.net.Net_lookupport.lookupPort(_network, _service);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3134,7 +3134,7 @@ class Net {
     static public inline function lookupCNAME(_host:String):stdgo.Tuple<String, stdgo.Error> {
         final _host = (_host : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupCNAME.lookupCNAME(_host);
+            final obj = stdgo._internal.net.Net_lookupcname.lookupCNAME(_host);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3159,7 +3159,7 @@ class Net {
         final _proto = (_proto : stdgo.GoString);
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupSRV.lookupSRV(_service, _proto, _name);
+            final obj = stdgo._internal.net.Net_lookupsrv.lookupSRV(_service, _proto, _name);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -3177,7 +3177,7 @@ class Net {
     static public inline function lookupMX(_name:String):stdgo.Tuple<Array<MX>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupMX.lookupMX(_name);
+            final obj = stdgo._internal.net.Net_lookupmx.lookupMX(_name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3195,7 +3195,7 @@ class Net {
     static public inline function lookupNS(_name:String):stdgo.Tuple<Array<NS>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupNS.lookupNS(_name);
+            final obj = stdgo._internal.net.Net_lookupns.lookupNS(_name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3208,7 +3208,7 @@ class Net {
     static public inline function lookupTXT(_name:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupTXT.lookupTXT(_name);
+            final obj = stdgo._internal.net.Net_lookuptxt.lookupTXT(_name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3229,7 +3229,7 @@ class Net {
     static public inline function lookupAddr(_addr:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _addr = (_addr : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_lookupAddr.lookupAddr(_addr);
+            final obj = stdgo._internal.net.Net_lookupaddr.lookupAddr(_addr);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -3250,7 +3250,7 @@ class Net {
     static public inline function parseMAC(_s:String):stdgo.Tuple<HardwareAddr, stdgo.Error> {
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_parseMAC.parseMAC(_s);
+            final obj = stdgo._internal.net.Net_parsemac.parseMAC(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3288,7 +3288,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_resolveTCPAddr.resolveTCPAddr(_network, _address);
+            final obj = stdgo._internal.net.Net_resolvetcpaddr.resolveTCPAddr(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3298,7 +3298,7 @@ class Net {
         * address family-agnostic unspecified address.
     **/
     static public inline function tCPAddrFromAddrPort(_addr:AddrPort):TCPAddr {
-        return stdgo._internal.net.Net_tCPAddrFromAddrPort.tCPAddrFromAddrPort(_addr);
+        return stdgo._internal.net.Net_tcpaddrfromaddrport.tCPAddrFromAddrPort(_addr);
     }
     /**
         * DialTCP acts like Dial for TCP networks.
@@ -3314,7 +3314,7 @@ class Net {
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
         final _raddr = (_raddr : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_dialTCP.dialTCP(_network, _laddr, _raddr);
+            final obj = stdgo._internal.net.Net_dialtcp.dialTCP(_network, _laddr, _raddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3333,7 +3333,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenTCP.listenTCP(_network, _laddr);
+            final obj = stdgo._internal.net.Net_listentcp.listenTCP(_network, _laddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3358,7 +3358,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_resolveUDPAddr.resolveUDPAddr(_network, _address);
+            final obj = stdgo._internal.net.Net_resolveudpaddr.resolveUDPAddr(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3368,7 +3368,7 @@ class Net {
         * address family-agnostic unspecified address.
     **/
     static public inline function uDPAddrFromAddrPort(_addr:AddrPort):UDPAddr {
-        return stdgo._internal.net.Net_uDPAddrFromAddrPort.uDPAddrFromAddrPort(_addr);
+        return stdgo._internal.net.Net_udpaddrfromaddrport.uDPAddrFromAddrPort(_addr);
     }
     /**
         * DialUDP acts like Dial for UDP networks.
@@ -3384,7 +3384,7 @@ class Net {
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         final _raddr = (_raddr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_dialUDP.dialUDP(_network, _laddr, _raddr);
+            final obj = stdgo._internal.net.Net_dialudp.dialUDP(_network, _laddr, _raddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3403,7 +3403,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenUDP.listenUDP(_network, _laddr);
+            final obj = stdgo._internal.net.Net_listenudp.listenUDP(_network, _laddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3434,7 +3434,7 @@ class Net {
         final _ifi = (_ifi : stdgo.Ref<stdgo._internal.net.Net_interface.Interface>);
         final _gaddr = (_gaddr : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenMulticastUDP.listenMulticastUDP(_network, _ifi, _gaddr);
+            final obj = stdgo._internal.net.Net_listenmulticastudp.listenMulticastUDP(_network, _ifi, _gaddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3450,7 +3450,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _address = (_address : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.Net_resolveUnixAddr.resolveUnixAddr(_network, _address);
+            final obj = stdgo._internal.net.Net_resolveunixaddr.resolveUnixAddr(_network, _address);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3467,7 +3467,7 @@ class Net {
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         final _raddr = (_raddr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         return {
-            final obj = stdgo._internal.net.Net_dialUnix.dialUnix(_network, _laddr, _raddr);
+            final obj = stdgo._internal.net.Net_dialunix.dialUnix(_network, _laddr, _raddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3480,7 +3480,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenUnix.listenUnix(_network, _laddr);
+            final obj = stdgo._internal.net.Net_listenunix.listenUnix(_network, _laddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -3493,7 +3493,7 @@ class Net {
         final _network = (_network : stdgo.GoString);
         final _laddr = (_laddr : stdgo.Ref<stdgo._internal.net.Net_unixaddr.UnixAddr>);
         return {
-            final obj = stdgo._internal.net.Net_listenUnixgram.listenUnixgram(_network, _laddr);
+            final obj = stdgo._internal.net.Net_listenunixgram.listenUnixgram(_network, _laddr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

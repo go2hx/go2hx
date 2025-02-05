@@ -1,102 +1,102 @@
 package stdgo.debug.macho;
 final magic32 : std.UInt = stdgo._internal.debug.macho.Macho_magic32.magic32;
 final magic64 : std.UInt = stdgo._internal.debug.macho.Macho_magic64.magic64;
-final magicFat : std.UInt = stdgo._internal.debug.macho.Macho_magicFat.magicFat;
-final typeObj : Type_ = stdgo._internal.debug.macho.Macho_typeObj.typeObj;
-final typeExec : Type_ = stdgo._internal.debug.macho.Macho_typeExec.typeExec;
-final typeDylib : Type_ = stdgo._internal.debug.macho.Macho_typeDylib.typeDylib;
-final typeBundle : Type_ = stdgo._internal.debug.macho.Macho_typeBundle.typeBundle;
+final magicFat : std.UInt = stdgo._internal.debug.macho.Macho_magicfat.magicFat;
+final typeObj : Type_ = stdgo._internal.debug.macho.Macho_typeobj.typeObj;
+final typeExec : Type_ = stdgo._internal.debug.macho.Macho_typeexec.typeExec;
+final typeDylib : Type_ = stdgo._internal.debug.macho.Macho_typedylib.typeDylib;
+final typeBundle : Type_ = stdgo._internal.debug.macho.Macho_typebundle.typeBundle;
 final cpu386 : Cpu = stdgo._internal.debug.macho.Macho_cpu386.cpu386;
-final cpuAmd64 : Cpu = stdgo._internal.debug.macho.Macho_cpuAmd64.cpuAmd64;
-final cpuArm : Cpu = stdgo._internal.debug.macho.Macho_cpuArm.cpuArm;
-final cpuArm64 : Cpu = stdgo._internal.debug.macho.Macho_cpuArm64.cpuArm64;
-final cpuPpc : Cpu = stdgo._internal.debug.macho.Macho_cpuPpc.cpuPpc;
-final cpuPpc64 : Cpu = stdgo._internal.debug.macho.Macho_cpuPpc64.cpuPpc64;
-final loadCmdSegment : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdSegment.loadCmdSegment;
-final loadCmdSymtab : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdSymtab.loadCmdSymtab;
-final loadCmdThread : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdThread.loadCmdThread;
-final loadCmdUnixThread : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdUnixThread.loadCmdUnixThread;
-final loadCmdDysymtab : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdDysymtab.loadCmdDysymtab;
-final loadCmdDylib : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdDylib.loadCmdDylib;
-final loadCmdDylinker : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdDylinker.loadCmdDylinker;
-final loadCmdSegment64 : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdSegment64.loadCmdSegment64;
-final loadCmdRpath : LoadCmd = stdgo._internal.debug.macho.Macho_loadCmdRpath.loadCmdRpath;
-final flagNoUndefs : std.UInt = stdgo._internal.debug.macho.Macho_flagNoUndefs.flagNoUndefs;
-final flagIncrLink : std.UInt = stdgo._internal.debug.macho.Macho_flagIncrLink.flagIncrLink;
-final flagDyldLink : std.UInt = stdgo._internal.debug.macho.Macho_flagDyldLink.flagDyldLink;
-final flagBindAtLoad : std.UInt = stdgo._internal.debug.macho.Macho_flagBindAtLoad.flagBindAtLoad;
-final flagPrebound : std.UInt = stdgo._internal.debug.macho.Macho_flagPrebound.flagPrebound;
-final flagSplitSegs : std.UInt = stdgo._internal.debug.macho.Macho_flagSplitSegs.flagSplitSegs;
-final flagLazyInit : std.UInt = stdgo._internal.debug.macho.Macho_flagLazyInit.flagLazyInit;
-final flagTwoLevel : std.UInt = stdgo._internal.debug.macho.Macho_flagTwoLevel.flagTwoLevel;
-final flagForceFlat : std.UInt = stdgo._internal.debug.macho.Macho_flagForceFlat.flagForceFlat;
-final flagNoMultiDefs : std.UInt = stdgo._internal.debug.macho.Macho_flagNoMultiDefs.flagNoMultiDefs;
-final flagNoFixPrebinding : std.UInt = stdgo._internal.debug.macho.Macho_flagNoFixPrebinding.flagNoFixPrebinding;
-final flagPrebindable : std.UInt = stdgo._internal.debug.macho.Macho_flagPrebindable.flagPrebindable;
-final flagAllModsBound : std.UInt = stdgo._internal.debug.macho.Macho_flagAllModsBound.flagAllModsBound;
-final flagSubsectionsViaSymbols : std.UInt = stdgo._internal.debug.macho.Macho_flagSubsectionsViaSymbols.flagSubsectionsViaSymbols;
-final flagCanonical : std.UInt = stdgo._internal.debug.macho.Macho_flagCanonical.flagCanonical;
-final flagWeakDefines : std.UInt = stdgo._internal.debug.macho.Macho_flagWeakDefines.flagWeakDefines;
-final flagBindsToWeak : std.UInt = stdgo._internal.debug.macho.Macho_flagBindsToWeak.flagBindsToWeak;
-final flagAllowStackExecution : std.UInt = stdgo._internal.debug.macho.Macho_flagAllowStackExecution.flagAllowStackExecution;
-final flagRootSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagRootSafe.flagRootSafe;
-final flagSetuidSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagSetuidSafe.flagSetuidSafe;
-final flagNoReexportedDylibs : std.UInt = stdgo._internal.debug.macho.Macho_flagNoReexportedDylibs.flagNoReexportedDylibs;
-final flagPIE : std.UInt = stdgo._internal.debug.macho.Macho_flagPIE.flagPIE;
-final flagDeadStrippableDylib : std.UInt = stdgo._internal.debug.macho.Macho_flagDeadStrippableDylib.flagDeadStrippableDylib;
-final flagHasTLVDescriptors : std.UInt = stdgo._internal.debug.macho.Macho_flagHasTLVDescriptors.flagHasTLVDescriptors;
-final flagNoHeapExecution : std.UInt = stdgo._internal.debug.macho.Macho_flagNoHeapExecution.flagNoHeapExecution;
-final flagAppExtensionSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagAppExtensionSafe.flagAppExtensionSafe;
-final gENERIC_RELOC_VANILLA : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_VANILLA.gENERIC_RELOC_VANILLA;
-final gENERIC_RELOC_PAIR : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_PAIR.gENERIC_RELOC_PAIR;
-final gENERIC_RELOC_SECTDIFF : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_SECTDIFF.gENERIC_RELOC_SECTDIFF;
-final gENERIC_RELOC_PB_LA_PTR : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_PB_LA_PTR.gENERIC_RELOC_PB_LA_PTR;
-final gENERIC_RELOC_LOCAL_SECTDIFF : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_LOCAL_SECTDIFF.gENERIC_RELOC_LOCAL_SECTDIFF;
-final gENERIC_RELOC_TLV : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_gENERIC_RELOC_TLV.gENERIC_RELOC_TLV;
-final x86_64_RELOC_UNSIGNED : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_UNSIGNED.x86_64_RELOC_UNSIGNED;
-final x86_64_RELOC_SIGNED : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_SIGNED.x86_64_RELOC_SIGNED;
-final x86_64_RELOC_BRANCH : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_BRANCH.x86_64_RELOC_BRANCH;
-final x86_64_RELOC_GOT_LOAD : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_GOT_LOAD.x86_64_RELOC_GOT_LOAD;
-final x86_64_RELOC_GOT : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_GOT.x86_64_RELOC_GOT;
-final x86_64_RELOC_SUBTRACTOR : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_SUBTRACTOR.x86_64_RELOC_SUBTRACTOR;
-final x86_64_RELOC_SIGNED_1 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_SIGNED_1.x86_64_RELOC_SIGNED_1;
-final x86_64_RELOC_SIGNED_2 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_SIGNED_2.x86_64_RELOC_SIGNED_2;
-final x86_64_RELOC_SIGNED_4 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_SIGNED_4.x86_64_RELOC_SIGNED_4;
-final x86_64_RELOC_TLV : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_RELOC_TLV.x86_64_RELOC_TLV;
-final aRM_RELOC_VANILLA : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_VANILLA.aRM_RELOC_VANILLA;
-final aRM_RELOC_PAIR : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_PAIR.aRM_RELOC_PAIR;
-final aRM_RELOC_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_SECTDIFF.aRM_RELOC_SECTDIFF;
-final aRM_RELOC_LOCAL_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_LOCAL_SECTDIFF.aRM_RELOC_LOCAL_SECTDIFF;
-final aRM_RELOC_PB_LA_PTR : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_PB_LA_PTR.aRM_RELOC_PB_LA_PTR;
-final aRM_RELOC_BR24 : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_BR24.aRM_RELOC_BR24;
-final aRM_THUMB_RELOC_BR22 : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_THUMB_RELOC_BR22.aRM_THUMB_RELOC_BR22;
-final aRM_THUMB_32BIT_BRANCH : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_THUMB_32BIT_BRANCH.aRM_THUMB_32BIT_BRANCH;
-final aRM_RELOC_HALF : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_HALF.aRM_RELOC_HALF;
-final aRM_RELOC_HALF_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_aRM_RELOC_HALF_SECTDIFF.aRM_RELOC_HALF_SECTDIFF;
-final aRM64_RELOC_UNSIGNED : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_UNSIGNED.aRM64_RELOC_UNSIGNED;
-final aRM64_RELOC_SUBTRACTOR : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_SUBTRACTOR.aRM64_RELOC_SUBTRACTOR;
-final aRM64_RELOC_BRANCH26 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_BRANCH26.aRM64_RELOC_BRANCH26;
-final aRM64_RELOC_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_PAGE21.aRM64_RELOC_PAGE21;
-final aRM64_RELOC_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_PAGEOFF12.aRM64_RELOC_PAGEOFF12;
-final aRM64_RELOC_GOT_LOAD_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_GOT_LOAD_PAGE21.aRM64_RELOC_GOT_LOAD_PAGE21;
-final aRM64_RELOC_GOT_LOAD_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_GOT_LOAD_PAGEOFF12.aRM64_RELOC_GOT_LOAD_PAGEOFF12;
-final aRM64_RELOC_POINTER_TO_GOT : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_POINTER_TO_GOT.aRM64_RELOC_POINTER_TO_GOT;
-final aRM64_RELOC_TLVP_LOAD_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_TLVP_LOAD_PAGE21.aRM64_RELOC_TLVP_LOAD_PAGE21;
-final aRM64_RELOC_TLVP_LOAD_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_TLVP_LOAD_PAGEOFF12.aRM64_RELOC_TLVP_LOAD_PAGEOFF12;
-final aRM64_RELOC_ADDEND : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_aRM64_RELOC_ADDEND.aRM64_RELOC_ADDEND;
+final cpuAmd64 : Cpu = stdgo._internal.debug.macho.Macho_cpuamd64.cpuAmd64;
+final cpuArm : Cpu = stdgo._internal.debug.macho.Macho_cpuarm.cpuArm;
+final cpuArm64 : Cpu = stdgo._internal.debug.macho.Macho_cpuarm64.cpuArm64;
+final cpuPpc : Cpu = stdgo._internal.debug.macho.Macho_cpuppc.cpuPpc;
+final cpuPpc64 : Cpu = stdgo._internal.debug.macho.Macho_cpuppc64.cpuPpc64;
+final loadCmdSegment : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdsegment.loadCmdSegment;
+final loadCmdSymtab : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdsymtab.loadCmdSymtab;
+final loadCmdThread : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdthread.loadCmdThread;
+final loadCmdUnixThread : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdunixthread.loadCmdUnixThread;
+final loadCmdDysymtab : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmddysymtab.loadCmdDysymtab;
+final loadCmdDylib : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmddylib.loadCmdDylib;
+final loadCmdDylinker : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmddylinker.loadCmdDylinker;
+final loadCmdSegment64 : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdsegment64.loadCmdSegment64;
+final loadCmdRpath : LoadCmd = stdgo._internal.debug.macho.Macho_loadcmdrpath.loadCmdRpath;
+final flagNoUndefs : std.UInt = stdgo._internal.debug.macho.Macho_flagnoundefs.flagNoUndefs;
+final flagIncrLink : std.UInt = stdgo._internal.debug.macho.Macho_flagincrlink.flagIncrLink;
+final flagDyldLink : std.UInt = stdgo._internal.debug.macho.Macho_flagdyldlink.flagDyldLink;
+final flagBindAtLoad : std.UInt = stdgo._internal.debug.macho.Macho_flagbindatload.flagBindAtLoad;
+final flagPrebound : std.UInt = stdgo._internal.debug.macho.Macho_flagprebound.flagPrebound;
+final flagSplitSegs : std.UInt = stdgo._internal.debug.macho.Macho_flagsplitsegs.flagSplitSegs;
+final flagLazyInit : std.UInt = stdgo._internal.debug.macho.Macho_flaglazyinit.flagLazyInit;
+final flagTwoLevel : std.UInt = stdgo._internal.debug.macho.Macho_flagtwolevel.flagTwoLevel;
+final flagForceFlat : std.UInt = stdgo._internal.debug.macho.Macho_flagforceflat.flagForceFlat;
+final flagNoMultiDefs : std.UInt = stdgo._internal.debug.macho.Macho_flagnomultidefs.flagNoMultiDefs;
+final flagNoFixPrebinding : std.UInt = stdgo._internal.debug.macho.Macho_flagnofixprebinding.flagNoFixPrebinding;
+final flagPrebindable : std.UInt = stdgo._internal.debug.macho.Macho_flagprebindable.flagPrebindable;
+final flagAllModsBound : std.UInt = stdgo._internal.debug.macho.Macho_flagallmodsbound.flagAllModsBound;
+final flagSubsectionsViaSymbols : std.UInt = stdgo._internal.debug.macho.Macho_flagsubsectionsviasymbols.flagSubsectionsViaSymbols;
+final flagCanonical : std.UInt = stdgo._internal.debug.macho.Macho_flagcanonical.flagCanonical;
+final flagWeakDefines : std.UInt = stdgo._internal.debug.macho.Macho_flagweakdefines.flagWeakDefines;
+final flagBindsToWeak : std.UInt = stdgo._internal.debug.macho.Macho_flagbindstoweak.flagBindsToWeak;
+final flagAllowStackExecution : std.UInt = stdgo._internal.debug.macho.Macho_flagallowstackexecution.flagAllowStackExecution;
+final flagRootSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagrootsafe.flagRootSafe;
+final flagSetuidSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagsetuidsafe.flagSetuidSafe;
+final flagNoReexportedDylibs : std.UInt = stdgo._internal.debug.macho.Macho_flagnoreexporteddylibs.flagNoReexportedDylibs;
+final flagPIE : std.UInt = stdgo._internal.debug.macho.Macho_flagpie.flagPIE;
+final flagDeadStrippableDylib : std.UInt = stdgo._internal.debug.macho.Macho_flagdeadstrippabledylib.flagDeadStrippableDylib;
+final flagHasTLVDescriptors : std.UInt = stdgo._internal.debug.macho.Macho_flaghastlvdescriptors.flagHasTLVDescriptors;
+final flagNoHeapExecution : std.UInt = stdgo._internal.debug.macho.Macho_flagnoheapexecution.flagNoHeapExecution;
+final flagAppExtensionSafe : std.UInt = stdgo._internal.debug.macho.Macho_flagappextensionsafe.flagAppExtensionSafe;
+final gENERIC_RELOC_VANILLA : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_vanilla.gENERIC_RELOC_VANILLA;
+final gENERIC_RELOC_PAIR : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_pair.gENERIC_RELOC_PAIR;
+final gENERIC_RELOC_SECTDIFF : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_sectdiff.gENERIC_RELOC_SECTDIFF;
+final gENERIC_RELOC_PB_LA_PTR : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_pb_la_ptr.gENERIC_RELOC_PB_LA_PTR;
+final gENERIC_RELOC_LOCAL_SECTDIFF : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_local_sectdiff.gENERIC_RELOC_LOCAL_SECTDIFF;
+final gENERIC_RELOC_TLV : RelocTypeGeneric = stdgo._internal.debug.macho.Macho_generic_reloc_tlv.gENERIC_RELOC_TLV;
+final x86_64_RELOC_UNSIGNED : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_unsigned.x86_64_RELOC_UNSIGNED;
+final x86_64_RELOC_SIGNED : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_signed.x86_64_RELOC_SIGNED;
+final x86_64_RELOC_BRANCH : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_branch.x86_64_RELOC_BRANCH;
+final x86_64_RELOC_GOT_LOAD : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_got_load.x86_64_RELOC_GOT_LOAD;
+final x86_64_RELOC_GOT : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_got.x86_64_RELOC_GOT;
+final x86_64_RELOC_SUBTRACTOR : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_subtractor.x86_64_RELOC_SUBTRACTOR;
+final x86_64_RELOC_SIGNED_1 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_signed_1.x86_64_RELOC_SIGNED_1;
+final x86_64_RELOC_SIGNED_2 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_signed_2.x86_64_RELOC_SIGNED_2;
+final x86_64_RELOC_SIGNED_4 : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_signed_4.x86_64_RELOC_SIGNED_4;
+final x86_64_RELOC_TLV : RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_x86_64_reloc_tlv.x86_64_RELOC_TLV;
+final aRM_RELOC_VANILLA : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_vanilla.aRM_RELOC_VANILLA;
+final aRM_RELOC_PAIR : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_pair.aRM_RELOC_PAIR;
+final aRM_RELOC_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_sectdiff.aRM_RELOC_SECTDIFF;
+final aRM_RELOC_LOCAL_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_local_sectdiff.aRM_RELOC_LOCAL_SECTDIFF;
+final aRM_RELOC_PB_LA_PTR : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_pb_la_ptr.aRM_RELOC_PB_LA_PTR;
+final aRM_RELOC_BR24 : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_br24.aRM_RELOC_BR24;
+final aRM_THUMB_RELOC_BR22 : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_thumb_reloc_br22.aRM_THUMB_RELOC_BR22;
+final aRM_THUMB_32BIT_BRANCH : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_thumb_32bit_branch.aRM_THUMB_32BIT_BRANCH;
+final aRM_RELOC_HALF : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_half.aRM_RELOC_HALF;
+final aRM_RELOC_HALF_SECTDIFF : RelocTypeARM = stdgo._internal.debug.macho.Macho_arm_reloc_half_sectdiff.aRM_RELOC_HALF_SECTDIFF;
+final aRM64_RELOC_UNSIGNED : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_unsigned.aRM64_RELOC_UNSIGNED;
+final aRM64_RELOC_SUBTRACTOR : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_subtractor.aRM64_RELOC_SUBTRACTOR;
+final aRM64_RELOC_BRANCH26 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_branch26.aRM64_RELOC_BRANCH26;
+final aRM64_RELOC_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_page21.aRM64_RELOC_PAGE21;
+final aRM64_RELOC_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_pageoff12.aRM64_RELOC_PAGEOFF12;
+final aRM64_RELOC_GOT_LOAD_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_got_load_page21.aRM64_RELOC_GOT_LOAD_PAGE21;
+final aRM64_RELOC_GOT_LOAD_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_got_load_pageoff12.aRM64_RELOC_GOT_LOAD_PAGEOFF12;
+final aRM64_RELOC_POINTER_TO_GOT : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_pointer_to_got.aRM64_RELOC_POINTER_TO_GOT;
+final aRM64_RELOC_TLVP_LOAD_PAGE21 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_tlvp_load_page21.aRM64_RELOC_TLVP_LOAD_PAGE21;
+final aRM64_RELOC_TLVP_LOAD_PAGEOFF12 : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_tlvp_load_pageoff12.aRM64_RELOC_TLVP_LOAD_PAGEOFF12;
+final aRM64_RELOC_ADDEND : RelocTypeARM64 = stdgo._internal.debug.macho.Macho_arm64_reloc_addend.aRM64_RELOC_ADDEND;
 var errNotFat(get, set) : FormatError;
-private function get_errNotFat():FormatError return stdgo._internal.debug.macho.Macho_errNotFat.errNotFat;
+private function get_errNotFat():FormatError return stdgo._internal.debug.macho.Macho_errnotfat.errNotFat;
 private function set_errNotFat(v:FormatError):FormatError {
-        stdgo._internal.debug.macho.Macho_errNotFat.errNotFat = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>);
+        stdgo._internal.debug.macho.Macho_errnotfat.errNotFat = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>);
         return v;
     }
 class Load_static_extension {
     static public function raw(t:stdgo._internal.debug.macho.Macho_load.Load):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Load_static_extension.Load_static_extension.raw(t)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_load_static_extension.Load_static_extension.raw(t)) i];
     }
 }
-typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
-@:structInit @:using(stdgo.debug.macho.Macho.FatFile_static_extension) abstract FatFile(stdgo._internal.debug.macho.Macho_FatFile.FatFile) from stdgo._internal.debug.macho.Macho_FatFile.FatFile to stdgo._internal.debug.macho.Macho_FatFile.FatFile {
+typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
+@:structInit @:using(stdgo.debug.macho.Macho.FatFile_static_extension) abstract FatFile(stdgo._internal.debug.macho.Macho_fatfile.FatFile) from stdgo._internal.debug.macho.Macho_fatfile.FatFile to stdgo._internal.debug.macho.Macho_fatfile.FatFile {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -115,11 +115,11 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this._closer = v;
         return v;
     }
-    public function new(?magic:std.UInt, ?arches:Array<FatArch>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_FatFile.FatFile((magic : stdgo.GoUInt32), ([for (i in arches) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_fatarch.FatArch>), _closer);
+    public function new(?magic:std.UInt, ?arches:Array<FatArch>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_fatfile.FatFile((magic : stdgo.GoUInt32), ([for (i in arches) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_fatarch.FatArch>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FatArchHeader_static_extension) abstract FatArchHeader(stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader) from stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader to stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader {
+@:structInit @:using(stdgo.debug.macho.Macho.FatArchHeader_static_extension) abstract FatArchHeader(stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader) from stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader to stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader {
     public var cpu(get, set) : Cpu;
     function get_cpu():Cpu return this.cpu;
     function set_cpu(v:Cpu):Cpu {
@@ -150,11 +150,11 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this.align = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cpu:Cpu, ?subCpu:std.UInt, ?offset:std.UInt, ?size:std.UInt, ?align:std.UInt) this = new stdgo._internal.debug.macho.Macho_FatArchHeader.FatArchHeader(cpu, (subCpu : stdgo.GoUInt32), (offset : stdgo.GoUInt32), (size : stdgo.GoUInt32), (align : stdgo.GoUInt32));
+    public function new(?cpu:Cpu, ?subCpu:std.UInt, ?offset:std.UInt, ?size:std.UInt, ?align:std.UInt) this = new stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader(cpu, (subCpu : stdgo.GoUInt32), (offset : stdgo.GoUInt32), (size : stdgo.GoUInt32), (align : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FatArch_static_extension) abstract FatArch(stdgo._internal.debug.macho.Macho_FatArch.FatArch) from stdgo._internal.debug.macho.Macho_FatArch.FatArch to stdgo._internal.debug.macho.Macho_FatArch.FatArch {
+@:structInit @:using(stdgo.debug.macho.Macho.FatArch_static_extension) abstract FatArch(stdgo._internal.debug.macho.Macho_fatarch.FatArch) from stdgo._internal.debug.macho.Macho_fatarch.FatArch to stdgo._internal.debug.macho.Macho_fatarch.FatArch {
     public var fatArchHeader(get, set) : FatArchHeader;
     function get_fatArchHeader():FatArchHeader return this.fatArchHeader;
     function set_fatArchHeader(v:FatArchHeader):FatArchHeader {
@@ -167,11 +167,11 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this.file = (v : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return v;
     }
-    public function new(?fatArchHeader:FatArchHeader, ?file:File) this = new stdgo._internal.debug.macho.Macho_FatArch.FatArch(fatArchHeader, (file : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>));
+    public function new(?fatArchHeader:FatArchHeader, ?file:File) this = new stdgo._internal.debug.macho.Macho_fatarch.FatArch(fatArchHeader, (file : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.File_static_extension) abstract File(stdgo._internal.debug.macho.Macho_File.File) from stdgo._internal.debug.macho.Macho_File.File to stdgo._internal.debug.macho.Macho_File.File {
+@:structInit @:using(stdgo.debug.macho.Macho.File_static_extension) abstract File(stdgo._internal.debug.macho.Macho_file.File) from stdgo._internal.debug.macho.Macho_file.File to stdgo._internal.debug.macho.Macho_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -214,11 +214,11 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?byteOrder:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?loads:Array<Load>, ?sections:Array<Section>, ?symtab:Symtab, ?dysymtab:Dysymtab, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_File.File(fileHeader, byteOrder, ([for (i in loads) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>>), (symtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtab.Symtab>), (dysymtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab>), _closer);
+    public function new(?fileHeader:FileHeader, ?byteOrder:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?loads:Array<Load>, ?sections:Array<Section>, ?symtab:Symtab, ?dysymtab:Dysymtab, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.macho.Macho_file.File(fileHeader, byteOrder, ([for (i in loads) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_load.Load>), ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>>), (symtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtab.Symtab>), (dysymtab : stdgo.Ref<stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SegmentHeader_static_extension) abstract SegmentHeader(stdgo._internal.debug.macho.Macho_SegmentHeader.SegmentHeader) from stdgo._internal.debug.macho.Macho_SegmentHeader.SegmentHeader to stdgo._internal.debug.macho.Macho_SegmentHeader.SegmentHeader {
+@:structInit @:using(stdgo.debug.macho.Macho.SegmentHeader_static_extension) abstract SegmentHeader(stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader) from stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader to stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -285,7 +285,7 @@ typedef Load = stdgo._internal.debug.macho.Macho_Load.Load;
         this.flag = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:String, ?addr:haxe.UInt64, ?memsz:haxe.UInt64, ?offset:haxe.UInt64, ?filesz:haxe.UInt64, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_SegmentHeader.SegmentHeader(
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:String, ?addr:haxe.UInt64, ?memsz:haxe.UInt64, ?offset:haxe.UInt64, ?filesz:haxe.UInt64, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader(
 cmd,
 (len : stdgo.GoUInt32),
 (name : stdgo.GoString),
@@ -300,7 +300,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment_static_extension) abstract Segment(stdgo._internal.debug.macho.Macho_Segment.Segment) from stdgo._internal.debug.macho.Macho_Segment.Segment to stdgo._internal.debug.macho.Macho_Segment.Segment {
+@:structInit @:using(stdgo.debug.macho.Macho.Segment_static_extension) abstract Segment(stdgo._internal.debug.macho.Macho_segment.Segment) from stdgo._internal.debug.macho.Macho_segment.Segment to stdgo._internal.debug.macho.Macho_segment.Segment {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -325,11 +325,11 @@ cmd,
         this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?segmentHeader:SegmentHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Segment.Segment(loadBytes, segmentHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
+    public function new(?loadBytes:LoadBytes, ?segmentHeader:SegmentHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_segment.Segment(loadBytes, segmentHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.macho.Macho_SectionHeader.SectionHeader) from stdgo._internal.debug.macho.Macho_SectionHeader.SectionHeader to stdgo._internal.debug.macho.Macho_SectionHeader.SectionHeader {
+@:structInit @:using(stdgo.debug.macho.Macho.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader) from stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader to stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -384,11 +384,11 @@ cmd,
         this.flags = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?name:String, ?seg:String, ?addr:haxe.UInt64, ?size:haxe.UInt64, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt) this = new stdgo._internal.debug.macho.Macho_SectionHeader.SectionHeader((name : stdgo.GoString), (seg : stdgo.GoString), (addr : stdgo.GoUInt64), (size : stdgo.GoUInt64), (offset : stdgo.GoUInt32), (align : stdgo.GoUInt32), (reloff : stdgo.GoUInt32), (nreloc : stdgo.GoUInt32), (flags : stdgo.GoUInt32));
+    public function new(?name:String, ?seg:String, ?addr:haxe.UInt64, ?size:haxe.UInt64, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt) this = new stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader((name : stdgo.GoString), (seg : stdgo.GoString), (addr : stdgo.GoUInt64), (size : stdgo.GoUInt64), (offset : stdgo.GoUInt32), (align : stdgo.GoUInt32), (reloff : stdgo.GoUInt32), (nreloc : stdgo.GoUInt32), (flags : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.macho.Macho_Reloc.Reloc) from stdgo._internal.debug.macho.Macho_Reloc.Reloc to stdgo._internal.debug.macho.Macho_Reloc.Reloc {
+@:structInit @:using(stdgo.debug.macho.Macho.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.macho.Macho_reloc.Reloc) from stdgo._internal.debug.macho.Macho_reloc.Reloc to stdgo._internal.debug.macho.Macho_reloc.Reloc {
     public var addr(get, set) : std.UInt;
     function get_addr():std.UInt return this.addr;
     function set_addr(v:std.UInt):std.UInt {
@@ -431,11 +431,11 @@ cmd,
         this.scattered = v;
         return v;
     }
-    public function new(?addr:std.UInt, ?value:std.UInt, ?type:std.UInt, ?len:std.UInt, ?pcrel:Bool, ?extern_:Bool, ?scattered:Bool) this = new stdgo._internal.debug.macho.Macho_Reloc.Reloc((addr : stdgo.GoUInt32), (value : stdgo.GoUInt32), (type : stdgo.GoUInt8), (len : stdgo.GoUInt8), pcrel, extern_, scattered);
+    public function new(?addr:std.UInt, ?value:std.UInt, ?type:std.UInt, ?len:std.UInt, ?pcrel:Bool, ?extern_:Bool, ?scattered:Bool) this = new stdgo._internal.debug.macho.Macho_reloc.Reloc((addr : stdgo.GoUInt32), (value : stdgo.GoUInt32), (type : stdgo.GoUInt8), (len : stdgo.GoUInt8), pcrel, extern_, scattered);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section_static_extension) abstract Section(stdgo._internal.debug.macho.Macho_Section.Section) from stdgo._internal.debug.macho.Macho_Section.Section to stdgo._internal.debug.macho.Macho_Section.Section {
+@:structInit @:using(stdgo.debug.macho.Macho.Section_static_extension) abstract Section(stdgo._internal.debug.macho.Macho_section.Section) from stdgo._internal.debug.macho.Macho_section.Section to stdgo._internal.debug.macho.Macho_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -460,11 +460,11 @@ cmd,
         this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_Section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?relocs:Array<Reloc>, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.macho.Macho_section.Section(sectionHeader, ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_reloc.Reloc>), readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Dylib_static_extension) abstract Dylib(stdgo._internal.debug.macho.Macho_Dylib.Dylib) from stdgo._internal.debug.macho.Macho_Dylib.Dylib to stdgo._internal.debug.macho.Macho_Dylib.Dylib {
+@:structInit @:using(stdgo.debug.macho.Macho.Dylib_static_extension) abstract Dylib(stdgo._internal.debug.macho.Macho_dylib.Dylib) from stdgo._internal.debug.macho.Macho_dylib.Dylib to stdgo._internal.debug.macho.Macho_dylib.Dylib {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -495,11 +495,11 @@ cmd,
         this.compatVersion = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?name:String, ?time:std.UInt, ?currentVersion:std.UInt, ?compatVersion:std.UInt) this = new stdgo._internal.debug.macho.Macho_Dylib.Dylib(loadBytes, (name : stdgo.GoString), (time : stdgo.GoUInt32), (currentVersion : stdgo.GoUInt32), (compatVersion : stdgo.GoUInt32));
+    public function new(?loadBytes:LoadBytes, ?name:String, ?time:std.UInt, ?currentVersion:std.UInt, ?compatVersion:std.UInt) this = new stdgo._internal.debug.macho.Macho_dylib.Dylib(loadBytes, (name : stdgo.GoString), (time : stdgo.GoUInt32), (currentVersion : stdgo.GoUInt32), (compatVersion : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Symtab_static_extension) abstract Symtab(stdgo._internal.debug.macho.Macho_Symtab.Symtab) from stdgo._internal.debug.macho.Macho_Symtab.Symtab to stdgo._internal.debug.macho.Macho_Symtab.Symtab {
+@:structInit @:using(stdgo.debug.macho.Macho.Symtab_static_extension) abstract Symtab(stdgo._internal.debug.macho.Macho_symtab.Symtab) from stdgo._internal.debug.macho.Macho_symtab.Symtab to stdgo._internal.debug.macho.Macho_symtab.Symtab {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -518,11 +518,11 @@ cmd,
         this.syms = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?symtabCmd:SymtabCmd, ?syms:Array<Symbol>) this = new stdgo._internal.debug.macho.Macho_Symtab.Symtab(loadBytes, symtabCmd, ([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>));
+    public function new(?loadBytes:LoadBytes, ?symtabCmd:SymtabCmd, ?syms:Array<Symbol>) this = new stdgo._internal.debug.macho.Macho_symtab.Symtab(loadBytes, symtabCmd, ([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.macho.Macho_symbol.Symbol>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Dysymtab_static_extension) abstract Dysymtab(stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab) from stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab to stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab {
+@:structInit @:using(stdgo.debug.macho.Macho.Dysymtab_static_extension) abstract Dysymtab(stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab) from stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab to stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -541,11 +541,11 @@ cmd,
         this.indirectSyms = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?dysymtabCmd:DysymtabCmd, ?indirectSyms:Array<std.UInt>) this = new stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab(loadBytes, dysymtabCmd, ([for (i in indirectSyms) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
+    public function new(?loadBytes:LoadBytes, ?dysymtabCmd:DysymtabCmd, ?indirectSyms:Array<std.UInt>) this = new stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab(loadBytes, dysymtabCmd, ([for (i in indirectSyms) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Rpath_static_extension) abstract Rpath(stdgo._internal.debug.macho.Macho_Rpath.Rpath) from stdgo._internal.debug.macho.Macho_Rpath.Rpath to stdgo._internal.debug.macho.Macho_Rpath.Rpath {
+@:structInit @:using(stdgo.debug.macho.Macho.Rpath_static_extension) abstract Rpath(stdgo._internal.debug.macho.Macho_rpath.Rpath) from stdgo._internal.debug.macho.Macho_rpath.Rpath to stdgo._internal.debug.macho.Macho_rpath.Rpath {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -558,11 +558,11 @@ cmd,
         this.path = (v : stdgo.GoString);
         return v;
     }
-    public function new(?loadBytes:LoadBytes, ?path:String) this = new stdgo._internal.debug.macho.Macho_Rpath.Rpath(loadBytes, (path : stdgo.GoString));
+    public function new(?loadBytes:LoadBytes, ?path:String) this = new stdgo._internal.debug.macho.Macho_rpath.Rpath(loadBytes, (path : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.macho.Macho_Symbol.Symbol) from stdgo._internal.debug.macho.Macho_Symbol.Symbol to stdgo._internal.debug.macho.Macho_Symbol.Symbol {
+@:structInit @:using(stdgo.debug.macho.Macho.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.macho.Macho_symbol.Symbol) from stdgo._internal.debug.macho.Macho_symbol.Symbol to stdgo._internal.debug.macho.Macho_symbol.Symbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -593,11 +593,11 @@ cmd,
         this.value = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?name:String, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_Symbol.Symbol((name : stdgo.GoString), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt64));
+    public function new(?name:String, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_symbol.Symbol((name : stdgo.GoString), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.macho.Macho_FormatError.FormatError) from stdgo._internal.debug.macho.Macho_FormatError.FormatError to stdgo._internal.debug.macho.Macho_FormatError.FormatError {
+@:structInit @:using(stdgo.debug.macho.Macho.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.macho.Macho_formaterror.FormatError) from stdgo._internal.debug.macho.Macho_formaterror.FormatError to stdgo._internal.debug.macho.Macho_formaterror.FormatError {
     public var _off(get, set) : haxe.Int64;
     function get__off():haxe.Int64 return this._off;
     function set__off(v:haxe.Int64):haxe.Int64 {
@@ -616,11 +616,11 @@ cmd,
         this._val = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?_off:haxe.Int64, ?_msg:String, ?_val:stdgo.AnyInterface) this = new stdgo._internal.debug.macho.Macho_FormatError.FormatError((_off : stdgo.GoInt64), (_msg : stdgo.GoString), (_val : stdgo.AnyInterface));
+    public function new(?_off:haxe.Int64, ?_msg:String, ?_val:stdgo.AnyInterface) this = new stdgo._internal.debug.macho.Macho_formaterror.FormatError((_off : stdgo.GoInt64), (_msg : stdgo.GoString), (_val : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_relocInfo_static_extension) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo to stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo {
+@:structInit @:using(stdgo.debug.macho.Macho.T_relocInfo_static_extension) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo to stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo {
     public var addr(get, set) : std.UInt;
     function get_addr():std.UInt return this.addr;
     function set_addr(v:std.UInt):std.UInt {
@@ -633,11 +633,11 @@ cmd,
         this.symnum = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?addr:std.UInt, ?symnum:std.UInt) this = new stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo((addr : stdgo.GoUInt32), (symnum : stdgo.GoUInt32));
+    public function new(?addr:std.UInt, ?symnum:std.UInt) this = new stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo((addr : stdgo.GoUInt32), (symnum : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.macho.Macho_FileHeader.FileHeader) from stdgo._internal.debug.macho.Macho_FileHeader.FileHeader to stdgo._internal.debug.macho.Macho_FileHeader.FileHeader {
+@:structInit @:using(stdgo.debug.macho.Macho.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.macho.Macho_fileheader.FileHeader) from stdgo._internal.debug.macho.Macho_fileheader.FileHeader to stdgo._internal.debug.macho.Macho_fileheader.FileHeader {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -680,11 +680,11 @@ cmd,
         this.flags = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?magic:std.UInt, ?cpu:Cpu, ?subCpu:std.UInt, ?type:Type_, ?ncmd:std.UInt, ?cmdsz:std.UInt, ?flags:std.UInt) this = new stdgo._internal.debug.macho.Macho_FileHeader.FileHeader((magic : stdgo.GoUInt32), cpu, (subCpu : stdgo.GoUInt32), type, (ncmd : stdgo.GoUInt32), (cmdsz : stdgo.GoUInt32), (flags : stdgo.GoUInt32));
+    public function new(?magic:std.UInt, ?cpu:Cpu, ?subCpu:std.UInt, ?type:Type_, ?ncmd:std.UInt, ?cmdsz:std.UInt, ?flags:std.UInt) this = new stdgo._internal.debug.macho.Macho_fileheader.FileHeader((magic : stdgo.GoUInt32), cpu, (subCpu : stdgo.GoUInt32), type, (ncmd : stdgo.GoUInt32), (cmdsz : stdgo.GoUInt32), (flags : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment32_static_extension) abstract Segment32(stdgo._internal.debug.macho.Macho_Segment32.Segment32) from stdgo._internal.debug.macho.Macho_Segment32.Segment32 to stdgo._internal.debug.macho.Macho_Segment32.Segment32 {
+@:structInit @:using(stdgo.debug.macho.Macho.Segment32_static_extension) abstract Segment32(stdgo._internal.debug.macho.Macho_segment32.Segment32) from stdgo._internal.debug.macho.Macho_segment32.Segment32 to stdgo._internal.debug.macho.Macho_segment32.Segment32 {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -751,7 +751,7 @@ cmd,
         this.flag = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:haxe.ds.Vector<std.UInt>, ?addr:std.UInt, ?memsz:std.UInt, ?offset:std.UInt, ?filesz:std.UInt, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_Segment32.Segment32(
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:haxe.ds.Vector<std.UInt>, ?addr:std.UInt, ?memsz:std.UInt, ?offset:std.UInt, ?filesz:std.UInt, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_segment32.Segment32(
 cmd,
 (len : stdgo.GoUInt32),
 ([for (i in name) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
@@ -766,7 +766,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment64_static_extension) abstract Segment64(stdgo._internal.debug.macho.Macho_Segment64.Segment64) from stdgo._internal.debug.macho.Macho_Segment64.Segment64 to stdgo._internal.debug.macho.Macho_Segment64.Segment64 {
+@:structInit @:using(stdgo.debug.macho.Macho.Segment64_static_extension) abstract Segment64(stdgo._internal.debug.macho.Macho_segment64.Segment64) from stdgo._internal.debug.macho.Macho_segment64.Segment64 to stdgo._internal.debug.macho.Macho_segment64.Segment64 {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -833,7 +833,7 @@ cmd,
         this.flag = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:haxe.ds.Vector<std.UInt>, ?addr:haxe.UInt64, ?memsz:haxe.UInt64, ?offset:haxe.UInt64, ?filesz:haxe.UInt64, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_Segment64.Segment64(
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:haxe.ds.Vector<std.UInt>, ?addr:haxe.UInt64, ?memsz:haxe.UInt64, ?offset:haxe.UInt64, ?filesz:haxe.UInt64, ?maxprot:std.UInt, ?prot:std.UInt, ?nsect:std.UInt, ?flag:std.UInt) this = new stdgo._internal.debug.macho.Macho_segment64.Segment64(
 cmd,
 (len : stdgo.GoUInt32),
 ([for (i in name) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
@@ -848,7 +848,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SymtabCmd_static_extension) abstract SymtabCmd(stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd) from stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd to stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd {
+@:structInit @:using(stdgo.debug.macho.Macho.SymtabCmd_static_extension) abstract SymtabCmd(stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd) from stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd to stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -885,11 +885,11 @@ cmd,
         this.strsize = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?symoff:std.UInt, ?nsyms:std.UInt, ?stroff:std.UInt, ?strsize:std.UInt) this = new stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd(cmd, (len : stdgo.GoUInt32), (symoff : stdgo.GoUInt32), (nsyms : stdgo.GoUInt32), (stroff : stdgo.GoUInt32), (strsize : stdgo.GoUInt32));
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?symoff:std.UInt, ?nsyms:std.UInt, ?stroff:std.UInt, ?strsize:std.UInt) this = new stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd(cmd, (len : stdgo.GoUInt32), (symoff : stdgo.GoUInt32), (nsyms : stdgo.GoUInt32), (stroff : stdgo.GoUInt32), (strsize : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.DysymtabCmd_static_extension) abstract DysymtabCmd(stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd) from stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd to stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd {
+@:structInit @:using(stdgo.debug.macho.Macho.DysymtabCmd_static_extension) abstract DysymtabCmd(stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd) from stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd to stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1010,7 +1010,7 @@ cmd,
         this.nlocrel = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?ilocalsym:std.UInt, ?nlocalsym:std.UInt, ?iextdefsym:std.UInt, ?nextdefsym:std.UInt, ?iundefsym:std.UInt, ?nundefsym:std.UInt, ?tocoffset:std.UInt, ?ntoc:std.UInt, ?modtaboff:std.UInt, ?nmodtab:std.UInt, ?extrefsymoff:std.UInt, ?nextrefsyms:std.UInt, ?indirectsymoff:std.UInt, ?nindirectsyms:std.UInt, ?extreloff:std.UInt, ?nextrel:std.UInt, ?locreloff:std.UInt, ?nlocrel:std.UInt) this = new stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd(
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?ilocalsym:std.UInt, ?nlocalsym:std.UInt, ?iextdefsym:std.UInt, ?nextdefsym:std.UInt, ?iundefsym:std.UInt, ?nundefsym:std.UInt, ?tocoffset:std.UInt, ?ntoc:std.UInt, ?modtaboff:std.UInt, ?nmodtab:std.UInt, ?extrefsymoff:std.UInt, ?nextrefsyms:std.UInt, ?indirectsymoff:std.UInt, ?nindirectsyms:std.UInt, ?extreloff:std.UInt, ?nextrel:std.UInt, ?locreloff:std.UInt, ?nlocrel:std.UInt) this = new stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd(
 cmd,
 (len : stdgo.GoUInt32),
 (ilocalsym : stdgo.GoUInt32),
@@ -1034,7 +1034,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.DylibCmd_static_extension) abstract DylibCmd(stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd) from stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd to stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd {
+@:structInit @:using(stdgo.debug.macho.Macho.DylibCmd_static_extension) abstract DylibCmd(stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd) from stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd to stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1071,11 +1071,11 @@ cmd,
         this.compatVersion = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:std.UInt, ?time:std.UInt, ?currentVersion:std.UInt, ?compatVersion:std.UInt) this = new stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd(cmd, (len : stdgo.GoUInt32), (name : stdgo.GoUInt32), (time : stdgo.GoUInt32), (currentVersion : stdgo.GoUInt32), (compatVersion : stdgo.GoUInt32));
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?name:std.UInt, ?time:std.UInt, ?currentVersion:std.UInt, ?compatVersion:std.UInt) this = new stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd(cmd, (len : stdgo.GoUInt32), (name : stdgo.GoUInt32), (time : stdgo.GoUInt32), (currentVersion : stdgo.GoUInt32), (compatVersion : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.RpathCmd_static_extension) abstract RpathCmd(stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd) from stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd to stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd {
+@:structInit @:using(stdgo.debug.macho.Macho.RpathCmd_static_extension) abstract RpathCmd(stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd) from stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd to stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1094,11 +1094,11 @@ cmd,
         this.path = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?path:std.UInt) this = new stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd(cmd, (len : stdgo.GoUInt32), (path : stdgo.GoUInt32));
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?path:std.UInt) this = new stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd(cmd, (len : stdgo.GoUInt32), (path : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Thread_static_extension) abstract Thread(stdgo._internal.debug.macho.Macho_Thread.Thread) from stdgo._internal.debug.macho.Macho_Thread.Thread to stdgo._internal.debug.macho.Macho_Thread.Thread {
+@:structInit @:using(stdgo.debug.macho.Macho.Thread_static_extension) abstract Thread(stdgo._internal.debug.macho.Macho_thread.Thread) from stdgo._internal.debug.macho.Macho_thread.Thread to stdgo._internal.debug.macho.Macho_thread.Thread {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1123,11 +1123,11 @@ cmd,
         this.data = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?cmd:LoadCmd, ?len:std.UInt, ?type:std.UInt, ?data:Array<std.UInt>) this = new stdgo._internal.debug.macho.Macho_Thread.Thread(cmd, (len : stdgo.GoUInt32), (type : stdgo.GoUInt32), ([for (i in data) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
+    public function new(?cmd:LoadCmd, ?len:std.UInt, ?type:std.UInt, ?data:Array<std.UInt>) this = new stdgo._internal.debug.macho.Macho_thread.Thread(cmd, (len : stdgo.GoUInt32), (type : stdgo.GoUInt32), ([for (i in data) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section32_static_extension) abstract Section32(stdgo._internal.debug.macho.Macho_Section32.Section32) from stdgo._internal.debug.macho.Macho_Section32.Section32 to stdgo._internal.debug.macho.Macho_Section32.Section32 {
+@:structInit @:using(stdgo.debug.macho.Macho.Section32_static_extension) abstract Section32(stdgo._internal.debug.macho.Macho_section32.Section32) from stdgo._internal.debug.macho.Macho_section32.Section32 to stdgo._internal.debug.macho.Macho_section32.Section32 {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1194,7 +1194,7 @@ cmd,
         this.reserve2 = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?name:haxe.ds.Vector<std.UInt>, ?seg:haxe.ds.Vector<std.UInt>, ?addr:std.UInt, ?size:std.UInt, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt, ?reserve1:std.UInt, ?reserve2:std.UInt) this = new stdgo._internal.debug.macho.Macho_Section32.Section32(
+    public function new(?name:haxe.ds.Vector<std.UInt>, ?seg:haxe.ds.Vector<std.UInt>, ?addr:std.UInt, ?size:std.UInt, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt, ?reserve1:std.UInt, ?reserve2:std.UInt) this = new stdgo._internal.debug.macho.Macho_section32.Section32(
 ([for (i in name) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 ([for (i in seg) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 (addr : stdgo.GoUInt32),
@@ -1209,7 +1209,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section64_static_extension) abstract Section64(stdgo._internal.debug.macho.Macho_Section64.Section64) from stdgo._internal.debug.macho.Macho_Section64.Section64 to stdgo._internal.debug.macho.Macho_Section64.Section64 {
+@:structInit @:using(stdgo.debug.macho.Macho.Section64_static_extension) abstract Section64(stdgo._internal.debug.macho.Macho_section64.Section64) from stdgo._internal.debug.macho.Macho_section64.Section64 to stdgo._internal.debug.macho.Macho_section64.Section64 {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1282,7 +1282,7 @@ cmd,
         this.reserve3 = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?name:haxe.ds.Vector<std.UInt>, ?seg:haxe.ds.Vector<std.UInt>, ?addr:haxe.UInt64, ?size:haxe.UInt64, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt, ?reserve1:std.UInt, ?reserve2:std.UInt, ?reserve3:std.UInt) this = new stdgo._internal.debug.macho.Macho_Section64.Section64(
+    public function new(?name:haxe.ds.Vector<std.UInt>, ?seg:haxe.ds.Vector<std.UInt>, ?addr:haxe.UInt64, ?size:haxe.UInt64, ?offset:std.UInt, ?align:std.UInt, ?reloff:std.UInt, ?nreloc:std.UInt, ?flags:std.UInt, ?reserve1:std.UInt, ?reserve2:std.UInt, ?reserve3:std.UInt) this = new stdgo._internal.debug.macho.Macho_section64.Section64(
 ([for (i in name) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 ([for (i in seg) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 (addr : stdgo.GoUInt64),
@@ -1298,7 +1298,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Nlist32_static_extension) abstract Nlist32(stdgo._internal.debug.macho.Macho_Nlist32.Nlist32) from stdgo._internal.debug.macho.Macho_Nlist32.Nlist32 to stdgo._internal.debug.macho.Macho_Nlist32.Nlist32 {
+@:structInit @:using(stdgo.debug.macho.Macho.Nlist32_static_extension) abstract Nlist32(stdgo._internal.debug.macho.Macho_nlist32.Nlist32) from stdgo._internal.debug.macho.Macho_nlist32.Nlist32 to stdgo._internal.debug.macho.Macho_nlist32.Nlist32 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1329,11 +1329,11 @@ cmd,
         this.value = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?name:std.UInt, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:std.UInt) this = new stdgo._internal.debug.macho.Macho_Nlist32.Nlist32((name : stdgo.GoUInt32), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt32));
+    public function new(?name:std.UInt, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:std.UInt) this = new stdgo._internal.debug.macho.Macho_nlist32.Nlist32((name : stdgo.GoUInt32), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Nlist64_static_extension) abstract Nlist64(stdgo._internal.debug.macho.Macho_Nlist64.Nlist64) from stdgo._internal.debug.macho.Macho_Nlist64.Nlist64 to stdgo._internal.debug.macho.Macho_Nlist64.Nlist64 {
+@:structInit @:using(stdgo.debug.macho.Macho.Nlist64_static_extension) abstract Nlist64(stdgo._internal.debug.macho.Macho_nlist64.Nlist64) from stdgo._internal.debug.macho.Macho_nlist64.Nlist64 to stdgo._internal.debug.macho.Macho_nlist64.Nlist64 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1364,11 +1364,11 @@ cmd,
         this.value = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?name:std.UInt, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_Nlist64.Nlist64((name : stdgo.GoUInt32), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt64));
+    public function new(?name:std.UInt, ?type:std.UInt, ?sect:std.UInt, ?desc:std.UInt, ?value:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_nlist64.Nlist64((name : stdgo.GoUInt32), (type : stdgo.GoUInt8), (sect : stdgo.GoUInt8), (desc : stdgo.GoUInt16), (value : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Regs386_static_extension) abstract Regs386(stdgo._internal.debug.macho.Macho_Regs386.Regs386) from stdgo._internal.debug.macho.Macho_Regs386.Regs386 to stdgo._internal.debug.macho.Macho_Regs386.Regs386 {
+@:structInit @:using(stdgo.debug.macho.Macho.Regs386_static_extension) abstract Regs386(stdgo._internal.debug.macho.Macho_regs386.Regs386) from stdgo._internal.debug.macho.Macho_regs386.Regs386 to stdgo._internal.debug.macho.Macho_regs386.Regs386 {
     public var aX(get, set) : std.UInt;
     function get_aX():std.UInt return this.aX;
     function set_aX(v:std.UInt):std.UInt {
@@ -1465,7 +1465,7 @@ cmd,
         this.gS = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?aX:std.UInt, ?bX:std.UInt, ?cX:std.UInt, ?dX:std.UInt, ?dI:std.UInt, ?sI:std.UInt, ?bP:std.UInt, ?sP:std.UInt, ?sS:std.UInt, ?fLAGS:std.UInt, ?iP:std.UInt, ?cS:std.UInt, ?dS:std.UInt, ?eS:std.UInt, ?fS:std.UInt, ?gS:std.UInt) this = new stdgo._internal.debug.macho.Macho_Regs386.Regs386(
+    public function new(?aX:std.UInt, ?bX:std.UInt, ?cX:std.UInt, ?dX:std.UInt, ?dI:std.UInt, ?sI:std.UInt, ?bP:std.UInt, ?sP:std.UInt, ?sS:std.UInt, ?fLAGS:std.UInt, ?iP:std.UInt, ?cS:std.UInt, ?dS:std.UInt, ?eS:std.UInt, ?fS:std.UInt, ?gS:std.UInt) this = new stdgo._internal.debug.macho.Macho_regs386.Regs386(
 (aX : stdgo.GoUInt32),
 (bX : stdgo.GoUInt32),
 (cX : stdgo.GoUInt32),
@@ -1485,7 +1485,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.RegsAMD64_static_extension) abstract RegsAMD64(stdgo._internal.debug.macho.Macho_RegsAMD64.RegsAMD64) from stdgo._internal.debug.macho.Macho_RegsAMD64.RegsAMD64 to stdgo._internal.debug.macho.Macho_RegsAMD64.RegsAMD64 {
+@:structInit @:using(stdgo.debug.macho.Macho.RegsAMD64_static_extension) abstract RegsAMD64(stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64) from stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 to stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 {
     public var aX(get, set) : haxe.UInt64;
     function get_aX():haxe.UInt64 return this.aX;
     function set_aX(v:haxe.UInt64):haxe.UInt64 {
@@ -1612,7 +1612,7 @@ cmd,
         this.gS = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?aX:haxe.UInt64, ?bX:haxe.UInt64, ?cX:haxe.UInt64, ?dX:haxe.UInt64, ?dI:haxe.UInt64, ?sI:haxe.UInt64, ?bP:haxe.UInt64, ?sP:haxe.UInt64, ?r8:haxe.UInt64, ?r9:haxe.UInt64, ?r10:haxe.UInt64, ?r11:haxe.UInt64, ?r12:haxe.UInt64, ?r13:haxe.UInt64, ?r14:haxe.UInt64, ?r15:haxe.UInt64, ?iP:haxe.UInt64, ?fLAGS:haxe.UInt64, ?cS:haxe.UInt64, ?fS:haxe.UInt64, ?gS:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_RegsAMD64.RegsAMD64(
+    public function new(?aX:haxe.UInt64, ?bX:haxe.UInt64, ?cX:haxe.UInt64, ?dX:haxe.UInt64, ?dI:haxe.UInt64, ?sI:haxe.UInt64, ?bP:haxe.UInt64, ?sP:haxe.UInt64, ?r8:haxe.UInt64, ?r9:haxe.UInt64, ?r10:haxe.UInt64, ?r11:haxe.UInt64, ?r12:haxe.UInt64, ?r13:haxe.UInt64, ?r14:haxe.UInt64, ?r15:haxe.UInt64, ?iP:haxe.UInt64, ?fLAGS:haxe.UInt64, ?cS:haxe.UInt64, ?fS:haxe.UInt64, ?gS:haxe.UInt64) this = new stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64(
 (aX : stdgo.GoUInt64),
 (bX : stdgo.GoUInt64),
 (cX : stdgo.GoUInt64),
@@ -1637,7 +1637,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_intName_static_extension) abstract T_intName(stdgo._internal.debug.macho.Macho_T_intName.T_intName) from stdgo._internal.debug.macho.Macho_T_intName.T_intName to stdgo._internal.debug.macho.Macho_T_intName.T_intName {
+@:structInit @:using(stdgo.debug.macho.Macho.T_intName_static_extension) abstract T_intName(stdgo._internal.debug.macho.Macho_t_intname.T_intName) from stdgo._internal.debug.macho.Macho_t_intname.T_intName to stdgo._internal.debug.macho.Macho_t_intname.T_intName {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {
@@ -1650,39 +1650,39 @@ cmd,
         this._s = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_i:std.UInt, ?_s:String) this = new stdgo._internal.debug.macho.Macho_T_intName.T_intName((_i : stdgo.GoUInt32), (_s : stdgo.GoString));
+    public function new(?_i:std.UInt, ?_s:String) this = new stdgo._internal.debug.macho.Macho_t_intname.T_intName((_i : stdgo.GoUInt32), (_s : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.debug.macho.Macho_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.debug.macho.Macho_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.debug.macho.Macho_T__struct_0.T__struct_0;
-typedef LoadBytes = stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes;
-typedef Type_ = stdgo._internal.debug.macho.Macho_Type_.Type_;
-typedef Cpu = stdgo._internal.debug.macho.Macho_Cpu.Cpu;
-typedef LoadCmd = stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd;
-typedef RelocTypeGeneric = stdgo._internal.debug.macho.Macho_RelocTypeGeneric.RelocTypeGeneric;
-typedef RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_RelocTypeX86_64.RelocTypeX86_64;
-typedef RelocTypeARM = stdgo._internal.debug.macho.Macho_RelocTypeARM.RelocTypeARM;
-typedef RelocTypeARM64 = stdgo._internal.debug.macho.Macho_RelocTypeARM64.RelocTypeARM64;
-typedef FatFilePointer = stdgo._internal.debug.macho.Macho_FatFilePointer.FatFilePointer;
+typedef T__struct_0 = stdgo._internal.debug.macho.Macho_t__struct_0.T__struct_0;
+typedef LoadBytes = stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes;
+typedef Type_ = stdgo._internal.debug.macho.Macho_type_.Type_;
+typedef Cpu = stdgo._internal.debug.macho.Macho_cpu.Cpu;
+typedef LoadCmd = stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd;
+typedef RelocTypeGeneric = stdgo._internal.debug.macho.Macho_reloctypegeneric.RelocTypeGeneric;
+typedef RelocTypeX86_64 = stdgo._internal.debug.macho.Macho_reloctypex86_64.RelocTypeX86_64;
+typedef RelocTypeARM = stdgo._internal.debug.macho.Macho_reloctypearm.RelocTypeARM;
+typedef RelocTypeARM64 = stdgo._internal.debug.macho.Macho_reloctypearm64.RelocTypeARM64;
+typedef FatFilePointer = stdgo._internal.debug.macho.Macho_fatfilepointer.FatFilePointer;
 class FatFile_static_extension {
     static public function close(_ff:FatFile):stdgo.Error {
         final _ff = (_ff : stdgo.Ref<stdgo._internal.debug.macho.Macho_fatfile.FatFile>);
-        return stdgo._internal.debug.macho.Macho_FatFile_static_extension.FatFile_static_extension.close(_ff);
+        return stdgo._internal.debug.macho.Macho_fatfile_static_extension.FatFile_static_extension.close(_ff);
     }
 }
-typedef FatArchHeaderPointer = stdgo._internal.debug.macho.Macho_FatArchHeaderPointer.FatArchHeaderPointer;
+typedef FatArchHeaderPointer = stdgo._internal.debug.macho.Macho_fatarchheaderpointer.FatArchHeaderPointer;
 class FatArchHeader_static_extension {
 
 }
-typedef FatArchPointer = stdgo._internal.debug.macho.Macho_FatArchPointer.FatArchPointer;
+typedef FatArchPointer = stdgo._internal.debug.macho.Macho_fatarchpointer.FatArchPointer;
 class FatArch_static_extension {
     public static function _pushSection(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:Section, _1:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Error {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
-        return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension._pushSection(__self__, _0, _1);
+        return stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension._pushSection(__self__, _0, _1);
     }
     public static function _parseSymtab(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:Array<std.UInt>, _1:Array<std.UInt>, _2:Array<std.UInt>, _3:SymtabCmd, _4:haxe.Int64):stdgo.Tuple<Symtab, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -1691,77 +1691,77 @@ class FatArch_static_extension {
         final _3 = (_3 : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd>);
         final _4 = (_4 : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension._parseSymtab(__self__, _0, _1, _2, _3, _4);
+            final obj = stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension._parseSymtab(__self__, _0, _1, _2, _3, _4);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function segment(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:String):Segment {
         final _0 = (_0 : stdgo.GoString);
-        return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.segment(__self__, _0);
+        return stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.segment(__self__, _0);
     }
     public static function section(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch, _0:String):Section {
         final _0 = (_0 : stdgo.GoString);
-        return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.section(__self__, _0);
+        return stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.section(__self__, _0);
     }
     public static function importedSymbols(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.importedSymbols(__self__);
+            final obj = stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.importedSymbols(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     public static function importedLibraries(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.importedLibraries(__self__);
+            final obj = stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.importedLibraries(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     public static function dWARF(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.dWARF(__self__);
+            final obj = stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.dWARF(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function close(__self__:stdgo._internal.debug.macho.Macho_fatarch.FatArch):stdgo.Error {
-        return stdgo._internal.debug.macho.Macho_FatArch_static_extension.FatArch_static_extension.close(__self__);
+        return stdgo._internal.debug.macho.Macho_fatarch_static_extension.FatArch_static_extension.close(__self__);
     }
 }
-typedef FilePointer = stdgo._internal.debug.macho.Macho_FilePointer.FilePointer;
+typedef FilePointer = stdgo._internal.debug.macho.Macho_filepointer.FilePointer;
 class File_static_extension {
     static public function importedLibraries(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.importedLibraries(_f);
+            final obj = stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.importedLibraries(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function importedSymbols(_f:File):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.importedSymbols(_f);
+            final obj = stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.importedSymbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function dWARF(_f:File):stdgo.Tuple<stdgo._internal.debug.dwarf.Dwarf_data.Data, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.dWARF(_f);
+            final obj = stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.dWARF(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function section(_f:File, _name:String):Section {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _name = (_name : stdgo.GoString);
-        return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.section(_f, _name);
+        return stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.section(_f, _name);
     }
     static public function segment(_f:File, _name:String):Segment {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _name = (_name : stdgo.GoString);
-        return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.segment(_f, _name);
+        return stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.segment(_f, _name);
     }
     static public function _pushSection(_f:File, _sh:Section, _r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
         final _sh = (_sh : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
-        return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension._pushSection(_f, _sh, _r);
+        return stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension._pushSection(_f, _sh, _r);
     }
     static public function _parseSymtab(_f:File, _symdat:Array<std.UInt>, _strtab:Array<std.UInt>, _cmddat:Array<std.UInt>, _hdr:SymtabCmd, _offset:haxe.Int64):stdgo.Tuple<Symtab, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
@@ -1771,29 +1771,29 @@ class File_static_extension {
         final _hdr = (_hdr : stdgo.Ref<stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd>);
         final _offset = (_offset : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension._parseSymtab(_f, _symdat, _strtab, _cmddat, _hdr, _offset);
+            final obj = stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension._parseSymtab(_f, _symdat, _strtab, _cmddat, _hdr, _offset);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function close(_f:File):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>);
-        return stdgo._internal.debug.macho.Macho_File_static_extension.File_static_extension.close(_f);
+        return stdgo._internal.debug.macho.Macho_file_static_extension.File_static_extension.close(_f);
     }
 }
-typedef SegmentHeaderPointer = stdgo._internal.debug.macho.Macho_SegmentHeaderPointer.SegmentHeaderPointer;
+typedef SegmentHeaderPointer = stdgo._internal.debug.macho.Macho_segmentheaderpointer.SegmentHeaderPointer;
 class SegmentHeader_static_extension {
 
 }
-typedef SegmentPointer = stdgo._internal.debug.macho.Macho_SegmentPointer.SegmentPointer;
+typedef SegmentPointer = stdgo._internal.debug.macho.Macho_segmentpointer.SegmentPointer;
 class Segment_static_extension {
     static public function open(_s:Segment):stdgo._internal.io.Io_readseeker.ReadSeeker {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment>);
-        return stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.open(_s);
+        return stdgo._internal.debug.macho.Macho_segment_static_extension.Segment_static_extension.open(_s);
     }
     static public function data(_s:Segment):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment>);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.data(_s);
+            final obj = stdgo._internal.debug.macho.Macho_segment_static_extension.Segment_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1801,32 +1801,32 @@ class Segment_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.readAt(__self__, _0, _1);
+            final obj = stdgo._internal.debug.macho.Macho_segment_static_extension.Segment_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function raw(__self__:stdgo._internal.debug.macho.Macho_segment.Segment):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Segment_static_extension.Segment_static_extension.raw(__self__)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_segment_static_extension.Segment_static_extension.raw(__self__)) i];
     }
 }
-typedef SectionHeaderPointer = stdgo._internal.debug.macho.Macho_SectionHeaderPointer.SectionHeaderPointer;
+typedef SectionHeaderPointer = stdgo._internal.debug.macho.Macho_sectionheaderpointer.SectionHeaderPointer;
 class SectionHeader_static_extension {
 
 }
-typedef RelocPointer = stdgo._internal.debug.macho.Macho_RelocPointer.RelocPointer;
+typedef RelocPointer = stdgo._internal.debug.macho.Macho_relocpointer.RelocPointer;
 class Reloc_static_extension {
 
 }
-typedef SectionPointer = stdgo._internal.debug.macho.Macho_SectionPointer.SectionPointer;
+typedef SectionPointer = stdgo._internal.debug.macho.Macho_sectionpointer.SectionPointer;
 class Section_static_extension {
     static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
-        return stdgo._internal.debug.macho.Macho_Section_static_extension.Section_static_extension.open(_s);
+        return stdgo._internal.debug.macho.Macho_section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.macho.Macho_section.Section>);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_Section_static_extension.Section_static_extension.data(_s);
+            final obj = stdgo._internal.debug.macho.Macho_section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -1834,181 +1834,181 @@ class Section_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
+            final obj = stdgo._internal.debug.macho.Macho_section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef DylibPointer = stdgo._internal.debug.macho.Macho_DylibPointer.DylibPointer;
+typedef DylibPointer = stdgo._internal.debug.macho.Macho_dylibpointer.DylibPointer;
 class Dylib_static_extension {
     public static function raw(__self__:stdgo._internal.debug.macho.Macho_dylib.Dylib):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Dylib_static_extension.Dylib_static_extension.raw(__self__)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_dylib_static_extension.Dylib_static_extension.raw(__self__)) i];
     }
 }
-typedef SymtabPointer = stdgo._internal.debug.macho.Macho_SymtabPointer.SymtabPointer;
+typedef SymtabPointer = stdgo._internal.debug.macho.Macho_symtabpointer.SymtabPointer;
 class Symtab_static_extension {
     public static function raw(__self__:stdgo._internal.debug.macho.Macho_symtab.Symtab):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Symtab_static_extension.Symtab_static_extension.raw(__self__)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_symtab_static_extension.Symtab_static_extension.raw(__self__)) i];
     }
 }
-typedef DysymtabPointer = stdgo._internal.debug.macho.Macho_DysymtabPointer.DysymtabPointer;
+typedef DysymtabPointer = stdgo._internal.debug.macho.Macho_dysymtabpointer.DysymtabPointer;
 class Dysymtab_static_extension {
     public static function raw(__self__:stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Dysymtab_static_extension.Dysymtab_static_extension.raw(__self__)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_dysymtab_static_extension.Dysymtab_static_extension.raw(__self__)) i];
     }
 }
-typedef RpathPointer = stdgo._internal.debug.macho.Macho_RpathPointer.RpathPointer;
+typedef RpathPointer = stdgo._internal.debug.macho.Macho_rpathpointer.RpathPointer;
 class Rpath_static_extension {
     public static function raw(__self__:stdgo._internal.debug.macho.Macho_rpath.Rpath):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_Rpath_static_extension.Rpath_static_extension.raw(__self__)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_rpath_static_extension.Rpath_static_extension.raw(__self__)) i];
     }
 }
-typedef SymbolPointer = stdgo._internal.debug.macho.Macho_SymbolPointer.SymbolPointer;
+typedef SymbolPointer = stdgo._internal.debug.macho.Macho_symbolpointer.SymbolPointer;
 class Symbol_static_extension {
 
 }
-typedef FormatErrorPointer = stdgo._internal.debug.macho.Macho_FormatErrorPointer.FormatErrorPointer;
+typedef FormatErrorPointer = stdgo._internal.debug.macho.Macho_formaterrorpointer.FormatErrorPointer;
 class FormatError_static_extension {
     static public function error(_e:FormatError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>);
-        return stdgo._internal.debug.macho.Macho_FormatError_static_extension.FormatError_static_extension.error(_e);
+        return stdgo._internal.debug.macho.Macho_formaterror_static_extension.FormatError_static_extension.error(_e);
     }
 }
-typedef T_relocInfoPointer = stdgo._internal.debug.macho.Macho_T_relocInfoPointer.T_relocInfoPointer;
+typedef T_relocInfoPointer = stdgo._internal.debug.macho.Macho_t_relocinfopointer.T_relocInfoPointer;
 class T_relocInfo_static_extension {
 
 }
-typedef FileHeaderPointer = stdgo._internal.debug.macho.Macho_FileHeaderPointer.FileHeaderPointer;
+typedef FileHeaderPointer = stdgo._internal.debug.macho.Macho_fileheaderpointer.FileHeaderPointer;
 class FileHeader_static_extension {
 
 }
-typedef Segment32Pointer = stdgo._internal.debug.macho.Macho_Segment32Pointer.Segment32Pointer;
+typedef Segment32Pointer = stdgo._internal.debug.macho.Macho_segment32pointer.Segment32Pointer;
 class Segment32_static_extension {
 
 }
-typedef Segment64Pointer = stdgo._internal.debug.macho.Macho_Segment64Pointer.Segment64Pointer;
+typedef Segment64Pointer = stdgo._internal.debug.macho.Macho_segment64pointer.Segment64Pointer;
 class Segment64_static_extension {
 
 }
-typedef SymtabCmdPointer = stdgo._internal.debug.macho.Macho_SymtabCmdPointer.SymtabCmdPointer;
+typedef SymtabCmdPointer = stdgo._internal.debug.macho.Macho_symtabcmdpointer.SymtabCmdPointer;
 class SymtabCmd_static_extension {
 
 }
-typedef DysymtabCmdPointer = stdgo._internal.debug.macho.Macho_DysymtabCmdPointer.DysymtabCmdPointer;
+typedef DysymtabCmdPointer = stdgo._internal.debug.macho.Macho_dysymtabcmdpointer.DysymtabCmdPointer;
 class DysymtabCmd_static_extension {
 
 }
-typedef DylibCmdPointer = stdgo._internal.debug.macho.Macho_DylibCmdPointer.DylibCmdPointer;
+typedef DylibCmdPointer = stdgo._internal.debug.macho.Macho_dylibcmdpointer.DylibCmdPointer;
 class DylibCmd_static_extension {
 
 }
-typedef RpathCmdPointer = stdgo._internal.debug.macho.Macho_RpathCmdPointer.RpathCmdPointer;
+typedef RpathCmdPointer = stdgo._internal.debug.macho.Macho_rpathcmdpointer.RpathCmdPointer;
 class RpathCmd_static_extension {
 
 }
-typedef ThreadPointer = stdgo._internal.debug.macho.Macho_ThreadPointer.ThreadPointer;
+typedef ThreadPointer = stdgo._internal.debug.macho.Macho_threadpointer.ThreadPointer;
 class Thread_static_extension {
 
 }
-typedef Section32Pointer = stdgo._internal.debug.macho.Macho_Section32Pointer.Section32Pointer;
+typedef Section32Pointer = stdgo._internal.debug.macho.Macho_section32pointer.Section32Pointer;
 class Section32_static_extension {
 
 }
-typedef Section64Pointer = stdgo._internal.debug.macho.Macho_Section64Pointer.Section64Pointer;
+typedef Section64Pointer = stdgo._internal.debug.macho.Macho_section64pointer.Section64Pointer;
 class Section64_static_extension {
 
 }
-typedef Nlist32Pointer = stdgo._internal.debug.macho.Macho_Nlist32Pointer.Nlist32Pointer;
+typedef Nlist32Pointer = stdgo._internal.debug.macho.Macho_nlist32pointer.Nlist32Pointer;
 class Nlist32_static_extension {
 
 }
-typedef Nlist64Pointer = stdgo._internal.debug.macho.Macho_Nlist64Pointer.Nlist64Pointer;
+typedef Nlist64Pointer = stdgo._internal.debug.macho.Macho_nlist64pointer.Nlist64Pointer;
 class Nlist64_static_extension {
 
 }
-typedef Regs386Pointer = stdgo._internal.debug.macho.Macho_Regs386Pointer.Regs386Pointer;
+typedef Regs386Pointer = stdgo._internal.debug.macho.Macho_regs386pointer.Regs386Pointer;
 class Regs386_static_extension {
 
 }
-typedef RegsAMD64Pointer = stdgo._internal.debug.macho.Macho_RegsAMD64Pointer.RegsAMD64Pointer;
+typedef RegsAMD64Pointer = stdgo._internal.debug.macho.Macho_regsamd64pointer.RegsAMD64Pointer;
 class RegsAMD64_static_extension {
 
 }
-typedef T_intNamePointer = stdgo._internal.debug.macho.Macho_T_intNamePointer.T_intNamePointer;
+typedef T_intNamePointer = stdgo._internal.debug.macho.Macho_t_intnamepointer.T_intNamePointer;
 class T_intName_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.debug.macho.Macho_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.debug.macho.Macho_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
-typedef LoadBytesPointer = stdgo._internal.debug.macho.Macho_LoadBytesPointer.LoadBytesPointer;
+typedef LoadBytesPointer = stdgo._internal.debug.macho.Macho_loadbytespointer.LoadBytesPointer;
 class LoadBytes_static_extension {
     static public function raw(_b:LoadBytes):Array<std.UInt> {
-        return [for (i in stdgo._internal.debug.macho.Macho_LoadBytes_static_extension.LoadBytes_static_extension.raw(_b)) i];
+        return [for (i in stdgo._internal.debug.macho.Macho_loadbytes_static_extension.LoadBytes_static_extension.raw(_b)) i];
     }
 }
-typedef Type_Pointer = stdgo._internal.debug.macho.Macho_Type_Pointer.Type_Pointer;
+typedef Type_Pointer = stdgo._internal.debug.macho.Macho_type_pointer.Type_Pointer;
 class Type__static_extension {
     static public function goString(_t:Type_):String {
-        return stdgo._internal.debug.macho.Macho_Type__static_extension.Type__static_extension.goString(_t);
+        return stdgo._internal.debug.macho.Macho_type__static_extension.Type__static_extension.goString(_t);
     }
     static public function string(_t:Type_):String {
-        return stdgo._internal.debug.macho.Macho_Type__static_extension.Type__static_extension.string(_t);
+        return stdgo._internal.debug.macho.Macho_type__static_extension.Type__static_extension.string(_t);
     }
 }
-typedef CpuPointer = stdgo._internal.debug.macho.Macho_CpuPointer.CpuPointer;
+typedef CpuPointer = stdgo._internal.debug.macho.Macho_cpupointer.CpuPointer;
 class Cpu_static_extension {
     static public function goString(_i:Cpu):String {
-        return stdgo._internal.debug.macho.Macho_Cpu_static_extension.Cpu_static_extension.goString(_i);
+        return stdgo._internal.debug.macho.Macho_cpu_static_extension.Cpu_static_extension.goString(_i);
     }
     static public function string(_i:Cpu):String {
-        return stdgo._internal.debug.macho.Macho_Cpu_static_extension.Cpu_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_cpu_static_extension.Cpu_static_extension.string(_i);
     }
 }
-typedef LoadCmdPointer = stdgo._internal.debug.macho.Macho_LoadCmdPointer.LoadCmdPointer;
+typedef LoadCmdPointer = stdgo._internal.debug.macho.Macho_loadcmdpointer.LoadCmdPointer;
 class LoadCmd_static_extension {
     static public function goString(_i:LoadCmd):String {
-        return stdgo._internal.debug.macho.Macho_LoadCmd_static_extension.LoadCmd_static_extension.goString(_i);
+        return stdgo._internal.debug.macho.Macho_loadcmd_static_extension.LoadCmd_static_extension.goString(_i);
     }
     static public function string(_i:LoadCmd):String {
-        return stdgo._internal.debug.macho.Macho_LoadCmd_static_extension.LoadCmd_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_loadcmd_static_extension.LoadCmd_static_extension.string(_i);
     }
 }
-typedef RelocTypeGenericPointer = stdgo._internal.debug.macho.Macho_RelocTypeGenericPointer.RelocTypeGenericPointer;
+typedef RelocTypeGenericPointer = stdgo._internal.debug.macho.Macho_reloctypegenericpointer.RelocTypeGenericPointer;
 class RelocTypeGeneric_static_extension {
     static public function string(_i:RelocTypeGeneric):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeGeneric_static_extension.RelocTypeGeneric_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_reloctypegeneric_static_extension.RelocTypeGeneric_static_extension.string(_i);
     }
     static public function goString(_r:RelocTypeGeneric):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeGeneric_static_extension.RelocTypeGeneric_static_extension.goString(_r);
+        return stdgo._internal.debug.macho.Macho_reloctypegeneric_static_extension.RelocTypeGeneric_static_extension.goString(_r);
     }
 }
-typedef RelocTypeX86_64Pointer = stdgo._internal.debug.macho.Macho_RelocTypeX86_64Pointer.RelocTypeX86_64Pointer;
+typedef RelocTypeX86_64Pointer = stdgo._internal.debug.macho.Macho_reloctypex86_64pointer.RelocTypeX86_64Pointer;
 class RelocTypeX86_64_static_extension {
     static public function string(_i:RelocTypeX86_64):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeX86_64_static_extension.RelocTypeX86_64_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_reloctypex86_64_static_extension.RelocTypeX86_64_static_extension.string(_i);
     }
     static public function goString(_r:RelocTypeX86_64):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeX86_64_static_extension.RelocTypeX86_64_static_extension.goString(_r);
+        return stdgo._internal.debug.macho.Macho_reloctypex86_64_static_extension.RelocTypeX86_64_static_extension.goString(_r);
     }
 }
-typedef RelocTypeARMPointer = stdgo._internal.debug.macho.Macho_RelocTypeARMPointer.RelocTypeARMPointer;
+typedef RelocTypeARMPointer = stdgo._internal.debug.macho.Macho_reloctypearmpointer.RelocTypeARMPointer;
 class RelocTypeARM_static_extension {
     static public function string(_i:RelocTypeARM):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeARM_static_extension.RelocTypeARM_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_reloctypearm_static_extension.RelocTypeARM_static_extension.string(_i);
     }
     static public function goString(_r:RelocTypeARM):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeARM_static_extension.RelocTypeARM_static_extension.goString(_r);
+        return stdgo._internal.debug.macho.Macho_reloctypearm_static_extension.RelocTypeARM_static_extension.goString(_r);
     }
 }
-typedef RelocTypeARM64Pointer = stdgo._internal.debug.macho.Macho_RelocTypeARM64Pointer.RelocTypeARM64Pointer;
+typedef RelocTypeARM64Pointer = stdgo._internal.debug.macho.Macho_reloctypearm64pointer.RelocTypeARM64Pointer;
 class RelocTypeARM64_static_extension {
     static public function string(_i:RelocTypeARM64):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeARM64_static_extension.RelocTypeARM64_static_extension.string(_i);
+        return stdgo._internal.debug.macho.Macho_reloctypearm64_static_extension.RelocTypeARM64_static_extension.string(_i);
     }
     static public function goString(_r:RelocTypeARM64):String {
-        return stdgo._internal.debug.macho.Macho_RelocTypeARM64_static_extension.RelocTypeARM64_static_extension.goString(_r);
+        return stdgo._internal.debug.macho.Macho_reloctypearm64_static_extension.RelocTypeARM64_static_extension.goString(_r);
     }
 }
 /**
@@ -2032,7 +2032,7 @@ class Macho {
     **/
     static public inline function newFatFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<FatFile, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.macho.Macho_newFatFile.newFatFile(_r);
+            final obj = stdgo._internal.debug.macho.Macho_newfatfile.newFatFile(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2043,7 +2043,7 @@ class Macho {
     static public inline function openFat(_name:String):stdgo.Tuple<FatFile, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
-            final obj = stdgo._internal.debug.macho.Macho_openFat.openFat(_name);
+            final obj = stdgo._internal.debug.macho.Macho_openfat.openFat(_name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -2063,7 +2063,7 @@ class Macho {
     **/
     static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.macho.Macho_newFile.newFile(_r);
+            final obj = stdgo._internal.debug.macho.Macho_newfile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

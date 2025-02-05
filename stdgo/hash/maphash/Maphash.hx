@@ -1,16 +1,16 @@
 package stdgo.hash.maphash;
-@:structInit @:using(stdgo.hash.maphash.Maphash.Seed_static_extension) abstract Seed(stdgo._internal.hash.maphash.Maphash_Seed.Seed) from stdgo._internal.hash.maphash.Maphash_Seed.Seed to stdgo._internal.hash.maphash.Maphash_Seed.Seed {
+@:structInit @:using(stdgo.hash.maphash.Maphash.Seed_static_extension) abstract Seed(stdgo._internal.hash.maphash.Maphash_seed.Seed) from stdgo._internal.hash.maphash.Maphash_seed.Seed to stdgo._internal.hash.maphash.Maphash_seed.Seed {
     public var _s(get, set) : haxe.UInt64;
     function get__s():haxe.UInt64 return this._s;
     function set__s(v:haxe.UInt64):haxe.UInt64 {
         this._s = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?_s:haxe.UInt64) this = new stdgo._internal.hash.maphash.Maphash_Seed.Seed((_s : stdgo.GoUInt64));
+    public function new(?_s:haxe.UInt64) this = new stdgo._internal.hash.maphash.Maphash_seed.Seed((_s : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.hash.maphash.Maphash.Hash_static_extension) abstract Hash(stdgo._internal.hash.maphash.Maphash_Hash.Hash) from stdgo._internal.hash.maphash.Maphash_Hash.Hash to stdgo._internal.hash.maphash.Maphash_Hash.Hash {
+@:structInit @:using(stdgo.hash.maphash.Maphash.Hash_static_extension) abstract Hash(stdgo._internal.hash.maphash.Maphash_hash.Hash) from stdgo._internal.hash.maphash.Maphash_hash.Hash to stdgo._internal.hash.maphash.Maphash_hash.Hash {
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
@@ -41,54 +41,54 @@ package stdgo.hash.maphash;
         this._n = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_seed:Seed, ?_state:Seed, ?_buf:haxe.ds.Vector<std.UInt>, ?_n:StdTypes.Int) this = new stdgo._internal.hash.maphash.Maphash_Hash.Hash(([for (i in __1) i] : stdgo.GoArray<() -> Void>), _seed, _state, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_n : stdgo.GoInt));
+    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_seed:Seed, ?_state:Seed, ?_buf:haxe.ds.Vector<std.UInt>, ?_n:StdTypes.Int) this = new stdgo._internal.hash.maphash.Maphash_hash.Hash(([for (i in __1) i] : stdgo.GoArray<() -> Void>), _seed, _state, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_n : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef SeedPointer = stdgo._internal.hash.maphash.Maphash_SeedPointer.SeedPointer;
+typedef SeedPointer = stdgo._internal.hash.maphash.Maphash_seedpointer.SeedPointer;
 class Seed_static_extension {
 
 }
-typedef HashPointer = stdgo._internal.hash.maphash.Maphash_HashPointer.HashPointer;
+typedef HashPointer = stdgo._internal.hash.maphash.Maphash_hashpointer.HashPointer;
 class Hash_static_extension {
     static public function blockSize(_h:Hash):StdTypes.Int {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.blockSize(_h);
+        return stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.blockSize(_h);
     }
     static public function size(_h:Hash):StdTypes.Int {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.size(_h);
+        return stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.size(_h);
     }
     static public function sum(_h:Hash, _b:Array<std.UInt>):Array<std.UInt> {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.sum(_h, _b)) i];
+        return [for (i in stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.sum(_h, _b)) i];
     }
     static public function sum64(_h:Hash):haxe.UInt64 {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.sum64(_h);
+        return stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.sum64(_h);
     }
     static public function _flush(_h:Hash):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension._flush(_h);
+        stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension._flush(_h);
     }
     static public function reset(_h:Hash):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.reset(_h);
+        stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.reset(_h);
     }
     static public function setSeed(_h:Hash, _seed:Seed):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.setSeed(_h, _seed);
+        stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.setSeed(_h, _seed);
     }
     static public function seed(_h:Hash):Seed {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.seed(_h);
+        return stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.seed(_h);
     }
     static public function writeString(_h:Hash, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.writeString(_h, _s);
+            final obj = stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.writeString(_h, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -96,18 +96,18 @@ class Hash_static_extension {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.write(_h, _b);
+            final obj = stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.write(_h, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function writeByte(_h:Hash, _b:std.UInt):stdgo.Error {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
         final _b = (_b : stdgo.GoUInt8);
-        return stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension.writeByte(_h, _b);
+        return stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension.writeByte(_h, _b);
     }
     static public function _initSeed(_h:Hash):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.hash.maphash.Maphash_hash.Hash>);
-        stdgo._internal.hash.maphash.Maphash_Hash_static_extension.Hash_static_extension._initSeed(_h);
+        stdgo._internal.hash.maphash.Maphash_hash_static_extension.Hash_static_extension._initSeed(_h);
     }
 }
 /**
@@ -153,6 +153,6 @@ class Maphash {
         * MakeSeed returns a new random seed.
     **/
     static public inline function makeSeed():Seed {
-        return stdgo._internal.hash.maphash.Maphash_makeSeed.makeSeed();
+        return stdgo._internal.hash.maphash.Maphash_makeseed.makeSeed();
     }
 }

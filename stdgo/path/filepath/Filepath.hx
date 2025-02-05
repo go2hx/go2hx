@@ -1,31 +1,31 @@
 package stdgo.path.filepath;
 final separator : StdTypes.Int = stdgo._internal.path.filepath.Filepath_separator.separator;
-final listSeparator : StdTypes.Int = stdgo._internal.path.filepath.Filepath_listSeparator.listSeparator;
+final listSeparator : StdTypes.Int = stdgo._internal.path.filepath.Filepath_listseparator.listSeparator;
 var errBadPattern(get, set) : stdgo.Error;
-private function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern;
+private function get_errBadPattern():stdgo.Error return stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern;
 private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern = (v : stdgo.Error);
+        stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern = (v : stdgo.Error);
         return v;
     }
 var skipDir(get, set) : stdgo.Error;
-private function get_skipDir():stdgo.Error return stdgo._internal.path.filepath.Filepath_skipDir.skipDir;
+private function get_skipDir():stdgo.Error return stdgo._internal.path.filepath.Filepath_skipdir.skipDir;
 private function set_skipDir(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.path.filepath.Filepath_skipDir.skipDir = (v : stdgo.Error);
+        stdgo._internal.path.filepath.Filepath_skipdir.skipDir = (v : stdgo.Error);
         return v;
     }
 var skipAll(get, set) : stdgo.Error;
-private function get_skipAll():stdgo.Error return stdgo._internal.path.filepath.Filepath_skipAll.skipAll;
+private function get_skipAll():stdgo.Error return stdgo._internal.path.filepath.Filepath_skipall.skipAll;
 private function set_skipAll(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.path.filepath.Filepath_skipAll.skipAll = (v : stdgo.Error);
+        stdgo._internal.path.filepath.Filepath_skipall.skipAll = (v : stdgo.Error);
         return v;
     }
 var lstatP(get, set) : stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>;
-private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.path.filepath.Filepath_lstatP.lstatP(_0);
+private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.path.filepath.Filepath_lstatp.lstatP(_0);
 private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>):stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> {
-        stdgo._internal.path.filepath.Filepath_lstatP.lstatP = v;
+        stdgo._internal.path.filepath.Filepath_lstatp.lstatP = v;
         return v;
     }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_T_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_T_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_T_lazybuf.T_lazybuf {
+@:structInit @:using(stdgo.path.filepath.Filepath.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -56,70 +56,70 @@ private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._
         this._volLen = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_path:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int, ?_volAndPath:String, ?_volLen:StdTypes.Int) this = new stdgo._internal.path.filepath.Filepath_T_lazybuf.T_lazybuf((_path : stdgo.GoString), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_w : stdgo.GoInt), (_volAndPath : stdgo.GoString), (_volLen : stdgo.GoInt));
+    public function new(?_path:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int, ?_volAndPath:String, ?_volLen:StdTypes.Int) this = new stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf((_path : stdgo.GoString), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_w : stdgo.GoInt), (_volAndPath : stdgo.GoString), (_volLen : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_statDirEntry_static_extension) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_T_statDirEntry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_T_statDirEntry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_T_statDirEntry.T_statDirEntry {
+@:structInit @:using(stdgo.path.filepath.Filepath.T_statDirEntry_static_extension) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry {
     public var _info(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo;
     function get__info():stdgo._internal.io.fs.Fs_fileinfo.FileInfo return this._info;
     function set__info(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo._internal.io.fs.Fs_fileinfo.FileInfo {
         this._info = v;
         return v;
     }
-    public function new(?_info:stdgo._internal.io.fs.Fs_fileinfo.FileInfo) this = new stdgo._internal.path.filepath.Filepath_T_statDirEntry.T_statDirEntry(_info);
+    public function new(?_info:stdgo._internal.io.fs.Fs_fileinfo.FileInfo) this = new stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry(_info);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef WalkFunc = stdgo._internal.path.filepath.Filepath_WalkFunc.WalkFunc;
-typedef T_lazybufPointer = stdgo._internal.path.filepath.Filepath_T_lazybufPointer.T_lazybufPointer;
+typedef WalkFunc = stdgo._internal.path.filepath.Filepath_walkfunc.WalkFunc;
+typedef T_lazybufPointer = stdgo._internal.path.filepath.Filepath_t_lazybufpointer.T_lazybufPointer;
 class T_lazybuf_static_extension {
     static public function _string(_b:T_lazybuf):String {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf>);
-        return stdgo._internal.path.filepath.Filepath_T_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
+        return stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
     }
     static public function _prepend(_b:T_lazybuf, _prefix:haxe.Rest<std.UInt>):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf>);
-        stdgo._internal.path.filepath.Filepath_T_lazybuf_static_extension.T_lazybuf_static_extension._prepend(_b, ...[for (i in _prefix) i]);
+        stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._prepend(_b, ...[for (i in _prefix) i]);
     }
     static public function _append(_b:T_lazybuf, _c:std.UInt):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf>);
         final _c = (_c : stdgo.GoUInt8);
-        stdgo._internal.path.filepath.Filepath_T_lazybuf_static_extension.T_lazybuf_static_extension._append(_b, _c);
+        stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._append(_b, _c);
     }
     static public function _index(_b:T_lazybuf, _i:StdTypes.Int):std.UInt {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf>);
         final _i = (_i : stdgo.GoInt);
-        return stdgo._internal.path.filepath.Filepath_T_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
+        return stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
     }
 }
-typedef T_statDirEntryPointer = stdgo._internal.path.filepath.Filepath_T_statDirEntryPointer.T_statDirEntryPointer;
+typedef T_statDirEntryPointer = stdgo._internal.path.filepath.Filepath_t_statdirentrypointer.T_statDirEntryPointer;
 class T_statDirEntry_static_extension {
     static public function string(_d:T_statDirEntry):String {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
-        return stdgo._internal.path.filepath.Filepath_T_statDirEntry_static_extension.T_statDirEntry_static_extension.string(_d);
+        return stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.string(_d);
     }
     static public function info(_d:T_statDirEntry):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
         return {
-            final obj = stdgo._internal.path.filepath.Filepath_T_statDirEntry_static_extension.T_statDirEntry_static_extension.info(_d);
+            final obj = stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.info(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function type(_d:T_statDirEntry):stdgo._internal.io.fs.Fs_filemode.FileMode {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
-        return stdgo._internal.path.filepath.Filepath_T_statDirEntry_static_extension.T_statDirEntry_static_extension.type(_d);
+        return stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.type(_d);
     }
     static public function isDir(_d:T_statDirEntry):Bool {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
-        return stdgo._internal.path.filepath.Filepath_T_statDirEntry_static_extension.T_statDirEntry_static_extension.isDir(_d);
+        return stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.isDir(_d);
     }
     static public function name(_d:T_statDirEntry):String {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
-        return stdgo._internal.path.filepath.Filepath_T_statDirEntry_static_extension.T_statDirEntry_static_extension.name(_d);
+        return stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.name(_d);
     }
 }
-typedef WalkFuncPointer = stdgo._internal.path.filepath.Filepath_WalkFuncPointer.WalkFuncPointer;
+typedef WalkFuncPointer = stdgo._internal.path.filepath.Filepath_walkfuncpointer.WalkFuncPointer;
 class WalkFunc_static_extension {
 
 }
@@ -235,7 +235,7 @@ class Filepath {
     **/
     static public inline function isLocal(_path:String):Bool {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_isLocal.isLocal(_path);
+        return stdgo._internal.path.filepath.Filepath_islocal.isLocal(_path);
     }
     /**
         * ToSlash returns the result of replacing each separator character
@@ -244,7 +244,7 @@ class Filepath {
     **/
     static public inline function toSlash(_path:String):String {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_toSlash.toSlash(_path);
+        return stdgo._internal.path.filepath.Filepath_toslash.toSlash(_path);
     }
     /**
         * FromSlash returns the result of replacing each slash ('/') character
@@ -253,7 +253,7 @@ class Filepath {
     **/
     static public inline function fromSlash(_path:String):String {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_fromSlash.fromSlash(_path);
+        return stdgo._internal.path.filepath.Filepath_fromslash.fromSlash(_path);
     }
     /**
         * SplitList splits a list of paths joined by the OS-specific ListSeparator,
@@ -263,7 +263,7 @@ class Filepath {
     **/
     static public inline function splitList(_path:String):Array<String> {
         final _path = (_path : stdgo.GoString);
-        return [for (i in stdgo._internal.path.filepath.Filepath_splitList.splitList(_path)) i];
+        return [for (i in stdgo._internal.path.filepath.Filepath_splitlist.splitList(_path)) i];
     }
     /**
         * Split splits path immediately following the final Separator,
@@ -311,7 +311,7 @@ class Filepath {
     static public inline function evalSymlinks(_path:String):stdgo.Tuple<String, stdgo.Error> {
         final _path = (_path : stdgo.GoString);
         return {
-            final obj = stdgo._internal.path.filepath.Filepath_evalSymlinks.evalSymlinks(_path);
+            final obj = stdgo._internal.path.filepath.Filepath_evalsymlinks.evalSymlinks(_path);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -366,7 +366,7 @@ class Filepath {
     **/
     static public inline function walkDir(_root:String, _fn:stdgo._internal.io.fs.Fs_walkdirfunc.WalkDirFunc):stdgo.Error {
         final _root = (_root : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_walkDir.walkDir(_root, _fn);
+        return stdgo._internal.path.filepath.Filepath_walkdir.walkDir(_root, _fn);
     }
     /**
         * Walk walks the file tree rooted at root, calling fn for each file or
@@ -418,14 +418,14 @@ class Filepath {
     **/
     static public inline function volumeName(_path:String):String {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_volumeName.volumeName(_path);
+        return stdgo._internal.path.filepath.Filepath_volumename.volumeName(_path);
     }
     /**
         * IsAbs reports whether the path is absolute.
     **/
     static public inline function isAbs(_path:String):Bool {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_isAbs.isAbs(_path);
+        return stdgo._internal.path.filepath.Filepath_isabs.isAbs(_path);
     }
     /**
         * HasPrefix exists for historical compatibility and should not be used.
@@ -436,6 +436,6 @@ class Filepath {
     static public inline function hasPrefix(_p:String, _prefix:String):Bool {
         final _p = (_p : stdgo.GoString);
         final _prefix = (_prefix : stdgo.GoString);
-        return stdgo._internal.path.filepath.Filepath_hasPrefix.hasPrefix(_p, _prefix);
+        return stdgo._internal.path.filepath.Filepath_hasprefix.hasPrefix(_p, _prefix);
     }
 }

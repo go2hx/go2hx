@@ -10,6 +10,6 @@ class Slogtest {
     **/
     static public inline function removeTime(_groups:Array<String>, _a:stdgo._internal.log.slog.Slog_attr.Attr):stdgo._internal.log.slog.Slog_attr.Attr {
         final _groups = ([for (i in _groups) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        return stdgo._internal.log.slog.internal.slogtest.Slogtest_removeTime.removeTime(_groups, _a);
+        return stdgo._internal.log.slog.internal.slogtest.Slogtest_removetime.removeTime(_groups, _a);
     }
 }

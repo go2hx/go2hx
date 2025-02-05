@@ -1,24 +1,24 @@
 package stdgo.unicode;
-final maxRune : StdTypes.Int = stdgo._internal.unicode.Unicode_maxRune.maxRune;
-final replacementChar : StdTypes.Int = stdgo._internal.unicode.Unicode_replacementChar.replacementChar;
-final maxASCII : StdTypes.Int = stdgo._internal.unicode.Unicode_maxASCII.maxASCII;
-final maxLatin1 : StdTypes.Int = stdgo._internal.unicode.Unicode_maxLatin1.maxLatin1;
-final upperCase : haxe.UInt64 = stdgo._internal.unicode.Unicode_upperCase.upperCase;
-final lowerCase = stdgo._internal.unicode.Unicode_lowerCase.lowerCase;
-final titleCase = stdgo._internal.unicode.Unicode_titleCase.titleCase;
-final maxCase = stdgo._internal.unicode.Unicode_maxCase.maxCase;
-final upperLower : StdTypes.Int = stdgo._internal.unicode.Unicode_upperLower.upperLower;
+final maxRune : StdTypes.Int = stdgo._internal.unicode.Unicode_maxrune.maxRune;
+final replacementChar : StdTypes.Int = stdgo._internal.unicode.Unicode_replacementchar.replacementChar;
+final maxASCII : StdTypes.Int = stdgo._internal.unicode.Unicode_maxascii.maxASCII;
+final maxLatin1 : StdTypes.Int = stdgo._internal.unicode.Unicode_maxlatin1.maxLatin1;
+final upperCase : haxe.UInt64 = stdgo._internal.unicode.Unicode_uppercase.upperCase;
+final lowerCase = stdgo._internal.unicode.Unicode_lowercase.lowerCase;
+final titleCase = stdgo._internal.unicode.Unicode_titlecase.titleCase;
+final maxCase = stdgo._internal.unicode.Unicode_maxcase.maxCase;
+final upperLower : StdTypes.Int = stdgo._internal.unicode.Unicode_upperlower.upperLower;
 final version : String = stdgo._internal.unicode.Unicode_version.version;
 var turkishCase(get, set) : SpecialCase;
-private function get_turkishCase():SpecialCase return stdgo._internal.unicode.Unicode_turkishCase.turkishCase;
+private function get_turkishCase():SpecialCase return stdgo._internal.unicode.Unicode_turkishcase.turkishCase;
 private function set_turkishCase(v:SpecialCase):SpecialCase {
-        stdgo._internal.unicode.Unicode_turkishCase.turkishCase = v;
+        stdgo._internal.unicode.Unicode_turkishcase.turkishCase = v;
         return v;
     }
 var azeriCase(get, set) : SpecialCase;
-private function get_azeriCase():SpecialCase return stdgo._internal.unicode.Unicode_azeriCase.azeriCase;
+private function get_azeriCase():SpecialCase return stdgo._internal.unicode.Unicode_azericase.azeriCase;
 private function set_azeriCase(v:SpecialCase):SpecialCase {
-        stdgo._internal.unicode.Unicode_azeriCase.azeriCase = v;
+        stdgo._internal.unicode.Unicode_azericase.azeriCase = v;
         return v;
     }
 var cc(get, set) : RangeTable;
@@ -262,9 +262,9 @@ private function set_s(v:RangeTable):RangeTable {
         return v;
     }
 var printRanges(get, set) : Array<RangeTable>;
-private function get_printRanges():Array<RangeTable> return [for (i in stdgo._internal.unicode.Unicode_printRanges.printRanges) i];
+private function get_printRanges():Array<RangeTable> return [for (i in stdgo._internal.unicode.Unicode_printranges.printRanges) i];
 private function set_printRanges(v:Array<RangeTable>):Array<RangeTable> {
-        stdgo._internal.unicode.Unicode_printRanges.printRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+        stdgo._internal.unicode.Unicode_printranges.printRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         return v;
     }
 var title(get, set) : RangeTable;
@@ -310,9 +310,9 @@ private function set_zs(v:RangeTable):RangeTable {
         return v;
     }
 var graphicRanges(get, set) : Array<RangeTable>;
-private function get_graphicRanges():Array<RangeTable> return [for (i in stdgo._internal.unicode.Unicode_graphicRanges.graphicRanges) i];
+private function get_graphicRanges():Array<RangeTable> return [for (i in stdgo._internal.unicode.Unicode_graphicranges.graphicRanges) i];
 private function set_graphicRanges(v:Array<RangeTable>):Array<RangeTable> {
-        stdgo._internal.unicode.Unicode_graphicRanges.graphicRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+        stdgo._internal.unicode.Unicode_graphicranges.graphicRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         return v;
     }
 var categories(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
@@ -334,9 +334,9 @@ private function set_ahom(v:RangeTable):RangeTable {
         return v;
     }
 var anatolian_Hieroglyphs(get, set) : RangeTable;
-private function get_anatolian_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_anatolian_Hieroglyphs.anatolian_Hieroglyphs;
+private function get_anatolian_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_anatolian_hieroglyphs.anatolian_Hieroglyphs;
 private function set_anatolian_Hieroglyphs(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_anatolian_Hieroglyphs.anatolian_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_anatolian_hieroglyphs.anatolian_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var arabic(get, set) : RangeTable;
@@ -370,9 +370,9 @@ private function set_bamum(v:RangeTable):RangeTable {
         return v;
     }
 var bassa_Vah(get, set) : RangeTable;
-private function get_bassa_Vah():RangeTable return stdgo._internal.unicode.Unicode_bassa_Vah.bassa_Vah;
+private function get_bassa_Vah():RangeTable return stdgo._internal.unicode.Unicode_bassa_vah.bassa_Vah;
 private function set_bassa_Vah(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_bassa_Vah.bassa_Vah = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_bassa_vah.bassa_Vah = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var batak(get, set) : RangeTable;
@@ -424,9 +424,9 @@ private function set_buhid(v:RangeTable):RangeTable {
         return v;
     }
 var canadian_Aboriginal(get, set) : RangeTable;
-private function get_canadian_Aboriginal():RangeTable return stdgo._internal.unicode.Unicode_canadian_Aboriginal.canadian_Aboriginal;
+private function get_canadian_Aboriginal():RangeTable return stdgo._internal.unicode.Unicode_canadian_aboriginal.canadian_Aboriginal;
 private function set_canadian_Aboriginal(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_canadian_Aboriginal.canadian_Aboriginal = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_canadian_aboriginal.canadian_Aboriginal = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var carian(get, set) : RangeTable;
@@ -436,9 +436,9 @@ private function set_carian(v:RangeTable):RangeTable {
         return v;
     }
 var caucasian_Albanian(get, set) : RangeTable;
-private function get_caucasian_Albanian():RangeTable return stdgo._internal.unicode.Unicode_caucasian_Albanian.caucasian_Albanian;
+private function get_caucasian_Albanian():RangeTable return stdgo._internal.unicode.Unicode_caucasian_albanian.caucasian_Albanian;
 private function set_caucasian_Albanian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_caucasian_Albanian.caucasian_Albanian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_caucasian_albanian.caucasian_Albanian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var chakma(get, set) : RangeTable;
@@ -490,9 +490,9 @@ private function set_cypriot(v:RangeTable):RangeTable {
         return v;
     }
 var cypro_Minoan(get, set) : RangeTable;
-private function get_cypro_Minoan():RangeTable return stdgo._internal.unicode.Unicode_cypro_Minoan.cypro_Minoan;
+private function get_cypro_Minoan():RangeTable return stdgo._internal.unicode.Unicode_cypro_minoan.cypro_Minoan;
 private function set_cypro_Minoan(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_cypro_Minoan.cypro_Minoan = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_cypro_minoan.cypro_Minoan = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var cyrillic(get, set) : RangeTable;
@@ -514,9 +514,9 @@ private function set_devanagari(v:RangeTable):RangeTable {
         return v;
     }
 var dives_Akuru(get, set) : RangeTable;
-private function get_dives_Akuru():RangeTable return stdgo._internal.unicode.Unicode_dives_Akuru.dives_Akuru;
+private function get_dives_Akuru():RangeTable return stdgo._internal.unicode.Unicode_dives_akuru.dives_Akuru;
 private function set_dives_Akuru(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_dives_Akuru.dives_Akuru = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_dives_akuru.dives_Akuru = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var dogra(get, set) : RangeTable;
@@ -532,9 +532,9 @@ private function set_duployan(v:RangeTable):RangeTable {
         return v;
     }
 var egyptian_Hieroglyphs(get, set) : RangeTable;
-private function get_egyptian_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_egyptian_Hieroglyphs.egyptian_Hieroglyphs;
+private function get_egyptian_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_egyptian_hieroglyphs.egyptian_Hieroglyphs;
 private function set_egyptian_Hieroglyphs(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_egyptian_Hieroglyphs.egyptian_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_egyptian_hieroglyphs.egyptian_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var elbasan(get, set) : RangeTable;
@@ -592,9 +592,9 @@ private function set_gujarati(v:RangeTable):RangeTable {
         return v;
     }
 var gunjala_Gondi(get, set) : RangeTable;
-private function get_gunjala_Gondi():RangeTable return stdgo._internal.unicode.Unicode_gunjala_Gondi.gunjala_Gondi;
+private function get_gunjala_Gondi():RangeTable return stdgo._internal.unicode.Unicode_gunjala_gondi.gunjala_Gondi;
 private function set_gunjala_Gondi(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_gunjala_Gondi.gunjala_Gondi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_gunjala_gondi.gunjala_Gondi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var gurmukhi(get, set) : RangeTable;
@@ -616,9 +616,9 @@ private function set_hangul(v:RangeTable):RangeTable {
         return v;
     }
 var hanifi_Rohingya(get, set) : RangeTable;
-private function get_hanifi_Rohingya():RangeTable return stdgo._internal.unicode.Unicode_hanifi_Rohingya.hanifi_Rohingya;
+private function get_hanifi_Rohingya():RangeTable return stdgo._internal.unicode.Unicode_hanifi_rohingya.hanifi_Rohingya;
 private function set_hanifi_Rohingya(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_hanifi_Rohingya.hanifi_Rohingya = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_hanifi_rohingya.hanifi_Rohingya = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var hanunoo(get, set) : RangeTable;
@@ -646,9 +646,9 @@ private function set_hiragana(v:RangeTable):RangeTable {
         return v;
     }
 var imperial_Aramaic(get, set) : RangeTable;
-private function get_imperial_Aramaic():RangeTable return stdgo._internal.unicode.Unicode_imperial_Aramaic.imperial_Aramaic;
+private function get_imperial_Aramaic():RangeTable return stdgo._internal.unicode.Unicode_imperial_aramaic.imperial_Aramaic;
 private function set_imperial_Aramaic(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_imperial_Aramaic.imperial_Aramaic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_imperial_aramaic.imperial_Aramaic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var inherited(get, set) : RangeTable;
@@ -658,15 +658,15 @@ private function set_inherited(v:RangeTable):RangeTable {
         return v;
     }
 var inscriptional_Pahlavi(get, set) : RangeTable;
-private function get_inscriptional_Pahlavi():RangeTable return stdgo._internal.unicode.Unicode_inscriptional_Pahlavi.inscriptional_Pahlavi;
+private function get_inscriptional_Pahlavi():RangeTable return stdgo._internal.unicode.Unicode_inscriptional_pahlavi.inscriptional_Pahlavi;
 private function set_inscriptional_Pahlavi(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_inscriptional_Pahlavi.inscriptional_Pahlavi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_inscriptional_pahlavi.inscriptional_Pahlavi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var inscriptional_Parthian(get, set) : RangeTable;
-private function get_inscriptional_Parthian():RangeTable return stdgo._internal.unicode.Unicode_inscriptional_Parthian.inscriptional_Parthian;
+private function get_inscriptional_Parthian():RangeTable return stdgo._internal.unicode.Unicode_inscriptional_parthian.inscriptional_Parthian;
 private function set_inscriptional_Parthian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_inscriptional_Parthian.inscriptional_Parthian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_inscriptional_parthian.inscriptional_Parthian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var javanese(get, set) : RangeTable;
@@ -700,9 +700,9 @@ private function set_kawi(v:RangeTable):RangeTable {
         return v;
     }
 var kayah_Li(get, set) : RangeTable;
-private function get_kayah_Li():RangeTable return stdgo._internal.unicode.Unicode_kayah_Li.kayah_Li;
+private function get_kayah_Li():RangeTable return stdgo._internal.unicode.Unicode_kayah_li.kayah_Li;
 private function set_kayah_Li(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_kayah_Li.kayah_Li = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_kayah_li.kayah_Li = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var kharoshthi(get, set) : RangeTable;
@@ -712,9 +712,9 @@ private function set_kharoshthi(v:RangeTable):RangeTable {
         return v;
     }
 var khitan_Small_Script(get, set) : RangeTable;
-private function get_khitan_Small_Script():RangeTable return stdgo._internal.unicode.Unicode_khitan_Small_Script.khitan_Small_Script;
+private function get_khitan_Small_Script():RangeTable return stdgo._internal.unicode.Unicode_khitan_small_script.khitan_Small_Script;
 private function set_khitan_Small_Script(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_khitan_Small_Script.khitan_Small_Script = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_khitan_small_script.khitan_Small_Script = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var khmer(get, set) : RangeTable;
@@ -760,15 +760,15 @@ private function set_limbu(v:RangeTable):RangeTable {
         return v;
     }
 var linear_A(get, set) : RangeTable;
-private function get_linear_A():RangeTable return stdgo._internal.unicode.Unicode_linear_A.linear_A;
+private function get_linear_A():RangeTable return stdgo._internal.unicode.Unicode_linear_a.linear_A;
 private function set_linear_A(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_linear_A.linear_A = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_linear_a.linear_A = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var linear_B(get, set) : RangeTable;
-private function get_linear_B():RangeTable return stdgo._internal.unicode.Unicode_linear_B.linear_B;
+private function get_linear_B():RangeTable return stdgo._internal.unicode.Unicode_linear_b.linear_B;
 private function set_linear_B(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_linear_B.linear_B = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_linear_b.linear_B = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var lisu(get, set) : RangeTable;
@@ -826,9 +826,9 @@ private function set_marchen(v:RangeTable):RangeTable {
         return v;
     }
 var masaram_Gondi(get, set) : RangeTable;
-private function get_masaram_Gondi():RangeTable return stdgo._internal.unicode.Unicode_masaram_Gondi.masaram_Gondi;
+private function get_masaram_Gondi():RangeTable return stdgo._internal.unicode.Unicode_masaram_gondi.masaram_Gondi;
 private function set_masaram_Gondi(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_masaram_Gondi.masaram_Gondi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_masaram_gondi.masaram_Gondi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var medefaidrin(get, set) : RangeTable;
@@ -838,27 +838,27 @@ private function set_medefaidrin(v:RangeTable):RangeTable {
         return v;
     }
 var meetei_Mayek(get, set) : RangeTable;
-private function get_meetei_Mayek():RangeTable return stdgo._internal.unicode.Unicode_meetei_Mayek.meetei_Mayek;
+private function get_meetei_Mayek():RangeTable return stdgo._internal.unicode.Unicode_meetei_mayek.meetei_Mayek;
 private function set_meetei_Mayek(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_meetei_Mayek.meetei_Mayek = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_meetei_mayek.meetei_Mayek = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var mende_Kikakui(get, set) : RangeTable;
-private function get_mende_Kikakui():RangeTable return stdgo._internal.unicode.Unicode_mende_Kikakui.mende_Kikakui;
+private function get_mende_Kikakui():RangeTable return stdgo._internal.unicode.Unicode_mende_kikakui.mende_Kikakui;
 private function set_mende_Kikakui(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_mende_Kikakui.mende_Kikakui = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_mende_kikakui.mende_Kikakui = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var meroitic_Cursive(get, set) : RangeTable;
-private function get_meroitic_Cursive():RangeTable return stdgo._internal.unicode.Unicode_meroitic_Cursive.meroitic_Cursive;
+private function get_meroitic_Cursive():RangeTable return stdgo._internal.unicode.Unicode_meroitic_cursive.meroitic_Cursive;
 private function set_meroitic_Cursive(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_meroitic_Cursive.meroitic_Cursive = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_meroitic_cursive.meroitic_Cursive = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var meroitic_Hieroglyphs(get, set) : RangeTable;
-private function get_meroitic_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_meroitic_Hieroglyphs.meroitic_Hieroglyphs;
+private function get_meroitic_Hieroglyphs():RangeTable return stdgo._internal.unicode.Unicode_meroitic_hieroglyphs.meroitic_Hieroglyphs;
 private function set_meroitic_Hieroglyphs(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_meroitic_Hieroglyphs.meroitic_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_meroitic_hieroglyphs.meroitic_Hieroglyphs = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var miao(get, set) : RangeTable;
@@ -904,9 +904,9 @@ private function set_nabataean(v:RangeTable):RangeTable {
         return v;
     }
 var nag_Mundari(get, set) : RangeTable;
-private function get_nag_Mundari():RangeTable return stdgo._internal.unicode.Unicode_nag_Mundari.nag_Mundari;
+private function get_nag_Mundari():RangeTable return stdgo._internal.unicode.Unicode_nag_mundari.nag_Mundari;
 private function set_nag_Mundari(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_nag_Mundari.nag_Mundari = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_nag_mundari.nag_Mundari = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var nandinagari(get, set) : RangeTable;
@@ -916,9 +916,9 @@ private function set_nandinagari(v:RangeTable):RangeTable {
         return v;
     }
 var new_Tai_Lue(get, set) : RangeTable;
-private function get_new_Tai_Lue():RangeTable return stdgo._internal.unicode.Unicode_new_Tai_Lue.new_Tai_Lue;
+private function get_new_Tai_Lue():RangeTable return stdgo._internal.unicode.Unicode_new_tai_lue.new_Tai_Lue;
 private function set_new_Tai_Lue(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_new_Tai_Lue.new_Tai_Lue = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_new_tai_lue.new_Tai_Lue = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var newa(get, set) : RangeTable;
@@ -940,9 +940,9 @@ private function set_nushu(v:RangeTable):RangeTable {
         return v;
     }
 var nyiakeng_Puachue_Hmong(get, set) : RangeTable;
-private function get_nyiakeng_Puachue_Hmong():RangeTable return stdgo._internal.unicode.Unicode_nyiakeng_Puachue_Hmong.nyiakeng_Puachue_Hmong;
+private function get_nyiakeng_Puachue_Hmong():RangeTable return stdgo._internal.unicode.Unicode_nyiakeng_puachue_hmong.nyiakeng_Puachue_Hmong;
 private function set_nyiakeng_Puachue_Hmong(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_nyiakeng_Puachue_Hmong.nyiakeng_Puachue_Hmong = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_nyiakeng_puachue_hmong.nyiakeng_Puachue_Hmong = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var ogham(get, set) : RangeTable;
@@ -952,63 +952,63 @@ private function set_ogham(v:RangeTable):RangeTable {
         return v;
     }
 var ol_Chiki(get, set) : RangeTable;
-private function get_ol_Chiki():RangeTable return stdgo._internal.unicode.Unicode_ol_Chiki.ol_Chiki;
+private function get_ol_Chiki():RangeTable return stdgo._internal.unicode.Unicode_ol_chiki.ol_Chiki;
 private function set_ol_Chiki(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_ol_Chiki.ol_Chiki = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_ol_chiki.ol_Chiki = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Hungarian(get, set) : RangeTable;
-private function get_old_Hungarian():RangeTable return stdgo._internal.unicode.Unicode_old_Hungarian.old_Hungarian;
+private function get_old_Hungarian():RangeTable return stdgo._internal.unicode.Unicode_old_hungarian.old_Hungarian;
 private function set_old_Hungarian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Hungarian.old_Hungarian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_hungarian.old_Hungarian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Italic(get, set) : RangeTable;
-private function get_old_Italic():RangeTable return stdgo._internal.unicode.Unicode_old_Italic.old_Italic;
+private function get_old_Italic():RangeTable return stdgo._internal.unicode.Unicode_old_italic.old_Italic;
 private function set_old_Italic(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Italic.old_Italic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_italic.old_Italic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_North_Arabian(get, set) : RangeTable;
-private function get_old_North_Arabian():RangeTable return stdgo._internal.unicode.Unicode_old_North_Arabian.old_North_Arabian;
+private function get_old_North_Arabian():RangeTable return stdgo._internal.unicode.Unicode_old_north_arabian.old_North_Arabian;
 private function set_old_North_Arabian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_North_Arabian.old_North_Arabian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_north_arabian.old_North_Arabian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Permic(get, set) : RangeTable;
-private function get_old_Permic():RangeTable return stdgo._internal.unicode.Unicode_old_Permic.old_Permic;
+private function get_old_Permic():RangeTable return stdgo._internal.unicode.Unicode_old_permic.old_Permic;
 private function set_old_Permic(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Permic.old_Permic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_permic.old_Permic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Persian(get, set) : RangeTable;
-private function get_old_Persian():RangeTable return stdgo._internal.unicode.Unicode_old_Persian.old_Persian;
+private function get_old_Persian():RangeTable return stdgo._internal.unicode.Unicode_old_persian.old_Persian;
 private function set_old_Persian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Persian.old_Persian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_persian.old_Persian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Sogdian(get, set) : RangeTable;
-private function get_old_Sogdian():RangeTable return stdgo._internal.unicode.Unicode_old_Sogdian.old_Sogdian;
+private function get_old_Sogdian():RangeTable return stdgo._internal.unicode.Unicode_old_sogdian.old_Sogdian;
 private function set_old_Sogdian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Sogdian.old_Sogdian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_sogdian.old_Sogdian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_South_Arabian(get, set) : RangeTable;
-private function get_old_South_Arabian():RangeTable return stdgo._internal.unicode.Unicode_old_South_Arabian.old_South_Arabian;
+private function get_old_South_Arabian():RangeTable return stdgo._internal.unicode.Unicode_old_south_arabian.old_South_Arabian;
 private function set_old_South_Arabian(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_South_Arabian.old_South_Arabian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_south_arabian.old_South_Arabian = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Turkic(get, set) : RangeTable;
-private function get_old_Turkic():RangeTable return stdgo._internal.unicode.Unicode_old_Turkic.old_Turkic;
+private function get_old_Turkic():RangeTable return stdgo._internal.unicode.Unicode_old_turkic.old_Turkic;
 private function set_old_Turkic(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Turkic.old_Turkic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_turkic.old_Turkic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var old_Uyghur(get, set) : RangeTable;
-private function get_old_Uyghur():RangeTable return stdgo._internal.unicode.Unicode_old_Uyghur.old_Uyghur;
+private function get_old_Uyghur():RangeTable return stdgo._internal.unicode.Unicode_old_uyghur.old_Uyghur;
 private function set_old_Uyghur(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_old_Uyghur.old_Uyghur = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_old_uyghur.old_Uyghur = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var oriya(get, set) : RangeTable;
@@ -1030,9 +1030,9 @@ private function set_osmanya(v:RangeTable):RangeTable {
         return v;
     }
 var pahawh_Hmong(get, set) : RangeTable;
-private function get_pahawh_Hmong():RangeTable return stdgo._internal.unicode.Unicode_pahawh_Hmong.pahawh_Hmong;
+private function get_pahawh_Hmong():RangeTable return stdgo._internal.unicode.Unicode_pahawh_hmong.pahawh_Hmong;
 private function set_pahawh_Hmong(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_pahawh_Hmong.pahawh_Hmong = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_pahawh_hmong.pahawh_Hmong = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var palmyrene(get, set) : RangeTable;
@@ -1042,15 +1042,15 @@ private function set_palmyrene(v:RangeTable):RangeTable {
         return v;
     }
 var pau_Cin_Hau(get, set) : RangeTable;
-private function get_pau_Cin_Hau():RangeTable return stdgo._internal.unicode.Unicode_pau_Cin_Hau.pau_Cin_Hau;
+private function get_pau_Cin_Hau():RangeTable return stdgo._internal.unicode.Unicode_pau_cin_hau.pau_Cin_Hau;
 private function set_pau_Cin_Hau(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_pau_Cin_Hau.pau_Cin_Hau = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_pau_cin_hau.pau_Cin_Hau = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var phags_Pa(get, set) : RangeTable;
-private function get_phags_Pa():RangeTable return stdgo._internal.unicode.Unicode_phags_Pa.phags_Pa;
+private function get_phags_Pa():RangeTable return stdgo._internal.unicode.Unicode_phags_pa.phags_Pa;
 private function set_phags_Pa(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_phags_Pa.phags_Pa = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_phags_pa.phags_Pa = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var phoenician(get, set) : RangeTable;
@@ -1060,9 +1060,9 @@ private function set_phoenician(v:RangeTable):RangeTable {
         return v;
     }
 var psalter_Pahlavi(get, set) : RangeTable;
-private function get_psalter_Pahlavi():RangeTable return stdgo._internal.unicode.Unicode_psalter_Pahlavi.psalter_Pahlavi;
+private function get_psalter_Pahlavi():RangeTable return stdgo._internal.unicode.Unicode_psalter_pahlavi.psalter_Pahlavi;
 private function set_psalter_Pahlavi(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_psalter_Pahlavi.psalter_Pahlavi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_psalter_pahlavi.psalter_Pahlavi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var rejang(get, set) : RangeTable;
@@ -1108,9 +1108,9 @@ private function set_siddham(v:RangeTable):RangeTable {
         return v;
     }
 var signWriting(get, set) : RangeTable;
-private function get_signWriting():RangeTable return stdgo._internal.unicode.Unicode_signWriting.signWriting;
+private function get_signWriting():RangeTable return stdgo._internal.unicode.Unicode_signwriting.signWriting;
 private function set_signWriting(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_signWriting.signWriting = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_signwriting.signWriting = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var sinhala(get, set) : RangeTable;
@@ -1126,9 +1126,9 @@ private function set_sogdian(v:RangeTable):RangeTable {
         return v;
     }
 var sora_Sompeng(get, set) : RangeTable;
-private function get_sora_Sompeng():RangeTable return stdgo._internal.unicode.Unicode_sora_Sompeng.sora_Sompeng;
+private function get_sora_Sompeng():RangeTable return stdgo._internal.unicode.Unicode_sora_sompeng.sora_Sompeng;
 private function set_sora_Sompeng(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_sora_Sompeng.sora_Sompeng = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_sora_sompeng.sora_Sompeng = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var soyombo(get, set) : RangeTable;
@@ -1144,9 +1144,9 @@ private function set_sundanese(v:RangeTable):RangeTable {
         return v;
     }
 var syloti_Nagri(get, set) : RangeTable;
-private function get_syloti_Nagri():RangeTable return stdgo._internal.unicode.Unicode_syloti_Nagri.syloti_Nagri;
+private function get_syloti_Nagri():RangeTable return stdgo._internal.unicode.Unicode_syloti_nagri.syloti_Nagri;
 private function set_syloti_Nagri(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_syloti_Nagri.syloti_Nagri = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_syloti_nagri.syloti_Nagri = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var syriac(get, set) : RangeTable;
@@ -1168,21 +1168,21 @@ private function set_tagbanwa(v:RangeTable):RangeTable {
         return v;
     }
 var tai_Le(get, set) : RangeTable;
-private function get_tai_Le():RangeTable return stdgo._internal.unicode.Unicode_tai_Le.tai_Le;
+private function get_tai_Le():RangeTable return stdgo._internal.unicode.Unicode_tai_le.tai_Le;
 private function set_tai_Le(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_tai_Le.tai_Le = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_tai_le.tai_Le = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var tai_Tham(get, set) : RangeTable;
-private function get_tai_Tham():RangeTable return stdgo._internal.unicode.Unicode_tai_Tham.tai_Tham;
+private function get_tai_Tham():RangeTable return stdgo._internal.unicode.Unicode_tai_tham.tai_Tham;
 private function set_tai_Tham(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_tai_Tham.tai_Tham = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_tai_tham.tai_Tham = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var tai_Viet(get, set) : RangeTable;
-private function get_tai_Viet():RangeTable return stdgo._internal.unicode.Unicode_tai_Viet.tai_Viet;
+private function get_tai_Viet():RangeTable return stdgo._internal.unicode.Unicode_tai_viet.tai_Viet;
 private function set_tai_Viet(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_tai_Viet.tai_Viet = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_tai_viet.tai_Viet = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var takri(get, set) : RangeTable;
@@ -1276,9 +1276,9 @@ private function set_wancho(v:RangeTable):RangeTable {
         return v;
     }
 var warang_Citi(get, set) : RangeTable;
-private function get_warang_Citi():RangeTable return stdgo._internal.unicode.Unicode_warang_Citi.warang_Citi;
+private function get_warang_Citi():RangeTable return stdgo._internal.unicode.Unicode_warang_citi.warang_Citi;
 private function set_warang_Citi(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_warang_Citi.warang_Citi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_warang_citi.warang_Citi = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var yezidi(get, set) : RangeTable;
@@ -1294,9 +1294,9 @@ private function set_yi(v:RangeTable):RangeTable {
         return v;
     }
 var zanabazar_Square(get, set) : RangeTable;
-private function get_zanabazar_Square():RangeTable return stdgo._internal.unicode.Unicode_zanabazar_Square.zanabazar_Square;
+private function get_zanabazar_Square():RangeTable return stdgo._internal.unicode.Unicode_zanabazar_square.zanabazar_Square;
 private function set_zanabazar_Square(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_zanabazar_Square.zanabazar_Square = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_zanabazar_square.zanabazar_Square = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var scripts(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
@@ -1306,15 +1306,15 @@ private function set_scripts(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._inte
         return v;
     }
 var aSCII_Hex_Digit(get, set) : RangeTable;
-private function get_aSCII_Hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_aSCII_Hex_Digit.aSCII_Hex_Digit;
+private function get_aSCII_Hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_ascii_hex_digit.aSCII_Hex_Digit;
 private function set_aSCII_Hex_Digit(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_aSCII_Hex_Digit.aSCII_Hex_Digit = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_ascii_hex_digit.aSCII_Hex_Digit = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var bidi_Control(get, set) : RangeTable;
-private function get_bidi_Control():RangeTable return stdgo._internal.unicode.Unicode_bidi_Control.bidi_Control;
+private function get_bidi_Control():RangeTable return stdgo._internal.unicode.Unicode_bidi_control.bidi_Control;
 private function set_bidi_Control(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_bidi_Control.bidi_Control = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_bidi_control.bidi_Control = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var dash(get, set) : RangeTable;
@@ -1342,9 +1342,9 @@ private function set_extender(v:RangeTable):RangeTable {
         return v;
     }
 var hex_Digit(get, set) : RangeTable;
-private function get_hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_hex_Digit.hex_Digit;
+private function get_hex_Digit():RangeTable return stdgo._internal.unicode.Unicode_hex_digit.hex_Digit;
 private function set_hex_Digit(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_hex_Digit.hex_Digit = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_hex_digit.hex_Digit = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var hyphen(get, set) : RangeTable;
@@ -1354,15 +1354,15 @@ private function set_hyphen(v:RangeTable):RangeTable {
         return v;
     }
 var iDS_Binary_Operator(get, set) : RangeTable;
-private function get_iDS_Binary_Operator():RangeTable return stdgo._internal.unicode.Unicode_iDS_Binary_Operator.iDS_Binary_Operator;
+private function get_iDS_Binary_Operator():RangeTable return stdgo._internal.unicode.Unicode_ids_binary_operator.iDS_Binary_Operator;
 private function set_iDS_Binary_Operator(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_iDS_Binary_Operator.iDS_Binary_Operator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_ids_binary_operator.iDS_Binary_Operator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var iDS_Trinary_Operator(get, set) : RangeTable;
-private function get_iDS_Trinary_Operator():RangeTable return stdgo._internal.unicode.Unicode_iDS_Trinary_Operator.iDS_Trinary_Operator;
+private function get_iDS_Trinary_Operator():RangeTable return stdgo._internal.unicode.Unicode_ids_trinary_operator.iDS_Trinary_Operator;
 private function set_iDS_Trinary_Operator(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_iDS_Trinary_Operator.iDS_Trinary_Operator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_ids_trinary_operator.iDS_Trinary_Operator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var ideographic(get, set) : RangeTable;
@@ -1372,93 +1372,93 @@ private function set_ideographic(v:RangeTable):RangeTable {
         return v;
     }
 var join_Control(get, set) : RangeTable;
-private function get_join_Control():RangeTable return stdgo._internal.unicode.Unicode_join_Control.join_Control;
+private function get_join_Control():RangeTable return stdgo._internal.unicode.Unicode_join_control.join_Control;
 private function set_join_Control(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_join_Control.join_Control = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_join_control.join_Control = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var logical_Order_Exception(get, set) : RangeTable;
-private function get_logical_Order_Exception():RangeTable return stdgo._internal.unicode.Unicode_logical_Order_Exception.logical_Order_Exception;
+private function get_logical_Order_Exception():RangeTable return stdgo._internal.unicode.Unicode_logical_order_exception.logical_Order_Exception;
 private function set_logical_Order_Exception(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_logical_Order_Exception.logical_Order_Exception = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_logical_order_exception.logical_Order_Exception = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var noncharacter_Code_Point(get, set) : RangeTable;
-private function get_noncharacter_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_noncharacter_Code_Point.noncharacter_Code_Point;
+private function get_noncharacter_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_noncharacter_code_point.noncharacter_Code_Point;
 private function set_noncharacter_Code_Point(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_noncharacter_Code_Point.noncharacter_Code_Point = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_noncharacter_code_point.noncharacter_Code_Point = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Alphabetic(get, set) : RangeTable;
-private function get_other_Alphabetic():RangeTable return stdgo._internal.unicode.Unicode_other_Alphabetic.other_Alphabetic;
+private function get_other_Alphabetic():RangeTable return stdgo._internal.unicode.Unicode_other_alphabetic.other_Alphabetic;
 private function set_other_Alphabetic(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Alphabetic.other_Alphabetic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_alphabetic.other_Alphabetic = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Default_Ignorable_Code_Point(get, set) : RangeTable;
-private function get_other_Default_Ignorable_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_other_Default_Ignorable_Code_Point.other_Default_Ignorable_Code_Point;
+private function get_other_Default_Ignorable_Code_Point():RangeTable return stdgo._internal.unicode.Unicode_other_default_ignorable_code_point.other_Default_Ignorable_Code_Point;
 private function set_other_Default_Ignorable_Code_Point(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Default_Ignorable_Code_Point.other_Default_Ignorable_Code_Point = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_default_ignorable_code_point.other_Default_Ignorable_Code_Point = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Grapheme_Extend(get, set) : RangeTable;
-private function get_other_Grapheme_Extend():RangeTable return stdgo._internal.unicode.Unicode_other_Grapheme_Extend.other_Grapheme_Extend;
+private function get_other_Grapheme_Extend():RangeTable return stdgo._internal.unicode.Unicode_other_grapheme_extend.other_Grapheme_Extend;
 private function set_other_Grapheme_Extend(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Grapheme_Extend.other_Grapheme_Extend = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_grapheme_extend.other_Grapheme_Extend = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_ID_Continue(get, set) : RangeTable;
-private function get_other_ID_Continue():RangeTable return stdgo._internal.unicode.Unicode_other_ID_Continue.other_ID_Continue;
+private function get_other_ID_Continue():RangeTable return stdgo._internal.unicode.Unicode_other_id_continue.other_ID_Continue;
 private function set_other_ID_Continue(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_ID_Continue.other_ID_Continue = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_id_continue.other_ID_Continue = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_ID_Start(get, set) : RangeTable;
-private function get_other_ID_Start():RangeTable return stdgo._internal.unicode.Unicode_other_ID_Start.other_ID_Start;
+private function get_other_ID_Start():RangeTable return stdgo._internal.unicode.Unicode_other_id_start.other_ID_Start;
 private function set_other_ID_Start(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_ID_Start.other_ID_Start = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_id_start.other_ID_Start = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Lowercase(get, set) : RangeTable;
-private function get_other_Lowercase():RangeTable return stdgo._internal.unicode.Unicode_other_Lowercase.other_Lowercase;
+private function get_other_Lowercase():RangeTable return stdgo._internal.unicode.Unicode_other_lowercase.other_Lowercase;
 private function set_other_Lowercase(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Lowercase.other_Lowercase = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_lowercase.other_Lowercase = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Math(get, set) : RangeTable;
-private function get_other_Math():RangeTable return stdgo._internal.unicode.Unicode_other_Math.other_Math;
+private function get_other_Math():RangeTable return stdgo._internal.unicode.Unicode_other_math.other_Math;
 private function set_other_Math(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Math.other_Math = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_math.other_Math = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var other_Uppercase(get, set) : RangeTable;
-private function get_other_Uppercase():RangeTable return stdgo._internal.unicode.Unicode_other_Uppercase.other_Uppercase;
+private function get_other_Uppercase():RangeTable return stdgo._internal.unicode.Unicode_other_uppercase.other_Uppercase;
 private function set_other_Uppercase(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_other_Uppercase.other_Uppercase = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_other_uppercase.other_Uppercase = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var pattern_Syntax(get, set) : RangeTable;
-private function get_pattern_Syntax():RangeTable return stdgo._internal.unicode.Unicode_pattern_Syntax.pattern_Syntax;
+private function get_pattern_Syntax():RangeTable return stdgo._internal.unicode.Unicode_pattern_syntax.pattern_Syntax;
 private function set_pattern_Syntax(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_pattern_Syntax.pattern_Syntax = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_pattern_syntax.pattern_Syntax = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var pattern_White_Space(get, set) : RangeTable;
-private function get_pattern_White_Space():RangeTable return stdgo._internal.unicode.Unicode_pattern_White_Space.pattern_White_Space;
+private function get_pattern_White_Space():RangeTable return stdgo._internal.unicode.Unicode_pattern_white_space.pattern_White_Space;
 private function set_pattern_White_Space(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_pattern_White_Space.pattern_White_Space = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_pattern_white_space.pattern_White_Space = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var prepended_Concatenation_Mark(get, set) : RangeTable;
-private function get_prepended_Concatenation_Mark():RangeTable return stdgo._internal.unicode.Unicode_prepended_Concatenation_Mark.prepended_Concatenation_Mark;
+private function get_prepended_Concatenation_Mark():RangeTable return stdgo._internal.unicode.Unicode_prepended_concatenation_mark.prepended_Concatenation_Mark;
 private function set_prepended_Concatenation_Mark(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_prepended_Concatenation_Mark.prepended_Concatenation_Mark = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_prepended_concatenation_mark.prepended_Concatenation_Mark = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var quotation_Mark(get, set) : RangeTable;
-private function get_quotation_Mark():RangeTable return stdgo._internal.unicode.Unicode_quotation_Mark.quotation_Mark;
+private function get_quotation_Mark():RangeTable return stdgo._internal.unicode.Unicode_quotation_mark.quotation_Mark;
 private function set_quotation_Mark(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_quotation_Mark.quotation_Mark = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_quotation_mark.quotation_Mark = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var radical(get, set) : RangeTable;
@@ -1468,51 +1468,51 @@ private function set_radical(v:RangeTable):RangeTable {
         return v;
     }
 var regional_Indicator(get, set) : RangeTable;
-private function get_regional_Indicator():RangeTable return stdgo._internal.unicode.Unicode_regional_Indicator.regional_Indicator;
+private function get_regional_Indicator():RangeTable return stdgo._internal.unicode.Unicode_regional_indicator.regional_Indicator;
 private function set_regional_Indicator(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_regional_Indicator.regional_Indicator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_regional_indicator.regional_Indicator = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var sTerm(get, set) : RangeTable;
-private function get_sTerm():RangeTable return stdgo._internal.unicode.Unicode_sTerm.sTerm;
+private function get_sTerm():RangeTable return stdgo._internal.unicode.Unicode_sterm.sTerm;
 private function set_sTerm(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_sTerm.sTerm = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_sterm.sTerm = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var sentence_Terminal(get, set) : RangeTable;
-private function get_sentence_Terminal():RangeTable return stdgo._internal.unicode.Unicode_sentence_Terminal.sentence_Terminal;
+private function get_sentence_Terminal():RangeTable return stdgo._internal.unicode.Unicode_sentence_terminal.sentence_Terminal;
 private function set_sentence_Terminal(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_sentence_Terminal.sentence_Terminal = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_sentence_terminal.sentence_Terminal = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var soft_Dotted(get, set) : RangeTable;
-private function get_soft_Dotted():RangeTable return stdgo._internal.unicode.Unicode_soft_Dotted.soft_Dotted;
+private function get_soft_Dotted():RangeTable return stdgo._internal.unicode.Unicode_soft_dotted.soft_Dotted;
 private function set_soft_Dotted(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_soft_Dotted.soft_Dotted = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_soft_dotted.soft_Dotted = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var terminal_Punctuation(get, set) : RangeTable;
-private function get_terminal_Punctuation():RangeTable return stdgo._internal.unicode.Unicode_terminal_Punctuation.terminal_Punctuation;
+private function get_terminal_Punctuation():RangeTable return stdgo._internal.unicode.Unicode_terminal_punctuation.terminal_Punctuation;
 private function set_terminal_Punctuation(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_terminal_Punctuation.terminal_Punctuation = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_terminal_punctuation.terminal_Punctuation = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var unified_Ideograph(get, set) : RangeTable;
-private function get_unified_Ideograph():RangeTable return stdgo._internal.unicode.Unicode_unified_Ideograph.unified_Ideograph;
+private function get_unified_Ideograph():RangeTable return stdgo._internal.unicode.Unicode_unified_ideograph.unified_Ideograph;
 private function set_unified_Ideograph(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_unified_Ideograph.unified_Ideograph = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_unified_ideograph.unified_Ideograph = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var variation_Selector(get, set) : RangeTable;
-private function get_variation_Selector():RangeTable return stdgo._internal.unicode.Unicode_variation_Selector.variation_Selector;
+private function get_variation_Selector():RangeTable return stdgo._internal.unicode.Unicode_variation_selector.variation_Selector;
 private function set_variation_Selector(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_variation_Selector.variation_Selector = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_variation_selector.variation_Selector = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var white_Space(get, set) : RangeTable;
-private function get_white_Space():RangeTable return stdgo._internal.unicode.Unicode_white_Space.white_Space;
+private function get_white_Space():RangeTable return stdgo._internal.unicode.Unicode_white_space.white_Space;
 private function set_white_Space(v:RangeTable):RangeTable {
-        stdgo._internal.unicode.Unicode_white_Space.white_Space = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+        stdgo._internal.unicode.Unicode_white_space.white_Space = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
 var properties(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
@@ -1522,24 +1522,24 @@ private function set_properties(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         return v;
     }
 var caseRanges(get, set) : Array<CaseRange>;
-private function get_caseRanges():Array<CaseRange> return [for (i in stdgo._internal.unicode.Unicode_caseRanges.caseRanges) i];
+private function get_caseRanges():Array<CaseRange> return [for (i in stdgo._internal.unicode.Unicode_caseranges.caseRanges) i];
 private function set_caseRanges(v:Array<CaseRange>):Array<CaseRange> {
-        stdgo._internal.unicode.Unicode_caseRanges.caseRanges = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_caserange.CaseRange>);
+        stdgo._internal.unicode.Unicode_caseranges.caseRanges = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_caserange.CaseRange>);
         return v;
     }
 var foldCategory(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_foldCategory():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldCategory.foldCategory;
+private function get_foldCategory():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldcategory.foldCategory;
 private function set_foldCategory(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_foldCategory.foldCategory = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+        stdgo._internal.unicode.Unicode_foldcategory.foldCategory = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         return v;
     }
 var foldScript(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_foldScript():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldScript.foldScript;
+private function get_foldScript():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldscript.foldScript;
 private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_foldScript.foldScript = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+        stdgo._internal.unicode.Unicode_foldscript.foldScript = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         return v;
     }
-@:structInit @:using(stdgo.unicode.Unicode.RangeTable_static_extension) abstract RangeTable(stdgo._internal.unicode.Unicode_RangeTable.RangeTable) from stdgo._internal.unicode.Unicode_RangeTable.RangeTable to stdgo._internal.unicode.Unicode_RangeTable.RangeTable {
+@:structInit @:using(stdgo.unicode.Unicode.RangeTable_static_extension) abstract RangeTable(stdgo._internal.unicode.Unicode_rangetable.RangeTable) from stdgo._internal.unicode.Unicode_rangetable.RangeTable to stdgo._internal.unicode.Unicode_rangetable.RangeTable {
     public var r16(get, set) : Array<Range16>;
     function get_r16():Array<Range16> return [for (i in this.r16) i];
     function set_r16(v:Array<Range16>):Array<Range16> {
@@ -1558,11 +1558,11 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         this.latinOffset = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?r16:Array<Range16>, ?r32:Array<Range32>, ?latinOffset:StdTypes.Int) this = new stdgo._internal.unicode.Unicode_RangeTable.RangeTable(([for (i in r16) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_range16.Range16>), ([for (i in r32) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_range32.Range32>), (latinOffset : stdgo.GoInt));
+    public function new(?r16:Array<Range16>, ?r32:Array<Range32>, ?latinOffset:StdTypes.Int) this = new stdgo._internal.unicode.Unicode_rangetable.RangeTable(([for (i in r16) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_range16.Range16>), ([for (i in r32) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_range32.Range32>), (latinOffset : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.unicode.Unicode.Range16_static_extension) abstract Range16(stdgo._internal.unicode.Unicode_Range16.Range16) from stdgo._internal.unicode.Unicode_Range16.Range16 to stdgo._internal.unicode.Unicode_Range16.Range16 {
+@:structInit @:using(stdgo.unicode.Unicode.Range16_static_extension) abstract Range16(stdgo._internal.unicode.Unicode_range16.Range16) from stdgo._internal.unicode.Unicode_range16.Range16 to stdgo._internal.unicode.Unicode_range16.Range16 {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1581,11 +1581,11 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         this.stride = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?lo:std.UInt, ?hi:std.UInt, ?stride:std.UInt) this = new stdgo._internal.unicode.Unicode_Range16.Range16((lo : stdgo.GoUInt16), (hi : stdgo.GoUInt16), (stride : stdgo.GoUInt16));
+    public function new(?lo:std.UInt, ?hi:std.UInt, ?stride:std.UInt) this = new stdgo._internal.unicode.Unicode_range16.Range16((lo : stdgo.GoUInt16), (hi : stdgo.GoUInt16), (stride : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.unicode.Unicode.Range32_static_extension) abstract Range32(stdgo._internal.unicode.Unicode_Range32.Range32) from stdgo._internal.unicode.Unicode_Range32.Range32 to stdgo._internal.unicode.Unicode_Range32.Range32 {
+@:structInit @:using(stdgo.unicode.Unicode.Range32_static_extension) abstract Range32(stdgo._internal.unicode.Unicode_range32.Range32) from stdgo._internal.unicode.Unicode_range32.Range32 to stdgo._internal.unicode.Unicode_range32.Range32 {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1604,11 +1604,11 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         this.stride = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?lo:std.UInt, ?hi:std.UInt, ?stride:std.UInt) this = new stdgo._internal.unicode.Unicode_Range32.Range32((lo : stdgo.GoUInt32), (hi : stdgo.GoUInt32), (stride : stdgo.GoUInt32));
+    public function new(?lo:std.UInt, ?hi:std.UInt, ?stride:std.UInt) this = new stdgo._internal.unicode.Unicode_range32.Range32((lo : stdgo.GoUInt32), (hi : stdgo.GoUInt32), (stride : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.unicode.Unicode.CaseRange_static_extension) abstract CaseRange(stdgo._internal.unicode.Unicode_CaseRange.CaseRange) from stdgo._internal.unicode.Unicode_CaseRange.CaseRange to stdgo._internal.unicode.Unicode_CaseRange.CaseRange {
+@:structInit @:using(stdgo.unicode.Unicode.CaseRange_static_extension) abstract CaseRange(stdgo._internal.unicode.Unicode_caserange.CaseRange) from stdgo._internal.unicode.Unicode_caserange.CaseRange to stdgo._internal.unicode.Unicode_caserange.CaseRange {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1627,11 +1627,11 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         this.delta = v;
         return v;
     }
-    public function new(?lo:std.UInt, ?hi:std.UInt, ?delta:T_d) this = new stdgo._internal.unicode.Unicode_CaseRange.CaseRange((lo : stdgo.GoUInt32), (hi : stdgo.GoUInt32), delta);
+    public function new(?lo:std.UInt, ?hi:std.UInt, ?delta:T_d) this = new stdgo._internal.unicode.Unicode_caserange.CaseRange((lo : stdgo.GoUInt32), (hi : stdgo.GoUInt32), delta);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.unicode.Unicode.T_foldPair_static_extension) abstract T_foldPair(stdgo._internal.unicode.Unicode_T_foldPair.T_foldPair) from stdgo._internal.unicode.Unicode_T_foldPair.T_foldPair to stdgo._internal.unicode.Unicode_T_foldPair.T_foldPair {
+@:structInit @:using(stdgo.unicode.Unicode.T_foldPair_static_extension) abstract T_foldPair(stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair) from stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair to stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair {
     public var from(get, set) : std.UInt;
     function get_from():std.UInt return this.from;
     function set_from(v:std.UInt):std.UInt {
@@ -1644,48 +1644,48 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
         this.to = (v : stdgo.GoUInt16);
         return v;
     }
-    public function new(?from:std.UInt, ?to:std.UInt) this = new stdgo._internal.unicode.Unicode_T_foldPair.T_foldPair((from : stdgo.GoUInt16), (to : stdgo.GoUInt16));
+    public function new(?from:std.UInt, ?to:std.UInt) this = new stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair((from : stdgo.GoUInt16), (to : stdgo.GoUInt16));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef SpecialCase = stdgo._internal.unicode.Unicode_SpecialCase.SpecialCase;
-typedef T_d = stdgo._internal.unicode.Unicode_T_d.T_d;
-typedef RangeTablePointer = stdgo._internal.unicode.Unicode_RangeTablePointer.RangeTablePointer;
+typedef SpecialCase = stdgo._internal.unicode.Unicode_specialcase.SpecialCase;
+typedef T_d = stdgo._internal.unicode.Unicode_t_d.T_d;
+typedef RangeTablePointer = stdgo._internal.unicode.Unicode_rangetablepointer.RangeTablePointer;
 class RangeTable_static_extension {
 
 }
-typedef Range16Pointer = stdgo._internal.unicode.Unicode_Range16Pointer.Range16Pointer;
+typedef Range16Pointer = stdgo._internal.unicode.Unicode_range16pointer.Range16Pointer;
 class Range16_static_extension {
 
 }
-typedef Range32Pointer = stdgo._internal.unicode.Unicode_Range32Pointer.Range32Pointer;
+typedef Range32Pointer = stdgo._internal.unicode.Unicode_range32pointer.Range32Pointer;
 class Range32_static_extension {
 
 }
-typedef CaseRangePointer = stdgo._internal.unicode.Unicode_CaseRangePointer.CaseRangePointer;
+typedef CaseRangePointer = stdgo._internal.unicode.Unicode_caserangepointer.CaseRangePointer;
 class CaseRange_static_extension {
 
 }
-typedef T_foldPairPointer = stdgo._internal.unicode.Unicode_T_foldPairPointer.T_foldPairPointer;
+typedef T_foldPairPointer = stdgo._internal.unicode.Unicode_t_foldpairpointer.T_foldPairPointer;
 class T_foldPair_static_extension {
 
 }
-typedef SpecialCasePointer = stdgo._internal.unicode.Unicode_SpecialCasePointer.SpecialCasePointer;
+typedef SpecialCasePointer = stdgo._internal.unicode.Unicode_specialcasepointer.SpecialCasePointer;
 class SpecialCase_static_extension {
     static public function toLower(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_SpecialCase_static_extension.SpecialCase_static_extension.toLower(_special, _r);
+        return stdgo._internal.unicode.Unicode_specialcase_static_extension.SpecialCase_static_extension.toLower(_special, _r);
     }
     static public function toTitle(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_SpecialCase_static_extension.SpecialCase_static_extension.toTitle(_special, _r);
+        return stdgo._internal.unicode.Unicode_specialcase_static_extension.SpecialCase_static_extension.toTitle(_special, _r);
     }
     static public function toUpper(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_SpecialCase_static_extension.SpecialCase_static_extension.toUpper(_special, _r);
+        return stdgo._internal.unicode.Unicode_specialcase_static_extension.SpecialCase_static_extension.toUpper(_special, _r);
     }
 }
-typedef T_dPointer = stdgo._internal.unicode.Unicode_T_dPointer.T_dPointer;
+typedef T_dPointer = stdgo._internal.unicode.Unicode_t_dpointer.T_dPointer;
 class T_d_static_extension {
 
 }
@@ -1699,7 +1699,7 @@ class Unicode {
     **/
     static public inline function isDigit(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isDigit.isDigit(_r);
+        return stdgo._internal.unicode.Unicode_isdigit.isDigit(_r);
     }
     /**
         * IsGraphic reports whether the rune is defined as a Graphic by Unicode.
@@ -1708,7 +1708,7 @@ class Unicode {
     **/
     static public inline function isGraphic(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isGraphic.isGraphic(_r);
+        return stdgo._internal.unicode.Unicode_isgraphic.isGraphic(_r);
     }
     /**
         * IsPrint reports whether the rune is defined as printable by Go. Such
@@ -1719,7 +1719,7 @@ class Unicode {
     **/
     static public inline function isPrint(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isPrint.isPrint(_r);
+        return stdgo._internal.unicode.Unicode_isprint.isPrint(_r);
     }
     /**
         * IsOneOf reports whether the rune is a member of one of the ranges.
@@ -1728,7 +1728,7 @@ class Unicode {
     static public inline function isOneOf(_ranges:Array<RangeTable>, _r:StdTypes.Int):Bool {
         final _ranges = ([for (i in _ranges) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isOneOf.isOneOf(_ranges, _r);
+        return stdgo._internal.unicode.Unicode_isoneof.isOneOf(_ranges, _r);
     }
     /**
         * In reports whether the rune is a member of one of the ranges.
@@ -1744,28 +1744,28 @@ class Unicode {
     **/
     static public inline function isControl(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isControl.isControl(_r);
+        return stdgo._internal.unicode.Unicode_iscontrol.isControl(_r);
     }
     /**
         * IsLetter reports whether the rune is a letter (category L).
     **/
     static public inline function isLetter(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isLetter.isLetter(_r);
+        return stdgo._internal.unicode.Unicode_isletter.isLetter(_r);
     }
     /**
         * IsMark reports whether the rune is a mark character (category M).
     **/
     static public inline function isMark(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isMark.isMark(_r);
+        return stdgo._internal.unicode.Unicode_ismark.isMark(_r);
     }
     /**
         * IsNumber reports whether the rune is a number (category N).
     **/
     static public inline function isNumber(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isNumber.isNumber(_r);
+        return stdgo._internal.unicode.Unicode_isnumber.isNumber(_r);
     }
     /**
         * IsPunct reports whether the rune is a Unicode punctuation character
@@ -1773,7 +1773,7 @@ class Unicode {
     **/
     static public inline function isPunct(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isPunct.isPunct(_r);
+        return stdgo._internal.unicode.Unicode_ispunct.isPunct(_r);
     }
     /**
         * IsSpace reports whether the rune is a space character as defined
@@ -1787,14 +1787,14 @@ class Unicode {
     **/
     static public inline function isSpace(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isSpace.isSpace(_r);
+        return stdgo._internal.unicode.Unicode_isspace.isSpace(_r);
     }
     /**
         * IsSymbol reports whether the rune is a symbolic character.
     **/
     static public inline function isSymbol(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isSymbol.isSymbol(_r);
+        return stdgo._internal.unicode.Unicode_issymbol.isSymbol(_r);
     }
     /**
         * Is reports whether the rune is in the specified table of ranges.
@@ -1809,21 +1809,21 @@ class Unicode {
     **/
     static public inline function isUpper(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isUpper.isUpper(_r);
+        return stdgo._internal.unicode.Unicode_isupper.isUpper(_r);
     }
     /**
         * IsLower reports whether the rune is a lower case letter.
     **/
     static public inline function isLower(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isLower.isLower(_r);
+        return stdgo._internal.unicode.Unicode_islower.isLower(_r);
     }
     /**
         * IsTitle reports whether the rune is a title case letter.
     **/
     static public inline function isTitle(_r:StdTypes.Int):Bool {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_isTitle.isTitle(_r);
+        return stdgo._internal.unicode.Unicode_istitle.isTitle(_r);
     }
     /**
         * To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
@@ -1838,21 +1838,21 @@ class Unicode {
     **/
     static public inline function toUpper(_r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_toUpper.toUpper(_r);
+        return stdgo._internal.unicode.Unicode_toupper.toUpper(_r);
     }
     /**
         * ToLower maps the rune to lower case.
     **/
     static public inline function toLower(_r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_toLower.toLower(_r);
+        return stdgo._internal.unicode.Unicode_tolower.toLower(_r);
     }
     /**
         * ToTitle maps the rune to title case.
     **/
     static public inline function toTitle(_r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_toTitle.toTitle(_r);
+        return stdgo._internal.unicode.Unicode_totitle.toTitle(_r);
     }
     /**
         * SimpleFold iterates over Unicode code points equivalent under
@@ -1876,6 +1876,6 @@ class Unicode {
     **/
     static public inline function simpleFold(_r:StdTypes.Int):StdTypes.Int {
         final _r = (_r : stdgo.GoInt32);
-        return stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r);
+        return stdgo._internal.unicode.Unicode_simplefold.simpleFold(_r);
     }
 }

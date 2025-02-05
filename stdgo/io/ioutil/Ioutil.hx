@@ -24,7 +24,7 @@ class Ioutil {
     **/
     static public inline function readAll(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.ioutil.Ioutil_readAll.readAll(_r);
+            final obj = stdgo._internal.io.ioutil.Ioutil_readall.readAll(_r);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -39,7 +39,7 @@ class Ioutil {
     static public inline function readFile(_filename:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _filename = (_filename : stdgo.GoString);
         return {
-            final obj = stdgo._internal.io.ioutil.Ioutil_readFile.readFile(_filename);
+            final obj = stdgo._internal.io.ioutil.Ioutil_readfile.readFile(_filename);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -53,7 +53,7 @@ class Ioutil {
     static public inline function writeFile(_filename:String, _data:Array<std.UInt>, _perm:stdgo._internal.io.fs.Fs_filemode.FileMode):stdgo.Error {
         final _filename = (_filename : stdgo.GoString);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.io.ioutil.Ioutil_writeFile.writeFile(_filename, _data, _perm);
+        return stdgo._internal.io.ioutil.Ioutil_writefile.writeFile(_filename, _data, _perm);
     }
     /**
         * ReadDir reads the directory named by dirname and returns
@@ -80,7 +80,7 @@ class Ioutil {
     static public inline function readDir(_dirname:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error> {
         final _dirname = (_dirname : stdgo.GoString);
         return {
-            final obj = stdgo._internal.io.ioutil.Ioutil_readDir.readDir(_dirname);
+            final obj = stdgo._internal.io.ioutil.Ioutil_readdir.readDir(_dirname);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -91,7 +91,7 @@ class Ioutil {
         * Deprecated: As of Go 1.16, this function simply calls [io.NopCloser].
     **/
     static public inline function nopCloser(_r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_readcloser.ReadCloser {
-        return stdgo._internal.io.ioutil.Ioutil_nopCloser.nopCloser(_r);
+        return stdgo._internal.io.ioutil.Ioutil_nopcloser.nopCloser(_r);
     }
     /**
         * TempFile creates a new temporary file in the directory dir,
@@ -112,7 +112,7 @@ class Ioutil {
         final _dir = (_dir : stdgo.GoString);
         final _pattern = (_pattern : stdgo.GoString);
         return {
-            final obj = stdgo._internal.io.ioutil.Ioutil_tempFile.tempFile(_dir, _pattern);
+            final obj = stdgo._internal.io.ioutil.Ioutil_tempfile.tempFile(_dir, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -133,7 +133,7 @@ class Ioutil {
         final _dir = (_dir : stdgo.GoString);
         final _pattern = (_pattern : stdgo.GoString);
         return {
-            final obj = stdgo._internal.io.ioutil.Ioutil_tempDir.tempDir(_dir, _pattern);
+            final obj = stdgo._internal.io.ioutil.Ioutil_tempdir.tempDir(_dir, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

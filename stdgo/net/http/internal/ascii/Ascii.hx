@@ -7,7 +7,7 @@ class Ascii {
     static public inline function equalFold(_s:String, _t:String):Bool {
         final _s = (_s : stdgo.GoString);
         final _t = (_t : stdgo.GoString);
-        return stdgo._internal.net.http.internal.ascii.Ascii_equalFold.equalFold(_s, _t);
+        return stdgo._internal.net.http.internal.ascii.Ascii_equalfold.equalFold(_s, _t);
     }
     /**
         * IsPrint returns whether s is ASCII and printable according to
@@ -15,7 +15,7 @@ class Ascii {
     **/
     static public inline function isPrint(_s:String):Bool {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.net.http.internal.ascii.Ascii_isPrint.isPrint(_s);
+        return stdgo._internal.net.http.internal.ascii.Ascii_isprint.isPrint(_s);
     }
     /**
         * Is returns whether s is ASCII.
@@ -30,7 +30,7 @@ class Ascii {
     static public inline function toLower(_s:String):stdgo.Tuple<String, Bool> {
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.http.internal.ascii.Ascii_toLower.toLower(_s);
+            final obj = stdgo._internal.net.http.internal.ascii.Ascii_tolower.toLower(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

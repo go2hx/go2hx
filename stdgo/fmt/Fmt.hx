@@ -1,8 +1,8 @@
 package stdgo.fmt;
 var isSpace(get, set) : stdgo.GoInt32 -> Bool;
-private function get_isSpace():stdgo.GoInt32 -> Bool return _0 -> stdgo._internal.fmt.Fmt_isSpace.isSpace(_0);
+private function get_isSpace():stdgo.GoInt32 -> Bool return _0 -> stdgo._internal.fmt.Fmt_isspace.isSpace(_0);
 private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
-        stdgo._internal.fmt.Fmt_isSpace.isSpace = v;
+        stdgo._internal.fmt.Fmt_isspace.isSpace = v;
         return v;
     }
 var parsenum(get, set) : (stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoInt; };
@@ -14,91 +14,91 @@ private function set_parsenum(v:(stdgo.GoString, stdgo.GoInt, stdgo.GoInt) -> { 
 class State_static_extension {
     static public function flag(t:stdgo._internal.fmt.Fmt_state.State, _c:StdTypes.Int):Bool {
         final _c = (_c : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_State_static_extension.State_static_extension.flag(t, _c);
+        return stdgo._internal.fmt.Fmt_state_static_extension.State_static_extension.flag(t, _c);
     }
     static public function precision(t:stdgo._internal.fmt.Fmt_state.State):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
-            final obj = stdgo._internal.fmt.Fmt_State_static_extension.State_static_extension.precision(t);
+            final obj = stdgo._internal.fmt.Fmt_state_static_extension.State_static_extension.precision(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function width(t:stdgo._internal.fmt.Fmt_state.State):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
-            final obj = stdgo._internal.fmt.Fmt_State_static_extension.State_static_extension.width(t);
+            final obj = stdgo._internal.fmt.Fmt_state_static_extension.State_static_extension.width(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function write(t:stdgo._internal.fmt.Fmt_state.State, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_State_static_extension.State_static_extension.write(t, _b);
+            final obj = stdgo._internal.fmt.Fmt_state_static_extension.State_static_extension.write(t, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef State = stdgo._internal.fmt.Fmt_State.State;
+typedef State = stdgo._internal.fmt.Fmt_state.State;
 class Formatter_static_extension {
     static public function format(t:stdgo._internal.fmt.Fmt_formatter.Formatter, _f:State, _verb:StdTypes.Int):Void {
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_Formatter_static_extension.Formatter_static_extension.format(t, _f, _verb);
+        stdgo._internal.fmt.Fmt_formatter_static_extension.Formatter_static_extension.format(t, _f, _verb);
     }
 }
-typedef Formatter = stdgo._internal.fmt.Fmt_Formatter.Formatter;
+typedef Formatter = stdgo._internal.fmt.Fmt_formatter.Formatter;
 class Stringer_static_extension {
     static public function string(t:stdgo._internal.fmt.Fmt_stringer.Stringer):String {
-        return stdgo._internal.fmt.Fmt_Stringer_static_extension.Stringer_static_extension.string(t);
+        return stdgo._internal.fmt.Fmt_stringer_static_extension.Stringer_static_extension.string(t);
     }
 }
-typedef Stringer = stdgo._internal.fmt.Fmt_Stringer.Stringer;
+typedef Stringer = stdgo._internal.fmt.Fmt_stringer.Stringer;
 class GoStringer_static_extension {
     static public function goString(t:stdgo._internal.fmt.Fmt_gostringer.GoStringer):String {
-        return stdgo._internal.fmt.Fmt_GoStringer_static_extension.GoStringer_static_extension.goString(t);
+        return stdgo._internal.fmt.Fmt_gostringer_static_extension.GoStringer_static_extension.goString(t);
     }
 }
-typedef GoStringer = stdgo._internal.fmt.Fmt_GoStringer.GoStringer;
+typedef GoStringer = stdgo._internal.fmt.Fmt_gostringer.GoStringer;
 class ScanState_static_extension {
     static public function read(t:stdgo._internal.fmt.Fmt_scanstate.ScanState, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.read(t, _buf);
+            final obj = stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.read(t, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function width(t:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
-            final obj = stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.width(t);
+            final obj = stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.width(t);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function token(t:stdgo._internal.fmt.Fmt_scanstate.ScanState, _skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _f = _f;
         return {
-            final obj = stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.token(t, _skipSpace, _f);
+            final obj = stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.token(t, _skipSpace, _f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function skipSpace(t:stdgo._internal.fmt.Fmt_scanstate.ScanState):Void {
-        stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.skipSpace(t);
+        stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.skipSpace(t);
     }
     static public function unreadRune(t:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo.Error {
-        return stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.unreadRune(t);
+        return stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.unreadRune(t);
     }
     static public function readRune(t:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.fmt.Fmt_ScanState_static_extension.ScanState_static_extension.readRune(t);
+            final obj = stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.readRune(t);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
 }
-typedef ScanState = stdgo._internal.fmt.Fmt_ScanState.ScanState;
+typedef ScanState = stdgo._internal.fmt.Fmt_scanstate.ScanState;
 class Scanner_static_extension {
     static public function scan(t:stdgo._internal.fmt.Fmt_scanner.Scanner, _state:ScanState, _verb:StdTypes.Int):stdgo.Error {
         final _verb = (_verb : stdgo.GoInt32);
-        return stdgo._internal.fmt.Fmt_Scanner_static_extension.Scanner_static_extension.scan(t, _state, _verb);
+        return stdgo._internal.fmt.Fmt_scanner_static_extension.Scanner_static_extension.scan(t, _state, _verb);
     }
 }
-typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
-@:structInit @:using(stdgo.fmt.Fmt.T_wrapError_static_extension) abstract T_wrapError(stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError) from stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError to stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError {
+typedef Scanner = stdgo._internal.fmt.Fmt_scanner.Scanner;
+@:structInit @:using(stdgo.fmt.Fmt.T_wrapError_static_extension) abstract T_wrapError(stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError) from stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError to stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError {
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
@@ -111,11 +111,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_msg:String, ?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt_T_wrapError.T_wrapError((_msg : stdgo.GoString), (_err : stdgo.Error));
+    public function new(?_msg:String, ?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError((_msg : stdgo.GoString), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_wrapErrors_static_extension) abstract T_wrapErrors(stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors) from stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors to stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors {
+@:structInit @:using(stdgo.fmt.Fmt.T_wrapErrors_static_extension) abstract T_wrapErrors(stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors) from stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors to stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors {
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
@@ -128,11 +128,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._errs = ([for (i in v) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>);
         return v;
     }
-    public function new(?_msg:String, ?_errs:Array<stdgo.Error>) this = new stdgo._internal.fmt.Fmt_T_wrapErrors.T_wrapErrors((_msg : stdgo.GoString), ([for (i in _errs) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>));
+    public function new(?_msg:String, ?_errs:Array<stdgo.Error>) this = new stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors((_msg : stdgo.GoString), ([for (i in _errs) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_fmtFlags_static_extension) abstract T_fmtFlags(stdgo._internal.fmt.Fmt_T_fmtFlags.T_fmtFlags) from stdgo._internal.fmt.Fmt_T_fmtFlags.T_fmtFlags to stdgo._internal.fmt.Fmt_T_fmtFlags.T_fmtFlags {
+@:structInit @:using(stdgo.fmt.Fmt.T_fmtFlags_static_extension) abstract T_fmtFlags(stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags) from stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags to stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags {
     public var _widPresent(get, set) : Bool;
     function get__widPresent():Bool return this._widPresent;
     function set__widPresent(v:Bool):Bool {
@@ -187,11 +187,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._sharpV = v;
         return v;
     }
-    public function new(?_widPresent:Bool, ?_precPresent:Bool, ?_minus:Bool, ?_plus:Bool, ?_sharp:Bool, ?_space:Bool, ?_zero:Bool, ?_plusV:Bool, ?_sharpV:Bool) this = new stdgo._internal.fmt.Fmt_T_fmtFlags.T_fmtFlags(_widPresent, _precPresent, _minus, _plus, _sharp, _space, _zero, _plusV, _sharpV);
+    public function new(?_widPresent:Bool, ?_precPresent:Bool, ?_minus:Bool, ?_plus:Bool, ?_sharp:Bool, ?_space:Bool, ?_zero:Bool, ?_plusV:Bool, ?_sharpV:Bool) this = new stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags(_widPresent, _precPresent, _minus, _plus, _sharp, _space, _zero, _plusV, _sharpV);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_fmt_static_extension) abstract T_fmt(stdgo._internal.fmt.Fmt_T_fmt.T_fmt) from stdgo._internal.fmt.Fmt_T_fmt.T_fmt to stdgo._internal.fmt.Fmt_T_fmt.T_fmt {
+@:structInit @:using(stdgo.fmt.Fmt.T_fmt_static_extension) abstract T_fmt(stdgo._internal.fmt.Fmt_t_fmt.T_fmt) from stdgo._internal.fmt.Fmt_t_fmt.T_fmt to stdgo._internal.fmt.Fmt_t_fmt.T_fmt {
     public var _buf(get, set) : T_buffer;
     function get__buf():T_buffer return this._buf;
     function set__buf(v:T_buffer):T_buffer {
@@ -222,11 +222,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._intbuf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_buf:T_buffer, ?_fmtFlags:T_fmtFlags, ?_wid:StdTypes.Int, ?_prec:StdTypes.Int, ?_intbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.fmt.Fmt_T_fmt.T_fmt((_buf : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>), _fmtFlags, (_wid : stdgo.GoInt), (_prec : stdgo.GoInt), ([for (i in _intbuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_buf:T_buffer, ?_fmtFlags:T_fmtFlags, ?_wid:StdTypes.Int, ?_prec:StdTypes.Int, ?_intbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.fmt.Fmt_t_fmt.T_fmt((_buf : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>), _fmtFlags, (_wid : stdgo.GoInt), (_prec : stdgo.GoInt), ([for (i in _intbuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_pp_static_extension) abstract T_pp(stdgo._internal.fmt.Fmt_T_pp.T_pp) from stdgo._internal.fmt.Fmt_T_pp.T_pp to stdgo._internal.fmt.Fmt_T_pp.T_pp {
+@:structInit @:using(stdgo.fmt.Fmt.T_pp_static_extension) abstract T_pp(stdgo._internal.fmt.Fmt_t_pp.T_pp) from stdgo._internal.fmt.Fmt_t_pp.T_pp to stdgo._internal.fmt.Fmt_t_pp.T_pp {
     public var _buf(get, set) : T_buffer;
     function get__buf():T_buffer return this._buf;
     function set__buf(v:T_buffer):T_buffer {
@@ -287,22 +287,22 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._wrappedErrs = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?_buf:T_buffer, ?_arg:stdgo.AnyInterface, ?_value:stdgo._internal.reflect.Reflect_value.Value, ?_fmt:T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Array<StdTypes.Int>) this = new stdgo._internal.fmt.Fmt_T_pp.T_pp(_buf, (_arg : stdgo.AnyInterface), _value, _fmt, _reordered, _goodArgNum, _panicking, _erroring, _wrapErrs, ([for (i in _wrappedErrs) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?_buf:T_buffer, ?_arg:stdgo.AnyInterface, ?_value:stdgo._internal.reflect.Reflect_value.Value, ?_fmt:T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Array<StdTypes.Int>) this = new stdgo._internal.fmt.Fmt_t_pp.T_pp(_buf, (_arg : stdgo.AnyInterface), _value, _fmt, _reordered, _goodArgNum, _panicking, _erroring, _wrapErrs, ([for (i in _wrappedErrs) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_scanError_static_extension) abstract T_scanError(stdgo._internal.fmt.Fmt_T_scanError.T_scanError) from stdgo._internal.fmt.Fmt_T_scanError.T_scanError to stdgo._internal.fmt.Fmt_T_scanError.T_scanError {
+@:structInit @:using(stdgo.fmt.Fmt.T_scanError_static_extension) abstract T_scanError(stdgo._internal.fmt.Fmt_t_scanerror.T_scanError) from stdgo._internal.fmt.Fmt_t_scanerror.T_scanError to stdgo._internal.fmt.Fmt_t_scanerror.T_scanError {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt_T_scanError.T_scanError((_err : stdgo.Error));
+    public function new(?_err:stdgo.Error) this = new stdgo._internal.fmt.Fmt_t_scanerror.T_scanError((_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_ss_static_extension) abstract T_ss(stdgo._internal.fmt.Fmt_T_ss.T_ss) from stdgo._internal.fmt.Fmt_T_ss.T_ss to stdgo._internal.fmt.Fmt_T_ss.T_ss {
+@:structInit @:using(stdgo.fmt.Fmt.T_ss_static_extension) abstract T_ss(stdgo._internal.fmt.Fmt_t_ss.T_ss) from stdgo._internal.fmt.Fmt_t_ss.T_ss to stdgo._internal.fmt.Fmt_t_ss.T_ss {
     public var _rs(get, set) : stdgo._internal.io.Io_runescanner.RuneScanner;
     function get__rs():stdgo._internal.io.Io_runescanner.RuneScanner return this._rs;
     function set__rs(v:stdgo._internal.io.Io_runescanner.RuneScanner):stdgo._internal.io.Io_runescanner.RuneScanner {
@@ -333,11 +333,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._ssave = v;
         return v;
     }
-    public function new(?_rs:stdgo._internal.io.Io_runescanner.RuneScanner, ?_buf:T_buffer, ?_count:StdTypes.Int, ?_atEOF:Bool, ?_ssave:T_ssave) this = new stdgo._internal.fmt.Fmt_T_ss.T_ss(_rs, _buf, (_count : stdgo.GoInt), _atEOF, _ssave);
+    public function new(?_rs:stdgo._internal.io.Io_runescanner.RuneScanner, ?_buf:T_buffer, ?_count:StdTypes.Int, ?_atEOF:Bool, ?_ssave:T_ssave) this = new stdgo._internal.fmt.Fmt_t_ss.T_ss(_rs, _buf, (_count : stdgo.GoInt), _atEOF, _ssave);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_ssave_static_extension) abstract T_ssave(stdgo._internal.fmt.Fmt_T_ssave.T_ssave) from stdgo._internal.fmt.Fmt_T_ssave.T_ssave to stdgo._internal.fmt.Fmt_T_ssave.T_ssave {
+@:structInit @:using(stdgo.fmt.Fmt.T_ssave_static_extension) abstract T_ssave(stdgo._internal.fmt.Fmt_t_ssave.T_ssave) from stdgo._internal.fmt.Fmt_t_ssave.T_ssave to stdgo._internal.fmt.Fmt_t_ssave.T_ssave {
     public var _validSave(get, set) : Bool;
     function get__validSave():Bool return this._validSave;
     function set__validSave(v:Bool):Bool {
@@ -374,11 +374,11 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._maxWid = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:StdTypes.Int, ?_limit:StdTypes.Int, ?_maxWid:StdTypes.Int) this = new stdgo._internal.fmt.Fmt_T_ssave.T_ssave(_validSave, _nlIsEnd, _nlIsSpace, (_argLimit : stdgo.GoInt), (_limit : stdgo.GoInt), (_maxWid : stdgo.GoInt));
+    public function new(?_validSave:Bool, ?_nlIsEnd:Bool, ?_nlIsSpace:Bool, ?_argLimit:StdTypes.Int, ?_limit:StdTypes.Int, ?_maxWid:StdTypes.Int) this = new stdgo._internal.fmt.Fmt_t_ssave.T_ssave(_validSave, _nlIsEnd, _nlIsSpace, (_argLimit : stdgo.GoInt), (_limit : stdgo.GoInt), (_maxWid : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.fmt.Fmt.T_readRune_static_extension) abstract T_readRune(stdgo._internal.fmt.Fmt_T_readRune.T_readRune) from stdgo._internal.fmt.Fmt_T_readRune.T_readRune to stdgo._internal.fmt.Fmt_T_readRune.T_readRune {
+@:structInit @:using(stdgo.fmt.Fmt.T_readRune_static_extension) abstract T_readRune(stdgo._internal.fmt.Fmt_t_readrune.T_readRune) from stdgo._internal.fmt.Fmt_t_readrune.T_readRune to stdgo._internal.fmt.Fmt_t_readrune.T_readRune {
     public var _reader(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__reader():stdgo._internal.io.Io_reader.Reader return this._reader;
     function set__reader(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -409,39 +409,39 @@ typedef Scanner = stdgo._internal.fmt.Fmt_Scanner.Scanner;
         this._peekRune = (v : stdgo.GoInt32);
         return v;
     }
-    public function new(?_reader:stdgo._internal.io.Io_reader.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_pending:StdTypes.Int, ?_pendBuf:haxe.ds.Vector<std.UInt>, ?_peekRune:StdTypes.Int) this = new stdgo._internal.fmt.Fmt_T_readRune.T_readRune(_reader, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_pending : stdgo.GoInt), ([for (i in _pendBuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_peekRune : stdgo.GoInt32));
+    public function new(?_reader:stdgo._internal.io.Io_reader.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_pending:StdTypes.Int, ?_pendBuf:haxe.ds.Vector<std.UInt>, ?_peekRune:StdTypes.Int) this = new stdgo._internal.fmt.Fmt_t_readrune.T_readRune(_reader, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_pending : stdgo.GoInt), ([for (i in _pendBuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_peekRune : stdgo.GoInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_buffer = stdgo._internal.fmt.Fmt_T_buffer.T_buffer;
-typedef T_stringReader = stdgo._internal.fmt.Fmt_T_stringReader.T_stringReader;
-typedef T_wrapErrorPointer = stdgo._internal.fmt.Fmt_T_wrapErrorPointer.T_wrapErrorPointer;
+typedef T_buffer = stdgo._internal.fmt.Fmt_t_buffer.T_buffer;
+typedef T_stringReader = stdgo._internal.fmt.Fmt_t_stringreader.T_stringReader;
+typedef T_wrapErrorPointer = stdgo._internal.fmt.Fmt_t_wraperrorpointer.T_wrapErrorPointer;
 class T_wrapError_static_extension {
     static public function unwrap(_e:T_wrapError):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError>);
-        return stdgo._internal.fmt.Fmt_T_wrapError_static_extension.T_wrapError_static_extension.unwrap(_e);
+        return stdgo._internal.fmt.Fmt_t_wraperror_static_extension.T_wrapError_static_extension.unwrap(_e);
     }
     static public function error(_e:T_wrapError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError>);
-        return stdgo._internal.fmt.Fmt_T_wrapError_static_extension.T_wrapError_static_extension.error(_e);
+        return stdgo._internal.fmt.Fmt_t_wraperror_static_extension.T_wrapError_static_extension.error(_e);
     }
 }
-typedef T_wrapErrorsPointer = stdgo._internal.fmt.Fmt_T_wrapErrorsPointer.T_wrapErrorsPointer;
+typedef T_wrapErrorsPointer = stdgo._internal.fmt.Fmt_t_wraperrorspointer.T_wrapErrorsPointer;
 class T_wrapErrors_static_extension {
     static public function unwrap(_e:T_wrapErrors):Array<stdgo.Error> {
         final _e = (_e : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors>);
-        return [for (i in stdgo._internal.fmt.Fmt_T_wrapErrors_static_extension.T_wrapErrors_static_extension.unwrap(_e)) i];
+        return [for (i in stdgo._internal.fmt.Fmt_t_wraperrors_static_extension.T_wrapErrors_static_extension.unwrap(_e)) i];
     }
     static public function error(_e:T_wrapErrors):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors>);
-        return stdgo._internal.fmt.Fmt_T_wrapErrors_static_extension.T_wrapErrors_static_extension.error(_e);
+        return stdgo._internal.fmt.Fmt_t_wraperrors_static_extension.T_wrapErrors_static_extension.error(_e);
     }
 }
-typedef T_fmtFlagsPointer = stdgo._internal.fmt.Fmt_T_fmtFlagsPointer.T_fmtFlagsPointer;
+typedef T_fmtFlagsPointer = stdgo._internal.fmt.Fmt_t_fmtflagspointer.T_fmtFlagsPointer;
 class T_fmtFlags_static_extension {
 
 }
-typedef T_fmtPointer = stdgo._internal.fmt.Fmt_T_fmtPointer.T_fmtPointer;
+typedef T_fmtPointer = stdgo._internal.fmt.Fmt_t_fmtpointer.T_fmtPointer;
 class T_fmt_static_extension {
     static public function _fmtFloat(_f:T_fmt, _v:StdTypes.Float, _size:StdTypes.Int, _verb:StdTypes.Int, _prec:StdTypes.Int):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
@@ -449,61 +449,61 @@ class T_fmt_static_extension {
         final _size = (_size : stdgo.GoInt);
         final _verb = (_verb : stdgo.GoInt32);
         final _prec = (_prec : stdgo.GoInt);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtFloat(_f, _v, _size, _verb, _prec);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtFloat(_f, _v, _size, _verb, _prec);
     }
     static public function _fmtQc(_f:T_fmt, _c:haxe.UInt64):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _c = (_c : stdgo.GoUInt64);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtQc(_f, _c);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtQc(_f, _c);
     }
     static public function _fmtC(_f:T_fmt, _c:haxe.UInt64):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _c = (_c : stdgo.GoUInt64);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtC(_f, _c);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtC(_f, _c);
     }
     static public function _fmtQ(_f:T_fmt, _s:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtQ(_f, _s);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtQ(_f, _s);
     }
     static public function _fmtBx(_f:T_fmt, _b:Array<std.UInt>, _digits:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _digits = (_digits : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtBx(_f, _b, _digits);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtBx(_f, _b, _digits);
     }
     static public function _fmtSx(_f:T_fmt, _s:String, _digits:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
         final _digits = (_digits : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtSx(_f, _s, _digits);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtSx(_f, _s, _digits);
     }
     static public function _fmtSbx(_f:T_fmt, _s:String, _b:Array<std.UInt>, _digits:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _digits = (_digits : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtSbx(_f, _s, _b, _digits);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtSbx(_f, _s, _b, _digits);
     }
     static public function _fmtBs(_f:T_fmt, _b:Array<std.UInt>):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtBs(_f, _b);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtBs(_f, _b);
     }
     static public function _fmtS(_f:T_fmt, _s:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtS(_f, _s);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtS(_f, _s);
     }
     static public function _truncate(_f:T_fmt, _b:Array<std.UInt>):Array<std.UInt> {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._truncate(_f, _b)) i];
+        return [for (i in stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._truncate(_f, _b)) i];
     }
     static public function _truncateString(_f:T_fmt, _s:String):String {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._truncateString(_f, _s);
+        return stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._truncateString(_f, _s);
     }
     static public function _fmtInteger(_f:T_fmt, _u:haxe.UInt64, _base:StdTypes.Int, _isSigned:Bool, _verb:StdTypes.Int, _digits:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
@@ -511,69 +511,69 @@ class T_fmt_static_extension {
         final _base = (_base : stdgo.GoInt);
         final _verb = (_verb : stdgo.GoInt32);
         final _digits = (_digits : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtInteger(_f, _u, _base, _isSigned, _verb, _digits);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtInteger(_f, _u, _base, _isSigned, _verb, _digits);
     }
     static public function _fmtUnicode(_f:T_fmt, _u:haxe.UInt64):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _u = (_u : stdgo.GoUInt64);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtUnicode(_f, _u);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtUnicode(_f, _u);
     }
     static public function _fmtBoolean(_f:T_fmt, _v:Bool):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._fmtBoolean(_f, _v);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._fmtBoolean(_f, _v);
     }
     static public function _padString(_f:T_fmt, _s:String):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._padString(_f, _s);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._padString(_f, _s);
     }
     static public function _pad(_f:T_fmt, _b:Array<std.UInt>):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._pad(_f, _b);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._pad(_f, _b);
     }
     static public function _writePadding(_f:T_fmt, _n:StdTypes.Int):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _n = (_n : stdgo.GoInt);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._writePadding(_f, _n);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._writePadding(_f, _n);
     }
     static public function _init(_f:T_fmt, _buf:T_buffer):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
         final _buf = (_buf : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._init(_f, _buf);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._init(_f, _buf);
     }
     static public function _clearflags(_f:T_fmt):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.fmt.Fmt_t_fmt.T_fmt>);
-        stdgo._internal.fmt.Fmt_T_fmt_static_extension.T_fmt_static_extension._clearflags(_f);
+        stdgo._internal.fmt.Fmt_t_fmt_static_extension.T_fmt_static_extension._clearflags(_f);
     }
 }
-typedef T_ppPointer = stdgo._internal.fmt.Fmt_T_ppPointer.T_ppPointer;
+typedef T_ppPointer = stdgo._internal.fmt.Fmt_t_pppointer.T_ppPointer;
 class T_pp_static_extension {
     static public function _doPrintln(_p:T_pp, _a:Array<stdgo.AnyInterface>):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _a = ([for (i in _a) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._doPrintln(_p, _a);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._doPrintln(_p, _a);
     }
     static public function _doPrint(_p:T_pp, _a:Array<stdgo.AnyInterface>):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _a = ([for (i in _a) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._doPrint(_p, _a);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._doPrint(_p, _a);
     }
     static public function _doPrintf(_p:T_pp, _format:String, _a:Array<stdgo.AnyInterface>):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _format = (_format : stdgo.GoString);
         final _a = ([for (i in _a) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._doPrintf(_p, _format, _a);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._doPrintf(_p, _format, _a);
     }
     static public function _missingArg(_p:T_pp, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._missingArg(_p, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._missingArg(_p, _verb);
     }
     static public function _badArgNum(_p:T_pp, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._badArgNum(_p, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._badArgNum(_p, _verb);
     }
     static public function _argNumber(_p:T_pp, _argNum:StdTypes.Int, _format:String, _i:StdTypes.Int, _numArgs:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, Bool> {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
@@ -582,7 +582,7 @@ class T_pp_static_extension {
         final _i = (_i : stdgo.GoInt);
         final _numArgs = (_numArgs : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._argNumber(_p, _argNum, _format, _i, _numArgs);
+            final obj = stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._argNumber(_p, _argNum, _format, _i, _numArgs);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -590,88 +590,88 @@ class T_pp_static_extension {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
         final _depth = (_depth : stdgo.GoInt);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._printValue(_p, _value, _verb, _depth);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._printValue(_p, _value, _verb, _depth);
     }
     static public function _printArg(_p:T_pp, _arg:stdgo.AnyInterface, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _arg = (_arg : stdgo.AnyInterface);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._printArg(_p, _arg, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._printArg(_p, _arg, _verb);
     }
     static public function _handleMethods(_p:T_pp, _verb:StdTypes.Int):Bool {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        return stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._handleMethods(_p, _verb);
+        return stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._handleMethods(_p, _verb);
     }
     static public function _catchPanic(_p:T_pp, _arg:stdgo.AnyInterface, _verb:StdTypes.Int, _method:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _arg = (_arg : stdgo.AnyInterface);
         final _verb = (_verb : stdgo.GoInt32);
         final _method = (_method : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._catchPanic(_p, _arg, _verb, _method);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._catchPanic(_p, _arg, _verb, _method);
     }
     static public function _fmtPointer(_p:T_pp, _value:stdgo._internal.reflect.Reflect_value.Value, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtPointer(_p, _value, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtPointer(_p, _value, _verb);
     }
     static public function _fmtBytes(_p:T_pp, _v:Array<std.UInt>, _verb:StdTypes.Int, _typeString:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = ([for (i in _v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _verb = (_verb : stdgo.GoInt32);
         final _typeString = (_typeString : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtBytes(_p, _v, _verb, _typeString);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtBytes(_p, _v, _verb, _typeString);
     }
     static public function _fmtString(_p:T_pp, _v:String, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = (_v : stdgo.GoString);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtString(_p, _v, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtString(_p, _v, _verb);
     }
     static public function _fmtComplex(_p:T_pp, _v:stdgo.GoComplex128, _size:StdTypes.Int, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = (_v : stdgo.GoComplex128);
         final _size = (_size : stdgo.GoInt);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtComplex(_p, _v, _size, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtComplex(_p, _v, _size, _verb);
     }
     static public function _fmtFloat(_p:T_pp, _v:StdTypes.Float, _size:StdTypes.Int, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = (_v : stdgo.GoFloat64);
         final _size = (_size : stdgo.GoInt);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtFloat(_p, _v, _size, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtFloat(_p, _v, _size, _verb);
     }
     static public function _fmtInteger(_p:T_pp, _v:haxe.UInt64, _isSigned:Bool, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = (_v : stdgo.GoUInt64);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtInteger(_p, _v, _isSigned, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtInteger(_p, _v, _isSigned, _verb);
     }
     static public function _fmt0x64(_p:T_pp, _v:haxe.UInt64, _leading0x:Bool):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _v = (_v : stdgo.GoUInt64);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmt0x64(_p, _v, _leading0x);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmt0x64(_p, _v, _leading0x);
     }
     static public function _fmtBool(_p:T_pp, _v:Bool, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._fmtBool(_p, _v, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._fmtBool(_p, _v, _verb);
     }
     static public function _badVerb(_p:T_pp, _verb:StdTypes.Int):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _verb = (_verb : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._badVerb(_p, _verb);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._badVerb(_p, _verb);
     }
     static public function _unknownType(_p:T_pp, _v:stdgo._internal.reflect.Reflect_value.Value):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._unknownType(_p, _v);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._unknownType(_p, _v);
     }
     static public function writeString(_p:T_pp, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _s = (_s : stdgo.GoString);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension.writeString(_p, _s);
+            final obj = stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension.writeString(_p, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -679,59 +679,59 @@ class T_pp_static_extension {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension.write(_p, _b);
+            final obj = stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension.write(_p, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function flag(_p:T_pp, _b:StdTypes.Int):Bool {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         final _b = (_b : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension.flag(_p, _b);
+        return stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension.flag(_p, _b);
     }
     static public function precision(_p:T_pp):stdgo.Tuple<StdTypes.Int, Bool> {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension.precision(_p);
+            final obj = stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension.precision(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function width(_p:T_pp):stdgo.Tuple<StdTypes.Int, Bool> {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension.width(_p);
+            final obj = stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension.width(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _free(_p:T_pp):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>);
-        stdgo._internal.fmt.Fmt_T_pp_static_extension.T_pp_static_extension._free(_p);
+        stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension._free(_p);
     }
 }
-typedef T_scanErrorPointer = stdgo._internal.fmt.Fmt_T_scanErrorPointer.T_scanErrorPointer;
+typedef T_scanErrorPointer = stdgo._internal.fmt.Fmt_t_scanerrorpointer.T_scanErrorPointer;
 class T_scanError_static_extension {
 
 }
-typedef T_ssPointer = stdgo._internal.fmt.Fmt_T_ssPointer.T_ssPointer;
+typedef T_ssPointer = stdgo._internal.fmt.Fmt_t_sspointer.T_ssPointer;
 class T_ss_static_extension {
     static public function _doScanf(_s:T_ss, _format:String, _a:Array<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _format = (_format : stdgo.GoString);
         final _a = ([for (i in _a) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._doScanf(_s, _format, _a);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._doScanf(_s, _format, _a);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _advance(_s:T_ss, _format:String):StdTypes.Int {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _format = (_format : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._advance(_s, _format);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._advance(_s, _format);
     }
     static public function _doScan(_s:T_ss, _a:Array<stdgo.AnyInterface>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _a = ([for (i in _a) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._doScan(_s, _a);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._doScan(_s, _a);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -739,177 +739,177 @@ class T_ss_static_extension {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         final _arg = (_arg : stdgo.AnyInterface);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanOne(_s, _verb, _arg);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanOne(_s, _verb, _arg);
     }
     static public function _scanPercent(_s:T_ss):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanPercent(_s);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanPercent(_s);
     }
     static public function _hexString(_s:T_ss):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._hexString(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._hexString(_s);
     }
     static public function _hexByte(_s:T_ss):stdgo.Tuple<std.UInt, Bool> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._hexByte(_s);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._hexByte(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _quotedString(_s:T_ss):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._quotedString(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._quotedString(_s);
     }
     static public function _convertString(_s:T_ss, _verb:StdTypes.Int):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._convertString(_s, _verb);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._convertString(_s, _verb);
     }
     static public function _scanComplex(_s:T_ss, _verb:StdTypes.Int, _n:StdTypes.Int):stdgo.GoComplex128 {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanComplex(_s, _verb, _n);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanComplex(_s, _verb, _n);
     }
     static public function _convertFloat(_s:T_ss, _str:String, _n:StdTypes.Int):StdTypes.Float {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _str = (_str : stdgo.GoString);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._convertFloat(_s, _str, _n);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._convertFloat(_s, _str, _n);
     }
     static public function _complexTokens(_s:T_ss):stdgo.Tuple<String, String> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._complexTokens(_s);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._complexTokens(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _floatToken(_s:T_ss):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._floatToken(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._floatToken(_s);
     }
     static public function _scanUint(_s:T_ss, _verb:StdTypes.Int, _bitSize:StdTypes.Int):haxe.UInt64 {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         final _bitSize = (_bitSize : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanUint(_s, _verb, _bitSize);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanUint(_s, _verb, _bitSize);
     }
     static public function _scanInt(_s:T_ss, _verb:StdTypes.Int, _bitSize:StdTypes.Int):haxe.Int64 {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         final _bitSize = (_bitSize : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanInt(_s, _verb, _bitSize);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanInt(_s, _verb, _bitSize);
     }
     static public function _scanBasePrefix(_s:T_ss):stdgo.Tuple.Tuple3<StdTypes.Int, String, Bool> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanBasePrefix(_s);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanBasePrefix(_s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function _scanRune(_s:T_ss, _bitSize:StdTypes.Int):haxe.Int64 {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _bitSize = (_bitSize : stdgo.GoInt);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanRune(_s, _bitSize);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanRune(_s, _bitSize);
     }
     static public function _scanNumber(_s:T_ss, _digits:String, _haveDigits:Bool):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _digits = (_digits : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanNumber(_s, _digits, _haveDigits);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanNumber(_s, _digits, _haveDigits);
     }
     static public function _getBase(_s:T_ss, _verb:StdTypes.Int):stdgo.Tuple<StdTypes.Int, String> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._getBase(_s, _verb);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._getBase(_s, _verb);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _scanBool(_s:T_ss, _verb:StdTypes.Int):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._scanBool(_s, _verb);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._scanBool(_s, _verb);
     }
     static public function _okVerb(_s:T_ss, _verb:StdTypes.Int, _okVerbs:String, _typ:String):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _verb = (_verb : stdgo.GoInt32);
         final _okVerbs = (_okVerbs : stdgo.GoString);
         final _typ = (_typ : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._okVerb(_s, _verb, _okVerbs, _typ);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._okVerb(_s, _verb, _okVerbs, _typ);
     }
     static public function _accept(_s:T_ss, _ok:String):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _ok = (_ok : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._accept(_s, _ok);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._accept(_s, _ok);
     }
     static public function _notEOF(_s:T_ss):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._notEOF(_s);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._notEOF(_s);
     }
     static public function _peek(_s:T_ss, _ok:String):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _ok = (_ok : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._peek(_s, _ok);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._peek(_s, _ok);
     }
     static public function _consume(_s:T_ss, _ok:String, _accept:Bool):Bool {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _ok = (_ok : stdgo.GoString);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._consume(_s, _ok, _accept);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._consume(_s, _ok, _accept);
     }
     static public function _token(_s:T_ss, _skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):Array<std.UInt> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _f = _f;
-        return [for (i in stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._token(_s, _skipSpace, _f)) i];
+        return [for (i in stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._token(_s, _skipSpace, _f)) i];
     }
     static public function skipSpace(_s:T_ss):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.skipSpace(_s);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.skipSpace(_s);
     }
     static public function _free(_s:T_ss, _old:T_ssave):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._free(_s, _old);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._free(_s, _old);
     }
     static public function token(_s:T_ss, _skipSpace:Bool, _f:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _f = _f;
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.token(_s, _skipSpace, _f);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.token(_s, _skipSpace, _f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function _errorString(_s:T_ss, _err:String):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _err = (_err : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._errorString(_s, _err);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._errorString(_s, _err);
     }
     static public function _error(_s:T_ss, _err:stdgo.Error):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _err = (_err : stdgo.Error);
-        stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._error(_s, _err);
+        stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._error(_s, _err);
     }
     static public function unreadRune(_s:T_ss):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.unreadRune(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.unreadRune(_s);
     }
     static public function _mustReadRune(_s:T_ss):StdTypes.Int {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._mustReadRune(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._mustReadRune(_s);
     }
     static public function _getRune(_s:T_ss):StdTypes.Int {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        return stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension._getRune(_s);
+        return stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._getRune(_s);
     }
     static public function width(_s:T_ss):stdgo.Tuple<StdTypes.Int, Bool> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.width(_s);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.width(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function readRune(_s:T_ss):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.readRune(_s);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.readRune(_s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -917,65 +917,65 @@ class T_ss_static_extension {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_ss_static_extension.T_ss_static_extension.read(_s, _buf);
+            final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.read(_s, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_ssavePointer = stdgo._internal.fmt.Fmt_T_ssavePointer.T_ssavePointer;
+typedef T_ssavePointer = stdgo._internal.fmt.Fmt_t_ssavepointer.T_ssavePointer;
 class T_ssave_static_extension {
 
 }
-typedef T_readRunePointer = stdgo._internal.fmt.Fmt_T_readRunePointer.T_readRunePointer;
+typedef T_readRunePointer = stdgo._internal.fmt.Fmt_t_readrunepointer.T_readRunePointer;
 class T_readRune_static_extension {
     static public function unreadRune(_r:T_readRune):stdgo.Error {
         final _r = (_r : stdgo.Ref<stdgo._internal.fmt.Fmt_t_readrune.T_readRune>);
-        return stdgo._internal.fmt.Fmt_T_readRune_static_extension.T_readRune_static_extension.unreadRune(_r);
+        return stdgo._internal.fmt.Fmt_t_readrune_static_extension.T_readRune_static_extension.unreadRune(_r);
     }
     static public function readRune(_r:T_readRune):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.fmt.Fmt_t_readrune.T_readRune>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_readRune_static_extension.T_readRune_static_extension.readRune(_r);
+            final obj = stdgo._internal.fmt.Fmt_t_readrune_static_extension.T_readRune_static_extension.readRune(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     static public function _readByte(_r:T_readRune):stdgo.Tuple<std.UInt, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.fmt.Fmt_t_readrune.T_readRune>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_readRune_static_extension.T_readRune_static_extension._readByte(_r);
+            final obj = stdgo._internal.fmt.Fmt_t_readrune_static_extension.T_readRune_static_extension._readByte(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_bufferPointer = stdgo._internal.fmt.Fmt_T_bufferPointer.T_bufferPointer;
+typedef T_bufferPointer = stdgo._internal.fmt.Fmt_t_bufferpointer.T_bufferPointer;
 class T_buffer_static_extension {
     static public function _writeRune(_bp:T_buffer, _r:StdTypes.Int):Void {
         final _bp = (_bp : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>);
         final _r = (_r : stdgo.GoInt32);
-        stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._writeRune(_bp, _r);
+        stdgo._internal.fmt.Fmt_t_buffer_static_extension.T_buffer_static_extension._writeRune(_bp, _r);
     }
     static public function _writeByte(_b:T_buffer, _c:std.UInt):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>);
         final _c = (_c : stdgo.GoUInt8);
-        stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._writeByte(_b, _c);
+        stdgo._internal.fmt.Fmt_t_buffer_static_extension.T_buffer_static_extension._writeByte(_b, _c);
     }
     static public function _writeString(_b:T_buffer, _s:String):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>);
         final _s = (_s : stdgo.GoString);
-        stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._writeString(_b, _s);
+        stdgo._internal.fmt.Fmt_t_buffer_static_extension.T_buffer_static_extension._writeString(_b, _s);
     }
     static public function _write(_b:T_buffer, _p:Array<std.UInt>):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.fmt.Fmt_T_buffer_static_extension.T_buffer_static_extension._write(_b, _p);
+        stdgo._internal.fmt.Fmt_t_buffer_static_extension.T_buffer_static_extension._write(_b, _p);
     }
 }
-typedef T_stringReaderPointer = stdgo._internal.fmt.Fmt_T_stringReaderPointer.T_stringReaderPointer;
+typedef T_stringReaderPointer = stdgo._internal.fmt.Fmt_t_stringreaderpointer.T_stringReaderPointer;
 class T_stringReader_static_extension {
     static public function read(_r:stdgo.Pointer<T_stringReader>, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.fmt.Fmt_T_stringReader_static_extension.T_stringReader_static_extension.read(_r, _b);
+            final obj = stdgo._internal.fmt.Fmt_t_stringreader_static_extension.T_stringReader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1387,7 +1387,7 @@ class Fmt {
     **/
     static public inline function formatString(_state:State, _verb:StdTypes.Int):String {
         final _verb = (_verb : stdgo.GoInt32);
-        return stdgo._internal.fmt.Fmt_formatString.formatString(_state, _verb);
+        return stdgo._internal.fmt.Fmt_formatstring.formatString(_state, _verb);
     }
     /**
         * Fprintf formats according to a format specifier and writes to w.

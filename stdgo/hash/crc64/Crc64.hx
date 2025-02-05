@@ -1,8 +1,8 @@
 package stdgo.hash.crc64;
 final size : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_size.size;
-final iSO : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_iSO.iSO;
-final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_eCMA.eCMA;
-@:structInit @:using(stdgo.hash.crc64.Crc64.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc64.Crc64_T_digest.T_digest) from stdgo._internal.hash.crc64.Crc64_T_digest.T_digest to stdgo._internal.hash.crc64.Crc64_T_digest.T_digest {
+final iSO : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_iso.iSO;
+final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.eCMA;
+@:structInit @:using(stdgo.hash.crc64.Crc64.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc64.Crc64_t_digest.T_digest) from stdgo._internal.hash.crc64.Crc64_t_digest.T_digest to stdgo._internal.hash.crc64.Crc64_t_digest.T_digest {
     public var _crc(get, set) : haxe.UInt64;
     function get__crc():haxe.UInt64 return this._crc;
     function set__crc(v:haxe.UInt64):haxe.UInt64 {
@@ -15,56 +15,56 @@ final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_eCMA.eCMA;
         this._tab = (v : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_table.Table>);
         return v;
     }
-    public function new(?_crc:haxe.UInt64, ?_tab:Table) this = new stdgo._internal.hash.crc64.Crc64_T_digest.T_digest((_crc : stdgo.GoUInt64), (_tab : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_table.Table>));
+    public function new(?_crc:haxe.UInt64, ?_tab:Table) this = new stdgo._internal.hash.crc64.Crc64_t_digest.T_digest((_crc : stdgo.GoUInt64), (_tab : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_table.Table>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef Table = stdgo._internal.hash.crc64.Crc64_Table.Table;
-typedef T_digestPointer = stdgo._internal.hash.crc64.Crc64_T_digestPointer.T_digestPointer;
+typedef Table = stdgo._internal.hash.crc64.Crc64_table.Table;
+typedef T_digestPointer = stdgo._internal.hash.crc64.Crc64_t_digestpointer.T_digestPointer;
 class T_digest_static_extension {
     static public function sum(_d:T_digest, _in:Array<std.UInt>):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];
+        return [for (i in stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];
     }
     static public function sum64(_d:T_digest):haxe.UInt64 {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
-        return stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.sum64(_d);
+        return stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.sum64(_d);
     }
     static public function write(_d:T_digest, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.write(_d, _p);
+            final obj = stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.write(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function unmarshalBinary(_d:T_digest, _b:Array<std.UInt>):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.unmarshalBinary(_d, _b);
+        return stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.unmarshalBinary(_d, _b);
     }
     static public function marshalBinary(_d:T_digest):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
         return {
-            final obj = stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.marshalBinary(_d);
+            final obj = stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.marshalBinary(_d);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function reset(_d:T_digest):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
-        stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.reset(_d);
+        stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.reset(_d);
     }
     static public function blockSize(_d:T_digest):StdTypes.Int {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
-        return stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.blockSize(_d);
+        return stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.blockSize(_d);
     }
     static public function size(_d:T_digest):StdTypes.Int {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
-        return stdgo._internal.hash.crc64.Crc64_T_digest_static_extension.T_digest_static_extension.size(_d);
+        return stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.size(_d);
     }
 }
-typedef TablePointer = stdgo._internal.hash.crc64.Crc64_TablePointer.TablePointer;
+typedef TablePointer = stdgo._internal.hash.crc64.Crc64_tablepointer.TablePointer;
 class Table_static_extension {
 
 }
@@ -80,7 +80,7 @@ class Crc64 {
     **/
     static public inline function makeTable(_poly:haxe.UInt64):Table {
         final _poly = (_poly : stdgo.GoUInt64);
-        return stdgo._internal.hash.crc64.Crc64_makeTable.makeTable(_poly);
+        return stdgo._internal.hash.crc64.Crc64_maketable.makeTable(_poly);
     }
     /**
         * New creates a new hash.Hash64 computing the CRC-64 checksum using the

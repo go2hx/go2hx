@@ -1,15 +1,15 @@
 package stdgo.hash.crc32;
 final size : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_size.size;
-final iEEE : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_iEEE.iEEE;
+final iEEE : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_ieee.iEEE;
 final castagnoli : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_castagnoli.castagnoli;
 final koopman : haxe.UInt64 = stdgo._internal.hash.crc32.Crc32_koopman.koopman;
 var iEEETable(get, set) : Table;
-private function get_iEEETable():Table return stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable;
+private function get_iEEETable():Table return stdgo._internal.hash.crc32.Crc32_ieeetable.iEEETable;
 private function set_iEEETable(v:Table):Table {
-        stdgo._internal.hash.crc32.Crc32_iEEETable.iEEETable = (v : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>);
+        stdgo._internal.hash.crc32.Crc32_ieeetable.iEEETable = (v : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>);
         return v;
     }
-@:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc32.Crc32_T_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_T_digest.T_digest to stdgo._internal.hash.crc32.Crc32_T_digest.T_digest {
+@:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc32.Crc32_t_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_t_digest.T_digest to stdgo._internal.hash.crc32.Crc32_t_digest.T_digest {
     public var _crc(get, set) : std.UInt;
     function get__crc():std.UInt return this._crc;
     function set__crc(v:std.UInt):std.UInt {
@@ -22,61 +22,61 @@ private function set_iEEETable(v:Table):Table {
         this._tab = (v : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>);
         return v;
     }
-    public function new(?_crc:std.UInt, ?_tab:Table) this = new stdgo._internal.hash.crc32.Crc32_T_digest.T_digest((_crc : stdgo.GoUInt32), (_tab : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>));
+    public function new(?_crc:std.UInt, ?_tab:Table) this = new stdgo._internal.hash.crc32.Crc32_t_digest.T_digest((_crc : stdgo.GoUInt32), (_tab : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef Table = stdgo._internal.hash.crc32.Crc32_Table.Table;
-typedef T_slicing8Table = stdgo._internal.hash.crc32.Crc32_T_slicing8Table.T_slicing8Table;
-typedef T_digestPointer = stdgo._internal.hash.crc32.Crc32_T_digestPointer.T_digestPointer;
+typedef Table = stdgo._internal.hash.crc32.Crc32_table.Table;
+typedef T_slicing8Table = stdgo._internal.hash.crc32.Crc32_t_slicing8table.T_slicing8Table;
+typedef T_digestPointer = stdgo._internal.hash.crc32.Crc32_t_digestpointer.T_digestPointer;
 class T_digest_static_extension {
     static public function sum(_d:T_digest, _in:Array<std.UInt>):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];
+        return [for (i in stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];
     }
     static public function sum32(_d:T_digest):std.UInt {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
-        return stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.sum32(_d);
+        return stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.sum32(_d);
     }
     static public function write(_d:T_digest, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.write(_d, _p);
+            final obj = stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.write(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function unmarshalBinary(_d:T_digest, _b:Array<std.UInt>):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.unmarshalBinary(_d, _b);
+        return stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.unmarshalBinary(_d, _b);
     }
     static public function marshalBinary(_d:T_digest):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
         return {
-            final obj = stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.marshalBinary(_d);
+            final obj = stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.marshalBinary(_d);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function reset(_d:T_digest):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
-        stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.reset(_d);
+        stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.reset(_d);
     }
     static public function blockSize(_d:T_digest):StdTypes.Int {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
-        return stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.blockSize(_d);
+        return stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.blockSize(_d);
     }
     static public function size(_d:T_digest):StdTypes.Int {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
-        return stdgo._internal.hash.crc32.Crc32_T_digest_static_extension.T_digest_static_extension.size(_d);
+        return stdgo._internal.hash.crc32.Crc32_t_digest_static_extension.T_digest_static_extension.size(_d);
     }
 }
-typedef TablePointer = stdgo._internal.hash.crc32.Crc32_TablePointer.TablePointer;
+typedef TablePointer = stdgo._internal.hash.crc32.Crc32_tablepointer.TablePointer;
 class Table_static_extension {
 
 }
-typedef T_slicing8TablePointer = stdgo._internal.hash.crc32.Crc32_T_slicing8TablePointer.T_slicing8TablePointer;
+typedef T_slicing8TablePointer = stdgo._internal.hash.crc32.Crc32_t_slicing8tablepointer.T_slicing8TablePointer;
 class T_slicing8Table_static_extension {
 
 }
@@ -97,7 +97,7 @@ class Crc32 {
     **/
     static public inline function makeTable(_poly:std.UInt):Table {
         final _poly = (_poly : stdgo.GoUInt32);
-        return stdgo._internal.hash.crc32.Crc32_makeTable.makeTable(_poly);
+        return stdgo._internal.hash.crc32.Crc32_maketable.makeTable(_poly);
     }
     /**
         * New creates a new hash.Hash32 computing the CRC-32 checksum using the
@@ -118,7 +118,7 @@ class Crc32 {
         * and unmarshal the internal state of the hash.
     **/
     static public inline function newIEEE():stdgo._internal.hash.Hash_hash32.Hash32 {
-        return stdgo._internal.hash.crc32.Crc32_newIEEE.newIEEE();
+        return stdgo._internal.hash.crc32.Crc32_newieee.newIEEE();
     }
     /**
         * Update returns the result of adding the bytes in p to the crc.
@@ -144,6 +144,6 @@ class Crc32 {
     **/
     static public inline function checksumIEEE(_data:Array<std.UInt>):std.UInt {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.hash.crc32.Crc32_checksumIEEE.checksumIEEE(_data);
+        return stdgo._internal.hash.crc32.Crc32_checksumieee.checksumIEEE(_data);
     }
 }

@@ -1,15 +1,15 @@
 package stdgo.internal.nettrace;
-@:structInit @:using(stdgo.internal.nettrace.Nettrace.TraceKey_static_extension) abstract TraceKey(stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey) from stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey to stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey {
-    public function new() this = new stdgo._internal.internal.nettrace.Nettrace_TraceKey.TraceKey();
+@:structInit @:using(stdgo.internal.nettrace.Nettrace.TraceKey_static_extension) abstract TraceKey(stdgo._internal.internal.nettrace.Nettrace_tracekey.TraceKey) from stdgo._internal.internal.nettrace.Nettrace_tracekey.TraceKey to stdgo._internal.internal.nettrace.Nettrace_tracekey.TraceKey {
+    public function new() this = new stdgo._internal.internal.nettrace.Nettrace_tracekey.TraceKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.nettrace.Nettrace.LookupIPAltResolverKey_static_extension) abstract LookupIPAltResolverKey(stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKey.LookupIPAltResolverKey) from stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKey.LookupIPAltResolverKey to stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKey.LookupIPAltResolverKey {
-    public function new() this = new stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKey.LookupIPAltResolverKey();
+@:structInit @:using(stdgo.internal.nettrace.Nettrace.LookupIPAltResolverKey_static_extension) abstract LookupIPAltResolverKey(stdgo._internal.internal.nettrace.Nettrace_lookupipaltresolverkey.LookupIPAltResolverKey) from stdgo._internal.internal.nettrace.Nettrace_lookupipaltresolverkey.LookupIPAltResolverKey to stdgo._internal.internal.nettrace.Nettrace_lookupipaltresolverkey.LookupIPAltResolverKey {
+    public function new() this = new stdgo._internal.internal.nettrace.Nettrace_lookupipaltresolverkey.LookupIPAltResolverKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.nettrace.Nettrace.Trace_static_extension) abstract Trace(stdgo._internal.internal.nettrace.Nettrace_Trace.Trace) from stdgo._internal.internal.nettrace.Nettrace_Trace.Trace to stdgo._internal.internal.nettrace.Nettrace_Trace.Trace {
+@:structInit @:using(stdgo.internal.nettrace.Nettrace.Trace_static_extension) abstract Trace(stdgo._internal.internal.nettrace.Nettrace_trace.Trace) from stdgo._internal.internal.nettrace.Nettrace_trace.Trace to stdgo._internal.internal.nettrace.Nettrace_trace.Trace {
     public var dNSStart(get, set) : stdgo.GoString -> Void;
     function get_dNSStart():stdgo.GoString -> Void return _0 -> this.dNSStart(_0);
     function set_dNSStart(v:stdgo.GoString -> Void):stdgo.GoString -> Void {
@@ -34,19 +34,19 @@ package stdgo.internal.nettrace;
         this.connectDone = v;
         return v;
     }
-    public function new(?dNSStart:stdgo.GoString -> Void, ?dNSDone:(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void, ?connectStart:(stdgo.GoString, stdgo.GoString) -> Void, ?connectDone:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void) this = new stdgo._internal.internal.nettrace.Nettrace_Trace.Trace(dNSStart, dNSDone, connectStart, connectDone);
+    public function new(?dNSStart:stdgo.GoString -> Void, ?dNSDone:(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void, ?connectStart:(stdgo.GoString, stdgo.GoString) -> Void, ?connectDone:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void) this = new stdgo._internal.internal.nettrace.Nettrace_trace.Trace(dNSStart, dNSDone, connectStart, connectDone);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef TraceKeyPointer = stdgo._internal.internal.nettrace.Nettrace_TraceKeyPointer.TraceKeyPointer;
+typedef TraceKeyPointer = stdgo._internal.internal.nettrace.Nettrace_tracekeypointer.TraceKeyPointer;
 class TraceKey_static_extension {
 
 }
-typedef LookupIPAltResolverKeyPointer = stdgo._internal.internal.nettrace.Nettrace_LookupIPAltResolverKeyPointer.LookupIPAltResolverKeyPointer;
+typedef LookupIPAltResolverKeyPointer = stdgo._internal.internal.nettrace.Nettrace_lookupipaltresolverkeypointer.LookupIPAltResolverKeyPointer;
 class LookupIPAltResolverKey_static_extension {
 
 }
-typedef TracePointer = stdgo._internal.internal.nettrace.Nettrace_TracePointer.TracePointer;
+typedef TracePointer = stdgo._internal.internal.nettrace.Nettrace_tracepointer.TracePointer;
 class Trace_static_extension {
 
 }

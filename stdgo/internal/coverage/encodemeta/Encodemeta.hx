@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.encodemeta;
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaDataBuilder_static_extension) abstract CoverageMetaDataBuilder(stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder.CoverageMetaDataBuilder) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder.CoverageMetaDataBuilder to stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder.CoverageMetaDataBuilder {
+@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaDataBuilder_static_extension) abstract CoverageMetaDataBuilder(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder {
     public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer;
     function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer return this._stab;
     function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer):stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {
@@ -54,22 +54,22 @@ package stdgo.internal.coverage.encodemeta;
         this._werr = (v : stdgo.Error);
         return v;
     }
-    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer, ?_funcs:Array<T_funcDesc>, ?_tmp:Array<std.UInt>, ?_h:stdgo._internal.hash.Hash_hash.Hash, ?_pkgpath:std.UInt, ?_pkgname:std.UInt, ?_modpath:std.UInt, ?_debug:Bool, ?_werr:stdgo.Error) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder.CoverageMetaDataBuilder(_stab, ([for (i in _funcs) i] : stdgo.Slice<stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _h, (_pkgpath : stdgo.GoUInt32), (_pkgname : stdgo.GoUInt32), (_modpath : stdgo.GoUInt32), _debug, (_werr : stdgo.Error));
+    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer, ?_funcs:Array<T_funcDesc>, ?_tmp:Array<std.UInt>, ?_h:stdgo._internal.hash.Hash_hash.Hash, ?_pkgpath:std.UInt, ?_pkgname:std.UInt, ?_modpath:std.UInt, ?_debug:Bool, ?_werr:stdgo.Error) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder(_stab, ([for (i in _funcs) i] : stdgo.Slice<stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _h, (_pkgpath : stdgo.GoUInt32), (_pkgname : stdgo.GoUInt32), (_modpath : stdgo.GoUInt32), _debug, (_werr : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.T_funcDesc_static_extension) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc {
+@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.T_funcDesc_static_extension) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc {
     public var _encoded(get, set) : Array<std.UInt>;
     function get__encoded():Array<std.UInt> return [for (i in this._encoded) i];
     function set__encoded(v:Array<std.UInt>):Array<std.UInt> {
         this._encoded = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_encoded:Array<std.UInt>) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDesc.T_funcDesc(([for (i in _encoded) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_encoded:Array<std.UInt>) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc(([for (i in _encoded) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaFileWriter_static_extension) abstract CoverageMetaFileWriter(stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriter.CoverageMetaFileWriter) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriter.CoverageMetaFileWriter to stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriter.CoverageMetaFileWriter {
+@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaFileWriter_static_extension) abstract CoverageMetaFileWriter(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter {
     public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer;
     function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer return this._stab;
     function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer):stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {
@@ -100,58 +100,58 @@ package stdgo.internal.coverage.encodemeta;
         this._debug = v;
         return v;
     }
-    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer, ?_mfname:String, ?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_tmp:Array<std.UInt>, ?_debug:Bool) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriter.CoverageMetaFileWriter(_stab, (_mfname : stdgo.GoString), (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _debug);
+    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer, ?_mfname:String, ?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_tmp:Array<std.UInt>, ?_debug:Bool) this = new stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter(_stab, (_mfname : stdgo.GoString), (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _debug);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef CoverageMetaDataBuilderPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilderPointer.CoverageMetaDataBuilderPointer;
+typedef CoverageMetaDataBuilderPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilderpointer.CoverageMetaDataBuilderPointer;
 class CoverageMetaDataBuilder_static_extension {
     static public function emit(_b:CoverageMetaDataBuilder, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker):stdgo.Tuple<haxe.ds.Vector<std.UInt>, stdgo.Error> {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
         return {
-            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension.emit(_b, _w);
+            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension.emit(_b, _w);
             { _0 : haxe.ds.Vector.fromArrayCopy([for (i in obj._0) i]), _1 : obj._1 };
         };
     }
     static public function _wrUint32(_b:CoverageMetaDataBuilder, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker, _v:std.UInt):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
         final _v = (_v : stdgo.GoUInt32);
-        stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension._wrUint32(_b, _w, _v);
+        stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension._wrUint32(_b, _w, _v);
     }
     static public function _reportWriteError(_b:CoverageMetaDataBuilder, _err:stdgo.Error):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
         final _err = (_err : stdgo.Error);
-        stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension._reportWriteError(_b, _err);
+        stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension._reportWriteError(_b, _err);
     }
     static public function _emitFunc(_b:CoverageMetaDataBuilder, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker, _off:haxe.Int64, _f:T_funcDesc):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
         final _off = (_off : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension._emitFunc(_b, _w, _off, _f);
+            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension._emitFunc(_b, _w, _off, _f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _emitFuncOffsets(_b:CoverageMetaDataBuilder, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker, _off:haxe.Int64):haxe.Int64 {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
         final _off = (_off : stdgo.GoInt64);
-        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension._emitFuncOffsets(_b, _w, _off);
+        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension._emitFuncOffsets(_b, _w, _off);
     }
     static public function addFunc(_b:CoverageMetaDataBuilder, _f:stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc):std.UInt {
         final _b = (_b : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>);
-        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaDataBuilder_static_extension.CoverageMetaDataBuilder_static_extension.addFunc(_b, _f);
+        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension.addFunc(_b, _f);
     }
 }
-typedef T_funcDescPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_T_funcDescPointer.T_funcDescPointer;
+typedef T_funcDescPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdescpointer.T_funcDescPointer;
 class T_funcDesc_static_extension {
 
 }
-typedef CoverageMetaFileWriterPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriterPointer.CoverageMetaFileWriterPointer;
+typedef CoverageMetaFileWriterPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriterpointer.CoverageMetaFileWriterPointer;
 class CoverageMetaFileWriter_static_extension {
     static public function write(_m:CoverageMetaFileWriter, _finalHash:haxe.ds.Vector<std.UInt>, _blobs:Array<Array<std.UInt>>, _mode:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode, _granularity:stdgo._internal.internal.coverage.Coverage_countergranularity.CounterGranularity):stdgo.Error {
         final _m = (_m : stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter>);
         final _finalHash = ([for (i in _finalHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         final _blobs = ([for (i in _blobs) ([for (i in i) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)] : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
-        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_CoverageMetaFileWriter_static_extension.CoverageMetaFileWriter_static_extension.write(_m, _finalHash, _blobs, _mode, _granularity);
+        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter_static_extension.CoverageMetaFileWriter_static_extension.write(_m, _finalHash, _blobs, _mode, _granularity);
     }
 }
 class Encodemeta {
@@ -160,7 +160,7 @@ class Encodemeta {
         final _pkgname = (_pkgname : stdgo.GoString);
         final _modulepath = (_modulepath : stdgo.GoString);
         return {
-            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_newCoverageMetaDataBuilder.newCoverageMetaDataBuilder(_pkgpath, _pkgname, _modulepath);
+            final obj = stdgo._internal.internal.coverage.encodemeta.Encodemeta_newcoveragemetadatabuilder.newCoverageMetaDataBuilder(_pkgpath, _pkgname, _modulepath);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -170,10 +170,10 @@ class Encodemeta {
     **/
     static public inline function hashFuncDesc(_f:stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc):haxe.ds.Vector<std.UInt> {
         final _f = (_f : stdgo.Ref<stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc>);
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.internal.coverage.encodemeta.Encodemeta_hashFuncDesc.hashFuncDesc(_f)) i]);
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.internal.coverage.encodemeta.Encodemeta_hashfuncdesc.hashFuncDesc(_f)) i]);
     }
     static public inline function newCoverageMetaFileWriter(_mfname:String, _w:stdgo._internal.io.Io_writer.Writer):CoverageMetaFileWriter {
         final _mfname = (_mfname : stdgo.GoString);
-        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_newCoverageMetaFileWriter.newCoverageMetaFileWriter(_mfname, _w);
+        return stdgo._internal.internal.coverage.encodemeta.Encodemeta_newcoveragemetafilewriter.newCoverageMetaFileWriter(_mfname, _w);
     }
 }

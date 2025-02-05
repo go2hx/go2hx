@@ -1,12 +1,12 @@
 package stdgo.net.http.httptest;
-final defaultRemoteAddr : String = stdgo._internal.net.http.httptest.Httptest_defaultRemoteAddr.defaultRemoteAddr;
+final defaultRemoteAddr : String = stdgo._internal.net.http.httptest.Httptest_defaultremoteaddr.defaultRemoteAddr;
 class T_closeIdleTransport_static_extension {
     static public function closeIdleConnections(t:stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport):Void {
-        stdgo._internal.net.http.httptest.Httptest_T_closeIdleTransport_static_extension.T_closeIdleTransport_static_extension.closeIdleConnections(t);
+        stdgo._internal.net.http.httptest.Httptest_t_closeidletransport_static_extension.T_closeIdleTransport_static_extension.closeIdleConnections(t);
     }
 }
-typedef T_closeIdleTransport = stdgo._internal.net.http.httptest.Httptest_T_closeIdleTransport.T_closeIdleTransport;
-@:structInit @:using(stdgo.net.http.httptest.Httptest.ResponseRecorder_static_extension) abstract ResponseRecorder(stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder) from stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder to stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder {
+typedef T_closeIdleTransport = stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport;
+@:structInit @:using(stdgo.net.http.httptest.Httptest.ResponseRecorder_static_extension) abstract ResponseRecorder(stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder) from stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder to stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder {
     public var code(get, set) : StdTypes.Int;
     function get_code():StdTypes.Int return this.code;
     function set_code(v:StdTypes.Int):StdTypes.Int {
@@ -49,11 +49,11 @@ typedef T_closeIdleTransport = stdgo._internal.net.http.httptest.Httptest_T_clos
         this._wroteHeader = v;
         return v;
     }
-    public function new(?code:StdTypes.Int, ?headerMap:stdgo._internal.net.http.Http_header.Header, ?body:stdgo._internal.bytes.Bytes_buffer.Buffer, ?flushed:Bool, ?_result:stdgo._internal.net.http.Http_response.Response, ?_snapHeader:stdgo._internal.net.http.Http_header.Header, ?_wroteHeader:Bool) this = new stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder((code : stdgo.GoInt), headerMap, (body : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>), flushed, (_result : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>), _snapHeader, _wroteHeader);
+    public function new(?code:StdTypes.Int, ?headerMap:stdgo._internal.net.http.Http_header.Header, ?body:stdgo._internal.bytes.Bytes_buffer.Buffer, ?flushed:Bool, ?_result:stdgo._internal.net.http.Http_response.Response, ?_snapHeader:stdgo._internal.net.http.Http_header.Header, ?_wroteHeader:Bool) this = new stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder((code : stdgo.GoInt), headerMap, (body : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>), flushed, (_result : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>), _snapHeader, _wroteHeader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.httptest.Httptest.Server_static_extension) abstract Server(stdgo._internal.net.http.httptest.Httptest_Server.Server) from stdgo._internal.net.http.httptest.Httptest_Server.Server to stdgo._internal.net.http.httptest.Httptest_Server.Server {
+@:structInit @:using(stdgo.net.http.httptest.Httptest.Server_static_extension) abstract Server(stdgo._internal.net.http.httptest.Httptest_server.Server) from stdgo._internal.net.http.httptest.Httptest_server.Server to stdgo._internal.net.http.httptest.Httptest_server.Server {
     public var uRL(get, set) : String;
     function get_uRL():String return this.uRL;
     function set_uRL(v:String):String {
@@ -120,7 +120,7 @@ typedef T_closeIdleTransport = stdgo._internal.net.http.httptest.Httptest_T_clos
         this._client = (v : stdgo.Ref<stdgo._internal.net.http.Http_client.Client>);
         return v;
     }
-    public function new(?uRL:String, ?listener:stdgo._internal.net.Net_listener.Listener, ?enableHTTP2:Bool, ?tLS:stdgo._internal.crypto.tls.Tls_config.Config, ?config:stdgo._internal.net.http.Http_server.Server, ?_certificate:stdgo._internal.crypto.x509.X509_certificate.Certificate, ?_wg:stdgo._internal.sync.Sync_waitgroup.WaitGroup, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_closed:Bool, ?_conns:stdgo.GoMap<stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState>, ?_client:stdgo._internal.net.http.Http_client.Client) this = new stdgo._internal.net.http.httptest.Httptest_Server.Server(
+    public function new(?uRL:String, ?listener:stdgo._internal.net.Net_listener.Listener, ?enableHTTP2:Bool, ?tLS:stdgo._internal.crypto.tls.Tls_config.Config, ?config:stdgo._internal.net.http.Http_server.Server, ?_certificate:stdgo._internal.crypto.x509.X509_certificate.Certificate, ?_wg:stdgo._internal.sync.Sync_waitgroup.WaitGroup, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_closed:Bool, ?_conns:stdgo.GoMap<stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState>, ?_client:stdgo._internal.net.http.Http_client.Client) this = new stdgo._internal.net.http.httptest.Httptest_server.Server(
 (uRL : stdgo.GoString),
 listener,
 enableHTTP2,
@@ -135,31 +135,31 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.net.http.httptest.Httptest_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.net.http.httptest.Httptest_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.net.http.httptest.Httptest_T__struct_0.T__struct_0;
-typedef ResponseRecorderPointer = stdgo._internal.net.http.httptest.Httptest_ResponseRecorderPointer.ResponseRecorderPointer;
+typedef T__struct_0 = stdgo._internal.net.http.httptest.Httptest_t__struct_0.T__struct_0;
+typedef ResponseRecorderPointer = stdgo._internal.net.http.httptest.Httptest_responserecorderpointer.ResponseRecorderPointer;
 class ResponseRecorder_static_extension {
     static public function result(_rw:ResponseRecorder):stdgo._internal.net.http.Http_response.Response {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
-        return stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.result(_rw);
+        return stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.result(_rw);
     }
     static public function flush(_rw:ResponseRecorder):Void {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
-        stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.flush(_rw);
+        stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.flush(_rw);
     }
     static public function writeHeader(_rw:ResponseRecorder, _code:StdTypes.Int):Void {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
         final _code = (_code : stdgo.GoInt);
-        stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.writeHeader(_rw, _code);
+        stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.writeHeader(_rw, _code);
     }
     static public function writeString(_rw:ResponseRecorder, _str:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
         final _str = (_str : stdgo.GoString);
         return {
-            final obj = stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.writeString(_rw, _str);
+            final obj = stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.writeString(_rw, _str);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -167,7 +167,7 @@ class ResponseRecorder_static_extension {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.write(_rw, _buf);
+            final obj = stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.write(_rw, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -175,62 +175,62 @@ class ResponseRecorder_static_extension {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _str = (_str : stdgo.GoString);
-        stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension._writeHeader(_rw, _b, _str);
+        stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension._writeHeader(_rw, _b, _str);
     }
     static public function header(_rw:ResponseRecorder):stdgo._internal.net.http.Http_header.Header {
         final _rw = (_rw : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>);
-        return stdgo._internal.net.http.httptest.Httptest_ResponseRecorder_static_extension.ResponseRecorder_static_extension.header(_rw);
+        return stdgo._internal.net.http.httptest.Httptest_responserecorder_static_extension.ResponseRecorder_static_extension.header(_rw);
     }
 }
-typedef ServerPointer = stdgo._internal.net.http.httptest.Httptest_ServerPointer.ServerPointer;
+typedef ServerPointer = stdgo._internal.net.http.httptest.Httptest_serverpointer.ServerPointer;
 class Server_static_extension {
     static public function _closeConnChan(_s:Server, _c:stdgo._internal.net.Net_conn.Conn, _done:stdgo.Chan<stdgo._internal.net.http.httptest.Httptest_t__struct_0.T__struct_0>):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
         final _done = (_done : stdgo.Chan<stdgo._internal.net.http.httptest.Httptest_t__struct_0.T__struct_0>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension._closeConnChan(_s, _c, _done);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension._closeConnChan(_s, _c, _done);
     }
     static public function _closeConn(_s:Server, _c:stdgo._internal.net.Net_conn.Conn):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension._closeConn(_s, _c);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension._closeConn(_s, _c);
     }
     static public function _wrap(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension._wrap(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension._wrap(_s);
     }
     static public function _goServe(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension._goServe(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension._goServe(_s);
     }
     static public function client(_s:Server):stdgo._internal.net.http.Http_client.Client {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        return stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.client(_s);
+        return stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.client(_s);
     }
     static public function certificate(_s:Server):stdgo._internal.crypto.x509.X509_certificate.Certificate {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        return stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.certificate(_s);
+        return stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.certificate(_s);
     }
     static public function closeClientConnections(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.closeClientConnections(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.closeClientConnections(_s);
     }
     static public function _logCloseHangDebugInfo(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension._logCloseHangDebugInfo(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension._logCloseHangDebugInfo(_s);
     }
     static public function close(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.close(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.close(_s);
     }
     static public function startTLS(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.startTLS(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.startTLS(_s);
     }
     static public function start(_s:Server):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_server.Server>);
-        stdgo._internal.net.http.httptest.Httptest_Server_static_extension.Server_static_extension.start(_s);
+        stdgo._internal.net.http.httptest.Httptest_server_static_extension.Server_static_extension.start(_s);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.net.http.httptest.Httptest_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.net.http.httptest.Httptest_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
@@ -266,20 +266,20 @@ class Httptest {
     static public inline function newRequest(_method:String, _target:String, _body:stdgo._internal.io.Io_reader.Reader):stdgo._internal.net.http.Http_request.Request {
         final _method = (_method : stdgo.GoString);
         final _target = (_target : stdgo.GoString);
-        return stdgo._internal.net.http.httptest.Httptest_newRequest.newRequest(_method, _target, _body);
+        return stdgo._internal.net.http.httptest.Httptest_newrequest.newRequest(_method, _target, _body);
     }
     /**
         * NewRecorder returns an initialized ResponseRecorder.
     **/
     static public inline function newRecorder():ResponseRecorder {
-        return stdgo._internal.net.http.httptest.Httptest_newRecorder.newRecorder();
+        return stdgo._internal.net.http.httptest.Httptest_newrecorder.newRecorder();
     }
     /**
         * NewServer starts and returns a new Server.
         * The caller should call Close when finished, to shut it down.
     **/
     static public inline function newServer(_handler:stdgo._internal.net.http.Http_handler.Handler):Server {
-        return stdgo._internal.net.http.httptest.Httptest_newServer.newServer(_handler);
+        return stdgo._internal.net.http.httptest.Httptest_newserver.newServer(_handler);
     }
     /**
         * NewUnstartedServer returns a new Server but doesn't start it.
@@ -290,13 +290,13 @@ class Httptest {
         * The caller should call Close when finished, to shut it down.
     **/
     static public inline function newUnstartedServer(_handler:stdgo._internal.net.http.Http_handler.Handler):Server {
-        return stdgo._internal.net.http.httptest.Httptest_newUnstartedServer.newUnstartedServer(_handler);
+        return stdgo._internal.net.http.httptest.Httptest_newunstartedserver.newUnstartedServer(_handler);
     }
     /**
         * NewTLSServer starts and returns a new Server using TLS.
         * The caller should call Close when finished, to shut it down.
     **/
     static public inline function newTLSServer(_handler:stdgo._internal.net.http.Http_handler.Handler):Server {
-        return stdgo._internal.net.http.httptest.Httptest_newTLSServer.newTLSServer(_handler);
+        return stdgo._internal.net.http.httptest.Httptest_newtlsserver.newTLSServer(_handler);
     }
 }

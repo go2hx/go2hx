@@ -1,5 +1,5 @@
 package stdgo.math.cmplx;
-@:structInit @:using(stdgo.math.cmplx.Cmplx.T_ff_static_extension) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_T_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_T_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_T_ff.T_ff {
+@:structInit @:using(stdgo.math.cmplx.Cmplx.T_ff_static_extension) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff {
     public var _r(get, set) : StdTypes.Float;
     function get__r():StdTypes.Float return this._r;
     function set__r(v:StdTypes.Float):StdTypes.Float {
@@ -12,20 +12,20 @@ package stdgo.math.cmplx;
         this._theta = (v : stdgo.GoFloat64);
         return v;
     }
-    public function new(?_r:StdTypes.Float, ?_theta:StdTypes.Float) this = new stdgo._internal.math.cmplx.Cmplx_T_ff.T_ff((_r : stdgo.GoFloat64), (_theta : stdgo.GoFloat64));
+    public function new(?_r:StdTypes.Float, ?_theta:StdTypes.Float) this = new stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff((_r : stdgo.GoFloat64), (_theta : stdgo.GoFloat64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.math.cmplx.Cmplx_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.math.cmplx.Cmplx_T__struct_0.T__struct_0;
-typedef T_ffPointer = stdgo._internal.math.cmplx.Cmplx_T_ffPointer.T_ffPointer;
+typedef T__struct_0 = stdgo._internal.math.cmplx.Cmplx_t__struct_0.T__struct_0;
+typedef T_ffPointer = stdgo._internal.math.cmplx.Cmplx_t_ffpointer.T_ffPointer;
 class T_ff_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.math.cmplx.Cmplx_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
@@ -86,186 +86,186 @@ class Cmplx {
     }
     static public inline function testAbs(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAbs.testAbs(_t);
+        stdgo._internal.math.cmplx.Cmplx_testabs.testAbs(_t);
     }
     static public inline function testAcos(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAcos.testAcos(_t);
+        stdgo._internal.math.cmplx.Cmplx_testacos.testAcos(_t);
     }
     static public inline function testAcosh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAcosh.testAcosh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testacosh.testAcosh(_t);
     }
     static public inline function testAsin(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAsin.testAsin(_t);
+        stdgo._internal.math.cmplx.Cmplx_testasin.testAsin(_t);
     }
     static public inline function testAsinh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAsinh.testAsinh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testasinh.testAsinh(_t);
     }
     static public inline function testAtan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAtan.testAtan(_t);
+        stdgo._internal.math.cmplx.Cmplx_testatan.testAtan(_t);
     }
     static public inline function testAtanh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testAtanh.testAtanh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testatanh.testAtanh(_t);
     }
     static public inline function testConj(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testConj.testConj(_t);
+        stdgo._internal.math.cmplx.Cmplx_testconj.testConj(_t);
     }
     static public inline function testCos(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testCos.testCos(_t);
+        stdgo._internal.math.cmplx.Cmplx_testcos.testCos(_t);
     }
     static public inline function testCosh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testCosh.testCosh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testcosh.testCosh(_t);
     }
     static public inline function testExp(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testExp.testExp(_t);
+        stdgo._internal.math.cmplx.Cmplx_testexp.testExp(_t);
     }
     static public inline function testIsNaN(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testIsNaN.testIsNaN(_t);
+        stdgo._internal.math.cmplx.Cmplx_testisnan.testIsNaN(_t);
     }
     static public inline function testLog(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testLog.testLog(_t);
+        stdgo._internal.math.cmplx.Cmplx_testlog.testLog(_t);
     }
     static public inline function testLog10(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testLog10.testLog10(_t);
+        stdgo._internal.math.cmplx.Cmplx_testlog10.testLog10(_t);
     }
     static public inline function testPolar(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testPolar.testPolar(_t);
+        stdgo._internal.math.cmplx.Cmplx_testpolar.testPolar(_t);
     }
     static public inline function testPow(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testPow.testPow(_t);
+        stdgo._internal.math.cmplx.Cmplx_testpow.testPow(_t);
     }
     static public inline function testRect(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testRect.testRect(_t);
+        stdgo._internal.math.cmplx.Cmplx_testrect.testRect(_t);
     }
     static public inline function testSin(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testSin.testSin(_t);
+        stdgo._internal.math.cmplx.Cmplx_testsin.testSin(_t);
     }
     static public inline function testSinh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testSinh.testSinh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testsinh.testSinh(_t);
     }
     static public inline function testSqrt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testSqrt.testSqrt(_t);
+        stdgo._internal.math.cmplx.Cmplx_testsqrt.testSqrt(_t);
     }
     static public inline function testTan(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testTan.testTan(_t);
+        stdgo._internal.math.cmplx.Cmplx_testtan.testTan(_t);
     }
     static public inline function testTanh(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testTanh.testTanh(_t);
+        stdgo._internal.math.cmplx.Cmplx_testtanh.testTanh(_t);
     }
     /**
         * See issue 17577
     **/
     static public inline function testInfiniteLoopIntanSeries(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testInfiniteLoopIntanSeries.testInfiniteLoopIntanSeries(_t);
+        stdgo._internal.math.cmplx.Cmplx_testinfiniteloopintanseries.testInfiniteLoopIntanSeries(_t);
     }
     static public inline function benchmarkAbs(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAbs.benchmarkAbs(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkabs.benchmarkAbs(_b);
     }
     static public inline function benchmarkAcos(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAcos.benchmarkAcos(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkacos.benchmarkAcos(_b);
     }
     static public inline function benchmarkAcosh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAcosh.benchmarkAcosh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkacosh.benchmarkAcosh(_b);
     }
     static public inline function benchmarkAsin(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAsin.benchmarkAsin(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkasin.benchmarkAsin(_b);
     }
     static public inline function benchmarkAsinh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAsinh.benchmarkAsinh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkasinh.benchmarkAsinh(_b);
     }
     static public inline function benchmarkAtan(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAtan.benchmarkAtan(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkatan.benchmarkAtan(_b);
     }
     static public inline function benchmarkAtanh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkAtanh.benchmarkAtanh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkatanh.benchmarkAtanh(_b);
     }
     static public inline function benchmarkConj(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkConj.benchmarkConj(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkconj.benchmarkConj(_b);
     }
     static public inline function benchmarkCos(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkCos.benchmarkCos(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkcos.benchmarkCos(_b);
     }
     static public inline function benchmarkCosh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkCosh.benchmarkCosh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkcosh.benchmarkCosh(_b);
     }
     static public inline function benchmarkExp(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkExp.benchmarkExp(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkexp.benchmarkExp(_b);
     }
     static public inline function benchmarkLog(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkLog.benchmarkLog(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarklog.benchmarkLog(_b);
     }
     static public inline function benchmarkLog10(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkLog10.benchmarkLog10(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarklog10.benchmarkLog10(_b);
     }
     static public inline function benchmarkPhase(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkPhase.benchmarkPhase(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkphase.benchmarkPhase(_b);
     }
     static public inline function benchmarkPolar(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkPolar.benchmarkPolar(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkpolar.benchmarkPolar(_b);
     }
     static public inline function benchmarkPow(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkPow.benchmarkPow(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkpow.benchmarkPow(_b);
     }
     static public inline function benchmarkRect(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkRect.benchmarkRect(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarkrect.benchmarkRect(_b);
     }
     static public inline function benchmarkSin(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkSin.benchmarkSin(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarksin.benchmarkSin(_b);
     }
     static public inline function benchmarkSinh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkSinh.benchmarkSinh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarksinh.benchmarkSinh(_b);
     }
     static public inline function benchmarkSqrt(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkSqrt.benchmarkSqrt(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarksqrt.benchmarkSqrt(_b);
     }
     static public inline function benchmarkTan(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkTan.benchmarkTan(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarktan.benchmarkTan(_b);
     }
     static public inline function benchmarkTanh(_b:stdgo._internal.testing.Testing_b.B):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.math.cmplx.Cmplx_benchmarkTanh.benchmarkTanh(_b);
+        stdgo._internal.math.cmplx.Cmplx_benchmarktanh.benchmarkTanh(_b);
     }
     /**
         * Conj returns the complex conjugate of x.
@@ -283,14 +283,14 @@ class Cmplx {
     }
     static public inline function testTanHuge(_t:stdgo._internal.testing.Testing_t_.T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.math.cmplx.Cmplx_testTanHuge.testTanHuge(_t);
+        stdgo._internal.math.cmplx.Cmplx_testtanhuge.testTanHuge(_t);
     }
     /**
         * IsInf reports whether either real(x) or imag(x) is an infinity.
     **/
     static public inline function isInf(_x:stdgo.GoComplex128):Bool {
         final _x = (_x : stdgo.GoComplex128);
-        return stdgo._internal.math.cmplx.Cmplx_isInf.isInf(_x);
+        return stdgo._internal.math.cmplx.Cmplx_isinf.isInf(_x);
     }
     /**
         * Inf returns a complex infinity, complex(+Inf, +Inf).
@@ -304,13 +304,13 @@ class Cmplx {
     **/
     static public inline function isNaN(_x:stdgo.GoComplex128):Bool {
         final _x = (_x : stdgo.GoComplex128);
-        return stdgo._internal.math.cmplx.Cmplx_isNaN.isNaN(_x);
+        return stdgo._internal.math.cmplx.Cmplx_isnan.isNaN(_x);
     }
     /**
         * NaN returns a complex “not-a-number” value.
     **/
     static public inline function naN():stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx_naN.naN();
+        return stdgo._internal.math.cmplx.Cmplx_nan.naN();
     }
     /**
         * Log returns the natural logarithm of x.

@@ -1,15 +1,15 @@
 package stdgo.debug.plan9obj;
 final magic64 : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magic64.magic64;
 final magic386 : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magic386.magic386;
-final magicAMD64 : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magicAMD64.magicAMD64;
-final magicARM : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magicARM.magicARM;
+final magicAMD64 : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magicamd64.magicAMD64;
+final magicARM : haxe.UInt64 = stdgo._internal.debug.plan9obj.Plan9obj_magicarm.magicARM;
 var errNoSymbols(get, set) : stdgo.Error;
-private function get_errNoSymbols():stdgo.Error return stdgo._internal.debug.plan9obj.Plan9obj_errNoSymbols.errNoSymbols;
+private function get_errNoSymbols():stdgo.Error return stdgo._internal.debug.plan9obj.Plan9obj_errnosymbols.errNoSymbols;
 private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.debug.plan9obj.Plan9obj_errNoSymbols.errNoSymbols = (v : stdgo.Error);
+        stdgo._internal.debug.plan9obj.Plan9obj_errnosymbols.errNoSymbols = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader) from stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader to stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.plan9obj.Plan9obj_fileheader.FileHeader) from stdgo._internal.debug.plan9obj.Plan9obj_fileheader.FileHeader to stdgo._internal.debug.plan9obj.Plan9obj_fileheader.FileHeader {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -46,11 +46,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.hdrSize = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?magic:std.UInt, ?bss:std.UInt, ?entry:haxe.UInt64, ?ptrSize:StdTypes.Int, ?loadAddress:haxe.UInt64, ?hdrSize:haxe.UInt64) this = new stdgo._internal.debug.plan9obj.Plan9obj_FileHeader.FileHeader((magic : stdgo.GoUInt32), (bss : stdgo.GoUInt32), (entry : stdgo.GoUInt64), (ptrSize : stdgo.GoInt), (loadAddress : stdgo.GoUInt64), (hdrSize : stdgo.GoUInt64));
+    public function new(?magic:std.UInt, ?bss:std.UInt, ?entry:haxe.UInt64, ?ptrSize:StdTypes.Int, ?loadAddress:haxe.UInt64, ?hdrSize:haxe.UInt64) this = new stdgo._internal.debug.plan9obj.Plan9obj_fileheader.FileHeader((magic : stdgo.GoUInt32), (bss : stdgo.GoUInt32), (entry : stdgo.GoUInt64), (ptrSize : stdgo.GoInt), (loadAddress : stdgo.GoUInt64), (hdrSize : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.File_static_extension) abstract File(stdgo._internal.debug.plan9obj.Plan9obj_File.File) from stdgo._internal.debug.plan9obj.Plan9obj_File.File to stdgo._internal.debug.plan9obj.Plan9obj_File.File {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.File_static_extension) abstract File(stdgo._internal.debug.plan9obj.Plan9obj_file.File) from stdgo._internal.debug.plan9obj.Plan9obj_file.File to stdgo._internal.debug.plan9obj.Plan9obj_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -69,11 +69,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this._closer = v;
         return v;
     }
-    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.plan9obj.Plan9obj_File.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>>), _closer);
+    public function new(?fileHeader:FileHeader, ?sections:Array<Section>, ?_closer:stdgo._internal.io.Io_closer.Closer) this = new stdgo._internal.debug.plan9obj.Plan9obj_file.File(fileHeader, ([for (i in sections) (i : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>>), _closer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader) from stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader to stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.plan9obj.Plan9obj_sectionheader.SectionHeader) from stdgo._internal.debug.plan9obj.Plan9obj_sectionheader.SectionHeader to stdgo._internal.debug.plan9obj.Plan9obj_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -92,11 +92,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.offset = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?name:String, ?size:std.UInt, ?offset:std.UInt) this = new stdgo._internal.debug.plan9obj.Plan9obj_SectionHeader.SectionHeader((name : stdgo.GoString), (size : stdgo.GoUInt32), (offset : stdgo.GoUInt32));
+    public function new(?name:String, ?size:std.UInt, ?offset:std.UInt) this = new stdgo._internal.debug.plan9obj.Plan9obj_sectionheader.SectionHeader((name : stdgo.GoString), (size : stdgo.GoUInt32), (offset : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.Section_static_extension) abstract Section(stdgo._internal.debug.plan9obj.Plan9obj_Section.Section) from stdgo._internal.debug.plan9obj.Plan9obj_Section.Section to stdgo._internal.debug.plan9obj.Plan9obj_Section.Section {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.Section_static_extension) abstract Section(stdgo._internal.debug.plan9obj.Plan9obj_section.Section) from stdgo._internal.debug.plan9obj.Plan9obj_section.Section to stdgo._internal.debug.plan9obj.Plan9obj_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -115,11 +115,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this._sr = (v : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>);
         return v;
     }
-    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.plan9obj.Plan9obj_Section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
+    public function new(?sectionHeader:SectionHeader, ?readerAt:stdgo._internal.io.Io_readerat.ReaderAt, ?_sr:stdgo._internal.io.Io_sectionreader.SectionReader) this = new stdgo._internal.debug.plan9obj.Plan9obj_section.Section(sectionHeader, readerAt, (_sr : stdgo.Ref<stdgo._internal.io.Io_sectionreader.SectionReader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.Sym_static_extension) abstract Sym(stdgo._internal.debug.plan9obj.Plan9obj_Sym.Sym) from stdgo._internal.debug.plan9obj.Plan9obj_Sym.Sym to stdgo._internal.debug.plan9obj.Plan9obj_Sym.Sym {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.Sym_static_extension) abstract Sym(stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym) from stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym to stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym {
     public var value(get, set) : haxe.UInt64;
     function get_value():haxe.UInt64 return this.value;
     function set_value(v:haxe.UInt64):haxe.UInt64 {
@@ -138,11 +138,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public function new(?value:haxe.UInt64, ?type:StdTypes.Int, ?name:String) this = new stdgo._internal.debug.plan9obj.Plan9obj_Sym.Sym((value : stdgo.GoUInt64), (type : stdgo.GoInt32), (name : stdgo.GoString));
+    public function new(?value:haxe.UInt64, ?type:StdTypes.Int, ?name:String) this = new stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym((value : stdgo.GoUInt64), (type : stdgo.GoInt32), (name : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_formatError_static_extension) abstract T_formatError(stdgo._internal.debug.plan9obj.Plan9obj_T_formatError.T_formatError) from stdgo._internal.debug.plan9obj.Plan9obj_T_formatError.T_formatError to stdgo._internal.debug.plan9obj.Plan9obj_T_formatError.T_formatError {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_formatError_static_extension) abstract T_formatError(stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError) from stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError to stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError {
     public var _off(get, set) : StdTypes.Int;
     function get__off():StdTypes.Int return this._off;
     function set__off(v:StdTypes.Int):StdTypes.Int {
@@ -161,11 +161,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this._val = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?_off:StdTypes.Int, ?_msg:String, ?_val:stdgo.AnyInterface) this = new stdgo._internal.debug.plan9obj.Plan9obj_T_formatError.T_formatError((_off : stdgo.GoInt), (_msg : stdgo.GoString), (_val : stdgo.AnyInterface));
+    public function new(?_off:StdTypes.Int, ?_msg:String, ?_val:stdgo.AnyInterface) this = new stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError((_off : stdgo.GoInt), (_msg : stdgo.GoString), (_val : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_prog_static_extension) abstract T_prog(stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog) from stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog to stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_prog_static_extension) abstract T_prog(stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog) from stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog to stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -214,11 +214,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this.pcsz = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?magic:std.UInt, ?text:std.UInt, ?data:std.UInt, ?bss:std.UInt, ?syms:std.UInt, ?entry:std.UInt, ?spsz:std.UInt, ?pcsz:std.UInt) this = new stdgo._internal.debug.plan9obj.Plan9obj_T_prog.T_prog((magic : stdgo.GoUInt32), (text : stdgo.GoUInt32), (data : stdgo.GoUInt32), (bss : stdgo.GoUInt32), (syms : stdgo.GoUInt32), (entry : stdgo.GoUInt32), (spsz : stdgo.GoUInt32), (pcsz : stdgo.GoUInt32));
+    public function new(?magic:std.UInt, ?text:std.UInt, ?data:std.UInt, ?bss:std.UInt, ?syms:std.UInt, ?entry:std.UInt, ?spsz:std.UInt, ?pcsz:std.UInt) this = new stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog((magic : stdgo.GoUInt32), (text : stdgo.GoUInt32), (data : stdgo.GoUInt32), (bss : stdgo.GoUInt32), (syms : stdgo.GoUInt32), (entry : stdgo.GoUInt32), (spsz : stdgo.GoUInt32), (pcsz : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_sym_static_extension) abstract T_sym(stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym) from stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym to stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_sym_static_extension) abstract T_sym(stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym) from stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym to stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym {
     public var _value(get, set) : haxe.UInt64;
     function get__value():haxe.UInt64 return this._value;
     function set__value(v:haxe.UInt64):haxe.UInt64 {
@@ -237,52 +237,52 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         this._name = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_value:haxe.UInt64, ?_typ:std.UInt, ?_name:Array<std.UInt>) this = new stdgo._internal.debug.plan9obj.Plan9obj_T_sym.T_sym((_value : stdgo.GoUInt64), (_typ : stdgo.GoUInt8), ([for (i in _name) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_value:haxe.UInt64, ?_typ:std.UInt, ?_name:Array<std.UInt>) this = new stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym((_value : stdgo.GoUInt64), (_typ : stdgo.GoUInt8), ([for (i in _name) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0.T__struct_0;
-typedef FileHeaderPointer = stdgo._internal.debug.plan9obj.Plan9obj_FileHeaderPointer.FileHeaderPointer;
+typedef T__struct_0 = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0.T__struct_0;
+typedef FileHeaderPointer = stdgo._internal.debug.plan9obj.Plan9obj_fileheaderpointer.FileHeaderPointer;
 class FileHeader_static_extension {
 
 }
-typedef FilePointer = stdgo._internal.debug.plan9obj.Plan9obj_FilePointer.FilePointer;
+typedef FilePointer = stdgo._internal.debug.plan9obj.Plan9obj_filepointer.FilePointer;
 class File_static_extension {
     static public function section(_f:File, _name:String):Section {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
         final _name = (_name : stdgo.GoString);
-        return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.section(_f, _name);
+        return stdgo._internal.debug.plan9obj.Plan9obj_file_static_extension.File_static_extension.section(_f, _name);
     }
     static public function symbols(_f:File):stdgo.Tuple<Array<Sym>, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
         return {
-            final obj = stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.symbols(_f);
+            final obj = stdgo._internal.debug.plan9obj.Plan9obj_file_static_extension.File_static_extension.symbols(_f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     static public function close(_f:File):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>);
-        return stdgo._internal.debug.plan9obj.Plan9obj_File_static_extension.File_static_extension.close(_f);
+        return stdgo._internal.debug.plan9obj.Plan9obj_file_static_extension.File_static_extension.close(_f);
     }
 }
-typedef SectionHeaderPointer = stdgo._internal.debug.plan9obj.Plan9obj_SectionHeaderPointer.SectionHeaderPointer;
+typedef SectionHeaderPointer = stdgo._internal.debug.plan9obj.Plan9obj_sectionheaderpointer.SectionHeaderPointer;
 class SectionHeader_static_extension {
 
 }
-typedef SectionPointer = stdgo._internal.debug.plan9obj.Plan9obj_SectionPointer.SectionPointer;
+typedef SectionPointer = stdgo._internal.debug.plan9obj.Plan9obj_sectionpointer.SectionPointer;
 class Section_static_extension {
     static public function open(_s:Section):stdgo._internal.io.Io_readseeker.ReadSeeker {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>);
-        return stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.open(_s);
+        return stdgo._internal.debug.plan9obj.Plan9obj_section_static_extension.Section_static_extension.open(_s);
     }
     static public function data(_s:Section):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_section.Section>);
         return {
-            final obj = stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.data(_s);
+            final obj = stdgo._internal.debug.plan9obj.Plan9obj_section_static_extension.Section_static_extension.data(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -290,31 +290,31 @@ class Section_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _1 = (_1 : stdgo.GoInt64);
         return {
-            final obj = stdgo._internal.debug.plan9obj.Plan9obj_Section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
+            final obj = stdgo._internal.debug.plan9obj.Plan9obj_section_static_extension.Section_static_extension.readAt(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef SymPointer = stdgo._internal.debug.plan9obj.Plan9obj_SymPointer.SymPointer;
+typedef SymPointer = stdgo._internal.debug.plan9obj.Plan9obj_sympointer.SymPointer;
 class Sym_static_extension {
 
 }
-typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_T_formatErrorPointer.T_formatErrorPointer;
+typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_formaterrorpointer.T_formatErrorPointer;
 class T_formatError_static_extension {
     static public function error(_e:T_formatError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError>);
-        return stdgo._internal.debug.plan9obj.Plan9obj_T_formatError_static_extension.T_formatError_static_extension.error(_e);
+        return stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror_static_extension.T_formatError_static_extension.error(_e);
     }
 }
-typedef T_progPointer = stdgo._internal.debug.plan9obj.Plan9obj_T_progPointer.T_progPointer;
+typedef T_progPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_progpointer.T_progPointer;
 class T_prog_static_extension {
 
 }
-typedef T_symPointer = stdgo._internal.debug.plan9obj.Plan9obj_T_symPointer.T_symPointer;
+typedef T_symPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_sympointer.T_symPointer;
 class T_sym_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.debug.plan9obj.Plan9obj_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0PointerPointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
@@ -348,7 +348,7 @@ class Plan9obj {
     **/
     static public inline function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):stdgo.Tuple<File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.debug.plan9obj.Plan9obj_newFile.newFile(_r);
+            final obj = stdgo._internal.debug.plan9obj.Plan9obj_newfile.newFile(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

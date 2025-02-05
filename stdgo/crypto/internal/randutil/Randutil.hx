@@ -1,10 +1,10 @@
 package stdgo.crypto.internal.randutil;
-typedef T__struct_0Pointer = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0Pointer.T__struct_0Pointer;
+typedef T__struct_0Pointer = stdgo._internal.crypto.internal.randutil.Randutil_t__struct_0pointer.T__struct_0Pointer;
 class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0.T__struct_0;
-typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.randutil.Randutil_T__struct_0PointerPointer.T__struct_0PointerPointer;
+typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.Randutil_t__struct_0.T__struct_0;
+typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.randutil.Randutil_t__struct_0pointerpointer.T__struct_0PointerPointer;
 class T__struct_0Pointer_static_extension {
 
 }
@@ -22,6 +22,6 @@ class Randutil {
         * source (e.g. a zeroReader).
     **/
     static public inline function maybeReadByte(_r:stdgo._internal.io.Io_reader.Reader):Void {
-        stdgo._internal.crypto.internal.randutil.Randutil_maybeReadByte.maybeReadByte(_r);
+        stdgo._internal.crypto.internal.randutil.Randutil_maybereadbyte.maybeReadByte(_r);
     }
 }

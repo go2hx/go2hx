@@ -1,14 +1,14 @@
 package stdgo.math.bits;
-final uintSize : haxe.UInt64 = stdgo._internal.math.bits.Bits_uintSize.uintSize;
-final deBruijn64 : haxe.UInt64 = stdgo._internal.math.bits.Bits_deBruijn64.deBruijn64;
-typedef T_errorString = stdgo._internal.math.bits.Bits_T_errorString.T_errorString;
-typedef T_errorStringPointer = stdgo._internal.math.bits.Bits_T_errorStringPointer.T_errorStringPointer;
+final uintSize : haxe.UInt64 = stdgo._internal.math.bits.Bits_uintsize.uintSize;
+final deBruijn64 : haxe.UInt64 = stdgo._internal.math.bits.Bits_debruijn64.deBruijn64;
+typedef T_errorString = stdgo._internal.math.bits.Bits_t_errorstring.T_errorString;
+typedef T_errorStringPointer = stdgo._internal.math.bits.Bits_t_errorstringpointer.T_errorStringPointer;
 class T_errorString_static_extension {
     static public function error(_e:T_errorString):String {
-        return stdgo._internal.math.bits.Bits_T_errorString_static_extension.T_errorString_static_extension.error(_e);
+        return stdgo._internal.math.bits.Bits_t_errorstring_static_extension.T_errorString_static_extension.error(_e);
     }
     static public function runtimeError(_e:T_errorString):Void {
-        stdgo._internal.math.bits.Bits_T_errorString_static_extension.T_errorString_static_extension.runtimeError(_e);
+        stdgo._internal.math.bits.Bits_t_errorstring_static_extension.T_errorString_static_extension.runtimeError(_e);
     }
 }
 /**
@@ -27,105 +27,105 @@ class Bits {
     **/
     static public inline function leadingZeros(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
-        return stdgo._internal.math.bits.Bits_leadingZeros.leadingZeros(_x);
+        return stdgo._internal.math.bits.Bits_leadingzeros.leadingZeros(_x);
     }
     /**
         * LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function leadingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
-        return stdgo._internal.math.bits.Bits_leadingZeros8.leadingZeros8(_x);
+        return stdgo._internal.math.bits.Bits_leadingzeros8.leadingZeros8(_x);
     }
     /**
         * LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
     **/
     static public inline function leadingZeros16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
-        return stdgo._internal.math.bits.Bits_leadingZeros16.leadingZeros16(_x);
+        return stdgo._internal.math.bits.Bits_leadingzeros16.leadingZeros16(_x);
     }
     /**
         * LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
     **/
     static public inline function leadingZeros32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
-        return stdgo._internal.math.bits.Bits_leadingZeros32.leadingZeros32(_x);
+        return stdgo._internal.math.bits.Bits_leadingzeros32.leadingZeros32(_x);
     }
     /**
         * LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function leadingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.math.bits.Bits_leadingZeros64.leadingZeros64(_x);
+        return stdgo._internal.math.bits.Bits_leadingzeros64.leadingZeros64(_x);
     }
     /**
         * TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
     **/
     static public inline function trailingZeros(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
-        return stdgo._internal.math.bits.Bits_trailingZeros.trailingZeros(_x);
+        return stdgo._internal.math.bits.Bits_trailingzeros.trailingZeros(_x);
     }
     /**
         * TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
     **/
     static public inline function trailingZeros8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
-        return stdgo._internal.math.bits.Bits_trailingZeros8.trailingZeros8(_x);
+        return stdgo._internal.math.bits.Bits_trailingzeros8.trailingZeros8(_x);
     }
     /**
         * TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
     **/
     static public inline function trailingZeros16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
-        return stdgo._internal.math.bits.Bits_trailingZeros16.trailingZeros16(_x);
+        return stdgo._internal.math.bits.Bits_trailingzeros16.trailingZeros16(_x);
     }
     /**
         * TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
     **/
     static public inline function trailingZeros32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
-        return stdgo._internal.math.bits.Bits_trailingZeros32.trailingZeros32(_x);
+        return stdgo._internal.math.bits.Bits_trailingzeros32.trailingZeros32(_x);
     }
     /**
         * TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
     **/
     static public inline function trailingZeros64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.math.bits.Bits_trailingZeros64.trailingZeros64(_x);
+        return stdgo._internal.math.bits.Bits_trailingzeros64.trailingZeros64(_x);
     }
     /**
         * OnesCount returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt);
-        return stdgo._internal.math.bits.Bits_onesCount.onesCount(_x);
+        return stdgo._internal.math.bits.Bits_onescount.onesCount(_x);
     }
     /**
         * OnesCount8 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount8(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt8);
-        return stdgo._internal.math.bits.Bits_onesCount8.onesCount8(_x);
+        return stdgo._internal.math.bits.Bits_onescount8.onesCount8(_x);
     }
     /**
         * OnesCount16 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount16(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt16);
-        return stdgo._internal.math.bits.Bits_onesCount16.onesCount16(_x);
+        return stdgo._internal.math.bits.Bits_onescount16.onesCount16(_x);
     }
     /**
         * OnesCount32 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount32(_x:std.UInt):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt32);
-        return stdgo._internal.math.bits.Bits_onesCount32.onesCount32(_x);
+        return stdgo._internal.math.bits.Bits_onescount32.onesCount32(_x);
     }
     /**
         * OnesCount64 returns the number of one bits ("population count") in x.
     **/
     static public inline function onesCount64(_x:haxe.UInt64):StdTypes.Int {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.math.bits.Bits_onesCount64.onesCount64(_x);
+        return stdgo._internal.math.bits.Bits_onescount64.onesCount64(_x);
     }
     /**
         * RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
@@ -136,7 +136,7 @@ class Bits {
     static public inline function rotateLeft(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt);
         final _k = (_k : stdgo.GoInt);
-        return stdgo._internal.math.bits.Bits_rotateLeft.rotateLeft(_x, _k);
+        return stdgo._internal.math.bits.Bits_rotateleft.rotateLeft(_x, _k);
     }
     /**
         * RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
@@ -147,7 +147,7 @@ class Bits {
     static public inline function rotateLeft8(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt8);
         final _k = (_k : stdgo.GoInt);
-        return stdgo._internal.math.bits.Bits_rotateLeft8.rotateLeft8(_x, _k);
+        return stdgo._internal.math.bits.Bits_rotateleft8.rotateLeft8(_x, _k);
     }
     /**
         * RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
@@ -158,7 +158,7 @@ class Bits {
     static public inline function rotateLeft16(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt16);
         final _k = (_k : stdgo.GoInt);
-        return stdgo._internal.math.bits.Bits_rotateLeft16.rotateLeft16(_x, _k);
+        return stdgo._internal.math.bits.Bits_rotateleft16.rotateLeft16(_x, _k);
     }
     /**
         * RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
@@ -169,7 +169,7 @@ class Bits {
     static public inline function rotateLeft32(_x:std.UInt, _k:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoUInt32);
         final _k = (_k : stdgo.GoInt);
-        return stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_x, _k);
+        return stdgo._internal.math.bits.Bits_rotateleft32.rotateLeft32(_x, _k);
     }
     /**
         * RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
@@ -180,7 +180,7 @@ class Bits {
     static public inline function rotateLeft64(_x:haxe.UInt64, _k:StdTypes.Int):haxe.UInt64 {
         final _x = (_x : stdgo.GoUInt64);
         final _k = (_k : stdgo.GoInt);
-        return stdgo._internal.math.bits.Bits_rotateLeft64.rotateLeft64(_x, _k);
+        return stdgo._internal.math.bits.Bits_rotateleft64.rotateLeft64(_x, _k);
     }
     /**
         * Reverse returns the value of x with its bits in reversed order.
@@ -224,7 +224,7 @@ class Bits {
     **/
     static public inline function reverseBytes(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt);
-        return stdgo._internal.math.bits.Bits_reverseBytes.reverseBytes(_x);
+        return stdgo._internal.math.bits.Bits_reversebytes.reverseBytes(_x);
     }
     /**
         * ReverseBytes16 returns the value of x with its bytes in reversed order.
@@ -233,7 +233,7 @@ class Bits {
     **/
     static public inline function reverseBytes16(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt16);
-        return stdgo._internal.math.bits.Bits_reverseBytes16.reverseBytes16(_x);
+        return stdgo._internal.math.bits.Bits_reversebytes16.reverseBytes16(_x);
     }
     /**
         * ReverseBytes32 returns the value of x with its bytes in reversed order.
@@ -242,7 +242,7 @@ class Bits {
     **/
     static public inline function reverseBytes32(_x:std.UInt):std.UInt {
         final _x = (_x : stdgo.GoUInt32);
-        return stdgo._internal.math.bits.Bits_reverseBytes32.reverseBytes32(_x);
+        return stdgo._internal.math.bits.Bits_reversebytes32.reverseBytes32(_x);
     }
     /**
         * ReverseBytes64 returns the value of x with its bytes in reversed order.
@@ -251,7 +251,7 @@ class Bits {
     **/
     static public inline function reverseBytes64(_x:haxe.UInt64):haxe.UInt64 {
         final _x = (_x : stdgo.GoUInt64);
-        return stdgo._internal.math.bits.Bits_reverseBytes64.reverseBytes64(_x);
+        return stdgo._internal.math.bits.Bits_reversebytes64.reverseBytes64(_x);
     }
     /**
         * Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.

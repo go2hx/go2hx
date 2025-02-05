@@ -1,11 +1,11 @@
 package stdgo.net.internal.socktest;
-final filterSocket : FilterType = stdgo._internal.net.internal.socktest.Socktest_filterSocket.filterSocket;
-final filterConnect = stdgo._internal.net.internal.socktest.Socktest_filterConnect.filterConnect;
-final filterListen = stdgo._internal.net.internal.socktest.Socktest_filterListen.filterListen;
-final filterAccept = stdgo._internal.net.internal.socktest.Socktest_filterAccept.filterAccept;
-final filterGetsockoptInt = stdgo._internal.net.internal.socktest.Socktest_filterGetsockoptInt.filterGetsockoptInt;
-final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.filterClose;
-@:structInit @:using(stdgo.net.internal.socktest.Socktest.Switch_static_extension) abstract Switch(stdgo._internal.net.internal.socktest.Socktest_Switch.Switch) from stdgo._internal.net.internal.socktest.Socktest_Switch.Switch to stdgo._internal.net.internal.socktest.Socktest_Switch.Switch {
+final filterSocket : FilterType = stdgo._internal.net.internal.socktest.Socktest_filtersocket.filterSocket;
+final filterConnect = stdgo._internal.net.internal.socktest.Socktest_filterconnect.filterConnect;
+final filterListen = stdgo._internal.net.internal.socktest.Socktest_filterlisten.filterListen;
+final filterAccept = stdgo._internal.net.internal.socktest.Socktest_filteraccept.filterAccept;
+final filterGetsockoptInt = stdgo._internal.net.internal.socktest.Socktest_filtergetsockoptint.filterGetsockoptInt;
+final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterclose.filterClose;
+@:structInit @:using(stdgo.net.internal.socktest.Socktest.Switch_static_extension) abstract Switch(stdgo._internal.net.internal.socktest.Socktest_switch.Switch) from stdgo._internal.net.internal.socktest.Socktest_switch.Switch to stdgo._internal.net.internal.socktest.Socktest_switch.Switch {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
@@ -42,11 +42,11 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.f
         this._stats = v;
         return v;
     }
-    public function new(?_once:stdgo._internal.sync.Sync_once.Once, ?_fmu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_fltab:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>, ?_smu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sotab:Sockets, ?_stats:T_stats) this = new stdgo._internal.net.internal.socktest.Socktest_Switch.Switch(_once, _fmu, (_fltab : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>), _smu, _sotab, _stats);
+    public function new(?_once:stdgo._internal.sync.Sync_once.Once, ?_fmu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_fltab:stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>, ?_smu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sotab:Sockets, ?_stats:T_stats) this = new stdgo._internal.net.internal.socktest.Socktest_switch.Switch(_once, _fmu, (_fltab : stdgo.GoMap<stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType, stdgo._internal.net.internal.socktest.Socktest_filter.Filter>), _smu, _sotab, _stats);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.internal.socktest.Socktest.Status_static_extension) abstract Status(stdgo._internal.net.internal.socktest.Socktest_Status.Status) from stdgo._internal.net.internal.socktest.Socktest_Status.Status to stdgo._internal.net.internal.socktest.Socktest_Status.Status {
+@:structInit @:using(stdgo.net.internal.socktest.Socktest.Status_static_extension) abstract Status(stdgo._internal.net.internal.socktest.Socktest_status.Status) from stdgo._internal.net.internal.socktest.Socktest_status.Status to stdgo._internal.net.internal.socktest.Socktest_status.Status {
     public var cookie(get, set) : Cookie;
     function get_cookie():Cookie return this.cookie;
     function set_cookie(v:Cookie):Cookie {
@@ -65,11 +65,11 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.f
         this.socketErr = (v : stdgo.Error);
         return v;
     }
-    public function new(?cookie:Cookie, ?err:stdgo.Error, ?socketErr:stdgo.Error) this = new stdgo._internal.net.internal.socktest.Socktest_Status.Status(cookie, (err : stdgo.Error), (socketErr : stdgo.Error));
+    public function new(?cookie:Cookie, ?err:stdgo.Error, ?socketErr:stdgo.Error) this = new stdgo._internal.net.internal.socktest.Socktest_status.Status(cookie, (err : stdgo.Error), (socketErr : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.internal.socktest.Socktest.Stat_static_extension) abstract Stat(stdgo._internal.net.internal.socktest.Socktest_Stat.Stat) from stdgo._internal.net.internal.socktest.Socktest_Stat.Stat to stdgo._internal.net.internal.socktest.Socktest_Stat.Stat {
+@:structInit @:using(stdgo.net.internal.socktest.Socktest.Stat_static_extension) abstract Stat(stdgo._internal.net.internal.socktest.Socktest_stat.Stat) from stdgo._internal.net.internal.socktest.Socktest_stat.Stat to stdgo._internal.net.internal.socktest.Socktest_stat.Stat {
     public var family(get, set) : StdTypes.Int;
     function get_family():StdTypes.Int return this.family;
     function set_family(v:StdTypes.Int):StdTypes.Int {
@@ -148,7 +148,7 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.f
         this.closeFailed = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?family:StdTypes.Int, ?type:StdTypes.Int, ?protocol:StdTypes.Int, ?opened:haxe.UInt64, ?connected:haxe.UInt64, ?listened:haxe.UInt64, ?accepted:haxe.UInt64, ?closed:haxe.UInt64, ?openFailed:haxe.UInt64, ?connectFailed:haxe.UInt64, ?listenFailed:haxe.UInt64, ?acceptFailed:haxe.UInt64, ?closeFailed:haxe.UInt64) this = new stdgo._internal.net.internal.socktest.Socktest_Stat.Stat(
+    public function new(?family:StdTypes.Int, ?type:StdTypes.Int, ?protocol:StdTypes.Int, ?opened:haxe.UInt64, ?connected:haxe.UInt64, ?listened:haxe.UInt64, ?accepted:haxe.UInt64, ?closed:haxe.UInt64, ?openFailed:haxe.UInt64, ?connectFailed:haxe.UInt64, ?listenFailed:haxe.UInt64, ?acceptFailed:haxe.UInt64, ?closeFailed:haxe.UInt64) this = new stdgo._internal.net.internal.socktest.Socktest_stat.Stat(
 (family : stdgo.GoInt),
 (type : stdgo.GoInt),
 (protocol : stdgo.GoInt),
@@ -165,13 +165,13 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterClose.f
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef Cookie = stdgo._internal.net.internal.socktest.Socktest_Cookie.Cookie;
-typedef T_stats = stdgo._internal.net.internal.socktest.Socktest_T_stats.T_stats;
-typedef FilterType = stdgo._internal.net.internal.socktest.Socktest_FilterType.FilterType;
-typedef Filter = stdgo._internal.net.internal.socktest.Socktest_Filter.Filter;
-typedef AfterFilter = stdgo._internal.net.internal.socktest.Socktest_AfterFilter.AfterFilter;
-typedef Sockets = stdgo._internal.net.internal.socktest.Socktest_Sockets.Sockets;
-typedef SwitchPointer = stdgo._internal.net.internal.socktest.Socktest_SwitchPointer.SwitchPointer;
+typedef Cookie = stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie;
+typedef T_stats = stdgo._internal.net.internal.socktest.Socktest_t_stats.T_stats;
+typedef FilterType = stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType;
+typedef Filter = stdgo._internal.net.internal.socktest.Socktest_filter.Filter;
+typedef AfterFilter = stdgo._internal.net.internal.socktest.Socktest_afterfilter.AfterFilter;
+typedef Sockets = stdgo._internal.net.internal.socktest.Socktest_sockets.Sockets;
+typedef SwitchPointer = stdgo._internal.net.internal.socktest.Socktest_switchpointer.SwitchPointer;
 class Switch_static_extension {
     static public function getsockoptInt(_sw:Switch, _s:StdTypes.Int, _level:StdTypes.Int, _opt:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
@@ -179,7 +179,7 @@ class Switch_static_extension {
         final _level = (_level : stdgo.GoInt);
         final _opt = (_opt : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.getsockoptInt(_sw, _s, _level, _opt);
+            final obj = stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.getsockoptInt(_sw, _s, _level, _opt);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -187,7 +187,7 @@ class Switch_static_extension {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.accept(_sw, _s);
+            final obj = stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.accept(_sw, _s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -195,17 +195,17 @@ class Switch_static_extension {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
         final _backlog = (_backlog : stdgo.GoInt);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.listen(_sw, _s, _backlog);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.listen(_sw, _s, _backlog);
     }
     static public function connect(_sw:Switch, _s:StdTypes.Int, _sa:stdgo._internal.syscall.Syscall_sockaddr.Sockaddr):stdgo.Error {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.connect(_sw, _s, _sa);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.connect(_sw, _s, _sa);
     }
     static public function close(_sw:Switch, _s:StdTypes.Int):stdgo.Error {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.close(_sw, _s);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.close(_sw, _s);
     }
     static public function socket(_sw:Switch, _family:StdTypes.Int, _sotype:StdTypes.Int, _proto:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
@@ -213,7 +213,7 @@ class Switch_static_extension {
         final _sotype = (_sotype : stdgo.GoInt);
         final _proto = (_proto : stdgo.GoInt);
         return {
-            final obj = stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.socket(_sw, _family, _sotype, _proto);
+            final obj = stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.socket(_sw, _family, _sotype, _proto);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -223,82 +223,82 @@ class Switch_static_extension {
         final _family = (_family : stdgo.GoInt);
         final _sotype = (_sotype : stdgo.GoInt);
         final _proto = (_proto : stdgo.GoInt);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._addLocked(_sw, _s, _family, _sotype, _proto);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension._addLocked(_sw, _s, _family, _sotype, _proto);
     }
     static public function _sockso(_sw:Switch, _s:StdTypes.Int):Status {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
         final _s = (_s : stdgo.GoInt);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._sockso(_sw, _s);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension._sockso(_sw, _s);
     }
     static public function set(_sw:Switch, _t:FilterType, _f:Filter):Void {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
-        stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.set(_sw, _t, _f);
+        stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.set(_sw, _t, _f);
     }
     static public function sockets(_sw:Switch):Sockets {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
-        return stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.sockets(_sw);
+        return stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.sockets(_sw);
     }
     static public function stats(_sw:Switch):Array<Stat> {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
-        return [for (i in stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension.stats(_sw)) i];
+        return [for (i in stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension.stats(_sw)) i];
     }
     static public function _init(_sw:Switch):Void {
         final _sw = (_sw : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch>);
-        stdgo._internal.net.internal.socktest.Socktest_Switch_static_extension.Switch_static_extension._init(_sw);
+        stdgo._internal.net.internal.socktest.Socktest_switch_static_extension.Switch_static_extension._init(_sw);
     }
 }
-typedef StatusPointer = stdgo._internal.net.internal.socktest.Socktest_StatusPointer.StatusPointer;
+typedef StatusPointer = stdgo._internal.net.internal.socktest.Socktest_statuspointer.StatusPointer;
 class Status_static_extension {
     static public function string(_so:Status):String {
-        return stdgo._internal.net.internal.socktest.Socktest_Status_static_extension.Status_static_extension.string(_so);
+        return stdgo._internal.net.internal.socktest.Socktest_status_static_extension.Status_static_extension.string(_so);
     }
 }
-typedef StatPointer = stdgo._internal.net.internal.socktest.Socktest_StatPointer.StatPointer;
+typedef StatPointer = stdgo._internal.net.internal.socktest.Socktest_statpointer.StatPointer;
 class Stat_static_extension {
     static public function string(_st:Stat):String {
-        return stdgo._internal.net.internal.socktest.Socktest_Stat_static_extension.Stat_static_extension.string(_st);
+        return stdgo._internal.net.internal.socktest.Socktest_stat_static_extension.Stat_static_extension.string(_st);
     }
 }
-typedef CookiePointer = stdgo._internal.net.internal.socktest.Socktest_CookiePointer.CookiePointer;
+typedef CookiePointer = stdgo._internal.net.internal.socktest.Socktest_cookiepointer.CookiePointer;
 class Cookie_static_extension {
     static public function protocol(_c:Cookie):StdTypes.Int {
-        return stdgo._internal.net.internal.socktest.Socktest_Cookie_static_extension.Cookie_static_extension.protocol(_c);
+        return stdgo._internal.net.internal.socktest.Socktest_cookie_static_extension.Cookie_static_extension.protocol(_c);
     }
     static public function type(_c:Cookie):StdTypes.Int {
-        return stdgo._internal.net.internal.socktest.Socktest_Cookie_static_extension.Cookie_static_extension.type(_c);
+        return stdgo._internal.net.internal.socktest.Socktest_cookie_static_extension.Cookie_static_extension.type(_c);
     }
     static public function family(_c:Cookie):StdTypes.Int {
-        return stdgo._internal.net.internal.socktest.Socktest_Cookie_static_extension.Cookie_static_extension.family(_c);
+        return stdgo._internal.net.internal.socktest.Socktest_cookie_static_extension.Cookie_static_extension.family(_c);
     }
 }
-typedef T_statsPointer = stdgo._internal.net.internal.socktest.Socktest_T_statsPointer.T_statsPointer;
+typedef T_statsPointer = stdgo._internal.net.internal.socktest.Socktest_t_statspointer.T_statsPointer;
 class T_stats_static_extension {
     static public function _getLocked(_st:T_stats, _c:Cookie):Stat {
-        return stdgo._internal.net.internal.socktest.Socktest_T_stats_static_extension.T_stats_static_extension._getLocked(_st, _c);
+        return stdgo._internal.net.internal.socktest.Socktest_t_stats_static_extension.T_stats_static_extension._getLocked(_st, _c);
     }
 }
-typedef FilterTypePointer = stdgo._internal.net.internal.socktest.Socktest_FilterTypePointer.FilterTypePointer;
+typedef FilterTypePointer = stdgo._internal.net.internal.socktest.Socktest_filtertypepointer.FilterTypePointer;
 class FilterType_static_extension {
 
 }
-typedef FilterPointer = stdgo._internal.net.internal.socktest.Socktest_FilterPointer.FilterPointer;
+typedef FilterPointer = stdgo._internal.net.internal.socktest.Socktest_filterpointer.FilterPointer;
 class Filter_static_extension {
     static public function _apply(_f:Filter, _st:Status):stdgo.Tuple<AfterFilter, stdgo.Error> {
         final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_status.Status>);
         return {
-            final obj = stdgo._internal.net.internal.socktest.Socktest_Filter_static_extension.Filter_static_extension._apply(_f, _st);
+            final obj = stdgo._internal.net.internal.socktest.Socktest_filter_static_extension.Filter_static_extension._apply(_f, _st);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef AfterFilterPointer = stdgo._internal.net.internal.socktest.Socktest_AfterFilterPointer.AfterFilterPointer;
+typedef AfterFilterPointer = stdgo._internal.net.internal.socktest.Socktest_afterfilterpointer.AfterFilterPointer;
 class AfterFilter_static_extension {
     static public function _apply(_f:AfterFilter, _st:Status):stdgo.Error {
         final _st = (_st : stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_status.Status>);
-        return stdgo._internal.net.internal.socktest.Socktest_AfterFilter_static_extension.AfterFilter_static_extension._apply(_f, _st);
+        return stdgo._internal.net.internal.socktest.Socktest_afterfilter_static_extension.AfterFilter_static_extension._apply(_f, _st);
     }
 }
-typedef SocketsPointer = stdgo._internal.net.internal.socktest.Socktest_SocketsPointer.SocketsPointer;
+typedef SocketsPointer = stdgo._internal.net.internal.socktest.Socktest_socketspointer.SocketsPointer;
 class Sockets_static_extension {
 
 }

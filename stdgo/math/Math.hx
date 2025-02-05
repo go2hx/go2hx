@@ -3,61 +3,61 @@ final e : StdTypes.Float = stdgo._internal.math.Math_e.e;
 final pi : StdTypes.Float = stdgo._internal.math.Math_pi.pi;
 final phi : StdTypes.Float = stdgo._internal.math.Math_phi.phi;
 final sqrt2 : StdTypes.Float = stdgo._internal.math.Math_sqrt2.sqrt2;
-final sqrtE : StdTypes.Float = stdgo._internal.math.Math_sqrtE.sqrtE;
-final sqrtPi : StdTypes.Float = stdgo._internal.math.Math_sqrtPi.sqrtPi;
-final sqrtPhi : StdTypes.Float = stdgo._internal.math.Math_sqrtPhi.sqrtPhi;
+final sqrtE : StdTypes.Float = stdgo._internal.math.Math_sqrte.sqrtE;
+final sqrtPi : StdTypes.Float = stdgo._internal.math.Math_sqrtpi.sqrtPi;
+final sqrtPhi : StdTypes.Float = stdgo._internal.math.Math_sqrtphi.sqrtPhi;
 final ln2 : StdTypes.Float = stdgo._internal.math.Math_ln2.ln2;
-final log2E : StdTypes.Float = stdgo._internal.math.Math_log2E.log2E;
+final log2E : StdTypes.Float = stdgo._internal.math.Math_log2e.log2E;
 final ln10 : StdTypes.Float = stdgo._internal.math.Math_ln10.ln10;
-final log10E : StdTypes.Float = stdgo._internal.math.Math_log10E.log10E;
-final maxFloat32 : StdTypes.Float = stdgo._internal.math.Math_maxFloat32.maxFloat32;
-final smallestNonzeroFloat32 : StdTypes.Float = stdgo._internal.math.Math_smallestNonzeroFloat32.smallestNonzeroFloat32;
-final maxFloat64 : StdTypes.Float = stdgo._internal.math.Math_maxFloat64.maxFloat64;
-final smallestNonzeroFloat64 : StdTypes.Float = stdgo._internal.math.Math_smallestNonzeroFloat64.smallestNonzeroFloat64;
-final maxInt : haxe.UInt64 = stdgo._internal.math.Math_maxInt.maxInt;
-final minInt : haxe.UInt64 = stdgo._internal.math.Math_minInt.minInt;
-final maxInt8 : haxe.UInt64 = stdgo._internal.math.Math_maxInt8.maxInt8;
-final minInt8 : haxe.UInt64 = stdgo._internal.math.Math_minInt8.minInt8;
-final maxInt16 : haxe.UInt64 = stdgo._internal.math.Math_maxInt16.maxInt16;
-final minInt16 : haxe.UInt64 = stdgo._internal.math.Math_minInt16.minInt16;
-final maxInt32 : haxe.UInt64 = stdgo._internal.math.Math_maxInt32.maxInt32;
-final minInt32 : haxe.UInt64 = stdgo._internal.math.Math_minInt32.minInt32;
-final maxInt64 : haxe.UInt64 = stdgo._internal.math.Math_maxInt64.maxInt64;
-final minInt64 : haxe.UInt64 = stdgo._internal.math.Math_minInt64.minInt64;
-final maxUint : haxe.UInt64 = stdgo._internal.math.Math_maxUint.maxUint;
-final maxUint8 : haxe.UInt64 = stdgo._internal.math.Math_maxUint8.maxUint8;
-final maxUint16 : haxe.UInt64 = stdgo._internal.math.Math_maxUint16.maxUint16;
-final maxUint32 : haxe.UInt64 = stdgo._internal.math.Math_maxUint32.maxUint32;
-final maxUint64 : haxe.UInt64 = stdgo._internal.math.Math_maxUint64.maxUint64;
-final reduceThreshold : haxe.UInt64 = stdgo._internal.math.Math_reduceThreshold.reduceThreshold;
+final log10E : StdTypes.Float = stdgo._internal.math.Math_log10e.log10E;
+final maxFloat32 : StdTypes.Float = stdgo._internal.math.Math_maxfloat32.maxFloat32;
+final smallestNonzeroFloat32 : StdTypes.Float = stdgo._internal.math.Math_smallestnonzerofloat32.smallestNonzeroFloat32;
+final maxFloat64 : StdTypes.Float = stdgo._internal.math.Math_maxfloat64.maxFloat64;
+final smallestNonzeroFloat64 : StdTypes.Float = stdgo._internal.math.Math_smallestnonzerofloat64.smallestNonzeroFloat64;
+final maxInt : haxe.UInt64 = stdgo._internal.math.Math_maxint.maxInt;
+final minInt : haxe.UInt64 = stdgo._internal.math.Math_minint.minInt;
+final maxInt8 : haxe.UInt64 = stdgo._internal.math.Math_maxint8.maxInt8;
+final minInt8 : haxe.UInt64 = stdgo._internal.math.Math_minint8.minInt8;
+final maxInt16 : haxe.UInt64 = stdgo._internal.math.Math_maxint16.maxInt16;
+final minInt16 : haxe.UInt64 = stdgo._internal.math.Math_minint16.minInt16;
+final maxInt32 : haxe.UInt64 = stdgo._internal.math.Math_maxint32.maxInt32;
+final minInt32 : haxe.UInt64 = stdgo._internal.math.Math_minint32.minInt32;
+final maxInt64 : haxe.UInt64 = stdgo._internal.math.Math_maxint64.maxInt64;
+final minInt64 : haxe.UInt64 = stdgo._internal.math.Math_minint64.minInt64;
+final maxUint : haxe.UInt64 = stdgo._internal.math.Math_maxuint.maxUint;
+final maxUint8 : haxe.UInt64 = stdgo._internal.math.Math_maxuint8.maxUint8;
+final maxUint16 : haxe.UInt64 = stdgo._internal.math.Math_maxuint16.maxUint16;
+final maxUint32 : haxe.UInt64 = stdgo._internal.math.Math_maxuint32.maxUint32;
+final maxUint64 : haxe.UInt64 = stdgo._internal.math.Math_maxuint64.maxUint64;
+final reduceThreshold : haxe.UInt64 = stdgo._internal.math.Math_reducethreshold.reduceThreshold;
 var expGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_expGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_expGo.expGo(_0);
+private function get_expGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_expgo.expGo(_0);
 private function set_expGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
-        stdgo._internal.math.Math_expGo.expGo = v;
+        stdgo._internal.math.Math_expgo.expGo = v;
         return v;
     }
 var exp2Go(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_exp2Go():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_exp2Go.exp2Go(_0);
+private function get_exp2Go():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_exp2go.exp2Go(_0);
 private function set_exp2Go(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
-        stdgo._internal.math.Math_exp2Go.exp2Go = v;
+        stdgo._internal.math.Math_exp2go.exp2Go = v;
         return v;
     }
 var hypotGo(get, set) : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64;
-private function get_hypotGo():(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 return (_0, _1) -> stdgo._internal.math.Math_hypotGo.hypotGo(_0, _1);
+private function get_hypotGo():(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 return (_0, _1) -> stdgo._internal.math.Math_hypotgo.hypotGo(_0, _1);
 private function set_hypotGo(v:(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64):(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 {
-        stdgo._internal.math.Math_hypotGo.hypotGo = v;
+        stdgo._internal.math.Math_hypotgo.hypotGo = v;
         return v;
     }
 var sqrtGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_sqrtGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_sqrtGo.sqrtGo(_0);
+private function get_sqrtGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_sqrtgo.sqrtGo(_0);
 private function set_sqrtGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
-        stdgo._internal.math.Math_sqrtGo.sqrtGo = v;
+        stdgo._internal.math.Math_sqrtgo.sqrtGo = v;
         return v;
     }
 var trigReduce(get, set) : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; };
-private function get_trigReduce():stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } return _0 -> stdgo._internal.math.Math_trigReduce.trigReduce(_0);
+private function get_trigReduce():stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } return _0 -> stdgo._internal.math.Math_trigreduce.trigReduce(_0);
 private function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; }):stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } {
-        stdgo._internal.math.Math_trigReduce.trigReduce = v;
+        stdgo._internal.math.Math_trigreduce.trigReduce = v;
         return v;
     }
 /**
@@ -195,14 +195,14 @@ class Math {
         * NaN returns an IEEE 754 “not-a-number” value.
     **/
     static public inline function naN():StdTypes.Float {
-        return stdgo._internal.math.Math_naN.naN();
+        return stdgo._internal.math.Math_nan.naN();
     }
     /**
         * IsNaN reports whether f is an IEEE 754 “not-a-number” value.
     **/
     static public inline function isNaN(_f:StdTypes.Float):Bool {
         final _f = (_f : stdgo.GoFloat64);
-        return stdgo._internal.math.Math_isNaN.isNaN(_f);
+        return stdgo._internal.math.Math_isnan.isNaN(_f);
     }
     /**
         * IsInf reports whether f is an infinity, according to sign.
@@ -213,7 +213,7 @@ class Math {
     static public inline function isInf(_f:StdTypes.Float, _sign:StdTypes.Int):Bool {
         final _f = (_f : stdgo.GoFloat64);
         final _sign = (_sign : stdgo.GoInt);
-        return stdgo._internal.math.Math_isInf.isInf(_f, _sign);
+        return stdgo._internal.math.Math_isinf.isInf(_f, _sign);
     }
     /**
         * Cbrt returns the cube root of x.
@@ -443,7 +443,7 @@ class Math {
     **/
     static public inline function roundToEven(_x:StdTypes.Float):StdTypes.Float {
         final _x = (_x : stdgo.GoFloat64);
-        return stdgo._internal.math.Math_roundToEven.roundToEven(_x);
+        return stdgo._internal.math.Math_roundtoeven.roundToEven(_x);
     }
     /**
         * FMA returns x * y + z, computed with only one rounding.
@@ -453,7 +453,7 @@ class Math {
         final _x = (_x : stdgo.GoFloat64);
         final _y = (_y : stdgo.GoFloat64);
         final _z = (_z : stdgo.GoFloat64);
-        return stdgo._internal.math.Math_fMA.fMA(_x, _y, _z);
+        return stdgo._internal.math.Math_fma.fMA(_x, _y, _z);
     }
     /**
         * Frexp breaks f into a normalized fraction
@@ -967,6 +967,6 @@ class Math {
         return stdgo._internal.math.Math_float64frombits.float64frombits(_b);
     }
     static public inline function negZero() {
-        stdgo._internal.math.Math_negZero.negZero();
+        stdgo._internal.math.Math_negzero.negZero();
     }
 }

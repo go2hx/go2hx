@@ -11,7 +11,7 @@ class Html {
     **/
     static public inline function escapeString(_s:String):String {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.html.Html_escapeString.escapeString(_s);
+        return stdgo._internal.html.Html_escapestring.escapeString(_s);
     }
     /**
         * UnescapeString unescapes entities like "&lt;" to become "<". It unescapes a
@@ -22,6 +22,6 @@ class Html {
     **/
     static public inline function unescapeString(_s:String):String {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.html.Html_unescapeString.unescapeString(_s);
+        return stdgo._internal.html.Html_unescapestring.unescapeString(_s);
     }
 }

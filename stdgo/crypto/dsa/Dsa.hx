@@ -1,15 +1,15 @@
 package stdgo.crypto.dsa;
-final l1024N160 : ParameterSizes = stdgo._internal.crypto.dsa.Dsa_l1024N160.l1024N160;
-final l2048N224 = stdgo._internal.crypto.dsa.Dsa_l2048N224.l2048N224;
-final l2048N256 = stdgo._internal.crypto.dsa.Dsa_l2048N256.l2048N256;
-final l3072N256 = stdgo._internal.crypto.dsa.Dsa_l3072N256.l3072N256;
+final l1024N160 : ParameterSizes = stdgo._internal.crypto.dsa.Dsa_l1024n160.l1024N160;
+final l2048N224 = stdgo._internal.crypto.dsa.Dsa_l2048n224.l2048N224;
+final l2048N256 = stdgo._internal.crypto.dsa.Dsa_l2048n256.l2048N256;
+final l3072N256 = stdgo._internal.crypto.dsa.Dsa_l3072n256.l3072N256;
 var errInvalidPublicKey(get, set) : stdgo.Error;
-private function get_errInvalidPublicKey():stdgo.Error return stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey;
+private function get_errInvalidPublicKey():stdgo.Error return stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey;
 private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey = (v : stdgo.Error);
+        stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.Parameters_static_extension) abstract Parameters(stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters) from stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters to stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters {
+@:structInit @:using(stdgo.crypto.dsa.Dsa.Parameters_static_extension) abstract Parameters(stdgo._internal.crypto.dsa.Dsa_parameters.Parameters) from stdgo._internal.crypto.dsa.Dsa_parameters.Parameters to stdgo._internal.crypto.dsa.Dsa_parameters.Parameters {
     public var p(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_p():stdgo._internal.math.big.Big_int_.Int_ return this.p;
     function set_p(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
@@ -28,11 +28,11 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         this.g = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?p:stdgo._internal.math.big.Big_int_.Int_, ?q:stdgo._internal.math.big.Big_int_.Int_, ?g:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters((p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (g : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
+    public function new(?p:stdgo._internal.math.big.Big_int_.Int_, ?q:stdgo._internal.math.big.Big_int_.Int_, ?g:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_parameters.Parameters((p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (q : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (g : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey) from stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey to stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey {
+@:structInit @:using(stdgo.crypto.dsa.Dsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey) from stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey to stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey {
     public var parameters(get, set) : Parameters;
     function get_parameters():Parameters return this.parameters;
     function set_parameters(v:Parameters):Parameters {
@@ -45,11 +45,11 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         this.y = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?parameters:Parameters, ?y:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey(parameters, (y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
+    public function new(?parameters:Parameters, ?y:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey(parameters, (y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey) from stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey to stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey {
+@:structInit @:using(stdgo.crypto.dsa.Dsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey) from stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey to stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey {
     public var publicKey(get, set) : PublicKey;
     function get_publicKey():PublicKey return this.publicKey;
     function set_publicKey(v:PublicKey):PublicKey {
@@ -62,24 +62,24 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         this.x = (v : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return v;
     }
-    public function new(?publicKey:PublicKey, ?x:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey(publicKey, (x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
+    public function new(?publicKey:PublicKey, ?x:stdgo._internal.math.big.Big_int_.Int_) this = new stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey(publicKey, (x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef ParameterSizes = stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes;
-typedef ParametersPointer = stdgo._internal.crypto.dsa.Dsa_ParametersPointer.ParametersPointer;
+typedef ParameterSizes = stdgo._internal.crypto.dsa.Dsa_parametersizes.ParameterSizes;
+typedef ParametersPointer = stdgo._internal.crypto.dsa.Dsa_parameterspointer.ParametersPointer;
 class Parameters_static_extension {
 
 }
-typedef PublicKeyPointer = stdgo._internal.crypto.dsa.Dsa_PublicKeyPointer.PublicKeyPointer;
+typedef PublicKeyPointer = stdgo._internal.crypto.dsa.Dsa_publickeypointer.PublicKeyPointer;
 class PublicKey_static_extension {
 
 }
-typedef PrivateKeyPointer = stdgo._internal.crypto.dsa.Dsa_PrivateKeyPointer.PrivateKeyPointer;
+typedef PrivateKeyPointer = stdgo._internal.crypto.dsa.Dsa_privatekeypointer.PrivateKeyPointer;
 class PrivateKey_static_extension {
 
 }
-typedef ParameterSizesPointer = stdgo._internal.crypto.dsa.Dsa_ParameterSizesPointer.ParameterSizesPointer;
+typedef ParameterSizesPointer = stdgo._internal.crypto.dsa.Dsa_parametersizespointer.ParameterSizesPointer;
 class ParameterSizes_static_extension {
 
 }
@@ -101,7 +101,7 @@ class Dsa {
     **/
     static public inline function generateParameters(_params:Parameters, _rand:stdgo._internal.io.Io_reader.Reader, _sizes:ParameterSizes):stdgo.Error {
         final _params = (_params : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_parameters.Parameters>);
-        return stdgo._internal.crypto.dsa.Dsa_generateParameters.generateParameters(_params, _rand, _sizes);
+        return stdgo._internal.crypto.dsa.Dsa_generateparameters.generateParameters(_params, _rand, _sizes);
     }
     /**
         * GenerateKey generates a public&private key pair. The Parameters of the
@@ -109,7 +109,7 @@ class Dsa {
     **/
     static public inline function generateKey(_priv:PrivateKey, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Error {
         final _priv = (_priv : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey>);
-        return stdgo._internal.crypto.dsa.Dsa_generateKey.generateKey(_priv, _rand);
+        return stdgo._internal.crypto.dsa.Dsa_generatekey.generateKey(_priv, _rand);
     }
     /**
         * Sign signs an arbitrary length hash (which should be the result of hashing a

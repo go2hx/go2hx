@@ -1,5 +1,5 @@
 package stdgo.runtime.internal.math;
-final maxUintptr : stdgo.GoUIntptr = stdgo._internal.runtime.internal.math.Math_maxUintptr.maxUintptr;
+final maxUintptr : stdgo.GoUIntptr = stdgo._internal.runtime.internal.math.Math_maxuintptr.maxUintptr;
 class Math {
     /**
         * MulUintptr returns a * b and whether the multiplication overflowed.
@@ -9,7 +9,7 @@ class Math {
         final _a = (_a : stdgo.GoUIntptr);
         final _b = (_b : stdgo.GoUIntptr);
         return {
-            final obj = stdgo._internal.runtime.internal.math.Math_mulUintptr.mulUintptr(_a, _b);
+            final obj = stdgo._internal.runtime.internal.math.Math_muluintptr.mulUintptr(_a, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

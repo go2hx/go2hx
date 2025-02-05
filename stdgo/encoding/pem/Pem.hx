@@ -1,5 +1,5 @@
 package stdgo.encoding.pem;
-@:structInit @:using(stdgo.encoding.pem.Pem.Block_static_extension) abstract Block(stdgo._internal.encoding.pem.Pem_Block.Block) from stdgo._internal.encoding.pem.Pem_Block.Block to stdgo._internal.encoding.pem.Pem_Block.Block {
+@:structInit @:using(stdgo.encoding.pem.Pem.Block_static_extension) abstract Block(stdgo._internal.encoding.pem.Pem_block.Block) from stdgo._internal.encoding.pem.Pem_block.Block to stdgo._internal.encoding.pem.Pem_block.Block {
     public var type(get, set) : String;
     function get_type():String return this.type;
     function set_type(v:String):String {
@@ -18,11 +18,11 @@ package stdgo.encoding.pem;
         this.bytes = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?type:String, ?headers:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?bytes:Array<std.UInt>) this = new stdgo._internal.encoding.pem.Pem_Block.Block((type : stdgo.GoString), (headers : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), ([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?type:String, ?headers:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?bytes:Array<std.UInt>) this = new stdgo._internal.encoding.pem.Pem_block.Block((type : stdgo.GoString), (headers : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), ([for (i in bytes) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.pem.Pem.T_lineBreaker_static_extension) abstract T_lineBreaker(stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker) from stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker to stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker {
+@:structInit @:using(stdgo.encoding.pem.Pem.T_lineBreaker_static_extension) abstract T_lineBreaker(stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker) from stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker to stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker {
     public var _line(get, set) : haxe.ds.Vector<std.UInt>;
     function get__line():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._line) i]);
     function set__line(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -41,25 +41,25 @@ package stdgo.encoding.pem;
         this._out = v;
         return v;
     }
-    public function new(?_line:haxe.ds.Vector<std.UInt>, ?_used:StdTypes.Int, ?_out:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker(([for (i in _line) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_used : stdgo.GoInt), _out);
+    public function new(?_line:haxe.ds.Vector<std.UInt>, ?_used:StdTypes.Int, ?_out:stdgo._internal.io.Io_writer.Writer) this = new stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker(([for (i in _line) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_used : stdgo.GoInt), _out);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef BlockPointer = stdgo._internal.encoding.pem.Pem_BlockPointer.BlockPointer;
+typedef BlockPointer = stdgo._internal.encoding.pem.Pem_blockpointer.BlockPointer;
 class Block_static_extension {
 
 }
-typedef T_lineBreakerPointer = stdgo._internal.encoding.pem.Pem_T_lineBreakerPointer.T_lineBreakerPointer;
+typedef T_lineBreakerPointer = stdgo._internal.encoding.pem.Pem_t_linebreakerpointer.T_lineBreakerPointer;
 class T_lineBreaker_static_extension {
     static public function close(_l:T_lineBreaker):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker>);
-        return stdgo._internal.encoding.pem.Pem_T_lineBreaker_static_extension.T_lineBreaker_static_extension.close(_l);
+        return stdgo._internal.encoding.pem.Pem_t_linebreaker_static_extension.T_lineBreaker_static_extension.close(_l);
     }
     static public function write(_l:T_lineBreaker, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.encoding.pem.Pem_T_lineBreaker_static_extension.T_lineBreaker_static_extension.write(_l, _b);
+            final obj = stdgo._internal.encoding.pem.Pem_t_linebreaker_static_extension.T_lineBreaker_static_extension.write(_l, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -99,6 +99,6 @@ class Pem {
     **/
     static public inline function encodeToMemory(_b:Block):Array<std.UInt> {
         final _b = (_b : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>);
-        return [for (i in stdgo._internal.encoding.pem.Pem_encodeToMemory.encodeToMemory(_b)) i];
+        return [for (i in stdgo._internal.encoding.pem.Pem_encodetomemory.encodeToMemory(_b)) i];
     }
 }

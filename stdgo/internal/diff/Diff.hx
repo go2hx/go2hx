@@ -1,5 +1,5 @@
 package stdgo.internal.diff;
-@:structInit @:using(stdgo.internal.diff.Diff.T_pair_static_extension) abstract T_pair(stdgo._internal.internal.diff.Diff_T_pair.T_pair) from stdgo._internal.internal.diff.Diff_T_pair.T_pair to stdgo._internal.internal.diff.Diff_T_pair.T_pair {
+@:structInit @:using(stdgo.internal.diff.Diff.T_pair_static_extension) abstract T_pair(stdgo._internal.internal.diff.Diff_t_pair.T_pair) from stdgo._internal.internal.diff.Diff_t_pair.T_pair to stdgo._internal.internal.diff.Diff_t_pair.T_pair {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
@@ -12,11 +12,11 @@ package stdgo.internal.diff;
         this._y = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_x:StdTypes.Int, ?_y:StdTypes.Int) this = new stdgo._internal.internal.diff.Diff_T_pair.T_pair((_x : stdgo.GoInt), (_y : stdgo.GoInt));
+    public function new(?_x:StdTypes.Int, ?_y:StdTypes.Int) this = new stdgo._internal.internal.diff.Diff_t_pair.T_pair((_x : stdgo.GoInt), (_y : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_pairPointer = stdgo._internal.internal.diff.Diff_T_pairPointer.T_pairPointer;
+typedef T_pairPointer = stdgo._internal.internal.diff.Diff_t_pairpointer.T_pairPointer;
 class T_pair_static_extension {
 
 }

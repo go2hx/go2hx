@@ -16,7 +16,7 @@ class Maps {
     **/
     static public inline function equalFunc(_m1:Dynamic, _m2:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Bool {
         final _eq = _eq;
-        return stdgo._internal.maps.Maps_equalFunc.equalFunc(_m1, _m2, _eq);
+        return stdgo._internal.maps.Maps_equalfunc.equalFunc(_m1, _m2, _eq);
     }
     /**
         * Clone returns a copy of m.  This is a shallow clone:
@@ -39,6 +39,6 @@ class Maps {
     **/
     static public inline function deleteFunc(_m:Dynamic, _del:(Dynamic, Dynamic) -> Bool):Void {
         final _del = _del;
-        stdgo._internal.maps.Maps_deleteFunc.deleteFunc(_m, _del);
+        stdgo._internal.maps.Maps_deletefunc.deleteFunc(_m, _del);
     }
 }

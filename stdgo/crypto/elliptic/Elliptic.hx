@@ -3,7 +3,7 @@ class Curve_static_extension {
     static public function scalarBaseMult(t:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve, _k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _k = ([for (i in _k) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.scalarBaseMult(t, _k);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.scalarBaseMult(t, _k);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -12,7 +12,7 @@ class Curve_static_extension {
         final _y1 = (_y1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _k = ([for (i in _k) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.scalarMult(t, _x1, _y1, _k);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.scalarMult(t, _x1, _y1, _k);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -20,7 +20,7 @@ class Curve_static_extension {
         final _x1 = (_x1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y1 = (_y1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.double(t, _x1, _y1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.double(t, _x1, _y1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -30,82 +30,82 @@ class Curve_static_extension {
         final _x2 = (_x2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y2 = (_y2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.add(t, _x1, _y1, _x2, _y2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.add(t, _x1, _y1, _x2, _y2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function isOnCurve(t:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve, _x:stdgo._internal.math.big.Big_int_.Int_, _y:stdgo._internal.math.big.Big_int_.Int_):Bool {
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.isOnCurve(t, _x, _y);
+        return stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.isOnCurve(t, _x, _y);
     }
     static public function params(t:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve):CurveParams {
-        return stdgo._internal.crypto.elliptic.Elliptic_Curve_static_extension.Curve_static_extension.params(t);
+        return stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.params(t);
     }
 }
-typedef Curve = stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve;
+typedef Curve = stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
 class T_unmarshaler_static_extension {
     static public function unmarshalCompressed(t:stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_unmarshaler_static_extension.T_unmarshaler_static_extension.unmarshalCompressed(t, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler_static_extension.T_unmarshaler_static_extension.unmarshalCompressed(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function unmarshal(t:stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_unmarshaler_static_extension.T_unmarshaler_static_extension.unmarshal(t, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler_static_extension.T_unmarshaler_static_extension.unmarshal(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_unmarshaler = stdgo._internal.crypto.elliptic.Elliptic_T_unmarshaler.T_unmarshaler;
+typedef T_unmarshaler = stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler;
 class T_nistPoint_static_extension {
     static public function scalarBaseMult(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.scalarBaseMult(t, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.scalarBaseMult(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function scalarMult(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _1 = ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.scalarMult(t, _0, _1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.scalarMult(t, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function double(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Dynamic):Dynamic {
-        return stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.double(t, _0);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.double(t, _0);
     }
     static public function add(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Dynamic, _1:Dynamic):Dynamic {
-        return stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.add(t, _0, _1);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.add(t, _0, _1);
     }
     static public function setBytes(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.setBytes(t, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.setBytes(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function bytes(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint):Array<std.UInt> {
-        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
+        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nistPoint<T_>;
-@:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_p256Curve_static_extension) abstract T_p256Curve(stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve) from stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve to stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve {
+typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint<T_>;
+@:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_p256Curve_static_extension) abstract T_p256Curve(stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve) from stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve to stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve {
     public var _nistCurve(get, set) : T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>;
     function get__nistCurve():T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point> return this._nistCurve;
     function set__nistCurve(v:T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>):T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point> {
         this._nistCurve = v;
         return v;
     }
-    public function new(?_nistCurve:T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>) this = new stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve.T_p256Curve(_nistCurve);
+    public function new(?_nistCurve:T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>) this = new stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve(_nistCurve);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_nistCurve_static_extension) abstract T_nistCurve(stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve) from stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve to stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve {
+@:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_nistCurve_static_extension) abstract T_nistCurve(stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve) from stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve to stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve {
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {
@@ -118,11 +118,11 @@ typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nis
         this._params = (v : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
         return v;
     }
-    public function new(?_newPoint:() -> Dynamic, ?_params:CurveParams) this = new stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve.T_nistCurve(_newPoint, (_params : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>));
+    public function new(?_newPoint:() -> Dynamic, ?_params:CurveParams) this = new stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve(_newPoint, (_params : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.elliptic.Elliptic.CurveParams_static_extension) abstract CurveParams(stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams) from stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams to stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams {
+@:structInit @:using(stdgo.crypto.elliptic.Elliptic.CurveParams_static_extension) abstract CurveParams(stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams) from stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams to stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams {
     public var p(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_p():stdgo._internal.math.big.Big_int_.Int_ return this.p;
     function set_p(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
@@ -165,16 +165,16 @@ typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_T_nistPoint.T_nis
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public function new(?p:stdgo._internal.math.big.Big_int_.Int_, ?n:stdgo._internal.math.big.Big_int_.Int_, ?b:stdgo._internal.math.big.Big_int_.Int_, ?gx:stdgo._internal.math.big.Big_int_.Int_, ?gy:stdgo._internal.math.big.Big_int_.Int_, ?bitSize:StdTypes.Int, ?name:String) this = new stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams((p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (n : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (gx : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (gy : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (bitSize : stdgo.GoInt), (name : stdgo.GoString));
+    public function new(?p:stdgo._internal.math.big.Big_int_.Int_, ?n:stdgo._internal.math.big.Big_int_.Int_, ?b:stdgo._internal.math.big.Big_int_.Int_, ?gx:stdgo._internal.math.big.Big_int_.Int_, ?gy:stdgo._internal.math.big.Big_int_.Int_, ?bitSize:StdTypes.Int, ?name:String) this = new stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams((p : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (n : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (gx : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (gy : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (bitSize : stdgo.GoInt), (name : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_p256CurvePointer = stdgo._internal.crypto.elliptic.Elliptic_T_p256CurvePointer.T_p256CurvePointer;
+typedef T_p256CurvePointer = stdgo._internal.crypto.elliptic.Elliptic_t_p256curvepointer.T_p256CurvePointer;
 class T_p256Curve_static_extension {
     public static function _pointToAffine(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension._pointToAffine(__self__, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension._pointToAffine(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -182,25 +182,25 @@ class T_p256Curve_static_extension {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension._pointFromAffine(__self__, _0, _1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension._pointFromAffine(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function _normalizeScalar(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:Array<std.UInt>):Array<std.UInt> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension._normalizeScalar(__self__, _0)) i];
+        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension._normalizeScalar(__self__, _0)) i];
     }
     public static function unmarshalCompressed(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.unmarshalCompressed(__self__, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.unmarshalCompressed(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function unmarshal(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.unmarshal(__self__, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.unmarshal(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -209,30 +209,30 @@ class T_p256Curve_static_extension {
         final _1 = (_1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _2 = ([for (i in _2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.scalarMult(__self__, _0, _1, _2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.scalarMult(__self__, _0, _1, _2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function scalarBaseMult(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.scalarBaseMult(__self__, _0);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.scalarBaseMult(__self__, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     public static function params(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve):CurveParams {
-        return stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.params(__self__);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.params(__self__);
     }
     public static function isOnCurve(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:stdgo._internal.math.big.Big_int_.Int_, _1:stdgo._internal.math.big.Big_int_.Int_):Bool {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.isOnCurve(__self__, _0, _1);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.isOnCurve(__self__, _0, _1);
     }
     public static function double(__self__:stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve, _0:stdgo._internal.math.big.Big_int_.Int_, _1:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.double(__self__, _0, _1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.double(__self__, _0, _1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -242,7 +242,7 @@ class T_p256Curve_static_extension {
         final _2 = ([for (i in _2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _3 = ([for (i in _3) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.combinedMult(__self__, _0, _1, _2, _3);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.combinedMult(__self__, _0, _1, _2, _3);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -252,18 +252,18 @@ class T_p256Curve_static_extension {
         final _2 = (_2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _3 = (_3 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_p256Curve_static_extension.T_p256Curve_static_extension.add(__self__, _0, _1, _2, _3);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_p256curve_static_extension.T_p256Curve_static_extension.add(__self__, _0, _1, _2, _3);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
-typedef T_nistCurvePointer = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurvePointer.T_nistCurvePointer<Point>;
+typedef T_nistCurvePointer = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurvepointer.T_nistCurvePointer<Point>;
 class T_nistCurve_static_extension {
     static public function unmarshalCompressed(_curve:T_nistCurve<Dynamic>, _data:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.unmarshalCompressed(_curve, _data);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.unmarshalCompressed(_curve, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -271,7 +271,7 @@ class T_nistCurve_static_extension {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.unmarshal(_curve, _data);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.unmarshal(_curve, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -282,7 +282,7 @@ class T_nistCurve_static_extension {
         final _s1 = ([for (i in _s1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _s2 = ([for (i in _s2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.combinedMult(_curve, px, py, _s1, _s2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.combinedMult(_curve, px, py, _s1, _s2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -290,7 +290,7 @@ class T_nistCurve_static_extension {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _scalar = ([for (i in _scalar) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.scalarBaseMult(_curve, _scalar);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.scalarBaseMult(_curve, _scalar);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -300,21 +300,21 @@ class T_nistCurve_static_extension {
         final by = (by : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _scalar = ([for (i in _scalar) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.scalarMult(_curve, bx, by, _scalar);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.scalarMult(_curve, bx, by, _scalar);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _normalizeScalar(_curve:T_nistCurve<Dynamic>, _scalar:Array<std.UInt>):Array<std.UInt> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _scalar = ([for (i in _scalar) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension._normalizeScalar(_curve, _scalar)) i];
+        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension._normalizeScalar(_curve, _scalar)) i];
     }
     static public function double(_curve:T_nistCurve<Dynamic>, _x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _x1 = (_x1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y1 = (_y1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.double(_curve, _x1, _y1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.double(_curve, _x1, _y1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -325,14 +325,14 @@ class T_nistCurve_static_extension {
         final _x2 = (_x2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y2 = (_y2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.add(_curve, _x1, _y1, _x2, _y2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.add(_curve, _x1, _y1, _x2, _y2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function _pointToAffine(_curve:T_nistCurve<Dynamic>, _p:Dynamic):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension._pointToAffine(_curve, _p);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension._pointToAffine(_curve, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -341,7 +341,7 @@ class T_nistCurve_static_extension {
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension._pointFromAffine(_curve, _x, _y);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension._pointFromAffine(_curve, _x, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -349,20 +349,20 @@ class T_nistCurve_static_extension {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.isOnCurve(_curve, _x, _y);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.isOnCurve(_curve, _x, _y);
     }
     static public function params(_curve:T_nistCurve<Dynamic>):CurveParams {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve<Dynamic>>);
-        return stdgo._internal.crypto.elliptic.Elliptic_T_nistCurve_static_extension.T_nistCurve_static_extension.params(_curve);
+        return stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve_static_extension.T_nistCurve_static_extension.params(_curve);
     }
 }
-typedef CurveParamsPointer = stdgo._internal.crypto.elliptic.Elliptic_CurveParamsPointer.CurveParamsPointer;
+typedef CurveParamsPointer = stdgo._internal.crypto.elliptic.Elliptic_curveparamspointer.CurveParamsPointer;
 class CurveParams_static_extension {
     static public function scalarBaseMult(_curve:CurveParams, _k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
         final _k = ([for (i in _k) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.scalarBaseMult(_curve, _k);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.scalarBaseMult(_curve, _k);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -372,7 +372,7 @@ class CurveParams_static_extension {
         final by = (by : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _k = ([for (i in _k) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.scalarMult(_curve, bx, by, _k);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.scalarMult(_curve, bx, by, _k);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -382,7 +382,7 @@ class CurveParams_static_extension {
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension._doubleJacobian(_curve, _x, _y, _z);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension._doubleJacobian(_curve, _x, _y, _z);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -391,7 +391,7 @@ class CurveParams_static_extension {
         final _x1 = (_x1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y1 = (_y1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.double(_curve, _x1, _y1);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.double(_curve, _x1, _y1);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -404,7 +404,7 @@ class CurveParams_static_extension {
         final _y2 = (_y2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _z2 = (_z2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension._addJacobian(_curve, _x1, _y1, _z1, _x2, _y2, _z2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension._addJacobian(_curve, _x1, _y1, _z1, _x2, _y2, _z2);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -415,7 +415,7 @@ class CurveParams_static_extension {
         final _x2 = (_x2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y2 = (_y2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.add(_curve, _x1, _y1, _x2, _y2);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.add(_curve, _x1, _y1, _x2, _y2);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -425,7 +425,7 @@ class CurveParams_static_extension {
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _z = (_z : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension._affineFromJacobian(_curve, _x, _y, _z);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension._affineFromJacobian(_curve, _x, _y, _z);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -433,16 +433,16 @@ class CurveParams_static_extension {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.isOnCurve(_curve, _x, _y);
+        return stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.isOnCurve(_curve, _x, _y);
     }
     static public function _polynomial(_curve:CurveParams, _x:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension._polynomial(_curve, _x);
+        return stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension._polynomial(_curve, _x);
     }
     static public function params(_curve:CurveParams):CurveParams {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
-        return stdgo._internal.crypto.elliptic.Elliptic_CurveParams_static_extension.CurveParams_static_extension.params(_curve);
+        return stdgo._internal.crypto.elliptic.Elliptic_curveparams_static_extension.CurveParams_static_extension.params(_curve);
     }
 }
 /**
@@ -464,7 +464,7 @@ class Elliptic {
     **/
     static public inline function generateKey(_curve:Curve, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple.Tuple4<Array<std.UInt>, stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_generateKey.generateKey(_curve, _rand);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_generatekey.generateKey(_curve, _rand);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -489,7 +489,7 @@ class Elliptic {
     static public inline function marshalCompressed(_curve:Curve, _x:stdgo._internal.math.big.Big_int_.Int_, _y:stdgo._internal.math.big.Big_int_.Int_):Array<std.UInt> {
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         final _y = (_y : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_marshalCompressed.marshalCompressed(_curve, _x, _y)) i];
+        return [for (i in stdgo._internal.crypto.elliptic.Elliptic_marshalcompressed.marshalCompressed(_curve, _x, _y)) i];
     }
     /**
         * Unmarshal converts a point, serialized by Marshal, into an x, y pair. It is
@@ -514,7 +514,7 @@ class Elliptic {
     static public inline function unmarshalCompressed(_curve:Curve, _data:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.crypto.elliptic.Elliptic_unmarshalCompressed.unmarshalCompressed(_curve, _data);
+            final obj = stdgo._internal.crypto.elliptic.Elliptic_unmarshalcompressed.unmarshalCompressed(_curve, _data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

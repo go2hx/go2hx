@@ -1,11 +1,11 @@
 package stdgo.path;
 var errBadPattern(get, set) : stdgo.Error;
-private function get_errBadPattern():stdgo.Error return stdgo._internal.path.Path_errBadPattern.errBadPattern;
+private function get_errBadPattern():stdgo.Error return stdgo._internal.path.Path_errbadpattern.errBadPattern;
 private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.path.Path_errBadPattern.errBadPattern = (v : stdgo.Error);
+        stdgo._internal.path.Path_errbadpattern.errBadPattern = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.Path_T_lazybuf.T_lazybuf) from stdgo._internal.path.Path_T_lazybuf.T_lazybuf to stdgo._internal.path.Path_T_lazybuf.T_lazybuf {
+@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.Path_t_lazybuf.T_lazybuf) from stdgo._internal.path.Path_t_lazybuf.T_lazybuf to stdgo._internal.path.Path_t_lazybuf.T_lazybuf {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -24,25 +24,25 @@ private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
         this._w = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_s:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int) this = new stdgo._internal.path.Path_T_lazybuf.T_lazybuf((_s : stdgo.GoString), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_w : stdgo.GoInt));
+    public function new(?_s:String, ?_buf:Array<std.UInt>, ?_w:StdTypes.Int) this = new stdgo._internal.path.Path_t_lazybuf.T_lazybuf((_s : stdgo.GoString), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_w : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_lazybufPointer = stdgo._internal.path.Path_T_lazybufPointer.T_lazybufPointer;
+typedef T_lazybufPointer = stdgo._internal.path.Path_t_lazybufpointer.T_lazybufPointer;
 class T_lazybuf_static_extension {
     static public function _string(_b:T_lazybuf):String {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_t_lazybuf.T_lazybuf>);
-        return stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
+        return stdgo._internal.path.Path_t_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
     }
     static public function _append(_b:T_lazybuf, _c:std.UInt):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_t_lazybuf.T_lazybuf>);
         final _c = (_c : stdgo.GoUInt8);
-        stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._append(_b, _c);
+        stdgo._internal.path.Path_t_lazybuf_static_extension.T_lazybuf_static_extension._append(_b, _c);
     }
     static public function _index(_b:T_lazybuf, _i:StdTypes.Int):std.UInt {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_t_lazybuf.T_lazybuf>);
         final _i = (_i : stdgo.GoInt);
-        return stdgo._internal.path.Path_T_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
+        return stdgo._internal.path.Path_t_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
     }
 }
 /**
@@ -160,7 +160,7 @@ class Path {
     **/
     static public inline function isAbs(_path:String):Bool {
         final _path = (_path : stdgo.GoString);
-        return stdgo._internal.path.Path_isAbs.isAbs(_path);
+        return stdgo._internal.path.Path_isabs.isAbs(_path);
     }
     /**
         * Dir returns all but the last element of path, typically the path's directory.

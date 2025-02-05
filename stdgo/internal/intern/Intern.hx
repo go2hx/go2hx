@@ -1,5 +1,5 @@
 package stdgo.internal.intern;
-@:structInit @:using(stdgo.internal.intern.Intern.Value_static_extension) abstract Value(stdgo._internal.internal.intern.Intern_Value.Value) from stdgo._internal.internal.intern.Intern_Value.Value to stdgo._internal.internal.intern.Intern_Value.Value {
+@:structInit @:using(stdgo.internal.intern.Intern.Value_static_extension) abstract Value(stdgo._internal.internal.intern.Intern_value.Value) from stdgo._internal.internal.intern.Intern_value.Value to stdgo._internal.internal.intern.Intern_value.Value {
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
@@ -18,11 +18,11 @@ package stdgo.internal.intern;
         this._resurrected = v;
         return v;
     }
-    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_Value.Value(([for (i in __1) i] : stdgo.GoArray<() -> Void>), (_cmpVal : stdgo.AnyInterface), _resurrected);
+    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_value.Value(([for (i in __1) i] : stdgo.GoArray<() -> Void>), (_cmpVal : stdgo.AnyInterface), _resurrected);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.intern.Intern.T_key_static_extension) abstract T_key(stdgo._internal.internal.intern.Intern_T_key.T_key) from stdgo._internal.internal.intern.Intern_T_key.T_key to stdgo._internal.internal.intern.Intern_T_key.T_key {
+@:structInit @:using(stdgo.internal.intern.Intern.T_key_static_extension) abstract T_key(stdgo._internal.internal.intern.Intern_t_key.T_key) from stdgo._internal.internal.intern.Intern_t_key.T_key to stdgo._internal.internal.intern.Intern_t_key.T_key {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -41,21 +41,21 @@ package stdgo.internal.intern;
         this._isString = v;
         return v;
     }
-    public function new(?_s:String, ?_cmpVal:stdgo.AnyInterface, ?_isString:Bool) this = new stdgo._internal.internal.intern.Intern_T_key.T_key((_s : stdgo.GoString), (_cmpVal : stdgo.AnyInterface), _isString);
+    public function new(?_s:String, ?_cmpVal:stdgo.AnyInterface, ?_isString:Bool) this = new stdgo._internal.internal.intern.Intern_t_key.T_key((_s : stdgo.GoString), (_cmpVal : stdgo.AnyInterface), _isString);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef ValuePointer = stdgo._internal.internal.intern.Intern_ValuePointer.ValuePointer;
+typedef ValuePointer = stdgo._internal.internal.intern.Intern_valuepointer.ValuePointer;
 class Value_static_extension {
     static public function get(_v:Value):stdgo.AnyInterface {
         final _v = (_v : stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Value>);
-        return stdgo._internal.internal.intern.Intern_Value_static_extension.Value_static_extension.get(_v);
+        return stdgo._internal.internal.intern.Intern_value_static_extension.Value_static_extension.get(_v);
     }
 }
-typedef T_keyPointer = stdgo._internal.internal.intern.Intern_T_keyPointer.T_keyPointer;
+typedef T_keyPointer = stdgo._internal.internal.intern.Intern_t_keypointer.T_keyPointer;
 class T_key_static_extension {
     static public function value(_k:T_key):Value {
-        return stdgo._internal.internal.intern.Intern_T_key_static_extension.T_key_static_extension.value(_k);
+        return stdgo._internal.internal.intern.Intern_t_key_static_extension.T_key_static_extension.value(_k);
     }
 }
 /**
@@ -84,6 +84,6 @@ class Intern {
     **/
     static public inline function getByString(_s:String):Value {
         final _s = (_s : stdgo.GoString);
-        return stdgo._internal.internal.intern.Intern_getByString.getByString(_s);
+        return stdgo._internal.internal.intern.Intern_getbystring.getByString(_s);
     }
 }

@@ -444,7 +444,7 @@ private function testStd() { // standard library package tests
 		args.push("-D message.no-color");
 		if (ciBool)
 			args.unshift("haxe");
-		tasks.push({command: ciBool ? "npx " : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
+		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
 		Sys.println(args.join(" "));
 	}
 	Sys.println("______________________");

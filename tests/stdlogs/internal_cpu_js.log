@@ -25,7 +25,7 @@ Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go
 Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 49651 column 42)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:49088:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$musthavedebugoptionssupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 13613 column 19)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testallcapabilitiesdisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:33592:2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testallcapabilitiesdisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:33589:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 48838 column 9)
 
 -- FAIL: TestAllCapabilitiesDisabled

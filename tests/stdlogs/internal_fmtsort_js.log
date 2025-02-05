@@ -3,8 +3,8 @@
 	throw haxe_Exception.thrown("Value:reflect.unsafePointer is not yet implemented");
 	^
 <ref *1> Error: Value:reflect.unsafePointer is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:27360:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:27290:11)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:27357:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:27287:11)
     at stdgo__$internal_reflect_Value_$static_$extension.unsafePointer (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11467:23)
     at stdgo__$internal_sort_T_$lessSwap.less (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:11006:79)
     at stdgo__$internal_sort_Sort_$_$insertionsort_$func__insertionSort_func (/home/runner/work/go2hx/go2hx/golibs/std_fmtsort.js:16809:42)

@@ -294,9 +294,9 @@ Exception: __skip__
 Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 63625 column 23)
 Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 63655 column 56)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:63256:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:46562:18)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:46559:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 63021 column 9)
-Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 52960 column 59)
+Called from ._$internal_strconv_$dot_$test_Strconv_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 52957 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:83499:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:83500:3)
 

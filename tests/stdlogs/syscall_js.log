@@ -8,7 +8,7 @@ Called from .stdgo__$internal_syscall_Syscall_$setenv_setenv (/home/runner/work/
 Called from ._$internal_syscall_$test_Syscall_$test_$_$testsetgetenv__testSetGetenv (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 14773 column 13)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testenv_testEnv [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:14766:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 48734 column 9)
-Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34045 column 59)
+Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34042 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:57979:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:57980:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
@@ -24,7 +24,7 @@ Called from stdgo__$internal_sync_Once_$static_$extension.do_ (/home/runner/work
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthaveexec_mustHaveExec (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 14862 column 48)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testexecerrpermutedfds_testExecErrPermutedFds [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:14845:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 48734 column 9)
-Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34045 column 59)
+Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34042 column 59)
 
 -- FAIL: TestExecErrPermutedFds
 
@@ -34,9 +34,9 @@ Exception: __skip__
 Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 49533 column 23)
 Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 49563 column 56)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48969:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testgettimeofday_testGettimeofday [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:33912:17)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testgettimeofday_testGettimeofday [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:33909:17)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 48734 column 9)
-Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34045 column 59)
+Called from ._$internal_syscall_$dot_$test_Syscall_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 34042 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:57979:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:57980:3)
 

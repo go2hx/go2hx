@@ -8,6 +8,12 @@ import stdgo.GoInt;
 @:forward(__ref__,__setData__)
 @:forward.new
 //@:generic
+/**
+* Simulated Slice ([]`T`) type in Haxe.
+* Variable size and can be changed in size with:
+* slice: no allocation
+* append: allocation
+*/
 abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;

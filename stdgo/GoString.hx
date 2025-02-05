@@ -24,7 +24,11 @@ private class GoStringData {
 		return bytes.sub(this.low, this.high - this.low).toString();
 	}
 }
-
+/**
+ * Representation of a GoString in Haxe, implicitly converts to String.
+ * `GoStringData` holds `haxe.io.Bytes` because GoStrings can hold invalid charachter sequences
+ * GoString is pass by ref and needs to manually call `__copy__` for pass by copy
+ */
 abstract GoString(GoStringData) from GoStringData to GoStringData {
 	public var length(get, never):GoInt;
 

@@ -22,23 +22,20 @@ import sys.thread.Thread;
     iterator
 )
 @:forward.new
+/**
+ *    Chan is a Go channel in Haxe
+ *    Channels are used in a goroutine context to send and get data
+ *    Channel are by default blocking for sending, waiting until a get on the other side is called
+ *    The syntax for channels is different for Go and Haxe:
+ *
+ *    Haxe: c.__get__ Go: <- c
+ *    Haxe: c.__send__(x) Go: c <- x
+ */
 abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
 
 }
-/**
-    ## chan buffered
-        send without blocking
-        get blocks unless smartGet
 
-    ## chan not buffered
-        mutex on the send and get side
-        send blocking
-        get blocking
-        smartGet not blocking
-
-        wait and get
-**/
-
+@:dox(hide)
 class ChanData<T> {
     private var buffer:Vector<T> = null;
     public var bufferAddPos:Int = 0;

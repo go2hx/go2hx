@@ -6,7 +6,7 @@ import stdgo.AnyInterface;
 import stdgo.GoInt;
 
 
-
+@:dox(hide)
 class GoArrayData<T> {
 	public var vector:haxe.ds.Vector<T> = null;
 	public var bytes:haxe.io.Bytes = null;
@@ -303,7 +303,7 @@ class GoArrayData<T> {
 		return slice;
 	}
 }
-
+@:dox(hide)
 class GoArrayDataKeyValueIterator<T> {
 	var pos:Int = 0;
 	var slice:GoArrayData<T>;
@@ -321,7 +321,7 @@ class GoArrayDataKeyValueIterator<T> {
 		return {key: (pos : GoInt), value: slice.get(pos++)};
 	}
 }
-
+@:dox(hide)
 class GoArrayDataIterator<T> {
 	var pos:Int = 0;
 	var slice:GoArrayData<T>;
@@ -342,6 +342,9 @@ class GoArrayDataIterator<T> {
 // @:generic
 @:forward.new
 @:forward(__setData__,__slice__)
+/**
+ * Fixed size array similar to haxe.ds.Vector
+ */
 abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;

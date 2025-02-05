@@ -14,7 +14,14 @@ class AnyInterfaceData {
 	public function toString():String
 		return '$value';
 }
-
+/**
+ * Simulated any/interface{} type in Haxe.
+ * Made up of an `Any` value and a `Reflect._Type` 
+ * The type information is filled in using ``stdgo.Go.toInterface`` at macro compile time.
+ * 
+ * This allows go2hx to have stronger reflection support then normal Haxe reflection.
+ * This is required because of the `reflect` stdlib
+ */
 @:forward
 @:forward.new
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {

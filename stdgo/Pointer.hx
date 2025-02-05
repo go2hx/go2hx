@@ -3,7 +3,15 @@ package stdgo;
 import stdgo.GoInt;
 
 @:forward.new
+/**
+ * Simulates a Go Pointer in Haxe.
+ * ``PointerData`` holds a generic T value by ref.
+ * To create a Go pointer call ``stdgo.Go.pointer(X)``
+ */
 abstract Pointer<T>(PointerData<T>) from PointerData<T> to PointerData<T> {
+	/**
+		``value`` is ``T`` generic type
+	*/
 	public var value(get, set):T;
 
 	public var address(get,never):GoInt;
@@ -65,7 +73,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> to PointerData<T> {
 	public function hasSet()
 		return this.hasSet;
 }
-
+@:dox(hide)
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;

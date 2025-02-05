@@ -1,7 +1,9 @@
 package stdgo;
 
 import stdgo.GoNumber;
-
+/**
+ * Hold an arbitary pointer address, simulated in Haxe.
+ */
 abstract GoUIntptr(Dynamic) {
 	public inline function new(?x:Dynamic) {
 		this = x;

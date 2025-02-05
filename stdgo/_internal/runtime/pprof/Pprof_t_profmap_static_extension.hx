@@ -4,15 +4,15 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function _lookup( _m:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmap.T_profMap>, _stk:stdgo.Slice<stdgo.GoUInt64>, _tag:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> {
         @:recv var _m:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmap.T_profMap> = _m;
-        var _e_3863014:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
-        var _last_3862982:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
-        var _x_3862785:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _h_3862761:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         var _j_3863711:stdgo.GoInt = (0 : stdgo.GoInt);
         var _e_3863429:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
+        var _e_3863014:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
+        var _i_3862790_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _x_3862785:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _j_3863134:stdgo.GoInt = (0 : stdgo.GoInt);
         var searchBreak = false;
-        var _i_3862790_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _h_3862761:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
+        var _last_3862982:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

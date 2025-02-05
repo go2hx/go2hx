@@ -707,18 +707,18 @@ var _prevMatchEnd = __2, _i = __1, _pos = __0;
     @:tdfield
     static public function _doOnePass( _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>, _ir:stdgo._internal.io.Io_runereader.RuneReader, _ib:stdgo.Slice<stdgo.GoUInt8>, _is:stdgo.GoString, _pos:stdgo.GoInt, _ncap:stdgo.GoInt, _dstCap:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = _re;
-        var _startCond_3793148:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
-        var _inst_3793742:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst>);
-        var _flag_3793623:stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag = ((0 : stdgo.GoUInt64) : stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag);
+        var _matched_3793374:Bool = false;
+        var _pc_3793718:stdgo.GoInt = (0 : stdgo.GoInt);
         var _width1_3793520:stdgo.GoInt = (0 : stdgo.GoInt);
         var _width_3793513:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r1_3793485:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _i_3793446:stdgo._internal.regexp.Regexp_t_input.T_input = (null : stdgo._internal.regexp.Regexp_t_input.T_input);
-        var _i_3793396:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _m_3793239:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine>);
-        var _pc_3793718:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_3793482:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _matched_3793374:Bool = false;
+        var _i_3793396:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _startCond_3793148:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
+        var _inst_3793742:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst>);
+        var _flag_3793623:stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag = ((0 : stdgo.GoUInt64) : stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag);
+        var _i_3793446:stdgo._internal.regexp.Regexp_t_input.T_input = (null : stdgo._internal.regexp.Regexp_t_input.T_input);
+        var _m_3793239:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1015,12 +1015,12 @@ var _prevMatchEnd = __2, _i = __1, _pos = __0;
     @:tdfield
     static public function _backtrack( _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>, _ib:stdgo.Slice<stdgo.GoUInt8>, _is:stdgo.GoString, _pos:stdgo.GoInt, _ncap:stdgo.GoInt, _dstCap:stdgo.Slice<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = _re;
-        var _i_3743420:stdgo._internal.regexp.Regexp_t_input.T_input = (null : stdgo._internal.regexp.Regexp_t_input.T_input);
-        var _b_3743400:stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState>);
-        var _startCond_3743193:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
         var _advance_3744281:stdgo.GoInt = (0 : stdgo.GoInt);
         var _width_3744131:stdgo.GoInt = (0 : stdgo.GoInt);
         var _end_3743423:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3743420:stdgo._internal.regexp.Regexp_t_input.T_input = (null : stdgo._internal.regexp.Regexp_t_input.T_input);
+        var _b_3743400:stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState>);
+        var _startCond_3743193:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp = ((0 : stdgo.GoUInt8) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1152,22 +1152,22 @@ var _prevMatchEnd = __2, _i = __1, _pos = __0;
     @:tdfield
     static public function _tryBacktrack( _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>, _b:stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState>, _i:stdgo._internal.regexp.Regexp_t_input.T_input, _pc:stdgo.GoUInt32, _pos:stdgo.GoInt):Bool {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = _re;
-        var _width_3741341:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _width_3741183:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_3741180:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _pos_3739420:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _pc_3739399:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _flag_3742037:stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag = ((0 : stdgo.GoUInt64) : stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag);
         var _width_3741504:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_3741501:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _old_3742589:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_3741180:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _r_3741028:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _arg_3739443:Bool = false;
-        var _width_3741031:stdgo.GoInt = (0 : stdgo.GoInt);
         var _inst_3739847:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
         var _l_3739348:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _old_3742589:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _flag_3742037:stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag = ((0 : stdgo.GoUInt64) : stdgo._internal.regexp.Regexp_t_lazyflag.T_lazyFlag);
+        var _width_3741341:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _pos_3739420:stdgo.GoInt = (0 : stdgo.GoInt);
         var _longest_3739272:Bool = false;
+        var _r_3741501:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _r_3741338:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _width_3741183:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _width_3741031:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_3739443:Bool = false;
+        var _pc_3739399:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

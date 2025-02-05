@@ -1,7 +1,7 @@
-[30;41m ERROR [0m ./stdgo/_internal/net/url/Url_values_asinterface.hx:17: characters 112-118
+[ERROR] ./stdgo/_internal/net/url/Url_values_asinterface.hx:17: characters 112-118
 
- 17 | [2m    public dynamic function set(_key:stdgo.GoString, _value:stdgo.GoString):Void @:_0 __self__.value.set(_key, [0m[1m_value[0m[2m);[0m
-    |                                                                                                                [31m^^^^^^[0m
+ 17 |     public dynamic function set(_key:stdgo.GoString, _value:stdgo.GoString):Void @:_0 __self__.value.set(_key, _value);
+    |                                                                                                                ^^^^^^
     | stdgo.GoString should be stdgo.Slice<stdgo.GoString>
     | For function argument 'value'
 

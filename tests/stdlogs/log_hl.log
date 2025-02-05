@@ -1,94 +1,94 @@
-[30;41m ERROR [0m ./_internal/log_test/Log_test_examplelogger.hx:5: characters 189-193
+[ERROR] ./_internal/log_test/Log_test_examplelogger.hx:5: characters 189-193
 
- 5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef([0m[1m_buf[0m[2m) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));[0m
-   |                                                                                                                                                                                             [31m^^^^[0m
+ 5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+   |                                                                                                                                                                                             ^^^^
    | Unknown identifier : _buf
 
-      5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_([0m[1mstdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>))[0m[2m, ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));[0m
-        |                                                                                                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+        |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310
+    ->  stdgo/Go.macro.hx:305: lines 305-310
 
-    305 | [2m  final selfType = [0m[1mContext.typeof(switch expr.expr {[0m
-      - | [2m    [...][0m
-    310 | [1m  })[0m[2m;[0m
+    305 |   final selfType = Context.typeof(switch expr.expr {
+      - |     [...]
+    310 |   });
         |
         | Called from here
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-    504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+    504 |   return load("typeof", 1)(e);
+        |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m ./_internal/log_test/Log_test_examplelogger.hx:5: characters 173-194
+    ->  ./_internal/log_test/Log_test_examplelogger.hx:5: characters 173-194
 
-      5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface(([0m[1mstdgo.Go.setRef(_buf)[0m[2m : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));[0m
-        |                                                                                                                                                                             [31m^^^^^^^^^^^^^^^^^^^^^[0m
+      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+        |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m stdgo/Go.macro.hx:476: characters 11-31
+    ->  stdgo/Go.macro.hx:476: characters 11-31
 
-    476 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-        |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+    476 |   var t = Context.typeof(expr);
+        |           ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-    504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+    504 |   return load("typeof", 1)(e);
+        |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
         | For function argument '_out'
 
-[30;41m ERROR [0m ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 189-193
+[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 189-193
 
- 5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef([0m[1m_buf[0m[2m) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {[0m
-   |                                                                                                                                                                                             [31m^^^^[0m
+ 5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+   |                                                                                                                                                                                             ^^^^
    | Unknown identifier : _buf
 
-      5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_([0m[1mstdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>))[0m[2m, ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {[0m
-        |                                                                                                                                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+        |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310
+    ->  stdgo/Go.macro.hx:305: lines 305-310
 
-    305 | [2m  final selfType = [0m[1mContext.typeof(switch expr.expr {[0m
-      - | [2m    [...][0m
-    310 | [1m  })[0m[2m;[0m
+    305 |   final selfType = Context.typeof(switch expr.expr {
+      - |     [...]
+    310 |   });
         |
         | Called from here
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-    504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+    504 |   return load("typeof", 1)(e);
+        |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 173-194
+    ->  ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 173-194
 
-      5 | [2m        var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface(([0m[1mstdgo.Go.setRef(_buf)[0m[2m : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {[0m
-        |                                                                                                                                                                             [31m^^^^^^^^^^^^^^^^^^^^^[0m
+      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+        |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m stdgo/Go.macro.hx:476: characters 11-31
+    ->  stdgo/Go.macro.hx:476: characters 11-31
 
-    476 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-        |           [31m^^^^^^^^^^^^^^^^^^^^[0m
+    476 |   var t = Context.typeof(expr);
+        |           ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-   [30;41m -> [0m /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-    504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-        |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+    504 |   return load("typeof", 1)(e);
+        |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
         | For function argument '_out'
 
-[30;41m ERROR [0m ./_internal/log_test/Log_test_examplelogger_output.hx:6: characters 23-30
+[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:6: characters 23-30
 
- 6 | [2m            @:check2r [0m[1m_logger[0m[2m.output((2 : stdgo.GoInt), _info?.__copy__());[0m
-   |                       [31m^^^^^^^[0m
+ 6 |             @:check2r _logger.output((2 : stdgo.GoInt), _info?.__copy__());
+   |                       ^^^^^^^
    | Unknown identifier : _logger
 

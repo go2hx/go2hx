@@ -212,8 +212,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -282,8 +280,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -354,8 +350,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -413,8 +407,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -472,8 +464,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -533,8 +523,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -603,8 +591,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -675,8 +661,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add go_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -734,8 +718,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -793,8 +775,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
@@ -854,8 +834,6 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      - name: Remove hxb zips
-        run: rm go2hx.*.zip
       # add yaegi_medium.json regression 
       - uses: EndBug/add-and-commit@v9
         with:

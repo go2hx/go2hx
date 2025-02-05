@@ -173,14 +173,14 @@ var _b = __1, _nb = __0;
         @:recv var _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> = _f;
         var _cnt_3726455:stdgo.GoInt = (0 : stdgo.GoInt);
         var _nb_3725808:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _length_3724479:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_3724442:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _err_3724366:stdgo.Error = (null : stdgo.Error);
         var _v_3724363:stdgo.GoInt = (0 : stdgo.GoInt);
         var _stateDict_3724158;
+        var _stateInit_3724107;
         var _extra_3725885:stdgo.GoInt = (0 : stdgo.GoInt);
         var _dist_3725440:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _length_3724479:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3724366:stdgo.Error = (null : stdgo.Error);
-        var _stateInit_3724107;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

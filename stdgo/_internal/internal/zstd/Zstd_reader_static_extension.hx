@@ -214,25 +214,25 @@ package stdgo._internal.internal.zstd;
     @:tdfield
     static public function _readFrameHeader( _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
-        var _windowLog_3521865:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _fcsFieldSize_3520789:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _descriptor_3520718:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_3519951:stdgo.Error = (null : stdgo.Error);
-        var _exponent_3521778:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _fb_3522430:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _mantissa_3521822:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _err_3521390:stdgo.Error = (null : stdgo.Error);
-        var _singleSegment_3520747:Bool = false;
         var _err_3520396:stdgo.Error = (null : stdgo.Error);
         var _magic_3520187:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _exponent_3521778:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _headerSize_3521332:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _singleSegment_3520747:Bool = false;
+        var _err_3520613:stdgo.Error = (null : stdgo.Error);
+        var _err_3519951:stdgo.Error = (null : stdgo.Error);
+        var _windowAdd_3521933:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowLog_3521865:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowDescriptor_3521743:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _fcsFieldSize_3520789:stdgo.GoInt = (0 : stdgo.GoInt);
         var _relativeOffset_3519889:stdgo.GoInt = (0 : stdgo.GoInt);
         var _windowSize_3521976:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowAdd_3521933:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowDescriptor_3521743:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _windowDescriptorSize_3520898:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fb_3522430:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _windowBase_3521894:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _mantissa_3521822:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _headerSize_3521332:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3520613:stdgo.Error = (null : stdgo.Error);
+        var _windowDescriptorSize_3520898:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _descriptor_3520718:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

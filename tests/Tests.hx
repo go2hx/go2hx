@@ -441,7 +441,8 @@ private function testStd() { // standard library package tests
 		final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
 		final args = [hxml].concat(outCmd);
 		// remove ANSI escape codes for colours
-		args.push("-D message.no-color");
+		args.push("-D");
+		args.push("message.no-color");
 		if (ciBool)
 			args.unshift("haxe");
 		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});

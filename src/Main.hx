@@ -398,6 +398,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
+	Sys.println("create base pkgs: " + outputPath);
 	if (!FileSystem.exists(outputPath + "/stdgo"))
 		FileSystem.createDirectory(outputPath + "/stdgo");
 	for (file in FileSystem.readDirectory(cwd + "/stdgo")) {
@@ -406,12 +407,15 @@ private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, 
 			File.saveContent(outputPath + "/stdgo/" + file, content);
 		}
 	}
+	
+	Sys.println("copy directory: " + cwd + " to: " + outputPath);
 	src.Util.copyDirectoryRecursively(cwd + "/haxe", outputPath + "/haxe");
-	src.Util.copyDirectoryRecursively(cwd + "/stdgo/_internal/", outputPath + "/stdgo/_internal/");
-	for (file in FileSystem.readDirectory(cwd + "/stdgo/_internal")) {
+	final path = "/stdgo/_internal";
+	src.Util.copyDirectoryRecursively(cwd + path, outputPath + path);
+	for (file in FileSystem.readDirectory(cwd + path)) {
 		if (Path.extension(file) == "hx") {
-			final content = File.getContent(cwd + "/stdgo/_internal/" + file);
-			File.saveContent(outputPath + "/stdgo/_internal/" + file, content);
+			final content = File.getContent(cwd + path + file);
+			File.saveContent(outputPath + path + file, content);
 		}
 	}
 }

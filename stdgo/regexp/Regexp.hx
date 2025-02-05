@@ -274,9 +274,9 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.regexp.Regexp.T_thread_static_extension) abstract T_thread(stdgo._internal.regexp.Regexp_t_thread.T_thread) from stdgo._internal.regexp.Regexp_t_thread.T_thread to stdgo._internal.regexp.Regexp_t_thread.T_thread {
-    public var _inst(get, set) : Inst;
-    function get__inst():Inst return this._inst;
-    function set__inst(v:Inst):Inst {
+    public var _inst(get, set) : stdgo._internal.regexp.syntax.Syntax_inst.Inst;
+    function get__inst():stdgo._internal.regexp.syntax.Syntax_inst.Inst return this._inst;
+    function set__inst(v:stdgo._internal.regexp.syntax.Syntax_inst.Inst):stdgo._internal.regexp.syntax.Syntax_inst.Inst {
         this._inst = (v : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
         return v;
     }
@@ -286,7 +286,7 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._cap = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?_inst:Inst, ?_cap:Array<StdTypes.Int>) this = new stdgo._internal.regexp.Regexp_t_thread.T_thread((_inst : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>), ([for (i in _cap) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?_inst:stdgo._internal.regexp.syntax.Syntax_inst.Inst, ?_cap:Array<StdTypes.Int>) this = new stdgo._internal.regexp.Regexp_t_thread.T_thread((_inst : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>), ([for (i in _cap) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -297,9 +297,9 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._re = (v : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
         return v;
     }
-    public var _p(get, set) : Prog;
-    function get__p():Prog return this._p;
-    function set__p(v:Prog):Prog {
+    public var _p(get, set) : stdgo._internal.regexp.syntax.Syntax_prog.Prog;
+    function get__p():stdgo._internal.regexp.syntax.Syntax_prog.Prog return this._p;
+    function set__p(v:stdgo._internal.regexp.syntax.Syntax_prog.Prog):stdgo._internal.regexp.syntax.Syntax_prog.Prog {
         this._p = (v : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>);
         return v;
     }
@@ -339,7 +339,7 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._inputs = v;
         return v;
     }
-    public function new(?_re:Regexp_, ?_p:Prog, ?_q0:T_queue, ?_q1:T_queue, ?_pool:Array<T_thread>, ?_matched:Bool, ?_matchcap:Array<StdTypes.Int>, ?_inputs:T_inputs) this = new stdgo._internal.regexp.Regexp_t_machine.T_machine((_re : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), (_p : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>), _q0, _q1, ([for (i in _pool) (i : stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>>), _matched, ([for (i in _matchcap) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), _inputs);
+    public function new(?_re:Regexp_, ?_p:stdgo._internal.regexp.syntax.Syntax_prog.Prog, ?_q0:T_queue, ?_q1:T_queue, ?_pool:Array<T_thread>, ?_matched:Bool, ?_matchcap:Array<StdTypes.Int>, ?_inputs:T_inputs) this = new stdgo._internal.regexp.Regexp_t_machine.T_machine((_re : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), (_p : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>), _q0, _q1, ([for (i in _pool) (i : stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.Regexp_t_thread.T_thread>>), _matched, ([for (i in _matchcap) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), _inputs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -430,9 +430,9 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.regexp.Regexp.T_onePassInst_static_extension) abstract T_onePassInst(stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst) from stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst to stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst {
-    public var inst(get, set) : Inst;
-    function get_inst():Inst return this.inst;
-    function set_inst(v:Inst):Inst {
+    public var inst(get, set) : stdgo._internal.regexp.syntax.Syntax_inst.Inst;
+    function get_inst():stdgo._internal.regexp.syntax.Syntax_inst.Inst return this.inst;
+    function set_inst(v:stdgo._internal.regexp.syntax.Syntax_inst.Inst):stdgo._internal.regexp.syntax.Syntax_inst.Inst {
         this.inst = v;
         return v;
     }
@@ -442,7 +442,7 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this.next = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?inst:Inst, ?next:Array<std.UInt>) this = new stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst(inst, ([for (i in next) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
+    public function new(?inst:stdgo._internal.regexp.syntax.Syntax_inst.Inst, ?next:Array<std.UInt>) this = new stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst(inst, ([for (i in next) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -482,9 +482,9 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._expr = (v : stdgo.GoString);
         return v;
     }
-    public var _prog(get, set) : Prog;
-    function get__prog():Prog return this._prog;
-    function set__prog(v:Prog):Prog {
+    public var _prog(get, set) : stdgo._internal.regexp.syntax.Syntax_prog.Prog;
+    function get__prog():stdgo._internal.regexp.syntax.Syntax_prog.Prog return this._prog;
+    function set__prog(v:stdgo._internal.regexp.syntax.Syntax_prog.Prog):stdgo._internal.regexp.syntax.Syntax_prog.Prog {
         this._prog = (v : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>);
         return v;
     }
@@ -554,9 +554,9 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._prefixComplete = v;
         return v;
     }
-    public var _cond(get, set) : EmptyOp;
-    function get__cond():EmptyOp return this._cond;
-    function set__cond(v:EmptyOp):EmptyOp {
+    public var _cond(get, set) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp;
+    function get__cond():stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp return this._cond;
+    function set__cond(v:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp):stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp {
         this._cond = v;
         return v;
     }
@@ -572,7 +572,7 @@ typedef T_input = stdgo._internal.regexp.Regexp_t_input.T_input;
         this._longest = v;
         return v;
     }
-    public function new(?_expr:String, ?_prog:Prog, ?_onepass:T_onePassProg, ?_numSubexp:StdTypes.Int, ?_maxBitStateLen:StdTypes.Int, ?_subexpNames:Array<String>, ?_prefix:String, ?_prefixBytes:Array<std.UInt>, ?_prefixRune:StdTypes.Int, ?_prefixEnd:std.UInt, ?_mpool:StdTypes.Int, ?_matchcap:StdTypes.Int, ?_prefixComplete:Bool, ?_cond:EmptyOp, ?_minInputLen:StdTypes.Int, ?_longest:Bool) this = new stdgo._internal.regexp.Regexp_regexp.Regexp(
+    public function new(?_expr:String, ?_prog:stdgo._internal.regexp.syntax.Syntax_prog.Prog, ?_onepass:T_onePassProg, ?_numSubexp:StdTypes.Int, ?_maxBitStateLen:StdTypes.Int, ?_subexpNames:Array<String>, ?_prefix:String, ?_prefixBytes:Array<std.UInt>, ?_prefixRune:StdTypes.Int, ?_prefixEnd:std.UInt, ?_mpool:StdTypes.Int, ?_matchcap:StdTypes.Int, ?_prefixComplete:Bool, ?_cond:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp, ?_minInputLen:StdTypes.Int, ?_longest:Bool) this = new stdgo._internal.regexp.Regexp_regexp.Regexp(
 (_expr : stdgo.GoString),
 (_prog : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>),
 (_onepass : stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg>),
@@ -722,7 +722,7 @@ class T_bitState_static_extension {
         final _pos = (_pos : stdgo.GoInt);
         return stdgo._internal.regexp.Regexp_t_bitstate_static_extension.T_bitState_static_extension._shouldVisit(_b, _pc, _pos);
     }
-    static public function _reset(_b:T_bitState, _prog:Prog, _end:StdTypes.Int, _ncap:StdTypes.Int):Void {
+    static public function _reset(_b:T_bitState, _prog:stdgo._internal.regexp.syntax.Syntax_prog.Prog, _end:StdTypes.Int, _ncap:StdTypes.Int):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.regexp.Regexp_t_bitstate.T_bitState>);
         final _prog = (_prog : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>);
         final _end = (_end : stdgo.GoInt);
@@ -772,7 +772,7 @@ class T_machine_static_extension {
         final _pos = (_pos : stdgo.GoInt);
         return stdgo._internal.regexp.Regexp_t_machine_static_extension.T_machine_static_extension._match(_m, _i, _pos);
     }
-    static public function _alloc(_m:T_machine, _i:Inst):T_thread {
+    static public function _alloc(_m:T_machine, _i:stdgo._internal.regexp.syntax.Syntax_inst.Inst):T_thread {
         final _m = (_m : stdgo.Ref<stdgo._internal.regexp.Regexp_t_machine.T_machine>);
         final _i = (_i : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
         return stdgo._internal.regexp.Regexp_t_machine_static_extension.T_machine_static_extension._alloc(_m, _i);
@@ -829,7 +829,7 @@ class T_onePassProg_static_extension {
 }
 typedef T_onePassInstPointer = stdgo._internal.regexp.Regexp_t_onepassinstpointer.T_onePassInstPointer;
 class T_onePassInst_static_extension {
-    public static function _op(__self__:stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst):InstOp {
+    public static function _op(__self__:stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst):stdgo._internal.regexp.syntax.Syntax_instop.InstOp {
         return stdgo._internal.regexp.Regexp_t_onepassinst_static_extension.T_onePassInst_static_extension._op(__self__);
     }
     public static function string(__self__:stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst):String {
@@ -1300,7 +1300,7 @@ class T__struct_7Pointer_static_extension {
 }
 typedef T_lazyFlagPointer = stdgo._internal.regexp.Regexp_t_lazyflagpointer.T_lazyFlagPointer;
 class T_lazyFlag_static_extension {
-    static public function _match(_f:T_lazyFlag, _op:EmptyOp):Bool {
+    static public function _match(_f:T_lazyFlag, _op:stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp):Bool {
         return stdgo._internal.regexp.Regexp_t_lazyflag_static_extension.T_lazyFlag_static_extension._match(_f, _op);
     }
 }

@@ -361,7 +361,7 @@ class T_http2writeFramer_static_extension {
 }
 typedef T_http2writeFramer = stdgo._internal.net.http.Http_t_http2writeframer.T_http2writeFramer;
 class T_http2writeContext_static_extension {
-    static public function headerEncoder(t:stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext):stdgo.Tuple<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_encoder.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
+    static public function headerEncoder(t:stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext):stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
         return {
             final obj = stdgo._internal.net.http.Http_t_http2writecontext_static_extension.T_http2writeContext_static_extension.headerEncoder(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -794,9 +794,9 @@ sameSite,
         this.allowIllegalReads = v;
         return v;
     }
-    public var readMetaHeaders(get, set) : _internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder;
-    function get_readMetaHeaders():_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder return this.readMetaHeaders;
-    function set_readMetaHeaders(v:_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder):_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder {
+    public var readMetaHeaders(get, set) : vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder;
+    function get_readMetaHeaders():vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder return this.readMetaHeaders;
+    function set_readMetaHeaders(v:vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder):vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder {
         this.readMetaHeaders = (v : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>);
         return v;
     }
@@ -806,7 +806,7 @@ sameSite,
         this.maxHeaderListSize = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
+    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1012,9 +1012,9 @@ sameSite,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.Http.T_http2MetaHeadersFrame_static_extension) abstract T_http2MetaHeadersFrame(stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame) from stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame to stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame {
-    public var fields(get, set) : Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>;
-    function get_fields():Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> return [for (i in this.fields) i];
-    function set_fields(v:Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>):Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> {
+    public var fields(get, set) : Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>;
+    function get_fields():Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> return [for (i in this.fields) i];
+    function set_fields(v:Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
         this.fields = ([for (i in v) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
         return v;
     }
@@ -1024,7 +1024,7 @@ sameSite,
         this.truncated = v;
         return v;
     }
-    public function new(?fields:Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
+    public function new(?fields:Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3543,11 +3543,11 @@ class T_http2PushPromiseParam_static_extension {
 }
 typedef T_http2MetaHeadersFramePointer = stdgo._internal.net.http.Http_t_http2metaheadersframepointer.T_http2MetaHeadersFramePointer;
 class T_http2MetaHeadersFrame_static_extension {
-    static public function pseudoFields(_mh:T_http2MetaHeadersFrame):Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> {
+    static public function pseudoFields(_mh:T_http2MetaHeadersFrame):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
         final _mh = (_mh : stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>);
         return [for (i in stdgo._internal.net.http.Http_t_http2metaheadersframe_static_extension.T_http2MetaHeadersFrame_static_extension.pseudoFields(_mh)) i];
     }
-    static public function regularFields(_mh:T_http2MetaHeadersFrame):Array<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> {
+    static public function regularFields(_mh:T_http2MetaHeadersFrame):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
         final _mh = (_mh : stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>);
         return [for (i in stdgo._internal.net.http.Http_t_http2metaheadersframe_static_extension.T_http2MetaHeadersFrame_static_extension.regularFields(_mh)) i];
     }
@@ -3715,7 +3715,7 @@ class T_http2ServeConnOpts_static_extension {
 }
 typedef T_http2serverConnPointer = stdgo._internal.net.http.Http_t_http2serverconnpointer.T_http2serverConnPointer;
 class T_http2serverConn_static_extension {
-    static public function headerEncoder(_sc:T_http2serverConn):stdgo.Tuple<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_encoder.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
+    static public function headerEncoder(_sc:T_http2serverConn):stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
         final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn>);
         return {
             final obj = stdgo._internal.net.http.Http_t_http2serverconn_static_extension.T_http2serverConn_static_extension.headerEncoder(_sc);

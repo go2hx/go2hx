@@ -1,93 +1,93 @@
 package stdgo.crypto.internal.nistec;
 @:structInit @:using(stdgo.crypto.internal.nistec.Nistec.P224Point_static_extension) abstract P224Point(stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point) from stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point to stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point {
-    public var _x(get, set) : P224Element;
-    function get__x():P224Element return this._x;
-    function set__x(v:P224Element):P224Element {
+    public var _x(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element;
+    function get__x():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element return this._x;
+    function set__x(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
         this._x = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return v;
     }
-    public var _y(get, set) : P224Element;
-    function get__y():P224Element return this._y;
-    function set__y(v:P224Element):P224Element {
+    public var _y(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element;
+    function get__y():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element return this._y;
+    function set__y(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
         this._y = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return v;
     }
-    public var _z(get, set) : P224Element;
-    function get__z():P224Element return this._z;
-    function set__z(v:P224Element):P224Element {
+    public var _z(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element;
+    function get__z():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element return this._z;
+    function set__z(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
         this._z = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>);
         return v;
     }
-    public function new(?_x:P224Element, ?_y:P224Element, ?_z:P224Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>));
+    public function new(?_x:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element, ?_y:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element, ?_z:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.nistec.Nistec.P256Point_static_extension) abstract P256Point(stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point) from stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point to stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point {
-    public var _x(get, set) : P256Element;
-    function get__x():P256Element return this._x;
-    function set__x(v:P256Element):P256Element {
+    public var _x(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element;
+    function get__x():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element return this._x;
+    function set__x(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element {
         this._x = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return v;
     }
-    public var _y(get, set) : P256Element;
-    function get__y():P256Element return this._y;
-    function set__y(v:P256Element):P256Element {
+    public var _y(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element;
+    function get__y():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element return this._y;
+    function set__y(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element {
         this._y = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return v;
     }
-    public var _z(get, set) : P256Element;
-    function get__z():P256Element return this._z;
-    function set__z(v:P256Element):P256Element {
+    public var _z(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element;
+    function get__z():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element return this._z;
+    function set__z(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element {
         this._z = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>);
         return v;
     }
-    public function new(?_x:P256Element, ?_y:P256Element, ?_z:P256Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>));
+    public function new(?_x:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element, ?_y:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element, ?_z:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.nistec.Nistec.P384Point_static_extension) abstract P384Point(stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point) from stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point to stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point {
-    public var _x(get, set) : P384Element;
-    function get__x():P384Element return this._x;
-    function set__x(v:P384Element):P384Element {
+    public var _x(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element;
+    function get__x():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element return this._x;
+    function set__x(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element {
         this._x = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return v;
     }
-    public var _y(get, set) : P384Element;
-    function get__y():P384Element return this._y;
-    function set__y(v:P384Element):P384Element {
+    public var _y(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element;
+    function get__y():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element return this._y;
+    function set__y(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element {
         this._y = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return v;
     }
-    public var _z(get, set) : P384Element;
-    function get__z():P384Element return this._z;
-    function set__z(v:P384Element):P384Element {
+    public var _z(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element;
+    function get__z():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element return this._z;
+    function set__z(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element {
         this._z = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>);
         return v;
     }
-    public function new(?_x:P384Element, ?_y:P384Element, ?_z:P384Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>));
+    public function new(?_x:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element, ?_y:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element, ?_z:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.nistec.Nistec.P521Point_static_extension) abstract P521Point(stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point) from stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point to stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point {
-    public var _x(get, set) : P521Element;
-    function get__x():P521Element return this._x;
-    function set__x(v:P521Element):P521Element {
+    public var _x(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element;
+    function get__x():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element return this._x;
+    function set__x(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element {
         this._x = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return v;
     }
-    public var _y(get, set) : P521Element;
-    function get__y():P521Element return this._y;
-    function set__y(v:P521Element):P521Element {
+    public var _y(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element;
+    function get__y():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element return this._y;
+    function set__y(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element {
         this._y = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return v;
     }
-    public var _z(get, set) : P521Element;
-    function get__z():P521Element return this._z;
-    function set__z(v:P521Element):P521Element {
+    public var _z(get, set) : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element;
+    function get__z():stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element return this._z;
+    function set__z(v:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element):stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element {
         this._z = (v : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>);
         return v;
     }
-    public function new(?_x:P521Element, ?_y:P521Element, ?_z:P521Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>));
+    public function new(?_x:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element, ?_y:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element, ?_z:stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element) this = new stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point((_x : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>), (_y : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>), (_z : stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

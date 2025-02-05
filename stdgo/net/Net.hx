@@ -234,9 +234,9 @@ typedef T_sockaddr = stdgo._internal.net.Net_t_sockaddr.T_sockaddr;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.Net.T_policyTableEntry_static_extension) abstract T_policyTableEntry(stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry) from stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry to stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry {
-    public var prefix(get, set) : Prefix;
-    function get_prefix():Prefix return this.prefix;
-    function set_prefix(v:Prefix):Prefix {
+    public var prefix(get, set) : stdgo._internal.net.netip.Netip_prefix.Prefix;
+    function get_prefix():stdgo._internal.net.netip.Netip_prefix.Prefix return this.prefix;
+    function set_prefix(v:stdgo._internal.net.netip.Netip_prefix.Prefix):stdgo._internal.net.netip.Netip_prefix.Prefix {
         this.prefix = v;
         return v;
     }
@@ -252,7 +252,7 @@ typedef T_sockaddr = stdgo._internal.net.Net_t_sockaddr.T_sockaddr;
         this.label = (v : stdgo.GoUInt8);
         return v;
     }
-    public function new(?prefix:Prefix, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry(prefix, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
+    public function new(?prefix:stdgo._internal.net.netip.Netip_prefix.Prefix, ?precedence:std.UInt, ?label:std.UInt) this = new stdgo._internal.net.Net_t_policytableentry.T_policyTableEntry(prefix, (precedence : stdgo.GoUInt8), (label : stdgo.GoUInt8));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -831,13 +831,13 @@ typedef T_sockaddr = stdgo._internal.net.Net_t_sockaddr.T_sockaddr;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.Net.T_addrPortUDPAddr_static_extension) abstract T_addrPortUDPAddr(stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr) from stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr to stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr {
-    public var addrPort(get, set) : AddrPort;
-    function get_addrPort():AddrPort return this.addrPort;
-    function set_addrPort(v:AddrPort):AddrPort {
+    public var addrPort(get, set) : stdgo._internal.net.netip.Netip_addrport.AddrPort;
+    function get_addrPort():stdgo._internal.net.netip.Netip_addrport.AddrPort return this.addrPort;
+    function set_addrPort(v:stdgo._internal.net.netip.Netip_addrport.AddrPort):stdgo._internal.net.netip.Netip_addrport.AddrPort {
         this.addrPort = v;
         return v;
     }
-    public function new(?addrPort:AddrPort) this = new stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr(addrPort);
+    public function new(?addrPort:stdgo._internal.net.netip.Netip_addrport.AddrPort) this = new stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr(addrPort);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1313,7 +1313,7 @@ class Resolver_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function lookupNetIP(_r:Resolver, _ctx:stdgo._internal.context.Context_context.Context, _network:String, _host:String):stdgo.Tuple<Array<Addr>, stdgo.Error> {
+    static public function lookupNetIP(_r:Resolver, _ctx:stdgo._internal.context.Context_context.Context, _network:String, _host:String):stdgo.Tuple<Array<stdgo._internal.net.netip.Netip_addr.Addr>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>);
         final _network = (_network : stdgo.GoString);
         final _host = (_host : stdgo.GoString);
@@ -1906,7 +1906,7 @@ class TCPAddr_static_extension {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
         return stdgo._internal.net.Net_tcpaddr_static_extension.TCPAddr_static_extension.network(_a);
     }
-    static public function addrPort(_a:TCPAddr):AddrPort {
+    static public function addrPort(_a:TCPAddr):stdgo._internal.net.netip.Netip_addrport.AddrPort {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_tcpaddr.TCPAddr>);
         return stdgo._internal.net.Net_tcpaddr_static_extension.TCPAddr_static_extension.addrPort(_a);
     }
@@ -2062,7 +2062,7 @@ class UDPAddr_static_extension {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return stdgo._internal.net.Net_udpaddr_static_extension.UDPAddr_static_extension.network(_a);
     }
-    static public function addrPort(_a:UDPAddr):AddrPort {
+    static public function addrPort(_a:UDPAddr):stdgo._internal.net.netip.Netip_addrport.AddrPort {
         final _a = (_a : stdgo.Ref<stdgo._internal.net.Net_udpaddr.UDPAddr>);
         return stdgo._internal.net.Net_udpaddr_static_extension.UDPAddr_static_extension.addrPort(_a);
     }
@@ -2105,13 +2105,13 @@ class T_addrPortUDPAddr_static_extension {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.appendTo(__self__, _0)) i];
     }
-    public static function addr(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):Addr {
+    public static function addr(__self__:stdgo._internal.net.Net_t_addrportudpaddr.T_addrPortUDPAddr):stdgo._internal.net.netip.Netip_addr.Addr {
         return stdgo._internal.net.Net_t_addrportudpaddr_static_extension.T_addrPortUDPAddr_static_extension.addr(__self__);
     }
 }
 typedef UDPConnPointer = stdgo._internal.net.Net_udpconnpointer.UDPConnPointer;
 class UDPConn_static_extension {
-    static public function writeMsgUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>, _addr:AddrPort):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    static public function writeMsgUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>, _addr:stdgo._internal.net.netip.Netip_addrport.AddrPort):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2138,7 +2138,7 @@ class UDPConn_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeToUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _addr:AddrPort):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function writeToUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _addr:stdgo._internal.net.netip.Netip_addrport.AddrPort):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -2155,7 +2155,7 @@ class UDPConn_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readMsgUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, AddrPort, stdgo.Error> {
+    static public function readMsgUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>, _oob:Array<std.UInt>):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo._internal.net.netip.Netip_addrport.AddrPort, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _oob = ([for (i in _oob) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2173,7 +2173,7 @@ class UDPConn_static_extension {
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
-    static public function readFromUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, AddrPort, stdgo.Error> {
+    static public function readFromUDPAddrPort(_c:UDPConn, _b:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.net.netip.Netip_addrport.AddrPort, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.Net_udpconn.UDPConn>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -2437,7 +2437,7 @@ class T__struct_0Pointer_static_extension {
 }
 typedef T_policyTablePointer = stdgo._internal.net.Net_t_policytablepointer.T_policyTablePointer;
 class T_policyTable_static_extension {
-    static public function classify(_t:T_policyTable, _ip:Addr):T_policyTableEntry {
+    static public function classify(_t:T_policyTable, _ip:stdgo._internal.net.netip.Netip_addr.Addr):T_policyTableEntry {
         return stdgo._internal.net.Net_t_policytable_static_extension.T_policyTable_static_extension.classify(_t, _ip);
     }
 }
@@ -3297,7 +3297,7 @@ class Net {
         * then the returned TCPAddr will contain a nil IP field, indicating an
         * address family-agnostic unspecified address.
     **/
-    static public inline function tCPAddrFromAddrPort(_addr:AddrPort):TCPAddr {
+    static public inline function tCPAddrFromAddrPort(_addr:stdgo._internal.net.netip.Netip_addrport.AddrPort):TCPAddr {
         return stdgo._internal.net.Net_tcpaddrfromaddrport.tCPAddrFromAddrPort(_addr);
     }
     /**
@@ -3367,7 +3367,7 @@ class Net {
         * then the returned UDPAddr will contain a nil IP field, indicating an
         * address family-agnostic unspecified address.
     **/
-    static public inline function uDPAddrFromAddrPort(_addr:AddrPort):UDPAddr {
+    static public inline function uDPAddrFromAddrPort(_addr:stdgo._internal.net.netip.Netip_addrport.AddrPort):UDPAddr {
         return stdgo._internal.net.Net_udpaddrfromaddrport.uDPAddrFromAddrPort(_addr);
     }
     /**

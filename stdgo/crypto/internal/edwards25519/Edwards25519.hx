@@ -1,53 +1,53 @@
 package stdgo.crypto.internal.edwards25519;
 @:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP1xP1_static_extension) abstract T_projP1xP1(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 {
-    public var x(get, set) : Element;
-    function get_x():Element return this.x;
-    function set_x(v:Element):Element {
+    public var x(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_x():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.x;
+    function set_x(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.x = v;
         return v;
     }
-    public var y(get, set) : Element;
-    function get_y():Element return this.y;
-    function set_y(v:Element):Element {
+    public var y(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_y():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.y;
+    function set_y(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.y = v;
         return v;
     }
-    public var z(get, set) : Element;
-    function get_z():Element return this.z;
-    function set_z(v:Element):Element {
+    public var z(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_z():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.z;
+    function set_z(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.z = v;
         return v;
     }
-    public var t(get, set) : Element;
-    function get_t():Element return this.t;
-    function set_t(v:Element):Element {
+    public var t(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_t():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.t;
+    function set_t(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.t = v;
         return v;
     }
-    public function new(?x:Element, ?y:Element, ?z:Element, ?t:Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1(x, y, z, t);
+    public function new(?x:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?y:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?z:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?t:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1(x, y, z, t);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP2_static_extension) abstract T_projP2(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 {
-    public var x(get, set) : Element;
-    function get_x():Element return this.x;
-    function set_x(v:Element):Element {
+    public var x(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_x():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.x;
+    function set_x(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.x = v;
         return v;
     }
-    public var y(get, set) : Element;
-    function get_y():Element return this.y;
-    function set_y(v:Element):Element {
+    public var y(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_y():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.y;
+    function set_y(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.y = v;
         return v;
     }
-    public var z(get, set) : Element;
-    function get_z():Element return this.z;
-    function set_z(v:Element):Element {
+    public var z(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_z():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.z;
+    function set_z(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.z = v;
         return v;
     }
-    public function new(?x:Element, ?y:Element, ?z:Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2(x, y, z);
+    public function new(?x:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?y:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?z:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2(x, y, z);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -58,83 +58,83 @@ package stdgo.crypto.internal.edwards25519;
         this.__1 = v;
         return v;
     }
-    public var _x(get, set) : Element;
-    function get__x():Element return this._x;
-    function set__x(v:Element):Element {
+    public var _x(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get__x():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this._x;
+    function set__x(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : Element;
-    function get__y():Element return this._y;
-    function set__y(v:Element):Element {
+    public var _y(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get__y():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this._y;
+    function set__y(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this._y = v;
         return v;
     }
-    public var _z(get, set) : Element;
-    function get__z():Element return this._z;
-    function set__z(v:Element):Element {
+    public var _z(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get__z():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this._z;
+    function set__z(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this._z = v;
         return v;
     }
-    public var _t(get, set) : Element;
-    function get__t():Element return this._t;
-    function set__t(v:Element):Element {
+    public var _t(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get__t():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this._t;
+    function set__t(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this._t = v;
         return v;
     }
-    public function new(?__1:T_incomparable, ?_x:Element, ?_y:Element, ?_z:Element, ?_t:Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_point.Point(__1, _x, _y, _z, _t);
+    public function new(?__1:T_incomparable, ?_x:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?_y:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?_z:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?_t:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_point.Point(__1, _x, _y, _z, _t);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projCached_static_extension) abstract T_projCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached {
-    public var yplusX(get, set) : Element;
-    function get_yplusX():Element return this.yplusX;
-    function set_yplusX(v:Element):Element {
+    public var yplusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_yplusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yplusX;
+    function set_yplusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.yplusX = v;
         return v;
     }
-    public var yminusX(get, set) : Element;
-    function get_yminusX():Element return this.yminusX;
-    function set_yminusX(v:Element):Element {
+    public var yminusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_yminusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yminusX;
+    function set_yminusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.yminusX = v;
         return v;
     }
-    public var z(get, set) : Element;
-    function get_z():Element return this.z;
-    function set_z(v:Element):Element {
+    public var z(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_z():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.z;
+    function set_z(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.z = v;
         return v;
     }
-    public var t2d(get, set) : Element;
-    function get_t2d():Element return this.t2d;
-    function set_t2d(v:Element):Element {
+    public var t2d(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_t2d():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.t2d;
+    function set_t2d(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.t2d = v;
         return v;
     }
-    public function new(?yplusX:Element, ?yminusX:Element, ?z:Element, ?t2d:Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached(yplusX, yminusX, z, t2d);
+    public function new(?yplusX:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?yminusX:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?z:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?t2d:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached(yplusX, yminusX, z, t2d);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_affineCached_static_extension) abstract T_affineCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached {
-    public var yplusX(get, set) : Element;
-    function get_yplusX():Element return this.yplusX;
-    function set_yplusX(v:Element):Element {
+    public var yplusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_yplusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yplusX;
+    function set_yplusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.yplusX = v;
         return v;
     }
-    public var yminusX(get, set) : Element;
-    function get_yminusX():Element return this.yminusX;
-    function set_yminusX(v:Element):Element {
+    public var yminusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_yminusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yminusX;
+    function set_yminusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.yminusX = v;
         return v;
     }
-    public var t2d(get, set) : Element;
-    function get_t2d():Element return this.t2d;
-    function set_t2d(v:Element):Element {
+    public var t2d(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
+    function get_t2d():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.t2d;
+    function set_t2d(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
         this.t2d = v;
         return v;
     }
-    public function new(?yplusX:Element, ?yminusX:Element, ?t2d:Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached(yplusX, yminusX, t2d);
+    public function new(?yplusX:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?yminusX:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element, ?t2d:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) this = new stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached(yplusX, yminusX, t2d);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

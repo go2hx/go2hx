@@ -41,13 +41,13 @@ package stdgo.internal.godebug;
         this._nonDefault = v;
         return v;
     }
-    public var _info(get, set) : Info;
-    function get__info():Info return this._info;
-    function set__info(v:Info):Info {
+    public var _info(get, set) : stdgo._internal.internal.godebugs.Godebugs_info.Info;
+    function get__info():stdgo._internal.internal.godebugs.Godebugs_info.Info return this._info;
+    function set__info(v:stdgo._internal.internal.godebugs.Godebugs_info.Info):stdgo._internal.internal.godebugs.Godebugs_info.Info {
         this._info = (v : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_info.Info>);
         return v;
     }
-    public function new(?_value:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync_once.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_info:Info) this = new stdgo._internal.internal.godebug.Godebug_t_setting.T_setting(_value, _nonDefaultOnce, _nonDefault, (_info : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_info.Info>));
+    public function new(?_value:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync_once.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_info:stdgo._internal.internal.godebugs.Godebugs_info.Info) this = new stdgo._internal.internal.godebug.Godebug_t_setting.T_setting(_value, _nonDefaultOnce, _nonDefault, (_info : stdgo.Ref<stdgo._internal.internal.godebugs.Godebugs_info.Info>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -163,9 +163,9 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
         this._h = (v : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>);
         return v;
     }
-    public var _buf(get, set) : Buffer;
-    function get__buf():Buffer return this._buf;
-    function set__buf(v:Buffer):Buffer {
+    public var _buf(get, set) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer;
+    function get__buf():stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer return this._buf;
+    function set__buf(v:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer):stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer {
         this._buf = (v : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         return v;
     }
@@ -181,9 +181,9 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
         this._sep = (v : stdgo.GoString);
         return v;
     }
-    public var _prefix(get, set) : Buffer;
-    function get__prefix():Buffer return this._prefix;
-    function set__prefix(v:Buffer):Buffer {
+    public var _prefix(get, set) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer;
+    function get__prefix():stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer return this._prefix;
+    function set__prefix(v:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer):stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer {
         this._prefix = (v : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         return v;
     }
@@ -193,7 +193,7 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
         this._groups = (v : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
         return v;
     }
-    public function new(?_h:T_commonHandler, ?_buf:Buffer, ?_freeBuf:Bool, ?_sep:String, ?_prefix:Buffer, ?_groups:Array<String>) this = new stdgo._internal.log.slog.Slog_t_handlestate.T_handleState((_h : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>), _freeBuf, (_sep : stdgo.GoString), (_prefix : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>), (_groups : stdgo.Ref<stdgo.Slice<stdgo.GoString>>));
+    public function new(?_h:T_commonHandler, ?_buf:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, ?_freeBuf:Bool, ?_sep:String, ?_prefix:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, ?_groups:Array<String>) this = new stdgo._internal.log.slog.Slog_t_handlestate.T_handleState((_h : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>), _freeBuf, (_sep : stdgo.GoString), (_prefix : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>), (_groups : stdgo.Ref<stdgo.Slice<stdgo.GoString>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -402,7 +402,7 @@ class HandlerOptions_static_extension {
 }
 typedef T_commonHandlerPointer = stdgo._internal.log.slog.Slog_t_commonhandlerpointer.T_commonHandlerPointer;
 class T_commonHandler_static_extension {
-    static public function _newHandleState(_h:T_commonHandler, _buf:Buffer, _freeBuf:Bool, _sep:String):T_handleState {
+    static public function _newHandleState(_h:T_commonHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _freeBuf:Bool, _sep:String):T_handleState {
         final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>);
         final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         final _sep = (_sep : stdgo.GoString);
@@ -515,7 +515,7 @@ class JSONHandler_static_extension {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.log.slog.Slog_jsonhandler_static_extension.JSONHandler_static_extension._withAttrs(__self__, _0);
     }
-    public static function _newHandleState(__self__:stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler, _0:Buffer, _1:Bool, _2:String):T_handleState {
+    public static function _newHandleState(__self__:stdgo._internal.log.slog.Slog_jsonhandler.JSONHandler, _0:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _1:Bool, _2:String):T_handleState {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         final _2 = (_2 : stdgo.GoString);
         return stdgo._internal.log.slog.Slog_jsonhandler_static_extension.JSONHandler_static_extension._newHandleState(__self__, _0, _1, _2);
@@ -714,7 +714,7 @@ class TextHandler_static_extension {
         final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         return stdgo._internal.log.slog.Slog_texthandler_static_extension.TextHandler_static_extension._withAttrs(__self__, _0);
     }
-    public static function _newHandleState(__self__:stdgo._internal.log.slog.Slog_texthandler.TextHandler, _0:Buffer, _1:Bool, _2:String):T_handleState {
+    public static function _newHandleState(__self__:stdgo._internal.log.slog.Slog_texthandler.TextHandler, _0:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _1:Bool, _2:String):T_handleState {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
         final _2 = (_2 : stdgo.GoString);
         return stdgo._internal.log.slog.Slog_texthandler_static_extension.TextHandler_static_extension._newHandleState(__self__, _0, _1, _2);

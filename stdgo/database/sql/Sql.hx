@@ -89,9 +89,9 @@ class Result_static_extension {
 }
 typedef Result = stdgo._internal.database.sql.Sql_result.Result;
 @:structInit @:using(stdgo.database.sql.Sql.T_ccChecker_static_extension) abstract T_ccChecker(stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker) from stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker to stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker {
-    public var _cci(get, set) : ColumnConverter;
-    function get__cci():ColumnConverter return this._cci;
-    function set__cci(v:ColumnConverter):ColumnConverter {
+    public var _cci(get, set) : stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter;
+    function get__cci():stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter return this._cci;
+    function set__cci(v:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter):stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter {
         this._cci = v;
         return v;
     }
@@ -101,7 +101,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._want = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_cci:ColumnConverter, ?_want:StdTypes.Int) this = new stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker(_cci, (_want : stdgo.GoInt));
+    public function new(?_cci:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter, ?_want:StdTypes.Int) this = new stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker(_cci, (_want : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -329,9 +329,9 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._waitDuration = v;
         return v;
     }
-    public var _connector(get, set) : Connector;
-    function get__connector():Connector return this._connector;
-    function set__connector(v:Connector):Connector {
+    public var _connector(get, set) : stdgo._internal.database.sql.driver.Driver_connector.Connector;
+    function get__connector():stdgo._internal.database.sql.driver.Driver_connector.Connector return this._connector;
+    function set__connector(v:stdgo._internal.database.sql.driver.Driver_connector.Connector):stdgo._internal.database.sql.driver.Driver_connector.Connector {
         this._connector = v;
         return v;
     }
@@ -455,7 +455,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._stop = v;
         return v;
     }
-    public function new(?_waitDuration:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_connector:Connector, ?_numClosed:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>, ?_lastPut:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_db.DB(
+    public function new(?_waitDuration:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_connector:stdgo._internal.database.sql.driver.Driver_connector.Connector, ?_numClosed:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>, ?_lastPut:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_db.DB(
 _waitDuration,
 _connector,
 _numClosed,
@@ -500,9 +500,9 @@ _stop);
         this.mutex = v;
         return v;
     }
-    public var _ci(get, set) : Conn;
-    function get__ci():Conn return this._ci;
-    function set__ci(v:Conn):Conn {
+    public var _ci(get, set) : stdgo._internal.database.sql.driver.Driver_conn.Conn;
+    function get__ci():stdgo._internal.database.sql.driver.Driver_conn.Conn return this._ci;
+    function set__ci(v:stdgo._internal.database.sql.driver.Driver_conn.Conn):stdgo._internal.database.sql.driver.Driver_conn.Conn {
         this._ci = v;
         return v;
     }
@@ -554,7 +554,7 @@ _stop);
         this._dbmuClosed = v;
         return v;
     }
-    public function new(?_db:DB, ?_createdAt:stdgo._internal.time.Time_time.Time, ?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_ci:Conn, ?_needReset:Bool, ?_closed:Bool, ?_finalClosed:Bool, ?_openStmt:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>, ?_inUse:Bool, ?_returnedAt:stdgo._internal.time.Time_time.Time, ?_onPut:Array<() -> Void>, ?_dbmuClosed:Bool) this = new stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn(
+    public function new(?_db:DB, ?_createdAt:stdgo._internal.time.Time_time.Time, ?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_ci:stdgo._internal.database.sql.driver.Driver_conn.Conn, ?_needReset:Bool, ?_closed:Bool, ?_finalClosed:Bool, ?_openStmt:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>, ?_inUse:Bool, ?_returnedAt:stdgo._internal.time.Time_time.Time, ?_onPut:Array<() -> Void>, ?_dbmuClosed:Bool) this = new stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn(
 (_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>),
 _createdAt,
 mutex,
@@ -577,9 +577,9 @@ _dbmuClosed);
         this.locker = v;
         return v;
     }
-    public var _si(get, set) : Stmt;
-    function get__si():Stmt return this._si;
-    function set__si(v:Stmt):Stmt {
+    public var _si(get, set) : stdgo._internal.database.sql.driver.Driver_stmt.Stmt;
+    function get__si():stdgo._internal.database.sql.driver.Driver_stmt.Stmt return this._si;
+    function set__si(v:stdgo._internal.database.sql.driver.Driver_stmt.Stmt):stdgo._internal.database.sql.driver.Driver_stmt.Stmt {
         this._si = v;
         return v;
     }
@@ -595,7 +595,7 @@ _dbmuClosed);
         this._closeErr = (v : stdgo.Error);
         return v;
     }
-    public function new(?locker:stdgo._internal.sync.Sync_locker.Locker, ?_si:Stmt, ?_closed:Bool, ?_closeErr:stdgo.Error) this = new stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt(locker, _si, _closed, (_closeErr : stdgo.Error));
+    public function new(?locker:stdgo._internal.sync.Sync_locker.Locker, ?_si:stdgo._internal.database.sql.driver.Driver_stmt.Stmt, ?_closed:Bool, ?_closeErr:stdgo.Error) this = new stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt(locker, _si, _closed, (_closeErr : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -606,13 +606,13 @@ _dbmuClosed);
         this._dsn = (v : stdgo.GoString);
         return v;
     }
-    public var _driver(get, set) : Driver;
-    function get__driver():Driver return this._driver;
-    function set__driver(v:Driver):Driver {
+    public var _driver(get, set) : stdgo._internal.database.sql.driver.Driver_driver.Driver;
+    function get__driver():stdgo._internal.database.sql.driver.Driver_driver.Driver return this._driver;
+    function set__driver(v:stdgo._internal.database.sql.driver.Driver_driver.Driver):stdgo._internal.database.sql.driver.Driver_driver.Driver {
         this._driver = v;
         return v;
     }
-    public function new(?_dsn:String, ?_driver:Driver) this = new stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector((_dsn : stdgo.GoString), _driver);
+    public function new(?_dsn:String, ?_driver:stdgo._internal.database.sql.driver.Driver_driver.Driver) this = new stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector((_dsn : stdgo.GoString), _driver);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -752,9 +752,9 @@ _dbmuClosed);
         this._dc = (v : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>);
         return v;
     }
-    public var _txi(get, set) : Tx;
-    function get__txi():Tx return this._txi;
-    function set__txi(v:Tx):Tx {
+    public var _txi(get, set) : stdgo._internal.database.sql.driver.Driver_tx.Tx;
+    function get__txi():stdgo._internal.database.sql.driver.Driver_tx.Tx return this._txi;
+    function set__txi(v:stdgo._internal.database.sql.driver.Driver_tx.Tx):stdgo._internal.database.sql.driver.Driver_tx.Tx {
         this._txi = v;
         return v;
     }
@@ -800,7 +800,7 @@ _dbmuClosed);
         this._ctx = v;
         return v;
     }
-    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_dc:T_driverConn, ?_txi:Tx, ?_releaseConn:stdgo.Error -> Void, ?_done:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_keepConnOnRollback:Bool, ?_stmts:stdgo.Tuple<stdgo._internal.sync.Sync_mutex.Mutex, Array<Stmt>>, ?_cancel:() -> Void, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.database.sql.Sql_tx.Tx((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>), _txi, _releaseConn, _done, _keepConnOnRollback, {
+    public function new(?_db:DB, ?_closemu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_dc:T_driverConn, ?_txi:stdgo._internal.database.sql.driver.Driver_tx.Tx, ?_releaseConn:stdgo.Error -> Void, ?_done:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_keepConnOnRollback:Bool, ?_stmts:stdgo.Tuple<stdgo._internal.sync.Sync_mutex.Mutex, Array<Stmt>>, ?_cancel:() -> Void, ?_ctx:stdgo._internal.context.Context_context.Context) this = new stdgo._internal.database.sql.Sql_tx.Tx((_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>), _closemu, (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>), _txi, _releaseConn, _done, _keepConnOnRollback, {
         final obj = _stmts;
         { mutex : obj.mutex, _v : ([for (i in obj._v) (i : stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>>) };
     }, _cancel, _ctx);
@@ -919,9 +919,9 @@ _closed,
         this._releaseConn = v;
         return v;
     }
-    public var _rowsi(get, set) : Rows;
-    function get__rowsi():Rows return this._rowsi;
-    function set__rowsi(v:Rows):Rows {
+    public var _rowsi(get, set) : stdgo._internal.database.sql.driver.Driver_rows.Rows;
+    function get__rowsi():stdgo._internal.database.sql.driver.Driver_rows.Rows return this._rowsi;
+    function set__rowsi(v:stdgo._internal.database.sql.driver.Driver_rows.Rows):stdgo._internal.database.sql.driver.Driver_rows.Rows {
         this._rowsi = v;
         return v;
     }
@@ -961,9 +961,9 @@ _closed,
         this._lasterr = (v : stdgo.Error);
         return v;
     }
-    public var _lastcols(get, set) : Array<Value>;
-    function get__lastcols():Array<Value> return [for (i in this._lastcols) i];
-    function set__lastcols(v:Array<Value>):Array<Value> {
+    public var _lastcols(get, set) : Array<stdgo._internal.database.sql.driver.Driver_value.Value>;
+    function get__lastcols():Array<stdgo._internal.database.sql.driver.Driver_value.Value> return [for (i in this._lastcols) i];
+    function set__lastcols(v:Array<stdgo._internal.database.sql.driver.Driver_value.Value>):Array<stdgo._internal.database.sql.driver.Driver_value.Value> {
         this._lastcols = ([for (i in v) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
         return v;
     }
@@ -979,7 +979,7 @@ _closed,
         this._hitEOF = v;
         return v;
     }
-    public function new(?_dc:T_driverConn, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:Rows, ?_cancel:() -> Void, ?_closeStmt:T_driverStmt, ?_contextDone:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:Array<Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) this = new stdgo._internal.database.sql.Sql_rows.Rows(
+    public function new(?_dc:T_driverConn, ?_releaseConn:stdgo.Error -> Void, ?_rowsi:stdgo._internal.database.sql.driver.Driver_rows.Rows, ?_cancel:() -> Void, ?_closeStmt:T_driverStmt, ?_contextDone:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.Error>, ?_closemu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_closed:Bool, ?_lasterr:stdgo.Error, ?_lastcols:Array<stdgo._internal.database.sql.driver.Driver_value.Value>, ?_closemuScanHold:Bool, ?_hitEOF:Bool) this = new stdgo._internal.database.sql.Sql_rows.Rows(
 (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>),
 _releaseConn,
 _rowsi,
@@ -1084,13 +1084,13 @@ _hitEOF);
         this.locker = v;
         return v;
     }
-    public var _resi(get, set) : Result;
-    function get__resi():Result return this._resi;
-    function set__resi(v:Result):Result {
+    public var _resi(get, set) : stdgo._internal.database.sql.driver.Driver_result.Result;
+    function get__resi():stdgo._internal.database.sql.driver.Driver_result.Result return this._resi;
+    function set__resi(v:stdgo._internal.database.sql.driver.Driver_result.Result):stdgo._internal.database.sql.driver.Driver_result.Result {
         this._resi = v;
         return v;
     }
-    public function new(?locker:stdgo._internal.sync.Sync_locker.Locker, ?_resi:Result) this = new stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult(locker, _resi);
+    public function new(?locker:stdgo._internal.sync.Sync_locker.Locker, ?_resi:stdgo._internal.database.sql.driver.Driver_result.Result) this = new stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult(locker, _resi);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1126,7 +1126,7 @@ typedef T_depSet = stdgo._internal.database.sql.Sql_t_depset.T_depSet;
 typedef T_releaseConn = stdgo._internal.database.sql.Sql_t_releaseconn.T_releaseConn;
 typedef T_ccCheckerPointer = stdgo._internal.database.sql.Sql_t_cccheckerpointer.T_ccCheckerPointer;
 class T_ccChecker_static_extension {
-    static public function checkNamedValue(_c:T_ccChecker, _nv:NamedValue):stdgo.Error {
+    static public function checkNamedValue(_c:T_ccChecker, _nv:stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue):stdgo.Error {
         final _nv = (_nv : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return stdgo._internal.database.sql.Sql_t_ccchecker_static_extension.T_ccChecker_static_extension.checkNamedValue(_c, _nv);
     }
@@ -1141,7 +1141,7 @@ class TxOptions_static_extension {
 }
 typedef NullStringPointer = stdgo._internal.database.sql.Sql_nullstringpointer.NullStringPointer;
 class NullString_static_extension {
-    static public function value(_ns:NullString):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_ns:NullString):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullstring_static_extension.NullString_static_extension.value(_ns);
             { _0 : obj._0, _1 : obj._1 };
@@ -1155,7 +1155,7 @@ class NullString_static_extension {
 }
 typedef NullInt64Pointer = stdgo._internal.database.sql.Sql_nullint64pointer.NullInt64Pointer;
 class NullInt64_static_extension {
-    static public function value(_n:NullInt64):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullInt64):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullint64_static_extension.NullInt64_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1169,7 +1169,7 @@ class NullInt64_static_extension {
 }
 typedef NullInt32Pointer = stdgo._internal.database.sql.Sql_nullint32pointer.NullInt32Pointer;
 class NullInt32_static_extension {
-    static public function value(_n:NullInt32):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullInt32):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullint32_static_extension.NullInt32_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1183,7 +1183,7 @@ class NullInt32_static_extension {
 }
 typedef NullInt16Pointer = stdgo._internal.database.sql.Sql_nullint16pointer.NullInt16Pointer;
 class NullInt16_static_extension {
-    static public function value(_n:NullInt16):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullInt16):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullint16_static_extension.NullInt16_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1197,7 +1197,7 @@ class NullInt16_static_extension {
 }
 typedef NullBytePointer = stdgo._internal.database.sql.Sql_nullbytepointer.NullBytePointer;
 class NullByte_static_extension {
-    static public function value(_n:NullByte):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullByte):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullbyte_static_extension.NullByte_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1211,7 +1211,7 @@ class NullByte_static_extension {
 }
 typedef NullFloat64Pointer = stdgo._internal.database.sql.Sql_nullfloat64pointer.NullFloat64Pointer;
 class NullFloat64_static_extension {
-    static public function value(_n:NullFloat64):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullFloat64):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullfloat64_static_extension.NullFloat64_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1225,7 +1225,7 @@ class NullFloat64_static_extension {
 }
 typedef NullBoolPointer = stdgo._internal.database.sql.Sql_nullboolpointer.NullBoolPointer;
 class NullBool_static_extension {
-    static public function value(_n:NullBool):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullBool):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nullbool_static_extension.NullBool_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1239,7 +1239,7 @@ class NullBool_static_extension {
 }
 typedef NullTimePointer = stdgo._internal.database.sql.Sql_nulltimepointer.NullTimePointer;
 class NullTime_static_extension {
-    static public function value(_n:NullTime):stdgo.Tuple<Value, stdgo.Error> {
+    static public function value(_n:NullTime):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_value.Value, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_nulltime_static_extension.NullTime_static_extension.value(_n);
             { _0 : obj._0, _1 : obj._1 };
@@ -1264,7 +1264,7 @@ class DB_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function driver(_db:DB):Driver {
+    static public function driver(_db:DB):stdgo._internal.database.sql.driver.Driver_driver.Driver {
         final _db = (_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>);
         return stdgo._internal.database.sql.Sql_db_static_extension.DB_static_extension.driver(_db);
     }
@@ -1623,10 +1623,10 @@ class T_driverStmt_static_extension {
 }
 typedef T_dsnConnectorPointer = stdgo._internal.database.sql.Sql_t_dsnconnectorpointer.T_dsnConnectorPointer;
 class T_dsnConnector_static_extension {
-    static public function driver(_t:T_dsnConnector):Driver {
+    static public function driver(_t:T_dsnConnector):stdgo._internal.database.sql.driver.Driver_driver.Driver {
         return stdgo._internal.database.sql.Sql_t_dsnconnector_static_extension.T_dsnConnector_static_extension.driver(_t);
     }
-    static public function connect(_t:T_dsnConnector, __19:stdgo._internal.context.Context_context.Context):stdgo.Tuple<Conn, stdgo.Error> {
+    static public function connect(_t:T_dsnConnector, __19:stdgo._internal.context.Context_context.Context):stdgo.Tuple<stdgo._internal.database.sql.driver.Driver_conn.Conn, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_t_dsnconnector_static_extension.T_dsnConnector_static_extension.connect(_t, __19);
             { _0 : obj._0, _1 : obj._1 };
@@ -2084,7 +2084,7 @@ class Sql {
         * If Register is called twice with the same name or if driver is nil,
         * it panics.
     **/
-    static public inline function register(_name:String, _driver:Driver):Void {
+    static public inline function register(_name:String, _driver:stdgo._internal.database.sql.driver.Driver_driver.Driver):Void {
         final _name = (_name : stdgo.GoString);
         stdgo._internal.database.sql.Sql_register.register(_name, _driver);
     }
@@ -2131,7 +2131,7 @@ class Sql {
         * function should be called just once. It is rarely necessary to
         * close a DB.
     **/
-    static public inline function openDB(_c:Connector):DB {
+    static public inline function openDB(_c:stdgo._internal.database.sql.driver.Driver_connector.Connector):DB {
         return stdgo._internal.database.sql.Sql_opendb.openDB(_c);
     }
     /**

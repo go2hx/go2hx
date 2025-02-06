@@ -118,6 +118,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - uses: EndBug/add-and-commit@v9
+        continue-on-error: true
         with:
             message: stdgo automatic compile
             pull: --rebase --autostash

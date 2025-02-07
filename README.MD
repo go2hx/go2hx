@@ -291,11 +291,11 @@ Besides addressing the various limitations and issues we've already mentioned,
 we have a number of features planned for Go2hx.
 
 - go-easy, go-medium, and yaegi-medium 100% passing tests on hashlink
-- Get the [chroma](https://github.com/alecthomas/chroma) library compiling and working
-- Haxe documentation generator for the Go2hx compiled stdlib code
-- Alpha release!
+- ~~Get the [chroma](https://github.com/alecthomas/chroma) library compiling and working~~ (requires encoding/xml and embed pkg, lowered in priority)
+- Compile and release: [Lzma](https://github.com/itchio/lzma) compression library 
+- Compile and release: [hsm](https://github.com/dragomit/hsm) hierarchical state machine library
 - More std libs passing
-- [Dog fooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food): use [go-humanize](https://github.com/dustin/go-humanize), [bubbletea](https://github.com/charmbracelet/bubbletea) 
+- [Dog fooding](https://en.wikipedia.org/wiki/Eating_your_own_dog_food): use [go-humanize](https://github.com/dustin/go-humanize), [bubbletea](https://github.com/charmbracelet/bubbletea)
 
 # Contributing
 

@@ -227,7 +227,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
-	list2 := strings.Split(string(stdgoListBytes), "\n")
+	CRLF := strings.ReplaceAll(string(stdgoListBytes), "\r\n", "\n")
+	CR := strings.ReplaceAll(CRLF, "\r", "\n")
+	list2 := strings.Split(CR, "\n")
 	stdgoList = make(map[string]bool, len(list2))
 	for _, s := range list2 {
 		stdgoList[s] = true

@@ -307,6 +307,7 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 	if excludes[pkg.PkgPath] {
 		return
 	}
+	excludes[pkg.PkgPath] = true
 	for _, val := range pkg.Imports {
 		/*if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue

@@ -205,8 +205,11 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
-function close(code:Int=0, instance: InstanceData) {
-	Cache.saveCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+function close(code:Int=0, instance: Null<InstanceData> = null) {
+	if (instance != null) {
+		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+	}
+	
 	#if (debug && !nodejs)
 	if (processes.length > 0) {
 		processes[0].kill();

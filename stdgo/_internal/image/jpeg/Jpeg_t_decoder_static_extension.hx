@@ -163,19 +163,19 @@ if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
     @:tdfield
     static public function _refine( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>, _zigStart:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _delta:stdgo.GoInt32):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _loopBreak = false;
-        var _err_2984948:stdgo.Error = (null : stdgo.Error);
-        var _err_2985238:stdgo.Error = (null : stdgo.Error);
-        var _z_2985214:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _zig_2985137:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _value_2985231:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_2985641:stdgo.Error = (null : stdgo.Error);
-        var _bit_2985636:Bool = false;
         var _err_2985466:stdgo.Error = (null : stdgo.Error);
-        var _val1_2985328:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _bit_2984943:Bool = false;
-        var _err_2986074:stdgo.Error = (null : stdgo.Error);
         var _bits_2985460:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _z_2985214:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _value_2985231:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _loopBreak = false;
+        var _zig_2985137:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _err_2984948:stdgo.Error = (null : stdgo.Error);
+        var _bit_2984943:Bool = false;
+        var _bit_2985636:Bool = false;
+        var _val1_2985328:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_2986074:stdgo.Error = (null : stdgo.Error);
+        var _err_2985641:stdgo.Error = (null : stdgo.Error);
+        var _err_2985238:stdgo.Error = (null : stdgo.Error);
         var _val0_2985306:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
@@ -1535,13 +1535,13 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
     @:tdfield
     static public function _decodeHuffman( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _err_2949402:stdgo.Error = (null : stdgo.Error);
-        var _slowPathBreak = false;
         var _code_2949329:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_2949326:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_2949219:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _v_2949153:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_2948730:stdgo.Error = (null : stdgo.Error);
+        var _err_2949402:stdgo.Error = (null : stdgo.Error);
+        var _slowPathBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

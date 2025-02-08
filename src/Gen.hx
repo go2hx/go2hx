@@ -218,7 +218,13 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	File.saveContent(path, contentString);
+	var didWrite = Cache.checkHashAndWrite(path, contentString);
+
+	if (!didWrite) {
+		Sys.println("Skipped: " + dir + name + extension + ".hx");
+		return;
+	}
+
 	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 }
 
@@ -226,7 +232,13 @@ private function appendRaw(dir:String, name:String, contentString, prefix:String
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	File.saveContent(path, File.getContent(path) + contentString);
+	var didWrite = Cache.checkHashAndWrite(path, File.getContent(path) + contentString);
+
+	if (!didWrite) {
+		Sys.println("Skipped: " + dir + name + extension + ".hx");
+		return;
+	}
+
 	Sys.println("Appended: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 }
 

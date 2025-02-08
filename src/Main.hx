@@ -56,7 +56,7 @@ function run(args:Array<String>) {
 	setup(instance, processCount, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
-				close();
+				close(0, instance);
 			};
 		compile(instance);
 	});
@@ -81,6 +81,10 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-test", "--test"] => () -> instance.test = true,
 		["-vartrace", "--vartrace", "-varTrace", "--varTrace"] => () -> instance.varTraceBool = true,
 		["-stack", "--stack"] => () -> instance.stackBool = true,
+		@doc("disable the usage of the build cache")
+		["-no-cache", "--no-cache"] => () -> instance.useCache = false,
+		@doc("clean the cache and regenerate all files")
+		["-clean-cache", "--clean-cache"] => () -> instance.cleanCache = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
 		@doc("set the root package for all generated files")
@@ -148,6 +152,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		@doc("Version of the compiler")
 		["-version", "--version"] => () -> Sys.println(sys.io.File.getContent("version.txt")),
 	]);
+
 	argHandler.parse(args);
 	for (i in 0...args.length) {
 		switch args[i] {
@@ -171,11 +176,11 @@ function compileArgs(args:Array<String>):InstanceData {
 	instance.args = args;
 	if (help) {
 		printDoc(argHandler);
-		close();
+		close(0, instance);
 		return instance;
 	}
 	if (args.length <= 1) {
-		close();
+		close(0, instance);
 	}
 
 	return instance;
@@ -200,7 +205,11 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
-function close(code:Int=0) {
+function close(code:Int=0, instance: Null<InstanceData> = null) {
+	if (instance != null) {
+		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+	}
+	
 	#if (debug && !nodejs)
 	if (processes.length > 0) {
 		processes[0].kill();
@@ -221,6 +230,9 @@ function close(code:Int=0) {
 }
 
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
+	Cache.setUseCache(instance.useCache);
+	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+	
 	var port = instance.port;
 	if (port == 0)
 		port = 6114 + Std.random(800); // random range in case port is still bound from before
@@ -301,7 +313,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 				#end
 				// close as stream has broken
 				trace("stream has broken");
-				close();
+				close(0, instance);
 				return;
 			}
 			if (buff == null) {
@@ -720,6 +732,8 @@ class InstanceData {
 	public var hxmlPath:String = "";
 	public var noRun:Bool = false;
 	public var noComments:Bool = false;
+	public var useCache: Bool = true;
+	public var cleanCache: Bool = false;
 	public var test:Bool = false;
 
 	public var noCommentsBool:Bool = false;

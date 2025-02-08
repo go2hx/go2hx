@@ -81,18 +81,17 @@ class Cache {
             var unserialized: Cache = Unserializer.run(content);
             
             if (unserialized.version != CURRENT_VERSION) {
-                throw "mismatching version! new cache will be used.";
+                 Sys.println("Cache: mismatching version! new cache will be used.");
             }
 
             if (unserialized is Cache) {
-                trace('load from', path);
                 cache = unserialized;
                 return;
             }
 
-            throw "cache is corrupted! new cache will be used.";
+            Sys.println("Cache: cache is corrupted! new cache will be used.");
         } catch(e: Dynamic) {
-            Sys.println("Cache: " + Std.string(e));
+            Sys.println("Cache: parsing error, " + Std.string(e));
         }
     }
 

@@ -6,7 +6,7 @@ import sys.io.File;
 import Types;
 import Ast.BasicKind;
 
-final stdgoList:Array<String> = File.getContent("data/stdgo.list").split("\n");
+final stdgoList:Array<String> = normalizeCLRF(File.getContent("data/stdgo.list")).split("\n");
 final excludesList:Array<String> = haxe.Json.parse(File.getContent("data/excludes.json"));
 final exports:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExports.json"));
 final externs:Array<String> = haxe.Json.parse(File.getContent("data/stdgoExterns.json"));
@@ -8507,7 +8507,7 @@ private function sanatizeComment(source:String):String {
 		return source;
 	source = StringTools.replace(source, "/*", "");
 	source = StringTools.replace(source, "*/", "");
-	var lines = source.split("\n");
+	var lines = normalizeCLRF(source).split("\n");
 	for (i in 0...lines.length) {
 		if (lines[i].substr(0,3) == "// ")
 			lines[i] = lines[i].substr(3);

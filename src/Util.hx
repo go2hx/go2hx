@@ -89,8 +89,16 @@ function copyDirectoryRecursively(from:String, to:String):Int {
 	#end
 }
 
+
+function normalizeCLRF(text:String):String {
+	text = StringTools.replace(text, "\r\n", "\n");
+	text = StringTools.replace(text, "\r", "\n");
+	return text;
+}
+
 function hxmlToArgs(path:String,commands:Array<String>) {
-	final lines = sys.io.File.getContent(path).split("\n");
+	final lines = Util.normalizeCLRF(sys.io.File.getContent(path))
+	.split("\n");
 	for (line in lines) {
 		if (line != "") {
 			final parts = line.split(" ");

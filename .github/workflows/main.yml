@@ -1,7 +1,7 @@
 # DO NOT EDIT. Generated from scripts/github-action
 name: build
 
-on: [push]
+on: [push,pull_request]
 
 concurrency:
   group: ${{ github.ref }}

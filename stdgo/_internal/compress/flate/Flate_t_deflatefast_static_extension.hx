@@ -81,23 +81,23 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _encode( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>, _dst:stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token> {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast> = _e;
-        var _currHash_3719168:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _prevHash_3719043:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _x_3719018:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _nextS_3716882:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _sLimit_3715816:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _l_3718378:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _t_3718341:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _now_3717152:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _candidate_3716899:stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
-        var _s_3715949:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _offset_3719322:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextHash_3715986:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _nextEmit_3715927:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _offset_3717278:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _bytesBetweenHashLookups_3716944:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _skip_3716861:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _cv_3715964:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _offset_3648935:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _currHash_3648781:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_3648631:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _nextS_3646495:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _cv_3645577:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _skip_3646474:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _prevHash_3648656:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _l_3647991:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _t_3647954:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _now_3646765:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _candidate_3646512:stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
+        var _nextEmit_3645540:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _offset_3646891:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _bytesBetweenHashLookups_3646557:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextHash_3645599:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _s_3645562:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _sLimit_3645429:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -105,132 +105,132 @@ package stdgo._internal.compress.flate;
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     if (((@:checkr _e ?? throw "null pointer dereference")._cur >= (2147352577 : stdgo.GoInt32) : Bool)) {
-                        _gotoNext = 3715370i32;
+                        _gotoNext = 3644983i32;
                     } else {
-                        _gotoNext = 3715514i32;
+                        _gotoNext = 3645127i32;
                     };
-                } else if (__value__ == (3715370i32)) {
+                } else if (__value__ == (3644983i32)) {
                     @:check2r _e._shiftOffsets();
-                    _gotoNext = 3715514i32;
-                } else if (__value__ == (3715514i32)) {
+                    _gotoNext = 3645127i32;
+                } else if (__value__ == (3645127i32)) {
                     if (((_src.length) < (17 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3715551i32;
+                        _gotoNext = 3645164i32;
                     } else {
-                        _gotoNext = 3715816i32;
+                        _gotoNext = 3645429i32;
                     };
-                } else if (__value__ == (3715551i32)) {
+                } else if (__value__ == (3645164i32)) {
                     (@:checkr _e ?? throw "null pointer dereference")._cur = ((@:checkr _e ?? throw "null pointer dereference")._cur + ((65535 : stdgo.GoInt32)) : stdgo.GoInt32);
                     (@:checkr _e ?? throw "null pointer dereference")._prev = ((@:checkr _e ?? throw "null pointer dereference")._prev.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     return stdgo._internal.compress.flate.Flate__emitliteral._emitLiteral(_dst, _src);
-                    _gotoNext = 3715816i32;
-                } else if (__value__ == (3715816i32)) {
-                    _sLimit_3715816 = (((_src.length) - (15 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32);
-                    _nextEmit_3715927 = (0 : stdgo.GoInt32);
-                    _s_3715949 = (0 : stdgo.GoInt32);
-                    _cv_3715964 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _s_3715949);
-                    _nextHash_3715986 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3715964);
+                    _gotoNext = 3645429i32;
+                } else if (__value__ == (3645429i32)) {
+                    _sLimit_3645429 = (((_src.length) - (15 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32);
+                    _nextEmit_3645540 = (0 : stdgo.GoInt32);
+                    _s_3645562 = (0 : stdgo.GoInt32);
+                    _cv_3645577 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _s_3645562);
+                    _nextHash_3645599 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3645577);
                     var __blank__ = 0i32;
-                    _gotoNext = 3716009i32;
-                } else if (__value__ == (3716009i32)) {
+                    _gotoNext = 3645622i32;
+                } else if (__value__ == (3645622i32)) {
                     if (true) {
-                        _gotoNext = 3716013i32;
+                        _gotoNext = 3645626i32;
                     } else {
-                        _gotoNext = 3719504i32;
+                        _gotoNext = 3649117i32;
                     };
-                } else if (__value__ == (3716013i32)) {
-                    _skip_3716861 = (32 : stdgo.GoInt32);
-                    _nextS_3716882 = _s_3715949;
+                } else if (__value__ == (3645626i32)) {
+                    _skip_3646474 = (32 : stdgo.GoInt32);
+                    _nextS_3646495 = _s_3645562;
                     var __blank__ = 0i32;
-                    _gotoNext = 3716922i32;
-                } else if (__value__ == (3716922i32)) {
+                    _gotoNext = 3646535i32;
+                } else if (__value__ == (3646535i32)) {
                     if (true) {
-                        _gotoNext = 3716926i32;
+                        _gotoNext = 3646539i32;
                     } else {
-                        _gotoNext = 3717631i32;
+                        _gotoNext = 3647244i32;
                     };
-                } else if (__value__ == (3716926i32)) {
-                    _s_3715949 = _nextS_3716882;
-                    _bytesBetweenHashLookups_3716944 = (_skip_3716861 >> (5i64 : stdgo.GoUInt64) : stdgo.GoInt32);
-                    _nextS_3716882 = (_s_3715949 + _bytesBetweenHashLookups_3716944 : stdgo.GoInt32);
-                    _skip_3716861 = (_skip_3716861 + (_bytesBetweenHashLookups_3716944) : stdgo.GoInt32);
-                    if ((_nextS_3716882 > _sLimit_3715816 : Bool)) {
-                        _gotoNext = 3717076i32;
+                } else if (__value__ == (3646539i32)) {
+                    _s_3645562 = _nextS_3646495;
+                    _bytesBetweenHashLookups_3646557 = (_skip_3646474 >> (5i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+                    _nextS_3646495 = (_s_3645562 + _bytesBetweenHashLookups_3646557 : stdgo.GoInt32);
+                    _skip_3646474 = (_skip_3646474 + (_bytesBetweenHashLookups_3646557) : stdgo.GoInt32);
+                    if ((_nextS_3646495 > _sLimit_3645429 : Bool)) {
+                        _gotoNext = 3646689i32;
                     } else {
-                        _gotoNext = 3717109i32;
+                        _gotoNext = 3646722i32;
                     };
-                } else if (__value__ == (3717076i32)) {
-                    _gotoNext = 3719504i32;
-                } else if (__value__ == (3717109i32)) {
-                    _candidate_3716899 = (@:checkr _e ?? throw "null pointer dereference")._table[((_nextHash_3715986 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
-                    _now_3717152 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _nextS_3716882);
-                    (@:checkr _e ?? throw "null pointer dereference")._table[((_nextHash_3715986 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_s_3715949 + (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32), _val : _cv_3715964 } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
-                    _nextHash_3715986 = stdgo._internal.compress.flate.Flate__hash._hash(_now_3717152);
-                    _offset_3717278 = (_s_3715949 - ((_candidate_3716899._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32)) : stdgo.GoInt32);
-                    if (((_offset_3717278 > (32768 : stdgo.GoInt32) : Bool) || (_cv_3715964 != _candidate_3716899._val) : Bool)) {
-                        _gotoNext = 3717372i32;
+                } else if (__value__ == (3646689i32)) {
+                    _gotoNext = 3649117i32;
+                } else if (__value__ == (3646722i32)) {
+                    _candidate_3646512 = (@:checkr _e ?? throw "null pointer dereference")._table[((_nextHash_3645599 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
+                    _now_3646765 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _nextS_3646495);
+                    (@:checkr _e ?? throw "null pointer dereference")._table[((_nextHash_3645599 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_s_3645562 + (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32), _val : _cv_3645577 } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
+                    _nextHash_3645599 = stdgo._internal.compress.flate.Flate__hash._hash(_now_3646765);
+                    _offset_3646891 = (_s_3645562 - ((_candidate_3646512._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32)) : stdgo.GoInt32);
+                    if (((_offset_3646891 > (32768 : stdgo.GoInt32) : Bool) || (_cv_3645577 != _candidate_3646512._val) : Bool)) {
+                        _gotoNext = 3646985i32;
                     } else {
-                        _gotoNext = 3717444i32;
+                        _gotoNext = 3647057i32;
                     };
-                } else if (__value__ == (3717372i32)) {
-                    _cv_3715964 = _now_3717152;
+                } else if (__value__ == (3646985i32)) {
+                    _cv_3645577 = _now_3646765;
                     var __blank__ = 0i32;
-                    _gotoNext = 3716922i32;
-                } else if (__value__ == (3717444i32)) {
-                    _gotoNext = 3717631i32;
-                } else if (__value__ == (3717631i32)) {
-                    _dst = stdgo._internal.compress.flate.Flate__emitliteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3715927, _s_3715949) : stdgo.Slice<stdgo.GoUInt8>));
+                    _gotoNext = 3646535i32;
+                } else if (__value__ == (3647057i32)) {
+                    _gotoNext = 3647244i32;
+                } else if (__value__ == (3647244i32)) {
+                    _dst = stdgo._internal.compress.flate.Flate__emitliteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3645540, _s_3645562) : stdgo.Slice<stdgo.GoUInt8>));
                     var __blank__ = 0i32;
-                    _gotoNext = 3718162i32;
-                } else if (__value__ == (3718162i32)) {
+                    _gotoNext = 3647775i32;
+                } else if (__value__ == (3647775i32)) {
                     if (true) {
-                        _gotoNext = 3718166i32;
+                        _gotoNext = 3647779i32;
                     } else {
-                        _gotoNext = 3716009i32;
+                        _gotoNext = 3645622i32;
                     };
-                } else if (__value__ == (3718166i32)) {
-                    _s_3715949 = (_s_3715949 + ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
-                    _t_3718341 = ((_candidate_3716899._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32) + (4 : stdgo.GoInt32) : stdgo.GoInt32);
-                    _l_3718378 = @:check2r _e._matchLen(_s_3715949, _t_3718341, _src);
-                    _dst = (_dst.__append__(stdgo._internal.compress.flate.Flate__matchtoken._matchToken((((_l_3718378 + (4 : stdgo.GoInt32) : stdgo.GoInt32) - (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32), (((_s_3715949 - _t_3718341 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32))));
-                    _s_3715949 = (_s_3715949 + (_l_3718378) : stdgo.GoInt32);
-                    _nextEmit_3715927 = _s_3715949;
-                    if ((_s_3715949 >= _sLimit_3715816 : Bool)) {
-                        _gotoNext = 3718618i32;
+                } else if (__value__ == (3647779i32)) {
+                    _s_3645562 = (_s_3645562 + ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
+                    _t_3647954 = ((_candidate_3646512._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32) + (4 : stdgo.GoInt32) : stdgo.GoInt32);
+                    _l_3647991 = @:check2r _e._matchLen(_s_3645562, _t_3647954, _src);
+                    _dst = (_dst.__append__(stdgo._internal.compress.flate.Flate__matchtoken._matchToken((((_l_3647991 + (4 : stdgo.GoInt32) : stdgo.GoInt32) - (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32), (((_s_3645562 - _t_3647954 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32))));
+                    _s_3645562 = (_s_3645562 + (_l_3647991) : stdgo.GoInt32);
+                    _nextEmit_3645540 = _s_3645562;
+                    if ((_s_3645562 >= _sLimit_3645429 : Bool)) {
+                        _gotoNext = 3648231i32;
                     } else {
-                        _gotoNext = 3719018i32;
+                        _gotoNext = 3648631i32;
                     };
-                } else if (__value__ == (3718618i32)) {
-                    _gotoNext = 3719504i32;
-                } else if (__value__ == (3719018i32)) {
-                    _x_3719018 = stdgo._internal.compress.flate.Flate__load64._load64(_src, (_s_3715949 - (1 : stdgo.GoInt32) : stdgo.GoInt32));
-                    _prevHash_3719043 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3719018 : stdgo.GoUInt32));
-                    (@:checkr _e ?? throw "null pointer dereference")._table[((_prevHash_3719043 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (((@:checkr _e ?? throw "null pointer dereference")._cur + _s_3715949 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32), _val : (_x_3719018 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
-                    _x_3719018 = (_x_3719018 >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _currHash_3719168 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3719018 : stdgo.GoUInt32));
-                    _candidate_3716899 = (@:checkr _e ?? throw "null pointer dereference")._table[((_currHash_3719168 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
-                    (@:checkr _e ?? throw "null pointer dereference")._table[((_currHash_3719168 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : ((@:checkr _e ?? throw "null pointer dereference")._cur + _s_3715949 : stdgo.GoInt32), _val : (_x_3719018 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
-                    _offset_3719322 = (_s_3715949 - ((_candidate_3716899._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32)) : stdgo.GoInt32);
-                    if (((_offset_3719322 > (32768 : stdgo.GoInt32) : Bool) || ((_x_3719018 : stdgo.GoUInt32) != _candidate_3716899._val) : Bool)) {
-                        _gotoNext = 3719423i32;
+                } else if (__value__ == (3648231i32)) {
+                    _gotoNext = 3649117i32;
+                } else if (__value__ == (3648631i32)) {
+                    _x_3648631 = stdgo._internal.compress.flate.Flate__load64._load64(_src, (_s_3645562 - (1 : stdgo.GoInt32) : stdgo.GoInt32));
+                    _prevHash_3648656 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3648631 : stdgo.GoUInt32));
+                    (@:checkr _e ?? throw "null pointer dereference")._table[((_prevHash_3648656 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (((@:checkr _e ?? throw "null pointer dereference")._cur + _s_3645562 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32), _val : (_x_3648631 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
+                    _x_3648631 = (_x_3648631 >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _currHash_3648781 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3648631 : stdgo.GoUInt32));
+                    _candidate_3646512 = (@:checkr _e ?? throw "null pointer dereference")._table[((_currHash_3648781 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
+                    (@:checkr _e ?? throw "null pointer dereference")._table[((_currHash_3648781 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : ((@:checkr _e ?? throw "null pointer dereference")._cur + _s_3645562 : stdgo.GoInt32), _val : (_x_3648631 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry);
+                    _offset_3648935 = (_s_3645562 - ((_candidate_3646512._offset - (@:checkr _e ?? throw "null pointer dereference")._cur : stdgo.GoInt32)) : stdgo.GoInt32);
+                    if (((_offset_3648935 > (32768 : stdgo.GoInt32) : Bool) || ((_x_3648631 : stdgo.GoUInt32) != _candidate_3646512._val) : Bool)) {
+                        _gotoNext = 3649036i32;
                     } else {
-                        _gotoNext = 3718162i32;
+                        _gotoNext = 3647775i32;
                     };
-                } else if (__value__ == (3719423i32)) {
-                    _cv_3715964 = ((_x_3719018 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
-                    _nextHash_3715986 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3715964);
-                    _s_3715949++;
-                    _gotoNext = 3716009i32;
-                } else if (__value__ == (3719504i32)) {
-                    _gotoNext = 3719504i32;
-                    if (((_nextEmit_3715927 : stdgo.GoInt) < (_src.length) : Bool)) {
-                        _gotoNext = 3719548i32;
+                } else if (__value__ == (3649036i32)) {
+                    _cv_3645577 = ((_x_3648631 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
+                    _nextHash_3645599 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3645577);
+                    _s_3645562++;
+                    _gotoNext = 3645622i32;
+                } else if (__value__ == (3649117i32)) {
+                    _gotoNext = 3649117i32;
+                    if (((_nextEmit_3645540 : stdgo.GoInt) < (_src.length) : Bool)) {
+                        _gotoNext = 3649161i32;
                     } else {
-                        _gotoNext = 3719595i32;
+                        _gotoNext = 3649208i32;
                     };
-                } else if (__value__ == (3719548i32)) {
-                    _dst = stdgo._internal.compress.flate.Flate__emitliteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3715927) : stdgo.Slice<stdgo.GoUInt8>));
-                    _gotoNext = 3719595i32;
-                } else if (__value__ == (3719595i32)) {
+                } else if (__value__ == (3649161i32)) {
+                    _dst = stdgo._internal.compress.flate.Flate__emitliteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3645540) : stdgo.Slice<stdgo.GoUInt8>));
+                    _gotoNext = 3649208i32;
+                } else if (__value__ == (3649208i32)) {
                     (@:checkr _e ?? throw "null pointer dereference")._cur = ((@:checkr _e ?? throw "null pointer dereference")._cur + ((_src.length : stdgo.GoInt32)) : stdgo.GoInt32);
                     (@:checkr _e ?? throw "null pointer dereference")._prev = ((@:checkr _e ?? throw "null pointer dereference")._prev.__slice__(0, (_src.length)) : stdgo.Slice<stdgo.GoUInt8>);
                     (@:checkr _e ?? throw "null pointer dereference")._prev.__copyTo__(_src);

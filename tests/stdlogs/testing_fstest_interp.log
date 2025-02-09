@@ -7,7 +7,8 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-
+writeFile e5iokcm2di/hello: no such file or directory
+Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (./stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 9 column 36)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)

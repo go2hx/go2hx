@@ -209,21 +209,21 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> = _d;
-        var _newLength_3654422:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevLength_3654043:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_3653821:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _newIndex_3655422:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _newOffset_3654433:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minIndex_3654140:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_3653882:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _lookahead_3653139:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_3659521:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _prevOffset_3657749:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_3658125:Bool = false;
+        var _newOffset_3658114:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_3657563:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _i_3660248:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newIndex_3659103:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hash_3659358:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var loopBreak = false;
-        var _i_3656567:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_3655677:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _ok_3654444:Bool = false;
-        var _hh_3655840:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _index_3655574:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevOffset_3654068:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevLength_3657724:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hash_3657502:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _lookahead_3656820:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _index_3659255:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newLength_3658103:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _minIndex_3657821:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

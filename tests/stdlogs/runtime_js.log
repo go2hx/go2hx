@@ -6,9 +6,9 @@
       |
       | Missing return: Bool
 
-[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1857: character 39
+[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1856: character 39
 
- 1857 |         var _keys_6229925:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+ 1856 |         var _keys_6610113:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
       |                                       ^
       | Invalid character '#'
 

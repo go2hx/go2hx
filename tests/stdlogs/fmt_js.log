@@ -27,8 +27,8 @@ Called from .stdgo__$internal_reflect_Reflect_$deepequal_deepEqual (/home/runner
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testerrorf_testErrorf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:42117:7)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113990:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113991:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113993:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestErrorf
@@ -47,8 +47,8 @@ Called from .stdgo__$internal_fmt_Fmt_$sprintf_sprintf (/home/runner/work/go2hx/
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testsprintf_testSprintf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43236:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113990:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113991:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113993:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestSprintf
@@ -70,8 +70,8 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:90285:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43669:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113990:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113991:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113993:3)
 
 -- SKIP: TestCountMallocs
 
@@ -207,8 +207,8 @@ Called from .stdgo__$internal_fmt_Fmt_$sscanf_sscanf (/home/runner/work/go2hx/go
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanf_testScanf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:51384:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113990:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113991:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113993:3)
 
 -- FAIL: TestScanf
 
@@ -257,8 +257,8 @@ Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2h
 Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscannotpointer_testScanNotPointer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:70336:16)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
 Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113990:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113991:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113993:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
 
 -- FAIL: TestScanNotPointer
@@ -341,52 +341,14 @@ Sscan expected EOF; got <invalid reflect.Value>
 -- PASS: TestScanStateCount
 
 === RUN  TestScanInts
-bad scan: expected <invalid reflect.Value> got %!d(MISSING)bad scan count: expected <invalid reflect.Value> got %!d(MISSING)
--- PASS: TestScanInts
+bad scan: expected <invalid reflect.Value> got %!d(MISSING)Exception: __fail__
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90810 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90699 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:90246:58
+Called from ._$internal_fmt_$test_Fmt_$test_$_$testscanints__testScanInts (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73661 column 4)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanints_testScanInts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:73605:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 90056 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 77519 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:113992:1
 
-=== RUN  TestHexBytes
-<invalid reflect.Value>: bad length %!d(MISSING)
-<invalid reflect.Value>: bad length %!d(MISSING)
-<invalid reflect.Value>: bad length %!d(MISSING)
-<invalid reflect.Value>: bad length %!d(MISSING)
-<invalid reflect.Value>: bad length %!d(MISSING)
-<invalid reflect.Value>: bad length %!d(MISSING)
-odd count: got count, err = <invalid reflect.Value>, %!v(MISSING); expected 0, error
-
--- FAIL: TestHexBytes
-
-=== RUN  TestScanNewlinesAreSpaces
-
--- PASS: TestScanNewlinesAreSpaces
-
-=== RUN  TestScanlnNewlinesTerminate
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-
--- FAIL: TestScanlnNewlinesTerminate
-
-=== RUN  TestScanfNewlineMatchFormat
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-<invalid reflect.Value>: expected error; got none
-
--- FAIL: TestScanfNewlineMatchFormat
-
-=== RUN  TestHexByte
-expected 0123 got <invalid reflect.Value>
--- PASS: TestHexByte
-
-=== RUN  TestFormatString
-
--- PASS: TestFormatString
-
-=== RUN  TestStringer
-
--- PASS: TestStringer
-
+-- FAIL: TestScanInts

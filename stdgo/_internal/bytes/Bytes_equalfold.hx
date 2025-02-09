@@ -1,15 +1,15 @@
 package stdgo._internal.bytes;
 function equalFold(_s:stdgo.Slice<stdgo.GoUInt8>, _t:stdgo.Slice<stdgo.GoUInt8>):Bool {
+        var _sr_3020204:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _r_3021482:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _r_3020934:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _r_3020806:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _tr_3020727:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _size_3020937:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_3020809:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_3020806:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _i_3020156:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_3020937:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _tr_3020727:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _sr_3020723:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _tr_3020217:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _sr_3020204:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _i_3020156:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

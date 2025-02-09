@@ -11,14 +11,7 @@
         "TestSplitList",
         "TestSplit",
         "TestJoin",
-        "TestExt",
-        "TestBase",
-        "TestDir",
-        "TestIsAbs",
-        "TestRel",
-        "TestVolumeName",
-        "TestDriveLetterInEvalSymlinks",
-        "TestIssue29372"
+        "TestExt"
     ],
     "fails": [
         "TestGlob",

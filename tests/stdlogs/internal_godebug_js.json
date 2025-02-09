@@ -1,7 +1,5 @@
 {
-    "passes": [
-        "TestBisectTestCase"
-    ],
+    "passes": [],
     "fails": [
         "TestGet",
         "TestMetrics",

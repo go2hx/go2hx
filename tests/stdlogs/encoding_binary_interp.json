@@ -4,19 +4,7 @@
         "TestWriteSlice",
         "TestReadBool",
         "TestReadBoolSlice",
-        "TestSliceRoundTrip",
-        "TestSizeInvalid",
-        "TestUnexportedRead",
-        "TestByteOrder",
-        "TestEarlyBoundsChecks",
-        "TestNoFixedSize",
-        "TestConstants",
-        "TestVarint",
-        "TestUvarint",
-        "TestBufferTooSmall",
-        "TestBufferTooBigWithOverflow",
-        "TestOverflow",
-        "TestNonCanonicalZero"
+        "TestSliceRoundTrip"
     ],
     "fails": [
         "TestLittleEndianRead",

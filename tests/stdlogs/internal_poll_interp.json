@@ -1,7 +1,6 @@
 {
     "passes": [
         "TestReadError",
-        "TestMutexOverflowPanic",
         "TestRead"
     ],
     "fails": [

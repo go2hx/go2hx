@@ -353,15 +353,15 @@ var _s = __1, _name = __0;
     static public function _parseEscape( _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser> = _p;
         var _r = (0 : stdgo.GoInt32), _rest = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var _y_3320427:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _v_3320105:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _nhex_3319923:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3319442:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3318676:stdgo.Error = (null : stdgo.Error);
         var _c_3318768:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _t_3318690:stdgo.GoString = ("" : stdgo.GoString);
         var switchBreak = false;
-        var _y_3320427:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _x_3320343:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _v_3320105:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _err_3318676:stdgo.Error = (null : stdgo.Error);
+        var _i_3319442:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -845,16 +845,16 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
     static public function _parsePerlFlags( _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser> = _p;
         var _rest = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _flags_3313222:stdgo._internal.regexp.syntax.Syntax_flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
-        var _c_3313192:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _name_3312802:stdgo.GoString = ("" : stdgo.GoString);
         var _end_3312598:stdgo.GoInt = (0 : stdgo.GoInt);
         var _t_3311752:stdgo.GoString = ("" : stdgo.GoString);
-        var loopBreak = false;
         var _sawFlag_3313252:Bool = false;
-        var _sign_3313240:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _flags_3313222:stdgo._internal.regexp.syntax.Syntax_flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
+        var _c_3313192:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _re_3313042:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>);
         var _capture_3312764:stdgo.GoString = ("" : stdgo.GoString);
+        var loopBreak = false;
+        var _sign_3313240:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

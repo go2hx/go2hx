@@ -3,20 +3,7 @@
         "TestReadSlice",
         "TestWriteSlice",
         "TestReadBool",
-        "TestReadBoolSlice",
-        "TestSliceRoundTrip",
-        "TestSizeInvalid",
-        "TestUnexportedRead",
-        "TestByteOrder",
-        "TestEarlyBoundsChecks",
-        "TestNoFixedSize",
-        "TestConstants",
-        "TestVarint",
-        "TestUvarint",
-        "TestBufferTooSmall",
-        "TestBufferTooBigWithOverflow",
-        "TestOverflow",
-        "TestNonCanonicalZero"
+        "TestReadBoolSlice"
     ],
     "fails": [
         "TestLittleEndianRead",
@@ -25,13 +12,7 @@
         "TestBigEndianRead",
         "TestBigEndianWrite",
         "TestBigEndianPtrWrite",
-        "TestWriteT",
-        "TestBlankFields",
-        "TestSizeStructCache",
-        "TestReadErrorMsg",
-        "TestReadTruncated",
-        "TestReadInvalidDestination",
-        "TestNativeEndian"
+        "TestSliceRoundTrip"
     ],
     "runs": [
         "TestLittleEndianRead",
@@ -44,25 +25,6 @@
         "TestWriteSlice",
         "TestReadBool",
         "TestReadBoolSlice",
-        "TestSliceRoundTrip",
-        "TestWriteT",
-        "TestBlankFields",
-        "TestSizeStructCache",
-        "TestSizeInvalid",
-        "TestUnexportedRead",
-        "TestReadErrorMsg",
-        "TestReadTruncated",
-        "TestByteOrder",
-        "TestEarlyBoundsChecks",
-        "TestReadInvalidDestination",
-        "TestNoFixedSize",
-        "TestNativeEndian",
-        "TestConstants",
-        "TestVarint",
-        "TestUvarint",
-        "TestBufferTooSmall",
-        "TestBufferTooBigWithOverflow",
-        "TestOverflow",
-        "TestNonCanonicalZero"
+        "TestSliceRoundTrip"
     ]
 }

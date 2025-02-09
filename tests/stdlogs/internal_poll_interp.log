@@ -35,8 +35,11 @@ Called from stdgo._internal.internal.poll.XFDMutex_static_extension.incref (./st
 -- FAIL: TestMutexPanic
 
 === RUN  TestMutexOverflowPanic
-wrong panic message "XFDMutex:internal.poll.incref is not yet implemented"
--- PASS: TestMutexOverflowPanic
+wrong panic message "XFDMutex:internal.poll.incref is not yet implemented"Exception: XFDMutex:internal.poll.incref is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.internal.poll_test._Poll_test_testmutexoverflowpanic.Poll_test_testmutexoverflowpanic_Fields_.testMutexOverflowPanic (./_internal/internal/poll_test/Poll_test_testmutexoverflowpanic.hx line 97 column 21)
+
+-- FAIL: TestMutexOverflowPanic
 
 === RUN  TestMutexStress
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented

@@ -1,18 +1,14 @@
 {
     "passes": [
         "TestMapFS",
-        "TestMapFSChmodDot",
-        "TestDash"
+        "TestMapFSChmodDot"
     ],
     "fails": [
-        "TestSymlink",
-        "TestShuffledFS"
+        "TestSymlink"
     ],
     "runs": [
         "TestMapFS",
         "TestMapFSChmodDot",
-        "TestSymlink",
-        "TestDash",
-        "TestShuffledFS"
+        "TestSymlink"
     ]
 }

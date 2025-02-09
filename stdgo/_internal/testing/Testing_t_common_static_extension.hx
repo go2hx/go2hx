@@ -66,6 +66,7 @@ package stdgo._internal.testing;
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_t_common.T_common> = _c;
         stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+        _c.failNow();
     }
     @:keep
     @:tdfield
@@ -73,6 +74,7 @@ package stdgo._internal.testing;
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_t_common.T_common> = _c;
         stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+        _c.failNow();
     }
     @:keep
     @:tdfield

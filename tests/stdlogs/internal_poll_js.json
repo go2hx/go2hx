@@ -1,13 +1,13 @@
 {
     "passes": [
-        "TestReadError",
-        "TestMutexOverflowPanic"
+        "TestReadError"
     ],
     "fails": [
         "TestMutexLock",
         "TestMutexClose",
         "TestMutexCloseUnblock",
         "TestMutexPanic",
+        "TestMutexOverflowPanic",
         "TestMutexStress"
     ],
     "runs": [

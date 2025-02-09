@@ -127,9 +127,10 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 	@:op(A <= B) private static function ltef(a:GoFloat32, b:Float):Bool;
 
 	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat32):Bool;
-
+	// https://github.com/HaxeFoundation/haxe/issues/11990
+	// Temp fix use Float64 for eq
 	@:op(A == B) private static function eq(a:GoFloat32, b:GoFloat32):Bool
-		return a.toBasic() == b.toBasic();
+		return (a.toBasic() : Float64) == (b.toBasic() : Float64);
 
 	@:op(A != B) private static function notEq(a:GoFloat32, b:GoFloat32):Bool
 		return !eq(a, b);

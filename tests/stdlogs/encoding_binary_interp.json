@@ -15,11 +15,7 @@
         "TestBigEndianPtrWrite",
         "TestWriteT",
         "TestBlankFields",
-        "TestSizeStructCache",
-        "TestReadErrorMsg",
-        "TestReadTruncated",
-        "TestReadInvalidDestination",
-        "TestNativeEndian"
+        "TestSizeStructCache"
     ],
     "runs": [
         "TestLittleEndianRead",
@@ -35,22 +31,6 @@
         "TestSliceRoundTrip",
         "TestWriteT",
         "TestBlankFields",
-        "TestSizeStructCache",
-        "TestSizeInvalid",
-        "TestUnexportedRead",
-        "TestReadErrorMsg",
-        "TestReadTruncated",
-        "TestByteOrder",
-        "TestEarlyBoundsChecks",
-        "TestReadInvalidDestination",
-        "TestNoFixedSize",
-        "TestNativeEndian",
-        "TestConstants",
-        "TestVarint",
-        "TestUvarint",
-        "TestBufferTooSmall",
-        "TestBufferTooBigWithOverflow",
-        "TestOverflow",
-        "TestNonCanonicalZero"
+        "TestSizeStructCache"
     ]
 }

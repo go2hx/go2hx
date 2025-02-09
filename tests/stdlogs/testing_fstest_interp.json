@@ -4,14 +4,11 @@
         "TestMapFSChmodDot"
     ],
     "fails": [
-        "TestSymlink",
-        "TestShuffledFS"
+        "TestSymlink"
     ],
     "runs": [
         "TestMapFS",
         "TestMapFSChmodDot",
-        "TestSymlink",
-        "TestDash",
-        "TestShuffledFS"
+        "TestSymlink"
     ]
 }

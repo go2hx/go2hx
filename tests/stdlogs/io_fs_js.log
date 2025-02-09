@@ -1,0 +1,88 @@
+=== RUN  TestFormatFileInfo
+
+-- PASS: TestFormatFileInfo
+
+=== RUN  TestFormatDirEntry
+
+-- PASS: TestFormatDirEntry
+
+=== RUN  TestValidPath
+
+-- PASS: TestValidPath
+
+=== RUN  TestGlob
+Exception: ENOENT: no such file or directory, scandir ''
+Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24670 column 25)
+Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 24405 column 16)
+Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21343 column 17)
+Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 21228 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:21192:17)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 58473 column 9)
+Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 43080 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66084:1
+
+-- FAIL: TestGlob
+
+=== RUN  TestGlobError
+
+-- PASS: TestGlobError
+
+=== RUN  TestCVE202230630
+-- SKIP: testCVE202230630
+
+-- PASS: TestCVE202230630
+
+=== RUN  TestGlobMethod
+
+-- PASS: TestGlobMethod
+
+=== RUN  TestReadDir
+
+-- PASS: TestReadDir
+
+=== RUN  TestFileInfoToDirEntry
+
+-- PASS: TestFileInfoToDirEntry
+
+=== RUN  TestReadFile
+
+-- PASS: TestReadFile
+
+=== RUN  TestStat
+
+-- PASS: TestStat
+
+=== RUN  TestSub
+
+-- PASS: TestSub
+
+=== RUN  TestWalkDir
+
+-- PASS: TestWalkDir
+
+=== RUN  TestIssue51617
+got directories <invalid reflect.Value>, want %!v(MISSING)
+chmod: invalid mode: ‘448’
+Try 'chmod --help' for more information.
+node:fs:1581
+  const result = binding.readdir(
+                         ^
+
+Error: EACCES: permission denied, scandir 'hmdsld15zn/a/bad'
+    at Object.readdirSync (node:fs:1581:26)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52313:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52319:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52319:7)
+    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:52359:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:59050:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:58487:4)
+    at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:43080:59)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:66084:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:66085:3) {
+  errno: -13,
+  code: 'EACCES',
+  syscall: 'scandir',
+  path: 'hmdsld15zn/a/bad'
+}
+
+Node.js v23.7.0

@@ -1,0 +1,14 @@
+[ERROR] ./stdgo/_internal/go/build/Build_context_static_extension.hx:804: lines 804-806
+
+  804 |                         if (((!_ok || !stdgo._internal.strings.Strings_hasprefix.hasPrefix(_sub?.__copy__(), ("src/" : stdgo.GoString)) : Bool) || stdgo._internal.strings.Strings_contains.contains(_sub?.__copy__(), ("/testdata/" : stdgo.GoString)) : Bool)) {
+  805 |                             return false;
+  806 |                         };
+      |
+      | Missing return: Bool
+
+[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1856: character 39
+
+ 1856 |         var _keys_6610113:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+      |                                       ^
+      | Invalid character '#'
+

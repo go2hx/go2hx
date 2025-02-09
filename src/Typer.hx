@@ -6713,7 +6713,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 
 	info.restricted = [];
 	var doc = getDocComment(decl);
-	var preamble = "// #go2hx ";
+	var preamble = "* #go2hx ";
 	var index = doc.indexOf(preamble);
 	var finalDoc = doc + getSource(decl, info);
 	if (index != -1) {

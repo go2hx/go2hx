@@ -193,7 +193,7 @@ Called from _internal.path.filepath_test._Filepath_test_testabs.Filepath_test_te
 -- FAIL: TestAbs
 
 === RUN  TestAbsEmptyString
-cf5cfz84d3: readFile cf5cfz84d3: no such file or directoryException: :os.sameFile is not yet implemented
+xod5tc4dxn: readFile xod5tc4dxn: no such file or directoryException: :os.sameFile is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testabsemptystring.Filepath_test_testabsemptystring_Fields_.testAbsEmptyString (./_internal/path/filepath_test/Filepath_test_testabsemptystring.hx line 97 column 21)
 
@@ -232,7 +232,7 @@ Called from _internal.path.filepath_test._Filepath_test__testwalksymlink.Filepat
 -- FAIL: TestWalkSymlink
 
 === RUN  TestIssue29372
-writeFile xf8jcphh4w/file.txt: no such file or directory
+writeFile ti8d1j79dk/file.txt: no such file or directory
 
 -- PASS: TestIssue29372
 
@@ -258,7 +258,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception trj1p97yxl/a/bad: Permission denied
+   | Uncaught exception xkc8ovouhh/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

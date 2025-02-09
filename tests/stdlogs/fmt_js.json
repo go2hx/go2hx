@@ -16,7 +16,15 @@
         "TestPanics",
         "TestBadVerbRecursion",
         "TestIsSpace",
-        "TestParsenum"
+        "TestParsenum",
+        "TestScan",
+        "TestScanln",
+        "TestNaN",
+        "TestInf",
+        "TestScanfMulti",
+        "TestUnreadRuneWithBufio",
+        "TestLineByLineFscanf",
+        "TestScanStateCount"
     ],
     "fails": [
         "TestErrorf",
@@ -38,9 +46,7 @@
         "TestEOFAtEndOfInput",
         "TestEOFAllTypes",
         "TestMultiLine",
-        "TestHexBytes",
-        "TestScanlnNewlinesTerminate",
-        "TestScanfNewlineMatchFormat"
+        "TestScanInts"
     ],
     "runs": [
         "TestErrorf",
@@ -86,13 +92,6 @@
         "TestMultiLine",
         "TestLineByLineFscanf",
         "TestScanStateCount",
-        "TestScanInts",
-        "TestHexBytes",
-        "TestScanNewlinesAreSpaces",
-        "TestScanlnNewlinesTerminate",
-        "TestScanfNewlineMatchFormat",
-        "TestHexByte",
-        "TestFormatString",
-        "TestStringer"
+        "TestScanInts"
     ]
 }

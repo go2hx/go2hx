@@ -154,5 +154,6 @@
  "js|filecasing",
  "js|base64DecoderIssue3577",
  "js|base64chan",
- "js|select1"
+ "js|select1",
+ "js|test_dash_189"
 ]

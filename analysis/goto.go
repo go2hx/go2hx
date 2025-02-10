@@ -845,6 +845,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		}
 		_ = switchStmt
 		secondPass := true
+		// debug comment
 		commentBool := false
 		if secondPass {
 			if commentBool {
@@ -960,7 +961,7 @@ type CaseData struct {
 
 func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.Stmt {
 	newStmts := []ast.Stmt{}
-	addToBlock := true
+	addToBlockBool := true
 	for _, stmt := range list {
 		pos, labelBool := findGoto(stmt)
 		if pos != -1 && labelBool {
@@ -971,17 +972,19 @@ func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.St
 		if jumpPos != -1 {
 			jumps[jumpPos] = append(jumps[jumpPos], stmt)
 		}
-		if addToBlock {
+		// addToBlockBool false prevents anything else after from being added to the block
+		if addToBlockBool {
 			newStmts = append(newStmts, stmt)
 		}
 		switch stmt.(type) {
 		case *ast.IfStmt, *ast.SwitchStmt:
 			jumpPos = -1
-			addToBlock = false
+			//addToBlockBool = false
 		}
+		// no label found and pos to goto found
 		if pos != -1 && !labelBool {
 			jumpPos = -1
-			addToBlock = false
+			addToBlockBool = false
 		}
 	}
 	return newStmts

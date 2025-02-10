@@ -16,7 +16,7 @@ import (
 const dir = "analysis/tests/unit"
 
 func GotoParseTest() {
-	//create(dir, "test.go")
+	//create(dir+"/goto", "test.go")
 	all(dir + "/goto")
 }
 

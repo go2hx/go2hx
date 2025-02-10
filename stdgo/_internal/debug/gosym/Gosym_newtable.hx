@@ -1,33 +1,33 @@
 package stdgo._internal.debug.gosym;
 function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>):{ var _0 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_table.Table>; var _1 : stdgo.Error; } {
-        var _end_3643172:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastf_3642028:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nf_3640549:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3640315:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3644146:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3643920:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3642960:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _depth_3642719:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3642395:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _np_3643154:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3642737:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3642562:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _sym_3642077:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _i_3642044:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3644049:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lasttyp_3640567:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _fn_3643478:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>);
-        var _s_3642764:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _err_3640322:stdgo.Error = (null : stdgo.Error);
-        var _s_3643947:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _na_3643158:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nz_3640558:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3643427:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _countloopBreak = false;
-        var _end_3642500:stdgo.GoInt = (0 : stdgo.GoInt);
         var _obj_3641710:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
-        var _fname_3640487:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
+        var _n_3644146:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3643947:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
+        var _j_3642737:stdgo.GoInt = (0 : stdgo.GoInt);
         var _t_3640435:stdgo._internal.debug.gosym.Gosym_table.Table = ({} : stdgo._internal.debug.gosym.Gosym_table.Table);
+        var _s_3642764:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
+        var _sym_3642077:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
+        var _err_3640322:stdgo.Error = (null : stdgo.Error);
+        var _end_3643172:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3642395:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nf_3640549:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lastf_3642028:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3642044:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _np_3643154:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3642960:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fname_3640487:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
+        var _n_3643427:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nz_3640558:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_3642500:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3644049:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fn_3643478:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>);
+        var _na_3643158:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _depth_3642719:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_3642562:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _n_3640315:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_3643920:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _countloopBreak = false;
+        var _lasttyp_3640567:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -80,6 +80,24 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                                 if (((_lasttyp_3640567 != (122 : stdgo.GoUInt8)) && (_lasttyp_3640567 != (90 : stdgo.GoUInt8)) : Bool)) {
                                     _nz_3640558++;
                                 };
+                                {
+                                    var _i = (0 : stdgo.GoInt);
+                                    while ((_i < (_s._name.length) : Bool)) {
+                                        var _eltIdx = (stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.uint16((_s._name.__slice__(_i, (_i + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
+var __tmp__ = (_fname_3640487 != null && _fname_3640487.exists(_eltIdx) ? { _0 : _fname_3640487[_eltIdx], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _elt:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+if (!_ok) {
+                                            return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError((-1 : stdgo.GoInt), ("bad filename code" : stdgo.GoString), stdgo.Go.toInterface(_eltIdx)) : stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError>));
+                                        };
+{
+                                            var _n = ((@:checkr _ts ?? throw "null pointer dereference").name.length : stdgo.GoInt);
+                                            if (((_n > (0 : stdgo.GoInt) : Bool) && ((@:checkr _ts ?? throw "null pointer dereference").name[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
+                                                (@:checkr _ts ?? throw "null pointer dereference").name = ((@:checkr _ts ?? throw "null pointer dereference").name + (("/" : stdgo.GoString)).__copy__() : stdgo.GoString);
+                                            };
+                                        };
+(@:checkr _ts ?? throw "null pointer dereference").name = ((@:checkr _ts ?? throw "null pointer dereference").name + (_elt).__copy__() : stdgo.GoString);
+                                        _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                                    };
+                                };
                             } else {
                                 var _w = (0 : stdgo.GoInt);
                                 var _b = _s._name;
@@ -90,12 +108,24 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                                             _i++;
                                             _b[(_i : stdgo.GoInt)] = (46 : stdgo.GoUInt8);
                                         };
+_b[(_w : stdgo.GoInt)] = _b[(_i : stdgo.GoInt)];
+_w++;
                                         _i++;
                                     };
                                 };
                                 (@:checkr _ts ?? throw "null pointer dereference").name = ((_s._name.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
                             };
                         };
+                        {
+                            final __value__ = _s._typ;
+                            if (__value__ == ((84 : stdgo.GoUInt8)) || __value__ == ((116 : stdgo.GoUInt8)) || __value__ == ((76 : stdgo.GoUInt8)) || __value__ == ((108 : stdgo.GoUInt8))) {
+                                _nf_3640549++;
+                            } else if (__value__ == ((102 : stdgo.GoUInt8))) {
+                                _fname_3640487[(_s._value : stdgo.GoUInt16)] = (@:checkr _ts ?? throw "null pointer dereference").name?.__copy__();
+                            };
+                        };
+                        _lasttyp_3640567 = _s._typ;
+                        return (null : stdgo.Error);
                     });
                     if (_err_3640322 != null) {
                         _gotoNext = 3641616i32;

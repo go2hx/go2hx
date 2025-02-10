@@ -153,5 +153,6 @@
  "interp|base64DecoderIssue3577",
  "interp|base64chan",
  "interp|chantimer",
- "interp|filecasing"
+ "interp|filecasing",
+ "interp|test_dash_189"
 ]

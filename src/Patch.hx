@@ -36,6 +36,8 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeof.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	// exclude because it pulls in x/net/
+	"os_test:_createSocketPair" => macro return {_0: null, _1: null},
 	"os:mkdir" => macro @:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
 		return null;
@@ -260,6 +262,15 @@ final list = [
 		@:privateAccess _f._input.close();
 		@:privateAccess _f._output.close();
 		return null;
+	},
+	"os:getEnv" => macro {
+		return @:define("(sys || hxnodejs)") {
+			try {
+				return {_0: std.Sys.getEnv(_key), _1: null};
+			} catch (e) {
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+			}
+		};
 	},
 	"os:getwd" => macro {
 		return @:define("(sys || hxnodejs)") {

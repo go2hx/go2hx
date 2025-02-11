@@ -4284,7 +4284,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			})).expr;
 		case "Ident":
 			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
-				switch expr.fun.name {
+				final funcName =  expr.fun.name;
+				switch funcName {
 					case "log.Println":
 						genArgs(false);
 						args = args.map(arg -> macro stdgo.Go.toInterface($arg));
@@ -4314,6 +4315,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							stdgo.Go.recover_exception = null;
 							r;
 						})).expr;
+					case "min", "max":
+						genArgs(false);
+						return (macro stdgo.Go.$funcName($a{args})).expr;
 					case "append":
 						final t = typeof(expr.args[0], info, false);
 						var eType = t;

@@ -1,6 +1,30 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] ./stdgo/AnyInterface.hx:49: characters 76-104
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 49 |   var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+    |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Uncaught exception Cannot call null
+
+     ->  ./stdgo/GoMap.hx:691: characters 7-15
+
+     691 |   if (k1 == k2) {
+         |       ^^^^^^^^
+         | Called from here
+
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/ds/BalancedTree.hx:104: characters 12-34
+
+     104 |    var c = compare(key, node.key);
+         |            ^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 616-632
+
+      13 | 
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213
+
+       2 | var _tInt : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__bootstraptype._bootstrapType(("int" : stdgo.GoString), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)));
+         |                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 

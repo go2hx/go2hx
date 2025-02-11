@@ -1,6 +1,6 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] (macro) ./stdgo/_internal/net/http/Http_transport_static_extension.hx:7: characters 22-36
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 7 |         @:check2r _t._cancelRequest((new stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey(_req) : stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey), stdgo._internal.net.http.Http__errrequestcanceled._errRequestCanceled);
+   |                      ^^^^^^^^^^^^^^
+   | stdgo.Ref<stdgo._internal.net.http.Transport> has no field _cancelRequest
 

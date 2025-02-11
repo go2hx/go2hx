@@ -6,7 +6,7 @@ package stdgo._internal.debug.pe;
     public var sections : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>);
     public var symbols : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>>);
     public var cOFFSymbols : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol> = (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>);
-    public var stringTable : stdgo._internal.debug.pe.Pe_stringtable.StringTable = new stdgo._internal.debug.pe.Pe_stringtable.StringTable(0, 0);
+    public var stringTable : stdgo._internal.debug.pe.Pe_stringtable.StringTable = (new stdgo._internal.debug.pe.Pe_stringtable.StringTable(0, 0) : stdgo._internal.debug.pe.Pe_stringtable.StringTable);
     public var _closer : stdgo._internal.io.Io_closer.Closer = (null : stdgo._internal.io.Io_closer.Closer);
     public function new(?fileHeader:stdgo._internal.debug.pe.Pe_fileheader.FileHeader, ?optionalHeader:stdgo.AnyInterface, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_section.Section>>, ?symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_symbol.Symbol>>, ?cOFFSymbols:stdgo.Slice<stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol>, ?stringTable:stdgo._internal.debug.pe.Pe_stringtable.StringTable, ?_closer:stdgo._internal.io.Io_closer.Closer) {
         if (fileHeader != null) this.fileHeader = fileHeader;

@@ -844,7 +844,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
             _xWords = (@:checkr _inverse ?? throw "null pointer dereference")._abs;
         };
         var _yWords = ((@:checkr _y ?? throw "null pointer dereference")._abs : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _mWords:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _mWords:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         if ((_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__))) {
             if (((_z == _m) || stdgo._internal.math.big.Big__alias._alias((@:checkr _z ?? throw "null pointer dereference")._abs, (@:checkr _m ?? throw "null pointer dereference")._abs) : Bool)) {
                 _m = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_m);

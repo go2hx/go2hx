@@ -12,7 +12,7 @@ function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509
                 return { _0 : null, _1 : _err };
             };
         };
-        var _subject:stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0);
+        var _subject:stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = (new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal((@:checkr _in ?? throw "null pointer dereference").tBSCSR.subject.fullBytes, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_subject) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence>)))), _rest:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

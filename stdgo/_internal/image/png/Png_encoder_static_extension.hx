@@ -35,7 +35,7 @@ var _mh = __1, _mw = __0;
             (@:checkr _e ?? throw "null pointer dereference")._enc = _enc;
             (@:checkr _e ?? throw "null pointer dereference")._w = _w;
             (@:checkr _e ?? throw "null pointer dereference")._m = _m;
-            var _pal:stdgo._internal.image.color.Color_palette.Palette = new stdgo._internal.image.color.Color_palette.Palette(0, 0);
+            var _pal:stdgo._internal.image.color.Color_palette.Palette = (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette);
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo._internal.image.Image_palettedimage.PalettedImage)) : stdgo._internal.image.Image_palettedimage.PalettedImage), _1 : true };
@@ -47,7 +47,7 @@ var _mh = __1, _mw = __0;
                         var __tmp__ = try {
                             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.colorModel()) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
                         } catch(_) {
-                            { _0 : new stdgo._internal.image.color.Color_palette.Palette(0, 0), _1 : false };
+                            { _0 : (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette), _1 : false };
                         };
                         _pal = @:tmpset0 __tmp__._0;
                     };

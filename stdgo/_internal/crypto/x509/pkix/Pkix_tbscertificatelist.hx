@@ -1,10 +1,10 @@
 package stdgo._internal.crypto.x509.pkix;
 @:structInit @:using(stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist_static_extension.TBSCertificateList_static_extension) class TBSCertificateList {
-    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0);
+    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = (new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent);
     @:tag("`asn1:\"optional,default:0\"`")
     public var version : stdgo.GoInt = 0;
     public var signature : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier);
-    public var issuer : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0);
+    public var issuer : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = (new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
     public var thisUpdate : stdgo._internal.time.Time_time.Time = ({} : stdgo._internal.time.Time_time.Time);
     @:tag("`asn1:\"optional\"`")
     public var nextUpdate : stdgo._internal.time.Time_time.Time = ({} : stdgo._internal.time.Time_time.Time);

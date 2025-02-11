@@ -5,7 +5,7 @@ package stdgo._internal.math.big;
     public var _acc : stdgo._internal.math.big.Big_accuracy.Accuracy = ((0 : stdgo.GoInt8) : stdgo._internal.math.big.Big_accuracy.Accuracy);
     public var _form : stdgo._internal.math.big.Big_t_form.T_form = ((0 : stdgo.GoUInt8) : stdgo._internal.math.big.Big_t_form.T_form);
     public var _neg : Bool = false;
-    public var _mant : stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+    public var _mant : stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
     public var _exp : stdgo.GoInt32 = 0;
     public function new(?_prec:stdgo.GoUInt32, ?_mode:stdgo._internal.math.big.Big_roundingmode.RoundingMode, ?_acc:stdgo._internal.math.big.Big_accuracy.Accuracy, ?_form:stdgo._internal.math.big.Big_t_form.T_form, ?_neg:Bool, ?_mant:stdgo._internal.math.big.Big_t_nat.T_nat, ?_exp:stdgo.GoInt32) {
         if (_prec != null) this._prec = _prec;

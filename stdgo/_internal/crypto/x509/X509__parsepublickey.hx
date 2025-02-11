@@ -27,7 +27,7 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_t_p
             return { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_pub)), _1 : (null : stdgo.Error) };
         } else if (_oid.equal(stdgo._internal.crypto.x509.X509__oidpublickeyecdsa._oidPublicKeyECDSA)) {
             var _paramsDer = (_params.fullBytes : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-            var _namedCurveOID = (stdgo.Go.setRef(new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
+            var _namedCurveOID = (stdgo.Go.setRef((new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
             if (!@:check2 _paramsDer.readASN1ObjectIdentifier(_namedCurveOID)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid ECDSA parameters" : stdgo.GoString)) };
             };

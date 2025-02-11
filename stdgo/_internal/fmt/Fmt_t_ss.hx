@@ -1,7 +1,7 @@
 package stdgo._internal.fmt;
 @:structInit @:using(stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension) class T_ss {
     public var _rs : stdgo._internal.io.Io_runescanner.RuneScanner = (null : stdgo._internal.io.Io_runescanner.RuneScanner);
-    public var _buf : stdgo._internal.fmt.Fmt_t_buffer.T_buffer = new stdgo._internal.fmt.Fmt_t_buffer.T_buffer(0, 0);
+    public var _buf : stdgo._internal.fmt.Fmt_t_buffer.T_buffer = (new stdgo._internal.fmt.Fmt_t_buffer.T_buffer(0, 0) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
     public var _count : stdgo.GoInt = 0;
     public var _atEOF : Bool = false;
     @:embedded

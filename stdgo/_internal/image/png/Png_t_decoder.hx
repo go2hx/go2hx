@@ -6,7 +6,7 @@ package stdgo._internal.image.png;
     public var _width : stdgo.GoInt = 0;
     public var _height : stdgo.GoInt = 0;
     public var _depth : stdgo.GoInt = 0;
-    public var _palette : stdgo._internal.image.color.Color_palette.Palette = new stdgo._internal.image.color.Color_palette.Palette(0, 0);
+    public var _palette : stdgo._internal.image.color.Color_palette.Palette = (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette);
     public var _cb : stdgo.GoInt = 0;
     public var _stage : stdgo.GoInt = 0;
     public var _idatLength : stdgo.GoUInt32 = 0;

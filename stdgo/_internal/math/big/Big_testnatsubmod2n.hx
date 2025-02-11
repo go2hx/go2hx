@@ -8,7 +8,7 @@ function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                     var _want = (stdgo._internal.math.big.Big__natfromstring._natFromString(_tt._z?.__copy__()) : stdgo._internal.math.big.Big_t_nat.T_nat);
                     var _x = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._set(_x0) : stdgo._internal.math.big.Big_t_nat.T_nat);
                     var _y = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._set(_y0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-                    var _z:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+                    var _z:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
                     {
                         final __value__ = _mode;
                         if (__value__ == (("aliasX" : stdgo.GoString))) {

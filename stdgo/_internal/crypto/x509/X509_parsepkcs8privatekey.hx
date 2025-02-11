@@ -57,7 +57,7 @@ function parsePKCS8PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
             };
         } else if (_privKey.algo.algorithm.equal(stdgo._internal.crypto.x509.X509__oidpublickeyecdsa._oidPublicKeyECDSA)) {
             var _bytes = _privKey.algo.parameters.fullBytes;
-            var _namedCurveOID = (stdgo.Go.setRef(new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
+            var _namedCurveOID = (stdgo.Go.setRef((new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier)) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>);
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_bytes, stdgo.Go.toInterface(stdgo.Go.asInterface(_namedCurveOID))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

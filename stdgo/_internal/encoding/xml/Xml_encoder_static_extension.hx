@@ -36,10 +36,10 @@ package stdgo._internal.encoding.xml;
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_chardata.CharData))) {
-                var _t:stdgo._internal.encoding.xml.Xml_chardata.CharData = __type__ == null ? new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : __type__.__underlying__().value;
+                var _t:stdgo._internal.encoding.xml.Xml_chardata.CharData = __type__ == null ? (new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : stdgo._internal.encoding.xml.Xml_chardata.CharData) : __type__.__underlying__() == null ? (new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : stdgo._internal.encoding.xml.Xml_chardata.CharData) : __type__ == null ? (new stdgo._internal.encoding.xml.Xml_chardata.CharData(0, 0) : stdgo._internal.encoding.xml.Xml_chardata.CharData) : __type__.__underlying__().value;
                 stdgo._internal.encoding.xml.Xml__escapetext._escapeText(stdgo.Go.asInterface(_p), _t, false);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_comment.Comment))) {
-                var _t:stdgo._internal.encoding.xml.Xml_comment.Comment = __type__ == null ? new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : __type__.__underlying__().value;
+                var _t:stdgo._internal.encoding.xml.Xml_comment.Comment = __type__ == null ? (new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : stdgo._internal.encoding.xml.Xml_comment.Comment) : __type__.__underlying__() == null ? (new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : stdgo._internal.encoding.xml.Xml_comment.Comment) : __type__ == null ? (new stdgo._internal.encoding.xml.Xml_comment.Comment(0, 0) : stdgo._internal.encoding.xml.Xml_comment.Comment) : __type__.__underlying__().value;
                 if (stdgo._internal.bytes.Bytes_contains.contains(_t, stdgo._internal.encoding.xml.Xml__endcomment._endComment)) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of Comment containing --> marker" : stdgo.GoString));
                 };
@@ -66,7 +66,7 @@ package stdgo._internal.encoding.xml;
                 };
                 @:check2r _p.writeString(("?>" : stdgo.GoString));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_directive.Directive))) {
-                var _t:stdgo._internal.encoding.xml.Xml_directive.Directive = __type__ == null ? new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : __type__.__underlying__().value;
+                var _t:stdgo._internal.encoding.xml.Xml_directive.Directive = __type__ == null ? (new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : stdgo._internal.encoding.xml.Xml_directive.Directive) : __type__.__underlying__() == null ? (new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : stdgo._internal.encoding.xml.Xml_directive.Directive) : __type__ == null ? (new stdgo._internal.encoding.xml.Xml_directive.Directive(0, 0) : stdgo._internal.encoding.xml.Xml_directive.Directive) : __type__.__underlying__().value;
                 if (!stdgo._internal.encoding.xml.Xml__isvaliddirective._isValidDirective(_t)) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of Directive containing wrong < or > markers" : stdgo.GoString));
                 };

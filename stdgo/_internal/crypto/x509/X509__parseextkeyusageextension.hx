@@ -6,7 +6,7 @@ function _parseExtKeyUsageExtension(_der:_internal.vendor.golang_dot_org.x.crypt
             return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>), _1 : (null : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>), _2 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid extended key usages" : stdgo.GoString)) };
         };
         while (!_der.empty()) {
-            var _eku:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0);
+            var _eku:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = (new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier);
             if (!@:check2 _der.readASN1ObjectIdentifier((stdgo.Go.setRef(_eku) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>))) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>), _1 : (null : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>), _2 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid extended key usages" : stdgo.GoString)) };
             };

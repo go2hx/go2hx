@@ -18,7 +18,7 @@ function _verifyHandshakeSignature(_sigType:stdgo.GoUInt8, _pubkey:stdgo._intern
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((_pubkey : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey)) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey), _1 : true };
                 } catch(_) {
-                    { _0 : new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0), _1 : false };
+                    { _0 : (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey), _1 : false };
                 }, _pubKey = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("expected an Ed25519 public key, got %T" : stdgo.GoString), stdgo.Go.toInterface(_pubkey));

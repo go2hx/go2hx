@@ -10,7 +10,7 @@ function _fibo(_n:stdgo.GoInt):stdgo._internal.math.big.Big_t_nat.T_nat {
         };
         var _f0 = (stdgo._internal.math.big.Big__fibo._fibo((0 : stdgo.GoInt)) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _f1 = (stdgo._internal.math.big.Big__fibo._fibo((1 : stdgo.GoInt)) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _f2:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _f2:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         {
             var _i = (1 : stdgo.GoInt);
             while ((_i < _n : Bool)) {

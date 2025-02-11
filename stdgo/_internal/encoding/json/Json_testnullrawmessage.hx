@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testNullRawMessage(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _data:stdgo._internal.encoding.json.Json_t__struct_43.T__struct_43 = ({ x : (0 : stdgo.GoFloat64), id : new stdgo._internal.encoding.json.Json_rawmessage.RawMessage(0, 0), idPtr : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>), y : (0 : stdgo.GoFloat32) } : stdgo._internal.encoding.json.Json_t__struct_43.T__struct_43);
+        var _data:stdgo._internal.encoding.json.Json_t__struct_43.T__struct_43 = ({ x : (0 : stdgo.GoFloat64), id : (new stdgo._internal.encoding.json.Json_rawmessage.RawMessage(0, 0) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage), idPtr : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>), y : (0 : stdgo.GoFloat32) } : stdgo._internal.encoding.json.Json_t__struct_43.T__struct_43);
         {};
         var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((("{\"X\":0.1,\"Id\":null,\"IdPtr\":null,\"Y\":0.2}" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo._internal.encoding.json.Json_t__struct_43.T__struct_43>)))) : stdgo.Error);
         if (_err != null) {

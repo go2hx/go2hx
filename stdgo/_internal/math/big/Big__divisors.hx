@@ -19,7 +19,7 @@ function _divisors(_m:stdgo.GoInt, _b:stdgo._internal.math.big.Big_word.Word, _n
             _table = (new stdgo.Slice<stdgo._internal.math.big.Big_t_divisor.T_divisor>((_k : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_k : stdgo.GoInt).toBasic() > 0 ? (_k : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.math.big.Big_t_divisor.T_divisor)]) : stdgo.Slice<stdgo._internal.math.big.Big_t_divisor.T_divisor>);
         };
         if (_table[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)]._ndigits == ((0 : stdgo.GoInt))) {
-            var _larger:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+            var _larger:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _k : Bool)) {

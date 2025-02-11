@@ -1,6 +1,20 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] stdgo/Go.macro.hx:426: characters 18-19
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 426 |    return switch t {
+     |                  ^
+     | Uncaught exception Null Access
+
+      443 |       return run();
+          |              ^^^^^
+          | Called from here
+
+      465 |   return run();
+          |          ^^^^^
+          | Called from here
+
+      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:207: characters 28-61
+
+      207 |                     return stdgo.Go.asInterface(!_y_5326857);
+          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
 

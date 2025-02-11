@@ -949,7 +949,7 @@ var _ym = __1, _xm = __0;
             };
         };
         var _d = ((_xadj.length) - ((@:checkr _y ?? throw "null pointer dereference")._mant.length) : stdgo.GoInt);
-        var _r:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _r:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         {
             var __tmp__ = (@:checkr _z ?? throw "null pointer dereference")._mant._div(null, _xadj, (@:checkr _y ?? throw "null pointer dereference")._mant);
             (@:checkr _z ?? throw "null pointer dereference")._mant = @:tmpset0 __tmp__._0;

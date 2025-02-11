@@ -11,7 +11,7 @@ package stdgo._internal.image.gif;
     public var _imageFields : stdgo.GoUInt8 = 0;
     public var _transparentIndex : stdgo.GoUInt8 = 0;
     public var _hasTransparentIndex : Bool = false;
-    public var _globalColorTable : stdgo._internal.image.color.Color_palette.Palette = new stdgo._internal.image.color.Color_palette.Palette(0, 0);
+    public var _globalColorTable : stdgo._internal.image.color.Color_palette.Palette = (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette);
     public var _delay : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public var _disposal : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _image : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>);

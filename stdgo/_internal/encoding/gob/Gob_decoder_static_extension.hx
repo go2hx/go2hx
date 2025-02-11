@@ -416,10 +416,10 @@ package stdgo._internal.encoding.gob;
             if (((_srt.kind() != (25u32 : stdgo._internal.reflect.Reflect_kind.Kind)) || ((@:checkr _ut ?? throw "null pointer dereference")._externalDec != (0 : stdgo.GoInt)) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = @:check2r _dec._compileSingle(_remoteId, _ut);
+                        final __tmp__ = @:check2r _dec._compileSingle(_remoteId, _ut);
                         _engine = __tmp__._0;
                         _err = __tmp__._1;
-                        __tmp__;
+                        { _0 : _engine, _1 : _err };
                     };
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;

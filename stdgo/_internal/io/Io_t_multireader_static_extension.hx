@@ -53,10 +53,10 @@ package stdgo._internal.io;
         @:recv var _mr:stdgo.Ref<stdgo._internal.io.Io_t_multireader.T_multiReader> = _mr;
         var _sum = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = @:check2r _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__ = @:check2r _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
             _sum = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _sum, _1 : _err };
         };
     }
     @:keep

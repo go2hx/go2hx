@@ -56,10 +56,10 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         };
         if (!stdgo._internal.path.filepath.Filepath__hasmeta._hasMeta((_dir.__slice__(_volumeLen) : stdgo.GoString)?.__copy__())) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
+                final __tmp__ = stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _matches, _1 : _err };
             };
         };
         if (_dir == (_pattern)) {

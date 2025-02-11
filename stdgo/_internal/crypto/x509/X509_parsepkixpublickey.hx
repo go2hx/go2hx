@@ -32,9 +32,9 @@ function parsePKIXPublicKey(_derBytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : std
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = stdgo._internal.crypto.x509.X509__parsepublickey._parsePublicKey((stdgo.Go.setRef(_pki) : stdgo.Ref<stdgo._internal.crypto.x509.X509_t_publickeyinfo.T_publicKeyInfo>));
+            final __tmp__ = stdgo._internal.crypto.x509.X509__parsepublickey._parsePublicKey((stdgo.Go.setRef(_pki) : stdgo.Ref<stdgo._internal.crypto.x509.X509_t_publickeyinfo.T_publicKeyInfo>));
             _pub = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _pub, _1 : _err };
         };
     }

@@ -14,17 +14,17 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_value.Value, _params:s
                 var _t = ((stdgo.Go.typeAssert((_value.interface_() : stdgo._internal.time.Time_time.Time)) : stdgo._internal.time.Time_time.Time)?.__copy__() : stdgo._internal.time.Time_time.Time);
                 if (((_params._timeType == (24 : stdgo.GoInt)) || stdgo._internal.encoding.asn1.Asn1__outsideutcrange._outsideUTCRange(_t?.__copy__()) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makegeneralizedtime._makeGeneralizedTime(_t?.__copy__());
+                        final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makegeneralizedtime._makeGeneralizedTime(_t?.__copy__());
                         _e = __tmp__._0;
                         _err = __tmp__._1;
-                        __tmp__;
+                        { _0 : _e, _1 : _err };
                     };
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makeutctime._makeUTCTime(_t?.__copy__());
+                    final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeutctime._makeUTCTime(_t?.__copy__());
                     _e = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _e, _1 : _err };
                 };
             } else if ((__value__.string() : String) == (stdgo._internal.encoding.asn1.Asn1__bitstringtype._bitStringType.string() : String)) {
                 return {
@@ -38,17 +38,17 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_value.Value, _params:s
                 };
             } else if ((__value__.string() : String) == (stdgo._internal.encoding.asn1.Asn1__objectidentifiertype._objectIdentifierType.string() : String)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makeobjectidentifier._makeObjectIdentifier((stdgo.Go.typeAssert((_value.interface_() : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier)) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier));
+                    final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeobjectidentifier._makeObjectIdentifier((stdgo.Go.typeAssert((_value.interface_() : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier)) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier));
                     _e = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _e, _1 : _err };
                 };
             } else if ((__value__.string() : String) == (stdgo._internal.encoding.asn1.Asn1__biginttype._bigIntType.string() : String)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makebigint._makeBigInt((stdgo.Go.typeAssert((_value.interface_() : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
+                    final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makebigint._makeBigInt((stdgo.Go.typeAssert((_value.interface_() : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
                     _e = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _e, _1 : _err };
                 };
             };
         };
@@ -130,10 +130,10 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_value.Value, _params:s
                                 };
                             } else if (__value__ == ((1 : stdgo.GoInt))) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.field(_startingField)?.__copy__(), stdgo._internal.encoding.asn1.Asn1__parsefieldparameters._parseFieldParameters(_t.field(_startingField).tag.get(("asn1" : stdgo.GoString))?.__copy__())?.__copy__());
+                                    final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.field(_startingField)?.__copy__(), stdgo._internal.encoding.asn1.Asn1__parsefieldparameters._parseFieldParameters(_t.field(_startingField).tag.get(("asn1" : stdgo.GoString))?.__copy__())?.__copy__());
                                     _e = __tmp__._0;
                                     _err = __tmp__._1;
-                                    __tmp__;
+                                    { _0 : _e, _1 : _err };
                                 };
                             } else {
                                 var _m = (new stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder>((_n1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder>);
@@ -189,10 +189,10 @@ if (_err != null) {
                                 };
                             } else if (__value__ == ((1 : stdgo.GoInt))) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.index((0 : stdgo.GoInt))?.__copy__(), _fp?.__copy__());
+                                    final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.index((0 : stdgo.GoInt))?.__copy__(), _fp?.__copy__());
                                     _e = __tmp__._0;
                                     _err = __tmp__._1;
-                                    __tmp__;
+                                    { _0 : _e, _1 : _err };
                                 };
                             } else {
                                 var _m = (new stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder>((_l : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder>);
@@ -237,24 +237,24 @@ if (_err != null) {
                         final __value__ = _params._stringType;
                         if (__value__ == ((22 : stdgo.GoInt))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makeia5string._makeIA5String((_v.string() : stdgo.GoString)?.__copy__());
+                                final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeia5string._makeIA5String((_v.string() : stdgo.GoString)?.__copy__());
                                 _e = __tmp__._0;
                                 _err = __tmp__._1;
-                                __tmp__;
+                                { _0 : _e, _1 : _err };
                             };
                         } else if (__value__ == ((19 : stdgo.GoInt))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makeprintablestring._makePrintableString((_v.string() : stdgo.GoString)?.__copy__());
+                                final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeprintablestring._makePrintableString((_v.string() : stdgo.GoString)?.__copy__());
                                 _e = __tmp__._0;
                                 _err = __tmp__._1;
-                                __tmp__;
+                                { _0 : _e, _1 : _err };
                             };
                         } else if (__value__ == ((18 : stdgo.GoInt))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makenumericstring._makeNumericString((_v.string() : stdgo.GoString)?.__copy__());
+                                final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makenumericstring._makeNumericString((_v.string() : stdgo.GoString)?.__copy__());
                                 _e = __tmp__._0;
                                 _err = __tmp__._1;
-                                __tmp__;
+                                { _0 : _e, _1 : _err };
                             };
                         } else {
                             return {

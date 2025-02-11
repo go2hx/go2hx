@@ -173,11 +173,11 @@ package stdgo._internal.net.http;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = stdgo._internal.net.http.Http__parsebasicauth._parseBasicAuth(_auth?.__copy__());
-            _username = __tmp__._0;
-            _password = __tmp__._1;
+            final __tmp__ = stdgo._internal.net.http.Http__parsebasicauth._parseBasicAuth(_auth?.__copy__());
+            _username = __tmp__._0?.__copy__();
+            _password = __tmp__._1?.__copy__();
             _ok = __tmp__._2;
-            __tmp__;
+            { _0 : _username, _1 : _password, _2 : _ok };
         };
     }
     @:keep

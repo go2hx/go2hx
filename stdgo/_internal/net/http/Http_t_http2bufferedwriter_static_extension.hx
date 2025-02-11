@@ -25,10 +25,10 @@ package stdgo._internal.net.http;
             (@:checkr _w ?? throw "null pointer dereference")._bw = _bw;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r (@:checkr _w ?? throw "null pointer dereference")._bw.write(_p);
+            final __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._bw.write(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep

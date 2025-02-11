@@ -10,26 +10,26 @@ package stdgo._internal.math.rand;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>))) {
                 var _src:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__.__underlying__().value;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
+                    final __tmp__ = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
                     _n = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _n, _1 : _err };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>))) {
                 var _src:stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__.__underlying__().value;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
+                    final __tmp__ = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
                     _n = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _n, _1 : _err };
                 };
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = stdgo._internal.math.rand.Rand__read._read(_p, (@:checkr _r ?? throw "null pointer dereference")._src, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
+            final __tmp__ = stdgo._internal.math.rand.Rand__read._read(_p, (@:checkr _r ?? throw "null pointer dereference")._src, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep
@@ -71,25 +71,25 @@ _m[(_j : stdgo.GoInt)] = _i;
     @:tdfield
     static public function float32( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>):stdgo.GoFloat32 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> = _r;
-        var _f_2748458:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+        var _f_2870565:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2748450i32;
-                } else if (__value__ == (2748450i32)) {
-                    _f_2748458 = (@:check2r _r.float64() : stdgo.GoFloat32);
-                    if (_f_2748458 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2748495i32;
+                    _gotoNext = 2870557i32;
+                } else if (__value__ == (2870557i32)) {
+                    _f_2870565 = (@:check2r _r.float64() : stdgo.GoFloat32);
+                    if (_f_2870565 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2870602i32;
                     } else {
-                        _gotoNext = 2748563i32;
+                        _gotoNext = 2870670i32;
                     };
-                } else if (__value__ == (2748495i32)) {
-                    _gotoNext = 2748450i32;
-                } else if (__value__ == (2748563i32)) {
-                    return _f_2748458;
+                } else if (__value__ == (2870602i32)) {
+                    _gotoNext = 2870557i32;
+                } else if (__value__ == (2870670i32)) {
+                    return _f_2870565;
                     _gotoNext = -1i32;
                 };
             };
@@ -100,25 +100,25 @@ _m[(_j : stdgo.GoInt)] = _i;
     @:tdfield
     static public function float64( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>):stdgo.GoFloat64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> = _r;
-        var _f_2747990:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _f_2870097:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2747982i32;
-                } else if (__value__ == (2747982i32)) {
-                    _f_2747990 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
-                    if (_f_2747990 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2748037i32;
+                    _gotoNext = 2870089i32;
+                } else if (__value__ == (2870089i32)) {
+                    _f_2870097 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
+                    if (_f_2870097 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2870144i32;
                     } else {
-                        _gotoNext = 2748099i32;
+                        _gotoNext = 2870206i32;
                     };
-                } else if (__value__ == (2748037i32)) {
-                    _gotoNext = 2747982i32;
-                } else if (__value__ == (2748099i32)) {
-                    return _f_2747990;
+                } else if (__value__ == (2870144i32)) {
+                    _gotoNext = 2870089i32;
+                } else if (__value__ == (2870206i32)) {
+                    return _f_2870097;
                     _gotoNext = -1i32;
                 };
             };

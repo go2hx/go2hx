@@ -18,10 +18,10 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _pattern:stdgo.GoS
             }, _fsys = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = _fsys.glob(_pattern?.__copy__());
+                    final __tmp__ = _fsys.glob(_pattern?.__copy__());
                     _matches = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _matches, _1 : _err };
                 };
             };
         };
@@ -62,10 +62,10 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _pattern:stdgo.GoS
         _dir = stdgo._internal.io.fs.Fs__cleanglobpath._cleanGlobPath(_dir?.__copy__())?.__copy__();
         if (!stdgo._internal.io.fs.Fs__hasmeta._hasMeta(_dir?.__copy__())) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = stdgo._internal.io.fs.Fs__glob._glob(_fsys, _dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
+                final __tmp__ = stdgo._internal.io.fs.Fs__glob._glob(_fsys, _dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _matches, _1 : _err };
             };
         };
         if (_dir == (_pattern)) {

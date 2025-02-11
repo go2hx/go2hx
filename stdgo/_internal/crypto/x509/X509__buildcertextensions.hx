@@ -198,10 +198,10 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                     });
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = @:check2 _b.bytes();
+                    final __tmp__ = @:check2 _b.bytes();
                     _der = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _der, _1 : _err };
                 };
             };
             var __tmp__ = _serialiseConstraints((@:checkr _template ?? throw "null pointer dereference").permittedDNSDomains, (@:checkr _template ?? throw "null pointer dereference").permittedIPRanges, (@:checkr _template ?? throw "null pointer dereference").permittedEmailAddresses, (@:checkr _template ?? throw "null pointer dereference").permittedURIDomains), _permitted:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

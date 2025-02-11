@@ -133,10 +133,10 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_t_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
+            final __tmp__ = @:check2r _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep
@@ -145,10 +145,10 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_t_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _w._write((_data.length), _data, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
+            final __tmp__ = @:check2r _w._write((_data.length), _data, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep
@@ -228,10 +228,10 @@ package stdgo._internal.net.http;
             if (!_ok) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.net.http.Http__io._io.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_t_writeronly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_t_writeronly.T_writerOnly)), _src, _buf);
+                        final __tmp__ = stdgo._internal.net.http.Http__io._io.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_t_writeronly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_t_writeronly.T_writerOnly)), _src, _buf);
                         _n = __tmp__._0;
                         _err = __tmp__._1;
-                        __tmp__;
+                        { _0 : _n, _1 : _err };
                     };
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;

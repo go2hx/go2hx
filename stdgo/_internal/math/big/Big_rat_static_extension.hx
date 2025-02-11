@@ -19,10 +19,10 @@ package stdgo._internal.math.big;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (@:check2r _x.isInt()) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.marshalText();
+                final __tmp__ = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.marshalText();
                 _text = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _text, _1 : _err };
             };
         };
         return {

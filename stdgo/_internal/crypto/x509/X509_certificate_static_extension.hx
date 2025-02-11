@@ -66,10 +66,10 @@ package stdgo._internal.crypto.x509;
             return { _0 : _crlBytes, _1 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList))));
+            final __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList))));
             _crlBytes = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _crlBytes, _1 : _err };
         };
     }
     @:keep
@@ -272,10 +272,10 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
             var _systemPool = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
             if (((_opts.roots == null || (_opts.roots : Dynamic).__nil__) && (((_systemPool == null || (_systemPool : Dynamic).__nil__) || (@:checkr _systemPool ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>));
+                    final __tmp__ = @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>));
                     _chains = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _chains, _1 : _err };
                 };
             };
             if (((_opts.roots != null && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && (@:checkr _opts.roots ?? throw "null pointer dereference")._systemPool : Bool)) {

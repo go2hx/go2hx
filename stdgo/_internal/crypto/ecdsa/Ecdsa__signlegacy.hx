@@ -48,9 +48,9 @@ var _s = __3, _r = __2, _kInv = __1, _k = __0;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.crypto.ecdsa.Ecdsa__encodesignature._encodeSignature(@:check2r _r.bytes(), @:check2r _s.bytes());
+            final __tmp__ = stdgo._internal.crypto.ecdsa.Ecdsa__encodesignature._encodeSignature(@:check2r _r.bytes(), @:check2r _s.bytes());
             _sig = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _sig, _1 : _err };
         };
     }

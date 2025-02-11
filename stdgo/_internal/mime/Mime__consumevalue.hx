@@ -6,10 +6,10 @@ function _consumeValue(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : st
         };
         if (_v[(0 : stdgo.GoInt)] != ((34 : stdgo.GoUInt8))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = stdgo._internal.mime.Mime__consumetoken._consumeToken(_v?.__copy__());
-                _value = __tmp__._0;
-                _rest = __tmp__._1;
-                __tmp__;
+                final __tmp__ = stdgo._internal.mime.Mime__consumetoken._consumeToken(_v?.__copy__());
+                _value = __tmp__._0?.__copy__();
+                _rest = __tmp__._1?.__copy__();
+                { _0 : _value, _1 : _rest };
             };
         };
         var _buffer = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>);

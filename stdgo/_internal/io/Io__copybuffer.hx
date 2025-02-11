@@ -9,10 +9,10 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._inter
             }, _wt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _wt.writeTo(_dst);
+                    final __tmp__ = _wt.writeTo(_dst);
                     _written = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _written, _1 : _err };
                 };
             };
         };
@@ -24,10 +24,10 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._inter
             }, _rt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _rt.readFrom(_src);
+                    final __tmp__ = _rt.readFrom(_src);
                     _written = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _written, _1 : _err };
                 };
             };
         };

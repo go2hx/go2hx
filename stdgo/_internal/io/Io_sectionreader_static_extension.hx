@@ -41,10 +41,10 @@ package stdgo._internal.io;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, _off);
+            final __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, _off);
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep

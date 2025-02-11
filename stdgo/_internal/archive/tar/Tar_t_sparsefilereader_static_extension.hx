@@ -32,10 +32,10 @@ package stdgo._internal.archive.tar;
         };
         if (!_ok) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_t__struct_0.T__struct_0)));
+                final __tmp__ = stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_t__struct_0.T__struct_0)));
                 _n = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _n, _1 : _err };
             };
         };
         var _writeLastByte:Bool = false;

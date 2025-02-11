@@ -8,10 +8,10 @@ package stdgo._internal.net.internal.socktest;
         var _so = @:check2r _sw._sockso(_s);
         if ((_so == null || (_so : Dynamic).__nil__)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = stdgo._internal.syscall.Syscall_getsockoptint.getsockoptInt(_s, _level, _opt);
+                final __tmp__ = stdgo._internal.syscall.Syscall_getsockoptint.getsockoptInt(_s, _level, _opt);
                 _soerr = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _soerr, _1 : _err };
             };
         };
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -73,11 +73,11 @@ package stdgo._internal.net.internal.socktest;
             var _so = @:check2r _sw._sockso(_s);
             if ((_so == null || (_so : Dynamic).__nil__)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = stdgo._internal.syscall.Syscall_accept.accept(_s);
+                    final __tmp__ = stdgo._internal.syscall.Syscall_accept.accept(_s);
                     _ns = __tmp__._0;
                     _sa = __tmp__._1;
                     _err = __tmp__._2;
-                    __tmp__;
+                    { _0 : _ns, _1 : _sa, _2 : _err };
                 };
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();

@@ -53,9 +53,9 @@ function _marshalSANs(_dnsNames:stdgo.Slice<stdgo.GoString>, _emailAddresses:std
             _rawValues = (_rawValues.__append__(({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_uriStr : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue)));
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_rawValues));
+            final __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_rawValues));
             _derBytes = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _derBytes, _1 : _err };
         };
     }

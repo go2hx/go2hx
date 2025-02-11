@@ -109,10 +109,10 @@ package stdgo._internal.archive.zip;
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = (@:checkr _r ?? throw "null pointer dereference")._fr.read(_p);
+                    final __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._fr.read(_p);
                     _n = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _n, _1 : _err };
                 };
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

@@ -62,10 +62,10 @@ package stdgo._internal.encoding.pem;
             return { _0 : _n, _1 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__ = @:check2r _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
 }

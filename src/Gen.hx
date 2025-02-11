@@ -70,6 +70,7 @@ function create(outputPath:String, module:Module, root:String) {
 		splitFiles = [];
 		clName = Typer.title(paths.pop());
 		cl.name = clName;
+		//cl.meta = [{name: ":doxName", params: [macro ${src.Util.makeExpr("⭐ " + clName,)}], pos: null}];
 		clMacro.name = clName;
 		for (def in file.defs) {
 			macroFields = [];
@@ -255,13 +256,17 @@ function externStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition
 			default:
 		}
 	}
+	final meta:Array<MetadataEntry> = [];
+	if (StringTools.startsWith(td.name, "T_"))
+		meta.push({name: ":dox", params: [macro hide], pos: null});
 	return {
 		name: staticExtensionName(td.name, cl),
 		pos: td.pos,
 		pack: td.pack,
 		params: td.params,
 		fields: fields,
-		kind: td.kind
+		kind: td.kind,
+		meta: meta,
 	};
 }
 
@@ -275,7 +280,7 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 				return [externStaticExtension(td, path, cl)];
 			}
 			if (StringTools.endsWith(td.name, "_asInterface"))
-				return [];
+				return []; // TODO
 			if (isInterface)
 				return [externGenInterface(td, path, cl)];
 			if (isAbstract)
@@ -434,6 +439,8 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 		}
 	}
 	final isNameUsed = td.name == clName;
+	if (StringTools.startsWith(td.name, "T_"))
+		meta.push({name: ":dox", params: [macro hide], pos: null});
 	final td = {
 		name: isNameUsed ? td.name + "_" : td.name,
 		pack: td.pack,
@@ -450,11 +457,15 @@ function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 		case TDAlias(_):
 			final pack = path.split("/");
 			final isNameUsed = td.name == clName;
+			final meta:Array<MetadataEntry> = [];
+			if (StringTools.startsWith(td.name, "T_"))
+				meta.push({name: ":dox", params: [macro hide], pos: null});
 			{
 				name: isNameUsed ? td.name + "_" : td.name,
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
+				meta: meta,
 				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase(), pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
 				isExtern: td.isExtern,
 			};

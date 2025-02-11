@@ -3,7 +3,7 @@ function _focusedAndNotIgnored(_locs:stdgo.Slice<stdgo.Ref<stdgo._internal.inter
         var _f:Bool = false;
         for (__0 => _loc in _locs) {
             {
-                var __tmp__ = (_m != null && _m.exists((@:checkr _loc ?? throw "null pointer dereference").iD) ? { _0 : _m[(@:checkr _loc ?? throw "null pointer dereference").iD], _1 : true } : { _0 : false, _1 : false }), _focus:Bool = __tmp__._0, _focusOrIgnore:Bool = __tmp__._1;
+                var __tmp__ = (_m != null && _m.__exists__((@:checkr _loc ?? throw "null pointer dereference").iD) ? { _0 : _m[(@:checkr _loc ?? throw "null pointer dereference").iD], _1 : true } : { _0 : false, _1 : false }), _focus:Bool = __tmp__._0, _focusOrIgnore:Bool = __tmp__._1;
                 if (_focusOrIgnore) {
                     if (_focus) {
                         _f = true;

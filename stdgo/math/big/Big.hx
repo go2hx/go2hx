@@ -12,7 +12,7 @@ final below : Accuracy = stdgo._internal.math.big.Big_below.below;
 final exact : Accuracy = stdgo._internal.math.big.Big_exact.exact;
 final above : Accuracy = stdgo._internal.math.big.Big_above.above;
 final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
-@:structInit @:using(stdgo.math.big.Big.T_argVV_static_extension) abstract T_argVV(stdgo._internal.math.big.Big_t_argvv.T_argVV) from stdgo._internal.math.big.Big_t_argvv.T_argVV to stdgo._internal.math.big.Big_t_argvv.T_argVV {
+@:structInit @:using(stdgo.math.big.Big.T_argVV_static_extension) @:dox(hide) abstract T_argVV(stdgo._internal.math.big.Big_t_argvv.T_argVV) from stdgo._internal.math.big.Big_t_argvv.T_argVV to stdgo._internal.math.big.Big_t_argvv.T_argVV {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -41,7 +41,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVW_static_extension) abstract T_argVW(stdgo._internal.math.big.Big_t_argvw.T_argVW) from stdgo._internal.math.big.Big_t_argvw.T_argVW to stdgo._internal.math.big.Big_t_argvw.T_argVW {
+@:structInit @:using(stdgo.math.big.Big.T_argVW_static_extension) @:dox(hide) abstract T_argVW(stdgo._internal.math.big.Big_t_argvw.T_argVW) from stdgo._internal.math.big.Big_t_argvw.T_argVW to stdgo._internal.math.big.Big_t_argvw.T_argVW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -70,7 +70,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVU_static_extension) abstract T_argVU(stdgo._internal.math.big.Big_t_argvu.T_argVU) from stdgo._internal.math.big.Big_t_argvu.T_argVU to stdgo._internal.math.big.Big_t_argvu.T_argVU {
+@:structInit @:using(stdgo.math.big.Big.T_argVU_static_extension) @:dox(hide) abstract T_argVU(stdgo._internal.math.big.Big_t_argvu.T_argVU) from stdgo._internal.math.big.Big_t_argvu.T_argVU to stdgo._internal.math.big.Big_t_argvu.T_argVU {
     public var _d(get, set) : Array<Word>;
     function get__d():Array<Word> return [for (i in this._d) i];
     function set__d(v:Array<Word>):Array<Word> {
@@ -123,7 +123,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVWW_static_extension) abstract T_argVWW(stdgo._internal.math.big.Big_t_argvww.T_argVWW) from stdgo._internal.math.big.Big_t_argvww.T_argVWW to stdgo._internal.math.big.Big_t_argvww.T_argVWW {
+@:structInit @:using(stdgo.math.big.Big.T_argVWW_static_extension) @:dox(hide) abstract T_argVWW(stdgo._internal.math.big.Big_t_argvww.T_argVWW) from stdgo._internal.math.big.Big_t_argvww.T_argVWW to stdgo._internal.math.big.Big_t_argvww.T_argVWW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -158,7 +158,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argWVW_static_extension) abstract T_argWVW(stdgo._internal.math.big.Big_t_argwvw.T_argWVW) from stdgo._internal.math.big.Big_t_argwvw.T_argWVW to stdgo._internal.math.big.Big_t_argwvw.T_argWVW {
+@:structInit @:using(stdgo.math.big.Big.T_argWVW_static_extension) @:dox(hide) abstract T_argWVW(stdgo._internal.math.big.Big_t_argwvw.T_argWVW) from stdgo._internal.math.big.Big_t_argwvw.T_argWVW to stdgo._internal.math.big.Big_t_argwvw.T_argWVW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -193,7 +193,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_decimal_static_extension) abstract T_decimal(stdgo._internal.math.big.Big_t_decimal.T_decimal) from stdgo._internal.math.big.Big_t_decimal.T_decimal to stdgo._internal.math.big.Big_t_decimal.T_decimal {
+@:structInit @:using(stdgo.math.big.Big.T_decimal_static_extension) @:dox(hide) abstract T_decimal(stdgo._internal.math.big.Big_t_decimal.T_decimal) from stdgo._internal.math.big.Big_t_decimal.T_decimal to stdgo._internal.math.big.Big_t_decimal.T_decimal {
     public var _mant(get, set) : Array<std.UInt>;
     function get__mant():Array<std.UInt> return [for (i in this._mant) i];
     function set__mant(v:Array<std.UInt>):Array<std.UInt> {
@@ -268,7 +268,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_matrix_static_extension) abstract T_matrix(stdgo._internal.math.big.Big_t_matrix.T_matrix) from stdgo._internal.math.big.Big_t_matrix.T_matrix to stdgo._internal.math.big.Big_t_matrix.T_matrix {
+@:structInit @:using(stdgo.math.big.Big.T_matrix_static_extension) @:dox(hide) abstract T_matrix(stdgo._internal.math.big.Big_t_matrix.T_matrix) from stdgo._internal.math.big.Big_t_matrix.T_matrix to stdgo._internal.math.big.Big_t_matrix.T_matrix {
     public var _n(get, set) : StdTypes.Int;
     function get__n():StdTypes.Int return this._n;
     function set__n(v:StdTypes.Int):StdTypes.Int {
@@ -308,7 +308,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argZZ_static_extension) abstract T_argZZ(stdgo._internal.math.big.Big_t_argzz.T_argZZ) from stdgo._internal.math.big.Big_t_argzz.T_argZZ to stdgo._internal.math.big.Big_t_argzz.T_argZZ {
+@:structInit @:using(stdgo.math.big.Big.T_argZZ_static_extension) @:dox(hide) abstract T_argZZ(stdgo._internal.math.big.Big_t_argzz.T_argZZ) from stdgo._internal.math.big.Big_t_argzz.T_argZZ to stdgo._internal.math.big.Big_t_argzz.T_argZZ {
     public var _z(get, set) : Int_;
     function get__z():Int_ return this._z;
     function set__z(v:Int_):Int_ {
@@ -331,7 +331,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_intShiftTest_static_extension) abstract T_intShiftTest(stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest) from stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest to stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest {
+@:structInit @:using(stdgo.math.big.Big.T_intShiftTest_static_extension) @:dox(hide) abstract T_intShiftTest(stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest) from stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest to stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -354,7 +354,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_byteReader_static_extension) abstract T_byteReader(stdgo._internal.math.big.Big_t_bytereader.T_byteReader) from stdgo._internal.math.big.Big_t_bytereader.T_byteReader to stdgo._internal.math.big.Big_t_bytereader.T_byteReader {
+@:structInit @:using(stdgo.math.big.Big.T_byteReader_static_extension) @:dox(hide) abstract T_byteReader(stdgo._internal.math.big.Big_t_bytereader.T_byteReader) from stdgo._internal.math.big.Big_t_bytereader.T_byteReader to stdgo._internal.math.big.Big_t_bytereader.T_byteReader {
     public var scanState(get, set) : stdgo._internal.fmt.Fmt_scanstate.ScanState;
     function get_scanState():stdgo._internal.fmt.Fmt_scanstate.ScanState return this.scanState;
     function set_scanState(v:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo._internal.fmt.Fmt_scanstate.ScanState {
@@ -365,7 +365,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argNN_static_extension) abstract T_argNN(stdgo._internal.math.big.Big_t_argnn.T_argNN) from stdgo._internal.math.big.Big_t_argnn.T_argNN to stdgo._internal.math.big.Big_t_argnn.T_argNN {
+@:structInit @:using(stdgo.math.big.Big.T_argNN_static_extension) @:dox(hide) abstract T_argNN(stdgo._internal.math.big.Big_t_argnn.T_argNN) from stdgo._internal.math.big.Big_t_argnn.T_argNN to stdgo._internal.math.big.Big_t_argnn.T_argNN {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -388,7 +388,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_shiftTest_static_extension) abstract T_shiftTest(stdgo._internal.math.big.Big_t_shifttest.T_shiftTest) from stdgo._internal.math.big.Big_t_shifttest.T_shiftTest to stdgo._internal.math.big.Big_t_shifttest.T_shiftTest {
+@:structInit @:using(stdgo.math.big.Big.T_shiftTest_static_extension) @:dox(hide) abstract T_shiftTest(stdgo._internal.math.big.Big_t_shifttest.T_shiftTest) from stdgo._internal.math.big.Big_t_shifttest.T_shiftTest to stdgo._internal.math.big.Big_t_shifttest.T_shiftTest {
     public var _in(get, set) : T_nat;
     function get__in():T_nat return this._in;
     function set__in(v:T_nat):T_nat {
@@ -411,7 +411,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_modWTest_static_extension) abstract T_modWTest(stdgo._internal.math.big.Big_t_modwtest.T_modWTest) from stdgo._internal.math.big.Big_t_modwtest.T_modWTest to stdgo._internal.math.big.Big_t_modwtest.T_modWTest {
+@:structInit @:using(stdgo.math.big.Big.T_modWTest_static_extension) @:dox(hide) abstract T_modWTest(stdgo._internal.math.big.Big_t_modwtest.T_modWTest) from stdgo._internal.math.big.Big_t_modwtest.T_modWTest to stdgo._internal.math.big.Big_t_modwtest.T_modWTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -434,7 +434,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_divisor_static_extension) abstract T_divisor(stdgo._internal.math.big.Big_t_divisor.T_divisor) from stdgo._internal.math.big.Big_t_divisor.T_divisor to stdgo._internal.math.big.Big_t_divisor.T_divisor {
+@:structInit @:using(stdgo.math.big.Big.T_divisor_static_extension) @:dox(hide) abstract T_divisor(stdgo._internal.math.big.Big_t_divisor.T_divisor) from stdgo._internal.math.big.Big_t_divisor.T_divisor to stdgo._internal.math.big.Big_t_divisor.T_divisor {
     public var _bbb(get, set) : T_nat;
     function get__bbb():T_nat return this._bbb;
     function set__bbb(v:T_nat):T_nat {
@@ -474,7 +474,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_ratBinArg_static_extension) abstract T_ratBinArg(stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg) from stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg to stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg {
+@:structInit @:using(stdgo.math.big.Big.T_ratBinArg_static_extension) @:dox(hide) abstract T_ratBinArg(stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg) from stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg to stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg {
     public var _x(get, set) : String;
     function get__x():String return this._x;
     function set__x(v:String):String {
@@ -520,293 +520,293 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.math.big.Big_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.math.big.Big_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.math.big.Big_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.math.big.Big_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.math.big.Big_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.math.big.Big_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.math.big.Big_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.math.big.Big_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.math.big.Big_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.math.big.Big_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.math.big.Big_t__struct_2.T__struct_2;
-typedef T__struct_3Pointer = stdgo._internal.math.big.Big_t__struct_3pointer.T__struct_3Pointer;
-class T__struct_3_static_extension {
+@:dox(hide) typedef T__struct_2 = stdgo._internal.math.big.Big_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_3Pointer = stdgo._internal.math.big.Big_t__struct_3pointer.T__struct_3Pointer;
+@:dox(hide) class T__struct_3_static_extension {
 
 }
-typedef T__struct_3 = stdgo._internal.math.big.Big_t__struct_3.T__struct_3;
-typedef T__struct_4Pointer = stdgo._internal.math.big.Big_t__struct_4pointer.T__struct_4Pointer;
-class T__struct_4_static_extension {
+@:dox(hide) typedef T__struct_3 = stdgo._internal.math.big.Big_t__struct_3.T__struct_3;
+@:dox(hide) typedef T__struct_4Pointer = stdgo._internal.math.big.Big_t__struct_4pointer.T__struct_4Pointer;
+@:dox(hide) class T__struct_4_static_extension {
 
 }
-typedef T__struct_4 = stdgo._internal.math.big.Big_t__struct_4.T__struct_4;
-typedef T__struct_5Pointer = stdgo._internal.math.big.Big_t__struct_5pointer.T__struct_5Pointer;
-class T__struct_5_static_extension {
+@:dox(hide) typedef T__struct_4 = stdgo._internal.math.big.Big_t__struct_4.T__struct_4;
+@:dox(hide) typedef T__struct_5Pointer = stdgo._internal.math.big.Big_t__struct_5pointer.T__struct_5Pointer;
+@:dox(hide) class T__struct_5_static_extension {
 
 }
-typedef T__struct_5 = stdgo._internal.math.big.Big_t__struct_5.T__struct_5;
-typedef T__struct_6Pointer = stdgo._internal.math.big.Big_t__struct_6pointer.T__struct_6Pointer;
-class T__struct_6_static_extension {
+@:dox(hide) typedef T__struct_5 = stdgo._internal.math.big.Big_t__struct_5.T__struct_5;
+@:dox(hide) typedef T__struct_6Pointer = stdgo._internal.math.big.Big_t__struct_6pointer.T__struct_6Pointer;
+@:dox(hide) class T__struct_6_static_extension {
 
 }
-typedef T__struct_6 = stdgo._internal.math.big.Big_t__struct_6.T__struct_6;
-typedef T__struct_7Pointer = stdgo._internal.math.big.Big_t__struct_7pointer.T__struct_7Pointer;
-class T__struct_7_static_extension {
+@:dox(hide) typedef T__struct_6 = stdgo._internal.math.big.Big_t__struct_6.T__struct_6;
+@:dox(hide) typedef T__struct_7Pointer = stdgo._internal.math.big.Big_t__struct_7pointer.T__struct_7Pointer;
+@:dox(hide) class T__struct_7_static_extension {
 
 }
-typedef T__struct_7 = stdgo._internal.math.big.Big_t__struct_7.T__struct_7;
-typedef T__struct_8Pointer = stdgo._internal.math.big.Big_t__struct_8pointer.T__struct_8Pointer;
-class T__struct_8_static_extension {
+@:dox(hide) typedef T__struct_7 = stdgo._internal.math.big.Big_t__struct_7.T__struct_7;
+@:dox(hide) typedef T__struct_8Pointer = stdgo._internal.math.big.Big_t__struct_8pointer.T__struct_8Pointer;
+@:dox(hide) class T__struct_8_static_extension {
 
 }
-typedef T__struct_8 = stdgo._internal.math.big.Big_t__struct_8.T__struct_8;
-typedef T__struct_9Pointer = stdgo._internal.math.big.Big_t__struct_9pointer.T__struct_9Pointer;
-class T__struct_9_static_extension {
+@:dox(hide) typedef T__struct_8 = stdgo._internal.math.big.Big_t__struct_8.T__struct_8;
+@:dox(hide) typedef T__struct_9Pointer = stdgo._internal.math.big.Big_t__struct_9pointer.T__struct_9Pointer;
+@:dox(hide) class T__struct_9_static_extension {
 
 }
-typedef T__struct_9 = stdgo._internal.math.big.Big_t__struct_9.T__struct_9;
-typedef T__struct_10Pointer = stdgo._internal.math.big.Big_t__struct_10pointer.T__struct_10Pointer;
-class T__struct_10_static_extension {
+@:dox(hide) typedef T__struct_9 = stdgo._internal.math.big.Big_t__struct_9.T__struct_9;
+@:dox(hide) typedef T__struct_10Pointer = stdgo._internal.math.big.Big_t__struct_10pointer.T__struct_10Pointer;
+@:dox(hide) class T__struct_10_static_extension {
 
 }
-typedef T__struct_10 = stdgo._internal.math.big.Big_t__struct_10.T__struct_10;
-typedef T__struct_11Pointer = stdgo._internal.math.big.Big_t__struct_11pointer.T__struct_11Pointer;
-class T__struct_11_static_extension {
+@:dox(hide) typedef T__struct_10 = stdgo._internal.math.big.Big_t__struct_10.T__struct_10;
+@:dox(hide) typedef T__struct_11Pointer = stdgo._internal.math.big.Big_t__struct_11pointer.T__struct_11Pointer;
+@:dox(hide) class T__struct_11_static_extension {
 
 }
-typedef T__struct_11 = stdgo._internal.math.big.Big_t__struct_11.T__struct_11;
-typedef T__struct_12Pointer = stdgo._internal.math.big.Big_t__struct_12pointer.T__struct_12Pointer;
-class T__struct_12_static_extension {
+@:dox(hide) typedef T__struct_11 = stdgo._internal.math.big.Big_t__struct_11.T__struct_11;
+@:dox(hide) typedef T__struct_12Pointer = stdgo._internal.math.big.Big_t__struct_12pointer.T__struct_12Pointer;
+@:dox(hide) class T__struct_12_static_extension {
 
 }
-typedef T__struct_12 = stdgo._internal.math.big.Big_t__struct_12.T__struct_12;
-typedef T__struct_13Pointer = stdgo._internal.math.big.Big_t__struct_13pointer.T__struct_13Pointer;
-class T__struct_13_static_extension {
+@:dox(hide) typedef T__struct_12 = stdgo._internal.math.big.Big_t__struct_12.T__struct_12;
+@:dox(hide) typedef T__struct_13Pointer = stdgo._internal.math.big.Big_t__struct_13pointer.T__struct_13Pointer;
+@:dox(hide) class T__struct_13_static_extension {
 
 }
-typedef T__struct_13 = stdgo._internal.math.big.Big_t__struct_13.T__struct_13;
-typedef T__struct_14Pointer = stdgo._internal.math.big.Big_t__struct_14pointer.T__struct_14Pointer;
-class T__struct_14_static_extension {
+@:dox(hide) typedef T__struct_13 = stdgo._internal.math.big.Big_t__struct_13.T__struct_13;
+@:dox(hide) typedef T__struct_14Pointer = stdgo._internal.math.big.Big_t__struct_14pointer.T__struct_14Pointer;
+@:dox(hide) class T__struct_14_static_extension {
 
 }
-typedef T__struct_14 = stdgo._internal.math.big.Big_t__struct_14.T__struct_14;
-typedef T__struct_15Pointer = stdgo._internal.math.big.Big_t__struct_15pointer.T__struct_15Pointer;
-class T__struct_15_static_extension {
+@:dox(hide) typedef T__struct_14 = stdgo._internal.math.big.Big_t__struct_14.T__struct_14;
+@:dox(hide) typedef T__struct_15Pointer = stdgo._internal.math.big.Big_t__struct_15pointer.T__struct_15Pointer;
+@:dox(hide) class T__struct_15_static_extension {
 
 }
-typedef T__struct_15 = stdgo._internal.math.big.Big_t__struct_15.T__struct_15;
-typedef T__struct_16Pointer = stdgo._internal.math.big.Big_t__struct_16pointer.T__struct_16Pointer;
-class T__struct_16_static_extension {
+@:dox(hide) typedef T__struct_15 = stdgo._internal.math.big.Big_t__struct_15.T__struct_15;
+@:dox(hide) typedef T__struct_16Pointer = stdgo._internal.math.big.Big_t__struct_16pointer.T__struct_16Pointer;
+@:dox(hide) class T__struct_16_static_extension {
 
 }
-typedef T__struct_16 = stdgo._internal.math.big.Big_t__struct_16.T__struct_16;
-typedef T__struct_17Pointer = stdgo._internal.math.big.Big_t__struct_17pointer.T__struct_17Pointer;
-class T__struct_17_static_extension {
+@:dox(hide) typedef T__struct_16 = stdgo._internal.math.big.Big_t__struct_16.T__struct_16;
+@:dox(hide) typedef T__struct_17Pointer = stdgo._internal.math.big.Big_t__struct_17pointer.T__struct_17Pointer;
+@:dox(hide) class T__struct_17_static_extension {
 
 }
-typedef T__struct_17 = stdgo._internal.math.big.Big_t__struct_17.T__struct_17;
-typedef T__struct_18Pointer = stdgo._internal.math.big.Big_t__struct_18pointer.T__struct_18Pointer;
-class T__struct_18_static_extension {
+@:dox(hide) typedef T__struct_17 = stdgo._internal.math.big.Big_t__struct_17.T__struct_17;
+@:dox(hide) typedef T__struct_18Pointer = stdgo._internal.math.big.Big_t__struct_18pointer.T__struct_18Pointer;
+@:dox(hide) class T__struct_18_static_extension {
 
 }
-typedef T__struct_18 = stdgo._internal.math.big.Big_t__struct_18.T__struct_18;
-typedef T__struct_19Pointer = stdgo._internal.math.big.Big_t__struct_19pointer.T__struct_19Pointer;
-class T__struct_19_static_extension {
+@:dox(hide) typedef T__struct_18 = stdgo._internal.math.big.Big_t__struct_18.T__struct_18;
+@:dox(hide) typedef T__struct_19Pointer = stdgo._internal.math.big.Big_t__struct_19pointer.T__struct_19Pointer;
+@:dox(hide) class T__struct_19_static_extension {
 
 }
-typedef T__struct_19 = stdgo._internal.math.big.Big_t__struct_19.T__struct_19;
-typedef T__struct_20Pointer = stdgo._internal.math.big.Big_t__struct_20pointer.T__struct_20Pointer;
-class T__struct_20_static_extension {
+@:dox(hide) typedef T__struct_19 = stdgo._internal.math.big.Big_t__struct_19.T__struct_19;
+@:dox(hide) typedef T__struct_20Pointer = stdgo._internal.math.big.Big_t__struct_20pointer.T__struct_20Pointer;
+@:dox(hide) class T__struct_20_static_extension {
 
 }
-typedef T__struct_20 = stdgo._internal.math.big.Big_t__struct_20.T__struct_20;
-typedef T__struct_21Pointer = stdgo._internal.math.big.Big_t__struct_21pointer.T__struct_21Pointer;
-class T__struct_21_static_extension {
+@:dox(hide) typedef T__struct_20 = stdgo._internal.math.big.Big_t__struct_20.T__struct_20;
+@:dox(hide) typedef T__struct_21Pointer = stdgo._internal.math.big.Big_t__struct_21pointer.T__struct_21Pointer;
+@:dox(hide) class T__struct_21_static_extension {
 
 }
-typedef T__struct_21 = stdgo._internal.math.big.Big_t__struct_21.T__struct_21;
-typedef T__struct_22Pointer = stdgo._internal.math.big.Big_t__struct_22pointer.T__struct_22Pointer;
-class T__struct_22_static_extension {
+@:dox(hide) typedef T__struct_21 = stdgo._internal.math.big.Big_t__struct_21.T__struct_21;
+@:dox(hide) typedef T__struct_22Pointer = stdgo._internal.math.big.Big_t__struct_22pointer.T__struct_22Pointer;
+@:dox(hide) class T__struct_22_static_extension {
 
 }
-typedef T__struct_22 = stdgo._internal.math.big.Big_t__struct_22.T__struct_22;
-typedef T__struct_23Pointer = stdgo._internal.math.big.Big_t__struct_23pointer.T__struct_23Pointer;
-class T__struct_23_static_extension {
+@:dox(hide) typedef T__struct_22 = stdgo._internal.math.big.Big_t__struct_22.T__struct_22;
+@:dox(hide) typedef T__struct_23Pointer = stdgo._internal.math.big.Big_t__struct_23pointer.T__struct_23Pointer;
+@:dox(hide) class T__struct_23_static_extension {
 
 }
-typedef T__struct_23 = stdgo._internal.math.big.Big_t__struct_23.T__struct_23;
-typedef T__struct_24Pointer = stdgo._internal.math.big.Big_t__struct_24pointer.T__struct_24Pointer;
-class T__struct_24_static_extension {
+@:dox(hide) typedef T__struct_23 = stdgo._internal.math.big.Big_t__struct_23.T__struct_23;
+@:dox(hide) typedef T__struct_24Pointer = stdgo._internal.math.big.Big_t__struct_24pointer.T__struct_24Pointer;
+@:dox(hide) class T__struct_24_static_extension {
 
 }
-typedef T__struct_24 = stdgo._internal.math.big.Big_t__struct_24.T__struct_24;
-typedef T__struct_25Pointer = stdgo._internal.math.big.Big_t__struct_25pointer.T__struct_25Pointer;
-class T__struct_25_static_extension {
+@:dox(hide) typedef T__struct_24 = stdgo._internal.math.big.Big_t__struct_24.T__struct_24;
+@:dox(hide) typedef T__struct_25Pointer = stdgo._internal.math.big.Big_t__struct_25pointer.T__struct_25Pointer;
+@:dox(hide) class T__struct_25_static_extension {
 
 }
-typedef T__struct_25 = stdgo._internal.math.big.Big_t__struct_25.T__struct_25;
-typedef T__struct_26Pointer = stdgo._internal.math.big.Big_t__struct_26pointer.T__struct_26Pointer;
-class T__struct_26_static_extension {
+@:dox(hide) typedef T__struct_25 = stdgo._internal.math.big.Big_t__struct_25.T__struct_25;
+@:dox(hide) typedef T__struct_26Pointer = stdgo._internal.math.big.Big_t__struct_26pointer.T__struct_26Pointer;
+@:dox(hide) class T__struct_26_static_extension {
 
 }
-typedef T__struct_26 = stdgo._internal.math.big.Big_t__struct_26.T__struct_26;
-typedef T__struct_27Pointer = stdgo._internal.math.big.Big_t__struct_27pointer.T__struct_27Pointer;
-class T__struct_27_static_extension {
+@:dox(hide) typedef T__struct_26 = stdgo._internal.math.big.Big_t__struct_26.T__struct_26;
+@:dox(hide) typedef T__struct_27Pointer = stdgo._internal.math.big.Big_t__struct_27pointer.T__struct_27Pointer;
+@:dox(hide) class T__struct_27_static_extension {
 
 }
-typedef T__struct_27 = stdgo._internal.math.big.Big_t__struct_27.T__struct_27;
-typedef T__struct_28Pointer = stdgo._internal.math.big.Big_t__struct_28pointer.T__struct_28Pointer;
-class T__struct_28_static_extension {
+@:dox(hide) typedef T__struct_27 = stdgo._internal.math.big.Big_t__struct_27.T__struct_27;
+@:dox(hide) typedef T__struct_28Pointer = stdgo._internal.math.big.Big_t__struct_28pointer.T__struct_28Pointer;
+@:dox(hide) class T__struct_28_static_extension {
 
 }
-typedef T__struct_28 = stdgo._internal.math.big.Big_t__struct_28.T__struct_28;
-typedef T__struct_29Pointer = stdgo._internal.math.big.Big_t__struct_29pointer.T__struct_29Pointer;
-class T__struct_29_static_extension {
+@:dox(hide) typedef T__struct_28 = stdgo._internal.math.big.Big_t__struct_28.T__struct_28;
+@:dox(hide) typedef T__struct_29Pointer = stdgo._internal.math.big.Big_t__struct_29pointer.T__struct_29Pointer;
+@:dox(hide) class T__struct_29_static_extension {
 
 }
-typedef T__struct_29 = stdgo._internal.math.big.Big_t__struct_29.T__struct_29;
-typedef T__struct_30Pointer = stdgo._internal.math.big.Big_t__struct_30pointer.T__struct_30Pointer;
-class T__struct_30_static_extension {
+@:dox(hide) typedef T__struct_29 = stdgo._internal.math.big.Big_t__struct_29.T__struct_29;
+@:dox(hide) typedef T__struct_30Pointer = stdgo._internal.math.big.Big_t__struct_30pointer.T__struct_30Pointer;
+@:dox(hide) class T__struct_30_static_extension {
 
 }
-typedef T__struct_30 = stdgo._internal.math.big.Big_t__struct_30.T__struct_30;
-typedef T__struct_31Pointer = stdgo._internal.math.big.Big_t__struct_31pointer.T__struct_31Pointer;
-class T__struct_31_static_extension {
+@:dox(hide) typedef T__struct_30 = stdgo._internal.math.big.Big_t__struct_30.T__struct_30;
+@:dox(hide) typedef T__struct_31Pointer = stdgo._internal.math.big.Big_t__struct_31pointer.T__struct_31Pointer;
+@:dox(hide) class T__struct_31_static_extension {
 
 }
-typedef T__struct_31 = stdgo._internal.math.big.Big_t__struct_31.T__struct_31;
-typedef T__struct_32Pointer = stdgo._internal.math.big.Big_t__struct_32pointer.T__struct_32Pointer;
-class T__struct_32_static_extension {
+@:dox(hide) typedef T__struct_31 = stdgo._internal.math.big.Big_t__struct_31.T__struct_31;
+@:dox(hide) typedef T__struct_32Pointer = stdgo._internal.math.big.Big_t__struct_32pointer.T__struct_32Pointer;
+@:dox(hide) class T__struct_32_static_extension {
 
 }
-typedef T__struct_32 = stdgo._internal.math.big.Big_t__struct_32.T__struct_32;
-typedef T__struct_33Pointer = stdgo._internal.math.big.Big_t__struct_33pointer.T__struct_33Pointer;
-class T__struct_33_static_extension {
+@:dox(hide) typedef T__struct_32 = stdgo._internal.math.big.Big_t__struct_32.T__struct_32;
+@:dox(hide) typedef T__struct_33Pointer = stdgo._internal.math.big.Big_t__struct_33pointer.T__struct_33Pointer;
+@:dox(hide) class T__struct_33_static_extension {
 
 }
-typedef T__struct_33 = stdgo._internal.math.big.Big_t__struct_33.T__struct_33;
-typedef T__struct_34Pointer = stdgo._internal.math.big.Big_t__struct_34pointer.T__struct_34Pointer;
-class T__struct_34_static_extension {
+@:dox(hide) typedef T__struct_33 = stdgo._internal.math.big.Big_t__struct_33.T__struct_33;
+@:dox(hide) typedef T__struct_34Pointer = stdgo._internal.math.big.Big_t__struct_34pointer.T__struct_34Pointer;
+@:dox(hide) class T__struct_34_static_extension {
 
 }
-typedef T__struct_34 = stdgo._internal.math.big.Big_t__struct_34.T__struct_34;
-typedef T__struct_35Pointer = stdgo._internal.math.big.Big_t__struct_35pointer.T__struct_35Pointer;
-class T__struct_35_static_extension {
+@:dox(hide) typedef T__struct_34 = stdgo._internal.math.big.Big_t__struct_34.T__struct_34;
+@:dox(hide) typedef T__struct_35Pointer = stdgo._internal.math.big.Big_t__struct_35pointer.T__struct_35Pointer;
+@:dox(hide) class T__struct_35_static_extension {
 
 }
-typedef T__struct_35 = stdgo._internal.math.big.Big_t__struct_35.T__struct_35;
-typedef T__struct_36Pointer = stdgo._internal.math.big.Big_t__struct_36pointer.T__struct_36Pointer;
-class T__struct_36_static_extension {
+@:dox(hide) typedef T__struct_35 = stdgo._internal.math.big.Big_t__struct_35.T__struct_35;
+@:dox(hide) typedef T__struct_36Pointer = stdgo._internal.math.big.Big_t__struct_36pointer.T__struct_36Pointer;
+@:dox(hide) class T__struct_36_static_extension {
 
 }
-typedef T__struct_36 = stdgo._internal.math.big.Big_t__struct_36.T__struct_36;
-typedef T__struct_37Pointer = stdgo._internal.math.big.Big_t__struct_37pointer.T__struct_37Pointer;
-class T__struct_37_static_extension {
+@:dox(hide) typedef T__struct_36 = stdgo._internal.math.big.Big_t__struct_36.T__struct_36;
+@:dox(hide) typedef T__struct_37Pointer = stdgo._internal.math.big.Big_t__struct_37pointer.T__struct_37Pointer;
+@:dox(hide) class T__struct_37_static_extension {
 
 }
-typedef T__struct_37 = stdgo._internal.math.big.Big_t__struct_37.T__struct_37;
-typedef T__struct_38Pointer = stdgo._internal.math.big.Big_t__struct_38pointer.T__struct_38Pointer;
-class T__struct_38_static_extension {
+@:dox(hide) typedef T__struct_37 = stdgo._internal.math.big.Big_t__struct_37.T__struct_37;
+@:dox(hide) typedef T__struct_38Pointer = stdgo._internal.math.big.Big_t__struct_38pointer.T__struct_38Pointer;
+@:dox(hide) class T__struct_38_static_extension {
 
 }
-typedef T__struct_38 = stdgo._internal.math.big.Big_t__struct_38.T__struct_38;
-typedef T__struct_39Pointer = stdgo._internal.math.big.Big_t__struct_39pointer.T__struct_39Pointer;
-class T__struct_39_static_extension {
+@:dox(hide) typedef T__struct_38 = stdgo._internal.math.big.Big_t__struct_38.T__struct_38;
+@:dox(hide) typedef T__struct_39Pointer = stdgo._internal.math.big.Big_t__struct_39pointer.T__struct_39Pointer;
+@:dox(hide) class T__struct_39_static_extension {
 
 }
-typedef T__struct_39 = stdgo._internal.math.big.Big_t__struct_39.T__struct_39;
-typedef T__struct_40Pointer = stdgo._internal.math.big.Big_t__struct_40pointer.T__struct_40Pointer;
-class T__struct_40_static_extension {
+@:dox(hide) typedef T__struct_39 = stdgo._internal.math.big.Big_t__struct_39.T__struct_39;
+@:dox(hide) typedef T__struct_40Pointer = stdgo._internal.math.big.Big_t__struct_40pointer.T__struct_40Pointer;
+@:dox(hide) class T__struct_40_static_extension {
 
 }
-typedef T__struct_40 = stdgo._internal.math.big.Big_t__struct_40.T__struct_40;
-typedef T__struct_41Pointer = stdgo._internal.math.big.Big_t__struct_41pointer.T__struct_41Pointer;
-class T__struct_41_static_extension {
+@:dox(hide) typedef T__struct_40 = stdgo._internal.math.big.Big_t__struct_40.T__struct_40;
+@:dox(hide) typedef T__struct_41Pointer = stdgo._internal.math.big.Big_t__struct_41pointer.T__struct_41Pointer;
+@:dox(hide) class T__struct_41_static_extension {
 
 }
-typedef T__struct_41 = stdgo._internal.math.big.Big_t__struct_41.T__struct_41;
-typedef T__struct_42Pointer = stdgo._internal.math.big.Big_t__struct_42pointer.T__struct_42Pointer;
-class T__struct_42_static_extension {
+@:dox(hide) typedef T__struct_41 = stdgo._internal.math.big.Big_t__struct_41.T__struct_41;
+@:dox(hide) typedef T__struct_42Pointer = stdgo._internal.math.big.Big_t__struct_42pointer.T__struct_42Pointer;
+@:dox(hide) class T__struct_42_static_extension {
 
 }
-typedef T__struct_42 = stdgo._internal.math.big.Big_t__struct_42.T__struct_42;
-typedef T__struct_43Pointer = stdgo._internal.math.big.Big_t__struct_43pointer.T__struct_43Pointer;
-class T__struct_43_static_extension {
+@:dox(hide) typedef T__struct_42 = stdgo._internal.math.big.Big_t__struct_42.T__struct_42;
+@:dox(hide) typedef T__struct_43Pointer = stdgo._internal.math.big.Big_t__struct_43pointer.T__struct_43Pointer;
+@:dox(hide) class T__struct_43_static_extension {
 
 }
-typedef T__struct_43 = stdgo._internal.math.big.Big_t__struct_43.T__struct_43;
-typedef T__struct_44Pointer = stdgo._internal.math.big.Big_t__struct_44pointer.T__struct_44Pointer;
-class T__struct_44_static_extension {
+@:dox(hide) typedef T__struct_43 = stdgo._internal.math.big.Big_t__struct_43.T__struct_43;
+@:dox(hide) typedef T__struct_44Pointer = stdgo._internal.math.big.Big_t__struct_44pointer.T__struct_44Pointer;
+@:dox(hide) class T__struct_44_static_extension {
 
 }
-typedef T__struct_44 = stdgo._internal.math.big.Big_t__struct_44.T__struct_44;
-typedef T__struct_45Pointer = stdgo._internal.math.big.Big_t__struct_45pointer.T__struct_45Pointer;
-class T__struct_45_static_extension {
+@:dox(hide) typedef T__struct_44 = stdgo._internal.math.big.Big_t__struct_44.T__struct_44;
+@:dox(hide) typedef T__struct_45Pointer = stdgo._internal.math.big.Big_t__struct_45pointer.T__struct_45Pointer;
+@:dox(hide) class T__struct_45_static_extension {
 
 }
-typedef T__struct_45 = stdgo._internal.math.big.Big_t__struct_45.T__struct_45;
-typedef T__struct_46Pointer = stdgo._internal.math.big.Big_t__struct_46pointer.T__struct_46Pointer;
-class T__struct_46_static_extension {
+@:dox(hide) typedef T__struct_45 = stdgo._internal.math.big.Big_t__struct_45.T__struct_45;
+@:dox(hide) typedef T__struct_46Pointer = stdgo._internal.math.big.Big_t__struct_46pointer.T__struct_46Pointer;
+@:dox(hide) class T__struct_46_static_extension {
 
 }
-typedef T__struct_46 = stdgo._internal.math.big.Big_t__struct_46.T__struct_46;
-typedef T__struct_47Pointer = stdgo._internal.math.big.Big_t__struct_47pointer.T__struct_47Pointer;
-class T__struct_47_static_extension {
+@:dox(hide) typedef T__struct_46 = stdgo._internal.math.big.Big_t__struct_46.T__struct_46;
+@:dox(hide) typedef T__struct_47Pointer = stdgo._internal.math.big.Big_t__struct_47pointer.T__struct_47Pointer;
+@:dox(hide) class T__struct_47_static_extension {
 
 }
-typedef T__struct_47 = stdgo._internal.math.big.Big_t__struct_47.T__struct_47;
-typedef T__struct_48Pointer = stdgo._internal.math.big.Big_t__struct_48pointer.T__struct_48Pointer;
-class T__struct_48_static_extension {
+@:dox(hide) typedef T__struct_47 = stdgo._internal.math.big.Big_t__struct_47.T__struct_47;
+@:dox(hide) typedef T__struct_48Pointer = stdgo._internal.math.big.Big_t__struct_48pointer.T__struct_48Pointer;
+@:dox(hide) class T__struct_48_static_extension {
 
 }
-typedef T__struct_48 = stdgo._internal.math.big.Big_t__struct_48.T__struct_48;
-typedef T__struct_49Pointer = stdgo._internal.math.big.Big_t__struct_49pointer.T__struct_49Pointer;
-class T__struct_49_static_extension {
+@:dox(hide) typedef T__struct_48 = stdgo._internal.math.big.Big_t__struct_48.T__struct_48;
+@:dox(hide) typedef T__struct_49Pointer = stdgo._internal.math.big.Big_t__struct_49pointer.T__struct_49Pointer;
+@:dox(hide) class T__struct_49_static_extension {
 
 }
-typedef T__struct_49 = stdgo._internal.math.big.Big_t__struct_49.T__struct_49;
-typedef T__struct_50Pointer = stdgo._internal.math.big.Big_t__struct_50pointer.T__struct_50Pointer;
-class T__struct_50_static_extension {
+@:dox(hide) typedef T__struct_49 = stdgo._internal.math.big.Big_t__struct_49.T__struct_49;
+@:dox(hide) typedef T__struct_50Pointer = stdgo._internal.math.big.Big_t__struct_50pointer.T__struct_50Pointer;
+@:dox(hide) class T__struct_50_static_extension {
 
 }
-typedef T__struct_50 = stdgo._internal.math.big.Big_t__struct_50.T__struct_50;
-typedef T__struct_51Pointer = stdgo._internal.math.big.Big_t__struct_51pointer.T__struct_51Pointer;
-class T__struct_51_static_extension {
+@:dox(hide) typedef T__struct_50 = stdgo._internal.math.big.Big_t__struct_50.T__struct_50;
+@:dox(hide) typedef T__struct_51Pointer = stdgo._internal.math.big.Big_t__struct_51pointer.T__struct_51Pointer;
+@:dox(hide) class T__struct_51_static_extension {
 
 }
-typedef T__struct_51 = stdgo._internal.math.big.Big_t__struct_51.T__struct_51;
-typedef T__struct_52Pointer = stdgo._internal.math.big.Big_t__struct_52pointer.T__struct_52Pointer;
-class T__struct_52_static_extension {
+@:dox(hide) typedef T__struct_51 = stdgo._internal.math.big.Big_t__struct_51.T__struct_51;
+@:dox(hide) typedef T__struct_52Pointer = stdgo._internal.math.big.Big_t__struct_52pointer.T__struct_52Pointer;
+@:dox(hide) class T__struct_52_static_extension {
 
 }
-typedef T__struct_52 = stdgo._internal.math.big.Big_t__struct_52.T__struct_52;
-typedef T__struct_53Pointer = stdgo._internal.math.big.Big_t__struct_53pointer.T__struct_53Pointer;
-class T__struct_53_static_extension {
+@:dox(hide) typedef T__struct_52 = stdgo._internal.math.big.Big_t__struct_52.T__struct_52;
+@:dox(hide) typedef T__struct_53Pointer = stdgo._internal.math.big.Big_t__struct_53pointer.T__struct_53Pointer;
+@:dox(hide) class T__struct_53_static_extension {
 
 }
-typedef T__struct_53 = stdgo._internal.math.big.Big_t__struct_53.T__struct_53;
-typedef T__struct_54Pointer = stdgo._internal.math.big.Big_t__struct_54pointer.T__struct_54Pointer;
-class T__struct_54_static_extension {
+@:dox(hide) typedef T__struct_53 = stdgo._internal.math.big.Big_t__struct_53.T__struct_53;
+@:dox(hide) typedef T__struct_54Pointer = stdgo._internal.math.big.Big_t__struct_54pointer.T__struct_54Pointer;
+@:dox(hide) class T__struct_54_static_extension {
 
 }
-typedef T__struct_54 = stdgo._internal.math.big.Big_t__struct_54.T__struct_54;
-typedef T__struct_55Pointer = stdgo._internal.math.big.Big_t__struct_55pointer.T__struct_55Pointer;
-class T__struct_55_static_extension {
+@:dox(hide) typedef T__struct_54 = stdgo._internal.math.big.Big_t__struct_54.T__struct_54;
+@:dox(hide) typedef T__struct_55Pointer = stdgo._internal.math.big.Big_t__struct_55pointer.T__struct_55Pointer;
+@:dox(hide) class T__struct_55_static_extension {
 
 }
-typedef T__struct_55 = stdgo._internal.math.big.Big_t__struct_55.T__struct_55;
-typedef T__struct_56Pointer = stdgo._internal.math.big.Big_t__struct_56pointer.T__struct_56Pointer;
-class T__struct_56_static_extension {
+@:dox(hide) typedef T__struct_55 = stdgo._internal.math.big.Big_t__struct_55.T__struct_55;
+@:dox(hide) typedef T__struct_56Pointer = stdgo._internal.math.big.Big_t__struct_56pointer.T__struct_56Pointer;
+@:dox(hide) class T__struct_56_static_extension {
 
 }
-typedef T__struct_56 = stdgo._internal.math.big.Big_t__struct_56.T__struct_56;
-typedef T__struct_57Pointer = stdgo._internal.math.big.Big_t__struct_57pointer.T__struct_57Pointer;
-class T__struct_57_static_extension {
+@:dox(hide) typedef T__struct_56 = stdgo._internal.math.big.Big_t__struct_56.T__struct_56;
+@:dox(hide) typedef T__struct_57Pointer = stdgo._internal.math.big.Big_t__struct_57pointer.T__struct_57Pointer;
+@:dox(hide) class T__struct_57_static_extension {
     public static function _unlockSlow(__self__:stdgo._internal.math.big.Big_t__struct_57.T__struct_57, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.math.big.Big_t__struct_57_static_extension.T__struct_57_static_extension._unlockSlow(__self__, _0);
@@ -824,54 +824,54 @@ class T__struct_57_static_extension {
         stdgo._internal.math.big.Big_t__struct_57_static_extension.T__struct_57_static_extension.lock(__self__);
     }
 }
-typedef T__struct_57 = stdgo._internal.math.big.Big_t__struct_57.T__struct_57;
-typedef T__struct_58Pointer = stdgo._internal.math.big.Big_t__struct_58pointer.T__struct_58Pointer;
-class T__struct_58_static_extension {
+@:dox(hide) typedef T__struct_57 = stdgo._internal.math.big.Big_t__struct_57.T__struct_57;
+@:dox(hide) typedef T__struct_58Pointer = stdgo._internal.math.big.Big_t__struct_58pointer.T__struct_58Pointer;
+@:dox(hide) class T__struct_58_static_extension {
 
 }
-typedef T__struct_58 = stdgo._internal.math.big.Big_t__struct_58.T__struct_58;
-typedef T__struct_59Pointer = stdgo._internal.math.big.Big_t__struct_59pointer.T__struct_59Pointer;
-class T__struct_59_static_extension {
+@:dox(hide) typedef T__struct_58 = stdgo._internal.math.big.Big_t__struct_58.T__struct_58;
+@:dox(hide) typedef T__struct_59Pointer = stdgo._internal.math.big.Big_t__struct_59pointer.T__struct_59Pointer;
+@:dox(hide) class T__struct_59_static_extension {
 
 }
-typedef T__struct_59 = stdgo._internal.math.big.Big_t__struct_59.T__struct_59;
-typedef T__struct_60Pointer = stdgo._internal.math.big.Big_t__struct_60pointer.T__struct_60Pointer;
-class T__struct_60_static_extension {
+@:dox(hide) typedef T__struct_59 = stdgo._internal.math.big.Big_t__struct_59.T__struct_59;
+@:dox(hide) typedef T__struct_60Pointer = stdgo._internal.math.big.Big_t__struct_60pointer.T__struct_60Pointer;
+@:dox(hide) class T__struct_60_static_extension {
 
 }
-typedef T__struct_60 = stdgo._internal.math.big.Big_t__struct_60.T__struct_60;
-typedef T__struct_61Pointer = stdgo._internal.math.big.Big_t__struct_61pointer.T__struct_61Pointer;
-class T__struct_61_static_extension {
+@:dox(hide) typedef T__struct_60 = stdgo._internal.math.big.Big_t__struct_60.T__struct_60;
+@:dox(hide) typedef T__struct_61Pointer = stdgo._internal.math.big.Big_t__struct_61pointer.T__struct_61Pointer;
+@:dox(hide) class T__struct_61_static_extension {
 
 }
-typedef T__struct_61 = stdgo._internal.math.big.Big_t__struct_61.T__struct_61;
-typedef T__struct_62Pointer = stdgo._internal.math.big.Big_t__struct_62pointer.T__struct_62Pointer;
-class T__struct_62_static_extension {
+@:dox(hide) typedef T__struct_61 = stdgo._internal.math.big.Big_t__struct_61.T__struct_61;
+@:dox(hide) typedef T__struct_62Pointer = stdgo._internal.math.big.Big_t__struct_62pointer.T__struct_62Pointer;
+@:dox(hide) class T__struct_62_static_extension {
 
 }
-typedef T__struct_62 = stdgo._internal.math.big.Big_t__struct_62.T__struct_62;
-typedef T__struct_63Pointer = stdgo._internal.math.big.Big_t__struct_63pointer.T__struct_63Pointer;
-class T__struct_63_static_extension {
+@:dox(hide) typedef T__struct_62 = stdgo._internal.math.big.Big_t__struct_62.T__struct_62;
+@:dox(hide) typedef T__struct_63Pointer = stdgo._internal.math.big.Big_t__struct_63pointer.T__struct_63Pointer;
+@:dox(hide) class T__struct_63_static_extension {
 
 }
-typedef T__struct_63 = stdgo._internal.math.big.Big_t__struct_63.T__struct_63;
-typedef T__struct_64Pointer = stdgo._internal.math.big.Big_t__struct_64pointer.T__struct_64Pointer;
-class T__struct_64_static_extension {
+@:dox(hide) typedef T__struct_63 = stdgo._internal.math.big.Big_t__struct_63.T__struct_63;
+@:dox(hide) typedef T__struct_64Pointer = stdgo._internal.math.big.Big_t__struct_64pointer.T__struct_64Pointer;
+@:dox(hide) class T__struct_64_static_extension {
 
 }
-typedef T__struct_64 = stdgo._internal.math.big.Big_t__struct_64.T__struct_64;
-typedef T__struct_65Pointer = stdgo._internal.math.big.Big_t__struct_65pointer.T__struct_65Pointer;
-class T__struct_65_static_extension {
+@:dox(hide) typedef T__struct_64 = stdgo._internal.math.big.Big_t__struct_64.T__struct_64;
+@:dox(hide) typedef T__struct_65Pointer = stdgo._internal.math.big.Big_t__struct_65pointer.T__struct_65Pointer;
+@:dox(hide) class T__struct_65_static_extension {
 
 }
-typedef T__struct_65 = stdgo._internal.math.big.Big_t__struct_65.T__struct_65;
-typedef T__struct_66Pointer = stdgo._internal.math.big.Big_t__struct_66pointer.T__struct_66Pointer;
-class T__struct_66_static_extension {
+@:dox(hide) typedef T__struct_65 = stdgo._internal.math.big.Big_t__struct_65.T__struct_65;
+@:dox(hide) typedef T__struct_66Pointer = stdgo._internal.math.big.Big_t__struct_66pointer.T__struct_66Pointer;
+@:dox(hide) class T__struct_66_static_extension {
 
 }
-typedef T__struct_66 = stdgo._internal.math.big.Big_t__struct_66.T__struct_66;
-typedef T__struct_67Pointer = stdgo._internal.math.big.Big_t__struct_67pointer.T__struct_67Pointer;
-class T__struct_67_static_extension {
+@:dox(hide) typedef T__struct_66 = stdgo._internal.math.big.Big_t__struct_66.T__struct_66;
+@:dox(hide) typedef T__struct_67Pointer = stdgo._internal.math.big.Big_t__struct_67pointer.T__struct_67Pointer;
+@:dox(hide) class T__struct_67_static_extension {
     public static function _doSlow(__self__:stdgo._internal.math.big.Big_t__struct_67.T__struct_67, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.math.big.Big_t__struct_67_static_extension.T__struct_67_static_extension._doSlow(__self__, _0);
@@ -881,53 +881,53 @@ class T__struct_67_static_extension {
         stdgo._internal.math.big.Big_t__struct_67_static_extension.T__struct_67_static_extension.do_(__self__, _0);
     }
 }
-typedef T__struct_67 = stdgo._internal.math.big.Big_t__struct_67.T__struct_67;
-typedef T__struct_68Pointer = stdgo._internal.math.big.Big_t__struct_68pointer.T__struct_68Pointer;
-class T__struct_68_static_extension {
+@:dox(hide) typedef T__struct_67 = stdgo._internal.math.big.Big_t__struct_67.T__struct_67;
+@:dox(hide) typedef T__struct_68Pointer = stdgo._internal.math.big.Big_t__struct_68pointer.T__struct_68Pointer;
+@:dox(hide) class T__struct_68_static_extension {
 
 }
-typedef T__struct_68 = stdgo._internal.math.big.Big_t__struct_68.T__struct_68;
-typedef T__struct_69Pointer = stdgo._internal.math.big.Big_t__struct_69pointer.T__struct_69Pointer;
-class T__struct_69_static_extension {
+@:dox(hide) typedef T__struct_68 = stdgo._internal.math.big.Big_t__struct_68.T__struct_68;
+@:dox(hide) typedef T__struct_69Pointer = stdgo._internal.math.big.Big_t__struct_69pointer.T__struct_69Pointer;
+@:dox(hide) class T__struct_69_static_extension {
 
 }
-typedef T__struct_69 = stdgo._internal.math.big.Big_t__struct_69.T__struct_69;
+@:dox(hide) typedef T__struct_69 = stdgo._internal.math.big.Big_t__struct_69.T__struct_69;
 typedef Word = stdgo._internal.math.big.Big_word.Word;
-typedef T_funVV = stdgo._internal.math.big.Big_t_funvv.T_funVV;
-typedef T_funVW = stdgo._internal.math.big.Big_t_funvw.T_funVW;
-typedef T_funVWW = stdgo._internal.math.big.Big_t_funvww.T_funVWW;
-typedef T_funWVW = stdgo._internal.math.big.Big_t_funwvw.T_funWVW;
+@:dox(hide) typedef T_funVV = stdgo._internal.math.big.Big_t_funvv.T_funVV;
+@:dox(hide) typedef T_funVW = stdgo._internal.math.big.Big_t_funvw.T_funVW;
+@:dox(hide) typedef T_funVWW = stdgo._internal.math.big.Big_t_funvww.T_funVWW;
+@:dox(hide) typedef T_funWVW = stdgo._internal.math.big.Big_t_funwvw.T_funWVW;
 typedef Bits = stdgo._internal.math.big.Big_bits.Bits;
-typedef T_form = stdgo._internal.math.big.Big_t_form.T_form;
+@:dox(hide) typedef T_form = stdgo._internal.math.big.Big_t_form.T_form;
 typedef RoundingMode = stdgo._internal.math.big.Big_roundingmode.RoundingMode;
 typedef Accuracy = stdgo._internal.math.big.Big_accuracy.Accuracy;
-typedef T_funZZ = stdgo._internal.math.big.Big_t_funzz.T_funZZ;
-typedef T_bitFun = stdgo._internal.math.big.Big_t_bitfun.T_bitFun;
-typedef T_nat = stdgo._internal.math.big.Big_t_nat.T_nat;
-typedef T_funNN = stdgo._internal.math.big.Big_t_funnn.T_funNN;
-typedef T_ratBinFun = stdgo._internal.math.big.Big_t_ratbinfun.T_ratBinFun;
-typedef T_argVVPointer = stdgo._internal.math.big.Big_t_argvvpointer.T_argVVPointer;
-class T_argVV_static_extension {
+@:dox(hide) typedef T_funZZ = stdgo._internal.math.big.Big_t_funzz.T_funZZ;
+@:dox(hide) typedef T_bitFun = stdgo._internal.math.big.Big_t_bitfun.T_bitFun;
+@:dox(hide) typedef T_nat = stdgo._internal.math.big.Big_t_nat.T_nat;
+@:dox(hide) typedef T_funNN = stdgo._internal.math.big.Big_t_funnn.T_funNN;
+@:dox(hide) typedef T_ratBinFun = stdgo._internal.math.big.Big_t_ratbinfun.T_ratBinFun;
+@:dox(hide) typedef T_argVVPointer = stdgo._internal.math.big.Big_t_argvvpointer.T_argVVPointer;
+@:dox(hide) class T_argVV_static_extension {
 
 }
-typedef T_argVWPointer = stdgo._internal.math.big.Big_t_argvwpointer.T_argVWPointer;
-class T_argVW_static_extension {
+@:dox(hide) typedef T_argVWPointer = stdgo._internal.math.big.Big_t_argvwpointer.T_argVWPointer;
+@:dox(hide) class T_argVW_static_extension {
 
 }
-typedef T_argVUPointer = stdgo._internal.math.big.Big_t_argvupointer.T_argVUPointer;
-class T_argVU_static_extension {
+@:dox(hide) typedef T_argVUPointer = stdgo._internal.math.big.Big_t_argvupointer.T_argVUPointer;
+@:dox(hide) class T_argVU_static_extension {
 
 }
-typedef T_argVWWPointer = stdgo._internal.math.big.Big_t_argvwwpointer.T_argVWWPointer;
-class T_argVWW_static_extension {
+@:dox(hide) typedef T_argVWWPointer = stdgo._internal.math.big.Big_t_argvwwpointer.T_argVWWPointer;
+@:dox(hide) class T_argVWW_static_extension {
 
 }
-typedef T_argWVWPointer = stdgo._internal.math.big.Big_t_argwvwpointer.T_argWVWPointer;
-class T_argWVW_static_extension {
+@:dox(hide) typedef T_argWVWPointer = stdgo._internal.math.big.Big_t_argwvwpointer.T_argWVWPointer;
+@:dox(hide) class T_argWVW_static_extension {
 
 }
-typedef T_decimalPointer = stdgo._internal.math.big.Big_t_decimalpointer.T_decimalPointer;
-class T_decimal_static_extension {
+@:dox(hide) typedef T_decimalPointer = stdgo._internal.math.big.Big_t_decimalpointer.T_decimalPointer;
+@:dox(hide) class T_decimal_static_extension {
     static public function _roundDown(_x:T_decimal, _n:StdTypes.Int):Void {
         final _x = (_x : stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_decimal>);
         final _n = (_n : stdgo.GoInt);
@@ -1313,8 +1313,8 @@ class ErrNaN_static_extension {
         return stdgo._internal.math.big.Big_errnan_static_extension.ErrNaN_static_extension.error(_err);
     }
 }
-typedef T_matrixPointer = stdgo._internal.math.big.Big_t_matrixpointer.T_matrixPointer;
-class T_matrix_static_extension {
+@:dox(hide) typedef T_matrixPointer = stdgo._internal.math.big.Big_t_matrixpointer.T_matrixPointer;
+@:dox(hide) class T_matrix_static_extension {
     static public function string(_a:T_matrix):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.math.big.Big_t_matrix.T_matrix>);
         return stdgo._internal.math.big.Big_t_matrix_static_extension.T_matrix_static_extension.string(_a);
@@ -1740,16 +1740,16 @@ class Int__static_extension {
         return stdgo._internal.math.big.Big_int__static_extension.Int__static_extension.sign(_x);
     }
 }
-typedef T_argZZPointer = stdgo._internal.math.big.Big_t_argzzpointer.T_argZZPointer;
-class T_argZZ_static_extension {
+@:dox(hide) typedef T_argZZPointer = stdgo._internal.math.big.Big_t_argzzpointer.T_argZZPointer;
+@:dox(hide) class T_argZZ_static_extension {
 
 }
-typedef T_intShiftTestPointer = stdgo._internal.math.big.Big_t_intshifttestpointer.T_intShiftTestPointer;
-class T_intShiftTest_static_extension {
+@:dox(hide) typedef T_intShiftTestPointer = stdgo._internal.math.big.Big_t_intshifttestpointer.T_intShiftTestPointer;
+@:dox(hide) class T_intShiftTest_static_extension {
 
 }
-typedef T_byteReaderPointer = stdgo._internal.math.big.Big_t_bytereaderpointer.T_byteReaderPointer;
-class T_byteReader_static_extension {
+@:dox(hide) typedef T_byteReaderPointer = stdgo._internal.math.big.Big_t_bytereaderpointer.T_byteReaderPointer;
+@:dox(hide) class T_byteReader_static_extension {
     static public function unreadByte(_r:T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.unreadByte(_r);
     }
@@ -1792,20 +1792,20 @@ class T_byteReader_static_extension {
         };
     }
 }
-typedef T_argNNPointer = stdgo._internal.math.big.Big_t_argnnpointer.T_argNNPointer;
-class T_argNN_static_extension {
+@:dox(hide) typedef T_argNNPointer = stdgo._internal.math.big.Big_t_argnnpointer.T_argNNPointer;
+@:dox(hide) class T_argNN_static_extension {
 
 }
-typedef T_shiftTestPointer = stdgo._internal.math.big.Big_t_shifttestpointer.T_shiftTestPointer;
-class T_shiftTest_static_extension {
+@:dox(hide) typedef T_shiftTestPointer = stdgo._internal.math.big.Big_t_shifttestpointer.T_shiftTestPointer;
+@:dox(hide) class T_shiftTest_static_extension {
 
 }
-typedef T_modWTestPointer = stdgo._internal.math.big.Big_t_modwtestpointer.T_modWTestPointer;
-class T_modWTest_static_extension {
+@:dox(hide) typedef T_modWTestPointer = stdgo._internal.math.big.Big_t_modwtestpointer.T_modWTestPointer;
+@:dox(hide) class T_modWTest_static_extension {
 
 }
-typedef T_divisorPointer = stdgo._internal.math.big.Big_t_divisorpointer.T_divisorPointer;
-class T_divisor_static_extension {
+@:dox(hide) typedef T_divisorPointer = stdgo._internal.math.big.Big_t_divisorpointer.T_divisorPointer;
+@:dox(hide) class T_divisor_static_extension {
 
 }
 typedef RatPointer = stdgo._internal.math.big.Big_ratpointer.RatPointer;
@@ -1980,312 +1980,312 @@ class Rat_static_extension {
         return stdgo._internal.math.big.Big_rat_static_extension.Rat_static_extension.setFloat64(_z, _f);
     }
 }
-typedef T_ratBinArgPointer = stdgo._internal.math.big.Big_t_ratbinargpointer.T_ratBinArgPointer;
-class T_ratBinArg_static_extension {
+@:dox(hide) typedef T_ratBinArgPointer = stdgo._internal.math.big.Big_t_ratbinargpointer.T_ratBinArgPointer;
+@:dox(hide) class T_ratBinArg_static_extension {
 
 }
 typedef StringTestPointer = stdgo._internal.math.big.Big_stringtestpointer.StringTestPointer;
 class StringTest_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.math.big.Big_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.math.big.Big_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.math.big.Big_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.math.big.Big_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.math.big.Big_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.math.big.Big_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
-typedef T__struct_3PointerPointer = stdgo._internal.math.big.Big_t__struct_3pointerpointer.T__struct_3PointerPointer;
-class T__struct_3Pointer_static_extension {
+@:dox(hide) typedef T__struct_3PointerPointer = stdgo._internal.math.big.Big_t__struct_3pointerpointer.T__struct_3PointerPointer;
+@:dox(hide) class T__struct_3Pointer_static_extension {
 
 }
-typedef T__struct_4PointerPointer = stdgo._internal.math.big.Big_t__struct_4pointerpointer.T__struct_4PointerPointer;
-class T__struct_4Pointer_static_extension {
+@:dox(hide) typedef T__struct_4PointerPointer = stdgo._internal.math.big.Big_t__struct_4pointerpointer.T__struct_4PointerPointer;
+@:dox(hide) class T__struct_4Pointer_static_extension {
 
 }
-typedef T__struct_5PointerPointer = stdgo._internal.math.big.Big_t__struct_5pointerpointer.T__struct_5PointerPointer;
-class T__struct_5Pointer_static_extension {
+@:dox(hide) typedef T__struct_5PointerPointer = stdgo._internal.math.big.Big_t__struct_5pointerpointer.T__struct_5PointerPointer;
+@:dox(hide) class T__struct_5Pointer_static_extension {
 
 }
-typedef T__struct_6PointerPointer = stdgo._internal.math.big.Big_t__struct_6pointerpointer.T__struct_6PointerPointer;
-class T__struct_6Pointer_static_extension {
+@:dox(hide) typedef T__struct_6PointerPointer = stdgo._internal.math.big.Big_t__struct_6pointerpointer.T__struct_6PointerPointer;
+@:dox(hide) class T__struct_6Pointer_static_extension {
 
 }
-typedef T__struct_7PointerPointer = stdgo._internal.math.big.Big_t__struct_7pointerpointer.T__struct_7PointerPointer;
-class T__struct_7Pointer_static_extension {
+@:dox(hide) typedef T__struct_7PointerPointer = stdgo._internal.math.big.Big_t__struct_7pointerpointer.T__struct_7PointerPointer;
+@:dox(hide) class T__struct_7Pointer_static_extension {
 
 }
-typedef T__struct_8PointerPointer = stdgo._internal.math.big.Big_t__struct_8pointerpointer.T__struct_8PointerPointer;
-class T__struct_8Pointer_static_extension {
+@:dox(hide) typedef T__struct_8PointerPointer = stdgo._internal.math.big.Big_t__struct_8pointerpointer.T__struct_8PointerPointer;
+@:dox(hide) class T__struct_8Pointer_static_extension {
 
 }
-typedef T__struct_9PointerPointer = stdgo._internal.math.big.Big_t__struct_9pointerpointer.T__struct_9PointerPointer;
-class T__struct_9Pointer_static_extension {
+@:dox(hide) typedef T__struct_9PointerPointer = stdgo._internal.math.big.Big_t__struct_9pointerpointer.T__struct_9PointerPointer;
+@:dox(hide) class T__struct_9Pointer_static_extension {
 
 }
-typedef T__struct_10PointerPointer = stdgo._internal.math.big.Big_t__struct_10pointerpointer.T__struct_10PointerPointer;
-class T__struct_10Pointer_static_extension {
+@:dox(hide) typedef T__struct_10PointerPointer = stdgo._internal.math.big.Big_t__struct_10pointerpointer.T__struct_10PointerPointer;
+@:dox(hide) class T__struct_10Pointer_static_extension {
 
 }
-typedef T__struct_11PointerPointer = stdgo._internal.math.big.Big_t__struct_11pointerpointer.T__struct_11PointerPointer;
-class T__struct_11Pointer_static_extension {
+@:dox(hide) typedef T__struct_11PointerPointer = stdgo._internal.math.big.Big_t__struct_11pointerpointer.T__struct_11PointerPointer;
+@:dox(hide) class T__struct_11Pointer_static_extension {
 
 }
-typedef T__struct_12PointerPointer = stdgo._internal.math.big.Big_t__struct_12pointerpointer.T__struct_12PointerPointer;
-class T__struct_12Pointer_static_extension {
+@:dox(hide) typedef T__struct_12PointerPointer = stdgo._internal.math.big.Big_t__struct_12pointerpointer.T__struct_12PointerPointer;
+@:dox(hide) class T__struct_12Pointer_static_extension {
 
 }
-typedef T__struct_13PointerPointer = stdgo._internal.math.big.Big_t__struct_13pointerpointer.T__struct_13PointerPointer;
-class T__struct_13Pointer_static_extension {
+@:dox(hide) typedef T__struct_13PointerPointer = stdgo._internal.math.big.Big_t__struct_13pointerpointer.T__struct_13PointerPointer;
+@:dox(hide) class T__struct_13Pointer_static_extension {
 
 }
-typedef T__struct_14PointerPointer = stdgo._internal.math.big.Big_t__struct_14pointerpointer.T__struct_14PointerPointer;
-class T__struct_14Pointer_static_extension {
+@:dox(hide) typedef T__struct_14PointerPointer = stdgo._internal.math.big.Big_t__struct_14pointerpointer.T__struct_14PointerPointer;
+@:dox(hide) class T__struct_14Pointer_static_extension {
 
 }
-typedef T__struct_15PointerPointer = stdgo._internal.math.big.Big_t__struct_15pointerpointer.T__struct_15PointerPointer;
-class T__struct_15Pointer_static_extension {
+@:dox(hide) typedef T__struct_15PointerPointer = stdgo._internal.math.big.Big_t__struct_15pointerpointer.T__struct_15PointerPointer;
+@:dox(hide) class T__struct_15Pointer_static_extension {
 
 }
-typedef T__struct_16PointerPointer = stdgo._internal.math.big.Big_t__struct_16pointerpointer.T__struct_16PointerPointer;
-class T__struct_16Pointer_static_extension {
+@:dox(hide) typedef T__struct_16PointerPointer = stdgo._internal.math.big.Big_t__struct_16pointerpointer.T__struct_16PointerPointer;
+@:dox(hide) class T__struct_16Pointer_static_extension {
 
 }
-typedef T__struct_17PointerPointer = stdgo._internal.math.big.Big_t__struct_17pointerpointer.T__struct_17PointerPointer;
-class T__struct_17Pointer_static_extension {
+@:dox(hide) typedef T__struct_17PointerPointer = stdgo._internal.math.big.Big_t__struct_17pointerpointer.T__struct_17PointerPointer;
+@:dox(hide) class T__struct_17Pointer_static_extension {
 
 }
-typedef T__struct_18PointerPointer = stdgo._internal.math.big.Big_t__struct_18pointerpointer.T__struct_18PointerPointer;
-class T__struct_18Pointer_static_extension {
+@:dox(hide) typedef T__struct_18PointerPointer = stdgo._internal.math.big.Big_t__struct_18pointerpointer.T__struct_18PointerPointer;
+@:dox(hide) class T__struct_18Pointer_static_extension {
 
 }
-typedef T__struct_19PointerPointer = stdgo._internal.math.big.Big_t__struct_19pointerpointer.T__struct_19PointerPointer;
-class T__struct_19Pointer_static_extension {
+@:dox(hide) typedef T__struct_19PointerPointer = stdgo._internal.math.big.Big_t__struct_19pointerpointer.T__struct_19PointerPointer;
+@:dox(hide) class T__struct_19Pointer_static_extension {
 
 }
-typedef T__struct_20PointerPointer = stdgo._internal.math.big.Big_t__struct_20pointerpointer.T__struct_20PointerPointer;
-class T__struct_20Pointer_static_extension {
+@:dox(hide) typedef T__struct_20PointerPointer = stdgo._internal.math.big.Big_t__struct_20pointerpointer.T__struct_20PointerPointer;
+@:dox(hide) class T__struct_20Pointer_static_extension {
 
 }
-typedef T__struct_21PointerPointer = stdgo._internal.math.big.Big_t__struct_21pointerpointer.T__struct_21PointerPointer;
-class T__struct_21Pointer_static_extension {
+@:dox(hide) typedef T__struct_21PointerPointer = stdgo._internal.math.big.Big_t__struct_21pointerpointer.T__struct_21PointerPointer;
+@:dox(hide) class T__struct_21Pointer_static_extension {
 
 }
-typedef T__struct_22PointerPointer = stdgo._internal.math.big.Big_t__struct_22pointerpointer.T__struct_22PointerPointer;
-class T__struct_22Pointer_static_extension {
+@:dox(hide) typedef T__struct_22PointerPointer = stdgo._internal.math.big.Big_t__struct_22pointerpointer.T__struct_22PointerPointer;
+@:dox(hide) class T__struct_22Pointer_static_extension {
 
 }
-typedef T__struct_23PointerPointer = stdgo._internal.math.big.Big_t__struct_23pointerpointer.T__struct_23PointerPointer;
-class T__struct_23Pointer_static_extension {
+@:dox(hide) typedef T__struct_23PointerPointer = stdgo._internal.math.big.Big_t__struct_23pointerpointer.T__struct_23PointerPointer;
+@:dox(hide) class T__struct_23Pointer_static_extension {
 
 }
-typedef T__struct_24PointerPointer = stdgo._internal.math.big.Big_t__struct_24pointerpointer.T__struct_24PointerPointer;
-class T__struct_24Pointer_static_extension {
+@:dox(hide) typedef T__struct_24PointerPointer = stdgo._internal.math.big.Big_t__struct_24pointerpointer.T__struct_24PointerPointer;
+@:dox(hide) class T__struct_24Pointer_static_extension {
 
 }
-typedef T__struct_25PointerPointer = stdgo._internal.math.big.Big_t__struct_25pointerpointer.T__struct_25PointerPointer;
-class T__struct_25Pointer_static_extension {
+@:dox(hide) typedef T__struct_25PointerPointer = stdgo._internal.math.big.Big_t__struct_25pointerpointer.T__struct_25PointerPointer;
+@:dox(hide) class T__struct_25Pointer_static_extension {
 
 }
-typedef T__struct_26PointerPointer = stdgo._internal.math.big.Big_t__struct_26pointerpointer.T__struct_26PointerPointer;
-class T__struct_26Pointer_static_extension {
+@:dox(hide) typedef T__struct_26PointerPointer = stdgo._internal.math.big.Big_t__struct_26pointerpointer.T__struct_26PointerPointer;
+@:dox(hide) class T__struct_26Pointer_static_extension {
 
 }
-typedef T__struct_27PointerPointer = stdgo._internal.math.big.Big_t__struct_27pointerpointer.T__struct_27PointerPointer;
-class T__struct_27Pointer_static_extension {
+@:dox(hide) typedef T__struct_27PointerPointer = stdgo._internal.math.big.Big_t__struct_27pointerpointer.T__struct_27PointerPointer;
+@:dox(hide) class T__struct_27Pointer_static_extension {
 
 }
-typedef T__struct_28PointerPointer = stdgo._internal.math.big.Big_t__struct_28pointerpointer.T__struct_28PointerPointer;
-class T__struct_28Pointer_static_extension {
+@:dox(hide) typedef T__struct_28PointerPointer = stdgo._internal.math.big.Big_t__struct_28pointerpointer.T__struct_28PointerPointer;
+@:dox(hide) class T__struct_28Pointer_static_extension {
 
 }
-typedef T__struct_29PointerPointer = stdgo._internal.math.big.Big_t__struct_29pointerpointer.T__struct_29PointerPointer;
-class T__struct_29Pointer_static_extension {
+@:dox(hide) typedef T__struct_29PointerPointer = stdgo._internal.math.big.Big_t__struct_29pointerpointer.T__struct_29PointerPointer;
+@:dox(hide) class T__struct_29Pointer_static_extension {
 
 }
-typedef T__struct_30PointerPointer = stdgo._internal.math.big.Big_t__struct_30pointerpointer.T__struct_30PointerPointer;
-class T__struct_30Pointer_static_extension {
+@:dox(hide) typedef T__struct_30PointerPointer = stdgo._internal.math.big.Big_t__struct_30pointerpointer.T__struct_30PointerPointer;
+@:dox(hide) class T__struct_30Pointer_static_extension {
 
 }
-typedef T__struct_31PointerPointer = stdgo._internal.math.big.Big_t__struct_31pointerpointer.T__struct_31PointerPointer;
-class T__struct_31Pointer_static_extension {
+@:dox(hide) typedef T__struct_31PointerPointer = stdgo._internal.math.big.Big_t__struct_31pointerpointer.T__struct_31PointerPointer;
+@:dox(hide) class T__struct_31Pointer_static_extension {
 
 }
-typedef T__struct_32PointerPointer = stdgo._internal.math.big.Big_t__struct_32pointerpointer.T__struct_32PointerPointer;
-class T__struct_32Pointer_static_extension {
+@:dox(hide) typedef T__struct_32PointerPointer = stdgo._internal.math.big.Big_t__struct_32pointerpointer.T__struct_32PointerPointer;
+@:dox(hide) class T__struct_32Pointer_static_extension {
 
 }
-typedef T__struct_33PointerPointer = stdgo._internal.math.big.Big_t__struct_33pointerpointer.T__struct_33PointerPointer;
-class T__struct_33Pointer_static_extension {
+@:dox(hide) typedef T__struct_33PointerPointer = stdgo._internal.math.big.Big_t__struct_33pointerpointer.T__struct_33PointerPointer;
+@:dox(hide) class T__struct_33Pointer_static_extension {
 
 }
-typedef T__struct_34PointerPointer = stdgo._internal.math.big.Big_t__struct_34pointerpointer.T__struct_34PointerPointer;
-class T__struct_34Pointer_static_extension {
+@:dox(hide) typedef T__struct_34PointerPointer = stdgo._internal.math.big.Big_t__struct_34pointerpointer.T__struct_34PointerPointer;
+@:dox(hide) class T__struct_34Pointer_static_extension {
 
 }
-typedef T__struct_35PointerPointer = stdgo._internal.math.big.Big_t__struct_35pointerpointer.T__struct_35PointerPointer;
-class T__struct_35Pointer_static_extension {
+@:dox(hide) typedef T__struct_35PointerPointer = stdgo._internal.math.big.Big_t__struct_35pointerpointer.T__struct_35PointerPointer;
+@:dox(hide) class T__struct_35Pointer_static_extension {
 
 }
-typedef T__struct_36PointerPointer = stdgo._internal.math.big.Big_t__struct_36pointerpointer.T__struct_36PointerPointer;
-class T__struct_36Pointer_static_extension {
+@:dox(hide) typedef T__struct_36PointerPointer = stdgo._internal.math.big.Big_t__struct_36pointerpointer.T__struct_36PointerPointer;
+@:dox(hide) class T__struct_36Pointer_static_extension {
 
 }
-typedef T__struct_37PointerPointer = stdgo._internal.math.big.Big_t__struct_37pointerpointer.T__struct_37PointerPointer;
-class T__struct_37Pointer_static_extension {
+@:dox(hide) typedef T__struct_37PointerPointer = stdgo._internal.math.big.Big_t__struct_37pointerpointer.T__struct_37PointerPointer;
+@:dox(hide) class T__struct_37Pointer_static_extension {
 
 }
-typedef T__struct_38PointerPointer = stdgo._internal.math.big.Big_t__struct_38pointerpointer.T__struct_38PointerPointer;
-class T__struct_38Pointer_static_extension {
+@:dox(hide) typedef T__struct_38PointerPointer = stdgo._internal.math.big.Big_t__struct_38pointerpointer.T__struct_38PointerPointer;
+@:dox(hide) class T__struct_38Pointer_static_extension {
 
 }
-typedef T__struct_39PointerPointer = stdgo._internal.math.big.Big_t__struct_39pointerpointer.T__struct_39PointerPointer;
-class T__struct_39Pointer_static_extension {
+@:dox(hide) typedef T__struct_39PointerPointer = stdgo._internal.math.big.Big_t__struct_39pointerpointer.T__struct_39PointerPointer;
+@:dox(hide) class T__struct_39Pointer_static_extension {
 
 }
-typedef T__struct_40PointerPointer = stdgo._internal.math.big.Big_t__struct_40pointerpointer.T__struct_40PointerPointer;
-class T__struct_40Pointer_static_extension {
+@:dox(hide) typedef T__struct_40PointerPointer = stdgo._internal.math.big.Big_t__struct_40pointerpointer.T__struct_40PointerPointer;
+@:dox(hide) class T__struct_40Pointer_static_extension {
 
 }
-typedef T__struct_41PointerPointer = stdgo._internal.math.big.Big_t__struct_41pointerpointer.T__struct_41PointerPointer;
-class T__struct_41Pointer_static_extension {
+@:dox(hide) typedef T__struct_41PointerPointer = stdgo._internal.math.big.Big_t__struct_41pointerpointer.T__struct_41PointerPointer;
+@:dox(hide) class T__struct_41Pointer_static_extension {
 
 }
-typedef T__struct_42PointerPointer = stdgo._internal.math.big.Big_t__struct_42pointerpointer.T__struct_42PointerPointer;
-class T__struct_42Pointer_static_extension {
+@:dox(hide) typedef T__struct_42PointerPointer = stdgo._internal.math.big.Big_t__struct_42pointerpointer.T__struct_42PointerPointer;
+@:dox(hide) class T__struct_42Pointer_static_extension {
 
 }
-typedef T__struct_43PointerPointer = stdgo._internal.math.big.Big_t__struct_43pointerpointer.T__struct_43PointerPointer;
-class T__struct_43Pointer_static_extension {
+@:dox(hide) typedef T__struct_43PointerPointer = stdgo._internal.math.big.Big_t__struct_43pointerpointer.T__struct_43PointerPointer;
+@:dox(hide) class T__struct_43Pointer_static_extension {
 
 }
-typedef T__struct_44PointerPointer = stdgo._internal.math.big.Big_t__struct_44pointerpointer.T__struct_44PointerPointer;
-class T__struct_44Pointer_static_extension {
+@:dox(hide) typedef T__struct_44PointerPointer = stdgo._internal.math.big.Big_t__struct_44pointerpointer.T__struct_44PointerPointer;
+@:dox(hide) class T__struct_44Pointer_static_extension {
 
 }
-typedef T__struct_45PointerPointer = stdgo._internal.math.big.Big_t__struct_45pointerpointer.T__struct_45PointerPointer;
-class T__struct_45Pointer_static_extension {
+@:dox(hide) typedef T__struct_45PointerPointer = stdgo._internal.math.big.Big_t__struct_45pointerpointer.T__struct_45PointerPointer;
+@:dox(hide) class T__struct_45Pointer_static_extension {
 
 }
-typedef T__struct_46PointerPointer = stdgo._internal.math.big.Big_t__struct_46pointerpointer.T__struct_46PointerPointer;
-class T__struct_46Pointer_static_extension {
+@:dox(hide) typedef T__struct_46PointerPointer = stdgo._internal.math.big.Big_t__struct_46pointerpointer.T__struct_46PointerPointer;
+@:dox(hide) class T__struct_46Pointer_static_extension {
 
 }
-typedef T__struct_47PointerPointer = stdgo._internal.math.big.Big_t__struct_47pointerpointer.T__struct_47PointerPointer;
-class T__struct_47Pointer_static_extension {
+@:dox(hide) typedef T__struct_47PointerPointer = stdgo._internal.math.big.Big_t__struct_47pointerpointer.T__struct_47PointerPointer;
+@:dox(hide) class T__struct_47Pointer_static_extension {
 
 }
-typedef T__struct_48PointerPointer = stdgo._internal.math.big.Big_t__struct_48pointerpointer.T__struct_48PointerPointer;
-class T__struct_48Pointer_static_extension {
+@:dox(hide) typedef T__struct_48PointerPointer = stdgo._internal.math.big.Big_t__struct_48pointerpointer.T__struct_48PointerPointer;
+@:dox(hide) class T__struct_48Pointer_static_extension {
 
 }
-typedef T__struct_49PointerPointer = stdgo._internal.math.big.Big_t__struct_49pointerpointer.T__struct_49PointerPointer;
-class T__struct_49Pointer_static_extension {
+@:dox(hide) typedef T__struct_49PointerPointer = stdgo._internal.math.big.Big_t__struct_49pointerpointer.T__struct_49PointerPointer;
+@:dox(hide) class T__struct_49Pointer_static_extension {
 
 }
-typedef T__struct_50PointerPointer = stdgo._internal.math.big.Big_t__struct_50pointerpointer.T__struct_50PointerPointer;
-class T__struct_50Pointer_static_extension {
+@:dox(hide) typedef T__struct_50PointerPointer = stdgo._internal.math.big.Big_t__struct_50pointerpointer.T__struct_50PointerPointer;
+@:dox(hide) class T__struct_50Pointer_static_extension {
 
 }
-typedef T__struct_51PointerPointer = stdgo._internal.math.big.Big_t__struct_51pointerpointer.T__struct_51PointerPointer;
-class T__struct_51Pointer_static_extension {
+@:dox(hide) typedef T__struct_51PointerPointer = stdgo._internal.math.big.Big_t__struct_51pointerpointer.T__struct_51PointerPointer;
+@:dox(hide) class T__struct_51Pointer_static_extension {
 
 }
-typedef T__struct_52PointerPointer = stdgo._internal.math.big.Big_t__struct_52pointerpointer.T__struct_52PointerPointer;
-class T__struct_52Pointer_static_extension {
+@:dox(hide) typedef T__struct_52PointerPointer = stdgo._internal.math.big.Big_t__struct_52pointerpointer.T__struct_52PointerPointer;
+@:dox(hide) class T__struct_52Pointer_static_extension {
 
 }
-typedef T__struct_53PointerPointer = stdgo._internal.math.big.Big_t__struct_53pointerpointer.T__struct_53PointerPointer;
-class T__struct_53Pointer_static_extension {
+@:dox(hide) typedef T__struct_53PointerPointer = stdgo._internal.math.big.Big_t__struct_53pointerpointer.T__struct_53PointerPointer;
+@:dox(hide) class T__struct_53Pointer_static_extension {
 
 }
-typedef T__struct_54PointerPointer = stdgo._internal.math.big.Big_t__struct_54pointerpointer.T__struct_54PointerPointer;
-class T__struct_54Pointer_static_extension {
+@:dox(hide) typedef T__struct_54PointerPointer = stdgo._internal.math.big.Big_t__struct_54pointerpointer.T__struct_54PointerPointer;
+@:dox(hide) class T__struct_54Pointer_static_extension {
 
 }
-typedef T__struct_55PointerPointer = stdgo._internal.math.big.Big_t__struct_55pointerpointer.T__struct_55PointerPointer;
-class T__struct_55Pointer_static_extension {
+@:dox(hide) typedef T__struct_55PointerPointer = stdgo._internal.math.big.Big_t__struct_55pointerpointer.T__struct_55PointerPointer;
+@:dox(hide) class T__struct_55Pointer_static_extension {
 
 }
-typedef T__struct_56PointerPointer = stdgo._internal.math.big.Big_t__struct_56pointerpointer.T__struct_56PointerPointer;
-class T__struct_56Pointer_static_extension {
+@:dox(hide) typedef T__struct_56PointerPointer = stdgo._internal.math.big.Big_t__struct_56pointerpointer.T__struct_56PointerPointer;
+@:dox(hide) class T__struct_56Pointer_static_extension {
 
 }
-typedef T__struct_57PointerPointer = stdgo._internal.math.big.Big_t__struct_57pointerpointer.T__struct_57PointerPointer;
-class T__struct_57Pointer_static_extension {
+@:dox(hide) typedef T__struct_57PointerPointer = stdgo._internal.math.big.Big_t__struct_57pointerpointer.T__struct_57PointerPointer;
+@:dox(hide) class T__struct_57Pointer_static_extension {
 
 }
-typedef T__struct_58PointerPointer = stdgo._internal.math.big.Big_t__struct_58pointerpointer.T__struct_58PointerPointer;
-class T__struct_58Pointer_static_extension {
+@:dox(hide) typedef T__struct_58PointerPointer = stdgo._internal.math.big.Big_t__struct_58pointerpointer.T__struct_58PointerPointer;
+@:dox(hide) class T__struct_58Pointer_static_extension {
 
 }
-typedef T__struct_59PointerPointer = stdgo._internal.math.big.Big_t__struct_59pointerpointer.T__struct_59PointerPointer;
-class T__struct_59Pointer_static_extension {
+@:dox(hide) typedef T__struct_59PointerPointer = stdgo._internal.math.big.Big_t__struct_59pointerpointer.T__struct_59PointerPointer;
+@:dox(hide) class T__struct_59Pointer_static_extension {
 
 }
-typedef T__struct_60PointerPointer = stdgo._internal.math.big.Big_t__struct_60pointerpointer.T__struct_60PointerPointer;
-class T__struct_60Pointer_static_extension {
+@:dox(hide) typedef T__struct_60PointerPointer = stdgo._internal.math.big.Big_t__struct_60pointerpointer.T__struct_60PointerPointer;
+@:dox(hide) class T__struct_60Pointer_static_extension {
 
 }
-typedef T__struct_61PointerPointer = stdgo._internal.math.big.Big_t__struct_61pointerpointer.T__struct_61PointerPointer;
-class T__struct_61Pointer_static_extension {
+@:dox(hide) typedef T__struct_61PointerPointer = stdgo._internal.math.big.Big_t__struct_61pointerpointer.T__struct_61PointerPointer;
+@:dox(hide) class T__struct_61Pointer_static_extension {
 
 }
-typedef T__struct_62PointerPointer = stdgo._internal.math.big.Big_t__struct_62pointerpointer.T__struct_62PointerPointer;
-class T__struct_62Pointer_static_extension {
+@:dox(hide) typedef T__struct_62PointerPointer = stdgo._internal.math.big.Big_t__struct_62pointerpointer.T__struct_62PointerPointer;
+@:dox(hide) class T__struct_62Pointer_static_extension {
 
 }
-typedef T__struct_63PointerPointer = stdgo._internal.math.big.Big_t__struct_63pointerpointer.T__struct_63PointerPointer;
-class T__struct_63Pointer_static_extension {
+@:dox(hide) typedef T__struct_63PointerPointer = stdgo._internal.math.big.Big_t__struct_63pointerpointer.T__struct_63PointerPointer;
+@:dox(hide) class T__struct_63Pointer_static_extension {
 
 }
-typedef T__struct_64PointerPointer = stdgo._internal.math.big.Big_t__struct_64pointerpointer.T__struct_64PointerPointer;
-class T__struct_64Pointer_static_extension {
+@:dox(hide) typedef T__struct_64PointerPointer = stdgo._internal.math.big.Big_t__struct_64pointerpointer.T__struct_64PointerPointer;
+@:dox(hide) class T__struct_64Pointer_static_extension {
 
 }
-typedef T__struct_65PointerPointer = stdgo._internal.math.big.Big_t__struct_65pointerpointer.T__struct_65PointerPointer;
-class T__struct_65Pointer_static_extension {
+@:dox(hide) typedef T__struct_65PointerPointer = stdgo._internal.math.big.Big_t__struct_65pointerpointer.T__struct_65PointerPointer;
+@:dox(hide) class T__struct_65Pointer_static_extension {
 
 }
-typedef T__struct_66PointerPointer = stdgo._internal.math.big.Big_t__struct_66pointerpointer.T__struct_66PointerPointer;
-class T__struct_66Pointer_static_extension {
+@:dox(hide) typedef T__struct_66PointerPointer = stdgo._internal.math.big.Big_t__struct_66pointerpointer.T__struct_66PointerPointer;
+@:dox(hide) class T__struct_66Pointer_static_extension {
 
 }
-typedef T__struct_67PointerPointer = stdgo._internal.math.big.Big_t__struct_67pointerpointer.T__struct_67PointerPointer;
-class T__struct_67Pointer_static_extension {
+@:dox(hide) typedef T__struct_67PointerPointer = stdgo._internal.math.big.Big_t__struct_67pointerpointer.T__struct_67PointerPointer;
+@:dox(hide) class T__struct_67Pointer_static_extension {
 
 }
-typedef T__struct_68PointerPointer = stdgo._internal.math.big.Big_t__struct_68pointerpointer.T__struct_68PointerPointer;
-class T__struct_68Pointer_static_extension {
+@:dox(hide) typedef T__struct_68PointerPointer = stdgo._internal.math.big.Big_t__struct_68pointerpointer.T__struct_68PointerPointer;
+@:dox(hide) class T__struct_68Pointer_static_extension {
 
 }
-typedef T__struct_69PointerPointer = stdgo._internal.math.big.Big_t__struct_69pointerpointer.T__struct_69PointerPointer;
-class T__struct_69Pointer_static_extension {
+@:dox(hide) typedef T__struct_69PointerPointer = stdgo._internal.math.big.Big_t__struct_69pointerpointer.T__struct_69PointerPointer;
+@:dox(hide) class T__struct_69Pointer_static_extension {
 
 }
 typedef WordPointer = stdgo._internal.math.big.Big_wordpointer.WordPointer;
 class Word_static_extension {
 
 }
-typedef T_funVVPointer = stdgo._internal.math.big.Big_t_funvvpointer.T_funVVPointer;
-class T_funVV_static_extension {
+@:dox(hide) typedef T_funVVPointer = stdgo._internal.math.big.Big_t_funvvpointer.T_funVVPointer;
+@:dox(hide) class T_funVV_static_extension {
 
 }
-typedef T_funVWPointer = stdgo._internal.math.big.Big_t_funvwpointer.T_funVWPointer;
-class T_funVW_static_extension {
+@:dox(hide) typedef T_funVWPointer = stdgo._internal.math.big.Big_t_funvwpointer.T_funVWPointer;
+@:dox(hide) class T_funVW_static_extension {
 
 }
-typedef T_funVWWPointer = stdgo._internal.math.big.Big_t_funvwwpointer.T_funVWWPointer;
-class T_funVWW_static_extension {
+@:dox(hide) typedef T_funVWWPointer = stdgo._internal.math.big.Big_t_funvwwpointer.T_funVWWPointer;
+@:dox(hide) class T_funVWW_static_extension {
 
 }
-typedef T_funWVWPointer = stdgo._internal.math.big.Big_t_funwvwpointer.T_funWVWPointer;
-class T_funWVW_static_extension {
+@:dox(hide) typedef T_funWVWPointer = stdgo._internal.math.big.Big_t_funwvwpointer.T_funWVWPointer;
+@:dox(hide) class T_funWVW_static_extension {
 
 }
 typedef BitsPointer = stdgo._internal.math.big.Big_bitspointer.BitsPointer;
@@ -2307,8 +2307,8 @@ class Bits_static_extension {
         return stdgo._internal.math.big.Big_bits_static_extension.Bits_static_extension._add(_x, _y);
     }
 }
-typedef T_formPointer = stdgo._internal.math.big.Big_t_formpointer.T_formPointer;
-class T_form_static_extension {
+@:dox(hide) typedef T_formPointer = stdgo._internal.math.big.Big_t_formpointer.T_formPointer;
+@:dox(hide) class T_form_static_extension {
 
 }
 typedef RoundingModePointer = stdgo._internal.math.big.Big_roundingmodepointer.RoundingModePointer;
@@ -2323,16 +2323,16 @@ class Accuracy_static_extension {
         return stdgo._internal.math.big.Big_accuracy_static_extension.Accuracy_static_extension.string(_i);
     }
 }
-typedef T_funZZPointer = stdgo._internal.math.big.Big_t_funzzpointer.T_funZZPointer;
-class T_funZZ_static_extension {
+@:dox(hide) typedef T_funZZPointer = stdgo._internal.math.big.Big_t_funzzpointer.T_funZZPointer;
+@:dox(hide) class T_funZZ_static_extension {
 
 }
-typedef T_bitFunPointer = stdgo._internal.math.big.Big_t_bitfunpointer.T_bitFunPointer;
-class T_bitFun_static_extension {
+@:dox(hide) typedef T_bitFunPointer = stdgo._internal.math.big.Big_t_bitfunpointer.T_bitFunPointer;
+@:dox(hide) class T_bitFun_static_extension {
 
 }
-typedef T_natPointer = stdgo._internal.math.big.Big_t_natpointer.T_natPointer;
-class T_nat_static_extension {
+@:dox(hide) typedef T_natPointer = stdgo._internal.math.big.Big_t_natpointer.T_natPointer;
+@:dox(hide) class T_nat_static_extension {
     static public function _probablyPrimeLucas(_n:T_nat):Bool {
         return stdgo._internal.math.big.Big_t_nat_static_extension.T_nat_static_extension._probablyPrimeLucas(_n);
     }
@@ -2536,12 +2536,12 @@ class T_nat_static_extension {
         return stdgo._internal.math.big.Big_t_nat_static_extension.T_nat_static_extension._modInverse(_z, _g, _n);
     }
 }
-typedef T_funNNPointer = stdgo._internal.math.big.Big_t_funnnpointer.T_funNNPointer;
-class T_funNN_static_extension {
+@:dox(hide) typedef T_funNNPointer = stdgo._internal.math.big.Big_t_funnnpointer.T_funNNPointer;
+@:dox(hide) class T_funNN_static_extension {
 
 }
-typedef T_ratBinFunPointer = stdgo._internal.math.big.Big_t_ratbinfunpointer.T_ratBinFunPointer;
-class T_ratBinFun_static_extension {
+@:dox(hide) typedef T_ratBinFunPointer = stdgo._internal.math.big.Big_t_ratbinfunpointer.T_ratBinFunPointer;
+@:dox(hide) class T_ratBinFun_static_extension {
 
 }
 /**

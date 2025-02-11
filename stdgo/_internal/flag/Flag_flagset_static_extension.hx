@@ -81,7 +81,7 @@ package stdgo._internal.flag;
                 _i++;
             };
         };
-        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.exists(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.__exists__(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             if (((_name == ("help" : stdgo.GoString)) || (_name == ("h" : stdgo.GoString)) : Bool)) {
                 @:check2r _f._usage();
@@ -181,7 +181,7 @@ package stdgo._internal.flag;
             throw stdgo.Go.toInterface(@:check2r _f._sprintf(("flag %q contains =" : stdgo.GoString), stdgo.Go.toInterface(_name)));
         };
         var _flag = (stdgo.Go.setRef((new stdgo._internal.flag.Flag_flag.Flag(_name?.__copy__(), _usage?.__copy__(), _value, (_value.string() : stdgo.GoString)?.__copy__()) : stdgo._internal.flag.Flag_flag.Flag)) : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>);
-        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.exists(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), __0:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _alreadythere:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.__exists__(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), __0:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _alreadythere:Bool = __tmp__._1;
         if (_alreadythere) {
             var _msg:stdgo.GoString = ("" : stdgo.GoString);
             if ((@:checkr _f ?? throw "null pointer dereference")._name == ((stdgo.Go.str() : stdgo.GoString))) {
@@ -429,7 +429,7 @@ package stdgo._internal.flag;
     @:tdfield
     static public function _set( _f:stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>, _name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet> = _f;
-        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.exists(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _f ?? throw "null pointer dereference")._formal != null && (@:checkr _f ?? throw "null pointer dereference")._formal.__exists__(_name?.__copy__()) ? { _0 : (@:checkr _f ?? throw "null pointer dereference")._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller((2 : stdgo.GoInt)), __0:stdgo.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
             if (!_ok) {

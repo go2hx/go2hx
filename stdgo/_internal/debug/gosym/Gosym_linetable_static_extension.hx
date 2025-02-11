@@ -203,7 +203,7 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
                 }) });
             };
             @:check2r _t._initFileMap();
-            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._fileMap != null && (@:checkr _t ?? throw "null pointer dereference")._fileMap.exists(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._fileMap[_file?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _filenum:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._fileMap != null && (@:checkr _t ?? throw "null pointer dereference")._fileMap.__exists__(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._fileMap[_file?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _filenum:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     final __ret__:stdgo.GoUInt64 = _pc = (0i64 : stdgo.GoUInt64);
@@ -663,7 +663,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     static public function _stringFrom( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>, _arr:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoUInt32):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable> = _t;
         {
-            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._strings != null && (@:checkr _t ?? throw "null pointer dereference")._strings.exists(_off) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._strings[_off], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._strings != null && (@:checkr _t ?? throw "null pointer dereference")._strings.__exists__(_off) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._strings[_off], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _s?.__copy__();
             };
@@ -678,7 +678,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     static public function _funcName( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>, _off:stdgo.GoUInt32):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable> = _t;
         {
-            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._funcNames != null && (@:checkr _t ?? throw "null pointer dereference")._funcNames.exists(_off) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._funcNames[_off], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference")._funcNames != null && (@:checkr _t ?? throw "null pointer dereference")._funcNames.__exists__(_off) ? { _0 : (@:checkr _t ?? throw "null pointer dereference")._funcNames[_off], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _s?.__copy__();
             };

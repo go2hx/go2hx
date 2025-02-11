@@ -1,9 +1,9 @@
 package stdgo.math.bits;
 final uintSize : haxe.UInt64 = stdgo._internal.math.bits.Bits_uintsize.uintSize;
 final deBruijn64 : haxe.UInt64 = stdgo._internal.math.bits.Bits_debruijn64.deBruijn64;
-typedef T_errorString = stdgo._internal.math.bits.Bits_t_errorstring.T_errorString;
-typedef T_errorStringPointer = stdgo._internal.math.bits.Bits_t_errorstringpointer.T_errorStringPointer;
-class T_errorString_static_extension {
+@:dox(hide) typedef T_errorString = stdgo._internal.math.bits.Bits_t_errorstring.T_errorString;
+@:dox(hide) typedef T_errorStringPointer = stdgo._internal.math.bits.Bits_t_errorstringpointer.T_errorStringPointer;
+@:dox(hide) class T_errorString_static_extension {
     static public function error(_e:T_errorString):String {
         return stdgo._internal.math.bits.Bits_t_errorstring_static_extension.T_errorString_static_extension.error(_e);
     }

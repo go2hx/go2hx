@@ -43,26 +43,26 @@ package stdgo.crypto.internal.nistec.fiat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_p224UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224untypedfieldelement.T_p224UntypedFieldElement;
-typedef T_p224Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224uint1.T_p224Uint1;
-typedef T_p224Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224int1.T_p224Int1;
-typedef T_p224MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224montgomerydomainfieldelement.T_p224MontgomeryDomainFieldElement;
-typedef T_p224NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224nonmontgomerydomainfieldelement.T_p224NonMontgomeryDomainFieldElement;
-typedef T_p256UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256untypedfieldelement.T_p256UntypedFieldElement;
-typedef T_p256Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256uint1.T_p256Uint1;
-typedef T_p256Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256int1.T_p256Int1;
-typedef T_p256MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256montgomerydomainfieldelement.T_p256MontgomeryDomainFieldElement;
-typedef T_p256NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256nonmontgomerydomainfieldelement.T_p256NonMontgomeryDomainFieldElement;
-typedef T_p384UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384untypedfieldelement.T_p384UntypedFieldElement;
-typedef T_p384Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1;
-typedef T_p384Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384int1.T_p384Int1;
-typedef T_p384MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelement.T_p384MontgomeryDomainFieldElement;
-typedef T_p384NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelement.T_p384NonMontgomeryDomainFieldElement;
-typedef T_p521UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521untypedfieldelement.T_p521UntypedFieldElement;
-typedef T_p521Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521uint1.T_p521Uint1;
-typedef T_p521Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521int1.T_p521Int1;
-typedef T_p521MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521montgomerydomainfieldelement.T_p521MontgomeryDomainFieldElement;
-typedef T_p521NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelement.T_p521NonMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p224UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224untypedfieldelement.T_p224UntypedFieldElement;
+@:dox(hide) typedef T_p224Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224uint1.T_p224Uint1;
+@:dox(hide) typedef T_p224Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224int1.T_p224Int1;
+@:dox(hide) typedef T_p224MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224montgomerydomainfieldelement.T_p224MontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p224NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224nonmontgomerydomainfieldelement.T_p224NonMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p256UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256untypedfieldelement.T_p256UntypedFieldElement;
+@:dox(hide) typedef T_p256Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256uint1.T_p256Uint1;
+@:dox(hide) typedef T_p256Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256int1.T_p256Int1;
+@:dox(hide) typedef T_p256MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256montgomerydomainfieldelement.T_p256MontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p256NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256nonmontgomerydomainfieldelement.T_p256NonMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p384UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384untypedfieldelement.T_p384UntypedFieldElement;
+@:dox(hide) typedef T_p384Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1.T_p384Uint1;
+@:dox(hide) typedef T_p384Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384int1.T_p384Int1;
+@:dox(hide) typedef T_p384MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelement.T_p384MontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p384NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelement.T_p384NonMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p521UntypedFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521untypedfieldelement.T_p521UntypedFieldElement;
+@:dox(hide) typedef T_p521Uint1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521uint1.T_p521Uint1;
+@:dox(hide) typedef T_p521Int1 = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521int1.T_p521Int1;
+@:dox(hide) typedef T_p521MontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521montgomerydomainfieldelement.T_p521MontgomeryDomainFieldElement;
+@:dox(hide) typedef T_p521NonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelement.T_p521NonMontgomeryDomainFieldElement;
 typedef P224ElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224elementpointer.P224ElementPointer;
 class P224Element_static_extension {
     static public function invert(_e:P224Element, _x:P224Element):P224Element {
@@ -355,84 +355,84 @@ class P521Element_static_extension {
         return stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element_static_extension.P521Element_static_extension.one(_e);
     }
 }
-typedef T_p224UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224untypedfieldelementpointer.T_p224UntypedFieldElementPointer;
-class T_p224UntypedFieldElement_static_extension {
+@:dox(hide) typedef T_p224UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224untypedfieldelementpointer.T_p224UntypedFieldElementPointer;
+@:dox(hide) class T_p224UntypedFieldElement_static_extension {
 
 }
-typedef T_p224Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224uint1pointer.T_p224Uint1Pointer;
-class T_p224Uint1_static_extension {
+@:dox(hide) typedef T_p224Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224uint1pointer.T_p224Uint1Pointer;
+@:dox(hide) class T_p224Uint1_static_extension {
 
 }
-typedef T_p224Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224int1pointer.T_p224Int1Pointer;
-class T_p224Int1_static_extension {
+@:dox(hide) typedef T_p224Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224int1pointer.T_p224Int1Pointer;
+@:dox(hide) class T_p224Int1_static_extension {
 
 }
-typedef T_p224MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224montgomerydomainfieldelementpointer.T_p224MontgomeryDomainFieldElementPointer;
-class T_p224MontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p224MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224montgomerydomainfieldelementpointer.T_p224MontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p224MontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p224NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224nonmontgomerydomainfieldelementpointer.T_p224NonMontgomeryDomainFieldElementPointer;
-class T_p224NonMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p224NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p224nonmontgomerydomainfieldelementpointer.T_p224NonMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p224NonMontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p256UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256untypedfieldelementpointer.T_p256UntypedFieldElementPointer;
-class T_p256UntypedFieldElement_static_extension {
+@:dox(hide) typedef T_p256UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256untypedfieldelementpointer.T_p256UntypedFieldElementPointer;
+@:dox(hide) class T_p256UntypedFieldElement_static_extension {
 
 }
-typedef T_p256Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256uint1pointer.T_p256Uint1Pointer;
-class T_p256Uint1_static_extension {
+@:dox(hide) typedef T_p256Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256uint1pointer.T_p256Uint1Pointer;
+@:dox(hide) class T_p256Uint1_static_extension {
 
 }
-typedef T_p256Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256int1pointer.T_p256Int1Pointer;
-class T_p256Int1_static_extension {
+@:dox(hide) typedef T_p256Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256int1pointer.T_p256Int1Pointer;
+@:dox(hide) class T_p256Int1_static_extension {
 
 }
-typedef T_p256MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256montgomerydomainfieldelementpointer.T_p256MontgomeryDomainFieldElementPointer;
-class T_p256MontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p256MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256montgomerydomainfieldelementpointer.T_p256MontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p256MontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p256NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256nonmontgomerydomainfieldelementpointer.T_p256NonMontgomeryDomainFieldElementPointer;
-class T_p256NonMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p256NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256nonmontgomerydomainfieldelementpointer.T_p256NonMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p256NonMontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p384UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384untypedfieldelementpointer.T_p384UntypedFieldElementPointer;
-class T_p384UntypedFieldElement_static_extension {
+@:dox(hide) typedef T_p384UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384untypedfieldelementpointer.T_p384UntypedFieldElementPointer;
+@:dox(hide) class T_p384UntypedFieldElement_static_extension {
 
 }
-typedef T_p384Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1pointer.T_p384Uint1Pointer;
-class T_p384Uint1_static_extension {
+@:dox(hide) typedef T_p384Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384uint1pointer.T_p384Uint1Pointer;
+@:dox(hide) class T_p384Uint1_static_extension {
 
 }
-typedef T_p384Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384int1pointer.T_p384Int1Pointer;
-class T_p384Int1_static_extension {
+@:dox(hide) typedef T_p384Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384int1pointer.T_p384Int1Pointer;
+@:dox(hide) class T_p384Int1_static_extension {
 
 }
-typedef T_p384MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelementpointer.T_p384MontgomeryDomainFieldElementPointer;
-class T_p384MontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p384MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384montgomerydomainfieldelementpointer.T_p384MontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p384MontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p384NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelementpointer.T_p384NonMontgomeryDomainFieldElementPointer;
-class T_p384NonMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p384NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelementpointer.T_p384NonMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p384NonMontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p521UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521untypedfieldelementpointer.T_p521UntypedFieldElementPointer;
-class T_p521UntypedFieldElement_static_extension {
+@:dox(hide) typedef T_p521UntypedFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521untypedfieldelementpointer.T_p521UntypedFieldElementPointer;
+@:dox(hide) class T_p521UntypedFieldElement_static_extension {
 
 }
-typedef T_p521Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521uint1pointer.T_p521Uint1Pointer;
-class T_p521Uint1_static_extension {
+@:dox(hide) typedef T_p521Uint1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521uint1pointer.T_p521Uint1Pointer;
+@:dox(hide) class T_p521Uint1_static_extension {
 
 }
-typedef T_p521Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521int1pointer.T_p521Int1Pointer;
-class T_p521Int1_static_extension {
+@:dox(hide) typedef T_p521Int1Pointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521int1pointer.T_p521Int1Pointer;
+@:dox(hide) class T_p521Int1_static_extension {
 
 }
-typedef T_p521MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521montgomerydomainfieldelementpointer.T_p521MontgomeryDomainFieldElementPointer;
-class T_p521MontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p521MontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521montgomerydomainfieldelementpointer.T_p521MontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p521MontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_p521NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelementpointer.T_p521NonMontgomeryDomainFieldElementPointer;
-class T_p521NonMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_p521NonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelementpointer.T_p521NonMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_p521NonMontgomeryDomainFieldElement_static_extension {
 
 }
 class Fiat {

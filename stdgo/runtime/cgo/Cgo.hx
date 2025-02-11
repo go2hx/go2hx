@@ -1,12 +1,12 @@
 package stdgo.runtime.cgo;
-typedef T__struct_0Pointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.runtime.cgo.Cgo_t__struct_0.T__struct_0;
 typedef Handle = stdgo._internal.runtime.cgo.Cgo_handle.Handle;
-typedef T__struct_0PointerPointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.runtime.cgo.Cgo_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef HandlePointer = stdgo._internal.runtime.cgo.Cgo_handlepointer.HandlePointer;

@@ -18,7 +18,7 @@ package stdgo._internal.net.http;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (__2030 => _key in ((@:checkr _p ?? throw "null pointer dereference")._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
-                var __tmp__ = ((@:checkr _p ?? throw "null pointer dereference")._conns != null && (@:checkr _p ?? throw "null pointer dereference")._conns.exists(_key?.__copy__()) ? { _0 : (@:checkr _p ?? throw "null pointer dereference")._conns[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>>), _1 : false }), _vv:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _p ?? throw "null pointer dereference")._conns != null && (@:checkr _p ?? throw "null pointer dereference")._conns.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _p ?? throw "null pointer dereference")._conns[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>>), _1 : false }), _vv:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     continue;
                 };
@@ -26,10 +26,10 @@ package stdgo._internal.net.http;
                 if (((_newList.length) > (0 : stdgo.GoInt) : Bool)) {
                     (@:checkr _p ?? throw "null pointer dereference")._conns[_key] = _newList;
                 } else {
-                    if ((@:checkr _p ?? throw "null pointer dereference")._conns != null) (@:checkr _p ?? throw "null pointer dereference")._conns.remove(_key);
+                    if ((@:checkr _p ?? throw "null pointer dereference")._conns != null) (@:checkr _p ?? throw "null pointer dereference")._conns.__remove__(_key);
                 };
             };
-            if ((@:checkr _p ?? throw "null pointer dereference")._keys != null) (@:checkr _p ?? throw "null pointer dereference")._keys.remove(_cc);
+            if ((@:checkr _p ?? throw "null pointer dereference")._keys != null) (@:checkr _p ?? throw "null pointer dereference")._keys.__remove__(_cc);
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

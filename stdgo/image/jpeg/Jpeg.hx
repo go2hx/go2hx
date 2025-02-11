@@ -4,13 +4,13 @@ class Reader_static_extension {
 
 }
 typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
-class T_writer_static_extension {
+@:dox(hide) class T_writer_static_extension {
     static public function flush(t:stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.image.jpeg.Jpeg_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffman_static_extension) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman {
+@:dox(hide) typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffman_static_extension) @:dox(hide) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman {
     public var _nCodes(get, set) : StdTypes.Int;
     function get__nCodes():StdTypes.Int return this._nCodes;
     function set__nCodes(v:StdTypes.Int):StdTypes.Int {
@@ -51,7 +51,7 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_component_static_extension) abstract T_component(stdgo._internal.image.jpeg.Jpeg_t_component.T_component) from stdgo._internal.image.jpeg.Jpeg_t_component.T_component to stdgo._internal.image.jpeg.Jpeg_t_component.T_component {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_component_static_extension) @:dox(hide) abstract T_component(stdgo._internal.image.jpeg.Jpeg_t_component.T_component) from stdgo._internal.image.jpeg.Jpeg_t_component.T_component to stdgo._internal.image.jpeg.Jpeg_t_component.T_component {
     public var _h(get, set) : StdTypes.Int;
     function get__h():StdTypes.Int return this._h;
     function set__h(v:StdTypes.Int):StdTypes.Int {
@@ -80,7 +80,7 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_bits_static_extension) abstract T_bits(stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_bits_static_extension) @:dox(hide) abstract T_bits(stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits {
     public var _a(get, set) : std.UInt;
     function get__a():std.UInt return this._a;
     function set__a(v:std.UInt):std.UInt {
@@ -103,7 +103,7 @@ typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_decoder_static_extension) abstract T_decoder(stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder) from stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder to stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder) from stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder to stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -271,7 +271,7 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffmanSpec_static_extension) abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffmanSpec_static_extension) @:dox(hide) abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec {
     public var _count(get, set) : haxe.ds.Vector<std.UInt>;
     function get__count():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._count) i]);
     function set__count(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -288,7 +288,7 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_encoder_static_extension) abstract T_encoder(stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder) from stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder to stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder {
+@:structInit @:using(stdgo.image.jpeg.Jpeg.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder) from stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder to stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder {
     public var _w(get, set) : T_writer;
     function get__w():T_writer return this._w;
     function set__w(v:T_writer):T_writer {
@@ -340,41 +340,41 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.image.jpeg.Jpeg_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.image.jpeg.Jpeg_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.image.jpeg.Jpeg_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.image.jpeg.Jpeg_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.image.jpeg.Jpeg_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.image.jpeg.Jpeg_t__struct_2.T__struct_2;
-typedef T_block = stdgo._internal.image.jpeg.Jpeg_t_block.T_block;
+@:dox(hide) typedef T__struct_2 = stdgo._internal.image.jpeg.Jpeg_t__struct_2.T__struct_2;
+@:dox(hide) typedef T_block = stdgo._internal.image.jpeg.Jpeg_t_block.T_block;
 typedef FormatError = stdgo._internal.image.jpeg.Jpeg_formaterror.FormatError;
 typedef UnsupportedError = stdgo._internal.image.jpeg.Jpeg_unsupportederror.UnsupportedError;
-typedef T_quantIndex = stdgo._internal.image.jpeg.Jpeg_t_quantindex.T_quantIndex;
-typedef T_huffIndex = stdgo._internal.image.jpeg.Jpeg_t_huffindex.T_huffIndex;
-typedef T_huffmanLUT = stdgo._internal.image.jpeg.Jpeg_t_huffmanlut.T_huffmanLUT;
-typedef T_huffmanPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanpointer.T_huffmanPointer;
-class T_huffman_static_extension {
+@:dox(hide) typedef T_quantIndex = stdgo._internal.image.jpeg.Jpeg_t_quantindex.T_quantIndex;
+@:dox(hide) typedef T_huffIndex = stdgo._internal.image.jpeg.Jpeg_t_huffindex.T_huffIndex;
+@:dox(hide) typedef T_huffmanLUT = stdgo._internal.image.jpeg.Jpeg_t_huffmanlut.T_huffmanLUT;
+@:dox(hide) typedef T_huffmanPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanpointer.T_huffmanPointer;
+@:dox(hide) class T_huffman_static_extension {
 
 }
-typedef T_componentPointer = stdgo._internal.image.jpeg.Jpeg_t_componentpointer.T_componentPointer;
-class T_component_static_extension {
+@:dox(hide) typedef T_componentPointer = stdgo._internal.image.jpeg.Jpeg_t_componentpointer.T_componentPointer;
+@:dox(hide) class T_component_static_extension {
 
 }
-typedef T_bitsPointer = stdgo._internal.image.jpeg.Jpeg_t_bitspointer.T_bitsPointer;
-class T_bits_static_extension {
+@:dox(hide) typedef T_bitsPointer = stdgo._internal.image.jpeg.Jpeg_t_bitspointer.T_bitsPointer;
+@:dox(hide) class T_bits_static_extension {
 
 }
-typedef T_decoderPointer = stdgo._internal.image.jpeg.Jpeg_t_decoderpointer.T_decoderPointer;
-class T_decoder_static_extension {
+@:dox(hide) typedef T_decoderPointer = stdgo._internal.image.jpeg.Jpeg_t_decoderpointer.T_decoderPointer;
+@:dox(hide) class T_decoder_static_extension {
     static public function _reconstructBlock(_d:T_decoder, _b:T_block, _bx:StdTypes.Int, _by:StdTypes.Int, _compIndex:StdTypes.Int):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>);
         final _b = (_b : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>);
@@ -543,12 +543,12 @@ class T_decoder_static_extension {
         return stdgo._internal.image.jpeg.Jpeg_t_decoder_static_extension.T_decoder_static_extension._ensureNBits(_d, _n);
     }
 }
-typedef T_huffmanSpecPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanspecpointer.T_huffmanSpecPointer;
-class T_huffmanSpec_static_extension {
+@:dox(hide) typedef T_huffmanSpecPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanspecpointer.T_huffmanSpecPointer;
+@:dox(hide) class T_huffmanSpec_static_extension {
 
 }
-typedef T_encoderPointer = stdgo._internal.image.jpeg.Jpeg_t_encoderpointer.T_encoderPointer;
-class T_encoder_static_extension {
+@:dox(hide) typedef T_encoderPointer = stdgo._internal.image.jpeg.Jpeg_t_encoderpointer.T_encoderPointer;
+@:dox(hide) class T_encoder_static_extension {
     static public function _writeSOS(_e:T_encoder, _m:stdgo._internal.image.Image_image.Image):Void {
         final _e = (_e : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder>);
         stdgo._internal.image.jpeg.Jpeg_t_encoder_static_extension.T_encoder_static_extension._writeSOS(_e, _m);
@@ -615,20 +615,20 @@ typedef OptionsPointer = stdgo._internal.image.jpeg.Jpeg_optionspointer.OptionsP
 class Options_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.image.jpeg.Jpeg_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
-typedef T_blockPointer = stdgo._internal.image.jpeg.Jpeg_t_blockpointer.T_blockPointer;
-class T_block_static_extension {
+@:dox(hide) typedef T_blockPointer = stdgo._internal.image.jpeg.Jpeg_t_blockpointer.T_blockPointer;
+@:dox(hide) class T_block_static_extension {
 
 }
 typedef FormatErrorPointer = stdgo._internal.image.jpeg.Jpeg_formaterrorpointer.FormatErrorPointer;
@@ -643,16 +643,16 @@ class UnsupportedError_static_extension {
         return stdgo._internal.image.jpeg.Jpeg_unsupportederror_static_extension.UnsupportedError_static_extension.error(_e);
     }
 }
-typedef T_quantIndexPointer = stdgo._internal.image.jpeg.Jpeg_t_quantindexpointer.T_quantIndexPointer;
-class T_quantIndex_static_extension {
+@:dox(hide) typedef T_quantIndexPointer = stdgo._internal.image.jpeg.Jpeg_t_quantindexpointer.T_quantIndexPointer;
+@:dox(hide) class T_quantIndex_static_extension {
 
 }
-typedef T_huffIndexPointer = stdgo._internal.image.jpeg.Jpeg_t_huffindexpointer.T_huffIndexPointer;
-class T_huffIndex_static_extension {
+@:dox(hide) typedef T_huffIndexPointer = stdgo._internal.image.jpeg.Jpeg_t_huffindexpointer.T_huffIndexPointer;
+@:dox(hide) class T_huffIndex_static_extension {
 
 }
-typedef T_huffmanLUTPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanlutpointer.T_huffmanLUTPointer;
-class T_huffmanLUT_static_extension {
+@:dox(hide) typedef T_huffmanLUTPointer = stdgo._internal.image.jpeg.Jpeg_t_huffmanlutpointer.T_huffmanLUTPointer;
+@:dox(hide) class T_huffmanLUT_static_extension {
     static public function _init(_h:T_huffmanLUT, _s:T_huffmanSpec):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffmanlut.T_huffmanLUT>);
         stdgo._internal.image.jpeg.Jpeg_t_huffmanlut_static_extension.T_huffmanLUT_static_extension._init(_h, _s);

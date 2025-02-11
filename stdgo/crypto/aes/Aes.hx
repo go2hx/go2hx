@@ -1,6 +1,6 @@
 package stdgo.crypto.aes;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.aes.Aes_blocksize.blockSize;
-class T_gcmAble_static_extension {
+@:dox(hide) class T_gcmAble_static_extension {
     static public function newGCM(t:stdgo._internal.crypto.aes.Aes_t_gcmable.T_gcmAble, _nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_aead.AEAD, stdgo.Error> {
         final _nonceSize = (_nonceSize : stdgo.GoInt);
         final _tagSize = (_tagSize : stdgo.GoInt);
@@ -10,29 +10,29 @@ class T_gcmAble_static_extension {
         };
     }
 }
-typedef T_gcmAble = stdgo._internal.crypto.aes.Aes_t_gcmable.T_gcmAble;
-class T_cbcEncAble_static_extension {
+@:dox(hide) typedef T_gcmAble = stdgo._internal.crypto.aes.Aes_t_gcmable.T_gcmAble;
+@:dox(hide) class T_cbcEncAble_static_extension {
     static public function newCBCEncrypter(t:stdgo._internal.crypto.aes.Aes_t_cbcencable.T_cbcEncAble, _iv:Array<std.UInt>):stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.aes.Aes_t_cbcencable_static_extension.T_cbcEncAble_static_extension.newCBCEncrypter(t, _iv);
     }
 }
-typedef T_cbcEncAble = stdgo._internal.crypto.aes.Aes_t_cbcencable.T_cbcEncAble;
-class T_cbcDecAble_static_extension {
+@:dox(hide) typedef T_cbcEncAble = stdgo._internal.crypto.aes.Aes_t_cbcencable.T_cbcEncAble;
+@:dox(hide) class T_cbcDecAble_static_extension {
     static public function newCBCDecrypter(t:stdgo._internal.crypto.aes.Aes_t_cbcdecable.T_cbcDecAble, _iv:Array<std.UInt>):stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.aes.Aes_t_cbcdecable_static_extension.T_cbcDecAble_static_extension.newCBCDecrypter(t, _iv);
     }
 }
-typedef T_cbcDecAble = stdgo._internal.crypto.aes.Aes_t_cbcdecable.T_cbcDecAble;
-class T_ctrAble_static_extension {
+@:dox(hide) typedef T_cbcDecAble = stdgo._internal.crypto.aes.Aes_t_cbcdecable.T_cbcDecAble;
+@:dox(hide) class T_ctrAble_static_extension {
     static public function newCTR(t:stdgo._internal.crypto.aes.Aes_t_ctrable.T_ctrAble, _iv:Array<std.UInt>):stdgo._internal.crypto.cipher.Cipher_stream.Stream {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.aes.Aes_t_ctrable_static_extension.T_ctrAble_static_extension.newCTR(t, _iv);
     }
 }
-typedef T_ctrAble = stdgo._internal.crypto.aes.Aes_t_ctrable.T_ctrAble;
-@:structInit @:using(stdgo.crypto.aes.Aes.T_aesCipher_static_extension) abstract T_aesCipher(stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher) from stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher to stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher {
+@:dox(hide) typedef T_ctrAble = stdgo._internal.crypto.aes.Aes_t_ctrable.T_ctrAble;
+@:structInit @:using(stdgo.crypto.aes.Aes.T_aesCipher_static_extension) @:dox(hide) abstract T_aesCipher(stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher) from stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher to stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher {
     public var _enc(get, set) : Array<std.UInt>;
     function get__enc():Array<std.UInt> return [for (i in this._enc) i];
     function set__enc(v:Array<std.UInt>):Array<std.UInt> {
@@ -50,8 +50,8 @@ typedef T_ctrAble = stdgo._internal.crypto.aes.Aes_t_ctrable.T_ctrAble;
     public function __copy__() return this.__copy__();
 }
 typedef KeySizeError = stdgo._internal.crypto.aes.Aes_keysizeerror.KeySizeError;
-typedef T_aesCipherPointer = stdgo._internal.crypto.aes.Aes_t_aescipherpointer.T_aesCipherPointer;
-class T_aesCipher_static_extension {
+@:dox(hide) typedef T_aesCipherPointer = stdgo._internal.crypto.aes.Aes_t_aescipherpointer.T_aesCipherPointer;
+@:dox(hide) class T_aesCipher_static_extension {
     static public function decrypt(_c:T_aesCipher, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.aes.Aes_t_aescipher.T_aesCipher>);
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

@@ -65,7 +65,7 @@ private function set_options(v:Array<T_option>):Array<T_option> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.cpu.Cpu.T_option_static_extension) abstract T_option(stdgo._internal.internal.cpu.Cpu_t_option.T_option) from stdgo._internal.internal.cpu.Cpu_t_option.T_option to stdgo._internal.internal.cpu.Cpu_t_option.T_option {
+@:structInit @:using(stdgo.internal.cpu.Cpu.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.internal.cpu.Cpu_t_option.T_option) from stdgo._internal.internal.cpu.Cpu_t_option.T_option to stdgo._internal.internal.cpu.Cpu_t_option.T_option {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -94,66 +94,66 @@ private function set_options(v:Array<T_option>):Array<T_option> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.internal.cpu.Cpu_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.internal.cpu.Cpu_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2;
-typedef T__struct_3Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_3pointer.T__struct_3Pointer;
-class T__struct_3_static_extension {
+@:dox(hide) typedef T__struct_2 = stdgo._internal.internal.cpu.Cpu_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_3Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_3pointer.T__struct_3Pointer;
+@:dox(hide) class T__struct_3_static_extension {
 
 }
-typedef T__struct_3 = stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3;
-typedef T__struct_4Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_4pointer.T__struct_4Pointer;
-class T__struct_4_static_extension {
+@:dox(hide) typedef T__struct_3 = stdgo._internal.internal.cpu.Cpu_t__struct_3.T__struct_3;
+@:dox(hide) typedef T__struct_4Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_4pointer.T__struct_4Pointer;
+@:dox(hide) class T__struct_4_static_extension {
 
 }
-typedef T__struct_4 = stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4;
-typedef T__struct_5Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_5pointer.T__struct_5Pointer;
-class T__struct_5_static_extension {
+@:dox(hide) typedef T__struct_4 = stdgo._internal.internal.cpu.Cpu_t__struct_4.T__struct_4;
+@:dox(hide) typedef T__struct_5Pointer = stdgo._internal.internal.cpu.Cpu_t__struct_5pointer.T__struct_5Pointer;
+@:dox(hide) class T__struct_5_static_extension {
 
 }
-typedef T__struct_5 = stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5;
+@:dox(hide) typedef T__struct_5 = stdgo._internal.internal.cpu.Cpu_t__struct_5.T__struct_5;
 typedef CacheLinePadPointer = stdgo._internal.internal.cpu.Cpu_cachelinepadpointer.CacheLinePadPointer;
 class CacheLinePad_static_extension {
 
 }
-typedef T_optionPointer = stdgo._internal.internal.cpu.Cpu_t_optionpointer.T_optionPointer;
-class T_option_static_extension {
+@:dox(hide) typedef T_optionPointer = stdgo._internal.internal.cpu.Cpu_t_optionpointer.T_optionPointer;
+@:dox(hide) class T_option_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
-typedef T__struct_3PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_3pointerpointer.T__struct_3PointerPointer;
-class T__struct_3Pointer_static_extension {
+@:dox(hide) typedef T__struct_3PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_3pointerpointer.T__struct_3PointerPointer;
+@:dox(hide) class T__struct_3Pointer_static_extension {
 
 }
-typedef T__struct_4PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_4pointerpointer.T__struct_4PointerPointer;
-class T__struct_4Pointer_static_extension {
+@:dox(hide) typedef T__struct_4PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_4pointerpointer.T__struct_4PointerPointer;
+@:dox(hide) class T__struct_4Pointer_static_extension {
 
 }
-typedef T__struct_5PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_5pointerpointer.T__struct_5PointerPointer;
-class T__struct_5Pointer_static_extension {
+@:dox(hide) typedef T__struct_5PointerPointer = stdgo._internal.internal.cpu.Cpu_t__struct_5pointerpointer.T__struct_5PointerPointer;
+@:dox(hide) class T__struct_5Pointer_static_extension {
 
 }
 /**

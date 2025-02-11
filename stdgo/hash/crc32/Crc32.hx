@@ -9,7 +9,7 @@ private function set_iEEETable(v:Table):Table {
         stdgo._internal.hash.crc32.Crc32_ieeetable.iEEETable = (v : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>);
         return v;
     }
-@:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) abstract T_digest(stdgo._internal.hash.crc32.Crc32_t_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_t_digest.T_digest to stdgo._internal.hash.crc32.Crc32_t_digest.T_digest {
+@:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.hash.crc32.Crc32_t_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_t_digest.T_digest to stdgo._internal.hash.crc32.Crc32_t_digest.T_digest {
     public var _crc(get, set) : std.UInt;
     function get__crc():std.UInt return this._crc;
     function set__crc(v:std.UInt):std.UInt {
@@ -27,9 +27,9 @@ private function set_iEEETable(v:Table):Table {
     public function __copy__() return this.__copy__();
 }
 typedef Table = stdgo._internal.hash.crc32.Crc32_table.Table;
-typedef T_slicing8Table = stdgo._internal.hash.crc32.Crc32_t_slicing8table.T_slicing8Table;
-typedef T_digestPointer = stdgo._internal.hash.crc32.Crc32_t_digestpointer.T_digestPointer;
-class T_digest_static_extension {
+@:dox(hide) typedef T_slicing8Table = stdgo._internal.hash.crc32.Crc32_t_slicing8table.T_slicing8Table;
+@:dox(hide) typedef T_digestPointer = stdgo._internal.hash.crc32.Crc32_t_digestpointer.T_digestPointer;
+@:dox(hide) class T_digest_static_extension {
     static public function sum(_d:T_digest, _in:Array<std.UInt>):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_t_digest.T_digest>);
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -76,8 +76,8 @@ typedef TablePointer = stdgo._internal.hash.crc32.Crc32_tablepointer.TablePointe
 class Table_static_extension {
 
 }
-typedef T_slicing8TablePointer = stdgo._internal.hash.crc32.Crc32_t_slicing8tablepointer.T_slicing8TablePointer;
-class T_slicing8Table_static_extension {
+@:dox(hide) typedef T_slicing8TablePointer = stdgo._internal.hash.crc32.Crc32_t_slicing8tablepointer.T_slicing8TablePointer;
+@:dox(hide) class T_slicing8Table_static_extension {
 
 }
 /**

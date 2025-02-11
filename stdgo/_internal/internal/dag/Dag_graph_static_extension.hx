@@ -23,7 +23,7 @@ package stdgo._internal.internal.dag;
     @:tdfield
     static public function delEdge( _g:stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>, _from:stdgo.GoString, _to:stdgo.GoString):Void {
         @:recv var _g:stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph> = _g;
-        if (((@:checkr _g ?? throw "null pointer dereference")._edges[_from] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>)) != null) ((@:checkr _g ?? throw "null pointer dereference")._edges[_from] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>)).remove(_to);
+        if (((@:checkr _g ?? throw "null pointer dereference")._edges[_from] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>)) != null) ((@:checkr _g ?? throw "null pointer dereference")._edges[_from] ?? (null : stdgo.GoMap<stdgo.GoString, Bool>)).__remove__(_to);
     }
     @:keep
     @:tdfield
@@ -36,7 +36,7 @@ package stdgo._internal.internal.dag;
     static public function _addNode( _g:stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph>, _label:stdgo.GoString):Bool {
         @:recv var _g:stdgo.Ref<stdgo._internal.internal.dag.Dag_graph.Graph> = _g;
         {
-            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._byLabel != null && (@:checkr _g ?? throw "null pointer dereference")._byLabel.exists(_label?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._byLabel[_label?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __0:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._byLabel != null && (@:checkr _g ?? throw "null pointer dereference")._byLabel.__exists__(_label?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._byLabel[_label?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __0:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return false;
             };

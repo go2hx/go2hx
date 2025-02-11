@@ -7,8 +7,8 @@ package stdgo._internal.net.http.httputil;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._mu.lock();
-            var __tmp__ = ((@:checkr _sc ?? throw "null pointer dereference")._pipereq != null && (@:checkr _sc ?? throw "null pointer dereference")._pipereq.exists(_req) ? { _0 : (@:checkr _sc ?? throw "null pointer dereference")._pipereq[_req], _1 : true } : { _0 : (0 : stdgo.GoUInt), _1 : false }), _id:stdgo.GoUInt = __tmp__._0, _ok:Bool = __tmp__._1;
-            if ((@:checkr _sc ?? throw "null pointer dereference")._pipereq != null) (@:checkr _sc ?? throw "null pointer dereference")._pipereq.remove(_req);
+            var __tmp__ = ((@:checkr _sc ?? throw "null pointer dereference")._pipereq != null && (@:checkr _sc ?? throw "null pointer dereference")._pipereq.__exists__(_req) ? { _0 : (@:checkr _sc ?? throw "null pointer dereference")._pipereq[_req], _1 : true } : { _0 : (0 : stdgo.GoUInt), _1 : false }), _id:stdgo.GoUInt = __tmp__._0, _ok:Bool = __tmp__._1;
+            if ((@:checkr _sc ?? throw "null pointer dereference")._pipereq != null) (@:checkr _sc ?? throw "null pointer dereference")._pipereq.__remove__(_req);
             if (!_ok) {
                 @:check2 (@:checkr _sc ?? throw "null pointer dereference")._mu.unlock();
                 return stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errpipeline.errPipeline);

@@ -18,8 +18,8 @@ package stdgo._internal.net.http.httputil;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>), _err = (null : stdgo.Error);
         try {
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
-            var __tmp__ = ((@:checkr _cc ?? throw "null pointer dereference")._pipereq != null && (@:checkr _cc ?? throw "null pointer dereference")._pipereq.exists(_req) ? { _0 : (@:checkr _cc ?? throw "null pointer dereference")._pipereq[_req], _1 : true } : { _0 : (0 : stdgo.GoUInt), _1 : false }), _id:stdgo.GoUInt = __tmp__._0, _ok:Bool = __tmp__._1;
-            if ((@:checkr _cc ?? throw "null pointer dereference")._pipereq != null) (@:checkr _cc ?? throw "null pointer dereference")._pipereq.remove(_req);
+            var __tmp__ = ((@:checkr _cc ?? throw "null pointer dereference")._pipereq != null && (@:checkr _cc ?? throw "null pointer dereference")._pipereq.__exists__(_req) ? { _0 : (@:checkr _cc ?? throw "null pointer dereference")._pipereq[_req], _1 : true } : { _0 : (0 : stdgo.GoUInt), _1 : false }), _id:stdgo.GoUInt = __tmp__._0, _ok:Bool = __tmp__._1;
+            if ((@:checkr _cc ?? throw "null pointer dereference")._pipereq != null) (@:checkr _cc ?? throw "null pointer dereference")._pipereq.__remove__(_req);
             if (!_ok) {
                 @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
                 return {

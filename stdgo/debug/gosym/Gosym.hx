@@ -144,7 +144,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcTab_static_extension) abstract T_funcTab(stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab) from stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab to stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab {
+@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcTab_static_extension) @:dox(hide) abstract T_funcTab(stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab) from stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab to stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab {
     public var lineTable(get, set) : LineTable;
     function get_lineTable():LineTable return this.lineTable;
     function set_lineTable(v:LineTable):LineTable {
@@ -161,7 +161,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcData_static_extension) abstract T_funcData(stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData) from stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData to stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData {
+@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcData_static_extension) @:dox(hide) abstract T_funcData(stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData) from stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData to stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData {
     public var _t(get, set) : LineTable;
     function get__t():LineTable return this._t;
     function set__t(v:LineTable):LineTable {
@@ -324,7 +324,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_sym_static_extension) abstract T_sym(stdgo._internal.debug.gosym.Gosym_t_sym.T_sym) from stdgo._internal.debug.gosym.Gosym_t_sym.T_sym to stdgo._internal.debug.gosym.Gosym_t_sym.T_sym {
+@:structInit @:using(stdgo.debug.gosym.Gosym.T_sym_static_extension) @:dox(hide) abstract T_sym(stdgo._internal.debug.gosym.Gosym_t_sym.T_sym) from stdgo._internal.debug.gosym.Gosym_t_sym.T_sym to stdgo._internal.debug.gosym.Gosym_t_sym.T_sym {
     public var _value(get, set) : haxe.UInt64;
     function get__value():haxe.UInt64 return this._value;
     function set__value(v:haxe.UInt64):haxe.UInt64 {
@@ -393,7 +393,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_version = stdgo._internal.debug.gosym.Gosym_t_version.T_version;
+@:dox(hide) typedef T_version = stdgo._internal.debug.gosym.Gosym_t_version.T_version;
 typedef UnknownFileError = stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError;
 typedef LineTablePointer = stdgo._internal.debug.gosym.Gosym_linetablepointer.LineTablePointer;
 class LineTable_static_extension {
@@ -527,8 +527,8 @@ class LineTable_static_extension {
         };
     }
 }
-typedef T_funcTabPointer = stdgo._internal.debug.gosym.Gosym_t_functabpointer.T_funcTabPointer;
-class T_funcTab_static_extension {
+@:dox(hide) typedef T_funcTabPointer = stdgo._internal.debug.gosym.Gosym_t_functabpointer.T_funcTabPointer;
+@:dox(hide) class T_funcTab_static_extension {
     static public function _uint(_f:T_funcTab, _b:Array<std.UInt>):haxe.UInt64 {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.gosym.Gosym_t_functab_static_extension.T_funcTab_static_extension._uint(_f, _b);
@@ -650,8 +650,8 @@ class T_funcTab_static_extension {
         return stdgo._internal.debug.gosym.Gosym_t_functab_static_extension.T_funcTab_static_extension.lineToPC(__self__, _0, _1);
     }
 }
-typedef T_funcDataPointer = stdgo._internal.debug.gosym.Gosym_t_funcdatapointer.T_funcDataPointer;
-class T_funcData_static_extension {
+@:dox(hide) typedef T_funcDataPointer = stdgo._internal.debug.gosym.Gosym_t_funcdatapointer.T_funcDataPointer;
+@:dox(hide) class T_funcData_static_extension {
     static public function _field(_f:T_funcData, _n:std.UInt):std.UInt {
         final _n = (_n : stdgo.GoUInt32);
         return stdgo._internal.debug.gosym.Gosym_t_funcdata_static_extension.T_funcData_static_extension._field(_f, _n);
@@ -740,7 +740,7 @@ class Obj_static_extension {
         };
     }
 }
-@:structInit abstract T__lineFromAline___localname___stackEnt_16022(stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022) from stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022 to stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022 {
+@:structInit @:dox(hide) abstract T__lineFromAline___localname___stackEnt_16022(stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022) from stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022 to stdgo._internal.debug.gosym.Gosym_t__linefromaline___localname___stackent_16022.T__lineFromAline___localname___stackEnt_16022 {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -809,8 +809,8 @@ class Table_static_extension {
         return stdgo._internal.debug.gosym.Gosym_table_static_extension.Table_static_extension.pCToFunc(_t, _pc);
     }
 }
-typedef T_symPointer = stdgo._internal.debug.gosym.Gosym_t_sympointer.T_symPointer;
-class T_sym_static_extension {
+@:dox(hide) typedef T_symPointer = stdgo._internal.debug.gosym.Gosym_t_sympointer.T_symPointer;
+@:dox(hide) class T_sym_static_extension {
 
 }
 typedef UnknownLineErrorPointer = stdgo._internal.debug.gosym.Gosym_unknownlineerrorpointer.UnknownLineErrorPointer;
@@ -827,8 +827,8 @@ class DecodingError_static_extension {
         return stdgo._internal.debug.gosym.Gosym_decodingerror_static_extension.DecodingError_static_extension.error(_e);
     }
 }
-typedef T_versionPointer = stdgo._internal.debug.gosym.Gosym_t_versionpointer.T_versionPointer;
-class T_version_static_extension {
+@:dox(hide) typedef T_versionPointer = stdgo._internal.debug.gosym.Gosym_t_versionpointer.T_versionPointer;
+@:dox(hide) class T_version_static_extension {
 
 }
 typedef UnknownFileErrorPointer = stdgo._internal.debug.gosym.Gosym_unknownfileerrorpointer.UnknownFileErrorPointer;

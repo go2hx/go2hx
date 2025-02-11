@@ -166,7 +166,7 @@ final filterClose = stdgo._internal.net.internal.socktest.Socktest_filterclose.f
     public function __copy__() return this.__copy__();
 }
 typedef Cookie = stdgo._internal.net.internal.socktest.Socktest_cookie.Cookie;
-typedef T_stats = stdgo._internal.net.internal.socktest.Socktest_t_stats.T_stats;
+@:dox(hide) typedef T_stats = stdgo._internal.net.internal.socktest.Socktest_t_stats.T_stats;
 typedef FilterType = stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType;
 typedef Filter = stdgo._internal.net.internal.socktest.Socktest_filter.Filter;
 typedef AfterFilter = stdgo._internal.net.internal.socktest.Socktest_afterfilter.AfterFilter;
@@ -271,8 +271,8 @@ class Cookie_static_extension {
         return stdgo._internal.net.internal.socktest.Socktest_cookie_static_extension.Cookie_static_extension.family(_c);
     }
 }
-typedef T_statsPointer = stdgo._internal.net.internal.socktest.Socktest_t_statspointer.T_statsPointer;
-class T_stats_static_extension {
+@:dox(hide) typedef T_statsPointer = stdgo._internal.net.internal.socktest.Socktest_t_statspointer.T_statsPointer;
+@:dox(hide) class T_stats_static_extension {
     static public function _getLocked(_st:T_stats, _c:Cookie):Stat {
         return stdgo._internal.net.internal.socktest.Socktest_t_stats_static_extension.T_stats_static_extension._getLocked(_st, _c);
     }

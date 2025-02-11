@@ -1,5 +1,5 @@
 package stdgo.net.http.pprof;
-@:structInit @:using(stdgo.net.http.pprof.Pprof.T_profileEntry_static_extension) abstract T_profileEntry(stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry) from stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry to stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry {
+@:structInit @:using(stdgo.net.http.pprof.Pprof.T_profileEntry_static_extension) @:dox(hide) abstract T_profileEntry(stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry) from stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry to stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -28,13 +28,13 @@ package stdgo.net.http.pprof;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_handler = stdgo._internal.net.http.pprof.Pprof_t_handler.T_handler;
-typedef T_profileEntryPointer = stdgo._internal.net.http.pprof.Pprof_t_profileentrypointer.T_profileEntryPointer;
-class T_profileEntry_static_extension {
+@:dox(hide) typedef T_handler = stdgo._internal.net.http.pprof.Pprof_t_handler.T_handler;
+@:dox(hide) typedef T_profileEntryPointer = stdgo._internal.net.http.pprof.Pprof_t_profileentrypointer.T_profileEntryPointer;
+@:dox(hide) class T_profileEntry_static_extension {
 
 }
-typedef T_handlerPointer = stdgo._internal.net.http.pprof.Pprof_t_handlerpointer.T_handlerPointer;
-class T_handler_static_extension {
+@:dox(hide) typedef T_handlerPointer = stdgo._internal.net.http.pprof.Pprof_t_handlerpointer.T_handlerPointer;
+@:dox(hide) class T_handler_static_extension {
     static public function _serveDeltaProfile(_name:T_handler, _w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo._internal.net.http.Http_request.Request, _p:stdgo._internal.runtime.pprof.Pprof_profile.Profile, _secStr:String):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         final _p = (_p : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_profile.Profile>);

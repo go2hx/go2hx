@@ -1,7 +1,7 @@
 package stdgo.crypto.sha1;
 final size : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_size.size;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_blocksize.blockSize;
-@:structInit @:using(stdgo.crypto.sha1.Sha1.T_digest_static_extension) abstract T_digest(stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest) from stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest to stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest {
+@:structInit @:using(stdgo.crypto.sha1.Sha1.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest) from stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest to stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest {
     public var _h(get, set) : haxe.ds.Vector<std.UInt>;
     function get__h():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._h) i]);
     function set__h(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -30,7 +30,7 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_blocksize.block
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.sha1.Sha1.T_sha1Test_static_extension) abstract T_sha1Test(stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test) from stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test to stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test {
+@:structInit @:using(stdgo.crypto.sha1.Sha1.T_sha1Test_static_extension) @:dox(hide) abstract T_sha1Test(stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test) from stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test to stdgo._internal.crypto.sha1.Sha1_t_sha1test.T_sha1Test {
     public var _out(get, set) : String;
     function get__out():String return this._out;
     function set__out(v:String):String {
@@ -53,7 +53,7 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_blocksize.block
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.sha1.Sha1.T_unmarshalTest_static_extension) abstract T_unmarshalTest(stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest) from stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest to stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest {
+@:structInit @:using(stdgo.crypto.sha1.Sha1.T_unmarshalTest_static_extension) @:dox(hide) abstract T_unmarshalTest(stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest) from stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest to stdgo._internal.crypto.sha1.Sha1_t_unmarshaltest.T_unmarshalTest {
     public var _state(get, set) : String;
     function get__state():String return this._state;
     function set__state(v:String):String {
@@ -70,8 +70,8 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1_blocksize.block
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_digestPointer = stdgo._internal.crypto.sha1.Sha1_t_digestpointer.T_digestPointer;
-class T_digest_static_extension {
+@:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.sha1.Sha1_t_digestpointer.T_digestPointer;
+@:dox(hide) class T_digest_static_extension {
     static public function _constSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1_t_digest_static_extension.T_digest_static_extension._constSum(_d)) i]);
@@ -123,12 +123,12 @@ class T_digest_static_extension {
         };
     }
 }
-typedef T_sha1TestPointer = stdgo._internal.crypto.sha1.Sha1_t_sha1testpointer.T_sha1TestPointer;
-class T_sha1Test_static_extension {
+@:dox(hide) typedef T_sha1TestPointer = stdgo._internal.crypto.sha1.Sha1_t_sha1testpointer.T_sha1TestPointer;
+@:dox(hide) class T_sha1Test_static_extension {
 
 }
-typedef T_unmarshalTestPointer = stdgo._internal.crypto.sha1.Sha1_t_unmarshaltestpointer.T_unmarshalTestPointer;
-class T_unmarshalTest_static_extension {
+@:dox(hide) typedef T_unmarshalTestPointer = stdgo._internal.crypto.sha1.Sha1_t_unmarshaltestpointer.T_unmarshalTestPointer;
+@:dox(hide) class T_unmarshalTest_static_extension {
 
 }
 /**

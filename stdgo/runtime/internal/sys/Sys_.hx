@@ -5,7 +5,7 @@ final pCQuantum : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_pcquant
 final int64Align : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_int64align.int64Align;
 final minFrameSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_minframesize.minFrameSize;
 final stackAlign : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackalign.stackAlign;
-@:structInit @:using(stdgo.runtime.internal.sys.Sys_.T_nih_static_extension) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih {
+@:structInit @:using(stdgo.runtime.internal.sys.Sys_.T_nih_static_extension) @:dox(hide) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih {
     public function new() this = new stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -21,8 +21,8 @@ final stackAlign : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stacka
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_nihPointer = stdgo._internal.runtime.internal.sys.Sys_t_nihpointer.T_nihPointer;
-class T_nih_static_extension {
+@:dox(hide) typedef T_nihPointer = stdgo._internal.runtime.internal.sys.Sys_t_nihpointer.T_nihPointer;
+@:dox(hide) class T_nih_static_extension {
 
 }
 typedef NotInHeapPointer = stdgo._internal.runtime.internal.sys.Sys_notinheappointer.NotInHeapPointer;

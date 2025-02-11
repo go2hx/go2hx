@@ -5,7 +5,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
         stdgo._internal.net.http.internal.Internal_errlinetoolong.errLineTooLong = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedReader_static_extension) abstract T_chunkedReader(stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader) from stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader to stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader {
+@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedReader_static_extension) @:dox(hide) abstract T_chunkedReader(stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader) from stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader to stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader {
     public var _r(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
     function get__r():stdgo._internal.bufio.Bufio_reader.Reader return this._r;
     function set__r(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
@@ -40,7 +40,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedWriter_static_extension) abstract T_chunkedWriter(stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter) from stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter to stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter {
+@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedWriter_static_extension) @:dox(hide) abstract T_chunkedWriter(stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter) from stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter to stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter {
     public var wire(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_wire():stdgo._internal.io.Io_writer.Writer return this.wire;
     function set_wire(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -62,8 +62,8 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_chunkedReaderPointer = stdgo._internal.net.http.internal.Internal_t_chunkedreaderpointer.T_chunkedReaderPointer;
-class T_chunkedReader_static_extension {
+@:dox(hide) typedef T_chunkedReaderPointer = stdgo._internal.net.http.internal.Internal_t_chunkedreaderpointer.T_chunkedReaderPointer;
+@:dox(hide) class T_chunkedReader_static_extension {
     static public function read(_cr:T_chunkedReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _cr = (_cr : stdgo.Ref<stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -81,8 +81,8 @@ class T_chunkedReader_static_extension {
         stdgo._internal.net.http.internal.Internal_t_chunkedreader_static_extension.T_chunkedReader_static_extension._beginChunk(_cr);
     }
 }
-typedef T_chunkedWriterPointer = stdgo._internal.net.http.internal.Internal_t_chunkedwriterpointer.T_chunkedWriterPointer;
-class T_chunkedWriter_static_extension {
+@:dox(hide) typedef T_chunkedWriterPointer = stdgo._internal.net.http.internal.Internal_t_chunkedwriterpointer.T_chunkedWriterPointer;
+@:dox(hide) class T_chunkedWriter_static_extension {
     static public function close(_cw:T_chunkedWriter):stdgo.Error {
         final _cw = (_cw : stdgo.Ref<stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter>);
         return stdgo._internal.net.http.internal.Internal_t_chunkedwriter_static_extension.T_chunkedWriter_static_extension.close(_cw);

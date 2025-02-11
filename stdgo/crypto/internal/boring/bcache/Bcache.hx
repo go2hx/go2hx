@@ -10,7 +10,7 @@ package stdgo.crypto.internal.boring.bcache;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.bcache.Bcache.T_cacheEntry_static_extension) abstract T_cacheEntry(stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry {
+@:structInit @:using(stdgo.crypto.internal.boring.bcache.Bcache.T_cacheEntry_static_extension) @:dox(hide) abstract T_cacheEntry(stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry {
     public var _k(get, set) : Dynamic;
     function get__k():Dynamic return this._k;
     function set__k(v:Dynamic):Dynamic {
@@ -33,7 +33,7 @@ package stdgo.crypto.internal.boring.bcache;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_cacheTable = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<K, V>;
+@:dox(hide) typedef T_cacheTable = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<K, V>;
 typedef CachePointer = stdgo._internal.crypto.internal.boring.bcache.Bcache_cachepointer.CachePointer<K, V>;
 class Cache_static_extension {
     static public function put(_c:Cache<Dynamic, Dynamic>, _k:Dynamic, _v:Dynamic):Void {
@@ -60,12 +60,12 @@ class Cache_static_extension {
         stdgo._internal.crypto.internal.boring.bcache.Bcache_cache_static_extension.Cache_static_extension.register(_c);
     }
 }
-typedef T_cacheEntryPointer = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentrypointer.T_cacheEntryPointer<K, V>;
-class T_cacheEntry_static_extension {
+@:dox(hide) typedef T_cacheEntryPointer = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentrypointer.T_cacheEntryPointer<K, V>;
+@:dox(hide) class T_cacheEntry_static_extension {
 
 }
-typedef T_cacheTablePointer = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetablepointer.T_cacheTablePointer<K, V>;
-class T_cacheTable_static_extension {
+@:dox(hide) typedef T_cacheTablePointer = stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetablepointer.T_cacheTablePointer<K, V>;
+@:dox(hide) class T_cacheTable_static_extension {
 
 }
 /**

@@ -1,15 +1,15 @@
 package stdgo._internal.internal.cpu;
 function _processOptions(_env:stdgo.GoString):Void {
-        var _i_6231:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _value_5930:stdgo.GoString = ("" : stdgo.GoString);
-        var _key_5925:stdgo.GoString = ("" : stdgo.GoString);
-        var _field_5617:stdgo.GoString = ("" : stdgo.GoString);
-        var _fieldBreak = false;
-        var _o_6561:stdgo._internal.internal.cpu.Cpu_t_option.T_option = ({} : stdgo._internal.internal.cpu.Cpu_t_option.T_option);
         var _i_6566_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_6349:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _enable_5991:Bool = false;
+        var _value_5930:stdgo.GoString = ("" : stdgo.GoString);
         var _i_5631:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _field_5617:stdgo.GoString = ("" : stdgo.GoString);
+        var _o_6561:stdgo._internal.internal.cpu.Cpu_t_option.T_option = ({} : stdgo._internal.internal.cpu.Cpu_t_option.T_option);
+        var _i_6231:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _enable_5991:Bool = false;
+        var _key_5925:stdgo.GoString = ("" : stdgo.GoString);
+        var _fieldBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

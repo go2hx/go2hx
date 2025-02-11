@@ -5,7 +5,7 @@ private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
         stdgo._internal.path.Path_errbadpattern.errBadPattern = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.Path_t_lazybuf.T_lazybuf) from stdgo._internal.path.Path_t_lazybuf.T_lazybuf to stdgo._internal.path.Path_t_lazybuf.T_lazybuf {
+@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.Path_t_lazybuf.T_lazybuf) from stdgo._internal.path.Path_t_lazybuf.T_lazybuf to stdgo._internal.path.Path_t_lazybuf.T_lazybuf {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -28,8 +28,8 @@ private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_lazybufPointer = stdgo._internal.path.Path_t_lazybufpointer.T_lazybufPointer;
-class T_lazybuf_static_extension {
+@:dox(hide) typedef T_lazybufPointer = stdgo._internal.path.Path_t_lazybufpointer.T_lazybufPointer;
+@:dox(hide) class T_lazybuf_static_extension {
     static public function _string(_b:T_lazybuf):String {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.Path_t_lazybuf.T_lazybuf>);
         return stdgo._internal.path.Path_t_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);

@@ -18,7 +18,7 @@ package stdgo._internal.runtime.coverage;
         for (_i => _ in _mfc.importPaths) {
             var _p = (_mfc.importPaths[(_i : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
             {
-                var __tmp__ = (_importpaths != null && _importpaths.exists(_p?.__copy__()) ? { _0 : _importpaths[_p?.__copy__()], _1 : true } : { _0 : ({  } : stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0), _1 : false }), __0:stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0 = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_importpaths != null && _importpaths.__exists__(_p?.__copy__()) ? { _0 : _importpaths[_p?.__copy__()], _1 : true } : { _0 : ({  } : stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0), _1 : false }), __0:stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0 = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     continue;
                 };
@@ -149,7 +149,7 @@ package stdgo._internal.runtime.coverage;
                         };
                         var _key = ({ _pk : _data.pkgIdx, _fcn : _data.funcIdx } : stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc);
                         {
-                            var __tmp__ = (_pmm != null && _pmm.exists(_key?.__copy__()) ? { _0 : _pmm[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt32>), _1 : false }), _prev:stdgo.Slice<stdgo.GoUInt32> = __tmp__._0, _found:Bool = __tmp__._1;
+                            var __tmp__ = (_pmm != null && _pmm.__exists__(_key?.__copy__()) ? { _0 : _pmm[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt32>), _1 : false }), _prev:stdgo.Slice<stdgo.GoUInt32> = __tmp__._0, _found:Bool = __tmp__._1;
                             if (_found) {
                                 {
                                     var __tmp__ = @:check2r (@:checkr _ts ?? throw "null pointer dereference")._cm.mergeCounters(_data.counters, _prev), _err:stdgo.Error = __tmp__._0, __10:Bool = __tmp__._1;
@@ -294,7 +294,7 @@ var _nf = (@:check2r _pd.numFuncs() : stdgo.GoUInt32);
                                 };
                             };
 var _key = ({ _pk : _pkIdx, _fcn : _fnIdx } : stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc);
-var __tmp__ = (_pmm != null && _pmm.exists(_key.__copy__()) ? { _0 : _pmm[_key.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt32>), _1 : false }), _counters:stdgo.Slice<stdgo.GoUInt32> = __tmp__._0, _haveCounters:Bool = __tmp__._1;
+var __tmp__ = (_pmm != null && _pmm.__exists__(_key.__copy__()) ? { _0 : _pmm[_key.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt32>), _1 : false }), _counters:stdgo.Slice<stdgo.GoUInt32> = __tmp__._0, _haveCounters:Bool = __tmp__._1;
 {
                                 var _i = (0 : stdgo.GoInt);
                                 while ((_i < (_fd.units.length) : Bool)) {

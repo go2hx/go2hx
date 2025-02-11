@@ -21,7 +21,7 @@ package stdgo._internal.internal.pkgbits;
     static public function stringIdx( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder>, _s:stdgo.GoString):stdgo._internal.internal.pkgbits.Pkgbits_index.Index {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder> = _pw;
         {
-            var __tmp__ = ((@:checkr _pw ?? throw "null pointer dereference")._stringsIdx != null && (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx.exists(_s?.__copy__()) ? { _0 : (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx[_s?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.internal.pkgbits.Pkgbits_index.Index), _1 : false }), _idx:stdgo._internal.internal.pkgbits.Pkgbits_index.Index = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _pw ?? throw "null pointer dereference")._stringsIdx != null && (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx.__exists__(_s?.__copy__()) ? { _0 : (@:checkr _pw ?? throw "null pointer dereference")._stringsIdx[_s?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.internal.pkgbits.Pkgbits_index.Index), _1 : false }), _idx:stdgo._internal.internal.pkgbits.Pkgbits_index.Index = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 stdgo._internal.internal.pkgbits.Pkgbits__assert._assert((@:checkr _pw ?? throw "null pointer dereference")._elems[((0 : stdgo._internal.internal.pkgbits.Pkgbits_relockind.RelocKind) : stdgo.GoInt)][(_idx : stdgo.GoInt)] == (_s));
                 return _idx;

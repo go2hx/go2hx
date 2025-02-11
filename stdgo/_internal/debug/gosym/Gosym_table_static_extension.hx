@@ -51,7 +51,7 @@ package stdgo._internal.debug.gosym;
     static public function lineToPC( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_table.Table>, _file:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_table.Table> = _t;
         var _pc = (0 : stdgo.GoUInt64), _fn = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>), _err = (null : stdgo.Error);
-        var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference").files != null && (@:checkr _t ?? throw "null pointer dereference").files.exists(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference").files[_file?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>), _1 : false }), _obj:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference").files != null && (@:checkr _t ?? throw "null pointer dereference").files.__exists__(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference").files[_file?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>), _1 : false }), _obj:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((_file : stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError)) };

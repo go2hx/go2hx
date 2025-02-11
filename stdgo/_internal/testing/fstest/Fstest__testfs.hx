@@ -16,7 +16,7 @@ function _testFS(_fsys:stdgo._internal.io.fs.Fs_fs.FS, _expected:haxe.Rest<stdgo
         for (__3 => _file in _t._files) {
             _found[_file] = true;
         };
-        if (_found != null) _found.remove(("." : stdgo.GoString));
+        if (_found != null) _found.__remove__(("." : stdgo.GoString));
         if (((_expected.length == (0 : stdgo.GoInt)) && ((_found.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (_k => _ in _found) {

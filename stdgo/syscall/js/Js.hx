@@ -81,7 +81,7 @@ private function set_jSGo(v:Value):Value {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_ref = stdgo._internal.syscall.js.Js_t_ref.T_ref;
+@:dox(hide) typedef T_ref = stdgo._internal.syscall.js.Js_t_ref.T_ref;
 typedef Type_ = stdgo._internal.syscall.js.Js_type_.Type_;
 typedef FuncPointer = stdgo._internal.syscall.js.Js_funcpointer.FuncPointer;
 class Func_static_extension {
@@ -330,8 +330,8 @@ class ValueError_static_extension {
         return stdgo._internal.syscall.js.Js_valueerror_static_extension.ValueError_static_extension.error(_e);
     }
 }
-typedef T_refPointer = stdgo._internal.syscall.js.Js_t_refpointer.T_refPointer;
-class T_ref_static_extension {
+@:dox(hide) typedef T_refPointer = stdgo._internal.syscall.js.Js_t_refpointer.T_refPointer;
+@:dox(hide) class T_ref_static_extension {
 
 }
 typedef Type_Pointer = stdgo._internal.syscall.js.Js_type_pointer.Type_Pointer;

@@ -215,7 +215,7 @@ private function set_errUnknownPC(v:stdgo.Error):stdgo.Error {
         stdgo._internal.debug.dwarf.Dwarf_errunknownpc.errUnknownPC = (v : stdgo.Error);
         return v;
     }
-class T_dataFormat_static_extension {
+@:dox(hide) class T_dataFormat_static_extension {
     static public function _addrsize(t:stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_dataformat_static_extension.T_dataFormat_static_extension._addrsize(t);
     }
@@ -229,7 +229,7 @@ class T_dataFormat_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_t_dataformat_static_extension.T_dataFormat_static_extension._version(t);
     }
 }
-typedef T_dataFormat = stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat;
+@:dox(hide) typedef T_dataFormat = stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat;
 class Type__static_extension {
     static public function size(t:stdgo._internal.debug.dwarf.Dwarf_type_.Type_):haxe.Int64 {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.size(t);
@@ -242,7 +242,7 @@ class Type__static_extension {
     }
 }
 typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
-class T_typeReader_static_extension {
+@:dox(hide) class T_typeReader_static_extension {
     static public function addressSize(t:stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.addressSize(t);
     }
@@ -262,14 +262,14 @@ class T_typeReader_static_extension {
         stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.seek(t, _0);
     }
 }
-typedef T_typeReader = stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader;
-class T__interface_0_static_extension {
+@:dox(hide) typedef T_typeReader = stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader;
+@:dox(hide) class T__interface_0_static_extension {
     static public function basic(t:stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0):BasicType {
         return stdgo._internal.debug.dwarf.Dwarf_t__interface_0_static_extension.T__interface_0_static_extension.basic(t);
     }
 }
-typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0;
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_buf_static_extension) abstract T_buf(stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf) from stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf to stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf {
+@:dox(hide) typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0;
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_buf_static_extension) @:dox(hide) abstract T_buf(stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf) from stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf to stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf {
     public var _dwarf(get, set) : Data;
     function get__dwarf():Data return this._dwarf;
     function set__dwarf(v:Data):Data {
@@ -316,7 +316,7 @@ typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__int
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unknownFormat_static_extension) abstract T_unknownFormat(stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat) from stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat to stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unknownFormat_static_extension) @:dox(hide) abstract T_unknownFormat(stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat) from stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat to stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat {
     public function new() this = new stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -344,7 +344,7 @@ typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__int
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_abbrev_static_extension) abstract T_abbrev(stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev) from stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev to stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_abbrev_static_extension) @:dox(hide) abstract T_abbrev(stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev) from stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev to stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev {
     public var _tag(get, set) : Tag;
     function get__tag():Tag return this._tag;
     function set__tag(v:Tag):Tag {
@@ -367,7 +367,7 @@ typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__int
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_afield_static_extension) abstract T_afield(stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield) from stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield to stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_afield_static_extension) @:dox(hide) abstract T_afield(stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield) from stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield to stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield {
     public var _attr(get, set) : Attr;
     function get__attr():Attr return this._attr;
     function set__attr(v:Attr):Attr {
@@ -765,7 +765,7 @@ endSequence);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_lnctForm_static_extension) abstract T_lnctForm(stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm) from stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm to stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_lnctForm_static_extension) @:dox(hide) abstract T_lnctForm(stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm) from stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm to stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm {
     public var _lnct(get, set) : StdTypes.Int;
     function get__lnct():StdTypes.Int return this._lnct;
     function set__lnct(v:StdTypes.Int):StdTypes.Int {
@@ -1357,7 +1357,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeFixer_static_extension) abstract T_typeFixer(stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer) from stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer to stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeFixer_static_extension) @:dox(hide) abstract T_typeFixer(stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer) from stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer to stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer {
     public var _typedefs(get, set) : Array<TypedefType>;
     function get__typedefs():Array<TypedefType> return [for (i in this._typedefs) i];
     function set__typedefs(v:Array<TypedefType>):Array<TypedefType> {
@@ -1374,7 +1374,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnit_static_extension) abstract T_typeUnit(stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit) from stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit to stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnit_static_extension) @:dox(hide) abstract T_typeUnit(stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit) from stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit to stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit {
     public var _unit(get, set) : T_unit;
     function get__unit():T_unit return this._unit;
     function set__unit(v:T_unit):T_unit {
@@ -1403,7 +1403,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnitReader_static_extension) abstract T_typeUnitReader(stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader) from stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader to stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnitReader_static_extension) @:dox(hide) abstract T_typeUnitReader(stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader) from stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader to stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader {
     public var _d(get, set) : Data;
     function get__d():Data return this._d;
     function set__d(v:Data):Data {
@@ -1432,7 +1432,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unit_static_extension) abstract T_unit(stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit) from stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit to stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit {
+@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unit_static_extension) @:dox(hide) abstract T_unit(stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit) from stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit to stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit {
     public var _base(get, set) : Offset;
     function get__base():Offset return this._base;
     function set__base(v:Offset):Offset {
@@ -1485,19 +1485,19 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.debug.dwarf.Dwarf_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.debug.dwarf.Dwarf_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.debug.dwarf.Dwarf_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.debug.dwarf.Dwarf_t__struct_0.T__struct_0;
 typedef Attr = stdgo._internal.debug.dwarf.Dwarf_attr.Attr;
-typedef T_format = stdgo._internal.debug.dwarf.Dwarf_t_format.T_format;
+@:dox(hide) typedef T_format = stdgo._internal.debug.dwarf.Dwarf_t_format.T_format;
 typedef Tag = stdgo._internal.debug.dwarf.Dwarf_tag.Tag;
-typedef T_abbrevTable = stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable;
+@:dox(hide) typedef T_abbrevTable = stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable;
 typedef Class_ = stdgo._internal.debug.dwarf.Dwarf_class_.Class_;
 typedef Offset = stdgo._internal.debug.dwarf.Dwarf_offset.Offset;
-typedef T_bufPointer = stdgo._internal.debug.dwarf.Dwarf_t_bufpointer.T_bufPointer;
-class T_buf_static_extension {
+@:dox(hide) typedef T_bufPointer = stdgo._internal.debug.dwarf.Dwarf_t_bufpointer.T_bufPointer;
+@:dox(hide) class T_buf_static_extension {
     static public function _entry(_b:T_buf, _cu:Entry, _atab:T_abbrevTable, _ubase:Offset, _vers:StdTypes.Int):Entry {
         final _b = (_b : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf>);
         final _cu = (_cu : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_entry.Entry>);
@@ -1570,7 +1570,7 @@ class T_buf_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_t_buf_static_extension.T_buf_static_extension._uint8(_b);
     }
 }
-@:structInit abstract T__entry___localname___delayed_12177(stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177) from stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177 to stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177 {
+@:structInit @:dox(hide) abstract T__entry___localname___delayed_12177(stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177) from stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177 to stdgo._internal.debug.dwarf.Dwarf_t__entry___localname___delayed_12177.T__entry___localname___delayed_12177 {
     public var _idx(get, set) : StdTypes.Int;
     function get__idx():StdTypes.Int return this._idx;
     function set__idx(v:StdTypes.Int):StdTypes.Int {
@@ -1593,8 +1593,8 @@ class T_buf_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_unknownFormatPointer = stdgo._internal.debug.dwarf.Dwarf_t_unknownformatpointer.T_unknownFormatPointer;
-class T_unknownFormat_static_extension {
+@:dox(hide) typedef T_unknownFormatPointer = stdgo._internal.debug.dwarf.Dwarf_t_unknownformatpointer.T_unknownFormatPointer;
+@:dox(hide) class T_unknownFormat_static_extension {
     static public function _addrsize(_u:T_unknownFormat):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_unknownformat_static_extension.T_unknownFormat_static_extension._addrsize(_u);
     }
@@ -1614,12 +1614,12 @@ class DecodeError_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_decodeerror_static_extension.DecodeError_static_extension.error(_e);
     }
 }
-typedef T_abbrevPointer = stdgo._internal.debug.dwarf.Dwarf_t_abbrevpointer.T_abbrevPointer;
-class T_abbrev_static_extension {
+@:dox(hide) typedef T_abbrevPointer = stdgo._internal.debug.dwarf.Dwarf_t_abbrevpointer.T_abbrevPointer;
+@:dox(hide) class T_abbrev_static_extension {
 
 }
-typedef T_afieldPointer = stdgo._internal.debug.dwarf.Dwarf_t_afieldpointer.T_afieldPointer;
-class T_afield_static_extension {
+@:dox(hide) typedef T_afieldPointer = stdgo._internal.debug.dwarf.Dwarf_t_afieldpointer.T_afieldPointer;
+@:dox(hide) class T_afield_static_extension {
 
 }
 typedef EntryPointer = stdgo._internal.debug.dwarf.Dwarf_entrypointer.EntryPointer;
@@ -1767,8 +1767,8 @@ typedef LineFilePointer = stdgo._internal.debug.dwarf.Dwarf_linefilepointer.Line
 class LineFile_static_extension {
 
 }
-typedef T_lnctFormPointer = stdgo._internal.debug.dwarf.Dwarf_t_lnctformpointer.T_lnctFormPointer;
-class T_lnctForm_static_extension {
+@:dox(hide) typedef T_lnctFormPointer = stdgo._internal.debug.dwarf.Dwarf_t_lnctformpointer.T_lnctFormPointer;
+@:dox(hide) class T_lnctForm_static_extension {
 
 }
 typedef LineReaderPosPointer = stdgo._internal.debug.dwarf.Dwarf_linereaderpospointer.LineReaderPosPointer;
@@ -2212,8 +2212,8 @@ class UnsupportedType_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_unsupportedtype_static_extension.UnsupportedType_static_extension.common(__self__);
     }
 }
-typedef T_typeFixerPointer = stdgo._internal.debug.dwarf.Dwarf_t_typefixerpointer.T_typeFixerPointer;
-class T_typeFixer_static_extension {
+@:dox(hide) typedef T_typeFixerPointer = stdgo._internal.debug.dwarf.Dwarf_t_typefixerpointer.T_typeFixerPointer;
+@:dox(hide) class T_typeFixer_static_extension {
     static public function _apply(_tf:T_typeFixer):Void {
         final _tf = (_tf : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer>);
         stdgo._internal.debug.dwarf.Dwarf_t_typefixer_static_extension.T_typeFixer_static_extension._apply(_tf);
@@ -2224,8 +2224,8 @@ class T_typeFixer_static_extension {
         stdgo._internal.debug.dwarf.Dwarf_t_typefixer_static_extension.T_typeFixer_static_extension._recordArrayType(_tf, _t);
     }
 }
-typedef T_typeUnitPointer = stdgo._internal.debug.dwarf.Dwarf_t_typeunitpointer.T_typeUnitPointer;
-class T_typeUnit_static_extension {
+@:dox(hide) typedef T_typeUnitPointer = stdgo._internal.debug.dwarf.Dwarf_t_typeunitpointer.T_typeUnitPointer;
+@:dox(hide) class T_typeUnit_static_extension {
     public static function _version(__self__:stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_typeunit_static_extension.T_typeUnit_static_extension._version(__self__);
     }
@@ -2239,8 +2239,8 @@ class T_typeUnit_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_t_typeunit_static_extension.T_typeUnit_static_extension._addrsize(__self__);
     }
 }
-typedef T_typeUnitReaderPointer = stdgo._internal.debug.dwarf.Dwarf_t_typeunitreaderpointer.T_typeUnitReaderPointer;
-class T_typeUnitReader_static_extension {
+@:dox(hide) typedef T_typeUnitReaderPointer = stdgo._internal.debug.dwarf.Dwarf_t_typeunitreaderpointer.T_typeUnitReaderPointer;
+@:dox(hide) class T_typeUnitReader_static_extension {
     static public function _offset(_tur:T_typeUnitReader):Offset {
         final _tur = (_tur : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader>);
         return stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader_static_extension.T_typeUnitReader_static_extension._offset(_tur);
@@ -2265,8 +2265,8 @@ class T_typeUnitReader_static_extension {
         stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader_static_extension.T_typeUnitReader_static_extension.seek(_tur, _off);
     }
 }
-typedef T_unitPointer = stdgo._internal.debug.dwarf.Dwarf_t_unitpointer.T_unitPointer;
-class T_unit_static_extension {
+@:dox(hide) typedef T_unitPointer = stdgo._internal.debug.dwarf.Dwarf_t_unitpointer.T_unitPointer;
+@:dox(hide) class T_unit_static_extension {
     static public function _addrsize(_u:T_unit):StdTypes.Int {
         final _u = (_u : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>);
         return stdgo._internal.debug.dwarf.Dwarf_t_unit_static_extension.T_unit_static_extension._addrsize(_u);
@@ -2283,8 +2283,8 @@ class T_unit_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_t_unit_static_extension.T_unit_static_extension._version(_u);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.debug.dwarf.Dwarf_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.debug.dwarf.Dwarf_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef AttrPointer = stdgo._internal.debug.dwarf.Dwarf_attrpointer.AttrPointer;
@@ -2296,8 +2296,8 @@ class Attr_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_attr_static_extension.Attr_static_extension.string(_i);
     }
 }
-typedef T_formatPointer = stdgo._internal.debug.dwarf.Dwarf_t_formatpointer.T_formatPointer;
-class T_format_static_extension {
+@:dox(hide) typedef T_formatPointer = stdgo._internal.debug.dwarf.Dwarf_t_formatpointer.T_formatPointer;
+@:dox(hide) class T_format_static_extension {
 
 }
 typedef TagPointer = stdgo._internal.debug.dwarf.Dwarf_tagpointer.TagPointer;
@@ -2309,8 +2309,8 @@ class Tag_static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_tag_static_extension.Tag_static_extension.goString(_t);
     }
 }
-typedef T_abbrevTablePointer = stdgo._internal.debug.dwarf.Dwarf_t_abbrevtablepointer.T_abbrevTablePointer;
-class T_abbrevTable_static_extension {
+@:dox(hide) typedef T_abbrevTablePointer = stdgo._internal.debug.dwarf.Dwarf_t_abbrevtablepointer.T_abbrevTablePointer;
+@:dox(hide) class T_abbrevTable_static_extension {
 
 }
 typedef Class_Pointer = stdgo._internal.debug.dwarf.Dwarf_class_pointer.Class_Pointer;

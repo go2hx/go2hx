@@ -139,7 +139,7 @@ package stdgo._internal.crypto.tls;
         if ((@:checkr _c ?? throw "null pointer dereference").nameToCertificate != null) {
             var _name = (stdgo._internal.strings.Strings_tolower.toLower((@:checkr _clientHello ?? throw "null pointer dereference").serverName?.__copy__())?.__copy__() : stdgo.GoString);
             {
-                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference").nameToCertificate != null && (@:checkr _c ?? throw "null pointer dereference").nameToCertificate.exists(_name?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>), _1 : false }), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference").nameToCertificate != null && (@:checkr _c ?? throw "null pointer dereference").nameToCertificate.__exists__(_name?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>), _1 : false }), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return { _0 : _cert, _1 : (null : stdgo.Error) };
                 };
@@ -149,7 +149,7 @@ package stdgo._internal.crypto.tls;
                 _labels[(0 : stdgo.GoInt)] = ("*" : stdgo.GoString);
                 var _wildcardName = (stdgo._internal.strings.Strings_join.join(_labels, ("." : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 {
-                    var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference").nameToCertificate != null && (@:checkr _c ?? throw "null pointer dereference").nameToCertificate.exists(_wildcardName?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[_wildcardName?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>), _1 : false }), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate> = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference").nameToCertificate != null && (@:checkr _c ?? throw "null pointer dereference").nameToCertificate.__exists__(_wildcardName?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[_wildcardName?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>), _1 : false }), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         return { _0 : _cert, _1 : (null : stdgo.Error) };
                     };

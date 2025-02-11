@@ -5,7 +5,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         stdgo._internal.encoding.hex.Hex_errlength.errLength = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_encoder_static_extension) abstract T_encoder(stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder) from stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder to stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder {
+@:structInit @:using(stdgo.encoding.hex.Hex.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder) from stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder to stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -28,7 +28,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_decoder_static_extension) abstract T_decoder(stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder) from stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder to stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder {
+@:structInit @:using(stdgo.encoding.hex.Hex.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder) from stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder to stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -57,7 +57,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_dumper_static_extension) abstract T_dumper(stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper) from stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper to stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper {
+@:structInit @:using(stdgo.encoding.hex.Hex.T_dumper_static_extension) @:dox(hide) abstract T_dumper(stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper) from stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper to stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -98,7 +98,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_encDecTest_static_extension) abstract T_encDecTest(stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest) from stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest to stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest {
+@:structInit @:using(stdgo.encoding.hex.Hex.T_encDecTest_static_extension) @:dox(hide) abstract T_encDecTest(stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest) from stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest to stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest {
     public var _enc(get, set) : String;
     function get__enc():String return this._enc;
     function set__enc(v:String):String {
@@ -115,13 +115,13 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.encoding.hex.Hex_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.encoding.hex.Hex_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.encoding.hex.Hex_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.encoding.hex.Hex_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.encoding.hex.Hex_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.encoding.hex.Hex_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
     public static function read(__self__:stdgo._internal.encoding.hex.Hex_t__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -130,9 +130,9 @@ class T__struct_1_static_extension {
         };
     }
 }
-typedef T__struct_1 = stdgo._internal.encoding.hex.Hex_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.encoding.hex.Hex_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.encoding.hex.Hex_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.encoding.hex.Hex_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
     public static function write(__self__:stdgo._internal.encoding.hex.Hex_t__struct_2.T__struct_2, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -141,10 +141,10 @@ class T__struct_2_static_extension {
         };
     }
 }
-typedef T__struct_2 = stdgo._internal.encoding.hex.Hex_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_2 = stdgo._internal.encoding.hex.Hex_t__struct_2.T__struct_2;
 typedef InvalidByteError = stdgo._internal.encoding.hex.Hex_invalidbyteerror.InvalidByteError;
-typedef T_encoderPointer = stdgo._internal.encoding.hex.Hex_t_encoderpointer.T_encoderPointer;
-class T_encoder_static_extension {
+@:dox(hide) typedef T_encoderPointer = stdgo._internal.encoding.hex.Hex_t_encoderpointer.T_encoderPointer;
+@:dox(hide) class T_encoder_static_extension {
     static public function write(_e:T_encoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -154,8 +154,8 @@ class T_encoder_static_extension {
         };
     }
 }
-typedef T_decoderPointer = stdgo._internal.encoding.hex.Hex_t_decoderpointer.T_decoderPointer;
-class T_decoder_static_extension {
+@:dox(hide) typedef T_decoderPointer = stdgo._internal.encoding.hex.Hex_t_decoderpointer.T_decoderPointer;
+@:dox(hide) class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -165,8 +165,8 @@ class T_decoder_static_extension {
         };
     }
 }
-typedef T_dumperPointer = stdgo._internal.encoding.hex.Hex_t_dumperpointer.T_dumperPointer;
-class T_dumper_static_extension {
+@:dox(hide) typedef T_dumperPointer = stdgo._internal.encoding.hex.Hex_t_dumperpointer.T_dumperPointer;
+@:dox(hide) class T_dumper_static_extension {
     static public function close(_h:T_dumper):stdgo.Error {
         final _h = (_h : stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper>);
         return stdgo._internal.encoding.hex.Hex_t_dumper_static_extension.T_dumper_static_extension.close(_h);
@@ -180,20 +180,20 @@ class T_dumper_static_extension {
         };
     }
 }
-typedef T_encDecTestPointer = stdgo._internal.encoding.hex.Hex_t_encdectestpointer.T_encDecTestPointer;
-class T_encDecTest_static_extension {
+@:dox(hide) typedef T_encDecTestPointer = stdgo._internal.encoding.hex.Hex_t_encdectestpointer.T_encDecTestPointer;
+@:dox(hide) class T_encDecTest_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.encoding.hex.Hex_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
 typedef InvalidByteErrorPointer = stdgo._internal.encoding.hex.Hex_invalidbyteerrorpointer.InvalidByteErrorPointer;

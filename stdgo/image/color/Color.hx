@@ -264,7 +264,7 @@ typedef Model = stdgo._internal.image.color.Color_model.Model;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.color.Color.T_modelFunc_static_extension) abstract T_modelFunc(stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc) from stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc to stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc {
+@:structInit @:using(stdgo.image.color.Color.T_modelFunc_static_extension) @:dox(hide) abstract T_modelFunc(stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc) from stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc to stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc {
     public var _f(get, set) : stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color;
     function get__f():stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color return _0 -> this._f(_0);
     function set__f(v:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color {
@@ -417,8 +417,8 @@ class Gray16_static_extension {
         };
     }
 }
-typedef T_modelFuncPointer = stdgo._internal.image.color.Color_t_modelfuncpointer.T_modelFuncPointer;
-class T_modelFunc_static_extension {
+@:dox(hide) typedef T_modelFuncPointer = stdgo._internal.image.color.Color_t_modelfuncpointer.T_modelFuncPointer;
+@:dox(hide) class T_modelFunc_static_extension {
     static public function convert(_m:T_modelFunc, _c:Color_):Color_ {
         final _m = (_m : stdgo.Ref<stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc>);
         return stdgo._internal.image.color.Color_t_modelfunc_static_extension.T_modelFunc_static_extension.convert(_m, _c);

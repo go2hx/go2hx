@@ -142,7 +142,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_formatError_static_extension) abstract T_formatError(stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError) from stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError to stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_formatError_static_extension) @:dox(hide) abstract T_formatError(stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError) from stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError to stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError {
     public var _off(get, set) : StdTypes.Int;
     function get__off():StdTypes.Int return this._off;
     function set__off(v:StdTypes.Int):StdTypes.Int {
@@ -165,7 +165,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_prog_static_extension) abstract T_prog(stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog) from stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog to stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_prog_static_extension) @:dox(hide) abstract T_prog(stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog) from stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog to stdgo._internal.debug.plan9obj.Plan9obj_t_prog.T_prog {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -218,7 +218,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_sym_static_extension) abstract T_sym(stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym) from stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym to stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym {
+@:structInit @:using(stdgo.debug.plan9obj.Plan9obj.T_sym_static_extension) @:dox(hide) abstract T_sym(stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym) from stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym to stdgo._internal.debug.plan9obj.Plan9obj_t_sym.T_sym {
     public var _value(get, set) : haxe.UInt64;
     function get__value():haxe.UInt64 return this._value;
     function set__value(v:haxe.UInt64):haxe.UInt64 {
@@ -241,11 +241,11 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0.T__struct_0;
 typedef FileHeaderPointer = stdgo._internal.debug.plan9obj.Plan9obj_fileheaderpointer.FileHeaderPointer;
 class FileHeader_static_extension {
 
@@ -299,23 +299,23 @@ typedef SymPointer = stdgo._internal.debug.plan9obj.Plan9obj_sympointer.SymPoint
 class Sym_static_extension {
 
 }
-typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_formaterrorpointer.T_formatErrorPointer;
-class T_formatError_static_extension {
+@:dox(hide) typedef T_formatErrorPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_formaterrorpointer.T_formatErrorPointer;
+@:dox(hide) class T_formatError_static_extension {
     static public function error(_e:T_formatError):String {
         final _e = (_e : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError>);
         return stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror_static_extension.T_formatError_static_extension.error(_e);
     }
 }
-typedef T_progPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_progpointer.T_progPointer;
-class T_prog_static_extension {
+@:dox(hide) typedef T_progPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_progpointer.T_progPointer;
+@:dox(hide) class T_prog_static_extension {
 
 }
-typedef T_symPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_sympointer.T_symPointer;
-class T_sym_static_extension {
+@:dox(hide) typedef T_symPointer = stdgo._internal.debug.plan9obj.Plan9obj_t_sympointer.T_symPointer;
+@:dox(hide) class T_sym_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.debug.plan9obj.Plan9obj_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 /**

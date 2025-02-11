@@ -47,7 +47,7 @@ private function set_opaque(v:Uniform):Uniform {
         stdgo._internal.image.Image_opaque.opaque = (v : stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>);
         return v;
     }
-class T_reader_static_extension {
+@:dox(hide) class T_reader_static_extension {
     static public function peek(t:stdgo._internal.image.Image_t_reader.T_reader, _0:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoInt);
         return {
@@ -56,7 +56,7 @@ class T_reader_static_extension {
         };
     }
 }
-typedef T_reader = stdgo._internal.image.Image_t_reader.T_reader;
+@:dox(hide) typedef T_reader = stdgo._internal.image.Image_t_reader.T_reader;
 class Image_static_extension {
     static public function at(t:stdgo._internal.image.Image_image.Image, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color_color.Color {
         final _x = (_x : stdgo.GoInt);
@@ -87,7 +87,7 @@ class PalettedImage_static_extension {
     }
 }
 typedef PalettedImage = stdgo._internal.image.Image_palettedimage.PalettedImage;
-class T_image_static_extension {
+@:dox(hide) class T_image_static_extension {
     static public function subImage(t:stdgo._internal.image.Image_t_image.T_image, _0:Rectangle):Image_ {
         return stdgo._internal.image.Image_t_image_static_extension.T_image_static_extension.subImage(t, _0);
     }
@@ -100,16 +100,16 @@ class T_image_static_extension {
         return stdgo._internal.image.Image_t_image_static_extension.T_image_static_extension.opaque(t);
     }
 }
-typedef T_image = stdgo._internal.image.Image_t_image.T_image;
-class T__interface_0_static_extension {
+@:dox(hide) typedef T_image = stdgo._internal.image.Image_t_image.T_image;
+@:dox(hide) class T__interface_0_static_extension {
     static public function setRGBA64(t:stdgo._internal.image.Image_t__interface_0.T__interface_0, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_rgba64.RGBA64):Void {
         final _x = (_x : stdgo.GoInt);
         final _y = (_y : stdgo.GoInt);
         stdgo._internal.image.Image_t__interface_0_static_extension.T__interface_0_static_extension.setRGBA64(t, _x, _y, _c);
     }
 }
-typedef T__interface_0 = stdgo._internal.image.Image_t__interface_0.T__interface_0;
-@:structInit @:using(stdgo.image.Image.T_format_static_extension) abstract T_format(stdgo._internal.image.Image_t_format.T_format) from stdgo._internal.image.Image_t_format.T_format to stdgo._internal.image.Image_t_format.T_format {
+@:dox(hide) typedef T__interface_0 = stdgo._internal.image.Image_t__interface_0.T__interface_0;
+@:structInit @:using(stdgo.image.Image.T_format_static_extension) @:dox(hide) abstract T_format(stdgo._internal.image.Image_t_format.T_format) from stdgo._internal.image.Image_t_format.T_format to stdgo._internal.image.Image_t_format.T_format {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -512,19 +512,19 @@ typedef T__interface_0 = stdgo._internal.image.Image_t__interface_0.T__interface
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.image.Image_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.image.Image_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.image.Image_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.image.Image_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.image.Image_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.image.Image_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.image.Image_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_1 = stdgo._internal.image.Image_t__struct_1.T__struct_1;
 typedef YCbCrSubsampleRatio = stdgo._internal.image.Image_ycbcrsubsampleratio.YCbCrSubsampleRatio;
-typedef T_formatPointer = stdgo._internal.image.Image_t_formatpointer.T_formatPointer;
-class T_format_static_extension {
+@:dox(hide) typedef T_formatPointer = stdgo._internal.image.Image_t_formatpointer.T_formatPointer;
+@:dox(hide) class T_format_static_extension {
 
 }
 typedef PointPointer = stdgo._internal.image.Image_pointpointer.PointPointer;
@@ -1365,12 +1365,12 @@ class NYCbCrA_static_extension {
         return stdgo._internal.image.Image_nycbcra_static_extension.NYCbCrA_static_extension.bounds(__self__);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.image.Image_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.image.Image_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.image.Image_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.image.Image_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
 typedef YCbCrSubsampleRatioPointer = stdgo._internal.image.Image_ycbcrsubsampleratiopointer.YCbCrSubsampleRatioPointer;

@@ -29,7 +29,7 @@ class Resetter_static_extension {
     }
 }
 typedef Resetter = stdgo._internal.compress.zlib.Zlib_resetter.Resetter;
-@:structInit @:using(stdgo.compress.zlib.Zlib.T_reader_static_extension) abstract T_reader(stdgo._internal.compress.zlib.Zlib_t_reader.T_reader) from stdgo._internal.compress.zlib.Zlib_t_reader.T_reader to stdgo._internal.compress.zlib.Zlib_t_reader.T_reader {
+@:structInit @:using(stdgo.compress.zlib.Zlib.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.compress.zlib.Zlib_t_reader.T_reader) from stdgo._internal.compress.zlib.Zlib_t_reader.T_reader to stdgo._internal.compress.zlib.Zlib_t_reader.T_reader {
     public var _r(get, set) : stdgo._internal.compress.flate.Flate_reader.Reader;
     function get__r():stdgo._internal.compress.flate.Flate_reader.Reader return this._r;
     function set__r(v:stdgo._internal.compress.flate.Flate_reader.Reader):stdgo._internal.compress.flate.Flate_reader.Reader {
@@ -117,8 +117,8 @@ typedef Resetter = stdgo._internal.compress.zlib.Zlib_resetter.Resetter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_readerPointer = stdgo._internal.compress.zlib.Zlib_t_readerpointer.T_readerPointer;
-class T_reader_static_extension {
+@:dox(hide) typedef T_readerPointer = stdgo._internal.compress.zlib.Zlib_t_readerpointer.T_readerPointer;
+@:dox(hide) class T_reader_static_extension {
     static public function reset(_z:T_reader, _r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
         final _z = (_z : stdgo.Ref<stdgo._internal.compress.zlib.Zlib_t_reader.T_reader>);
         final _dict = ([for (i in _dict) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

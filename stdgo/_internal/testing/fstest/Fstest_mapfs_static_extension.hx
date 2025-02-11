@@ -80,7 +80,7 @@ package stdgo._internal.testing.fstest;
             };
         };
         for (__2 => _fi in _list) {
-            if (_need != null) _need.remove(_fi._name);
+            if (_need != null) _need.__remove__(_fi._name);
         };
         for (_name => _ in _need) {
             _list = (_list.__append__((new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_name?.__copy__(), (stdgo.Go.setRef(({ mode : (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) } : stdgo._internal.testing.fstest.Fstest_mapfile.MapFile)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>)) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo)));

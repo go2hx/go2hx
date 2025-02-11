@@ -1631,7 +1631,7 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.unicode.Unicode.T_foldPair_static_extension) abstract T_foldPair(stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair) from stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair to stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair {
+@:structInit @:using(stdgo.unicode.Unicode.T_foldPair_static_extension) @:dox(hide) abstract T_foldPair(stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair) from stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair to stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair {
     public var from(get, set) : std.UInt;
     function get_from():std.UInt return this.from;
     function set_from(v:std.UInt):std.UInt {
@@ -1649,7 +1649,7 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
     public function __copy__() return this.__copy__();
 }
 typedef SpecialCase = stdgo._internal.unicode.Unicode_specialcase.SpecialCase;
-typedef T_d = stdgo._internal.unicode.Unicode_t_d.T_d;
+@:dox(hide) typedef T_d = stdgo._internal.unicode.Unicode_t_d.T_d;
 typedef RangeTablePointer = stdgo._internal.unicode.Unicode_rangetablepointer.RangeTablePointer;
 class RangeTable_static_extension {
 
@@ -1666,8 +1666,8 @@ typedef CaseRangePointer = stdgo._internal.unicode.Unicode_caserangepointer.Case
 class CaseRange_static_extension {
 
 }
-typedef T_foldPairPointer = stdgo._internal.unicode.Unicode_t_foldpairpointer.T_foldPairPointer;
-class T_foldPair_static_extension {
+@:dox(hide) typedef T_foldPairPointer = stdgo._internal.unicode.Unicode_t_foldpairpointer.T_foldPairPointer;
+@:dox(hide) class T_foldPair_static_extension {
 
 }
 typedef SpecialCasePointer = stdgo._internal.unicode.Unicode_specialcasepointer.SpecialCasePointer;
@@ -1685,8 +1685,8 @@ class SpecialCase_static_extension {
         return stdgo._internal.unicode.Unicode_specialcase_static_extension.SpecialCase_static_extension.toUpper(_special, _r);
     }
 }
-typedef T_dPointer = stdgo._internal.unicode.Unicode_t_dpointer.T_dPointer;
-class T_d_static_extension {
+@:dox(hide) typedef T_dPointer = stdgo._internal.unicode.Unicode_t_dpointer.T_dPointer;
+@:dox(hide) class T_d_static_extension {
 
 }
 /**

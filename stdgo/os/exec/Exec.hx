@@ -34,7 +34,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_wrappedError_static_extension) abstract T_wrappedError(stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError) from stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError to stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError {
+@:structInit @:using(stdgo.os.exec.Exec.T_wrappedError_static_extension) @:dox(hide) abstract T_wrappedError(stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError) from stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError to stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError {
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
@@ -210,7 +210,7 @@ waitDelay,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_ctxResult_static_extension) abstract T_ctxResult(stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult) from stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult to stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult {
+@:structInit @:using(stdgo.os.exec.Exec.T_ctxResult_static_extension) @:dox(hide) abstract T_ctxResult(stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult) from stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult to stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -244,7 +244,7 @@ waitDelay,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_prefixSuffixSaver_static_extension) abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver {
+@:structInit @:using(stdgo.os.exec.Exec.T_prefixSuffixSaver_static_extension) @:dox(hide) abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver {
     public var n(get, set) : StdTypes.Int;
     function get_n():StdTypes.Int return this.n;
     function set_n(v:StdTypes.Int):StdTypes.Int {
@@ -290,8 +290,8 @@ class Error_static_extension {
         return stdgo._internal.os.exec.Exec_error_static_extension.Error_static_extension.error(_e);
     }
 }
-typedef T_wrappedErrorPointer = stdgo._internal.os.exec.Exec_t_wrappederrorpointer.T_wrappedErrorPointer;
-class T_wrappedError_static_extension {
+@:dox(hide) typedef T_wrappedErrorPointer = stdgo._internal.os.exec.Exec_t_wrappederrorpointer.T_wrappedErrorPointer;
+@:dox(hide) class T_wrappedError_static_extension {
     static public function unwrap(_w:T_wrappedError):stdgo.Error {
         return stdgo._internal.os.exec.Exec_t_wrappederror_static_extension.T_wrappedError_static_extension.unwrap(_w);
     }
@@ -407,8 +407,8 @@ class Cmd_static_extension {
         return stdgo._internal.os.exec.Exec_cmd_static_extension.Cmd_static_extension.string(_c);
     }
 }
-typedef T_ctxResultPointer = stdgo._internal.os.exec.Exec_t_ctxresultpointer.T_ctxResultPointer;
-class T_ctxResult_static_extension {
+@:dox(hide) typedef T_ctxResultPointer = stdgo._internal.os.exec.Exec_t_ctxresultpointer.T_ctxResultPointer;
+@:dox(hide) class T_ctxResult_static_extension {
 
 }
 typedef ExitErrorPointer = stdgo._internal.os.exec.Exec_exiterrorpointer.ExitErrorPointer;
@@ -463,8 +463,8 @@ class ExitError_static_extension {
         return stdgo._internal.os.exec.Exec_exiterror_static_extension.ExitError_static_extension.exitCode(__self__);
     }
 }
-typedef T_prefixSuffixSaverPointer = stdgo._internal.os.exec.Exec_t_prefixsuffixsaverpointer.T_prefixSuffixSaverPointer;
-class T_prefixSuffixSaver_static_extension {
+@:dox(hide) typedef T_prefixSuffixSaverPointer = stdgo._internal.os.exec.Exec_t_prefixsuffixsaverpointer.T_prefixSuffixSaverPointer;
+@:dox(hide) class T_prefixSuffixSaver_static_extension {
     static public function bytes(_w:T_prefixSuffixSaver):Array<std.UInt> {
         final _w = (_w : stdgo.Ref<stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver>);
         return [for (i in stdgo._internal.os.exec.Exec_t_prefixsuffixsaver_static_extension.T_prefixSuffixSaver_static_extension.bytes(_w)) i];

@@ -372,7 +372,7 @@ package stdgo._internal.database.sql;
                 final __f__ = @:check2r _dc.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            if ((@:checkr _dc ?? throw "null pointer dereference")._openStmt != null) (@:checkr _dc ?? throw "null pointer dereference")._openStmt.remove(_ds);
+            if ((@:checkr _dc ?? throw "null pointer dereference")._openStmt != null) (@:checkr _dc ?? throw "null pointer dereference")._openStmt.__remove__(_ds);
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

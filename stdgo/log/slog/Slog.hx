@@ -63,7 +63,7 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.Slog.T_defaultHandler_static_extension) abstract T_defaultHandler(stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler) from stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler to stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler {
+@:structInit @:using(stdgo.log.slog.Slog.T_defaultHandler_static_extension) @:dox(hide) abstract T_defaultHandler(stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler) from stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler to stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler {
     public var _ch(get, set) : T_commonHandler;
     function get__ch():T_commonHandler return this._ch;
     function set__ch(v:T_commonHandler):T_commonHandler {
@@ -103,7 +103,7 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.Slog.T_commonHandler_static_extension) abstract T_commonHandler(stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler) from stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler to stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler {
+@:structInit @:using(stdgo.log.slog.Slog.T_commonHandler_static_extension) @:dox(hide) abstract T_commonHandler(stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler) from stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler to stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler {
     public var _json(get, set) : Bool;
     function get__json():Bool return this._json;
     function set__json(v:Bool):Bool {
@@ -156,7 +156,7 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.Slog.T_handleState_static_extension) abstract T_handleState(stdgo._internal.log.slog.Slog_t_handlestate.T_handleState) from stdgo._internal.log.slog.Slog_t_handlestate.T_handleState to stdgo._internal.log.slog.Slog_t_handlestate.T_handleState {
+@:structInit @:using(stdgo.log.slog.Slog.T_handleState_static_extension) @:dox(hide) abstract T_handleState(stdgo._internal.log.slog.Slog_t_handlestate.T_handleState) from stdgo._internal.log.slog.Slog_t_handlestate.T_handleState to stdgo._internal.log.slog.Slog_t_handlestate.T_handleState {
     public var _h(get, set) : T_commonHandler;
     function get__h():T_commonHandler return this._h;
     function set__h(v:T_commonHandler):T_commonHandler {
@@ -219,7 +219,7 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.Slog.T_handlerWriter_static_extension) abstract T_handlerWriter(stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter) from stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter to stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter {
+@:structInit @:using(stdgo.log.slog.Slog.T_handlerWriter_static_extension) @:dox(hide) abstract T_handlerWriter(stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter) from stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter to stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter {
     public var _h(get, set) : Handler;
     function get__h():Handler return this._h;
     function set__h(v:Handler):Handler {
@@ -358,11 +358,11 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
     public function __copy__() return this.__copy__();
 }
 typedef Level = stdgo._internal.log.slog.Slog_level.Level;
-typedef T_stringptr = stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr;
-typedef T_groupptr = stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr;
+@:dox(hide) typedef T_stringptr = stdgo._internal.log.slog.Slog_t_stringptr.T_stringptr;
+@:dox(hide) typedef T_groupptr = stdgo._internal.log.slog.Slog_t_groupptr.T_groupptr;
 typedef Kind = stdgo._internal.log.slog.Slog_kind.Kind;
-typedef T_kind = stdgo._internal.log.slog.Slog_t_kind.T_kind;
-typedef T_timeLocation = stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation;
+@:dox(hide) typedef T_kind = stdgo._internal.log.slog.Slog_t_kind.T_kind;
+@:dox(hide) typedef T_timeLocation = stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation;
 typedef AttrPointer = stdgo._internal.log.slog.Slog_attrpointer.AttrPointer;
 class Attr_static_extension {
     static public function _isEmpty(_a:Attr):Bool {
@@ -375,8 +375,8 @@ class Attr_static_extension {
         return stdgo._internal.log.slog.Slog_attr_static_extension.Attr_static_extension.equal(_a, _b);
     }
 }
-typedef T_defaultHandlerPointer = stdgo._internal.log.slog.Slog_t_defaulthandlerpointer.T_defaultHandlerPointer;
-class T_defaultHandler_static_extension {
+@:dox(hide) typedef T_defaultHandlerPointer = stdgo._internal.log.slog.Slog_t_defaulthandlerpointer.T_defaultHandlerPointer;
+@:dox(hide) class T_defaultHandler_static_extension {
     static public function withGroup(_h:T_defaultHandler, _name:String):Handler {
         final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler>);
         final _name = (_name : stdgo.GoString);
@@ -400,8 +400,8 @@ typedef HandlerOptionsPointer = stdgo._internal.log.slog.Slog_handleroptionspoin
 class HandlerOptions_static_extension {
 
 }
-typedef T_commonHandlerPointer = stdgo._internal.log.slog.Slog_t_commonhandlerpointer.T_commonHandlerPointer;
-class T_commonHandler_static_extension {
+@:dox(hide) typedef T_commonHandlerPointer = stdgo._internal.log.slog.Slog_t_commonhandlerpointer.T_commonHandlerPointer;
+@:dox(hide) class T_commonHandler_static_extension {
     static public function _newHandleState(_h:T_commonHandler, _buf:stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer, _freeBuf:Bool, _sep:String):T_handleState {
         final _h = (_h : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>);
         final _buf = (_buf : stdgo.Ref<stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer>);
@@ -435,8 +435,8 @@ class T_commonHandler_static_extension {
         return stdgo._internal.log.slog.Slog_t_commonhandler_static_extension.T_commonHandler_static_extension._clone(_h);
     }
 }
-typedef T_handleStatePointer = stdgo._internal.log.slog.Slog_t_handlestatepointer.T_handleStatePointer;
-class T_handleState_static_extension {
+@:dox(hide) typedef T_handleStatePointer = stdgo._internal.log.slog.Slog_t_handlestatepointer.T_handleStatePointer;
+@:dox(hide) class T_handleState_static_extension {
     static public function _appendTime(_s:T_handleState, _t:stdgo._internal.time.Time_time.Time):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.log.slog.Slog_t_handlestate.T_handleState>);
         stdgo._internal.log.slog.Slog_t_handlestate_static_extension.T_handleState_static_extension._appendTime(_s, _t);
@@ -560,8 +560,8 @@ class LevelVar_static_extension {
         return stdgo._internal.log.slog.Slog_levelvar_static_extension.LevelVar_static_extension.level(_v);
     }
 }
-typedef T_handlerWriterPointer = stdgo._internal.log.slog.Slog_t_handlerwriterpointer.T_handlerWriterPointer;
-class T_handlerWriter_static_extension {
+@:dox(hide) typedef T_handlerWriterPointer = stdgo._internal.log.slog.Slog_t_handlerwriterpointer.T_handlerWriterPointer;
+@:dox(hide) class T_handlerWriter_static_extension {
     static public function write(_w:T_handlerWriter, _buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _w = (_w : stdgo.Ref<stdgo._internal.log.slog.Slog_t_handlerwriter.T_handlerWriter>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -832,12 +832,12 @@ class Level_static_extension {
         return stdgo._internal.log.slog.Slog_level_static_extension.Level_static_extension.string(_l);
     }
 }
-typedef T_stringptrPointer = stdgo._internal.log.slog.Slog_t_stringptrpointer.T_stringptrPointer;
-class T_stringptr_static_extension {
+@:dox(hide) typedef T_stringptrPointer = stdgo._internal.log.slog.Slog_t_stringptrpointer.T_stringptrPointer;
+@:dox(hide) class T_stringptr_static_extension {
 
 }
-typedef T_groupptrPointer = stdgo._internal.log.slog.Slog_t_groupptrpointer.T_groupptrPointer;
-class T_groupptr_static_extension {
+@:dox(hide) typedef T_groupptrPointer = stdgo._internal.log.slog.Slog_t_groupptrpointer.T_groupptrPointer;
+@:dox(hide) class T_groupptr_static_extension {
 
 }
 typedef KindPointer = stdgo._internal.log.slog.Slog_kindpointer.KindPointer;
@@ -846,12 +846,12 @@ class Kind_static_extension {
         return stdgo._internal.log.slog.Slog_kind_static_extension.Kind_static_extension.string(_k);
     }
 }
-typedef T_kindPointer = stdgo._internal.log.slog.Slog_t_kindpointer.T_kindPointer;
-class T_kind_static_extension {
+@:dox(hide) typedef T_kindPointer = stdgo._internal.log.slog.Slog_t_kindpointer.T_kindPointer;
+@:dox(hide) class T_kind_static_extension {
 
 }
-typedef T_timeLocationPointer = stdgo._internal.log.slog.Slog_t_timelocationpointer.T_timeLocationPointer;
-class T_timeLocation_static_extension {
+@:dox(hide) typedef T_timeLocationPointer = stdgo._internal.log.slog.Slog_t_timelocationpointer.T_timeLocationPointer;
+@:dox(hide) class T_timeLocation_static_extension {
 
 }
 /**

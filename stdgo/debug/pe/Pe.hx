@@ -143,7 +143,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.T_nobitsSectionReader_static_extension) abstract T_nobitsSectionReader(stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader {
+@:structInit @:using(stdgo.debug.pe.Pe.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader {
     public function new() this = new stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -1042,8 +1042,8 @@ class File_static_extension {
         return stdgo._internal.debug.pe.Pe_file_static_extension.File_static_extension.close(_f);
     }
 }
-typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.pe.Pe_t_nobitssectionreaderpointer.T_nobitsSectionReaderPointer;
-class T_nobitsSectionReader_static_extension {
+@:dox(hide) typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.pe.Pe_t_nobitssectionreaderpointer.T_nobitsSectionReaderPointer;
+@:dox(hide) class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _ = (_ : stdgo.Ref<stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

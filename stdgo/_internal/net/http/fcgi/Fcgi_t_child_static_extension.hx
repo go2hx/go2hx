@@ -39,7 +39,7 @@ package stdgo._internal.net.http.fcgi;
     @:tdfield
     static public function _handleRecord( _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child>, _rec:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child> = _c;
-        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._requests != null && (@:checkr _c ?? throw "null pointer dereference")._requests.exists((@:checkr _rec ?? throw "null pointer dereference")._h.id) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._requests[(@:checkr _rec ?? throw "null pointer dereference")._h.id], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>), _1 : false }), _req:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._requests != null && (@:checkr _c ?? throw "null pointer dereference")._requests.__exists__((@:checkr _rec ?? throw "null pointer dereference")._h.id) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._requests[(@:checkr _rec ?? throw "null pointer dereference")._h.id], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>), _1 : false }), _req:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (((!_ok && (@:checkr _rec ?? throw "null pointer dereference")._h.type != ((1 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType)) : Bool) && ((@:checkr _rec ?? throw "null pointer dereference")._h.type != (9 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType)) : Bool)) {
             return (null : stdgo.Error);
         };
@@ -88,7 +88,7 @@ package stdgo._internal.net.http.fcgi;
                 if (((_content.length) > (0 : stdgo.GoInt) : Bool)) {
                     @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.write(_content);
                 } else {
-                    if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.remove((@:checkr _req ?? throw "null pointer dereference")._reqId);
+                    if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.__remove__((@:checkr _req ?? throw "null pointer dereference")._reqId);
                     if (((@:checkr _req ?? throw "null pointer dereference")._pw != null && (((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__))) {
                         @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.close();
                     };
@@ -106,7 +106,7 @@ package stdgo._internal.net.http.fcgi;
             } else if (__value__ == ((8 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
                 return (null : stdgo.Error);
             } else if (__value__ == ((2 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
-                if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.remove((@:checkr _rec ?? throw "null pointer dereference")._h.id);
+                if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.__remove__((@:checkr _rec ?? throw "null pointer dereference")._h.id);
                 @:check2r (@:checkr _c ?? throw "null pointer dereference")._conn._writeEndRequest((@:checkr _rec ?? throw "null pointer dereference")._h.id, (0 : stdgo.GoInt), (0 : stdgo.GoUInt8));
                 if (((@:checkr _req ?? throw "null pointer dereference")._pw != null && (((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__))) {
                     @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.closeWithError(stdgo._internal.net.http.fcgi.Fcgi_errrequestaborted.errRequestAborted);

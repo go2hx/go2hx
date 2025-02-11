@@ -442,7 +442,7 @@ package stdgo._internal.net.http.httputil;
                 {
                     var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__()), _clientIP:stdgo.GoString = __tmp__._0, __40:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err == null) {
-                        var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.exists(("X-Forwarded-For" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("X-Forwarded-For" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _prior:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.__exists__(("X-Forwarded-For" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("X-Forwarded-For" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _prior:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                         var _omit = (_ok && (_prior == null) : Bool);
                         if (((_prior.length) > (0 : stdgo.GoInt) : Bool)) {
                             _clientIP = ((stdgo._internal.strings.Strings_join.join(_prior, (", " : stdgo.GoString)) + (", " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _clientIP?.__copy__() : stdgo.GoString)?.__copy__();
@@ -454,7 +454,7 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             {
-                var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.exists(("User-Agent" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("User-Agent" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __40:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.__exists__(("User-Agent" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("User-Agent" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __40:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     (@:checkr _outreq ?? throw "null pointer dereference").header.set(("User-Agent" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
                 };
@@ -464,7 +464,7 @@ package stdgo._internal.net.http.httputil;
                 stdgo._internal.net.http.httputil.Httputil__copyheader._copyHeader(_h, (_header : stdgo._internal.net.http.Http_header.Header));
                 _rw.writeHeader(_code);
                 for (_k => _ in _h) {
-                    if (_h != null) _h.remove(_k);
+                    if (_h != null) _h.__remove__(_k);
                 };
                 return (null : stdgo.Error);
             } } : stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace)) : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace>);

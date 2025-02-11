@@ -145,7 +145,7 @@ package stdgo._internal.runtime.pprof;
         while (((_stk.length) > (0 : stdgo.GoInt) : Bool)) {
             var _addr = (_stk[(0 : stdgo.GoInt)] : stdgo.GoUIntptr);
             {
-                var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._locs != null && (@:checkr _b ?? throw "null pointer dereference")._locs.exists(_addr) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._locs[_addr], _1 : true } : { _0 : ({} : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo), _1 : false }), _l:stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._locs != null && (@:checkr _b ?? throw "null pointer dereference")._locs.__exists__(_addr) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._locs[_addr], _1 : true } : { _0 : ({} : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo), _1 : false }), _l:stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     if ((((@:checkr _b ?? throw "null pointer dereference")._deck._pcs.length) > (0 : stdgo.GoInt) : Bool)) {
                         {
@@ -192,7 +192,7 @@ package stdgo._internal.runtime.pprof;
                 };
             };
             {
-                var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._locs != null && (@:checkr _b ?? throw "null pointer dereference")._locs.exists(_addr) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._locs[_addr], _1 : true } : { _0 : ({} : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo), _1 : false }), _l:stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._locs != null && (@:checkr _b ?? throw "null pointer dereference")._locs.__exists__(_addr) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._locs[_addr], _1 : true } : { _0 : ({} : stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo), _1 : false }), _l:stdgo._internal.runtime.pprof.Pprof_t_locinfo.T_locInfo = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _locs = (_locs.__append__(_l._id));
                     _stk = (_stk.__slice__((_l._pcs.length)) : stdgo.Slice<stdgo.GoUIntptr>);
@@ -367,7 +367,7 @@ _locs = @:check2r _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) 
     @:tdfield
     static public function _stringIndex( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>, _s:stdgo.GoString):stdgo.GoInt64 {
         @:recv var _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder> = _b;
-        var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._stringMap != null && (@:checkr _b ?? throw "null pointer dereference")._stringMap.exists(_s?.__copy__()) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._stringMap[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _id:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference")._stringMap != null && (@:checkr _b ?? throw "null pointer dereference")._stringMap.__exists__(_s?.__copy__()) ? { _0 : (@:checkr _b ?? throw "null pointer dereference")._stringMap[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _id:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _id = ((@:checkr _b ?? throw "null pointer dereference")._strings.length);
             (@:checkr _b ?? throw "null pointer dereference")._strings = ((@:checkr _b ?? throw "null pointer dereference")._strings.__append__(_s?.__copy__()));

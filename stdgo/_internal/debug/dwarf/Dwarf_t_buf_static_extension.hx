@@ -9,7 +9,7 @@ package stdgo._internal.debug.dwarf;
         if (_id == ((0u32 : stdgo.GoUInt32))) {
             return (stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_entry.Entry() : stdgo._internal.debug.dwarf.Dwarf_entry.Entry)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_entry.Entry>);
         };
-        var __tmp__ = (_atab != null && _atab.exists(_id) ? { _0 : _atab[_id], _1 : true } : { _0 : ({} : stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev), _1 : false }), _a:stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (_atab != null && _atab.__exists__(_id) ? { _0 : _atab[_id], _1 : true } : { _0 : ({} : stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev), _1 : false }), _a:stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             @:check2r _b._error(("unknown abbreviation table index" : stdgo.GoString));
             return null;

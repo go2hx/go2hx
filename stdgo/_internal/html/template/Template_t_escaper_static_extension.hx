@@ -71,7 +71,7 @@ package stdgo._internal.html.template;
     static public function _editTextNode( _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>, _text:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper> = _e;
         {
-            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._textNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._textNodeEdits.exists(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._textNodeEdits[_n], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : false }), __6:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._textNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._textNodeEdits.__exists__(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._textNodeEdits[_n], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : false }), __6:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("node %s shared between templates" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_n))));
             };
@@ -83,7 +83,7 @@ package stdgo._internal.html.template;
     static public function _editTemplateNode( _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode>, _callee:stdgo.GoString):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper> = _e;
         {
-            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits.exists(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits[_n], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __6:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits.__exists__(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._templateNodeEdits[_n], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __6:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("node %s shared between templates" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_n))));
             };
@@ -95,7 +95,7 @@ package stdgo._internal.html.template;
     static public function _editActionNode( _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_actionnode.ActionNode>, _cmds:stdgo.Slice<stdgo.GoString>):Void {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper> = _e;
         {
-            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits.exists(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits[_n], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __6:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits != null && (@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits.__exists__(_n) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._actionNodeEdits[_n], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __6:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("node %s shared between templates" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_n))));
             };
@@ -230,7 +230,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
         var _dname = (_c._mangle(_name?.__copy__())?.__copy__() : stdgo.GoString);
         (@:checkr _e ?? throw "null pointer dereference")._called[_dname] = true;
         {
-            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._output != null && (@:checkr _e ?? throw "null pointer dereference")._output.exists(_dname?.__copy__()) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._output[_dname?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.html.template.Template_t_context.T_context), _1 : false }), _out:stdgo._internal.html.template.Template_t_context.T_context = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._output != null && (@:checkr _e ?? throw "null pointer dereference")._output.__exists__(_dname?.__copy__()) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._output[_dname?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.html.template.Template_t_context.T_context), _1 : false }), _out:stdgo._internal.html.template.Template_t_context.T_context = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return { _0 : _out?.__copy__(), _1 : _dname?.__copy__() };
             };
@@ -364,7 +364,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             };
             var _ident = ((@:checkr _node ?? throw "null pointer dereference").ident?.__copy__() : stdgo.GoString);
             {
-                var __tmp__ = (stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers != null && stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers.exists(_ident?.__copy__()) ? { _0 : stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers[_ident?.__copy__()], _1 : true } : { _0 : false, _1 : false }), __6:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers != null && stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers.__exists__(_ident?.__copy__()) ? { _0 : stdgo._internal.html.template.Template__predefinedescapers._predefinedEscapers[_ident?.__copy__()], _1 : true } : { _0 : false, _1 : false }), __6:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     if (((_pos < (((@:checkr (@:checkr _n ?? throw "null pointer dereference").pipe ?? throw "null pointer dereference").cmds.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool) || ((_c._state == ((7 : stdgo._internal.html.template.Template_t_state.T_state)) && _c._delim == ((3 : stdgo._internal.html.template.Template_t_delim.T_delim)) : Bool) && _ident == (("html" : stdgo.GoString)) : Bool) : Bool)) {
                         return ({ _state : (27 : stdgo._internal.html.template.Template_t_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((11 : stdgo._internal.html.template.Template_errorcode.ErrorCode), stdgo.Go.asInterface(_n), (@:checkr _n ?? throw "null pointer dereference").line, ("predefined escaper %q disallowed in template" : stdgo.GoString), stdgo.Go.toInterface(_ident)) } : stdgo._internal.html.template.Template_t_context.T_context);

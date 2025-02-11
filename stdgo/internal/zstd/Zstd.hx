@@ -1,5 +1,5 @@
 package stdgo.internal.zstd;
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_bitReader_static_extension) abstract T_bitReader(stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader) from stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader to stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_bitReader_static_extension) @:dox(hide) abstract T_bitReader(stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader) from stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader to stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader {
     public var _r(get, set) : Reader;
     function get__r():Reader return this._r;
     function set__r(v:Reader):Reader {
@@ -34,7 +34,7 @@ package stdgo.internal.zstd;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_reverseBitReader_static_extension) abstract T_reverseBitReader(stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader) from stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader to stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_reverseBitReader_static_extension) @:dox(hide) abstract T_reverseBitReader(stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader) from stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader to stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader {
     public var _r(get, set) : Reader;
     function get__r():Reader return this._r;
     function set__r(v:Reader):Reader {
@@ -75,7 +75,7 @@ package stdgo.internal.zstd;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_seqCodeInfoData_static_extension) abstract T_seqCodeInfoData(stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData) from stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData to stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_seqCodeInfoData_static_extension) @:dox(hide) abstract T_seqCodeInfoData(stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData) from stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData to stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData {
     public var _predefTable(get, set) : Array<T_fseBaselineEntry>;
     function get__predefTable():Array<T_fseBaselineEntry> return [for (i in this._predefTable) i];
     function set__predefTable(v:Array<T_fseBaselineEntry>):Array<T_fseBaselineEntry> {
@@ -110,7 +110,7 @@ package stdgo.internal.zstd;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_fseEntry_static_extension) abstract T_fseEntry(stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry) from stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry to stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_fseEntry_static_extension) @:dox(hide) abstract T_fseEntry(stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry) from stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry to stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry {
     public var _sym(get, set) : std.UInt;
     function get__sym():std.UInt return this._sym;
     function set__sym(v:std.UInt):std.UInt {
@@ -133,7 +133,7 @@ package stdgo.internal.zstd;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_fseBaselineEntry_static_extension) abstract T_fseBaselineEntry(stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry) from stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry to stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_fseBaselineEntry_static_extension) @:dox(hide) abstract T_fseBaselineEntry(stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry) from stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry to stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry {
     public var _baseline(get, set) : std.UInt;
     function get__baseline():std.UInt return this._baseline;
     function set__baseline(v:std.UInt):std.UInt {
@@ -162,7 +162,7 @@ package stdgo.internal.zstd;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_xxhash64_static_extension) abstract T_xxhash64(stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64) from stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64 to stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64 {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_xxhash64_static_extension) @:dox(hide) abstract T_xxhash64(stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64) from stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64 to stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64 {
     public var _len(get, set) : haxe.UInt64;
     function get__len():haxe.UInt64 return this._len;
     function set__len(v:haxe.UInt64):haxe.UInt64 {
@@ -364,7 +364,7 @@ _checksum);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.zstd.Zstd.T_zstdError_static_extension) abstract T_zstdError(stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError) from stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError to stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError {
+@:structInit @:using(stdgo.internal.zstd.Zstd.T_zstdError_static_extension) @:dox(hide) abstract T_zstdError(stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError) from stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError to stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError {
     public var _offset(get, set) : haxe.Int64;
     function get__offset():haxe.Int64 return this._offset;
     function set__offset(v:haxe.Int64):haxe.Int64 {
@@ -381,10 +381,10 @@ _checksum);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_block = stdgo._internal.internal.zstd.Zstd_t_block.T_block;
-typedef T_seqCode = stdgo._internal.internal.zstd.Zstd_t_seqcode.T_seqCode;
-typedef T_bitReaderPointer = stdgo._internal.internal.zstd.Zstd_t_bitreaderpointer.T_bitReaderPointer;
-class T_bitReader_static_extension {
+@:dox(hide) typedef T_block = stdgo._internal.internal.zstd.Zstd_t_block.T_block;
+@:dox(hide) typedef T_seqCode = stdgo._internal.internal.zstd.Zstd_t_seqcode.T_seqCode;
+@:dox(hide) typedef T_bitReaderPointer = stdgo._internal.internal.zstd.Zstd_t_bitreaderpointer.T_bitReaderPointer;
+@:dox(hide) class T_bitReader_static_extension {
     static public function _makeError(_br:T_bitReader, _msg:String):stdgo.Error {
         final _br = (_br : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_bitreader.T_bitReader>);
         final _msg = (_msg : stdgo.GoString);
@@ -404,8 +404,8 @@ class T_bitReader_static_extension {
         return stdgo._internal.internal.zstd.Zstd_t_bitreader_static_extension.T_bitReader_static_extension._moreBits(_br);
     }
 }
-typedef T_reverseBitReaderPointer = stdgo._internal.internal.zstd.Zstd_t_reversebitreaderpointer.T_reverseBitReaderPointer;
-class T_reverseBitReader_static_extension {
+@:dox(hide) typedef T_reverseBitReaderPointer = stdgo._internal.internal.zstd.Zstd_t_reversebitreaderpointer.T_reverseBitReaderPointer;
+@:dox(hide) class T_reverseBitReader_static_extension {
     static public function _makeError(_rbr:T_reverseBitReader, _msg:String):stdgo.Error {
         final _rbr = (_rbr : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader>);
         final _msg = (_msg : stdgo.GoString);
@@ -425,20 +425,20 @@ class T_reverseBitReader_static_extension {
         };
     }
 }
-typedef T_seqCodeInfoDataPointer = stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodatapointer.T_seqCodeInfoDataPointer;
-class T_seqCodeInfoData_static_extension {
+@:dox(hide) typedef T_seqCodeInfoDataPointer = stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodatapointer.T_seqCodeInfoDataPointer;
+@:dox(hide) class T_seqCodeInfoData_static_extension {
 
 }
-typedef T_fseEntryPointer = stdgo._internal.internal.zstd.Zstd_t_fseentrypointer.T_fseEntryPointer;
-class T_fseEntry_static_extension {
+@:dox(hide) typedef T_fseEntryPointer = stdgo._internal.internal.zstd.Zstd_t_fseentrypointer.T_fseEntryPointer;
+@:dox(hide) class T_fseEntry_static_extension {
 
 }
-typedef T_fseBaselineEntryPointer = stdgo._internal.internal.zstd.Zstd_t_fsebaselineentrypointer.T_fseBaselineEntryPointer;
-class T_fseBaselineEntry_static_extension {
+@:dox(hide) typedef T_fseBaselineEntryPointer = stdgo._internal.internal.zstd.Zstd_t_fsebaselineentrypointer.T_fseBaselineEntryPointer;
+@:dox(hide) class T_fseBaselineEntry_static_extension {
 
 }
-typedef T_xxhash64Pointer = stdgo._internal.internal.zstd.Zstd_t_xxhash64pointer.T_xxhash64Pointer;
-class T_xxhash64_static_extension {
+@:dox(hide) typedef T_xxhash64Pointer = stdgo._internal.internal.zstd.Zstd_t_xxhash64pointer.T_xxhash64Pointer;
+@:dox(hide) class T_xxhash64_static_extension {
     static public function _mergeRound(_xh:T_xxhash64, _v:haxe.UInt64, _n:haxe.UInt64):haxe.UInt64 {
         final _xh = (_xh : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_xxhash64.T_xxhash64>);
         final _v = (_v : stdgo.GoUInt64);
@@ -690,8 +690,8 @@ class Reader_static_extension {
         return stdgo._internal.internal.zstd.Zstd_reader_static_extension.Reader_static_extension._makeBitReader(_r, _data, _off);
     }
 }
-typedef T_zstdErrorPointer = stdgo._internal.internal.zstd.Zstd_t_zstderrorpointer.T_zstdErrorPointer;
-class T_zstdError_static_extension {
+@:dox(hide) typedef T_zstdErrorPointer = stdgo._internal.internal.zstd.Zstd_t_zstderrorpointer.T_zstdErrorPointer;
+@:dox(hide) class T_zstdError_static_extension {
     static public function unwrap(_ze:T_zstdError):stdgo.Error {
         final _ze = (_ze : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_t_zstderror.T_zstdError>);
         return stdgo._internal.internal.zstd.Zstd_t_zstderror_static_extension.T_zstdError_static_extension.unwrap(_ze);
@@ -701,12 +701,12 @@ class T_zstdError_static_extension {
         return stdgo._internal.internal.zstd.Zstd_t_zstderror_static_extension.T_zstdError_static_extension.error(_ze);
     }
 }
-typedef T_blockPointer = stdgo._internal.internal.zstd.Zstd_t_blockpointer.T_blockPointer;
-class T_block_static_extension {
+@:dox(hide) typedef T_blockPointer = stdgo._internal.internal.zstd.Zstd_t_blockpointer.T_blockPointer;
+@:dox(hide) class T_block_static_extension {
 
 }
-typedef T_seqCodePointer = stdgo._internal.internal.zstd.Zstd_t_seqcodepointer.T_seqCodePointer;
-class T_seqCode_static_extension {
+@:dox(hide) typedef T_seqCodePointer = stdgo._internal.internal.zstd.Zstd_t_seqcodepointer.T_seqCodePointer;
+@:dox(hide) class T_seqCode_static_extension {
 
 }
 /**

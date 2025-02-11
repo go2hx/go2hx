@@ -12,7 +12,7 @@ package stdgo._internal.crypto.tls;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.exists(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.__exists__(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.moveToFront(_elem);
                     {
@@ -101,11 +101,11 @@ package stdgo._internal.crypto.tls;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.exists(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._m != null && (@:checkr _c ?? throw "null pointer dereference")._m.__exists__(_sessionKey?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     if ((_cs == null || (_cs : Dynamic).__nil__)) {
                         @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.remove(_elem);
-                        if ((@:checkr _c ?? throw "null pointer dereference")._m != null) (@:checkr _c ?? throw "null pointer dereference")._m.remove(_sessionKey);
+                        if ((@:checkr _c ?? throw "null pointer dereference")._m != null) (@:checkr _c ?? throw "null pointer dereference")._m.__remove__(_sessionKey);
                     } else {
                         var _entry = (stdgo.Go.typeAssert(((@:checkr _elem ?? throw "null pointer dereference").value : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry>);
                         (@:checkr _entry ?? throw "null pointer dereference")._state = _cs;
@@ -135,7 +135,7 @@ package stdgo._internal.crypto.tls;
             };
             var _elem = @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.back();
             var _entry = (stdgo.Go.typeAssert(((@:checkr _elem ?? throw "null pointer dereference").value : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_lrusessioncacheentry.T_lruSessionCacheEntry>);
-            if ((@:checkr _c ?? throw "null pointer dereference")._m != null) (@:checkr _c ?? throw "null pointer dereference")._m.remove((@:checkr _entry ?? throw "null pointer dereference")._sessionKey);
+            if ((@:checkr _c ?? throw "null pointer dereference")._m != null) (@:checkr _c ?? throw "null pointer dereference")._m.__remove__((@:checkr _entry ?? throw "null pointer dereference")._sessionKey);
             (@:checkr _entry ?? throw "null pointer dereference")._sessionKey = _sessionKey?.__copy__();
             (@:checkr _entry ?? throw "null pointer dereference")._state = _cs;
             @:check2r (@:checkr _c ?? throw "null pointer dereference")._q.moveToFront(_elem);

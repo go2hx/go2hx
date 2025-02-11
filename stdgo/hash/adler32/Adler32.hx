@@ -1,17 +1,17 @@
 package stdgo.hash.adler32;
 final size : haxe.UInt64 = stdgo._internal.hash.adler32.Adler32_size.size;
-typedef T__struct_0Pointer = stdgo._internal.hash.adler32.Adler32_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.hash.adler32.Adler32_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.hash.adler32.Adler32_t__struct_0.T__struct_0;
-typedef T_digest = stdgo._internal.hash.adler32.Adler32_t_digest.T_digest;
-typedef T__struct_0PointerPointer = stdgo._internal.hash.adler32.Adler32_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.hash.adler32.Adler32_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_digest = stdgo._internal.hash.adler32.Adler32_t_digest.T_digest;
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.hash.adler32.Adler32_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T_digestPointer = stdgo._internal.hash.adler32.Adler32_t_digestpointer.T_digestPointer;
-class T_digest_static_extension {
+@:dox(hide) typedef T_digestPointer = stdgo._internal.hash.adler32.Adler32_t_digestpointer.T_digestPointer;
+@:dox(hide) class T_digest_static_extension {
     static public function sum(_d:stdgo.Pointer<T_digest>, _in:Array<std.UInt>):Array<std.UInt> {
         final _in = ([for (i in _in) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.hash.adler32.Adler32_t_digest_static_extension.T_digest_static_extension.sum(_d, _in)) i];

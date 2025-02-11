@@ -5,13 +5,13 @@ private function set_reader(v:stdgo._internal.io.Io_reader.Reader):stdgo._intern
         stdgo._internal.crypto.rand.Rand_reader.reader = v;
         return v;
     }
-@:structInit @:using(stdgo.crypto.rand.Rand.T_reader_static_extension) abstract T_reader(stdgo._internal.crypto.rand.Rand_t_reader.T_reader) from stdgo._internal.crypto.rand.Rand_t_reader.T_reader to stdgo._internal.crypto.rand.Rand_t_reader.T_reader {
+@:structInit @:using(stdgo.crypto.rand.Rand.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.crypto.rand.Rand_t_reader.T_reader) from stdgo._internal.crypto.rand.Rand_t_reader.T_reader to stdgo._internal.crypto.rand.Rand_t_reader.T_reader {
     public function new() this = new stdgo._internal.crypto.rand.Rand_t_reader.T_reader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_readerPointer = stdgo._internal.crypto.rand.Rand_t_readerpointer.T_readerPointer;
-class T_reader_static_extension {
+@:dox(hide) typedef T_readerPointer = stdgo._internal.crypto.rand.Rand_t_readerpointer.T_readerPointer;
+@:dox(hide) class T_reader_static_extension {
     static public function read(_r:T_reader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.crypto.rand.Rand_t_reader.T_reader>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

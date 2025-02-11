@@ -10,7 +10,7 @@ private function set_importPath(v:String):String {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) abstract T_testLog(stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog) from stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog to stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog {
+@:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) @:dox(hide) abstract T_testLog(stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog) from stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog to stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog {
     public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -106,8 +106,8 @@ class TestDeps_static_extension {
         };
     }
 }
-typedef T_testLogPointer = stdgo._internal.testing.internal.testdeps.Testdeps_t_testlogpointer.T_testLogPointer;
-class T_testLog_static_extension {
+@:dox(hide) typedef T_testLogPointer = stdgo._internal.testing.internal.testdeps.Testdeps_t_testlogpointer.T_testLogPointer;
+@:dox(hide) class T_testLog_static_extension {
     static public function _add(_l:T_testLog, _op:String, _name:String):Void {
         final _l = (_l : stdgo.Ref<stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog>);
         final _op = (_op : stdgo.GoString);

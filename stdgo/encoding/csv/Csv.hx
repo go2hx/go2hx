@@ -162,7 +162,7 @@ trailingComma,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.T_position_static_extension) abstract T_position(stdgo._internal.encoding.csv.Csv_t_position.T_position) from stdgo._internal.encoding.csv.Csv_t_position.T_position to stdgo._internal.encoding.csv.Csv_t_position.T_position {
+@:structInit @:using(stdgo.encoding.csv.Csv.T_position_static_extension) @:dox(hide) abstract T_position(stdgo._internal.encoding.csv.Csv_t_position.T_position) from stdgo._internal.encoding.csv.Csv_t_position.T_position to stdgo._internal.encoding.csv.Csv_t_position.T_position {
     public var _line(get, set) : StdTypes.Int;
     function get__line():StdTypes.Int return this._line;
     function set__line(v:StdTypes.Int):StdTypes.Int {
@@ -257,8 +257,8 @@ class Reader_static_extension {
         };
     }
 }
-typedef T_positionPointer = stdgo._internal.encoding.csv.Csv_t_positionpointer.T_positionPointer;
-class T_position_static_extension {
+@:dox(hide) typedef T_positionPointer = stdgo._internal.encoding.csv.Csv_t_positionpointer.T_positionPointer;
+@:dox(hide) class T_position_static_extension {
 
 }
 typedef WriterPointer = stdgo._internal.encoding.csv.Csv_writerpointer.WriterPointer;

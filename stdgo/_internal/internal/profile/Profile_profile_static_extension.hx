@@ -172,7 +172,7 @@ if ((_pruneBeneath[_id] ?? false)) {
         };
         for (__1 => _fn in (@:checkr _p ?? throw "null pointer dereference").function_) {
             {
-                var __tmp__ = (_demangled != null && _demangled.exists((@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()) ? { _0 : _demangled[(@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _dd:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_demangled != null && _demangled.__exists__((@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()) ? { _0 : _demangled[(@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _dd:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     (@:checkr _fn ?? throw "null pointer dereference").name = _dd?.__copy__();
                 };

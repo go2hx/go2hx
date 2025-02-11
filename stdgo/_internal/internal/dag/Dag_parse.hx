@@ -29,7 +29,7 @@ function parse(_dag:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.interna
                         continue;
                     };
                     {
-                        var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._byLabel != null && (@:checkr _g ?? throw "null pointer dereference")._byLabel.exists(_less?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._byLabel[_less?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __3:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._byLabel != null && (@:checkr _g ?? throw "null pointer dereference")._byLabel.__exists__(_less?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._byLabel[_less?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __3:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             _errorf(("use of %s before its definition" : stdgo.GoString), stdgo.Go.toInterface(_less));
                         } else {

@@ -22,7 +22,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_setting_static_extension) abstract T_setting(stdgo._internal.internal.godebug.Godebug_t_setting.T_setting) from stdgo._internal.internal.godebug.Godebug_t_setting.T_setting to stdgo._internal.internal.godebug.Godebug_t_setting.T_setting {
+@:structInit @:using(stdgo.internal.godebug.Godebug.T_setting_static_extension) @:dox(hide) abstract T_setting(stdgo._internal.internal.godebug.Godebug_t_setting.T_setting) from stdgo._internal.internal.godebug.Godebug_t_setting.T_setting to stdgo._internal.internal.godebug.Godebug_t_setting.T_setting {
     public var _value(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>;
     function get__value():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> return this._value;
     function set__value(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> {
@@ -51,7 +51,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_value_static_extension) abstract T_value(stdgo._internal.internal.godebug.Godebug_t_value.T_value) from stdgo._internal.internal.godebug.Godebug_t_value.T_value to stdgo._internal.internal.godebug.Godebug_t_value.T_value {
+@:structInit @:using(stdgo.internal.godebug.Godebug.T_value_static_extension) @:dox(hide) abstract T_value(stdgo._internal.internal.godebug.Godebug_t_value.T_value) from stdgo._internal.internal.godebug.Godebug_t_value.T_value to stdgo._internal.internal.godebug.Godebug_t_value.T_value {
     public var _text(get, set) : String;
     function get__text():String return this._text;
     function set__text(v:String):String {
@@ -68,7 +68,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_runtimeStderr_static_extension) abstract T_runtimeStderr(stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr) from stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr to stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr {
+@:structInit @:using(stdgo.internal.godebug.Godebug.T_runtimeStderr_static_extension) @:dox(hide) abstract T_runtimeStderr(stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr) from stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr to stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr {
     public function new() this = new stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -100,16 +100,16 @@ class Setting_static_extension {
         return stdgo._internal.internal.godebug.Godebug_setting_static_extension.Setting_static_extension.name(_s);
     }
 }
-typedef T_settingPointer = stdgo._internal.internal.godebug.Godebug_t_settingpointer.T_settingPointer;
-class T_setting_static_extension {
+@:dox(hide) typedef T_settingPointer = stdgo._internal.internal.godebug.Godebug_t_settingpointer.T_settingPointer;
+@:dox(hide) class T_setting_static_extension {
 
 }
-typedef T_valuePointer = stdgo._internal.internal.godebug.Godebug_t_valuepointer.T_valuePointer;
-class T_value_static_extension {
+@:dox(hide) typedef T_valuePointer = stdgo._internal.internal.godebug.Godebug_t_valuepointer.T_valuePointer;
+@:dox(hide) class T_value_static_extension {
 
 }
-typedef T_runtimeStderrPointer = stdgo._internal.internal.godebug.Godebug_t_runtimestderrpointer.T_runtimeStderrPointer;
-class T_runtimeStderr_static_extension {
+@:dox(hide) typedef T_runtimeStderrPointer = stdgo._internal.internal.godebug.Godebug_t_runtimestderrpointer.T_runtimeStderrPointer;
+@:dox(hide) class T_runtimeStderr_static_extension {
     static public function write(_:T_runtimeStderr, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _ = (_ : stdgo.Ref<stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

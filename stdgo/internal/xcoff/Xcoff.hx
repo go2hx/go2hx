@@ -130,7 +130,7 @@ final r_TLSM : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tlsm.r_TLSM;
 final r_TLSML : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tlsml.r_TLSML;
 final r_TOCU : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocu.r_TOCU;
 final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarFileHeader_static_extension) abstract T_bigarFileHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader {
+@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarFileHeader_static_extension) @:dox(hide) abstract T_bigarFileHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader {
     public var flmagic(get, set) : haxe.ds.Vector<std.UInt>;
     function get_flmagic():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.flmagic) i]);
     function set_flmagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -177,7 +177,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarMemberHeader_static_extension) abstract T_bigarMemberHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader {
+@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarMemberHeader_static_extension) @:dox(hide) abstract T_bigarMemberHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader {
     public var arsize(get, set) : haxe.ds.Vector<std.UInt>;
     function get_arsize():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.arsize) i]);
     function set_arsize(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -553,7 +553,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_zeroReaderAt_static_extension) abstract T_zeroReaderAt(stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt) from stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt to stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt {
+@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_zeroReaderAt_static_extension) @:dox(hide) abstract T_zeroReaderAt(stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt) from stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt to stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt {
     public function new() this = new stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -1373,12 +1373,12 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_bigarFileHeaderPointer = stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheaderpointer.T_bigarFileHeaderPointer;
-class T_bigarFileHeader_static_extension {
+@:dox(hide) typedef T_bigarFileHeaderPointer = stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheaderpointer.T_bigarFileHeaderPointer;
+@:dox(hide) class T_bigarFileHeader_static_extension {
 
 }
-typedef T_bigarMemberHeaderPointer = stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheaderpointer.T_bigarMemberHeaderPointer;
-class T_bigarMemberHeader_static_extension {
+@:dox(hide) typedef T_bigarMemberHeaderPointer = stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheaderpointer.T_bigarMemberHeaderPointer;
+@:dox(hide) class T_bigarMemberHeader_static_extension {
 
 }
 typedef ArchivePointer = stdgo._internal.internal.xcoff.Xcoff_archivepointer.ArchivePointer;
@@ -1505,8 +1505,8 @@ class File_static_extension {
         return stdgo._internal.internal.xcoff.Xcoff_file_static_extension.File_static_extension.close(_f);
     }
 }
-typedef T_zeroReaderAtPointer = stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderatpointer.T_zeroReaderAtPointer;
-class T_zeroReaderAt_static_extension {
+@:dox(hide) typedef T_zeroReaderAtPointer = stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderatpointer.T_zeroReaderAtPointer;
+@:dox(hide) class T_zeroReaderAt_static_extension {
     static public function readAt(_w:T_zeroReaderAt, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _off = (_off : stdgo.GoInt64);

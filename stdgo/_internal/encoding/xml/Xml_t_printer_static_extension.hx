@@ -804,8 +804,8 @@ var _n = __1, _i = __0;
     @:tdfield
     static public function _deleteAttrPrefix( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>, _prefix:stdgo.GoString):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer> = _p;
-        if ((@:checkr _p ?? throw "null pointer dereference")._attrPrefix != null) (@:checkr _p ?? throw "null pointer dereference")._attrPrefix.remove(((@:checkr _p ?? throw "null pointer dereference")._attrNS[_prefix] ?? ("" : stdgo.GoString)));
-        if ((@:checkr _p ?? throw "null pointer dereference")._attrNS != null) (@:checkr _p ?? throw "null pointer dereference")._attrNS.remove(_prefix);
+        if ((@:checkr _p ?? throw "null pointer dereference")._attrPrefix != null) (@:checkr _p ?? throw "null pointer dereference")._attrPrefix.__remove__(((@:checkr _p ?? throw "null pointer dereference")._attrNS[_prefix] ?? ("" : stdgo.GoString)));
+        if ((@:checkr _p ?? throw "null pointer dereference")._attrNS != null) (@:checkr _p ?? throw "null pointer dereference")._attrNS.__remove__(_prefix);
     }
     @:keep
     @:tdfield

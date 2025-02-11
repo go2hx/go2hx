@@ -19,7 +19,7 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_value.Val
                     return;
                 };
             };
-            if (stdgo._internal.internal.intern.Intern__valmap._valMap != null) stdgo._internal.internal.intern.Intern__valmap._valMap.remove(stdgo._internal.internal.intern.Intern__keyfor._keyFor((@:checkr _v ?? throw "null pointer dereference")._cmpVal));
+            if (stdgo._internal.internal.intern.Intern__valmap._valMap != null) stdgo._internal.internal.intern.Intern__valmap._valMap.__remove__(stdgo._internal.internal.intern.Intern__keyfor._keyFor((@:checkr _v ?? throw "null pointer dereference")._cmpVal));
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

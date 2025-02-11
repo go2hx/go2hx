@@ -2150,7 +2150,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_intName_static_extension) abstract T_intName(stdgo._internal.debug.elf.Elf_t_intname.T_intName) from stdgo._internal.debug.elf.Elf_t_intname.T_intName to stdgo._internal.debug.elf.Elf_t_intname.T_intName {
+@:structInit @:using(stdgo.debug.elf.Elf.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.elf.Elf_t_intname.T_intName) from stdgo._internal.debug.elf.Elf_t_intname.T_intName to stdgo._internal.debug.elf.Elf_t_intname.T_intName {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {
@@ -2559,7 +2559,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_verneed_static_extension) abstract T_verneed(stdgo._internal.debug.elf.Elf_t_verneed.T_verneed) from stdgo._internal.debug.elf.Elf_t_verneed.T_verneed to stdgo._internal.debug.elf.Elf_t_verneed.T_verneed {
+@:structInit @:using(stdgo.debug.elf.Elf.T_verneed_static_extension) @:dox(hide) abstract T_verneed(stdgo._internal.debug.elf.Elf_t_verneed.T_verneed) from stdgo._internal.debug.elf.Elf_t_verneed.T_verneed to stdgo._internal.debug.elf.Elf_t_verneed.T_verneed {
     public var file(get, set) : String;
     function get_file():String return this.file;
     function set_file(v:String):String {
@@ -2576,12 +2576,12 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_nobitsSectionReader_static_extension) abstract T_nobitsSectionReader(stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader {
+@:structInit @:using(stdgo.debug.elf.Elf.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader {
     public function new() this = new stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_errorReader_static_extension) abstract T_errorReader(stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader) from stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader to stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader {
+@:structInit @:using(stdgo.debug.elf.Elf.T_errorReader_static_extension) @:dox(hide) abstract T_errorReader(stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader) from stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader to stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader {
     public var _error(get, set) : stdgo.Error;
     function get__error():stdgo.Error return this._error;
     function set__error(v:stdgo.Error):stdgo.Error {
@@ -2592,7 +2592,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_readSeekerFromReader_static_extension) abstract T_readSeekerFromReader(stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader) from stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader to stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader {
+@:structInit @:using(stdgo.debug.elf.Elf.T_readSeekerFromReader_static_extension) @:dox(hide) abstract T_readSeekerFromReader(stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader) from stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader to stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader {
     public var _reset(get, set) : () -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
     function get__reset():() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return () -> this._reset();
     function set__reset(v:() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
@@ -2716,8 +2716,8 @@ typedef Sym64Pointer = stdgo._internal.debug.elf.Elf_sym64pointer.Sym64Pointer;
 class Sym64_static_extension {
 
 }
-typedef T_intNamePointer = stdgo._internal.debug.elf.Elf_t_intnamepointer.T_intNamePointer;
-class T_intName_static_extension {
+@:dox(hide) typedef T_intNamePointer = stdgo._internal.debug.elf.Elf_t_intnamepointer.T_intNamePointer;
+@:dox(hide) class T_intName_static_extension {
 
 }
 typedef FileHeaderPointer = stdgo._internal.debug.elf.Elf_fileheaderpointer.FileHeaderPointer;
@@ -2969,12 +2969,12 @@ typedef ImportedSymbolPointer = stdgo._internal.debug.elf.Elf_importedsymbolpoin
 class ImportedSymbol_static_extension {
 
 }
-typedef T_verneedPointer = stdgo._internal.debug.elf.Elf_t_verneedpointer.T_verneedPointer;
-class T_verneed_static_extension {
+@:dox(hide) typedef T_verneedPointer = stdgo._internal.debug.elf.Elf_t_verneedpointer.T_verneedPointer;
+@:dox(hide) class T_verneed_static_extension {
 
 }
-typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.elf.Elf_t_nobitssectionreaderpointer.T_nobitsSectionReaderPointer;
-class T_nobitsSectionReader_static_extension {
+@:dox(hide) typedef T_nobitsSectionReaderPointer = stdgo._internal.debug.elf.Elf_t_nobitssectionreaderpointer.T_nobitsSectionReaderPointer;
+@:dox(hide) class T_nobitsSectionReader_static_extension {
     static public function readAt(_:T_nobitsSectionReader, _p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _ = (_ : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -2985,8 +2985,8 @@ class T_nobitsSectionReader_static_extension {
         };
     }
 }
-typedef T_errorReaderPointer = stdgo._internal.debug.elf.Elf_t_errorreaderpointer.T_errorReaderPointer;
-class T_errorReader_static_extension {
+@:dox(hide) typedef T_errorReaderPointer = stdgo._internal.debug.elf.Elf_t_errorreaderpointer.T_errorReaderPointer;
+@:dox(hide) class T_errorReader_static_extension {
     static public function close(_r:T_errorReader):stdgo.Error {
         return stdgo._internal.debug.elf.Elf_t_errorreader_static_extension.T_errorReader_static_extension.close(_r);
     }
@@ -3017,8 +3017,8 @@ class T_errorReader_static_extension {
         return stdgo._internal.debug.elf.Elf_t_errorreader_static_extension.T_errorReader_static_extension.error(__self__);
     }
 }
-typedef T_readSeekerFromReaderPointer = stdgo._internal.debug.elf.Elf_t_readseekerfromreaderpointer.T_readSeekerFromReaderPointer;
-class T_readSeekerFromReader_static_extension {
+@:dox(hide) typedef T_readSeekerFromReaderPointer = stdgo._internal.debug.elf.Elf_t_readseekerfromreaderpointer.T_readSeekerFromReaderPointer;
+@:dox(hide) class T_readSeekerFromReader_static_extension {
     static public function seek(_r:T_readSeekerFromReader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader>);
         final _offset = (_offset : stdgo.GoInt64);

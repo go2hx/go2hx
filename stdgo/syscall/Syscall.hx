@@ -243,7 +243,7 @@ class Conn_static_extension {
     }
 }
 typedef Conn = stdgo._internal.syscall.Syscall_conn.Conn;
-@:structInit @:using(stdgo.syscall.Syscall.T_jsFile_static_extension) abstract T_jsFile(stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile) from stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile to stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile {
+@:structInit @:using(stdgo.syscall.Syscall.T_jsFile_static_extension) @:dox(hide) abstract T_jsFile(stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile) from stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile to stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -557,8 +557,8 @@ typedef Sockaddr = stdgo._internal.syscall.Syscall_sockaddr.Sockaddr;
 typedef Errno = stdgo._internal.syscall.Syscall_errno.Errno;
 typedef Signal = stdgo._internal.syscall.Syscall_signal.Signal;
 typedef WaitStatus = stdgo._internal.syscall.Syscall_waitstatus.WaitStatus;
-typedef T_jsFilePointer = stdgo._internal.syscall.Syscall_t_jsfilepointer.T_jsFilePointer;
-class T_jsFile_static_extension {
+@:dox(hide) typedef T_jsFilePointer = stdgo._internal.syscall.Syscall_t_jsfilepointer.T_jsFilePointer;
+@:dox(hide) class T_jsFile_static_extension {
 
 }
 typedef SockaddrInet4Pointer = stdgo._internal.syscall.Syscall_sockaddrinet4pointer.SockaddrInet4Pointer;

@@ -10,7 +10,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.embed.Embed.T_file_static_extension) abstract T_file(stdgo._internal.embed.Embed_t_file.T_file) from stdgo._internal.embed.Embed_t_file.T_file to stdgo._internal.embed.Embed_t_file.T_file {
+@:structInit @:using(stdgo.embed.Embed.T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.embed.Embed_t_file.T_file) from stdgo._internal.embed.Embed_t_file.T_file to stdgo._internal.embed.Embed_t_file.T_file {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -33,7 +33,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.embed.Embed.T_openFile_static_extension) abstract T_openFile(stdgo._internal.embed.Embed_t_openfile.T_openFile) from stdgo._internal.embed.Embed_t_openfile.T_openFile to stdgo._internal.embed.Embed_t_openfile.T_openFile {
+@:structInit @:using(stdgo.embed.Embed.T_openFile_static_extension) @:dox(hide) abstract T_openFile(stdgo._internal.embed.Embed_t_openfile.T_openFile) from stdgo._internal.embed.Embed_t_openfile.T_openFile to stdgo._internal.embed.Embed_t_openfile.T_openFile {
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {
@@ -50,7 +50,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.embed.Embed.T_openDir_static_extension) abstract T_openDir(stdgo._internal.embed.Embed_t_opendir.T_openDir) from stdgo._internal.embed.Embed_t_opendir.T_openDir to stdgo._internal.embed.Embed_t_opendir.T_openDir {
+@:structInit @:using(stdgo.embed.Embed.T_openDir_static_extension) @:dox(hide) abstract T_openDir(stdgo._internal.embed.Embed_t_opendir.T_openDir) from stdgo._internal.embed.Embed_t_opendir.T_openDir to stdgo._internal.embed.Embed_t_opendir.T_openDir {
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {
@@ -105,8 +105,8 @@ class FS_static_extension {
         return stdgo._internal.embed.Embed_fs_static_extension.FS_static_extension._lookup(_f, _name);
     }
 }
-typedef T_filePointer = stdgo._internal.embed.Embed_t_filepointer.T_filePointer;
-class T_file_static_extension {
+@:dox(hide) typedef T_filePointer = stdgo._internal.embed.Embed_t_filepointer.T_filePointer;
+@:dox(hide) class T_file_static_extension {
     static public function string(_f:T_file):String {
         final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_file.T_file>);
         return stdgo._internal.embed.Embed_t_file_static_extension.T_file_static_extension.string(_f);
@@ -147,8 +147,8 @@ class T_file_static_extension {
         return stdgo._internal.embed.Embed_t_file_static_extension.T_file_static_extension.name(_f);
     }
 }
-typedef T_openFilePointer = stdgo._internal.embed.Embed_t_openfilepointer.T_openFilePointer;
-class T_openFile_static_extension {
+@:dox(hide) typedef T_openFilePointer = stdgo._internal.embed.Embed_t_openfilepointer.T_openFilePointer;
+@:dox(hide) class T_openFile_static_extension {
     static public function readAt(_f:T_openFile, _b:Array<std.UInt>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.embed.Embed_t_openfile.T_openFile>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -187,8 +187,8 @@ class T_openFile_static_extension {
         return stdgo._internal.embed.Embed_t_openfile_static_extension.T_openFile_static_extension.close(_f);
     }
 }
-typedef T_openDirPointer = stdgo._internal.embed.Embed_t_opendirpointer.T_openDirPointer;
-class T_openDir_static_extension {
+@:dox(hide) typedef T_openDirPointer = stdgo._internal.embed.Embed_t_opendirpointer.T_openDirPointer;
+@:dox(hide) class T_openDir_static_extension {
     static public function readDir(_d:T_openDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_direntry.DirEntry>, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.embed.Embed_t_opendir.T_openDir>);
         final _count = (_count : stdgo.GoInt);

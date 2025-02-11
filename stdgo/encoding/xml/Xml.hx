@@ -61,7 +61,7 @@ typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_printer_static_extension) abstract T_printer(stdgo._internal.encoding.xml.Xml_t_printer.T_printer) from stdgo._internal.encoding.xml.Xml_t_printer.T_printer to stdgo._internal.encoding.xml.Xml_t_printer.T_printer {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_printer_static_extension) @:dox(hide) abstract T_printer(stdgo._internal.encoding.xml.Xml_t_printer.T_printer) from stdgo._internal.encoding.xml.Xml_t_printer.T_printer to stdgo._internal.encoding.xml.Xml_t_printer.T_printer {
     public var _w(get, set) : stdgo._internal.bufio.Bufio_writer.Writer;
     function get__w():stdgo._internal.bufio.Bufio_writer.Writer return this._w;
     function set__w(v:stdgo._internal.bufio.Bufio_writer.Writer):stdgo._internal.bufio.Bufio_writer.Writer {
@@ -164,7 +164,7 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_parentStack_static_extension) abstract T_parentStack(stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack) from stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack to stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_parentStack_static_extension) @:dox(hide) abstract T_parentStack(stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack) from stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack to stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack {
     public var _p(get, set) : T_printer;
     function get__p():T_printer return this._p;
     function set__p(v:T_printer):T_printer {
@@ -192,7 +192,7 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_typeInfo_static_extension) abstract T_typeInfo(stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo) from stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo to stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_typeInfo_static_extension) @:dox(hide) abstract T_typeInfo(stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo) from stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo to stdgo._internal.encoding.xml.Xml_t_typeinfo.T_typeInfo {
     public var _xmlname(get, set) : T_fieldInfo;
     function get__xmlname():T_fieldInfo return this._xmlname;
     function set__xmlname(v:T_fieldInfo):T_fieldInfo {
@@ -209,7 +209,7 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_fieldInfo_static_extension) abstract T_fieldInfo(stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo) from stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo to stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_fieldInfo_static_extension) @:dox(hide) abstract T_fieldInfo(stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo) from stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo to stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo {
     public var _idx(get, set) : Array<StdTypes.Int>;
     function get__idx():Array<StdTypes.Int> return [for (i in this._idx) i];
     function set__idx(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
@@ -527,7 +527,7 @@ _nextToken,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.xml.Xml.T_stack_static_extension) abstract T_stack(stdgo._internal.encoding.xml.Xml_t_stack.T_stack) from stdgo._internal.encoding.xml.Xml_t_stack.T_stack to stdgo._internal.encoding.xml.Xml_t_stack.T_stack {
+@:structInit @:using(stdgo.encoding.xml.Xml.T_stack_static_extension) @:dox(hide) abstract T_stack(stdgo._internal.encoding.xml.Xml_t_stack.T_stack) from stdgo._internal.encoding.xml.Xml_t_stack.T_stack to stdgo._internal.encoding.xml.Xml_t_stack.T_stack {
     public var _next(get, set) : T_stack;
     function get__next():T_stack return this._next;
     function set__next(v:T_stack):T_stack {
@@ -557,7 +557,7 @@ _nextToken,
     public function __copy__() return this.__copy__();
 }
 typedef UnmarshalError = stdgo._internal.encoding.xml.Xml_unmarshalerror.UnmarshalError;
-typedef T_fieldFlags = stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags;
+@:dox(hide) typedef T_fieldFlags = stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags;
 typedef Token = stdgo._internal.encoding.xml.Xml_token.Token;
 typedef CharData = stdgo._internal.encoding.xml.Xml_chardata.CharData;
 typedef Comment = stdgo._internal.encoding.xml.Xml_comment.Comment;
@@ -593,8 +593,8 @@ class Encoder_static_extension {
         stdgo._internal.encoding.xml.Xml_encoder_static_extension.Encoder_static_extension.indent(_enc, _prefix, _indent);
     }
 }
-typedef T_printerPointer = stdgo._internal.encoding.xml.Xml_t_printerpointer.T_printerPointer;
-class T_printer_static_extension {
+@:dox(hide) typedef T_printerPointer = stdgo._internal.encoding.xml.Xml_t_printerpointer.T_printerPointer;
+@:dox(hide) class T_printer_static_extension {
     static public function escapeString(_p:T_printer, _s:String):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_printer.T_printer>);
         final _s = (_s : stdgo.GoString);
@@ -693,8 +693,8 @@ class T_printer_static_extension {
         return stdgo._internal.encoding.xml.Xml_t_printer_static_extension.T_printer_static_extension._createAttrPrefix(_p, _url);
     }
 }
-typedef T_parentStackPointer = stdgo._internal.encoding.xml.Xml_t_parentstackpointer.T_parentStackPointer;
-class T_parentStack_static_extension {
+@:dox(hide) typedef T_parentStackPointer = stdgo._internal.encoding.xml.Xml_t_parentstackpointer.T_parentStackPointer;
+@:dox(hide) class T_parentStack_static_extension {
     static public function _push(_s:T_parentStack, _parents:Array<String>):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_parentstack.T_parentStack>);
         final _parents = ([for (i in _parents) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
@@ -713,12 +713,12 @@ class UnsupportedTypeError_static_extension {
         return stdgo._internal.encoding.xml.Xml_unsupportedtypeerror_static_extension.UnsupportedTypeError_static_extension.error(_e);
     }
 }
-typedef T_typeInfoPointer = stdgo._internal.encoding.xml.Xml_t_typeinfopointer.T_typeInfoPointer;
-class T_typeInfo_static_extension {
+@:dox(hide) typedef T_typeInfoPointer = stdgo._internal.encoding.xml.Xml_t_typeinfopointer.T_typeInfoPointer;
+@:dox(hide) class T_typeInfo_static_extension {
 
 }
-typedef T_fieldInfoPointer = stdgo._internal.encoding.xml.Xml_t_fieldinfopointer.T_fieldInfoPointer;
-class T_fieldInfo_static_extension {
+@:dox(hide) typedef T_fieldInfoPointer = stdgo._internal.encoding.xml.Xml_t_fieldinfopointer.T_fieldInfoPointer;
+@:dox(hide) class T_fieldInfo_static_extension {
     static public function _value(_finfo:T_fieldInfo, _v:stdgo._internal.reflect.Reflect_value.Value, _shouldInitNilPointers:Bool):stdgo._internal.reflect.Reflect_value.Value {
         final _finfo = (_finfo : stdgo.Ref<stdgo._internal.encoding.xml.Xml_t_fieldinfo.T_fieldInfo>);
         return stdgo._internal.encoding.xml.Xml_t_fieldinfo_static_extension.T_fieldInfo_static_extension._value(_finfo, _v, _shouldInitNilPointers);
@@ -952,8 +952,8 @@ class Decoder_static_extension {
         return stdgo._internal.encoding.xml.Xml_decoder_static_extension.Decoder_static_extension.decode(_d, _v);
     }
 }
-typedef T_stackPointer = stdgo._internal.encoding.xml.Xml_t_stackpointer.T_stackPointer;
-class T_stack_static_extension {
+@:dox(hide) typedef T_stackPointer = stdgo._internal.encoding.xml.Xml_t_stackpointer.T_stackPointer;
+@:dox(hide) class T_stack_static_extension {
 
 }
 typedef UnmarshalErrorPointer = stdgo._internal.encoding.xml.Xml_unmarshalerrorpointer.UnmarshalErrorPointer;
@@ -962,8 +962,8 @@ class UnmarshalError_static_extension {
         return stdgo._internal.encoding.xml.Xml_unmarshalerror_static_extension.UnmarshalError_static_extension.error(_e);
     }
 }
-typedef T_fieldFlagsPointer = stdgo._internal.encoding.xml.Xml_t_fieldflagspointer.T_fieldFlagsPointer;
-class T_fieldFlags_static_extension {
+@:dox(hide) typedef T_fieldFlagsPointer = stdgo._internal.encoding.xml.Xml_t_fieldflagspointer.T_fieldFlagsPointer;
+@:dox(hide) class T_fieldFlags_static_extension {
 
 }
 typedef TokenPointer = stdgo._internal.encoding.xml.Xml_tokenpointer.TokenPointer;

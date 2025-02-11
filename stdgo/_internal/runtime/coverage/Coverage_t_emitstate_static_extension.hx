@@ -78,7 +78,7 @@ if (_ipk == ((0 : stdgo.GoInt32))) {
                         stdgo._internal.runtime.coverage.Coverage__reporterrorinhardcodedlist._reportErrorInHardcodedList((_i : stdgo.GoInt32), _ipk, _funcId, _nCtrs);
                     } else if ((_ipk < (0 : stdgo.GoInt32) : Bool)) {
                         {
-                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._pkgmap != null && (@:checkr _s ?? throw "null pointer dereference")._pkgmap.exists((_ipk : stdgo.GoInt)) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._pkgmap[(_ipk : stdgo.GoInt)], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _newId:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._pkgmap != null && (@:checkr _s ?? throw "null pointer dereference")._pkgmap.__exists__((_ipk : stdgo.GoInt)) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._pkgmap[(_ipk : stdgo.GoInt)], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _newId:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 _pkgId = (_newId : stdgo.GoUInt32);
                             } else {

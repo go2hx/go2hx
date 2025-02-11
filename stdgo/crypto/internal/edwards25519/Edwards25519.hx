@@ -1,5 +1,5 @@
 package stdgo.crypto.internal.edwards25519;
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP1xP1_static_extension) abstract T_projP1xP1(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP1xP1_static_extension) @:dox(hide) abstract T_projP1xP1(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1 {
     public var x(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
     function get_x():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.x;
     function set_x(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
@@ -28,7 +28,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP2_static_extension) abstract T_projP2(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projP2_static_extension) @:dox(hide) abstract T_projP2(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2 {
     public var x(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
     function get_x():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.x;
     function set_x(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
@@ -86,7 +86,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projCached_static_extension) abstract T_projCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projCached_static_extension) @:dox(hide) abstract T_projCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached {
     public var yplusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
     function get_yplusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yplusX;
     function set_yplusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
@@ -115,7 +115,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_affineCached_static_extension) abstract T_affineCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_affineCached_static_extension) @:dox(hide) abstract T_affineCached(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached {
     public var yplusX(get, set) : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element;
     function get_yplusX():stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element return this.yplusX;
     function set_yplusX(v:stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element):stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
@@ -149,7 +149,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projLookupTable_static_extension) abstract T_projLookupTable(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_projLookupTable_static_extension) @:dox(hide) abstract T_projLookupTable(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable {
     public var _points(get, set) : haxe.ds.Vector<T_projCached>;
     function get__points():haxe.ds.Vector<T_projCached> return haxe.ds.Vector.fromArrayCopy([for (i in this._points) i]);
     function set__points(v:haxe.ds.Vector<T_projCached>):haxe.ds.Vector<T_projCached> {
@@ -160,7 +160,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_affineLookupTable_static_extension) abstract T_affineLookupTable(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_affineLookupTable_static_extension) @:dox(hide) abstract T_affineLookupTable(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable {
     public var _points(get, set) : haxe.ds.Vector<T_affineCached>;
     function get__points():haxe.ds.Vector<T_affineCached> return haxe.ds.Vector.fromArrayCopy([for (i in this._points) i]);
     function set__points(v:haxe.ds.Vector<T_affineCached>):haxe.ds.Vector<T_affineCached> {
@@ -171,7 +171,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_nafLookupTable5_static_extension) abstract T_nafLookupTable5(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5 {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_nafLookupTable5_static_extension) @:dox(hide) abstract T_nafLookupTable5(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5 {
     public var _points(get, set) : haxe.ds.Vector<T_projCached>;
     function get__points():haxe.ds.Vector<T_projCached> return haxe.ds.Vector.fromArrayCopy([for (i in this._points) i]);
     function set__points(v:haxe.ds.Vector<T_projCached>):haxe.ds.Vector<T_projCached> {
@@ -182,7 +182,7 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_nafLookupTable8_static_extension) abstract T_nafLookupTable8(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8 {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.Edwards25519.T_nafLookupTable8_static_extension) @:dox(hide) abstract T_nafLookupTable8(stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8) from stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8 to stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8 {
     public var _points(get, set) : haxe.ds.Vector<T_affineCached>;
     function get__points():haxe.ds.Vector<T_affineCached> return haxe.ds.Vector.fromArrayCopy([for (i in this._points) i]);
     function set__points(v:haxe.ds.Vector<T_affineCached>):haxe.ds.Vector<T_affineCached> {
@@ -193,23 +193,23 @@ package stdgo.crypto.internal.edwards25519;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1.T__struct_1;
-typedef T_incomparable = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_incomparable.T_incomparable;
-typedef T_fiatScalarUint1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1;
-typedef T_fiatScalarInt1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarint1.T_fiatScalarInt1;
-typedef T_fiatScalarMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement;
-typedef T_fiatScalarNonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarnonmontgomerydomainfieldelement.T_fiatScalarNonMontgomeryDomainFieldElement;
-typedef T_projP1xP1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1pointer.T_projP1xP1Pointer;
-class T_projP1xP1_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1.T__struct_1;
+@:dox(hide) typedef T_incomparable = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_incomparable.T_incomparable;
+@:dox(hide) typedef T_fiatScalarUint1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1.T_fiatScalarUint1;
+@:dox(hide) typedef T_fiatScalarInt1 = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarint1.T_fiatScalarInt1;
+@:dox(hide) typedef T_fiatScalarMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_fiatScalarNonMontgomeryDomainFieldElement = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarnonmontgomerydomainfieldelement.T_fiatScalarNonMontgomeryDomainFieldElement;
+@:dox(hide) typedef T_projP1xP1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1pointer.T_projP1xP1Pointer;
+@:dox(hide) class T_projP1xP1_static_extension {
     static public function double(_v:T_projP1xP1, _p:T_projP2):T_projP1xP1 {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1.T_projP1xP1>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2>);
@@ -240,8 +240,8 @@ class T_projP1xP1_static_extension {
         return stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp1xp1_static_extension.T_projP1xP1_static_extension.add(_v, _p, _q);
     }
 }
-typedef T_projP2Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2pointer.T_projP2Pointer;
-class T_projP2_static_extension {
+@:dox(hide) typedef T_projP2Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2pointer.T_projP2Pointer;
+@:dox(hide) class T_projP2_static_extension {
     static public function fromP3(_v:T_projP2, _p:Point):T_projP2 {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projp2.T_projP2>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_point.Point>);
@@ -332,8 +332,8 @@ class Point_static_extension {
         return stdgo._internal.crypto.internal.edwards25519.Edwards25519_point_static_extension.Point_static_extension.set(_v, _u);
     }
 }
-typedef T_projCachedPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcachedpointer.T_projCachedPointer;
-class T_projCached_static_extension {
+@:dox(hide) typedef T_projCachedPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcachedpointer.T_projCachedPointer;
+@:dox(hide) class T_projCached_static_extension {
     static public function condNeg(_v:T_projCached, _cond:StdTypes.Int):T_projCached {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached>);
         final _cond = (_cond : stdgo.GoInt);
@@ -356,8 +356,8 @@ class T_projCached_static_extension {
         return stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached_static_extension.T_projCached_static_extension.zero(_v);
     }
 }
-typedef T_affineCachedPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecachedpointer.T_affineCachedPointer;
-class T_affineCached_static_extension {
+@:dox(hide) typedef T_affineCachedPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecachedpointer.T_affineCachedPointer;
+@:dox(hide) class T_affineCached_static_extension {
     static public function condNeg(_v:T_affineCached, _cond:StdTypes.Int):T_affineCached {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached>);
         final _cond = (_cond : stdgo.GoInt);
@@ -470,8 +470,8 @@ class Scalar_static_extension {
         return stdgo._internal.crypto.internal.edwards25519.Edwards25519_scalar_static_extension.Scalar_static_extension.multiplyAdd(_s, _x, _y, _z);
     }
 }
-typedef T_projLookupTablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptablepointer.T_projLookupTablePointer;
-class T_projLookupTable_static_extension {
+@:dox(hide) typedef T_projLookupTablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptablepointer.T_projLookupTablePointer;
+@:dox(hide) class T_projLookupTable_static_extension {
     static public function selectInto(_v:T_projLookupTable, _dest:T_projCached, _x:StdTypes.Int):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable.T_projLookupTable>);
         final _dest = (_dest : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached>);
@@ -484,8 +484,8 @@ class T_projLookupTable_static_extension {
         stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projlookuptable_static_extension.T_projLookupTable_static_extension.fromP3(_v, _q);
     }
 }
-typedef T_affineLookupTablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptablepointer.T_affineLookupTablePointer;
-class T_affineLookupTable_static_extension {
+@:dox(hide) typedef T_affineLookupTablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptablepointer.T_affineLookupTablePointer;
+@:dox(hide) class T_affineLookupTable_static_extension {
     static public function selectInto(_v:T_affineLookupTable, _dest:T_affineCached, _x:StdTypes.Int):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable.T_affineLookupTable>);
         final _dest = (_dest : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached>);
@@ -498,8 +498,8 @@ class T_affineLookupTable_static_extension {
         stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinelookuptable_static_extension.T_affineLookupTable_static_extension.fromP3(_v, _q);
     }
 }
-typedef T_nafLookupTable5Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5pointer.T_nafLookupTable5Pointer;
-class T_nafLookupTable5_static_extension {
+@:dox(hide) typedef T_nafLookupTable5Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5pointer.T_nafLookupTable5Pointer;
+@:dox(hide) class T_nafLookupTable5_static_extension {
     static public function selectInto(_v:T_nafLookupTable5, _dest:T_projCached, _x:StdTypes.Int):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5.T_nafLookupTable5>);
         final _dest = (_dest : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_projcached.T_projCached>);
@@ -512,8 +512,8 @@ class T_nafLookupTable5_static_extension {
         stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable5_static_extension.T_nafLookupTable5_static_extension.fromP3(_v, _q);
     }
 }
-typedef T_nafLookupTable8Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8pointer.T_nafLookupTable8Pointer;
-class T_nafLookupTable8_static_extension {
+@:dox(hide) typedef T_nafLookupTable8Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8pointer.T_nafLookupTable8Pointer;
+@:dox(hide) class T_nafLookupTable8_static_extension {
     static public function selectInto(_v:T_nafLookupTable8, _dest:T_affineCached, _x:StdTypes.Int):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8.T_nafLookupTable8>);
         final _dest = (_dest : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_affinecached.T_affineCached>);
@@ -526,32 +526,32 @@ class T_nafLookupTable8_static_extension {
         stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_naflookuptable8_static_extension.T_nafLookupTable8_static_extension.fromP3(_v, _q);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T_incomparablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_incomparablepointer.T_incomparablePointer;
-class T_incomparable_static_extension {
+@:dox(hide) typedef T_incomparablePointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_incomparablepointer.T_incomparablePointer;
+@:dox(hide) class T_incomparable_static_extension {
 
 }
-typedef T_fiatScalarUint1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1pointer.T_fiatScalarUint1Pointer;
-class T_fiatScalarUint1_static_extension {
+@:dox(hide) typedef T_fiatScalarUint1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalaruint1pointer.T_fiatScalarUint1Pointer;
+@:dox(hide) class T_fiatScalarUint1_static_extension {
 
 }
-typedef T_fiatScalarInt1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarint1pointer.T_fiatScalarInt1Pointer;
-class T_fiatScalarInt1_static_extension {
+@:dox(hide) typedef T_fiatScalarInt1Pointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarint1pointer.T_fiatScalarInt1Pointer;
+@:dox(hide) class T_fiatScalarInt1_static_extension {
 
 }
-typedef T_fiatScalarMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelementpointer.T_fiatScalarMontgomeryDomainFieldElementPointer;
-class T_fiatScalarMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_fiatScalarMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelementpointer.T_fiatScalarMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_fiatScalarMontgomeryDomainFieldElement_static_extension {
 
 }
-typedef T_fiatScalarNonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarnonmontgomerydomainfieldelementpointer.T_fiatScalarNonMontgomeryDomainFieldElementPointer;
-class T_fiatScalarNonMontgomeryDomainFieldElement_static_extension {
+@:dox(hide) typedef T_fiatScalarNonMontgomeryDomainFieldElementPointer = stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarnonmontgomerydomainfieldelementpointer.T_fiatScalarNonMontgomeryDomainFieldElementPointer;
+@:dox(hide) class T_fiatScalarNonMontgomeryDomainFieldElement_static_extension {
 
 }
 /**

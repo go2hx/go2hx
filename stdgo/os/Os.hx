@@ -148,12 +148,12 @@ private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; va
         stdgo._internal.os.Os_splitpath.splitPath = v;
         return v;
     }
-class T_timeout_static_extension {
+@:dox(hide) class T_timeout_static_extension {
     static public function timeout(t:stdgo._internal.os.Os_t_timeout.T_timeout):Bool {
         return stdgo._internal.os.Os_t_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
-typedef T_timeout = stdgo._internal.os.Os_t_timeout.T_timeout;
+@:dox(hide) typedef T_timeout = stdgo._internal.os.Os_t_timeout.T_timeout;
 class Signal_static_extension {
     static public function signal(t:stdgo._internal.os.Os_signal.Signal):Void {
         stdgo._internal.os.Os_signal_static_extension.Signal_static_extension.signal(t);
@@ -163,7 +163,7 @@ class Signal_static_extension {
     }
 }
 typedef Signal = stdgo._internal.os.Os_signal.Signal;
-@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) abstract T_dirInfo(stdgo._internal.os.Os_t_dirinfo.T_dirInfo) from stdgo._internal.os.Os_t_dirinfo.T_dirInfo to stdgo._internal.os.Os_t_dirinfo.T_dirInfo {
+@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) @:dox(hide) abstract T_dirInfo(stdgo._internal.os.Os_t_dirinfo.T_dirInfo) from stdgo._internal.os.Os_t_dirinfo.T_dirInfo to stdgo._internal.os.Os_t_dirinfo.T_dirInfo {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return this._buf;
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
@@ -313,7 +313,7 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.Os.T_fileWithoutReadFrom_static_extension) abstract T_fileWithoutReadFrom(stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom) from stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom to stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom {
+@:structInit @:using(stdgo.os.Os.T_fileWithoutReadFrom_static_extension) @:dox(hide) abstract T_fileWithoutReadFrom(stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom) from stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom to stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom {
     public var file(get, set) : File;
     function get_file():File return this.file;
     function set_file(v:File):File {
@@ -324,7 +324,7 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.Os.T_file_static_extension) abstract T_file(stdgo._internal.os.Os_t_file.T_file) from stdgo._internal.os.Os_t_file.T_file to stdgo._internal.os.Os_t_file.T_file {
+@:structInit @:using(stdgo.os.Os.T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.os.Os_t_file.T_file) from stdgo._internal.os.Os_t_file.T_file to stdgo._internal.os.Os_t_file.T_file {
     public var _pfd(get, set) : stdgo._internal.internal.poll.Poll_fd.FD;
     function get__pfd():stdgo._internal.internal.poll.Poll_fd.FD return this._pfd;
     function set__pfd(v:stdgo._internal.internal.poll.Poll_fd.FD):stdgo._internal.internal.poll.Poll_fd.FD {
@@ -365,7 +365,7 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) abstract T_unixDirent(stdgo._internal.os.Os_t_unixdirent.T_unixDirent) from stdgo._internal.os.Os_t_unixdirent.T_unixDirent to stdgo._internal.os.Os_t_unixdirent.T_unixDirent {
+@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) @:dox(hide) abstract T_unixDirent(stdgo._internal.os.Os_t_unixdirent.T_unixDirent) from stdgo._internal.os.Os_t_unixdirent.T_unixDirent to stdgo._internal.os.Os_t_unixdirent.T_unixDirent {
     public var _parent(get, set) : String;
     function get__parent():String return this._parent;
     function set__parent(v:String):String {
@@ -394,7 +394,7 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) abstract T_rawConn(stdgo._internal.os.Os_t_rawconn.T_rawConn) from stdgo._internal.os.Os_t_rawconn.T_rawConn to stdgo._internal.os.Os_t_rawconn.T_rawConn {
+@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) @:dox(hide) abstract T_rawConn(stdgo._internal.os.Os_t_rawconn.T_rawConn) from stdgo._internal.os.Os_t_rawconn.T_rawConn to stdgo._internal.os.Os_t_rawconn.T_rawConn {
     public var _file(get, set) : File;
     function get__file():File return this._file;
     function set__file(v:File):File {
@@ -416,7 +416,7 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) abstract T_fileStat(stdgo._internal.os.Os_t_filestat.T_fileStat) from stdgo._internal.os.Os_t_filestat.T_fileStat to stdgo._internal.os.Os_t_filestat.T_fileStat {
+@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) @:dox(hide) abstract T_fileStat(stdgo._internal.os.Os_t_filestat.T_fileStat) from stdgo._internal.os.Os_t_filestat.T_fileStat to stdgo._internal.os.Os_t_filestat.T_fileStat {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -451,8 +451,8 @@ typedef Signal = stdgo._internal.os.Os_signal.Signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.os.Os_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.os.Os_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
     public static function _unlockSlow(__self__:stdgo._internal.os.Os_t__struct_0.T__struct_0, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.os.Os_t__struct_0_static_extension.T__struct_0_static_extension._unlockSlow(__self__, _0);
@@ -470,20 +470,20 @@ class T__struct_0_static_extension {
         stdgo._internal.os.Os_t__struct_0_static_extension.T__struct_0_static_extension.lock(__self__);
     }
 }
-typedef T__struct_0 = stdgo._internal.os.Os_t__struct_0.T__struct_0;
-typedef T_readdirMode = stdgo._internal.os.Os_t_readdirmode.T_readdirMode;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.os.Os_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_readdirMode = stdgo._internal.os.Os_t_readdirmode.T_readdirMode;
 typedef DirEntry = stdgo._internal.os.Os_direntry.DirEntry;
 typedef PathError = stdgo._internal.os.Os_patherror.PathError;
-typedef T_syscallErrorType = stdgo._internal.os.Os_t_syscallerrortype.T_syscallErrorType;
-typedef T_dirFS = stdgo._internal.os.Os_t_dirfs.T_dirFS;
-typedef T_newFileKind = stdgo._internal.os.Os_t_newfilekind.T_newFileKind;
+@:dox(hide) typedef T_syscallErrorType = stdgo._internal.os.Os_t_syscallerrortype.T_syscallErrorType;
+@:dox(hide) typedef T_dirFS = stdgo._internal.os.Os_t_dirfs.T_dirFS;
+@:dox(hide) typedef T_newFileKind = stdgo._internal.os.Os_t_newfilekind.T_newFileKind;
 typedef FileInfo = stdgo._internal.os.Os_fileinfo.FileInfo;
 typedef FileMode = stdgo._internal.os.Os_filemode.FileMode;
 @:using(stdgo.os.Os.JsOutput_static_extension) abstract JsOutput(stdgo._internal.os.Os_jsoutput.JsOutput) from stdgo._internal.os.Os_jsoutput.JsOutput to stdgo._internal.os.Os_jsoutput.JsOutput {
     public function new() this = new stdgo._internal.os.Os_jsoutput.JsOutput();
 }
-typedef T_dirInfoPointer = stdgo._internal.os.Os_t_dirinfopointer.T_dirInfoPointer;
-class T_dirInfo_static_extension {
+@:dox(hide) typedef T_dirInfoPointer = stdgo._internal.os.Os_t_dirinfopointer.T_dirInfoPointer;
+@:dox(hide) class T_dirInfo_static_extension {
     static public function _close(_d:T_dirInfo):Void {
         final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_dirinfo.T_dirInfo>);
         stdgo._internal.os.Os_t_dirinfo_static_extension.T_dirInfo_static_extension._close(_d);
@@ -638,8 +638,8 @@ class LinkError_static_extension {
         return stdgo._internal.os.Os_linkerror_static_extension.LinkError_static_extension.error(_e);
     }
 }
-typedef T_fileWithoutReadFromPointer = stdgo._internal.os.Os_t_filewithoutreadfrompointer.T_fileWithoutReadFromPointer;
-class T_fileWithoutReadFrom_static_extension {
+@:dox(hide) typedef T_fileWithoutReadFromPointer = stdgo._internal.os.Os_t_filewithoutreadfrompointer.T_fileWithoutReadFromPointer;
+@:dox(hide) class T_fileWithoutReadFrom_static_extension {
     static public function readFrom(_:T_fileWithoutReadFrom, _0:T_fileWithoutReadFrom):Void {
         stdgo._internal.os.Os_t_filewithoutreadfrom_static_extension.T_fileWithoutReadFrom_static_extension.readFrom(_, _0);
     }
@@ -833,15 +833,15 @@ class T_fileWithoutReadFrom_static_extension {
         return stdgo._internal.os.Os_t_filewithoutreadfrom_static_extension.T_fileWithoutReadFrom_static_extension.chdir(__self__);
     }
 }
-typedef T_filePointer = stdgo._internal.os.Os_t_filepointer.T_filePointer;
-class T_file_static_extension {
+@:dox(hide) typedef T_filePointer = stdgo._internal.os.Os_t_filepointer.T_filePointer;
+@:dox(hide) class T_file_static_extension {
     static public function _close(_file:T_file):stdgo.Error {
         final _file = (_file : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>);
         return stdgo._internal.os.Os_t_file_static_extension.T_file_static_extension._close(_file);
     }
 }
-typedef T_unixDirentPointer = stdgo._internal.os.Os_t_unixdirentpointer.T_unixDirentPointer;
-class T_unixDirent_static_extension {
+@:dox(hide) typedef T_unixDirentPointer = stdgo._internal.os.Os_t_unixdirentpointer.T_unixDirentPointer;
+@:dox(hide) class T_unixDirent_static_extension {
     static public function string(_d:T_unixDirent):String {
         final _d = (_d : stdgo.Ref<stdgo._internal.os.Os_t_unixdirent.T_unixDirent>);
         return stdgo._internal.os.Os_t_unixdirent_static_extension.T_unixDirent_static_extension.string(_d);
@@ -866,8 +866,8 @@ class T_unixDirent_static_extension {
         return stdgo._internal.os.Os_t_unixdirent_static_extension.T_unixDirent_static_extension.name(_d);
     }
 }
-typedef T_rawConnPointer = stdgo._internal.os.Os_t_rawconnpointer.T_rawConnPointer;
-class T_rawConn_static_extension {
+@:dox(hide) typedef T_rawConnPointer = stdgo._internal.os.Os_t_rawconnpointer.T_rawConnPointer;
+@:dox(hide) class T_rawConn_static_extension {
     static public function write(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
         final _f = _f;
@@ -1118,8 +1118,8 @@ class File_static_extension {
         return stdgo._internal.os.Os_file_static_extension.File_static_extension._close(__self__);
     }
 }
-typedef T_fileStatPointer = stdgo._internal.os.Os_t_filestatpointer.T_fileStatPointer;
-class T_fileStat_static_extension {
+@:dox(hide) typedef T_fileStatPointer = stdgo._internal.os.Os_t_filestatpointer.T_fileStatPointer;
+@:dox(hide) class T_fileStat_static_extension {
     static public function sys(_fs:T_fileStat):stdgo.AnyInterface {
         final _fs = (_fs : stdgo.Ref<stdgo._internal.os.Os_t_filestat.T_fileStat>);
         return stdgo._internal.os.Os_t_filestat_static_extension.T_fileStat_static_extension.sys(_fs);
@@ -1145,12 +1145,12 @@ class T_fileStat_static_extension {
         return stdgo._internal.os.Os_t_filestat_static_extension.T_fileStat_static_extension.name(_fs);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.os.Os_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.os.Os_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T_readdirModePointer = stdgo._internal.os.Os_t_readdirmodepointer.T_readdirModePointer;
-class T_readdirMode_static_extension {
+@:dox(hide) typedef T_readdirModePointer = stdgo._internal.os.Os_t_readdirmodepointer.T_readdirModePointer;
+@:dox(hide) class T_readdirMode_static_extension {
 
 }
 typedef DirEntryPointer = stdgo._internal.os.Os_direntrypointer.DirEntryPointer;
@@ -1161,12 +1161,12 @@ typedef PathErrorPointer = stdgo._internal.os.Os_patherrorpointer.PathErrorPoint
 class PathError_static_extension {
 
 }
-typedef T_syscallErrorTypePointer = stdgo._internal.os.Os_t_syscallerrortypepointer.T_syscallErrorTypePointer;
-class T_syscallErrorType_static_extension {
+@:dox(hide) typedef T_syscallErrorTypePointer = stdgo._internal.os.Os_t_syscallerrortypepointer.T_syscallErrorTypePointer;
+@:dox(hide) class T_syscallErrorType_static_extension {
 
 }
-typedef T_dirFSPointer = stdgo._internal.os.Os_t_dirfspointer.T_dirFSPointer;
-class T_dirFS_static_extension {
+@:dox(hide) typedef T_dirFSPointer = stdgo._internal.os.Os_t_dirfspointer.T_dirFSPointer;
+@:dox(hide) class T_dirFS_static_extension {
     static public function _join(_dir:T_dirFS, _name:String):stdgo.Tuple<String, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         return {
@@ -1203,8 +1203,8 @@ class T_dirFS_static_extension {
         };
     }
 }
-typedef T_newFileKindPointer = stdgo._internal.os.Os_t_newfilekindpointer.T_newFileKindPointer;
-class T_newFileKind_static_extension {
+@:dox(hide) typedef T_newFileKindPointer = stdgo._internal.os.Os_t_newfilekindpointer.T_newFileKindPointer;
+@:dox(hide) class T_newFileKind_static_extension {
 
 }
 typedef FileInfoPointer = stdgo._internal.os.Os_fileinfopointer.FileInfoPointer;

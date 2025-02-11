@@ -28,7 +28,7 @@ function _newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _ptrsz:stdgo.GoInt):{ var
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (_s._name.length) : Bool)) {
                             var _eltIdx = (stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.uint16((_s._name.__slice__(_i, (_i + (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
-var __tmp__ = (_fname != null && _fname.exists(_eltIdx) ? { _0 : _fname[_eltIdx], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _elt:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+var __tmp__ = (_fname != null && _fname.__exists__(_eltIdx) ? { _0 : _fname[_eltIdx], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _elt:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                                 return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError((-1 : stdgo.GoInt), ("bad filename code" : stdgo.GoString), stdgo.Go.toInterface(_eltIdx)) : stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError)) : stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_t_formaterror.T_formatError>));
                             };

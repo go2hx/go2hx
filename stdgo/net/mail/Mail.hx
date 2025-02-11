@@ -50,7 +50,7 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.mail.Mail.T_addrParser_static_extension) abstract T_addrParser(stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser) from stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser to stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser {
+@:structInit @:using(stdgo.net.mail.Mail.T_addrParser_static_extension) @:dox(hide) abstract T_addrParser(stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser) from stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser to stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -67,9 +67,9 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_debugT = stdgo._internal.net.mail.Mail_t_debugt.T_debugT;
+@:dox(hide) typedef T_debugT = stdgo._internal.net.mail.Mail_t_debugt.T_debugT;
 typedef Header = stdgo._internal.net.mail.Mail_header.Header;
-typedef T_charsetError = stdgo._internal.net.mail.Mail_t_charseterror.T_charsetError;
+@:dox(hide) typedef T_charsetError = stdgo._internal.net.mail.Mail_t_charseterror.T_charsetError;
 typedef MessagePointer = stdgo._internal.net.mail.Mail_messagepointer.MessagePointer;
 class Message_static_extension {
 
@@ -100,8 +100,8 @@ class AddressParser_static_extension {
         };
     }
 }
-typedef T_addrParserPointer = stdgo._internal.net.mail.Mail_t_addrparserpointer.T_addrParserPointer;
-class T_addrParser_static_extension {
+@:dox(hide) typedef T_addrParserPointer = stdgo._internal.net.mail.Mail_t_addrparserpointer.T_addrParserPointer;
+@:dox(hide) class T_addrParser_static_extension {
     static public function _decodeRFC2047Word(_p:T_addrParser, _s:String):stdgo.Tuple.Tuple3<String, Bool, stdgo.Error> {
         final _p = (_p : stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser>);
         final _s = (_s : stdgo.GoString);
@@ -206,8 +206,8 @@ class T_addrParser_static_extension {
         };
     }
 }
-typedef T_debugTPointer = stdgo._internal.net.mail.Mail_t_debugtpointer.T_debugTPointer;
-class T_debugT_static_extension {
+@:dox(hide) typedef T_debugTPointer = stdgo._internal.net.mail.Mail_t_debugtpointer.T_debugTPointer;
+@:dox(hide) class T_debugT_static_extension {
     static public function printf(_d:T_debugT, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _format = (_format : stdgo.GoString);
         stdgo._internal.net.mail.Mail_t_debugt_static_extension.T_debugT_static_extension.printf(_d, _format, ...[for (i in _args) i]);
@@ -233,8 +233,8 @@ class Header_static_extension {
         return stdgo._internal.net.mail.Mail_header_static_extension.Header_static_extension.get(_h, _key);
     }
 }
-typedef T_charsetErrorPointer = stdgo._internal.net.mail.Mail_t_charseterrorpointer.T_charsetErrorPointer;
-class T_charsetError_static_extension {
+@:dox(hide) typedef T_charsetErrorPointer = stdgo._internal.net.mail.Mail_t_charseterrorpointer.T_charsetErrorPointer;
+@:dox(hide) class T_charsetError_static_extension {
     static public function error(_e:T_charsetError):String {
         return stdgo._internal.net.mail.Mail_t_charseterror_static_extension.T_charsetError_static_extension.error(_e);
     }

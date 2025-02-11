@@ -1,5 +1,5 @@
 package stdgo.crypto.ecdsa;
-class T_nistPoint_static_extension {
+@:dox(hide) class T_nistPoint_static_extension {
     static public function scalarBaseMult(t:stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -34,7 +34,7 @@ class T_nistPoint_static_extension {
         return [for (i in stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-typedef T_nistPoint = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint<T_>;
+@:dox(hide) typedef T_nistPoint = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint<T_>;
 @:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey) from stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey to stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey {
     public var curve(get, set) : stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
     function get_curve():stdgo._internal.crypto.elliptic.Elliptic_curve.Curve return this.curve;
@@ -75,12 +75,12 @@ typedef T_nistPoint = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_zr_static_extension) abstract T_zr(stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr) from stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr to stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr {
+@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_zr_static_extension) @:dox(hide) abstract T_zr(stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr) from stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr to stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr {
     public function new() this = new stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_nistCurve_static_extension) abstract T_nistCurve(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve {
+@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_nistCurve_static_extension) @:dox(hide) abstract T_nistCurve(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve {
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {
@@ -233,8 +233,8 @@ class PrivateKey_static_extension {
         };
     }
 }
-typedef T_zrPointer = stdgo._internal.crypto.ecdsa.Ecdsa_t_zrpointer.T_zrPointer;
-class T_zr_static_extension {
+@:dox(hide) typedef T_zrPointer = stdgo._internal.crypto.ecdsa.Ecdsa_t_zrpointer.T_zrPointer;
+@:dox(hide) class T_zr_static_extension {
     static public function read(_:T_zr, _dst:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -243,8 +243,8 @@ class T_zr_static_extension {
         };
     }
 }
-typedef T_nistCurvePointer = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurvepointer.T_nistCurvePointer<Point>;
-class T_nistCurve_static_extension {
+@:dox(hide) typedef T_nistCurvePointer = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurvepointer.T_nistCurvePointer<Point>;
+@:dox(hide) class T_nistCurve_static_extension {
     static public function _pointToAffine(_curve:T_nistCurve<Dynamic>, _p:Dynamic):stdgo.Tuple.Tuple3<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_, stdgo.Error> {
         final _curve = (_curve : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve<Dynamic>>);
         return {

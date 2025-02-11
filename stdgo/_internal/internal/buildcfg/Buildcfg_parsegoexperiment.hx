@@ -49,7 +49,7 @@ _names[stdgo._internal.strings.Strings_tolower.toLower(_rt.field(_i).name.__copy
                         _val = __tmp__1;
                     };
                 };
-                var __tmp__ = (_names != null && _names.exists(_f?.__copy__()) ? { _0 : _names[_f?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _set:Bool -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_names != null && _names.__exists__(_f?.__copy__()) ? { _0 : _names[_f?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _set:Bool -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unknown GOEXPERIMENT %s" : stdgo.GoString), stdgo.Go.toInterface(_f)) };
                 };

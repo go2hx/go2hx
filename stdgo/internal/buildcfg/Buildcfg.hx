@@ -96,7 +96,7 @@ private function set_framePointerEnabled(v:Bool):Bool {
         stdgo._internal.internal.buildcfg.Buildcfg_framepointerenabled.framePointerEnabled = v;
         return v;
     }
-@:structInit @:using(stdgo.internal.buildcfg.Buildcfg.T_gowasmFeatures_static_extension) abstract T_gowasmFeatures(stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures) from stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures to stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures {
+@:structInit @:using(stdgo.internal.buildcfg.Buildcfg.T_gowasmFeatures_static_extension) @:dox(hide) abstract T_gowasmFeatures(stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures) from stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures to stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures {
     public var satConv(get, set) : Bool;
     function get_satConv():Bool return this.satConv;
     function set_satConv(v:Bool):Bool {
@@ -130,8 +130,8 @@ private function set_framePointerEnabled(v:Bool):Bool {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_gowasmFeaturesPointer = stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeaturespointer.T_gowasmFeaturesPointer;
-class T_gowasmFeatures_static_extension {
+@:dox(hide) typedef T_gowasmFeaturesPointer = stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeaturespointer.T_gowasmFeaturesPointer;
+@:dox(hide) class T_gowasmFeatures_static_extension {
     static public function string(_f:T_gowasmFeatures):String {
         return stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures_static_extension.T_gowasmFeatures_static_extension.string(_f);
     }

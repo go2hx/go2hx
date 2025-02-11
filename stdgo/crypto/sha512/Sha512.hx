@@ -4,7 +4,7 @@ final size224 : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_size224.size2
 final size256 : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_size256.size256;
 final size384 : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_size384.size384;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_blocksize.blockSize;
-@:structInit @:using(stdgo.crypto.sha512.Sha512.T_digest_static_extension) abstract T_digest(stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest) from stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest to stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest {
+@:structInit @:using(stdgo.crypto.sha512.Sha512.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest) from stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest to stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest {
     public var _h(get, set) : haxe.ds.Vector<haxe.UInt64>;
     function get__h():haxe.ds.Vector<haxe.UInt64> return haxe.ds.Vector.fromArrayCopy([for (i in this._h) i]);
     function set__h(v:haxe.ds.Vector<haxe.UInt64>):haxe.ds.Vector<haxe.UInt64> {
@@ -39,8 +39,8 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_blocksize.b
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_digestPointer = stdgo._internal.crypto.sha512.Sha512_t_digestpointer.T_digestPointer;
-class T_digest_static_extension {
+@:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.sha512.Sha512_t_digestpointer.T_digestPointer;
+@:dox(hide) class T_digest_static_extension {
     static public function _checkSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha512.Sha512_t_digest_static_extension.T_digest_static_extension._checkSum(_d)) i]);

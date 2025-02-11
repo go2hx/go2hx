@@ -34,7 +34,7 @@ function redirect(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter
             };
         };
         var _h = (_w.header() : stdgo._internal.net.http.Http_header.Header);
-        var __tmp__ = (_h != null && _h.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _h[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __4:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hadCT:Bool = __tmp__._1;
+        var __tmp__ = (_h != null && _h.__exists__(("Content-Type" : stdgo.GoString)) ? { _0 : _h[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __4:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hadCT:Bool = __tmp__._1;
         _h.set(("Location" : stdgo.GoString), stdgo._internal.net.http.Http__hexescapenonascii._hexEscapeNonASCII(_url?.__copy__())?.__copy__());
         if ((!_hadCT && ((((@:checkr _r ?? throw "null pointer dereference").method == ("GET" : stdgo.GoString)) || ((@:checkr _r ?? throw "null pointer dereference").method == ("HEAD" : stdgo.GoString)) : Bool)) : Bool)) {
             _h.set(("Content-Type" : stdgo.GoString), ("text/html; charset=utf-8" : stdgo.GoString));

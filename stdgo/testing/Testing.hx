@@ -1,5 +1,5 @@
 package stdgo.testing;
-class T_fuzzCrashError_static_extension {
+@:dox(hide) class T_fuzzCrashError_static_extension {
     static public function crashPath(t:stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError):String {
         return stdgo._internal.testing.Testing_t_fuzzcrasherror_static_extension.T_fuzzCrashError_static_extension.crashPath(t);
     }
@@ -7,8 +7,8 @@ class T_fuzzCrashError_static_extension {
         return stdgo._internal.testing.Testing_t_fuzzcrasherror_static_extension.T_fuzzCrashError_static_extension.unwrap(t);
     }
 }
-typedef T_fuzzCrashError = stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError;
-class T_filterMatch_static_extension {
+@:dox(hide) typedef T_fuzzCrashError = stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError;
+@:dox(hide) class T_filterMatch_static_extension {
     static public function _verify(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
@@ -23,7 +23,7 @@ class T_filterMatch_static_extension {
         };
     }
 }
-typedef T_filterMatch = stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch;
+@:dox(hide) typedef T_filterMatch = stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch;
 class TB_static_extension {
     static public function _private(t:stdgo._internal.testing.Testing_tb.TB):Void {
         stdgo._internal.testing.Testing_tb_static_extension.TB_static_extension._private(t);
@@ -91,7 +91,7 @@ class TB_static_extension {
     }
 }
 typedef TB = stdgo._internal.testing.Testing_tb.TB;
-class T_testDeps_static_extension {
+@:dox(hide) class T_testDeps_static_extension {
     static public function snapshotCoverage(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps):Void {
         stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.snapshotCoverage(t);
     }
@@ -163,8 +163,8 @@ class T_testDeps_static_extension {
         return stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.importPath(t);
     }
 }
-typedef T_testDeps = stdgo._internal.testing.Testing_t_testdeps.T_testDeps;
-@:structInit @:using(stdgo.testing.Testing.T_durationOrCountFlag_static_extension) abstract T_durationOrCountFlag(stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag) from stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag to stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag {
+@:dox(hide) typedef T_testDeps = stdgo._internal.testing.Testing_t_testdeps.T_testDeps;
+@:structInit @:using(stdgo.testing.Testing.T_durationOrCountFlag_static_extension) @:dox(hide) abstract T_durationOrCountFlag(stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag) from stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag to stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag {
     public var _d(get, set) : stdgo._internal.time.Time_duration.Duration;
     function get__d():stdgo._internal.time.Time_duration.Duration return this._d;
     function set__d(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
@@ -383,7 +383,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_benchContext_static_extension) abstract T_benchContext(stdgo._internal.testing.Testing_t_benchcontext.T_benchContext) from stdgo._internal.testing.Testing_t_benchcontext.T_benchContext to stdgo._internal.testing.Testing_t_benchcontext.T_benchContext {
+@:structInit @:using(stdgo.testing.Testing.T_benchContext_static_extension) @:dox(hide) abstract T_benchContext(stdgo._internal.testing.Testing_t_benchcontext.T_benchContext) from stdgo._internal.testing.Testing_t_benchcontext.T_benchContext to stdgo._internal.testing.Testing_t_benchcontext.T_benchContext {
     public var _match(get, set) : T_matcher;
     function get__match():T_matcher return this._match;
     function set__match(v:T_matcher):T_matcher {
@@ -435,7 +435,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_discard_static_extension) abstract T_discard(stdgo._internal.testing.Testing_t_discard.T_discard) from stdgo._internal.testing.Testing_t_discard.T_discard to stdgo._internal.testing.Testing_t_discard.T_discard {
+@:structInit @:using(stdgo.testing.Testing.T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.testing.Testing_t_discard.T_discard) from stdgo._internal.testing.Testing_t_discard.T_discard to stdgo._internal.testing.Testing_t_discard.T_discard {
     public function new() this = new stdgo._internal.testing.Testing_t_discard.T_discard();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -606,8 +606,8 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEntry;
-@:structInit @:using(stdgo.testing.Testing.T_fuzzResult_static_extension) abstract T_fuzzResult(stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult) from stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult to stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult {
+@:dox(hide) typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEntry;
+@:structInit @:using(stdgo.testing.Testing.T_fuzzResult_static_extension) @:dox(hide) abstract T_fuzzResult(stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult) from stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult to stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult {
     public var n(get, set) : StdTypes.Int;
     function get_n():StdTypes.Int return this.n;
     function set_n(v:StdTypes.Int):StdTypes.Int {
@@ -630,7 +630,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEn
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_fuzzContext_static_extension) abstract T_fuzzContext(stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext) from stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext to stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext {
+@:structInit @:using(stdgo.testing.Testing.T_fuzzContext_static_extension) @:dox(hide) abstract T_fuzzContext(stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext) from stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext to stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext {
     public var _deps(get, set) : T_testDeps;
     function get__deps():T_testDeps return this._deps;
     function set__deps(v:T_testDeps):T_testDeps {
@@ -647,7 +647,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEn
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_matcher_static_extension) abstract T_matcher(stdgo._internal.testing.Testing_t_matcher.T_matcher) from stdgo._internal.testing.Testing_t_matcher.T_matcher to stdgo._internal.testing.Testing_t_matcher.T_matcher {
+@:structInit @:using(stdgo.testing.Testing.T_matcher_static_extension) @:dox(hide) abstract T_matcher(stdgo._internal.testing.Testing_t_matcher.T_matcher) from stdgo._internal.testing.Testing_t_matcher.T_matcher to stdgo._internal.testing.Testing_t_matcher.T_matcher {
     public var _filter(get, set) : T_filterMatch;
     function get__filter():T_filterMatch return this._filter;
     function set__filter(v:T_filterMatch):T_filterMatch {
@@ -682,7 +682,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEn
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_chattyFlag_static_extension) abstract T_chattyFlag(stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag) from stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag to stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag {
+@:structInit @:using(stdgo.testing.Testing.T_chattyFlag_static_extension) @:dox(hide) abstract T_chattyFlag(stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag) from stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag to stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag {
     public var _on(get, set) : Bool;
     function get__on():Bool return this._on;
     function set__on(v:Bool):Bool {
@@ -699,7 +699,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEn
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_chattyPrinter_static_extension) abstract T_chattyPrinter(stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter) from stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter to stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter {
+@:structInit @:using(stdgo.testing.Testing.T_chattyPrinter_static_extension) @:dox(hide) abstract T_chattyPrinter(stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter) from stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter to stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -728,7 +728,7 @@ typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEn
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_common_static_extension) abstract T_common(stdgo._internal.testing.Testing_t_common.T_common) from stdgo._internal.testing.Testing_t_common.T_common to stdgo._internal.testing.Testing_t_common.T_common {
+@:structInit @:using(stdgo.testing.Testing.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.testing.Testing_t_common.T_common) from stdgo._internal.testing.Testing_t_common.T_common to stdgo._internal.testing.Testing_t_common.T_common {
     public var _mu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
     function get__mu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
@@ -972,7 +972,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_indenter_static_extension) abstract T_indenter(stdgo._internal.testing.Testing_t_indenter.T_indenter) from stdgo._internal.testing.Testing_t_indenter.T_indenter to stdgo._internal.testing.Testing_t_indenter.T_indenter {
+@:structInit @:using(stdgo.testing.Testing.T_indenter_static_extension) @:dox(hide) abstract T_indenter(stdgo._internal.testing.Testing_t_indenter.T_indenter) from stdgo._internal.testing.Testing_t_indenter.T_indenter to stdgo._internal.testing.Testing_t_indenter.T_indenter {
     public var _c(get, set) : T_common;
     function get__c():T_common return this._c;
     function set__c(v:T_common):T_common {
@@ -983,7 +983,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T__static_extension) abstract T_(stdgo._internal.testing.Testing_t_.T_) from stdgo._internal.testing.Testing_t_.T_ to stdgo._internal.testing.Testing_t_.T_ {
+@:structInit @:using(stdgo.testing.Testing.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.testing.Testing_t_.T_) from stdgo._internal.testing.Testing_t_.T_ to stdgo._internal.testing.Testing_t_.T_ {
     public var _common(get, set) : T_common;
     function get__common():T_common return this._common;
     function set__common(v:T_common):T_common {
@@ -1023,7 +1023,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.Testing.T_testContext_static_extension) abstract T_testContext(stdgo._internal.testing.Testing_t_testcontext.T_testContext) from stdgo._internal.testing.Testing_t_testcontext.T_testContext to stdgo._internal.testing.Testing_t_testcontext.T_testContext {
+@:structInit @:using(stdgo.testing.Testing.T_testContext_static_extension) @:dox(hide) abstract T_testContext(stdgo._internal.testing.Testing_t_testcontext.T_testContext) from stdgo._internal.testing.Testing_t_testcontext.T_testContext to stdgo._internal.testing.Testing_t_testcontext.T_testContext {
     public var _match(get, set) : T_matcher;
     function get__match():T_matcher return this._match;
     function set__match(v:T_matcher):T_matcher {
@@ -1135,23 +1135,23 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.testing.Testing_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.testing.Testing_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.testing.Testing_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.testing.Testing_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.testing.Testing_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.testing.Testing_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.testing.Testing_t__struct_1.T__struct_1;
-typedef T_fuzzMode = stdgo._internal.testing.Testing_t_fuzzmode.T_fuzzMode;
-typedef T_simpleMatch = stdgo._internal.testing.Testing_t_simplematch.T_simpleMatch;
-typedef T_alternationMatch = stdgo._internal.testing.Testing_t_alternationmatch.T_alternationMatch;
-typedef T_panicHandling = stdgo._internal.testing.Testing_t_panichandling.T_panicHandling;
-typedef T_matchStringOnly = stdgo._internal.testing.Testing_t_matchstringonly.T_matchStringOnly;
-typedef T_durationOrCountFlagPointer = stdgo._internal.testing.Testing_t_durationorcountflagpointer.T_durationOrCountFlagPointer;
-class T_durationOrCountFlag_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.testing.Testing_t__struct_1.T__struct_1;
+@:dox(hide) typedef T_fuzzMode = stdgo._internal.testing.Testing_t_fuzzmode.T_fuzzMode;
+@:dox(hide) typedef T_simpleMatch = stdgo._internal.testing.Testing_t_simplematch.T_simpleMatch;
+@:dox(hide) typedef T_alternationMatch = stdgo._internal.testing.Testing_t_alternationmatch.T_alternationMatch;
+@:dox(hide) typedef T_panicHandling = stdgo._internal.testing.Testing_t_panichandling.T_panicHandling;
+@:dox(hide) typedef T_matchStringOnly = stdgo._internal.testing.Testing_t_matchstringonly.T_matchStringOnly;
+@:dox(hide) typedef T_durationOrCountFlagPointer = stdgo._internal.testing.Testing_t_durationorcountflagpointer.T_durationOrCountFlagPointer;
+@:dox(hide) class T_durationOrCountFlag_static_extension {
     static public function set(_f:T_durationOrCountFlag, _s:String):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag>);
         final _s = (_s : stdgo.GoString);
@@ -1363,8 +1363,8 @@ class BenchmarkResult_static_extension {
         return stdgo._internal.testing.Testing_benchmarkresult_static_extension.BenchmarkResult_static_extension.nsPerOp(_r);
     }
 }
-typedef T_benchContextPointer = stdgo._internal.testing.Testing_t_benchcontextpointer.T_benchContextPointer;
-class T_benchContext_static_extension {
+@:dox(hide) typedef T_benchContextPointer = stdgo._internal.testing.Testing_t_benchcontextpointer.T_benchContextPointer;
+@:dox(hide) class T_benchContext_static_extension {
     static public function _processBench(_ctx:T_benchContext, _b:B):Void {
         final _ctx = (_ctx : stdgo.Ref<stdgo._internal.testing.Testing_t_benchcontext.T_benchContext>);
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
@@ -1378,8 +1378,8 @@ class PB_static_extension {
         return stdgo._internal.testing.Testing_pb_static_extension.PB_static_extension.next(_pb);
     }
 }
-typedef T_discardPointer = stdgo._internal.testing.Testing_t_discardpointer.T_discardPointer;
-class T_discard_static_extension {
+@:dox(hide) typedef T_discardPointer = stdgo._internal.testing.Testing_t_discardpointer.T_discardPointer;
+@:dox(hide) class T_discard_static_extension {
     static public function write(_:T_discard, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -1525,22 +1525,22 @@ class F_static_extension {
         stdgo._internal.testing.Testing_f_static_extension.F_static_extension.cleanup(__self__, _0);
     }
 }
-typedef T_corpusEntryPointer = stdgo._internal.testing.Testing_t_corpusentrypointer.T_corpusEntryPointer;
-class T_corpusEntry_static_extension {
+@:dox(hide) typedef T_corpusEntryPointer = stdgo._internal.testing.Testing_t_corpusentrypointer.T_corpusEntryPointer;
+@:dox(hide) class T_corpusEntry_static_extension {
 
 }
-typedef T_fuzzResultPointer = stdgo._internal.testing.Testing_t_fuzzresultpointer.T_fuzzResultPointer;
-class T_fuzzResult_static_extension {
+@:dox(hide) typedef T_fuzzResultPointer = stdgo._internal.testing.Testing_t_fuzzresultpointer.T_fuzzResultPointer;
+@:dox(hide) class T_fuzzResult_static_extension {
     static public function string(_r:T_fuzzResult):String {
         return stdgo._internal.testing.Testing_t_fuzzresult_static_extension.T_fuzzResult_static_extension.string(_r);
     }
 }
-typedef T_fuzzContextPointer = stdgo._internal.testing.Testing_t_fuzzcontextpointer.T_fuzzContextPointer;
-class T_fuzzContext_static_extension {
+@:dox(hide) typedef T_fuzzContextPointer = stdgo._internal.testing.Testing_t_fuzzcontextpointer.T_fuzzContextPointer;
+@:dox(hide) class T_fuzzContext_static_extension {
 
 }
-typedef T_matcherPointer = stdgo._internal.testing.Testing_t_matcherpointer.T_matcherPointer;
-class T_matcher_static_extension {
+@:dox(hide) typedef T_matcherPointer = stdgo._internal.testing.Testing_t_matcherpointer.T_matcherPointer;
+@:dox(hide) class T_matcher_static_extension {
     static public function _unique(_m:T_matcher, _parent:String, _subname:String):String {
         final _m = (_m : stdgo.Ref<stdgo._internal.testing.Testing_t_matcher.T_matcher>);
         final _parent = (_parent : stdgo.GoString);
@@ -1561,8 +1561,8 @@ class T_matcher_static_extension {
         };
     }
 }
-typedef T_chattyFlagPointer = stdgo._internal.testing.Testing_t_chattyflagpointer.T_chattyFlagPointer;
-class T_chattyFlag_static_extension {
+@:dox(hide) typedef T_chattyFlagPointer = stdgo._internal.testing.Testing_t_chattyflagpointer.T_chattyFlagPointer;
+@:dox(hide) class T_chattyFlag_static_extension {
     static public function _prefix(_f:T_chattyFlag):String {
         final _f = (_f : stdgo.Ref<stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag>);
         return stdgo._internal.testing.Testing_t_chattyflag_static_extension.T_chattyFlag_static_extension._prefix(_f);
@@ -1585,8 +1585,8 @@ class T_chattyFlag_static_extension {
         return stdgo._internal.testing.Testing_t_chattyflag_static_extension.T_chattyFlag_static_extension.isBoolFlag(_);
     }
 }
-typedef T_chattyPrinterPointer = stdgo._internal.testing.Testing_t_chattyprinterpointer.T_chattyPrinterPointer;
-class T_chattyPrinter_static_extension {
+@:dox(hide) typedef T_chattyPrinterPointer = stdgo._internal.testing.Testing_t_chattyprinterpointer.T_chattyPrinterPointer;
+@:dox(hide) class T_chattyPrinter_static_extension {
     static public function printf(_p:T_chattyPrinter, _testName:String, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter>);
         final _testName = (_testName : stdgo.GoString);
@@ -1604,8 +1604,8 @@ class T_chattyPrinter_static_extension {
         return stdgo._internal.testing.Testing_t_chattyprinter_static_extension.T_chattyPrinter_static_extension._prefix(_p);
     }
 }
-typedef T_commonPointer = stdgo._internal.testing.Testing_t_commonpointer.T_commonPointer;
-class T_common_static_extension {
+@:dox(hide) typedef T_commonPointer = stdgo._internal.testing.Testing_t_commonpointer.T_commonPointer;
+@:dox(hide) class T_common_static_extension {
     static public function _runCleanup(_c:T_common, _ph:T_panicHandling):stdgo.AnyInterface {
         final _c = (_c : stdgo.Ref<stdgo._internal.testing.Testing_t_common.T_common>);
         return stdgo._internal.testing.Testing_t_common_static_extension.T_common_static_extension._runCleanup(_c, _ph);
@@ -1731,8 +1731,8 @@ class T_common_static_extension {
         stdgo._internal.testing.Testing_t_common_static_extension.T_common_static_extension._checkFuzzFn(_c, _name);
     }
 }
-typedef T_indenterPointer = stdgo._internal.testing.Testing_t_indenterpointer.T_indenterPointer;
-class T_indenter_static_extension {
+@:dox(hide) typedef T_indenterPointer = stdgo._internal.testing.Testing_t_indenterpointer.T_indenterPointer;
+@:dox(hide) class T_indenter_static_extension {
     static public function write(_w:T_indenter, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -1741,8 +1741,8 @@ class T_indenter_static_extension {
         };
     }
 }
-typedef T_Pointer = stdgo._internal.testing.Testing_t_pointer.T_Pointer;
-class T__static_extension {
+@:dox(hide) typedef T_Pointer = stdgo._internal.testing.Testing_t_pointer.T_Pointer;
+@:dox(hide) class T__static_extension {
     static public function _report(_t:T_):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         stdgo._internal.testing.Testing_t__static_extension.T__static_extension._report(_t);
@@ -1867,8 +1867,8 @@ typedef InternalTestPointer = stdgo._internal.testing.Testing_internaltestpointe
 class InternalTest_static_extension {
 
 }
-typedef T_testContextPointer = stdgo._internal.testing.Testing_t_testcontextpointer.T_testContextPointer;
-class T_testContext_static_extension {
+@:dox(hide) typedef T_testContextPointer = stdgo._internal.testing.Testing_t_testcontextpointer.T_testContextPointer;
+@:dox(hide) class T_testContext_static_extension {
     static public function _release(_c:T_testContext):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.testing.Testing_t_testcontext.T_testContext>);
         stdgo._internal.testing.Testing_t_testcontext_static_extension.T_testContext_static_extension._release(_c);
@@ -1905,20 +1905,20 @@ class M_static_extension {
         return stdgo._internal.testing.Testing_m_static_extension.M_static_extension.run(_m);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.testing.Testing_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.testing.Testing_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.testing.Testing_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.testing.Testing_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T_fuzzModePointer = stdgo._internal.testing.Testing_t_fuzzmodepointer.T_fuzzModePointer;
-class T_fuzzMode_static_extension {
+@:dox(hide) typedef T_fuzzModePointer = stdgo._internal.testing.Testing_t_fuzzmodepointer.T_fuzzModePointer;
+@:dox(hide) class T_fuzzMode_static_extension {
 
 }
-typedef T_simpleMatchPointer = stdgo._internal.testing.Testing_t_simplematchpointer.T_simpleMatchPointer;
-class T_simpleMatch_static_extension {
+@:dox(hide) typedef T_simpleMatchPointer = stdgo._internal.testing.Testing_t_simplematchpointer.T_simpleMatchPointer;
+@:dox(hide) class T_simpleMatch_static_extension {
     static public function _verify(_m:T_simpleMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
@@ -1933,8 +1933,8 @@ class T_simpleMatch_static_extension {
         };
     }
 }
-typedef T_alternationMatchPointer = stdgo._internal.testing.Testing_t_alternationmatchpointer.T_alternationMatchPointer;
-class T_alternationMatch_static_extension {
+@:dox(hide) typedef T_alternationMatchPointer = stdgo._internal.testing.Testing_t_alternationmatchpointer.T_alternationMatchPointer;
+@:dox(hide) class T_alternationMatch_static_extension {
     static public function _verify(_m:T_alternationMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
@@ -1949,12 +1949,12 @@ class T_alternationMatch_static_extension {
         };
     }
 }
-typedef T_panicHandlingPointer = stdgo._internal.testing.Testing_t_panichandlingpointer.T_panicHandlingPointer;
-class T_panicHandling_static_extension {
+@:dox(hide) typedef T_panicHandlingPointer = stdgo._internal.testing.Testing_t_panichandlingpointer.T_panicHandlingPointer;
+@:dox(hide) class T_panicHandling_static_extension {
 
 }
-typedef T_matchStringOnlyPointer = stdgo._internal.testing.Testing_t_matchstringonlypointer.T_matchStringOnlyPointer;
-class T_matchStringOnly_static_extension {
+@:dox(hide) typedef T_matchStringOnlyPointer = stdgo._internal.testing.Testing_t_matchstringonlypointer.T_matchStringOnlyPointer;
+@:dox(hide) class T_matchStringOnly_static_extension {
     static public function snapshotCoverage(_f:T_matchStringOnly):Void {
         stdgo._internal.testing.Testing_t_matchstringonly_static_extension.T_matchStringOnly_static_extension.snapshotCoverage(_f);
     }

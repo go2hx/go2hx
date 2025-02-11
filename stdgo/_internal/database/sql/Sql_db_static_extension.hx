@@ -621,7 +621,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                     _reqKey = __key__;
                     break;
                 };
-                if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.remove(_reqKey);
+                if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.__remove__(_reqKey);
                 if (_err == null) {
                     (@:checkr _dc ?? throw "null pointer dereference")._inUse = true;
                 };
@@ -828,7 +828,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                             _ctx.done().__get__();
                             {
                                 @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.lock();
-                                if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.remove(_reqKey);
+                                if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.__remove__(_reqKey);
                                 @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.unlock();
                                 @:check2 (@:checkr _db ?? throw "null pointer dereference")._waitDuration.add((stdgo._internal.time.Time_since.since(_waitStart?.__copy__()) : stdgo.GoInt64));
                                 {
@@ -1525,18 +1525,18 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
     @:tdfield
     static public function _removeDepLocked( _db:stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>, _x:stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, _dep:stdgo.AnyInterface):() -> stdgo.Error {
         @:recv var _db:stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB> = _db;
-        var __tmp__ = ((@:checkr _db ?? throw "null pointer dereference")._dep != null && (@:checkr _db ?? throw "null pointer dereference")._dep.exists(_x) ? { _0 : (@:checkr _db ?? throw "null pointer dereference")._dep[_x], _1 : true } : { _0 : (null : stdgo._internal.database.sql.Sql_t_depset.T_depSet), _1 : false }), _xdep:stdgo._internal.database.sql.Sql_t_depset.T_depSet = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _db ?? throw "null pointer dereference")._dep != null && (@:checkr _db ?? throw "null pointer dereference")._dep.__exists__(_x) ? { _0 : (@:checkr _db ?? throw "null pointer dereference")._dep[_x], _1 : true } : { _0 : (null : stdgo._internal.database.sql.Sql_t_depset.T_depSet), _1 : false }), _xdep:stdgo._internal.database.sql.Sql_t_depset.T_depSet = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unpaired removeDep: no deps for %T" : stdgo.GoString), stdgo.Go.toInterface(_x)));
         };
         var _l0 = (_xdep.length : stdgo.GoInt);
-        if (_xdep != null) _xdep.remove(_dep);
+        if (_xdep != null) _xdep.__remove__(_dep);
         {
             final __value__ = (_xdep.length);
             if (__value__ == (_l0)) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unpaired removeDep: no %T dep on %T" : stdgo.GoString), _dep, stdgo.Go.toInterface(_x)));
             } else if (__value__ == ((0 : stdgo.GoInt))) {
-                if ((@:checkr _db ?? throw "null pointer dereference")._dep != null) (@:checkr _db ?? throw "null pointer dereference")._dep.remove(_x);
+                if ((@:checkr _db ?? throw "null pointer dereference")._dep != null) (@:checkr _db ?? throw "null pointer dereference")._dep.__remove__(_x);
                 return _x._finalClose;
             } else {
                 return function():stdgo.Error {

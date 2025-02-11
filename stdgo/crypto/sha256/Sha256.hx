@@ -2,7 +2,7 @@ package stdgo.crypto.sha256;
 final size : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_size.size;
 final size224 : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_size224.size224;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_blocksize.blockSize;
-@:structInit @:using(stdgo.crypto.sha256.Sha256.T_digest_static_extension) abstract T_digest(stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest) from stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest to stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest {
+@:structInit @:using(stdgo.crypto.sha256.Sha256.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest) from stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest to stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest {
     public var _h(get, set) : haxe.ds.Vector<std.UInt>;
     function get__h():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._h) i]);
     function set__h(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -37,8 +37,8 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_blocksize.b
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_digestPointer = stdgo._internal.crypto.sha256.Sha256_t_digestpointer.T_digestPointer;
-class T_digest_static_extension {
+@:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.sha256.Sha256_t_digestpointer.T_digestPointer;
+@:dox(hide) class T_digest_static_extension {
     static public function _checkSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha256.Sha256_t_digest_static_extension.T_digest_static_extension._checkSum(_d)) i]);

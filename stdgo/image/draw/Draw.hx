@@ -40,14 +40,14 @@ class Drawer_static_extension {
     }
 }
 typedef Drawer = stdgo._internal.image.draw.Draw_drawer.Drawer;
-@:structInit @:using(stdgo.image.draw.Draw.T_floydSteinberg_static_extension) abstract T_floydSteinberg(stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg) from stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg to stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg {
+@:structInit @:using(stdgo.image.draw.Draw.T_floydSteinberg_static_extension) @:dox(hide) abstract T_floydSteinberg(stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg) from stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg to stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg {
     public function new() this = new stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef Op = stdgo._internal.image.draw.Draw_op.Op;
-typedef T_floydSteinbergPointer = stdgo._internal.image.draw.Draw_t_floydsteinbergpointer.T_floydSteinbergPointer;
-class T_floydSteinberg_static_extension {
+@:dox(hide) typedef T_floydSteinbergPointer = stdgo._internal.image.draw.Draw_t_floydsteinbergpointer.T_floydSteinbergPointer;
+@:dox(hide) class T_floydSteinberg_static_extension {
     static public function draw(_:T_floydSteinberg, _dst:Image, _r:stdgo._internal.image.Image_rectangle.Rectangle, _src:stdgo._internal.image.Image_image.Image, _sp:stdgo._internal.image.Image_point.Point):Void {
         stdgo._internal.image.draw.Draw_t_floydsteinberg_static_extension.T_floydSteinberg_static_extension.draw(_, _dst, _r, _src, _sp);
     }

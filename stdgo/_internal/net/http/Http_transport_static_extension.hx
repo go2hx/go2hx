@@ -49,7 +49,7 @@ package stdgo._internal.net.http;
                 { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_roundtripper.RoundTripper>), _1 : false };
             }, _oldMap = __tmp__._0, __3799 = __tmp__._1;
             {
-                var __tmp__ = (_oldMap != null && _oldMap.exists(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_roundtripper.RoundTripper), _1 : false }), __3800:stdgo._internal.net.http.Http_roundtripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
+                var __tmp__ = (_oldMap != null && _oldMap.__exists__(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_roundtripper.RoundTripper), _1 : false }), __3800:stdgo._internal.net.http.Http_roundtripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
                 if (_exists) {
                     throw stdgo.Go.toInterface(((("protocol " : stdgo.GoString) + _scheme?.__copy__() : stdgo.GoString) + (" already registered" : stdgo.GoString)?.__copy__() : stdgo.GoString));
                 };

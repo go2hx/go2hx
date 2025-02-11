@@ -287,7 +287,7 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_teeReader_static_extension) abstract T_teeReader(stdgo._internal.io.Io_t_teereader.T_teeReader) from stdgo._internal.io.Io_t_teereader.T_teeReader to stdgo._internal.io.Io_t_teereader.T_teeReader {
+@:structInit @:using(stdgo.io.Io.T_teeReader_static_extension) @:dox(hide) abstract T_teeReader(stdgo._internal.io.Io_t_teereader.T_teeReader) from stdgo._internal.io.Io_t_teereader.T_teeReader to stdgo._internal.io.Io_t_teereader.T_teeReader {
     public var _r(get, set) : Reader;
     function get__r():Reader return this._r;
     function set__r(v:Reader):Reader {
@@ -304,12 +304,12 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_discard_static_extension) abstract T_discard(stdgo._internal.io.Io_t_discard.T_discard) from stdgo._internal.io.Io_t_discard.T_discard to stdgo._internal.io.Io_t_discard.T_discard {
+@:structInit @:using(stdgo.io.Io.T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.io.Io_t_discard.T_discard) from stdgo._internal.io.Io_t_discard.T_discard to stdgo._internal.io.Io_t_discard.T_discard {
     public function new() this = new stdgo._internal.io.Io_t_discard.T_discard();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_nopCloser_static_extension) abstract T_nopCloser(stdgo._internal.io.Io_t_nopcloser.T_nopCloser) from stdgo._internal.io.Io_t_nopcloser.T_nopCloser to stdgo._internal.io.Io_t_nopcloser.T_nopCloser {
+@:structInit @:using(stdgo.io.Io.T_nopCloser_static_extension) @:dox(hide) abstract T_nopCloser(stdgo._internal.io.Io_t_nopcloser.T_nopCloser) from stdgo._internal.io.Io_t_nopcloser.T_nopCloser to stdgo._internal.io.Io_t_nopcloser.T_nopCloser {
     public var reader(get, set) : Reader;
     function get_reader():Reader return this.reader;
     function set_reader(v:Reader):Reader {
@@ -320,7 +320,7 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) abstract T_nopCloserWriterTo(stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo) from stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo to stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo {
+@:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) @:dox(hide) abstract T_nopCloserWriterTo(stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo) from stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo to stdgo._internal.io.Io_t_nopcloserwriterto.T_nopCloserWriterTo {
     public var reader(get, set) : Reader;
     function get_reader():Reader return this.reader;
     function set_reader(v:Reader):Reader {
@@ -331,12 +331,12 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) abstract T_eofReader(stdgo._internal.io.Io_t_eofreader.T_eofReader) from stdgo._internal.io.Io_t_eofreader.T_eofReader to stdgo._internal.io.Io_t_eofreader.T_eofReader {
+@:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) @:dox(hide) abstract T_eofReader(stdgo._internal.io.Io_t_eofreader.T_eofReader) from stdgo._internal.io.Io_t_eofreader.T_eofReader to stdgo._internal.io.Io_t_eofreader.T_eofReader {
     public function new() this = new stdgo._internal.io.Io_t_eofreader.T_eofReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_multiReader_static_extension) abstract T_multiReader(stdgo._internal.io.Io_t_multireader.T_multiReader) from stdgo._internal.io.Io_t_multireader.T_multiReader to stdgo._internal.io.Io_t_multireader.T_multiReader {
+@:structInit @:using(stdgo.io.Io.T_multiReader_static_extension) @:dox(hide) abstract T_multiReader(stdgo._internal.io.Io_t_multireader.T_multiReader) from stdgo._internal.io.Io_t_multireader.T_multiReader to stdgo._internal.io.Io_t_multireader.T_multiReader {
     public var _readers(get, set) : Array<Reader>;
     function get__readers():Array<Reader> return [for (i in this._readers) i];
     function set__readers(v:Array<Reader>):Array<Reader> {
@@ -347,7 +347,7 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_multiWriter_static_extension) abstract T_multiWriter(stdgo._internal.io.Io_t_multiwriter.T_multiWriter) from stdgo._internal.io.Io_t_multiwriter.T_multiWriter to stdgo._internal.io.Io_t_multiwriter.T_multiWriter {
+@:structInit @:using(stdgo.io.Io.T_multiWriter_static_extension) @:dox(hide) abstract T_multiWriter(stdgo._internal.io.Io_t_multiwriter.T_multiWriter) from stdgo._internal.io.Io_t_multiwriter.T_multiWriter to stdgo._internal.io.Io_t_multiwriter.T_multiWriter {
     public var _writers(get, set) : Array<Writer>;
     function get__writers():Array<Writer> return [for (i in this._writers) i];
     function set__writers(v:Array<Writer>):Array<Writer> {
@@ -358,7 +358,7 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_onceError_static_extension) abstract T_onceError(stdgo._internal.io.Io_t_onceerror.T_onceError) from stdgo._internal.io.Io_t_onceerror.T_onceError to stdgo._internal.io.Io_t_onceerror.T_onceError {
+@:structInit @:using(stdgo.io.Io.T_onceError_static_extension) @:dox(hide) abstract T_onceError(stdgo._internal.io.Io_t_onceerror.T_onceError) from stdgo._internal.io.Io_t_onceerror.T_onceError to stdgo._internal.io.Io_t_onceerror.T_onceError {
     public var mutex(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get_mutex():stdgo._internal.sync.Sync_mutex.Mutex return this.mutex;
     function set_mutex(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -375,7 +375,7 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.Io.T_pipe_static_extension) abstract T_pipe(stdgo._internal.io.Io_t_pipe.T_pipe) from stdgo._internal.io.Io_t_pipe.T_pipe to stdgo._internal.io.Io_t_pipe.T_pipe {
+@:structInit @:using(stdgo.io.Io.T_pipe_static_extension) @:dox(hide) abstract T_pipe(stdgo._internal.io.Io_t_pipe.T_pipe) from stdgo._internal.io.Io_t_pipe.T_pipe to stdgo._internal.io.Io_t_pipe.T_pipe {
     public var _wrMu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__wrMu():stdgo._internal.sync.Sync_mutex.Mutex return this._wrMu;
     function set__wrMu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -444,11 +444,11 @@ typedef StringWriter = stdgo._internal.io.Io_stringwriter.StringWriter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.io.Io_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.io.Io_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.io.Io_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.io.Io_t__struct_0.T__struct_0;
 typedef LimitedReaderPointer = stdgo._internal.io.Io_limitedreaderpointer.LimitedReaderPointer;
 class LimitedReader_static_extension {
     static public function read(_l:LimitedReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
@@ -522,8 +522,8 @@ class OffsetWriter_static_extension {
         };
     }
 }
-typedef T_teeReaderPointer = stdgo._internal.io.Io_t_teereaderpointer.T_teeReaderPointer;
-class T_teeReader_static_extension {
+@:dox(hide) typedef T_teeReaderPointer = stdgo._internal.io.Io_t_teereaderpointer.T_teeReaderPointer;
+@:dox(hide) class T_teeReader_static_extension {
     static public function read(_t:T_teeReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.io.Io_t_teereader.T_teeReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -533,8 +533,8 @@ class T_teeReader_static_extension {
         };
     }
 }
-typedef T_discardPointer = stdgo._internal.io.Io_t_discardpointer.T_discardPointer;
-class T_discard_static_extension {
+@:dox(hide) typedef T_discardPointer = stdgo._internal.io.Io_t_discardpointer.T_discardPointer;
+@:dox(hide) class T_discard_static_extension {
     static public function readFrom(_:T_discard, _r:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.io.Io_t_discard_static_extension.T_discard_static_extension.readFrom(_, _r);
@@ -556,8 +556,8 @@ class T_discard_static_extension {
         };
     }
 }
-typedef T_nopCloserPointer = stdgo._internal.io.Io_t_nopcloserpointer.T_nopCloserPointer;
-class T_nopCloser_static_extension {
+@:dox(hide) typedef T_nopCloserPointer = stdgo._internal.io.Io_t_nopcloserpointer.T_nopCloserPointer;
+@:dox(hide) class T_nopCloser_static_extension {
     static public function close(_:T_nopCloser):stdgo.Error {
         return stdgo._internal.io.Io_t_nopcloser_static_extension.T_nopCloser_static_extension.close(_);
     }
@@ -569,8 +569,8 @@ class T_nopCloser_static_extension {
         };
     }
 }
-typedef T_nopCloserWriterToPointer = stdgo._internal.io.Io_t_nopcloserwritertopointer.T_nopCloserWriterToPointer;
-class T_nopCloserWriterTo_static_extension {
+@:dox(hide) typedef T_nopCloserWriterToPointer = stdgo._internal.io.Io_t_nopcloserwritertopointer.T_nopCloserWriterToPointer;
+@:dox(hide) class T_nopCloserWriterTo_static_extension {
     static public function writeTo(_c:T_nopCloserWriterTo, _w:Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.io.Io_t_nopcloserwriterto_static_extension.T_nopCloserWriterTo_static_extension.writeTo(_c, _w);
@@ -588,8 +588,8 @@ class T_nopCloserWriterTo_static_extension {
         };
     }
 }
-typedef T_eofReaderPointer = stdgo._internal.io.Io_t_eofreaderpointer.T_eofReaderPointer;
-class T_eofReader_static_extension {
+@:dox(hide) typedef T_eofReaderPointer = stdgo._internal.io.Io_t_eofreaderpointer.T_eofReaderPointer;
+@:dox(hide) class T_eofReader_static_extension {
     static public function read(_:T_eofReader, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -598,8 +598,8 @@ class T_eofReader_static_extension {
         };
     }
 }
-typedef T_multiReaderPointer = stdgo._internal.io.Io_t_multireaderpointer.T_multiReaderPointer;
-class T_multiReader_static_extension {
+@:dox(hide) typedef T_multiReaderPointer = stdgo._internal.io.Io_t_multireaderpointer.T_multiReaderPointer;
+@:dox(hide) class T_multiReader_static_extension {
     static public function _writeToWithBuffer(_mr:T_multiReader, _w:Writer, _buf:Array<std.UInt>):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         final _mr = (_mr : stdgo.Ref<stdgo._internal.io.Io_t_multireader.T_multiReader>);
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -624,8 +624,8 @@ class T_multiReader_static_extension {
         };
     }
 }
-typedef T_multiWriterPointer = stdgo._internal.io.Io_t_multiwriterpointer.T_multiWriterPointer;
-class T_multiWriter_static_extension {
+@:dox(hide) typedef T_multiWriterPointer = stdgo._internal.io.Io_t_multiwriterpointer.T_multiWriterPointer;
+@:dox(hide) class T_multiWriter_static_extension {
     static public function writeString(_t:T_multiWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.io.Io_t_multiwriter.T_multiWriter>);
         final _s = (_s : stdgo.GoString);
@@ -643,8 +643,8 @@ class T_multiWriter_static_extension {
         };
     }
 }
-typedef T_onceErrorPointer = stdgo._internal.io.Io_t_onceerrorpointer.T_onceErrorPointer;
-class T_onceError_static_extension {
+@:dox(hide) typedef T_onceErrorPointer = stdgo._internal.io.Io_t_onceerrorpointer.T_onceErrorPointer;
+@:dox(hide) class T_onceError_static_extension {
     static public function load(_a:T_onceError):stdgo.Error {
         final _a = (_a : stdgo.Ref<stdgo._internal.io.Io_t_onceerror.T_onceError>);
         return stdgo._internal.io.Io_t_onceerror_static_extension.T_onceError_static_extension.load(_a);
@@ -671,8 +671,8 @@ class T_onceError_static_extension {
         stdgo._internal.io.Io_t_onceerror_static_extension.T_onceError_static_extension.lock(__self__);
     }
 }
-typedef T_pipePointer = stdgo._internal.io.Io_t_pipepointer.T_pipePointer;
-class T_pipe_static_extension {
+@:dox(hide) typedef T_pipePointer = stdgo._internal.io.Io_t_pipepointer.T_pipePointer;
+@:dox(hide) class T_pipe_static_extension {
     static public function _writeCloseError(_p:T_pipe):stdgo.Error {
         final _p = (_p : stdgo.Ref<stdgo._internal.io.Io_t_pipe.T_pipe>);
         return stdgo._internal.io.Io_t_pipe_static_extension.T_pipe_static_extension._writeCloseError(_p);
@@ -748,8 +748,8 @@ class PipeWriter_static_extension {
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.io.Io_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.io.Io_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 /**

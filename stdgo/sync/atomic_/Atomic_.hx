@@ -136,12 +136,12 @@ package stdgo.sync.atomic_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) abstract T_noCopy(stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy) from stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy to stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy {
+@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) @:dox(hide) abstract T_noCopy(stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy) from stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy to stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy {
     public function new() this = new stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_align64_static_extension) abstract T_align64(stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64) from stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64 to stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64 {
+@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_align64_static_extension) @:dox(hide) abstract T_align64(stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64) from stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64 to stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64 {
     public function new() this = new stdgo._internal.sync.atomic_.Atomic__t_align64.T_align64();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -157,7 +157,7 @@ package stdgo.sync.atomic_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_efaceWords_static_extension) abstract T_efaceWords(stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords) from stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords to stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords {
+@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_efaceWords_static_extension) @:dox(hide) abstract T_efaceWords(stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords) from stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords to stdgo._internal.sync.atomic_.Atomic__t_efacewords.T_efaceWords {
     public var _typ(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
     function get__typ():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._typ;
     function set__typ(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
@@ -356,8 +356,8 @@ class Uintptr_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__uintptr_static_extension.Uintptr_static_extension.load(_x);
     }
 }
-typedef T_noCopyPointer = stdgo._internal.sync.atomic_.Atomic__t_nocopypointer.T_noCopyPointer;
-class T_noCopy_static_extension {
+@:dox(hide) typedef T_noCopyPointer = stdgo._internal.sync.atomic_.Atomic__t_nocopypointer.T_noCopyPointer;
+@:dox(hide) class T_noCopy_static_extension {
     static public function unlock(_:T_noCopy):Void {
         final _ = (_ : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy>);
         stdgo._internal.sync.atomic_.Atomic__t_nocopy_static_extension.T_noCopy_static_extension.unlock(_);
@@ -367,8 +367,8 @@ class T_noCopy_static_extension {
         stdgo._internal.sync.atomic_.Atomic__t_nocopy_static_extension.T_noCopy_static_extension.lock(_);
     }
 }
-typedef T_align64Pointer = stdgo._internal.sync.atomic_.Atomic__t_align64pointer.T_align64Pointer;
-class T_align64_static_extension {
+@:dox(hide) typedef T_align64Pointer = stdgo._internal.sync.atomic_.Atomic__t_align64pointer.T_align64Pointer;
+@:dox(hide) class T_align64_static_extension {
 
 }
 typedef ValuePointer = stdgo._internal.sync.atomic_.Atomic__valuepointer.ValuePointer;
@@ -394,8 +394,8 @@ class Value_static_extension {
         return stdgo._internal.sync.atomic_.Atomic__value_static_extension.Value_static_extension.load(_v);
     }
 }
-typedef T_efaceWordsPointer = stdgo._internal.sync.atomic_.Atomic__t_efacewordspointer.T_efaceWordsPointer;
-class T_efaceWords_static_extension {
+@:dox(hide) typedef T_efaceWordsPointer = stdgo._internal.sync.atomic_.Atomic__t_efacewordspointer.T_efaceWordsPointer;
+@:dox(hide) class T_efaceWords_static_extension {
 
 }
 /**

@@ -34,7 +34,7 @@ package stdgo.crypto.internal.edwards25519.field;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.edwards25519.field.Field.T_uint128_static_extension) abstract T_uint128(stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128) from stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128 to stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128 {
+@:structInit @:using(stdgo.crypto.internal.edwards25519.field.Field.T_uint128_static_extension) @:dox(hide) abstract T_uint128(stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128) from stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128 to stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128.T_uint128 {
     public var _lo(get, set) : haxe.UInt64;
     function get__lo():haxe.UInt64 return this._lo;
     function set__lo(v:haxe.UInt64):haxe.UInt64 {
@@ -176,8 +176,8 @@ class Element_static_extension {
         return stdgo._internal.crypto.internal.edwards25519.field.Field_element_static_extension.Element_static_extension.zero(_v);
     }
 }
-typedef T_uint128Pointer = stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128pointer.T_uint128Pointer;
-class T_uint128_static_extension {
+@:dox(hide) typedef T_uint128Pointer = stdgo._internal.crypto.internal.edwards25519.field.Field_t_uint128pointer.T_uint128Pointer;
+@:dox(hide) class T_uint128_static_extension {
 
 }
 /**

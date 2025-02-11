@@ -5,7 +5,7 @@ private function set_sigquit(v:stdgo._internal.os.Os_signal.Signal):stdgo._inter
         stdgo._internal.internal.testenv.Testenv_sigquit.sigquit = v;
         return v;
     }
-class T__interface_0_static_extension {
+@:dox(hide) class T__interface_0_static_extension {
     static public function deadline(t:stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0):stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool> {
         return {
             final obj = stdgo._internal.internal.testenv.Testenv_t__interface_0_static_extension.T__interface_0_static_extension.deadline(t);
@@ -13,7 +13,7 @@ class T__interface_0_static_extension {
         };
     }
 }
-typedef T__interface_0 = stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0;
+@:dox(hide) typedef T__interface_0 = stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0;
 /**
     * Package testenv provides information about what functionality
     * is available in different testing environments run by the Go team.

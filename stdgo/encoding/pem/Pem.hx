@@ -22,7 +22,7 @@ package stdgo.encoding.pem;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.pem.Pem.T_lineBreaker_static_extension) abstract T_lineBreaker(stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker) from stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker to stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker {
+@:structInit @:using(stdgo.encoding.pem.Pem.T_lineBreaker_static_extension) @:dox(hide) abstract T_lineBreaker(stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker) from stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker to stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker {
     public var _line(get, set) : haxe.ds.Vector<std.UInt>;
     function get__line():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._line) i]);
     function set__line(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -49,8 +49,8 @@ typedef BlockPointer = stdgo._internal.encoding.pem.Pem_blockpointer.BlockPointe
 class Block_static_extension {
 
 }
-typedef T_lineBreakerPointer = stdgo._internal.encoding.pem.Pem_t_linebreakerpointer.T_lineBreakerPointer;
-class T_lineBreaker_static_extension {
+@:dox(hide) typedef T_lineBreakerPointer = stdgo._internal.encoding.pem.Pem_t_linebreakerpointer.T_lineBreakerPointer;
+@:dox(hide) class T_lineBreaker_static_extension {
     static public function close(_l:T_lineBreaker):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.encoding.pem.Pem_t_linebreaker.T_lineBreaker>);
         return stdgo._internal.encoding.pem.Pem_t_linebreaker_static_extension.T_lineBreaker_static_extension.close(_l);

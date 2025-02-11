@@ -8,7 +8,7 @@ function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.t
             };
         };
         {
-            var __tmp__ = (_p != null && _p.exists((("开源" : stdgo.GoString) : stdgo._internal.encoding.json.Json_t_textunmarshalerstring.T_textUnmarshalerString)) ? { _0 : _p[(("开源" : stdgo.GoString) : stdgo._internal.encoding.json.Json_t_textunmarshalerstring.T_textUnmarshalerString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __4:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_p != null && _p.__exists__((("开源" : stdgo.GoString) : stdgo._internal.encoding.json.Json_t_textunmarshalerstring.T_textUnmarshalerString)) ? { _0 : _p[(("开源" : stdgo.GoString) : stdgo._internal.encoding.json.Json_t_textunmarshalerstring.T_textUnmarshalerString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __4:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 @:check2r _t.errorf(("Key \"开源\" does not exist in map: %v" : stdgo.GoString), stdgo.Go.toInterface(_p));
             };

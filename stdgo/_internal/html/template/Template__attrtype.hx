@@ -12,7 +12,7 @@ function _attrType(_name:stdgo.GoString):stdgo._internal.html.template.Template_
             };
         };
         {
-            var __tmp__ = (stdgo._internal.html.template.Template__attrtypemap._attrTypeMap != null && stdgo._internal.html.template.Template__attrtypemap._attrTypeMap.exists(_name?.__copy__()) ? { _0 : stdgo._internal.html.template.Template__attrtypemap._attrTypeMap[_name?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoUInt8) : stdgo._internal.html.template.Template_t_contenttype.T_contentType), _1 : false }), _t:stdgo._internal.html.template.Template_t_contenttype.T_contentType = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (stdgo._internal.html.template.Template__attrtypemap._attrTypeMap != null && stdgo._internal.html.template.Template__attrtypemap._attrTypeMap.__exists__(_name?.__copy__()) ? { _0 : stdgo._internal.html.template.Template__attrtypemap._attrTypeMap[_name?.__copy__()], _1 : true } : { _0 : ((0 : stdgo.GoUInt8) : stdgo._internal.html.template.Template_t_contenttype.T_contentType), _1 : false }), _t:stdgo._internal.html.template.Template_t_contenttype.T_contentType = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _t;
             };

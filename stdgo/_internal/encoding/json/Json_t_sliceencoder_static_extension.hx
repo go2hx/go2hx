@@ -15,7 +15,7 @@ package stdgo._internal.encoding.json;
                 if (((@:checkr _e ?? throw "null pointer dereference")._ptrLevel > (1000u32 : stdgo.GoUInt) : Bool)) {
                     var _ptr = ({ _ptr : stdgo.Go.toInterface(_v.unsafePointer()), _len : _v.len() } : stdgo._internal.encoding.json.Json_t__struct_20.T__struct_20);
                     {
-                        var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._ptrSeen != null && (@:checkr _e ?? throw "null pointer dereference")._ptrSeen.exists(stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))], _1 : true } : { _0 : ({} : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue), _1 : false }), __4:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = ((@:checkr _e ?? throw "null pointer dereference")._ptrSeen != null && (@:checkr _e ?? throw "null pointer dereference")._ptrSeen.__exists__(stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))) ? { _0 : (@:checkr _e ?? throw "null pointer dereference")._ptrSeen[stdgo.Go.toInterface(stdgo.Go.asInterface(_ptr))], _1 : true } : { _0 : ({} : stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue), _1 : false }), __4:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             @:check2r _e._error(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError(_v?.__copy__(), stdgo._internal.fmt.Fmt_sprintf.sprintf(("encountered a cycle via %s" : stdgo.GoString), stdgo.Go.toInterface(_v.type()))?.__copy__()) : stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError)) : stdgo.Ref<stdgo._internal.encoding.json.Json_unsupportedvalueerror.UnsupportedValueError>)));
                         };
@@ -24,7 +24,7 @@ package stdgo._internal.encoding.json;
                     {
                         var _a0 = (@:checkr _e ?? throw "null pointer dereference")._ptrSeen;
                         var _a1 = _ptr;
-                        __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.remove(stdgo.Go.toInterface(stdgo.Go.asInterface(_a1))) });
+                        __deferstack__.unshift({ ran : false, f : () -> if (_a0 != null) _a0.__remove__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a1))) });
                     };
                 };
             };

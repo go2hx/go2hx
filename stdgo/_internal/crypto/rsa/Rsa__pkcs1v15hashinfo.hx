@@ -20,7 +20,7 @@ function _pkcs1v15HashInfo(_hash:stdgo._internal.crypto.Crypto_hash.Hash, _inLen
                 __tmp__;
             };
         };
-        var __tmp__ = (stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes != null && stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes.exists(_hash) ? { _0 : stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes[_hash], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : false }), _prefix:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes != null && stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes.__exists__(_hash) ? { _0 : stdgo._internal.crypto.rsa.Rsa__hashprefixes._hashPrefixes[_hash], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : false }), _prefix:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.errors.Errors_new_.new_(("crypto/rsa: unsupported hash function" : stdgo.GoString)) };

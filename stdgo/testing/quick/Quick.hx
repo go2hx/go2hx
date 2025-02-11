@@ -93,7 +93,7 @@ typedef Generator = stdgo._internal.testing.quick.Quick_generator.Generator;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.quick.Quick.T_myStruct_static_extension) abstract T_myStruct(stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct) from stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct to stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct {
+@:structInit @:using(stdgo.testing.quick.Quick.T_myStruct_static_extension) @:dox(hide) abstract T_myStruct(stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct) from stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct to stdgo._internal.testing.quick.Quick_t_mystruct.T_myStruct {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
@@ -126,11 +126,11 @@ typedef Generator = stdgo._internal.testing.quick.Quick_generator.Generator;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.testing.quick.Quick_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.testing.quick.Quick_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.testing.quick.Quick_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.testing.quick.Quick_t__struct_0.T__struct_0;
 typedef SetupError = stdgo._internal.testing.quick.Quick_setuperror.SetupError;
 typedef TestArrayAlias = stdgo._internal.testing.quick.Quick_testarrayalias.TestArrayAlias;
 typedef TestBoolAlias = stdgo._internal.testing.quick.Quick_testboolalias.TestBoolAlias;
@@ -154,7 +154,7 @@ typedef TestUint64Alias = stdgo._internal.testing.quick.Quick_testuint64alias.Te
 typedef TestUint8Alias = stdgo._internal.testing.quick.Quick_testuint8alias.TestUint8Alias;
 typedef TestUintAlias = stdgo._internal.testing.quick.Quick_testuintalias.TestUintAlias;
 typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick_testuintptralias.TestUintptrAlias;
-@:structInit @:using(stdgo.testing.quick.Quick.T_testRecursive___localname___R_8108_static_extension) abstract T_testRecursive___localname___R_8108(stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108) from stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108 to stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108 {
+@:structInit @:using(stdgo.testing.quick.Quick.T_testRecursive___localname___R_8108_static_extension) @:dox(hide) abstract T_testRecursive___localname___R_8108(stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108) from stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108 to stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108.T_testRecursive___localname___R_8108 {
     public var ptr(get, set) : T_testRecursive___localname___R_8108;
     function get_ptr():T_testRecursive___localname___R_8108 return this.ptr;
     function set_ptr(v:T_testRecursive___localname___R_8108):T_testRecursive___localname___R_8108 {
@@ -201,7 +201,7 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick_testuintptralias.
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.quick.Quick.T_testNonZeroSliceAndMap___localname___Q_8763_static_extension) abstract T_testNonZeroSliceAndMap___localname___Q_8763(stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763) from stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763 to stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763 {
+@:structInit @:using(stdgo.testing.quick.Quick.T_testNonZeroSliceAndMap___localname___Q_8763_static_extension) @:dox(hide) abstract T_testNonZeroSliceAndMap___localname___Q_8763(stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763) from stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763 to stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763.T_testNonZeroSliceAndMap___localname___Q_8763 {
     public var m(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
     function get_m():stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> return this.m;
     function set_m(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> {
@@ -247,8 +247,8 @@ typedef TestStructPointer = stdgo._internal.testing.quick.Quick_teststructpointe
 class TestStruct_static_extension {
 
 }
-typedef T_myStructPointer = stdgo._internal.testing.quick.Quick_t_mystructpointer.T_myStructPointer;
-class T_myStruct_static_extension {
+@:dox(hide) typedef T_myStructPointer = stdgo._internal.testing.quick.Quick_t_mystructpointer.T_myStructPointer;
+@:dox(hide) class T_myStruct_static_extension {
     static public function generate(_m:T_myStruct, _r:stdgo._internal.math.rand.Rand_rand.Rand, __0:StdTypes.Int):stdgo._internal.reflect.Reflect_value.Value {
         final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final __0 = (__0 : stdgo.GoInt);
@@ -263,8 +263,8 @@ typedef BPointer = stdgo._internal.testing.quick.Quick_bpointer.BPointer;
 class B_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.testing.quick.Quick_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.testing.quick.Quick_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef SetupErrorPointer = stdgo._internal.testing.quick.Quick_setuperrorpointer.SetupErrorPointer;
@@ -361,12 +361,12 @@ typedef TestUintptrAliasPointer = stdgo._internal.testing.quick.Quick_testuintpt
 class TestUintptrAlias_static_extension {
 
 }
-typedef T_testRecursive___localname___R_8108Pointer = stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108pointer.T_testRecursive___localname___R_8108Pointer;
-class T_testRecursive___localname___R_8108_static_extension {
+@:dox(hide) typedef T_testRecursive___localname___R_8108Pointer = stdgo._internal.testing.quick.Quick_t_testrecursive___localname___r_8108pointer.T_testRecursive___localname___R_8108Pointer;
+@:dox(hide) class T_testRecursive___localname___R_8108_static_extension {
 
 }
-typedef T_testNonZeroSliceAndMap___localname___Q_8763Pointer = stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763pointer.T_testNonZeroSliceAndMap___localname___Q_8763Pointer;
-class T_testNonZeroSliceAndMap___localname___Q_8763_static_extension {
+@:dox(hide) typedef T_testNonZeroSliceAndMap___localname___Q_8763Pointer = stdgo._internal.testing.quick.Quick_t_testnonzerosliceandmap___localname___q_8763pointer.T_testNonZeroSliceAndMap___localname___Q_8763Pointer;
+@:dox(hide) class T_testNonZeroSliceAndMap___localname___Q_8763_static_extension {
 
 }
 /**

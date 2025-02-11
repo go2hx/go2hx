@@ -282,17 +282,17 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0.T__struct_0;
 typedef CodeVal = stdgo._internal.internal.pkgbits.Pkgbits_codeval.CodeVal;
 typedef CodeType = stdgo._internal.internal.pkgbits.Pkgbits_codetype.CodeType;
 typedef CodeObj = stdgo._internal.internal.pkgbits.Pkgbits_codeobj.CodeObj;
 typedef RelocKind = stdgo._internal.internal.pkgbits.Pkgbits_relockind.RelocKind;
 typedef Index = stdgo._internal.internal.pkgbits.Pkgbits_index.Index;
-typedef T_frameVisitor = stdgo._internal.internal.pkgbits.Pkgbits_t_framevisitor.T_frameVisitor;
+@:dox(hide) typedef T_frameVisitor = stdgo._internal.internal.pkgbits.Pkgbits_t_framevisitor.T_frameVisitor;
 typedef SyncMarker = stdgo._internal.internal.pkgbits.Pkgbits_syncmarker.SyncMarker;
 typedef PkgDecoderPointer = stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoderpointer.PkgDecoderPointer;
 class PkgDecoder_static_extension {
@@ -569,8 +569,8 @@ typedef RelocEntPointer = stdgo._internal.internal.pkgbits.Pkgbits_relocentpoint
 class RelocEnt_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.internal.pkgbits.Pkgbits_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef CodeValPointer = stdgo._internal.internal.pkgbits.Pkgbits_codevalpointer.CodeValPointer;
@@ -608,8 +608,8 @@ typedef IndexPointer = stdgo._internal.internal.pkgbits.Pkgbits_indexpointer.Ind
 class Index_static_extension {
 
 }
-typedef T_frameVisitorPointer = stdgo._internal.internal.pkgbits.Pkgbits_t_framevisitorpointer.T_frameVisitorPointer;
-class T_frameVisitor_static_extension {
+@:dox(hide) typedef T_frameVisitorPointer = stdgo._internal.internal.pkgbits.Pkgbits_t_framevisitorpointer.T_frameVisitorPointer;
+@:dox(hide) class T_frameVisitor_static_extension {
 
 }
 typedef SyncMarkerPointer = stdgo._internal.internal.pkgbits.Pkgbits_syncmarkerpointer.SyncMarkerPointer;

@@ -43,7 +43,7 @@ var _u = __1, _t = __0;
                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            if ((@:checkr _p ?? throw "null pointer dereference")._m != null) (@:checkr _p ?? throw "null pointer dereference")._m.remove(_value);
+            if ((@:checkr _p ?? throw "null pointer dereference")._m != null) (@:checkr _p ?? throw "null pointer dereference")._m.__remove__(_value);
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

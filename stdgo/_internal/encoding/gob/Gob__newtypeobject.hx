@@ -12,7 +12,7 @@ var _type1 = __1, _type0 = __0;
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         if (_err != null) {
-                            if (stdgo._internal.encoding.gob.Gob__types._types != null) stdgo._internal.encoding.gob.Gob__types._types.remove(_rt);
+                            if (stdgo._internal.encoding.gob.Gob__types._types != null) stdgo._internal.encoding.gob.Gob__types._types.__remove__(_rt);
                         };
                     };
                     a();

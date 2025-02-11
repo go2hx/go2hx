@@ -201,7 +201,7 @@ position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.T_token_static_extension) abstract T_token(stdgo._internal.text.scanner.Scanner_t_token.T_token) from stdgo._internal.text.scanner.Scanner_t_token.T_token to stdgo._internal.text.scanner.Scanner_t_token.T_token {
+@:structInit @:using(stdgo.text.scanner.Scanner.T_token_static_extension) @:dox(hide) abstract T_token(stdgo._internal.text.scanner.Scanner_t_token.T_token) from stdgo._internal.text.scanner.Scanner_t_token.T_token to stdgo._internal.text.scanner.Scanner_t_token.T_token {
     public var _tok(get, set) : StdTypes.Int;
     function get__tok():StdTypes.Int return this._tok;
     function set__tok(v:StdTypes.Int):StdTypes.Int {
@@ -218,22 +218,22 @@ position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.T_errReader_static_extension) abstract T_errReader(stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader) from stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader to stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader {
+@:structInit @:using(stdgo.text.scanner.Scanner.T_errReader_static_extension) @:dox(hide) abstract T_errReader(stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader) from stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader to stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader {
     public function new() this = new stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.text.scanner.Scanner_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.text.scanner.Scanner_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.text.scanner.Scanner_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.text.scanner.Scanner_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.text.scanner.Scanner_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.text.scanner.Scanner_t__struct_1.T__struct_1;
-typedef T_countReader = stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader;
+@:dox(hide) typedef T__struct_1 = stdgo._internal.text.scanner.Scanner_t__struct_1.T__struct_1;
+@:dox(hide) typedef T_countReader = stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader;
 typedef PositionPointer = stdgo._internal.text.scanner.Scanner_positionpointer.PositionPointer;
 class Position_static_extension {
     static public function string(_pos:Position):String {
@@ -359,12 +359,12 @@ class StringReader_static_extension {
         };
     }
 }
-typedef T_tokenPointer = stdgo._internal.text.scanner.Scanner_t_tokenpointer.T_tokenPointer;
-class T_token_static_extension {
+@:dox(hide) typedef T_tokenPointer = stdgo._internal.text.scanner.Scanner_t_tokenpointer.T_tokenPointer;
+@:dox(hide) class T_token_static_extension {
 
 }
-typedef T_errReaderPointer = stdgo._internal.text.scanner.Scanner_t_errreaderpointer.T_errReaderPointer;
-class T_errReader_static_extension {
+@:dox(hide) typedef T_errReaderPointer = stdgo._internal.text.scanner.Scanner_t_errreaderpointer.T_errReaderPointer;
+@:dox(hide) class T_errReader_static_extension {
     static public function read(_:T_errReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -373,16 +373,16 @@ class T_errReader_static_extension {
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.text.scanner.Scanner_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.text.scanner.Scanner_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.text.scanner.Scanner_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.text.scanner.Scanner_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T_countReaderPointer = stdgo._internal.text.scanner.Scanner_t_countreaderpointer.T_countReaderPointer;
-class T_countReader_static_extension {
+@:dox(hide) typedef T_countReaderPointer = stdgo._internal.text.scanner.Scanner_t_countreaderpointer.T_countReaderPointer;
+@:dox(hide) class T_countReader_static_extension {
     static public function read(_r:stdgo.Pointer<T_countReader>, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {

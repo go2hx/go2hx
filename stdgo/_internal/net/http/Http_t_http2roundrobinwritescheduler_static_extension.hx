@@ -66,7 +66,7 @@ package stdgo._internal.net.http;
                 (@:checkr _ws ?? throw "null pointer dereference")._head = (@:checkr _q ?? throw "null pointer dereference")._next;
             };
         };
-        if ((@:checkr _ws ?? throw "null pointer dereference")._streams != null) (@:checkr _ws ?? throw "null pointer dereference")._streams.remove(_streamID);
+        if ((@:checkr _ws ?? throw "null pointer dereference")._streams != null) (@:checkr _ws ?? throw "null pointer dereference")._streams.__remove__(_streamID);
         @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._put(_q);
     }
     @:keep

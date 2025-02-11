@@ -17,7 +17,7 @@ for (_j => _tv in _rdn) {
                         _s = (_s + (("+" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     };
                     var _oidString = ((_tv.type.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                    var __tmp__ = (stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames != null && stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames.exists(_oidString?.__copy__()) ? { _0 : stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames[_oidString?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _typeName:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames != null && stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames.__exists__(_oidString?.__copy__()) ? { _0 : stdgo._internal.crypto.x509.pkix.Pkix__attributetypenames._attributeTypeNames[_oidString?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _typeName:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(_tv.value), _derBytes:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err == null) {

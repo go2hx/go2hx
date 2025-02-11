@@ -36,7 +36,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_encoder_static_extension) abstract T_encoder(stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder) from stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder to stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder {
+@:structInit @:using(stdgo.encoding.base32.Base32.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder) from stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder to stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -77,7 +77,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_decoder_static_extension) abstract T_decoder(stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder) from stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder to stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder {
+@:structInit @:using(stdgo.encoding.base32.Base32.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder) from stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder to stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -130,7 +130,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_newlineFilteringReader_static_extension) abstract T_newlineFilteringReader(stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader {
+@:structInit @:using(stdgo.encoding.base32.Base32.T_newlineFilteringReader_static_extension) @:dox(hide) abstract T_newlineFilteringReader(stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader {
     public var _wrapped(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__wrapped():stdgo._internal.io.Io_reader.Reader return this._wrapped;
     function set__wrapped(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -196,8 +196,8 @@ class Encoding_static_extension {
         return stdgo._internal.encoding.base32.Base32_encoding_static_extension.Encoding_static_extension.withPadding(_enc, _padding);
     }
 }
-typedef T_encoderPointer = stdgo._internal.encoding.base32.Base32_t_encoderpointer.T_encoderPointer;
-class T_encoder_static_extension {
+@:dox(hide) typedef T_encoderPointer = stdgo._internal.encoding.base32.Base32_t_encoderpointer.T_encoderPointer;
+@:dox(hide) class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder>);
         return stdgo._internal.encoding.base32.Base32_t_encoder_static_extension.T_encoder_static_extension.close(_e);
@@ -211,8 +211,8 @@ class T_encoder_static_extension {
         };
     }
 }
-typedef T_decoderPointer = stdgo._internal.encoding.base32.Base32_t_decoderpointer.T_decoderPointer;
-class T_decoder_static_extension {
+@:dox(hide) typedef T_decoderPointer = stdgo._internal.encoding.base32.Base32_t_decoderpointer.T_decoderPointer;
+@:dox(hide) class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -222,8 +222,8 @@ class T_decoder_static_extension {
         };
     }
 }
-typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base32.Base32_t_newlinefilteringreaderpointer.T_newlineFilteringReaderPointer;
-class T_newlineFilteringReader_static_extension {
+@:dox(hide) typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base32.Base32_t_newlinefilteringreaderpointer.T_newlineFilteringReaderPointer;
+@:dox(hide) class T_newlineFilteringReader_static_extension {
     static public function read(_r:T_newlineFilteringReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

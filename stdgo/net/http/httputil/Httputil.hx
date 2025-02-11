@@ -33,7 +33,7 @@ class BufferPool_static_extension {
     }
 }
 typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_bufferpool.BufferPool;
-@:structInit @:using(stdgo.net.http.httputil.Httputil.T_dumpConn_static_extension) abstract T_dumpConn(stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn) from stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn to stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn {
+@:structInit @:using(stdgo.net.http.httputil.Httputil.T_dumpConn_static_extension) @:dox(hide) abstract T_dumpConn(stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn) from stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn to stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn {
     public var writer(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_writer():stdgo._internal.io.Io_writer.Writer return this.writer;
     function set_writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -50,7 +50,7 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_bufferpool.Buffe
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.httputil.Httputil.T_delegateReader_static_extension) abstract T_delegateReader(stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader) from stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader to stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader {
+@:structInit @:using(stdgo.net.http.httputil.Httputil.T_delegateReader_static_extension) @:dox(hide) abstract T_delegateReader(stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader) from stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader to stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader {
     public var _c(get, set) : stdgo.Chan<stdgo._internal.io.Io_reader.Reader>;
     function get__c():stdgo.Chan<stdgo._internal.io.Io_reader.Reader> return this._c;
     function set__c(v:stdgo.Chan<stdgo._internal.io.Io_reader.Reader>):stdgo.Chan<stdgo._internal.io.Io_reader.Reader> {
@@ -73,7 +73,7 @@ typedef BufferPool = stdgo._internal.net.http.httputil.Httputil_bufferpool.Buffe
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.httputil.Httputil.T_failureToReadBody_static_extension) abstract T_failureToReadBody(stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody) from stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody to stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody {
+@:structInit @:using(stdgo.net.http.httputil.Httputil.T_failureToReadBody_static_extension) @:dox(hide) abstract T_failureToReadBody(stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody) from stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody to stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody {
     public function new() this = new stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody.T_failureToReadBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -295,7 +295,7 @@ _writeReq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.httputil.Httputil.T_maxLatencyWriter_static_extension) abstract T_maxLatencyWriter(stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter) from stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter to stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter {
+@:structInit @:using(stdgo.net.http.httputil.Httputil.T_maxLatencyWriter_static_extension) @:dox(hide) abstract T_maxLatencyWriter(stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter) from stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter to stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter {
     public var _dst(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__dst():stdgo._internal.io.Io_writer.Writer return this._dst;
     function set__dst(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -336,7 +336,7 @@ _writeReq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.httputil.Httputil.T_switchProtocolCopier_static_extension) abstract T_switchProtocolCopier(stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier) from stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier to stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier {
+@:structInit @:using(stdgo.net.http.httputil.Httputil.T_switchProtocolCopier_static_extension) @:dox(hide) abstract T_switchProtocolCopier(stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier) from stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier to stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier.T_switchProtocolCopier {
     public var _user(get, set) : stdgo._internal.io.Io_readwriter.ReadWriter;
     function get__user():stdgo._internal.io.Io_readwriter.ReadWriter return this._user;
     function set__user(v:stdgo._internal.io.Io_readwriter.ReadWriter):stdgo._internal.io.Io_readwriter.ReadWriter {
@@ -353,14 +353,14 @@ _writeReq);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.net.http.httputil.Httputil_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.net.http.httputil.Httputil_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.net.http.httputil.Httputil_t__struct_0.T__struct_0;
-typedef T_neverEnding = stdgo._internal.net.http.httputil.Httputil_t_neverending.T_neverEnding;
-typedef T_dumpConnPointer = stdgo._internal.net.http.httputil.Httputil_t_dumpconnpointer.T_dumpConnPointer;
-class T_dumpConn_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.net.http.httputil.Httputil_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_neverEnding = stdgo._internal.net.http.httputil.Httputil_t_neverending.T_neverEnding;
+@:dox(hide) typedef T_dumpConnPointer = stdgo._internal.net.http.httputil.Httputil_t_dumpconnpointer.T_dumpConnPointer;
+@:dox(hide) class T_dumpConn_static_extension {
     static public function setWriteDeadline(_c:T_dumpConn, _t:stdgo._internal.time.Time_time.Time):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_dumpconn.T_dumpConn>);
         return stdgo._internal.net.http.httputil.Httputil_t_dumpconn_static_extension.T_dumpConn_static_extension.setWriteDeadline(_c, _t);
@@ -400,8 +400,8 @@ class T_dumpConn_static_extension {
         };
     }
 }
-typedef T_delegateReaderPointer = stdgo._internal.net.http.httputil.Httputil_t_delegatereaderpointer.T_delegateReaderPointer;
-class T_delegateReader_static_extension {
+@:dox(hide) typedef T_delegateReaderPointer = stdgo._internal.net.http.httputil.Httputil_t_delegatereaderpointer.T_delegateReaderPointer;
+@:dox(hide) class T_delegateReader_static_extension {
     static public function read(_r:T_delegateReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_delegatereader.T_delegateReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -411,8 +411,8 @@ class T_delegateReader_static_extension {
         };
     }
 }
-typedef T_failureToReadBodyPointer = stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbodypointer.T_failureToReadBodyPointer;
-class T_failureToReadBody_static_extension {
+@:dox(hide) typedef T_failureToReadBodyPointer = stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbodypointer.T_failureToReadBodyPointer;
+@:dox(hide) class T_failureToReadBody_static_extension {
     static public function close(_:T_failureToReadBody):stdgo.Error {
         return stdgo._internal.net.http.httputil.Httputil_t_failuretoreadbody_static_extension.T_failureToReadBody_static_extension.close(_);
     }
@@ -558,8 +558,8 @@ class ReverseProxy_static_extension {
         stdgo._internal.net.http.httputil.Httputil_reverseproxy_static_extension.ReverseProxy_static_extension._defaultErrorHandler(_p, _rw, _req, _err);
     }
 }
-typedef T_maxLatencyWriterPointer = stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriterpointer.T_maxLatencyWriterPointer;
-class T_maxLatencyWriter_static_extension {
+@:dox(hide) typedef T_maxLatencyWriterPointer = stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriterpointer.T_maxLatencyWriterPointer;
+@:dox(hide) class T_maxLatencyWriter_static_extension {
     static public function _stop(_m:T_maxLatencyWriter):Void {
         final _m = (_m : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter>);
         stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter_static_extension.T_maxLatencyWriter_static_extension._stop(_m);
@@ -577,8 +577,8 @@ class T_maxLatencyWriter_static_extension {
         };
     }
 }
-typedef T_switchProtocolCopierPointer = stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopierpointer.T_switchProtocolCopierPointer;
-class T_switchProtocolCopier_static_extension {
+@:dox(hide) typedef T_switchProtocolCopierPointer = stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopierpointer.T_switchProtocolCopierPointer;
+@:dox(hide) class T_switchProtocolCopier_static_extension {
     static public function _copyToBackend(_c:T_switchProtocolCopier, _errc:stdgo.Chan<stdgo.Error>):Void {
         final _errc = (_errc : stdgo.Chan<stdgo.Error>);
         stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier_static_extension.T_switchProtocolCopier_static_extension._copyToBackend(_c, _errc);
@@ -588,12 +588,12 @@ class T_switchProtocolCopier_static_extension {
         stdgo._internal.net.http.httputil.Httputil_t_switchprotocolcopier_static_extension.T_switchProtocolCopier_static_extension._copyFromBackend(_c, _errc);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.net.http.httputil.Httputil_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.net.http.httputil.Httputil_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T_neverEndingPointer = stdgo._internal.net.http.httputil.Httputil_t_neverendingpointer.T_neverEndingPointer;
-class T_neverEnding_static_extension {
+@:dox(hide) typedef T_neverEndingPointer = stdgo._internal.net.http.httputil.Httputil_t_neverendingpointer.T_neverEndingPointer;
+@:dox(hide) class T_neverEnding_static_extension {
     static public function read(_b:T_neverEnding, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {

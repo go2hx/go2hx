@@ -49,7 +49,7 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_publicsu
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.cookiejar.Cookiejar.T_entry_static_extension) abstract T_entry(stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry) from stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry to stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry {
+@:structInit @:using(stdgo.net.http.cookiejar.Cookiejar.T_entry_static_extension) @:dox(hide) abstract T_entry(stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry) from stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry to stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -193,8 +193,8 @@ class Jar_static_extension {
         return [for (i in stdgo._internal.net.http.cookiejar.Cookiejar_jar_static_extension.Jar_static_extension.cookies(_j, _u)) i];
     }
 }
-typedef T_entryPointer = stdgo._internal.net.http.cookiejar.Cookiejar_t_entrypointer.T_entryPointer;
-class T_entry_static_extension {
+@:dox(hide) typedef T_entryPointer = stdgo._internal.net.http.cookiejar.Cookiejar_t_entrypointer.T_entryPointer;
+@:dox(hide) class T_entry_static_extension {
     static public function _pathMatch(_e:T_entry, _requestPath:String):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
         final _requestPath = (_requestPath : stdgo.GoString);

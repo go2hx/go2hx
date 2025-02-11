@@ -3,7 +3,7 @@ final runeError : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_runeerror.run
 final runeSelf : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_runeself.runeSelf;
 final maxRune : StdTypes.Int = stdgo._internal.unicode.utf8.Utf8_maxrune.maxRune;
 final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_utfmax.uTFMax;
-@:structInit @:using(stdgo.unicode.utf8.Utf8.T_acceptRange_static_extension) abstract T_acceptRange(stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange) from stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange to stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange {
+@:structInit @:using(stdgo.unicode.utf8.Utf8.T_acceptRange_static_extension) @:dox(hide) abstract T_acceptRange(stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange) from stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange to stdgo._internal.unicode.utf8.Utf8_t_acceptrange.T_acceptRange {
     public var _lo(get, set) : std.UInt;
     function get__lo():std.UInt return this._lo;
     function set__lo(v:std.UInt):std.UInt {
@@ -20,8 +20,8 @@ final uTFMax : haxe.UInt64 = stdgo._internal.unicode.utf8.Utf8_utfmax.uTFMax;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_acceptRangePointer = stdgo._internal.unicode.utf8.Utf8_t_acceptrangepointer.T_acceptRangePointer;
-class T_acceptRange_static_extension {
+@:dox(hide) typedef T_acceptRangePointer = stdgo._internal.unicode.utf8.Utf8_t_acceptrangepointer.T_acceptRangePointer;
+@:dox(hide) class T_acceptRange_static_extension {
 
 }
 /**

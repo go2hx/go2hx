@@ -54,7 +54,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_encoder_static_extension) abstract T_encoder(stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder) from stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder to stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder) from stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder to stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -95,7 +95,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_decoder_static_extension) abstract T_decoder(stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder) from stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder to stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder) from stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder to stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -148,7 +148,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_newlineFilteringReader_static_extension) abstract T_newlineFilteringReader(stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_newlineFilteringReader_static_extension) @:dox(hide) abstract T_newlineFilteringReader(stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader {
     public var _wrapped(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__wrapped():stdgo._internal.io.Io_reader.Reader return this._wrapped;
     function set__wrapped(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -159,7 +159,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_testpair_static_extension) abstract T_testpair(stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair) from stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair to stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_testpair_static_extension) @:dox(hide) abstract T_testpair(stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair) from stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair to stdgo._internal.encoding.base64.Base64_t_testpair.T_testpair {
     public var _decoded(get, set) : String;
     function get__decoded():String return this._decoded;
     function set__decoded(v:String):String {
@@ -176,7 +176,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_encodingTest_static_extension) abstract T_encodingTest(stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest) from stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest to stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_encodingTest_static_extension) @:dox(hide) abstract T_encodingTest(stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest) from stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest to stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest {
     public var _enc(get, set) : Encoding;
     function get__enc():Encoding return this._enc;
     function set__enc(v:Encoding):Encoding {
@@ -193,7 +193,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_nextRead_static_extension) abstract T_nextRead(stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead) from stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead to stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_nextRead_static_extension) @:dox(hide) abstract T_nextRead(stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead) from stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead to stdgo._internal.encoding.base64.Base64_t_nextread.T_nextRead {
     public var _n(get, set) : StdTypes.Int;
     function get__n():StdTypes.Int return this._n;
     function set__n(v:StdTypes.Int):StdTypes.Int {
@@ -210,7 +210,7 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base64.Base64.T_faultInjectReader_static_extension) abstract T_faultInjectReader(stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader) from stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader to stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader {
+@:structInit @:using(stdgo.encoding.base64.Base64.T_faultInjectReader_static_extension) @:dox(hide) abstract T_faultInjectReader(stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader) from stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader to stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader {
     public var _source(get, set) : String;
     function get__source():String return this._source;
     function set__source(v:String):String {
@@ -227,16 +227,16 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.encoding.base64.Base64_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.encoding.base64.Base64_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.encoding.base64.Base64_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.encoding.base64.Base64_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.encoding.base64.Base64_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.encoding.base64.Base64_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.encoding.base64.Base64_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_1 = stdgo._internal.encoding.base64.Base64_t__struct_1.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError;
 typedef EncodingPointer = stdgo._internal.encoding.base64.Base64_encodingpointer.EncodingPointer;
 class Encoding_static_extension {
@@ -296,8 +296,8 @@ class Encoding_static_extension {
         return stdgo._internal.encoding.base64.Base64_encoding_static_extension.Encoding_static_extension.withPadding(_enc, _padding);
     }
 }
-typedef T_encoderPointer = stdgo._internal.encoding.base64.Base64_t_encoderpointer.T_encoderPointer;
-class T_encoder_static_extension {
+@:dox(hide) typedef T_encoderPointer = stdgo._internal.encoding.base64.Base64_t_encoderpointer.T_encoderPointer;
+@:dox(hide) class T_encoder_static_extension {
     static public function close(_e:T_encoder):stdgo.Error {
         final _e = (_e : stdgo.Ref<stdgo._internal.encoding.base64.Base64_t_encoder.T_encoder>);
         return stdgo._internal.encoding.base64.Base64_t_encoder_static_extension.T_encoder_static_extension.close(_e);
@@ -311,8 +311,8 @@ class T_encoder_static_extension {
         };
     }
 }
-typedef T_decoderPointer = stdgo._internal.encoding.base64.Base64_t_decoderpointer.T_decoderPointer;
-class T_decoder_static_extension {
+@:dox(hide) typedef T_decoderPointer = stdgo._internal.encoding.base64.Base64_t_decoderpointer.T_decoderPointer;
+@:dox(hide) class T_decoder_static_extension {
     static public function read(_d:T_decoder, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.base64.Base64_t_decoder.T_decoder>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -322,8 +322,8 @@ class T_decoder_static_extension {
         };
     }
 }
-typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base64.Base64_t_newlinefilteringreaderpointer.T_newlineFilteringReaderPointer;
-class T_newlineFilteringReader_static_extension {
+@:dox(hide) typedef T_newlineFilteringReaderPointer = stdgo._internal.encoding.base64.Base64_t_newlinefilteringreaderpointer.T_newlineFilteringReaderPointer;
+@:dox(hide) class T_newlineFilteringReader_static_extension {
     static public function read(_r:T_newlineFilteringReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.base64.Base64_t_newlinefilteringreader.T_newlineFilteringReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -333,20 +333,20 @@ class T_newlineFilteringReader_static_extension {
         };
     }
 }
-typedef T_testpairPointer = stdgo._internal.encoding.base64.Base64_t_testpairpointer.T_testpairPointer;
-class T_testpair_static_extension {
+@:dox(hide) typedef T_testpairPointer = stdgo._internal.encoding.base64.Base64_t_testpairpointer.T_testpairPointer;
+@:dox(hide) class T_testpair_static_extension {
 
 }
-typedef T_encodingTestPointer = stdgo._internal.encoding.base64.Base64_t_encodingtestpointer.T_encodingTestPointer;
-class T_encodingTest_static_extension {
+@:dox(hide) typedef T_encodingTestPointer = stdgo._internal.encoding.base64.Base64_t_encodingtestpointer.T_encodingTestPointer;
+@:dox(hide) class T_encodingTest_static_extension {
 
 }
-typedef T_nextReadPointer = stdgo._internal.encoding.base64.Base64_t_nextreadpointer.T_nextReadPointer;
-class T_nextRead_static_extension {
+@:dox(hide) typedef T_nextReadPointer = stdgo._internal.encoding.base64.Base64_t_nextreadpointer.T_nextReadPointer;
+@:dox(hide) class T_nextRead_static_extension {
 
 }
-typedef T_faultInjectReaderPointer = stdgo._internal.encoding.base64.Base64_t_faultinjectreaderpointer.T_faultInjectReaderPointer;
-class T_faultInjectReader_static_extension {
+@:dox(hide) typedef T_faultInjectReaderPointer = stdgo._internal.encoding.base64.Base64_t_faultinjectreaderpointer.T_faultInjectReaderPointer;
+@:dox(hide) class T_faultInjectReader_static_extension {
     static public function read(_r:T_faultInjectReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.encoding.base64.Base64_t_faultinjectreader.T_faultInjectReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -356,12 +356,12 @@ class T_faultInjectReader_static_extension {
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.encoding.base64.Base64_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.encoding.base64.Base64_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.encoding.base64.Base64_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.encoding.base64.Base64_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
 typedef CorruptInputErrorPointer = stdgo._internal.encoding.base64.Base64_corruptinputerrorpointer.CorruptInputErrorPointer;

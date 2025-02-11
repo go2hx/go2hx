@@ -5,7 +5,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_nil.nil = v;
         return v;
     }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientCodec_static_extension) abstract T_clientCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientCodec_static_extension) @:dox(hide) abstract T_clientCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec {
     public var _dec(get, set) : stdgo._internal.encoding.json.Json_decoder.Decoder;
     function get__dec():stdgo._internal.encoding.json.Json_decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.json.Json_decoder.Decoder):stdgo._internal.encoding.json.Json_decoder.Decoder {
@@ -52,7 +52,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientRequest_static_extension) abstract T_clientRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientRequest_static_extension) @:dox(hide) abstract T_clientRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -75,7 +75,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientResponse_static_extension) abstract T_clientResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientResponse_static_extension) @:dox(hide) abstract T_clientResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse {
     public var id(get, set) : haxe.UInt64;
     function get_id():haxe.UInt64 return this.id;
     function set_id(v:haxe.UInt64):haxe.UInt64 {
@@ -98,7 +98,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverCodec_static_extension) abstract T_serverCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverCodec_static_extension) @:dox(hide) abstract T_serverCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec {
     public var _dec(get, set) : stdgo._internal.encoding.json.Json_decoder.Decoder;
     function get__dec():stdgo._internal.encoding.json.Json_decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.json.Json_decoder.Decoder):stdgo._internal.encoding.json.Json_decoder.Decoder {
@@ -145,7 +145,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverRequest_static_extension) abstract T_serverRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverRequest_static_extension) @:dox(hide) abstract T_serverRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -168,7 +168,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverResponse_static_extension) abstract T_serverResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse {
+@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverResponse_static_extension) @:dox(hide) abstract T_serverResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse {
     public var id(get, set) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage;
     function get_id():stdgo._internal.encoding.json.Json_rawmessage.RawMessage return this.id;
     function set_id(v:stdgo._internal.encoding.json.Json_rawmessage.RawMessage):stdgo._internal.encoding.json.Json_rawmessage.RawMessage {
@@ -191,8 +191,8 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_clientCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodecpointer.T_clientCodecPointer;
-class T_clientCodec_static_extension {
+@:dox(hide) typedef T_clientCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodecpointer.T_clientCodecPointer;
+@:dox(hide) class T_clientCodec_static_extension {
     static public function close(_c:T_clientCodec):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec>);
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec_static_extension.T_clientCodec_static_extension.close(_c);
@@ -214,19 +214,19 @@ class T_clientCodec_static_extension {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec_static_extension.T_clientCodec_static_extension.writeRequest(_c, _r, _param);
     }
 }
-typedef T_clientRequestPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequestpointer.T_clientRequestPointer;
-class T_clientRequest_static_extension {
+@:dox(hide) typedef T_clientRequestPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequestpointer.T_clientRequestPointer;
+@:dox(hide) class T_clientRequest_static_extension {
 
 }
-typedef T_clientResponsePointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponsepointer.T_clientResponsePointer;
-class T_clientResponse_static_extension {
+@:dox(hide) typedef T_clientResponsePointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponsepointer.T_clientResponsePointer;
+@:dox(hide) class T_clientResponse_static_extension {
     static public function _reset(_r:T_clientResponse):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse>);
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse_static_extension.T_clientResponse_static_extension._reset(_r);
     }
 }
-typedef T_serverCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodecpointer.T_serverCodecPointer;
-class T_serverCodec_static_extension {
+@:dox(hide) typedef T_serverCodecPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodecpointer.T_serverCodecPointer;
+@:dox(hide) class T_serverCodec_static_extension {
     static public function close(_c:T_serverCodec):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec>);
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec_static_extension.T_serverCodec_static_extension.close(_c);
@@ -248,15 +248,15 @@ class T_serverCodec_static_extension {
         return stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec_static_extension.T_serverCodec_static_extension.readRequestHeader(_c, _r);
     }
 }
-typedef T_serverRequestPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequestpointer.T_serverRequestPointer;
-class T_serverRequest_static_extension {
+@:dox(hide) typedef T_serverRequestPointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequestpointer.T_serverRequestPointer;
+@:dox(hide) class T_serverRequest_static_extension {
     static public function _reset(_r:T_serverRequest):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest>);
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest_static_extension.T_serverRequest_static_extension._reset(_r);
     }
 }
-typedef T_serverResponsePointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponsepointer.T_serverResponsePointer;
-class T_serverResponse_static_extension {
+@:dox(hide) typedef T_serverResponsePointer = stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponsepointer.T_serverResponsePointer;
+@:dox(hide) class T_serverResponse_static_extension {
 
 }
 /**

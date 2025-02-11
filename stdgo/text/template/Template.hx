@@ -5,7 +5,7 @@ class I_static_extension {
     }
 }
 typedef I = stdgo._internal.text.template.Template_i.I;
-@:structInit @:using(stdgo.text.template.Template.T_state_static_extension) abstract T_state(stdgo._internal.text.template.Template_t_state.T_state) from stdgo._internal.text.template.Template_t_state.T_state to stdgo._internal.text.template.Template_t_state.T_state {
+@:structInit @:using(stdgo.text.template.Template.T_state_static_extension) @:dox(hide) abstract T_state(stdgo._internal.text.template.Template_t_state.T_state) from stdgo._internal.text.template.Template_t_state.T_state to stdgo._internal.text.template.Template_t_state.T_state {
     public var _tmpl(get, set) : Template_;
     function get__tmpl():Template_ return this._tmpl;
     function set__tmpl(v:Template_):Template_ {
@@ -40,7 +40,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_variable_static_extension) abstract T_variable(stdgo._internal.text.template.Template_t_variable.T_variable) from stdgo._internal.text.template.Template_t_variable.T_variable to stdgo._internal.text.template.Template_t_variable.T_variable {
+@:structInit @:using(stdgo.text.template.Template.T_variable_static_extension) @:dox(hide) abstract T_variable(stdgo._internal.text.template.Template_t_variable.T_variable) from stdgo._internal.text.template.Template_t_variable.T_variable to stdgo._internal.text.template.Template_t_variable.T_variable {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -57,7 +57,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_missingValType_static_extension) abstract T_missingValType(stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType) from stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType to stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType {
+@:structInit @:using(stdgo.text.template.Template.T_missingValType_static_extension) @:dox(hide) abstract T_missingValType(stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType) from stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType to stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType {
     public function new() this = new stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -79,7 +79,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_writeError_static_extension) abstract T_writeError(stdgo._internal.text.template.Template_t_writeerror.T_writeError) from stdgo._internal.text.template.Template_t_writeerror.T_writeError to stdgo._internal.text.template.Template_t_writeerror.T_writeError {
+@:structInit @:using(stdgo.text.template.Template.T_writeError_static_extension) @:dox(hide) abstract T_writeError(stdgo._internal.text.template.Template_t_writeerror.T_writeError) from stdgo._internal.text.template.Template_t_writeerror.T_writeError to stdgo._internal.text.template.Template_t_writeerror.T_writeError {
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
@@ -90,7 +90,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T__static_extension) abstract T_(stdgo._internal.text.template.Template_t_.T_) from stdgo._internal.text.template.Template_t_.T_ to stdgo._internal.text.template.Template_t_.T_ {
+@:structInit @:using(stdgo.text.template.Template.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.text.template.Template_t_.T_) from stdgo._internal.text.template.Template_t_.T_ to stdgo._internal.text.template.Template_t_.T_ {
     public var __True(get, set) : Bool;
     function get___True():Bool return this.__True;
     function set___True(v:Bool):Bool {
@@ -506,7 +506,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_execTest_static_extension) abstract T_execTest(stdgo._internal.text.template.Template_t_exectest.T_execTest) from stdgo._internal.text.template.Template_t_exectest.T_execTest to stdgo._internal.text.template.Template_t_exectest.T_execTest {
+@:structInit @:using(stdgo.text.template.Template.T_execTest_static_extension) @:dox(hide) abstract T_execTest(stdgo._internal.text.template.Template_t_exectest.T_execTest) from stdgo._internal.text.template.Template_t_exectest.T_execTest to stdgo._internal.text.template.Template_t_exectest.T_execTest {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -569,7 +569,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_cmpTest_static_extension) abstract T_cmpTest(stdgo._internal.text.template.Template_t_cmptest.T_cmpTest) from stdgo._internal.text.template.Template_t_cmptest.T_cmpTest to stdgo._internal.text.template.Template_t_cmptest.T_cmpTest {
+@:structInit @:using(stdgo.text.template.Template.T_cmpTest_static_extension) @:dox(hide) abstract T_cmpTest(stdgo._internal.text.template.Template_t_cmptest.T_cmpTest) from stdgo._internal.text.template.Template_t_cmptest.T_cmpTest to stdgo._internal.text.template.Template_t_cmptest.T_cmpTest {
     public var _expr(get, set) : String;
     function get__expr():String return this._expr;
     function set__expr(v:String):String {
@@ -592,7 +592,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_multiParseTest_static_extension) abstract T_multiParseTest(stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest) from stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest to stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest {
+@:structInit @:using(stdgo.text.template.Template.T_multiParseTest_static_extension) @:dox(hide) abstract T_multiParseTest(stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest) from stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest to stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -627,7 +627,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_option_static_extension) abstract T_option(stdgo._internal.text.template.Template_t_option.T_option) from stdgo._internal.text.template.Template_t_option.T_option to stdgo._internal.text.template.Template_t_option.T_option {
+@:structInit @:using(stdgo.text.template.Template.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.text.template.Template_t_option.T_option) from stdgo._internal.text.template.Template_t_option.T_option to stdgo._internal.text.template.Template_t_option.T_option {
     public var _missingKey(get, set) : T_missingKeyAction;
     function get__missingKey():T_missingKeyAction return this._missingKey;
     function set__missingKey(v:T_missingKeyAction):T_missingKeyAction {
@@ -638,7 +638,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_common_static_extension) abstract T_common(stdgo._internal.text.template.Template_t_common.T_common) from stdgo._internal.text.template.Template_t_common.T_common to stdgo._internal.text.template.Template_t_common.T_common {
+@:structInit @:using(stdgo.text.template.Template.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.text.template.Template_t_common.T_common) from stdgo._internal.text.template.Template_t_common.T_common to stdgo._internal.text.template.Template_t_common.T_common {
     public var _tmpl(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>;
     function get__tmpl():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>> return this._tmpl;
     function set__tmpl(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>> {
@@ -714,43 +714,43 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.text.template.Template_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.text.template.Template_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.text.template.Template_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.text.template.Template_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.text.template.Template_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.text.template.Template_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.text.template.Template_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.text.template.Template_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.text.template.Template_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.text.template.Template_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.text.template.Template_t__struct_2.T__struct_2;
-typedef T__struct_3Pointer = stdgo._internal.text.template.Template_t__struct_3pointer.T__struct_3Pointer;
-class T__struct_3_static_extension {
+@:dox(hide) typedef T__struct_2 = stdgo._internal.text.template.Template_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_3Pointer = stdgo._internal.text.template.Template_t__struct_3pointer.T__struct_3Pointer;
+@:dox(hide) class T__struct_3_static_extension {
 
 }
-typedef T__struct_3 = stdgo._internal.text.template.Template_t__struct_3.T__struct_3;
-typedef T__struct_4Pointer = stdgo._internal.text.template.Template_t__struct_4pointer.T__struct_4Pointer;
-class T__struct_4_static_extension {
+@:dox(hide) typedef T__struct_3 = stdgo._internal.text.template.Template_t__struct_3.T__struct_3;
+@:dox(hide) typedef T__struct_4Pointer = stdgo._internal.text.template.Template_t__struct_4pointer.T__struct_4Pointer;
+@:dox(hide) class T__struct_4_static_extension {
 
 }
-typedef T__struct_4 = stdgo._internal.text.template.Template_t__struct_4.T__struct_4;
-typedef T__struct_5Pointer = stdgo._internal.text.template.Template_t__struct_5pointer.T__struct_5Pointer;
-class T__struct_5_static_extension {
+@:dox(hide) typedef T__struct_4 = stdgo._internal.text.template.Template_t__struct_4.T__struct_4;
+@:dox(hide) typedef T__struct_5Pointer = stdgo._internal.text.template.Template_t__struct_5pointer.T__struct_5Pointer;
+@:dox(hide) class T__struct_5_static_extension {
 
 }
-typedef T__struct_5 = stdgo._internal.text.template.Template_t__struct_5.T__struct_5;
-typedef T__struct_6Pointer = stdgo._internal.text.template.Template_t__struct_6pointer.T__struct_6Pointer;
-class T__struct_6_static_extension {
+@:dox(hide) typedef T__struct_5 = stdgo._internal.text.template.Template_t__struct_5.T__struct_5;
+@:dox(hide) typedef T__struct_6Pointer = stdgo._internal.text.template.Template_t__struct_6pointer.T__struct_6Pointer;
+@:dox(hide) class T__struct_6_static_extension {
 
 }
-typedef T__struct_6 = stdgo._internal.text.template.Template_t__struct_6.T__struct_6;
-typedef T__struct_7Pointer = stdgo._internal.text.template.Template_t__struct_7pointer.T__struct_7Pointer;
-class T__struct_7_static_extension {
+@:dox(hide) typedef T__struct_6 = stdgo._internal.text.template.Template_t__struct_6.T__struct_6;
+@:dox(hide) typedef T__struct_7Pointer = stdgo._internal.text.template.Template_t__struct_7pointer.T__struct_7Pointer;
+@:dox(hide) class T__struct_7_static_extension {
     public static function _doSlow(__self__:stdgo._internal.text.template.Template_t__struct_7.T__struct_7, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.text.template.Template_t__struct_7_static_extension.T__struct_7_static_extension._doSlow(__self__, _0);
@@ -760,18 +760,18 @@ class T__struct_7_static_extension {
         stdgo._internal.text.template.Template_t__struct_7_static_extension.T__struct_7_static_extension.do_(__self__, _0);
     }
 }
-typedef T__struct_7 = stdgo._internal.text.template.Template_t__struct_7.T__struct_7;
-typedef T__struct_8Pointer = stdgo._internal.text.template.Template_t__struct_8pointer.T__struct_8Pointer;
-class T__struct_8_static_extension {
+@:dox(hide) typedef T__struct_7 = stdgo._internal.text.template.Template_t__struct_7.T__struct_7;
+@:dox(hide) typedef T__struct_8Pointer = stdgo._internal.text.template.Template_t__struct_8pointer.T__struct_8Pointer;
+@:dox(hide) class T__struct_8_static_extension {
 
 }
-typedef T__struct_8 = stdgo._internal.text.template.Template_t__struct_8.T__struct_8;
+@:dox(hide) typedef T__struct_8 = stdgo._internal.text.template.Template_t__struct_8.T__struct_8;
 typedef S = stdgo._internal.text.template.Template_s.S;
 typedef ErrorWriter = stdgo._internal.text.template.Template_errorwriter.ErrorWriter;
 typedef FuncMap = stdgo._internal.text.template.Template_funcmap.FuncMap;
-typedef T_kind = stdgo._internal.text.template.Template_t_kind.T_kind;
-typedef T_missingKeyAction = stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction;
-@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___A_58273_static_extension) abstract T_testIssue48215___localname___A_58273(stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273) from stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 to stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 {
+@:dox(hide) typedef T_kind = stdgo._internal.text.template.Template_t_kind.T_kind;
+@:dox(hide) typedef T_missingKeyAction = stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction;
+@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___A_58273_static_extension) @:dox(hide) abstract T_testIssue48215___localname___A_58273(stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273) from stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 to stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 {
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
@@ -782,7 +782,7 @@ typedef T_missingKeyAction = stdgo._internal.text.template.Template_t_missingkey
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___B_58304_static_extension) abstract T_testIssue48215___localname___B_58304(stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304) from stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 to stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 {
+@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___B_58304_static_extension) @:dox(hide) abstract T_testIssue48215___localname___B_58304(stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304) from stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 to stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 {
     public var a(get, set) : T_testIssue48215___localname___A_58273;
     function get_a():T_testIssue48215___localname___A_58273 return this.a;
     function set_a(v:T_testIssue48215___localname___A_58273):T_testIssue48215___localname___A_58273 {
@@ -793,8 +793,8 @@ typedef T_missingKeyAction = stdgo._internal.text.template.Template_t_missingkey
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_statePointer = stdgo._internal.text.template.Template_t_statepointer.T_statePointer;
-class T_state_static_extension {
+@:dox(hide) typedef T_statePointer = stdgo._internal.text.template.Template_t_statepointer.T_statePointer;
+@:dox(hide) class T_state_static_extension {
     static public function _printValue(_s:T_state, _n:stdgo._internal.text.template.parse.Parse_node.Node, _v:stdgo._internal.reflect.Reflect_value.Value):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state>);
         stdgo._internal.text.template.Template_t_state_static_extension.T_state_static_extension._printValue(_s, _n, _v);
@@ -962,12 +962,12 @@ class T_state_static_extension {
         stdgo._internal.text.template.Template_t_state_static_extension.T_state_static_extension._push(_s, _name, _value);
     }
 }
-typedef T_variablePointer = stdgo._internal.text.template.Template_t_variablepointer.T_variablePointer;
-class T_variable_static_extension {
+@:dox(hide) typedef T_variablePointer = stdgo._internal.text.template.Template_t_variablepointer.T_variablePointer;
+@:dox(hide) class T_variable_static_extension {
 
 }
-typedef T_missingValTypePointer = stdgo._internal.text.template.Template_t_missingvaltypepointer.T_missingValTypePointer;
-class T_missingValType_static_extension {
+@:dox(hide) typedef T_missingValTypePointer = stdgo._internal.text.template.Template_t_missingvaltypepointer.T_missingValTypePointer;
+@:dox(hide) class T_missingValType_static_extension {
 
 }
 typedef ExecErrorPointer = stdgo._internal.text.template.Template_execerrorpointer.ExecErrorPointer;
@@ -979,12 +979,12 @@ class ExecError_static_extension {
         return stdgo._internal.text.template.Template_execerror_static_extension.ExecError_static_extension.error(_e);
     }
 }
-typedef T_writeErrorPointer = stdgo._internal.text.template.Template_t_writeerrorpointer.T_writeErrorPointer;
-class T_writeError_static_extension {
+@:dox(hide) typedef T_writeErrorPointer = stdgo._internal.text.template.Template_t_writeerrorpointer.T_writeErrorPointer;
+@:dox(hide) class T_writeError_static_extension {
 
 }
-typedef T_Pointer = stdgo._internal.text.template.Template_t_pointer.T_Pointer;
-class T__static_extension {
+@:dox(hide) typedef T_Pointer = stdgo._internal.text.template.Template_t_pointer.T_Pointer;
+@:dox(hide) class T__static_extension {
     static public function getU(_t:T_):U {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.Template_t_.T_>);
         return stdgo._internal.text.template.Template_t__static_extension.T__static_extension.getU(_t);
@@ -1048,8 +1048,8 @@ class W_static_extension {
         return stdgo._internal.text.template.Template_w_static_extension.W_static_extension.error(_w);
     }
 }
-typedef T_execTestPointer = stdgo._internal.text.template.Template_t_exectestpointer.T_execTestPointer;
-class T_execTest_static_extension {
+@:dox(hide) typedef T_execTestPointer = stdgo._internal.text.template.Template_t_exectestpointer.T_execTestPointer;
+@:dox(hide) class T_execTest_static_extension {
 
 }
 typedef CustomErrorPointer = stdgo._internal.text.template.Template_customerrorpointer.CustomErrorPointer;
@@ -1063,20 +1063,20 @@ typedef TreePointer = stdgo._internal.text.template.Template_treepointer.TreePoi
 class Tree_static_extension {
 
 }
-typedef T_cmpTestPointer = stdgo._internal.text.template.Template_t_cmptestpointer.T_cmpTestPointer;
-class T_cmpTest_static_extension {
+@:dox(hide) typedef T_cmpTestPointer = stdgo._internal.text.template.Template_t_cmptestpointer.T_cmpTestPointer;
+@:dox(hide) class T_cmpTest_static_extension {
 
 }
-typedef T_multiParseTestPointer = stdgo._internal.text.template.Template_t_multiparsetestpointer.T_multiParseTestPointer;
-class T_multiParseTest_static_extension {
+@:dox(hide) typedef T_multiParseTestPointer = stdgo._internal.text.template.Template_t_multiparsetestpointer.T_multiParseTestPointer;
+@:dox(hide) class T_multiParseTest_static_extension {
 
 }
-typedef T_optionPointer = stdgo._internal.text.template.Template_t_optionpointer.T_optionPointer;
-class T_option_static_extension {
+@:dox(hide) typedef T_optionPointer = stdgo._internal.text.template.Template_t_optionpointer.T_optionPointer;
+@:dox(hide) class T_option_static_extension {
 
 }
-typedef T_commonPointer = stdgo._internal.text.template.Template_t_commonpointer.T_commonPointer;
-class T_common_static_extension {
+@:dox(hide) typedef T_commonPointer = stdgo._internal.text.template.Template_t_commonpointer.T_commonPointer;
+@:dox(hide) class T_common_static_extension {
 
 }
 typedef TemplatePointer = stdgo._internal.text.template.Template_templatepointer.TemplatePointer;
@@ -1455,40 +1455,40 @@ class Template_static_extension {
         return stdgo._internal.text.template.Template_template_static_extension.Template_static_extension.copy(__self__);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.text.template.Template_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.text.template.Template_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.text.template.Template_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.text.template.Template_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.text.template.Template_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.text.template.Template_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
-typedef T__struct_3PointerPointer = stdgo._internal.text.template.Template_t__struct_3pointerpointer.T__struct_3PointerPointer;
-class T__struct_3Pointer_static_extension {
+@:dox(hide) typedef T__struct_3PointerPointer = stdgo._internal.text.template.Template_t__struct_3pointerpointer.T__struct_3PointerPointer;
+@:dox(hide) class T__struct_3Pointer_static_extension {
 
 }
-typedef T__struct_4PointerPointer = stdgo._internal.text.template.Template_t__struct_4pointerpointer.T__struct_4PointerPointer;
-class T__struct_4Pointer_static_extension {
+@:dox(hide) typedef T__struct_4PointerPointer = stdgo._internal.text.template.Template_t__struct_4pointerpointer.T__struct_4PointerPointer;
+@:dox(hide) class T__struct_4Pointer_static_extension {
 
 }
-typedef T__struct_5PointerPointer = stdgo._internal.text.template.Template_t__struct_5pointerpointer.T__struct_5PointerPointer;
-class T__struct_5Pointer_static_extension {
+@:dox(hide) typedef T__struct_5PointerPointer = stdgo._internal.text.template.Template_t__struct_5pointerpointer.T__struct_5PointerPointer;
+@:dox(hide) class T__struct_5Pointer_static_extension {
 
 }
-typedef T__struct_6PointerPointer = stdgo._internal.text.template.Template_t__struct_6pointerpointer.T__struct_6PointerPointer;
-class T__struct_6Pointer_static_extension {
+@:dox(hide) typedef T__struct_6PointerPointer = stdgo._internal.text.template.Template_t__struct_6pointerpointer.T__struct_6PointerPointer;
+@:dox(hide) class T__struct_6Pointer_static_extension {
 
 }
-typedef T__struct_7PointerPointer = stdgo._internal.text.template.Template_t__struct_7pointerpointer.T__struct_7PointerPointer;
-class T__struct_7Pointer_static_extension {
+@:dox(hide) typedef T__struct_7PointerPointer = stdgo._internal.text.template.Template_t__struct_7pointerpointer.T__struct_7PointerPointer;
+@:dox(hide) class T__struct_7Pointer_static_extension {
 
 }
-typedef T__struct_8PointerPointer = stdgo._internal.text.template.Template_t__struct_8pointerpointer.T__struct_8PointerPointer;
-class T__struct_8Pointer_static_extension {
+@:dox(hide) typedef T__struct_8PointerPointer = stdgo._internal.text.template.Template_t__struct_8pointerpointer.T__struct_8PointerPointer;
+@:dox(hide) class T__struct_8Pointer_static_extension {
 
 }
 typedef SPointer = stdgo._internal.text.template.Template_spointer.SPointer;
@@ -1511,20 +1511,20 @@ typedef FuncMapPointer = stdgo._internal.text.template.Template_funcmappointer.F
 class FuncMap_static_extension {
 
 }
-typedef T_kindPointer = stdgo._internal.text.template.Template_t_kindpointer.T_kindPointer;
-class T_kind_static_extension {
+@:dox(hide) typedef T_kindPointer = stdgo._internal.text.template.Template_t_kindpointer.T_kindPointer;
+@:dox(hide) class T_kind_static_extension {
 
 }
-typedef T_missingKeyActionPointer = stdgo._internal.text.template.Template_t_missingkeyactionpointer.T_missingKeyActionPointer;
-class T_missingKeyAction_static_extension {
+@:dox(hide) typedef T_missingKeyActionPointer = stdgo._internal.text.template.Template_t_missingkeyactionpointer.T_missingKeyActionPointer;
+@:dox(hide) class T_missingKeyAction_static_extension {
 
 }
-typedef T_testIssue48215___localname___A_58273Pointer = stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273pointer.T_testIssue48215___localname___A_58273Pointer;
-class T_testIssue48215___localname___A_58273_static_extension {
+@:dox(hide) typedef T_testIssue48215___localname___A_58273Pointer = stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273pointer.T_testIssue48215___localname___A_58273Pointer;
+@:dox(hide) class T_testIssue48215___localname___A_58273_static_extension {
 
 }
-typedef T_testIssue48215___localname___B_58304Pointer = stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304pointer.T_testIssue48215___localname___B_58304Pointer;
-class T_testIssue48215___localname___B_58304_static_extension {
+@:dox(hide) typedef T_testIssue48215___localname___B_58304Pointer = stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304pointer.T_testIssue48215___localname___B_58304Pointer;
+@:dox(hide) class T_testIssue48215___localname___B_58304_static_extension {
 
 }
 /**

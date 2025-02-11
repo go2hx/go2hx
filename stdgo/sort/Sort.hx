@@ -15,7 +15,7 @@ class Interface_static_extension {
     }
 }
 typedef Interface = stdgo._internal.sort.Sort_interface.Interface;
-@:structInit @:using(stdgo.sort.Sort.T_lessSwap_static_extension) abstract T_lessSwap(stdgo._internal.sort.Sort_t_lessswap.T_lessSwap) from stdgo._internal.sort.Sort_t_lessswap.T_lessSwap to stdgo._internal.sort.Sort_t_lessswap.T_lessSwap {
+@:structInit @:using(stdgo.sort.Sort.T_lessSwap_static_extension) @:dox(hide) abstract T_lessSwap(stdgo._internal.sort.Sort_t_lessswap.T_lessSwap) from stdgo._internal.sort.Sort_t_lessswap.T_lessSwap to stdgo._internal.sort.Sort_t_lessswap.T_lessSwap {
     public var less(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Bool;
     function get_less():(stdgo.GoInt, stdgo.GoInt) -> Bool return (_0, _1) -> this.less(_0, _1);
     function set_less(v:(stdgo.GoInt, stdgo.GoInt) -> Bool):(stdgo.GoInt, stdgo.GoInt) -> Bool {
@@ -32,7 +32,7 @@ typedef Interface = stdgo._internal.sort.Sort_interface.Interface;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) abstract T_reverse(stdgo._internal.sort.Sort_t_reverse.T_reverse) from stdgo._internal.sort.Sort_t_reverse.T_reverse to stdgo._internal.sort.Sort_t_reverse.T_reverse {
+@:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) @:dox(hide) abstract T_reverse(stdgo._internal.sort.Sort_t_reverse.T_reverse) from stdgo._internal.sort.Sort_t_reverse.T_reverse to stdgo._internal.sort.Sort_t_reverse.T_reverse {
     public var interface_(get, set) : Interface;
     function get_interface_():Interface return this.interface_;
     function set_interface_(v:Interface):Interface {
@@ -43,17 +43,17 @@ typedef Interface = stdgo._internal.sort.Sort_interface.Interface;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_sortedHint = stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint;
-typedef T_xorshift = stdgo._internal.sort.Sort_t_xorshift.T_xorshift;
+@:dox(hide) typedef T_sortedHint = stdgo._internal.sort.Sort_t_sortedhint.T_sortedHint;
+@:dox(hide) typedef T_xorshift = stdgo._internal.sort.Sort_t_xorshift.T_xorshift;
 typedef IntSlice = stdgo._internal.sort.Sort_intslice.IntSlice;
 typedef Float64Slice = stdgo._internal.sort.Sort_float64slice.Float64Slice;
 typedef StringSlice = stdgo._internal.sort.Sort_stringslice.StringSlice;
-typedef T_lessSwapPointer = stdgo._internal.sort.Sort_t_lessswappointer.T_lessSwapPointer;
-class T_lessSwap_static_extension {
+@:dox(hide) typedef T_lessSwapPointer = stdgo._internal.sort.Sort_t_lessswappointer.T_lessSwapPointer;
+@:dox(hide) class T_lessSwap_static_extension {
 
 }
-typedef T_reversePointer = stdgo._internal.sort.Sort_t_reversepointer.T_reversePointer;
-class T_reverse_static_extension {
+@:dox(hide) typedef T_reversePointer = stdgo._internal.sort.Sort_t_reversepointer.T_reversePointer;
+@:dox(hide) class T_reverse_static_extension {
     static public function less(_r:T_reverse, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
@@ -68,12 +68,12 @@ class T_reverse_static_extension {
         return stdgo._internal.sort.Sort_t_reverse_static_extension.T_reverse_static_extension.len(__self__);
     }
 }
-typedef T_sortedHintPointer = stdgo._internal.sort.Sort_t_sortedhintpointer.T_sortedHintPointer;
-class T_sortedHint_static_extension {
+@:dox(hide) typedef T_sortedHintPointer = stdgo._internal.sort.Sort_t_sortedhintpointer.T_sortedHintPointer;
+@:dox(hide) class T_sortedHint_static_extension {
 
 }
-typedef T_xorshiftPointer = stdgo._internal.sort.Sort_t_xorshiftpointer.T_xorshiftPointer;
-class T_xorshift_static_extension {
+@:dox(hide) typedef T_xorshiftPointer = stdgo._internal.sort.Sort_t_xorshiftpointer.T_xorshiftPointer;
+@:dox(hide) class T_xorshift_static_extension {
     static public function next(_r:stdgo.Pointer<T_xorshift>):haxe.UInt64 {
         return stdgo._internal.sort.Sort_t_xorshift_static_extension.T_xorshift_static_extension.next(_r);
     }

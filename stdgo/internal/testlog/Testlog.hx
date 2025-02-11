@@ -18,13 +18,13 @@ class Interface_static_extension {
     }
 }
 typedef Interface = stdgo._internal.internal.testlog.Testlog_interface.Interface;
-typedef T__struct_0Pointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.internal.testlog.Testlog_t__struct_0.T__struct_0;
-typedef T__struct_0PointerPointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.internal.testlog.Testlog_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 /**

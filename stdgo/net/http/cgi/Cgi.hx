@@ -1,5 +1,5 @@
 package stdgo.net.http.cgi;
-@:structInit @:using(stdgo.net.http.cgi.Cgi.T_response_static_extension) abstract T_response(stdgo._internal.net.http.cgi.Cgi_t_response.T_response) from stdgo._internal.net.http.cgi.Cgi_t_response.T_response to stdgo._internal.net.http.cgi.Cgi_t_response.T_response {
+@:structInit @:using(stdgo.net.http.cgi.Cgi.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.cgi.Cgi_t_response.T_response) from stdgo._internal.net.http.cgi.Cgi_t_response.T_response to stdgo._internal.net.http.cgi.Cgi_t_response.T_response {
     public var _req(get, set) : stdgo._internal.net.http.Http_request.Request;
     function get__req():stdgo._internal.net.http.Http_request.Request return this._req;
     function set__req(v:stdgo._internal.net.http.Http_request.Request):stdgo._internal.net.http.Http_request.Request {
@@ -99,8 +99,8 @@ package stdgo.net.http.cgi;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_responsePointer = stdgo._internal.net.http.cgi.Cgi_t_responsepointer.T_responsePointer;
-class T_response_static_extension {
+@:dox(hide) typedef T_responsePointer = stdgo._internal.net.http.cgi.Cgi_t_responsepointer.T_responsePointer;
+@:dox(hide) class T_response_static_extension {
     static public function _writeCGIHeader(_r:T_response, _p:Array<std.UInt>):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_t_response.T_response>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

@@ -1,5 +1,5 @@
 package stdgo.runtime.coverage;
-@:structInit @:using(stdgo.runtime.coverage.Coverage.T_emitState_static_extension) abstract T_emitState(stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState) from stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState to stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState {
+@:structInit @:using(stdgo.runtime.coverage.Coverage.T_emitState_static_extension) @:dox(hide) abstract T_emitState(stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState) from stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState to stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState {
     public var _mfname(get, set) : String;
     function get__mfname():String return this._mfname;
     function set__mfname(v:String):String {
@@ -81,7 +81,7 @@ _debug);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.coverage.Coverage.T_tstate_static_extension) abstract T_tstate(stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate) from stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate to stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate {
+@:structInit @:using(stdgo.runtime.coverage.Coverage.T_tstate_static_extension) @:dox(hide) abstract T_tstate(stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate) from stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate to stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate {
     public var batchCounterAlloc(get, set) : stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc;
     function get_batchCounterAlloc():stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc return this.batchCounterAlloc;
     function set_batchCounterAlloc(v:stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc):stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc {
@@ -110,7 +110,7 @@ _debug);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.coverage.Coverage.T_pkfunc_static_extension) abstract T_pkfunc(stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc) from stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc to stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc {
+@:structInit @:using(stdgo.runtime.coverage.Coverage.T_pkfunc_static_extension) @:dox(hide) abstract T_pkfunc(stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc) from stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc to stdgo._internal.runtime.coverage.Coverage_t_pkfunc.T_pkfunc {
     public var _pk(get, set) : std.UInt;
     function get__pk():std.UInt return this._pk;
     function set__pk(v:std.UInt):std.UInt {
@@ -127,14 +127,14 @@ _debug);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.runtime.coverage.Coverage_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.runtime.coverage.Coverage_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0;
-typedef T_fileType = stdgo._internal.runtime.coverage.Coverage_t_filetype.T_fileType;
-typedef T_emitStatePointer = stdgo._internal.runtime.coverage.Coverage_t_emitstatepointer.T_emitStatePointer;
-class T_emitState_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_fileType = stdgo._internal.runtime.coverage.Coverage_t_filetype.T_fileType;
+@:dox(hide) typedef T_emitStatePointer = stdgo._internal.runtime.coverage.Coverage_t_emitstatepointer.T_emitStatePointer;
+@:dox(hide) class T_emitState_static_extension {
     static public function _emitCounterDataFile(_s:T_emitState, _finalHash:haxe.ds.Vector<std.UInt>, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>);
         final _finalHash = ([for (i in _finalHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
@@ -176,8 +176,8 @@ class T_emitState_static_extension {
         return stdgo._internal.runtime.coverage.Coverage_t_emitstate_static_extension.T_emitState_static_extension._emitCounterDataToWriter(_s, _w);
     }
 }
-typedef T_tstatePointer = stdgo._internal.runtime.coverage.Coverage_t_tstatepointer.T_tstatePointer;
-class T_tstate_static_extension {
+@:dox(hide) typedef T_tstatePointer = stdgo._internal.runtime.coverage.Coverage_t_tstatepointer.T_tstatePointer;
+@:dox(hide) class T_tstate_static_extension {
     static public function _readAuxMetaFiles(_ts:T_tstate, _metafiles:String, _importpaths:stdgo.GoMap<stdgo.GoString, stdgo._internal.runtime.coverage.Coverage_t__struct_0.T__struct_0>):stdgo.Error {
         final _ts = (_ts : stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_tstate.T_tstate>);
         final _metafiles = (_metafiles : stdgo.GoString);
@@ -194,16 +194,16 @@ class T_tstate_static_extension {
         return [for (i in stdgo._internal.runtime.coverage.Coverage_t_tstate_static_extension.T_tstate_static_extension.allocateCounters(__self__, _0)) i];
     }
 }
-typedef T_pkfuncPointer = stdgo._internal.runtime.coverage.Coverage_t_pkfuncpointer.T_pkfuncPointer;
-class T_pkfunc_static_extension {
+@:dox(hide) typedef T_pkfuncPointer = stdgo._internal.runtime.coverage.Coverage_t_pkfuncpointer.T_pkfuncPointer;
+@:dox(hide) class T_pkfunc_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.runtime.coverage.Coverage_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.runtime.coverage.Coverage_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T_fileTypePointer = stdgo._internal.runtime.coverage.Coverage_t_filetypepointer.T_fileTypePointer;
-class T_fileType_static_extension {
+@:dox(hide) typedef T_fileTypePointer = stdgo._internal.runtime.coverage.Coverage_t_filetypepointer.T_fileTypePointer;
+@:dox(hide) class T_fileType_static_extension {
 
 }
 class Coverage {

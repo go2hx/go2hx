@@ -56,7 +56,7 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
     public function __copy__() return this.__copy__();
 }
 typedef BigInt = stdgo._internal.crypto.internal.boring.Boring_bigint.BigInt;
-typedef T_randReader = stdgo._internal.crypto.internal.boring.Boring_t_randreader.T_randReader;
+@:dox(hide) typedef T_randReader = stdgo._internal.crypto.internal.boring.Boring_t_randreader.T_randReader;
 typedef PublicKeyECDSAPointer = stdgo._internal.crypto.internal.boring.Boring_publickeyecdsapointer.PublicKeyECDSAPointer;
 class PublicKeyECDSA_static_extension {
 
@@ -94,8 +94,8 @@ typedef BigIntPointer = stdgo._internal.crypto.internal.boring.Boring_bigintpoin
 class BigInt_static_extension {
 
 }
-typedef T_randReaderPointer = stdgo._internal.crypto.internal.boring.Boring_t_randreaderpointer.T_randReaderPointer;
-class T_randReader_static_extension {
+@:dox(hide) typedef T_randReaderPointer = stdgo._internal.crypto.internal.boring.Boring_t_randreaderpointer.T_randReaderPointer;
+@:dox(hide) class T_randReader_static_extension {
     static public function read(_:T_randReader, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {

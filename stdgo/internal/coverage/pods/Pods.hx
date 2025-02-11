@@ -28,7 +28,7 @@ package stdgo.internal.coverage.pods;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_fileWithAnnotations_static_extension) abstract T_fileWithAnnotations(stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations) from stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations to stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations {
+@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_fileWithAnnotations_static_extension) @:dox(hide) abstract T_fileWithAnnotations(stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations) from stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations to stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations {
     public var _file(get, set) : String;
     function get__file():String return this._file;
     function set__file(v:String):String {
@@ -51,7 +51,7 @@ package stdgo.internal.coverage.pods;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_protoPod_static_extension) abstract T_protoPod(stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod) from stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod to stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod {
+@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_protoPod_static_extension) @:dox(hide) abstract T_protoPod(stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod) from stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod to stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod {
     public var _mf(get, set) : String;
     function get__mf():String return this._mf;
     function set__mf(v:String):String {
@@ -72,12 +72,12 @@ typedef PodPointer = stdgo._internal.internal.coverage.pods.Pods_podpointer.PodP
 class Pod_static_extension {
 
 }
-typedef T_fileWithAnnotationsPointer = stdgo._internal.internal.coverage.pods.Pods_t_filewithannotationspointer.T_fileWithAnnotationsPointer;
-class T_fileWithAnnotations_static_extension {
+@:dox(hide) typedef T_fileWithAnnotationsPointer = stdgo._internal.internal.coverage.pods.Pods_t_filewithannotationspointer.T_fileWithAnnotationsPointer;
+@:dox(hide) class T_fileWithAnnotations_static_extension {
 
 }
-typedef T_protoPodPointer = stdgo._internal.internal.coverage.pods.Pods_t_protopodpointer.T_protoPodPointer;
-class T_protoPod_static_extension {
+@:dox(hide) typedef T_protoPodPointer = stdgo._internal.internal.coverage.pods.Pods_t_protopodpointer.T_protoPodPointer;
+@:dox(hide) class T_protoPod_static_extension {
 
 }
 class Pods {

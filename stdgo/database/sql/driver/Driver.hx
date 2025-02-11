@@ -345,7 +345,7 @@ class Valuer_static_extension {
     }
 }
 typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
-class T_decimalDecompose_static_extension {
+@:dox(hide) class T_decimalDecompose_static_extension {
     static public function decompose(t:stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -354,7 +354,7 @@ class T_decimalDecompose_static_extension {
         };
     }
 }
-typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose;
+@:dox(hide) typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose;
 @:structInit @:using(stdgo.database.sql.driver.Driver.NamedValue_static_extension) abstract NamedValue(stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue) from stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue to stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue {
     public var name(get, set) : String;
     function get_name():String return this.name;
@@ -395,22 +395,22 @@ typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_t_decima
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_noRows_static_extension) abstract T_noRows(stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows) from stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows to stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows {
+@:structInit @:using(stdgo.database.sql.driver.Driver.T_noRows_static_extension) @:dox(hide) abstract T_noRows(stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows) from stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows to stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_boolType_static_extension) abstract T_boolType(stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType) from stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType to stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType {
+@:structInit @:using(stdgo.database.sql.driver.Driver.T_boolType_static_extension) @:dox(hide) abstract T_boolType(stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType) from stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType to stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_int32Type_static_extension) abstract T_int32Type(stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type) from stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type to stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type {
+@:structInit @:using(stdgo.database.sql.driver.Driver.T_int32Type_static_extension) @:dox(hide) abstract T_int32Type(stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type) from stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type to stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_stringType_static_extension) abstract T_stringType(stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType) from stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType to stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType {
+@:structInit @:using(stdgo.database.sql.driver.Driver.T_stringType_static_extension) @:dox(hide) abstract T_stringType(stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType) from stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType to stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -437,7 +437,7 @@ typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_t_decima
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_defaultConverter_static_extension) abstract T_defaultConverter(stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter) from stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter to stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter {
+@:structInit @:using(stdgo.database.sql.driver.Driver.T_defaultConverter_static_extension) @:dox(hide) abstract T_defaultConverter(stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter) from stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter to stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -453,8 +453,8 @@ typedef TxOptionsPointer = stdgo._internal.database.sql.driver.Driver_txoptionsp
 class TxOptions_static_extension {
 
 }
-typedef T_noRowsPointer = stdgo._internal.database.sql.driver.Driver_t_norowspointer.T_noRowsPointer;
-class T_noRows_static_extension {
+@:dox(hide) typedef T_noRowsPointer = stdgo._internal.database.sql.driver.Driver_t_norowspointer.T_noRowsPointer;
+@:dox(hide) class T_noRows_static_extension {
     static public function rowsAffected(_:T_noRows):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.driver.Driver_t_norows_static_extension.T_noRows_static_extension.rowsAffected(_);
@@ -468,8 +468,8 @@ class T_noRows_static_extension {
         };
     }
 }
-typedef T_boolTypePointer = stdgo._internal.database.sql.driver.Driver_t_booltypepointer.T_boolTypePointer;
-class T_boolType_static_extension {
+@:dox(hide) typedef T_boolTypePointer = stdgo._internal.database.sql.driver.Driver_t_booltypepointer.T_boolTypePointer;
+@:dox(hide) class T_boolType_static_extension {
     static public function convertValue(_:T_boolType, _src:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _src = (_src : stdgo.AnyInterface);
         return {
@@ -481,8 +481,8 @@ class T_boolType_static_extension {
         return stdgo._internal.database.sql.driver.Driver_t_booltype_static_extension.T_boolType_static_extension.string(_);
     }
 }
-typedef T_int32TypePointer = stdgo._internal.database.sql.driver.Driver_t_int32typepointer.T_int32TypePointer;
-class T_int32Type_static_extension {
+@:dox(hide) typedef T_int32TypePointer = stdgo._internal.database.sql.driver.Driver_t_int32typepointer.T_int32TypePointer;
+@:dox(hide) class T_int32Type_static_extension {
     static public function convertValue(_:T_int32Type, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _v = (_v : stdgo.AnyInterface);
         return {
@@ -491,8 +491,8 @@ class T_int32Type_static_extension {
         };
     }
 }
-typedef T_stringTypePointer = stdgo._internal.database.sql.driver.Driver_t_stringtypepointer.T_stringTypePointer;
-class T_stringType_static_extension {
+@:dox(hide) typedef T_stringTypePointer = stdgo._internal.database.sql.driver.Driver_t_stringtypepointer.T_stringTypePointer;
+@:dox(hide) class T_stringType_static_extension {
     static public function convertValue(_:T_stringType, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _v = (_v : stdgo.AnyInterface);
         return {
@@ -521,8 +521,8 @@ class NotNull_static_extension {
         };
     }
 }
-typedef T_defaultConverterPointer = stdgo._internal.database.sql.driver.Driver_t_defaultconverterpointer.T_defaultConverterPointer;
-class T_defaultConverter_static_extension {
+@:dox(hide) typedef T_defaultConverterPointer = stdgo._internal.database.sql.driver.Driver_t_defaultconverterpointer.T_defaultConverterPointer;
+@:dox(hide) class T_defaultConverter_static_extension {
     static public function convertValue(_:T_defaultConverter, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _v = (_v : stdgo.AnyInterface);
         return {

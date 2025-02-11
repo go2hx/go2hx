@@ -25,7 +25,7 @@ private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._
         stdgo._internal.path.filepath.Filepath_lstatp.lstatP = v;
         return v;
     }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_lazybuf_static_extension) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf {
+@:structInit @:using(stdgo.path.filepath.Filepath.T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -60,7 +60,7 @@ private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_statDirEntry_static_extension) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry {
+@:structInit @:using(stdgo.path.filepath.Filepath.T_statDirEntry_static_extension) @:dox(hide) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry {
     public var _info(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo;
     function get__info():stdgo._internal.io.fs.Fs_fileinfo.FileInfo return this._info;
     function set__info(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo._internal.io.fs.Fs_fileinfo.FileInfo {
@@ -72,8 +72,8 @@ private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._
     public function __copy__() return this.__copy__();
 }
 typedef WalkFunc = stdgo._internal.path.filepath.Filepath_walkfunc.WalkFunc;
-typedef T_lazybufPointer = stdgo._internal.path.filepath.Filepath_t_lazybufpointer.T_lazybufPointer;
-class T_lazybuf_static_extension {
+@:dox(hide) typedef T_lazybufPointer = stdgo._internal.path.filepath.Filepath_t_lazybufpointer.T_lazybufPointer;
+@:dox(hide) class T_lazybuf_static_extension {
     static public function _string(_b:T_lazybuf):String {
         final _b = (_b : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf>);
         return stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._string(_b);
@@ -93,8 +93,8 @@ class T_lazybuf_static_extension {
         return stdgo._internal.path.filepath.Filepath_t_lazybuf_static_extension.T_lazybuf_static_extension._index(_b, _i);
     }
 }
-typedef T_statDirEntryPointer = stdgo._internal.path.filepath.Filepath_t_statdirentrypointer.T_statDirEntryPointer;
-class T_statDirEntry_static_extension {
+@:dox(hide) typedef T_statDirEntryPointer = stdgo._internal.path.filepath.Filepath_t_statdirentrypointer.T_statDirEntryPointer;
+@:dox(hide) class T_statDirEntry_static_extension {
     static public function string(_d:T_statDirEntry):String {
         final _d = (_d : stdgo.Ref<stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.path.filepath.Filepath_t_statdirentry_static_extension.T_statDirEntry_static_extension.string(_d);

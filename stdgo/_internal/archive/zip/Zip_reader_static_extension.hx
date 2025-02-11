@@ -87,14 +87,14 @@ package stdgo._internal.archive.zip;
                     continue;
                 };
                 {
-                    var __tmp__ = (_files != null && _files.exists(_name?.__copy__()) ? { _0 : _files[_name?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (_files != null && _files.__exists__(_name?.__copy__()) ? { _0 : _files[_name?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         (@:checkr _r ?? throw "null pointer dereference")._fileList[(_idx : stdgo.GoInt)]._isDup = true;
                         continue;
                     };
                 };
                 {
-                    var __tmp__ = (_knownDirs != null && _knownDirs.exists(_name?.__copy__()) ? { _0 : _knownDirs[_name?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (_knownDirs != null && _knownDirs.__exists__(_name?.__copy__()) ? { _0 : _knownDirs[_name?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         (@:checkr _r ?? throw "null pointer dereference")._fileList[(_idx : stdgo.GoInt)]._isDup = true;
                         continue;
@@ -118,10 +118,10 @@ package stdgo._internal.archive.zip;
             };
             for (_dir => _ in _dirs) {
                 {
-                    var __tmp__ = (_knownDirs != null && _knownDirs.exists(_dir?.__copy__()) ? { _0 : _knownDirs[_dir?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __1:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (_knownDirs != null && _knownDirs.__exists__(_dir?.__copy__()) ? { _0 : _knownDirs[_dir?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __1:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         {
-                            var __tmp__ = (_files != null && _files.exists(_dir?.__copy__()) ? { _0 : _files[_dir?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = (_files != null && _files.__exists__(_dir?.__copy__()) ? { _0 : _files[_dir?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), _idx:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 (@:checkr _r ?? throw "null pointer dereference")._fileList[(_idx : stdgo.GoInt)]._isDup = true;
                             } else {

@@ -1,12 +1,12 @@
 package stdgo.hash.fnv;
-typedef T_sum32 = stdgo._internal.hash.fnv.Fnv_t_sum32.T_sum32;
-typedef T_sum32a = stdgo._internal.hash.fnv.Fnv_t_sum32a.T_sum32a;
-typedef T_sum64 = stdgo._internal.hash.fnv.Fnv_t_sum64.T_sum64;
-typedef T_sum64a = stdgo._internal.hash.fnv.Fnv_t_sum64a.T_sum64a;
-typedef T_sum128 = stdgo._internal.hash.fnv.Fnv_t_sum128.T_sum128;
-typedef T_sum128a = stdgo._internal.hash.fnv.Fnv_t_sum128a.T_sum128a;
-typedef T_sum32Pointer = stdgo._internal.hash.fnv.Fnv_t_sum32pointer.T_sum32Pointer;
-class T_sum32_static_extension {
+@:dox(hide) typedef T_sum32 = stdgo._internal.hash.fnv.Fnv_t_sum32.T_sum32;
+@:dox(hide) typedef T_sum32a = stdgo._internal.hash.fnv.Fnv_t_sum32a.T_sum32a;
+@:dox(hide) typedef T_sum64 = stdgo._internal.hash.fnv.Fnv_t_sum64.T_sum64;
+@:dox(hide) typedef T_sum64a = stdgo._internal.hash.fnv.Fnv_t_sum64a.T_sum64a;
+@:dox(hide) typedef T_sum128 = stdgo._internal.hash.fnv.Fnv_t_sum128.T_sum128;
+@:dox(hide) typedef T_sum128a = stdgo._internal.hash.fnv.Fnv_t_sum128a.T_sum128a;
+@:dox(hide) typedef T_sum32Pointer = stdgo._internal.hash.fnv.Fnv_t_sum32pointer.T_sum32Pointer;
+@:dox(hide) class T_sum32_static_extension {
     static public function unmarshalBinary(_s:stdgo.Pointer<T_sum32>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.fnv.Fnv_t_sum32_static_extension.T_sum32_static_extension.unmarshalBinary(_s, _b);
@@ -41,8 +41,8 @@ class T_sum32_static_extension {
         stdgo._internal.hash.fnv.Fnv_t_sum32_static_extension.T_sum32_static_extension.reset(_s);
     }
 }
-typedef T_sum32aPointer = stdgo._internal.hash.fnv.Fnv_t_sum32apointer.T_sum32aPointer;
-class T_sum32a_static_extension {
+@:dox(hide) typedef T_sum32aPointer = stdgo._internal.hash.fnv.Fnv_t_sum32apointer.T_sum32aPointer;
+@:dox(hide) class T_sum32a_static_extension {
     static public function unmarshalBinary(_s:stdgo.Pointer<T_sum32a>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.fnv.Fnv_t_sum32a_static_extension.T_sum32a_static_extension.unmarshalBinary(_s, _b);
@@ -77,8 +77,8 @@ class T_sum32a_static_extension {
         stdgo._internal.hash.fnv.Fnv_t_sum32a_static_extension.T_sum32a_static_extension.reset(_s);
     }
 }
-typedef T_sum64Pointer = stdgo._internal.hash.fnv.Fnv_t_sum64pointer.T_sum64Pointer;
-class T_sum64_static_extension {
+@:dox(hide) typedef T_sum64Pointer = stdgo._internal.hash.fnv.Fnv_t_sum64pointer.T_sum64Pointer;
+@:dox(hide) class T_sum64_static_extension {
     static public function unmarshalBinary(_s:stdgo.Pointer<T_sum64>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.fnv.Fnv_t_sum64_static_extension.T_sum64_static_extension.unmarshalBinary(_s, _b);
@@ -113,8 +113,8 @@ class T_sum64_static_extension {
         stdgo._internal.hash.fnv.Fnv_t_sum64_static_extension.T_sum64_static_extension.reset(_s);
     }
 }
-typedef T_sum64aPointer = stdgo._internal.hash.fnv.Fnv_t_sum64apointer.T_sum64aPointer;
-class T_sum64a_static_extension {
+@:dox(hide) typedef T_sum64aPointer = stdgo._internal.hash.fnv.Fnv_t_sum64apointer.T_sum64aPointer;
+@:dox(hide) class T_sum64a_static_extension {
     static public function unmarshalBinary(_s:stdgo.Pointer<T_sum64a>, _b:Array<std.UInt>):stdgo.Error {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.hash.fnv.Fnv_t_sum64a_static_extension.T_sum64a_static_extension.unmarshalBinary(_s, _b);
@@ -149,8 +149,8 @@ class T_sum64a_static_extension {
         stdgo._internal.hash.fnv.Fnv_t_sum64a_static_extension.T_sum64a_static_extension.reset(_s);
     }
 }
-typedef T_sum128Pointer = stdgo._internal.hash.fnv.Fnv_t_sum128pointer.T_sum128Pointer;
-class T_sum128_static_extension {
+@:dox(hide) typedef T_sum128Pointer = stdgo._internal.hash.fnv.Fnv_t_sum128pointer.T_sum128Pointer;
+@:dox(hide) class T_sum128_static_extension {
     static public function unmarshalBinary(_s:T_sum128, _b:Array<std.UInt>):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.hash.fnv.Fnv_t_sum128.T_sum128>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -189,8 +189,8 @@ class T_sum128_static_extension {
         stdgo._internal.hash.fnv.Fnv_t_sum128_static_extension.T_sum128_static_extension.reset(_s);
     }
 }
-typedef T_sum128aPointer = stdgo._internal.hash.fnv.Fnv_t_sum128apointer.T_sum128aPointer;
-class T_sum128a_static_extension {
+@:dox(hide) typedef T_sum128aPointer = stdgo._internal.hash.fnv.Fnv_t_sum128apointer.T_sum128aPointer;
+@:dox(hide) class T_sum128a_static_extension {
     static public function unmarshalBinary(_s:T_sum128a, _b:Array<std.UInt>):stdgo.Error {
         final _s = (_s : stdgo.Ref<stdgo._internal.hash.fnv.Fnv_t_sum128a.T_sum128a>);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

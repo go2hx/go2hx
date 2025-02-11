@@ -28,7 +28,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         };
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.lock();
         (@:checkr _r ?? throw "null pointer dereference").serviceMethod = ((@:checkr _c ?? throw "null pointer dereference")._pending[(@:checkr _c ?? throw "null pointer dereference")._resp.id] ?? ("" : stdgo.GoString))?.__copy__();
-        if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.remove((@:checkr _c ?? throw "null pointer dereference")._resp.id);
+        if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.__remove__((@:checkr _c ?? throw "null pointer dereference")._resp.id);
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
         (@:checkr _r ?? throw "null pointer dereference").error = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         (@:checkr _r ?? throw "null pointer dereference").seq = (@:checkr _c ?? throw "null pointer dereference")._resp.id;

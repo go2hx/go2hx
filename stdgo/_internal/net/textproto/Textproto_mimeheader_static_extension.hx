@@ -4,7 +4,7 @@ package stdgo._internal.net.textproto;
     @:tdfield
     static public function del( _h:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, _key:stdgo.GoString):Void {
         @:recv var _h:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader = _h;
-        if (_h != null) _h.remove(stdgo._internal.net.textproto.Textproto_canonicalmimeheaderkey.canonicalMIMEHeaderKey(_key?.__copy__()));
+        if (_h != null) _h.__remove__(stdgo._internal.net.textproto.Textproto_canonicalmimeheaderkey.canonicalMIMEHeaderKey(_key?.__copy__()));
     }
     @:keep
     @:tdfield

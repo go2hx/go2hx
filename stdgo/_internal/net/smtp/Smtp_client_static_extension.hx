@@ -56,7 +56,7 @@ package stdgo._internal.net.smtp;
             return { _0 : false, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
         };
         _ext = stdgo._internal.strings.Strings_toupper.toUpper(_ext?.__copy__())?.__copy__();
-        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(_ext?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[_ext?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _param:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.__exists__(_ext?.__copy__()) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[_ext?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _param:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
         return { _0 : _ok, _1 : _param?.__copy__() };
     }
     @:keep
@@ -101,13 +101,13 @@ package stdgo._internal.net.smtp;
         var _cmdStr = (("MAIL FROM:<%s>" : stdgo.GoString) : stdgo.GoString);
         if ((@:checkr _c ?? throw "null pointer dereference")._ext != null) {
             {
-                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(("8BITMIME" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("8BITMIME" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __0:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.__exists__(("8BITMIME" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("8BITMIME" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __0:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _cmdStr = (_cmdStr + ((" BODY=8BITMIME" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 };
             };
             {
-                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(("SMTPUTF8" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("SMTPUTF8" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __1:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.__exists__(("SMTPUTF8" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("SMTPUTF8" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __1:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     _cmdStr = (_cmdStr + ((" SMTPUTF8" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 };
@@ -258,7 +258,7 @@ package stdgo._internal.net.smtp;
             };
         };
         {
-            var __tmp__ = (_ext != null && _ext.exists(("AUTH" : stdgo.GoString)) ? { _0 : _ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _mechs:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_ext != null && _ext.__exists__(("AUTH" : stdgo.GoString)) ? { _0 : _ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _mechs:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _c ?? throw "null pointer dereference")._auth = stdgo._internal.strings.Strings_split.split(_mechs?.__copy__(), (" " : stdgo.GoString));
             };

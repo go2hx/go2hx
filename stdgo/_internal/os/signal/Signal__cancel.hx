@@ -14,7 +14,7 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_signal.Signal>, _action
                         stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]--;
                         @:check2r _h._clear(_n);
                         if (stdgo.Go.toInterface((@:checkr _h ?? throw "null pointer dereference")._mask) == stdgo.Go.toInterface(_zerohandler._mask)) {
-                            if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.remove(_c);
+                            if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.__remove__(_c);
                         };
                     };
                 };

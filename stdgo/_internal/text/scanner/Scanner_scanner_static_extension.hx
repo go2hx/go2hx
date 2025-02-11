@@ -40,9 +40,9 @@ package stdgo._internal.text.scanner;
     @:tdfield
     static public function scan( _s:stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>):stdgo.GoInt32 {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner> = _s;
+        var _tok_4184700:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _redoBreak = false;
         var _ch_4184001:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _tok_4184700:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

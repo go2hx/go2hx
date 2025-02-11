@@ -11,7 +11,7 @@ package stdgo._internal.internal.singleflight;
                 final __f__ = @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.exists(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
@@ -23,7 +23,7 @@ package stdgo._internal.internal.singleflight;
                 };
             };
             if ((@:checkr _c ?? throw "null pointer dereference")._dups == ((0 : stdgo.GoInt))) {
-                if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.remove(_key);
+                if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.__remove__(_key);
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
@@ -107,7 +107,7 @@ package stdgo._internal.internal.singleflight;
         @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.lock();
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._wg.done();
         if (((@:checkr _g ?? throw "null pointer dereference")._m[_key] ?? (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>)) == (_c)) {
-            if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.remove(_key);
+            if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.__remove__(_key);
         };
         for (__20 => _ch in (@:checkr _c ?? throw "null pointer dereference")._chans) {
             _ch.__send__((new stdgo._internal.internal.singleflight.Singleflight_result.Result((@:checkr _c ?? throw "null pointer dereference")._val, (@:checkr _c ?? throw "null pointer dereference")._err, ((@:checkr _c ?? throw "null pointer dereference")._dups > (0 : stdgo.GoInt) : Bool)) : stdgo._internal.internal.singleflight.Singleflight_result.Result));
@@ -129,7 +129,7 @@ package stdgo._internal.internal.singleflight;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>>);
         };
         {
-            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.exists(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _c ?? throw "null pointer dereference")._dups++;
                 (@:checkr _c ?? throw "null pointer dereference")._chans = ((@:checkr _c ?? throw "null pointer dereference")._chans.__append__(_ch));
@@ -159,7 +159,7 @@ package stdgo._internal.internal.singleflight;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>>);
         };
         {
-            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.exists(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _g ?? throw "null pointer dereference")._m != null && (@:checkr _g ?? throw "null pointer dereference")._m.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _g ?? throw "null pointer dereference")._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _c ?? throw "null pointer dereference")._dups++;
                 @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();

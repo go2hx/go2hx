@@ -62,7 +62,7 @@ if (((_c == (46 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _c : Bool) && (_c
             };
             var _u = ((_s.__slice__(0, _i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             _s = (_s.__slice__(_i) : stdgo.GoString)?.__copy__();
-            var __tmp__ = (stdgo._internal.time.Time__unitmap._unitMap != null && stdgo._internal.time.Time__unitmap._unitMap.exists(_u?.__copy__()) ? { _0 : stdgo._internal.time.Time__unitmap._unitMap[_u?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt64), _1 : false }), _unit:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (stdgo._internal.time.Time__unitmap._unitMap != null && stdgo._internal.time.Time__unitmap._unitMap.__exists__(_u?.__copy__()) ? { _0 : stdgo._internal.time.Time__unitmap._unitMap[_u?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt64), _1 : false }), _unit:stdgo.GoUInt64 = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return { _0 : (0i64 : stdgo._internal.time.Time_duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((((("time: unknown unit " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_u?.__copy__())?.__copy__() : stdgo.GoString) + (" in duration " : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
             };

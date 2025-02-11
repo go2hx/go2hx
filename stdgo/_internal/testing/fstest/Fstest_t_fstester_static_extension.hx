@@ -220,7 +220,7 @@ package stdgo._internal.testing.fstest;
             if (stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1) != (stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2))) {
                 _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__(), (("+ " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry2)?.__copy__() : stdgo.GoString)?.__copy__()));
             };
-            if (_old != null) _old.remove(_entry2.name());
+            if (_old != null) _old.__remove__(_entry2.name());
         };
         for (__4 => _entry1 in _old) {
             _diffs = (_diffs.__append__((("- " : stdgo.GoString) + stdgo._internal.testing.fstest.Fstest__formatentry._formatEntry(_entry1)?.__copy__() : stdgo.GoString)?.__copy__()));

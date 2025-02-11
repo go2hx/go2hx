@@ -1,5 +1,5 @@
 package stdgo.internal.diff;
-@:structInit @:using(stdgo.internal.diff.Diff.T_pair_static_extension) abstract T_pair(stdgo._internal.internal.diff.Diff_t_pair.T_pair) from stdgo._internal.internal.diff.Diff_t_pair.T_pair to stdgo._internal.internal.diff.Diff_t_pair.T_pair {
+@:structInit @:using(stdgo.internal.diff.Diff.T_pair_static_extension) @:dox(hide) abstract T_pair(stdgo._internal.internal.diff.Diff_t_pair.T_pair) from stdgo._internal.internal.diff.Diff_t_pair.T_pair to stdgo._internal.internal.diff.Diff_t_pair.T_pair {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {
@@ -16,8 +16,8 @@ package stdgo.internal.diff;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_pairPointer = stdgo._internal.internal.diff.Diff_t_pairpointer.T_pairPointer;
-class T_pair_static_extension {
+@:dox(hide) typedef T_pairPointer = stdgo._internal.internal.diff.Diff_t_pairpointer.T_pairPointer;
+@:dox(hide) class T_pair_static_extension {
 
 }
 class Diff {

@@ -1,5 +1,5 @@
 package stdgo.debug.buildinfo;
-class T_exe_static_extension {
+@:dox(hide) class T_exe_static_extension {
     static public function dataStart(t:stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe):haxe.UInt64 {
         return stdgo._internal.debug.buildinfo.Buildinfo_t_exe_static_extension.T_exe_static_extension.dataStart(t);
     }
@@ -12,8 +12,8 @@ class T_exe_static_extension {
         };
     }
 }
-typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
-@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_elfExe_static_extension) abstract T_elfExe(stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe to stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe {
+@:dox(hide) typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
+@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_elfExe_static_extension) @:dox(hide) abstract T_elfExe(stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe to stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe {
     public var _f(get, set) : stdgo._internal.debug.elf.Elf_file.File;
     function get__f():stdgo._internal.debug.elf.Elf_file.File return this._f;
     function set__f(v:stdgo._internal.debug.elf.Elf_file.File):stdgo._internal.debug.elf.Elf_file.File {
@@ -24,7 +24,7 @@ typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_peExe_static_extension) abstract T_peExe(stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe to stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe {
+@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_peExe_static_extension) @:dox(hide) abstract T_peExe(stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe to stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe {
     public var _f(get, set) : stdgo._internal.debug.pe.Pe_file.File;
     function get__f():stdgo._internal.debug.pe.Pe_file.File return this._f;
     function set__f(v:stdgo._internal.debug.pe.Pe_file.File):stdgo._internal.debug.pe.Pe_file.File {
@@ -35,7 +35,7 @@ typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_machoExe_static_extension) abstract T_machoExe(stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe to stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe {
+@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_machoExe_static_extension) @:dox(hide) abstract T_machoExe(stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe to stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe {
     public var _f(get, set) : stdgo._internal.debug.macho.Macho_file.File;
     function get__f():stdgo._internal.debug.macho.Macho_file.File return this._f;
     function set__f(v:stdgo._internal.debug.macho.Macho_file.File):stdgo._internal.debug.macho.Macho_file.File {
@@ -46,7 +46,7 @@ typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_xcoffExe_static_extension) abstract T_xcoffExe(stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe to stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe {
+@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_xcoffExe_static_extension) @:dox(hide) abstract T_xcoffExe(stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe to stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe {
     public var _f(get, set) : stdgo._internal.internal.xcoff.Xcoff_file.File;
     function get__f():stdgo._internal.internal.xcoff.Xcoff_file.File return this._f;
     function set__f(v:stdgo._internal.internal.xcoff.Xcoff_file.File):stdgo._internal.internal.xcoff.Xcoff_file.File {
@@ -57,7 +57,7 @@ typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_plan9objExe_static_extension) abstract T_plan9objExe(stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe to stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe {
+@:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_plan9objExe_static_extension) @:dox(hide) abstract T_plan9objExe(stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe to stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe {
     public var _f(get, set) : stdgo._internal.debug.plan9obj.Plan9obj_file.File;
     function get__f():stdgo._internal.debug.plan9obj.Plan9obj_file.File return this._f;
     function set__f(v:stdgo._internal.debug.plan9obj.Plan9obj_file.File):stdgo._internal.debug.plan9obj.Plan9obj_file.File {
@@ -69,8 +69,8 @@ typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
     public function __copy__() return this.__copy__();
 }
 typedef BuildInfo = stdgo._internal.debug.buildinfo.Buildinfo_buildinfo.BuildInfo;
-typedef T_elfExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_elfexepointer.T_elfExePointer;
-class T_elfExe_static_extension {
+@:dox(hide) typedef T_elfExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_elfexepointer.T_elfExePointer;
+@:dox(hide) class T_elfExe_static_extension {
     static public function dataStart(_x:T_elfExe):haxe.UInt64 {
         final _x = (_x : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe>);
         return stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe_static_extension.T_elfExe_static_extension.dataStart(_x);
@@ -85,8 +85,8 @@ class T_elfExe_static_extension {
         };
     }
 }
-typedef T_peExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_peexepointer.T_peExePointer;
-class T_peExe_static_extension {
+@:dox(hide) typedef T_peExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_peexepointer.T_peExePointer;
+@:dox(hide) class T_peExe_static_extension {
     static public function dataStart(_x:T_peExe):haxe.UInt64 {
         final _x = (_x : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_peexe.T_peExe>);
         return stdgo._internal.debug.buildinfo.Buildinfo_t_peexe_static_extension.T_peExe_static_extension.dataStart(_x);
@@ -105,8 +105,8 @@ class T_peExe_static_extension {
         return stdgo._internal.debug.buildinfo.Buildinfo_t_peexe_static_extension.T_peExe_static_extension._imageBase(_x);
     }
 }
-typedef T_machoExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_machoexepointer.T_machoExePointer;
-class T_machoExe_static_extension {
+@:dox(hide) typedef T_machoExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_machoexepointer.T_machoExePointer;
+@:dox(hide) class T_machoExe_static_extension {
     static public function dataStart(_x:T_machoExe):haxe.UInt64 {
         final _x = (_x : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe.T_machoExe>);
         return stdgo._internal.debug.buildinfo.Buildinfo_t_machoexe_static_extension.T_machoExe_static_extension.dataStart(_x);
@@ -121,8 +121,8 @@ class T_machoExe_static_extension {
         };
     }
 }
-typedef T_xcoffExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexepointer.T_xcoffExePointer;
-class T_xcoffExe_static_extension {
+@:dox(hide) typedef T_xcoffExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexepointer.T_xcoffExePointer;
+@:dox(hide) class T_xcoffExe_static_extension {
     static public function dataStart(_x:T_xcoffExe):haxe.UInt64 {
         final _x = (_x : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe>);
         return stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe_static_extension.T_xcoffExe_static_extension.dataStart(_x);
@@ -137,8 +137,8 @@ class T_xcoffExe_static_extension {
         };
     }
 }
-typedef T_plan9objExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexepointer.T_plan9objExePointer;
-class T_plan9objExe_static_extension {
+@:dox(hide) typedef T_plan9objExePointer = stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexepointer.T_plan9objExePointer;
+@:dox(hide) class T_plan9objExe_static_extension {
     static public function readData(_x:T_plan9objExe, _addr:haxe.UInt64, _size:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _x = (_x : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe>);
         final _addr = (_addr : stdgo.GoUInt64);

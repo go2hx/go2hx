@@ -129,7 +129,7 @@ package stdgo._internal.encoding.gob;
             _rt = (@:checkr _ut ?? throw "null pointer dereference")._user;
         };
         {
-            var __tmp__ = ((@:checkr _enc ?? throw "null pointer dereference")._sent != null && (@:checkr _enc ?? throw "null pointer dereference")._sent.exists(_rt) ? { _0 : (@:checkr _enc ?? throw "null pointer dereference")._sent[_rt], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _alreadySent:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _enc ?? throw "null pointer dereference")._sent != null && (@:checkr _enc ?? throw "null pointer dereference")._sent.__exists__(_rt) ? { _0 : (@:checkr _enc ?? throw "null pointer dereference")._sent[_rt], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _alreadySent:Bool = __tmp__._1;
             if (!_alreadySent) {
                 var _sent = (@:check2r _enc._sendType(_w, _state, _rt) : Bool);
                 if ((@:checkr _enc ?? throw "null pointer dereference")._err != null) {
@@ -204,7 +204,7 @@ package stdgo._internal.encoding.gob;
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_encoder.Encoder> = _enc;
         var _sent = false;
         {
-            var __tmp__ = ((@:checkr _enc ?? throw "null pointer dereference")._sent != null && (@:checkr _enc ?? throw "null pointer dereference")._sent.exists(_actual) ? { _0 : (@:checkr _enc ?? throw "null pointer dereference")._sent[_actual], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _alreadySent:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _enc ?? throw "null pointer dereference")._sent != null && (@:checkr _enc ?? throw "null pointer dereference")._sent.__exists__(_actual) ? { _0 : (@:checkr _enc ?? throw "null pointer dereference")._sent[_actual], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _alreadySent:Bool = __tmp__._1;
             if (_alreadySent) {
                 return _sent = false;
             };

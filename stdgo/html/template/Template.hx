@@ -12,7 +12,7 @@ final errRangeLoopReentry = stdgo._internal.html.template.Template_errrangeloopr
 final errSlashAmbig = stdgo._internal.html.template.Template_errslashambig.errSlashAmbig;
 final errPredefinedEscaper = stdgo._internal.html.template.Template_errpredefinedescaper.errPredefinedEscaper;
 final errJSTemplate = stdgo._internal.html.template.Template_errjstemplate.errJSTemplate;
-@:structInit @:using(stdgo.html.template.Template.T_context_static_extension) abstract T_context(stdgo._internal.html.template.Template_t_context.T_context) from stdgo._internal.html.template.Template_t_context.T_context to stdgo._internal.html.template.Template_t_context.T_context {
+@:structInit @:using(stdgo.html.template.Template.T_context_static_extension) @:dox(hide) abstract T_context(stdgo._internal.html.template.Template_t_context.T_context) from stdgo._internal.html.template.Template_t_context.T_context to stdgo._internal.html.template.Template_t_context.T_context {
     public var _state(get, set) : T_state;
     function get__state():T_state return this._state;
     function set__state(v:T_state):T_state {
@@ -100,7 +100,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errjstemplate.errJS
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.html.template.Template.T_escaper_static_extension) abstract T_escaper(stdgo._internal.html.template.Template_t_escaper.T_escaper) from stdgo._internal.html.template.Template_t_escaper.T_escaper to stdgo._internal.html.template.Template_t_escaper.T_escaper {
+@:structInit @:using(stdgo.html.template.Template.T_escaper_static_extension) @:dox(hide) abstract T_escaper(stdgo._internal.html.template.Template_t_escaper.T_escaper) from stdgo._internal.html.template.Template_t_escaper.T_escaper to stdgo._internal.html.template.Template_t_escaper.T_escaper {
     public var _ns(get, set) : T_nameSpace;
     function get__ns():T_nameSpace return this._ns;
     function set__ns(v:T_nameSpace):T_nameSpace {
@@ -153,7 +153,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errjstemplate.errJS
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.html.template.Template.T_rangeContext_static_extension) abstract T_rangeContext(stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext) from stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext to stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext {
+@:structInit @:using(stdgo.html.template.Template.T_rangeContext_static_extension) @:dox(hide) abstract T_rangeContext(stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext) from stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext to stdgo._internal.html.template.Template_t_rangecontext.T_rangeContext {
     public var _outer(get, set) : T_rangeContext;
     function get__outer():T_rangeContext return this._outer;
     function set__outer(v:T_rangeContext):T_rangeContext {
@@ -205,7 +205,7 @@ final errJSTemplate = stdgo._internal.html.template.Template_errjstemplate.errJS
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.html.template.Template.T_nameSpace_static_extension) abstract T_nameSpace(stdgo._internal.html.template.Template_t_namespace.T_nameSpace) from stdgo._internal.html.template.Template_t_namespace.T_nameSpace to stdgo._internal.html.template.Template_t_namespace.T_nameSpace {
+@:structInit @:using(stdgo.html.template.Template.T_nameSpace_static_extension) @:dox(hide) abstract T_nameSpace(stdgo._internal.html.template.Template_t_namespace.T_nameSpace) from stdgo._internal.html.template.Template_t_namespace.T_nameSpace to stdgo._internal.html.template.Template_t_namespace.T_nameSpace {
     public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -234,11 +234,11 @@ final errJSTemplate = stdgo._internal.html.template.Template_errjstemplate.errJS
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.html.template.Template_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.html.template.Template_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.html.template.Template_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.html.template.Template_t__struct_0.T__struct_0;
 typedef CSS = stdgo._internal.html.template.Template_css.CSS;
 typedef HTML = stdgo._internal.html.template.Template_html.HTML;
 typedef HTMLAttr = stdgo._internal.html.template.Template_htmlattr.HTMLAttr;
@@ -246,17 +246,17 @@ typedef JS = stdgo._internal.html.template.Template_js.JS;
 typedef JSStr = stdgo._internal.html.template.Template_jsstr.JSStr;
 typedef URL = stdgo._internal.html.template.Template_url.URL;
 typedef Srcset = stdgo._internal.html.template.Template_srcset.Srcset;
-typedef T_contentType = stdgo._internal.html.template.Template_t_contenttype.T_contentType;
-typedef T_state = stdgo._internal.html.template.Template_t_state.T_state;
-typedef T_delim = stdgo._internal.html.template.Template_t_delim.T_delim;
-typedef T_urlPart = stdgo._internal.html.template.Template_t_urlpart.T_urlPart;
-typedef T_jsCtx = stdgo._internal.html.template.Template_t_jsctx.T_jsCtx;
-typedef T_element = stdgo._internal.html.template.Template_t_element.T_element;
-typedef T_attr = stdgo._internal.html.template.Template_t_attr.T_attr;
+@:dox(hide) typedef T_contentType = stdgo._internal.html.template.Template_t_contenttype.T_contentType;
+@:dox(hide) typedef T_state = stdgo._internal.html.template.Template_t_state.T_state;
+@:dox(hide) typedef T_delim = stdgo._internal.html.template.Template_t_delim.T_delim;
+@:dox(hide) typedef T_urlPart = stdgo._internal.html.template.Template_t_urlpart.T_urlPart;
+@:dox(hide) typedef T_jsCtx = stdgo._internal.html.template.Template_t_jsctx.T_jsCtx;
+@:dox(hide) typedef T_element = stdgo._internal.html.template.Template_t_element.T_element;
+@:dox(hide) typedef T_attr = stdgo._internal.html.template.Template_t_attr.T_attr;
 typedef ErrorCode = stdgo._internal.html.template.Template_errorcode.ErrorCode;
 typedef FuncMap = stdgo._internal.html.template.Template_funcmap.FuncMap;
-typedef T_contextPointer = stdgo._internal.html.template.Template_t_contextpointer.T_contextPointer;
-class T_context_static_extension {
+@:dox(hide) typedef T_contextPointer = stdgo._internal.html.template.Template_t_contextpointer.T_contextPointer;
+@:dox(hide) class T_context_static_extension {
     static public function _mangle(_c:T_context, _templateName:String):String {
         final _templateName = (_templateName : stdgo.GoString);
         return stdgo._internal.html.template.Template_t_context_static_extension.T_context_static_extension._mangle(_c, _templateName);
@@ -275,8 +275,8 @@ class Error_static_extension {
         return stdgo._internal.html.template.Template_error_static_extension.Error_static_extension.error(_e);
     }
 }
-typedef T_escaperPointer = stdgo._internal.html.template.Template_t_escaperpointer.T_escaperPointer;
-class T_escaper_static_extension {
+@:dox(hide) typedef T_escaperPointer = stdgo._internal.html.template.Template_t_escaperpointer.T_escaperPointer;
+@:dox(hide) class T_escaper_static_extension {
     static public function _arbitraryTemplate(_e:T_escaper):Template_ {
         final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>);
         return stdgo._internal.html.template.Template_t_escaper_static_extension.T_escaper_static_extension._arbitraryTemplate(_e);
@@ -370,8 +370,8 @@ class T_escaper_static_extension {
         return stdgo._internal.html.template.Template_t_escaper_static_extension.T_escaper_static_extension._escape(_e, _c, _n);
     }
 }
-typedef T_rangeContextPointer = stdgo._internal.html.template.Template_t_rangecontextpointer.T_rangeContextPointer;
-class T_rangeContext_static_extension {
+@:dox(hide) typedef T_rangeContextPointer = stdgo._internal.html.template.Template_t_rangecontextpointer.T_rangeContextPointer;
+@:dox(hide) class T_rangeContext_static_extension {
 
 }
 typedef TemplatePointer = stdgo._internal.html.template.Template_templatepointer.TemplatePointer;
@@ -491,12 +491,12 @@ class Template_static_extension {
         return [for (i in stdgo._internal.html.template.Template_template_static_extension.Template_static_extension.templates(_t)) i];
     }
 }
-typedef T_nameSpacePointer = stdgo._internal.html.template.Template_t_namespacepointer.T_nameSpacePointer;
-class T_nameSpace_static_extension {
+@:dox(hide) typedef T_nameSpacePointer = stdgo._internal.html.template.Template_t_namespacepointer.T_nameSpacePointer;
+@:dox(hide) class T_nameSpace_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.html.template.Template_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.html.template.Template_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef CSSPointer = stdgo._internal.html.template.Template_csspointer.CSSPointer;
@@ -527,42 +527,42 @@ typedef SrcsetPointer = stdgo._internal.html.template.Template_srcsetpointer.Src
 class Srcset_static_extension {
 
 }
-typedef T_contentTypePointer = stdgo._internal.html.template.Template_t_contenttypepointer.T_contentTypePointer;
-class T_contentType_static_extension {
+@:dox(hide) typedef T_contentTypePointer = stdgo._internal.html.template.Template_t_contenttypepointer.T_contentTypePointer;
+@:dox(hide) class T_contentType_static_extension {
 
 }
-typedef T_statePointer = stdgo._internal.html.template.Template_t_statepointer.T_statePointer;
-class T_state_static_extension {
+@:dox(hide) typedef T_statePointer = stdgo._internal.html.template.Template_t_statepointer.T_statePointer;
+@:dox(hide) class T_state_static_extension {
     static public function string(_i:T_state):String {
         return stdgo._internal.html.template.Template_t_state_static_extension.T_state_static_extension.string(_i);
     }
 }
-typedef T_delimPointer = stdgo._internal.html.template.Template_t_delimpointer.T_delimPointer;
-class T_delim_static_extension {
+@:dox(hide) typedef T_delimPointer = stdgo._internal.html.template.Template_t_delimpointer.T_delimPointer;
+@:dox(hide) class T_delim_static_extension {
     static public function string(_i:T_delim):String {
         return stdgo._internal.html.template.Template_t_delim_static_extension.T_delim_static_extension.string(_i);
     }
 }
-typedef T_urlPartPointer = stdgo._internal.html.template.Template_t_urlpartpointer.T_urlPartPointer;
-class T_urlPart_static_extension {
+@:dox(hide) typedef T_urlPartPointer = stdgo._internal.html.template.Template_t_urlpartpointer.T_urlPartPointer;
+@:dox(hide) class T_urlPart_static_extension {
     static public function string(_i:T_urlPart):String {
         return stdgo._internal.html.template.Template_t_urlpart_static_extension.T_urlPart_static_extension.string(_i);
     }
 }
-typedef T_jsCtxPointer = stdgo._internal.html.template.Template_t_jsctxpointer.T_jsCtxPointer;
-class T_jsCtx_static_extension {
+@:dox(hide) typedef T_jsCtxPointer = stdgo._internal.html.template.Template_t_jsctxpointer.T_jsCtxPointer;
+@:dox(hide) class T_jsCtx_static_extension {
     static public function string(_i:T_jsCtx):String {
         return stdgo._internal.html.template.Template_t_jsctx_static_extension.T_jsCtx_static_extension.string(_i);
     }
 }
-typedef T_elementPointer = stdgo._internal.html.template.Template_t_elementpointer.T_elementPointer;
-class T_element_static_extension {
+@:dox(hide) typedef T_elementPointer = stdgo._internal.html.template.Template_t_elementpointer.T_elementPointer;
+@:dox(hide) class T_element_static_extension {
     static public function string(_i:T_element):String {
         return stdgo._internal.html.template.Template_t_element_static_extension.T_element_static_extension.string(_i);
     }
 }
-typedef T_attrPointer = stdgo._internal.html.template.Template_t_attrpointer.T_attrPointer;
-class T_attr_static_extension {
+@:dox(hide) typedef T_attrPointer = stdgo._internal.html.template.Template_t_attrpointer.T_attrPointer;
+@:dox(hide) class T_attr_static_extension {
     static public function string(_i:T_attr):String {
         return stdgo._internal.html.template.Template_t_attr_static_extension.T_attr_static_extension.string(_i);
     }

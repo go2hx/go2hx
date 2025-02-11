@@ -462,7 +462,7 @@ package stdgo._internal.net.internal.socktest;
                     return __ret__;
                 };
             };
-            if ((@:checkr _sw ?? throw "null pointer dereference")._sotab != null) (@:checkr _sw ?? throw "null pointer dereference")._sotab.remove(_s);
+            if ((@:checkr _sw ?? throw "null pointer dereference")._sotab != null) (@:checkr _sw ?? throw "null pointer dereference")._sotab.__remove__(_s);
             (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _so ?? throw "null pointer dereference").cookie).closed++;
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);
@@ -679,7 +679,7 @@ package stdgo._internal.net.internal.socktest;
                 final __f__ = @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var __tmp__ = ((@:checkr _sw ?? throw "null pointer dereference")._sotab != null && (@:checkr _sw ?? throw "null pointer dereference")._sotab.exists(_s) ? { _0 : (@:checkr _sw ?? throw "null pointer dereference")._sotab[_s], _1 : true } : { _0 : ({} : stdgo._internal.net.internal.socktest.Socktest_status.Status), _1 : false }), _so:stdgo._internal.net.internal.socktest.Socktest_status.Status = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _sw ?? throw "null pointer dereference")._sotab != null && (@:checkr _sw ?? throw "null pointer dereference")._sotab.__exists__(_s) ? { _0 : (@:checkr _sw ?? throw "null pointer dereference")._sotab[_s], _1 : true } : { _0 : ({} : stdgo._internal.net.internal.socktest.Socktest_status.Status), _1 : false }), _so:stdgo._internal.net.internal.socktest.Socktest_status.Status = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {

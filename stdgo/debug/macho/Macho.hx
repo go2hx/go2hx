@@ -620,7 +620,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_relocInfo_static_extension) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo to stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo {
+@:structInit @:using(stdgo.debug.macho.Macho.T_relocInfo_static_extension) @:dox(hide) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo to stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo {
     public var addr(get, set) : std.UInt;
     function get_addr():std.UInt return this.addr;
     function set_addr(v:std.UInt):std.UInt {
@@ -1637,7 +1637,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_intName_static_extension) abstract T_intName(stdgo._internal.debug.macho.Macho_t_intname.T_intName) from stdgo._internal.debug.macho.Macho_t_intname.T_intName to stdgo._internal.debug.macho.Macho_t_intname.T_intName {
+@:structInit @:using(stdgo.debug.macho.Macho.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.macho.Macho_t_intname.T_intName) from stdgo._internal.debug.macho.Macho_t_intname.T_intName to stdgo._internal.debug.macho.Macho_t_intname.T_intName {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {
@@ -1654,11 +1654,11 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.debug.macho.Macho_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.debug.macho.Macho_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.debug.macho.Macho_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.debug.macho.Macho_t__struct_0.T__struct_0;
 typedef LoadBytes = stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes;
 typedef Type_ = stdgo._internal.debug.macho.Macho_type_.Type_;
 typedef Cpu = stdgo._internal.debug.macho.Macho_cpu.Cpu;
@@ -1874,8 +1874,8 @@ class FormatError_static_extension {
         return stdgo._internal.debug.macho.Macho_formaterror_static_extension.FormatError_static_extension.error(_e);
     }
 }
-typedef T_relocInfoPointer = stdgo._internal.debug.macho.Macho_t_relocinfopointer.T_relocInfoPointer;
-class T_relocInfo_static_extension {
+@:dox(hide) typedef T_relocInfoPointer = stdgo._internal.debug.macho.Macho_t_relocinfopointer.T_relocInfoPointer;
+@:dox(hide) class T_relocInfo_static_extension {
 
 }
 typedef FileHeaderPointer = stdgo._internal.debug.macho.Macho_fileheaderpointer.FileHeaderPointer;
@@ -1934,12 +1934,12 @@ typedef RegsAMD64Pointer = stdgo._internal.debug.macho.Macho_regsamd64pointer.Re
 class RegsAMD64_static_extension {
 
 }
-typedef T_intNamePointer = stdgo._internal.debug.macho.Macho_t_intnamepointer.T_intNamePointer;
-class T_intName_static_extension {
+@:dox(hide) typedef T_intNamePointer = stdgo._internal.debug.macho.Macho_t_intnamepointer.T_intNamePointer;
+@:dox(hide) class T_intName_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.debug.macho.Macho_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.debug.macho.Macho_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 typedef LoadBytesPointer = stdgo._internal.debug.macho.Macho_loadbytespointer.LoadBytesPointer;

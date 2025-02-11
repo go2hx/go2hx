@@ -1,5 +1,5 @@
 package stdgo.internal.singleflight;
-@:structInit @:using(stdgo.internal.singleflight.Singleflight.T_call_static_extension) abstract T_call(stdgo._internal.internal.singleflight.Singleflight_t_call.T_call) from stdgo._internal.internal.singleflight.Singleflight_t_call.T_call to stdgo._internal.internal.singleflight.Singleflight_t_call.T_call {
+@:structInit @:using(stdgo.internal.singleflight.Singleflight.T_call_static_extension) @:dox(hide) abstract T_call(stdgo._internal.internal.singleflight.Singleflight_t_call.T_call) from stdgo._internal.internal.singleflight.Singleflight_t_call.T_call to stdgo._internal.internal.singleflight.Singleflight_t_call.T_call {
     public var _wg(get, set) : stdgo._internal.sync.Sync_waitgroup.WaitGroup;
     function get__wg():stdgo._internal.sync.Sync_waitgroup.WaitGroup return this._wg;
     function set__wg(v:stdgo._internal.sync.Sync_waitgroup.WaitGroup):stdgo._internal.sync.Sync_waitgroup.WaitGroup {
@@ -74,8 +74,8 @@ package stdgo.internal.singleflight;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_callPointer = stdgo._internal.internal.singleflight.Singleflight_t_callpointer.T_callPointer;
-class T_call_static_extension {
+@:dox(hide) typedef T_callPointer = stdgo._internal.internal.singleflight.Singleflight_t_callpointer.T_callPointer;
+@:dox(hide) class T_call_static_extension {
 
 }
 typedef GroupPointer = stdgo._internal.internal.singleflight.Singleflight_grouppointer.GroupPointer;

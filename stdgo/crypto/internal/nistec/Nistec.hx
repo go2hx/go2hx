@@ -91,10 +91,10 @@ package stdgo.crypto.internal.nistec;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_p224Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table;
-typedef T_p256Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p256table.T_p256Table;
-typedef T_p384Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p384table.T_p384Table;
-typedef T_p521Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p521table.T_p521Table;
+@:dox(hide) typedef T_p224Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table;
+@:dox(hide) typedef T_p256Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p256table.T_p256Table;
+@:dox(hide) typedef T_p384Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p384table.T_p384Table;
+@:dox(hide) typedef T_p521Table = stdgo._internal.crypto.internal.nistec.Nistec_t_p521table.T_p521Table;
 typedef P224PointPointer = stdgo._internal.crypto.internal.nistec.Nistec_p224pointpointer.P224PointPointer;
 class P224Point_static_extension {
     static public function scalarBaseMult(_p:P224Point, _scalar:Array<std.UInt>):stdgo.Tuple<P224Point, stdgo.Error> {
@@ -463,8 +463,8 @@ class P521Point_static_extension {
         return stdgo._internal.crypto.internal.nistec.Nistec_p521point_static_extension.P521Point_static_extension.setGenerator(_p);
     }
 }
-typedef T_p224TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p224tablepointer.T_p224TablePointer;
-class T_p224Table_static_extension {
+@:dox(hide) typedef T_p224TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p224tablepointer.T_p224TablePointer;
+@:dox(hide) class T_p224Table_static_extension {
     static public function select(_table:T_p224Table, _p:P224Point, _n:std.UInt):Void {
         final _table = (_table : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>);
@@ -472,8 +472,8 @@ class T_p224Table_static_extension {
         stdgo._internal.crypto.internal.nistec.Nistec_t_p224table_static_extension.T_p224Table_static_extension.select(_table, _p, _n);
     }
 }
-typedef T_p256TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p256tablepointer.T_p256TablePointer;
-class T_p256Table_static_extension {
+@:dox(hide) typedef T_p256TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p256tablepointer.T_p256TablePointer;
+@:dox(hide) class T_p256Table_static_extension {
     static public function select(_table:T_p256Table, _p:P256Point, _n:std.UInt):Void {
         final _table = (_table : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_t_p256table.T_p256Table>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>);
@@ -481,8 +481,8 @@ class T_p256Table_static_extension {
         stdgo._internal.crypto.internal.nistec.Nistec_t_p256table_static_extension.T_p256Table_static_extension.select(_table, _p, _n);
     }
 }
-typedef T_p384TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p384tablepointer.T_p384TablePointer;
-class T_p384Table_static_extension {
+@:dox(hide) typedef T_p384TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p384tablepointer.T_p384TablePointer;
+@:dox(hide) class T_p384Table_static_extension {
     static public function select(_table:T_p384Table, _p:P384Point, _n:std.UInt):Void {
         final _table = (_table : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_t_p384table.T_p384Table>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p384point.P384Point>);
@@ -490,8 +490,8 @@ class T_p384Table_static_extension {
         stdgo._internal.crypto.internal.nistec.Nistec_t_p384table_static_extension.T_p384Table_static_extension.select(_table, _p, _n);
     }
 }
-typedef T_p521TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p521tablepointer.T_p521TablePointer;
-class T_p521Table_static_extension {
+@:dox(hide) typedef T_p521TablePointer = stdgo._internal.crypto.internal.nistec.Nistec_t_p521tablepointer.T_p521TablePointer;
+@:dox(hide) class T_p521Table_static_extension {
     static public function select(_table:T_p521Table, _p:P521Point, _n:std.UInt):Void {
         final _table = (_table : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_t_p521table.T_p521Table>);
         final _p = (_p : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p521point.P521Point>);

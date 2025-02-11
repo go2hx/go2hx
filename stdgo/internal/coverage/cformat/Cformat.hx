@@ -28,7 +28,7 @@ package stdgo.internal.coverage.cformat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_pstate_static_extension) abstract T_pstate(stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate) from stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate to stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate {
+@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_pstate_static_extension) @:dox(hide) abstract T_pstate(stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate) from stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate to stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate {
     public var _funcs(get, set) : Array<T_fnfile>;
     function get__funcs():Array<T_fnfile> return [for (i in this._funcs) i];
     function set__funcs(v:Array<T_fnfile>):Array<T_fnfile> {
@@ -51,7 +51,7 @@ package stdgo.internal.coverage.cformat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_extcu_static_extension) abstract T_extcu(stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu) from stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu to stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu {
+@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_extcu_static_extension) @:dox(hide) abstract T_extcu(stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu) from stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu to stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu {
     public var _fnfid(get, set) : std.UInt;
     function get__fnfid():std.UInt return this._fnfid;
     function set__fnfid(v:std.UInt):std.UInt {
@@ -68,7 +68,7 @@ package stdgo.internal.coverage.cformat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_fnfile_static_extension) abstract T_fnfile(stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile) from stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile to stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile {
+@:structInit @:using(stdgo.internal.coverage.cformat.Cformat.T_fnfile_static_extension) @:dox(hide) abstract T_fnfile(stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile) from stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile to stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile {
     public var _file(get, set) : String;
     function get__file():String return this._file;
     function set__file(v:String):String {
@@ -119,20 +119,20 @@ class Formatter_static_extension {
         stdgo._internal.internal.coverage.cformat.Cformat_formatter_static_extension.Formatter_static_extension.setPackage(_fm, _importpath);
     }
 }
-typedef T_pstatePointer = stdgo._internal.internal.coverage.cformat.Cformat_t_pstatepointer.T_pstatePointer;
-class T_pstate_static_extension {
+@:dox(hide) typedef T_pstatePointer = stdgo._internal.internal.coverage.cformat.Cformat_t_pstatepointer.T_pstatePointer;
+@:dox(hide) class T_pstate_static_extension {
     static public function _sortUnits(_p:T_pstate, _units:Array<T_extcu>):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>);
         final _units = ([for (i in _units) i] : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu>);
         stdgo._internal.internal.coverage.cformat.Cformat_t_pstate_static_extension.T_pstate_static_extension._sortUnits(_p, _units);
     }
 }
-typedef T_extcuPointer = stdgo._internal.internal.coverage.cformat.Cformat_t_extcupointer.T_extcuPointer;
-class T_extcu_static_extension {
+@:dox(hide) typedef T_extcuPointer = stdgo._internal.internal.coverage.cformat.Cformat_t_extcupointer.T_extcuPointer;
+@:dox(hide) class T_extcu_static_extension {
 
 }
-typedef T_fnfilePointer = stdgo._internal.internal.coverage.cformat.Cformat_t_fnfilepointer.T_fnfilePointer;
-class T_fnfile_static_extension {
+@:dox(hide) typedef T_fnfilePointer = stdgo._internal.internal.coverage.cformat.Cformat_t_fnfilepointer.T_fnfilePointer;
+@:dox(hide) class T_fnfile_static_extension {
 
 }
 class Cformat {

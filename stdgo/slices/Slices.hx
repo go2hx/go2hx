@@ -1,6 +1,6 @@
 package stdgo.slices;
 final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
-@:structInit @:using(stdgo.slices.Slices.T_myStruct_static_extension) abstract T_myStruct(stdgo._internal.slices.Slices_t_mystruct.T_myStruct) from stdgo._internal.slices.Slices_t_mystruct.T_myStruct to stdgo._internal.slices.Slices_t_mystruct.T_myStruct {
+@:structInit @:using(stdgo.slices.Slices.T_myStruct_static_extension) @:dox(hide) abstract T_myStruct(stdgo._internal.slices.Slices_t_mystruct.T_myStruct) from stdgo._internal.slices.Slices_t_mystruct.T_myStruct to stdgo._internal.slices.Slices_t_mystruct.T_myStruct {
     public var _a(get, set) : String;
     function get__a():String return this._a;
     function set__a(v:String):String {
@@ -35,7 +35,7 @@ final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.slices.Slices.T_intPair_static_extension) abstract T_intPair(stdgo._internal.slices.Slices_t_intpair.T_intPair) from stdgo._internal.slices.Slices_t_intpair.T_intPair to stdgo._internal.slices.Slices_t_intpair.T_intPair {
+@:structInit @:using(stdgo.slices.Slices.T_intPair_static_extension) @:dox(hide) abstract T_intPair(stdgo._internal.slices.Slices_t_intpair.T_intPair) from stdgo._internal.slices.Slices_t_intpair.T_intPair to stdgo._internal.slices.Slices_t_intpair.T_intPair {
     public var _a(get, set) : StdTypes.Int;
     function get__a():StdTypes.Int return this._a;
     function set__a(v:StdTypes.Int):StdTypes.Int {
@@ -69,193 +69,193 @@ final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.slices.Slices_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.slices.Slices_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.slices.Slices_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.slices.Slices_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.slices.Slices_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.slices.Slices_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.slices.Slices_t__struct_1.T__struct_1;
-typedef T__struct_2Pointer = stdgo._internal.slices.Slices_t__struct_2pointer.T__struct_2Pointer;
-class T__struct_2_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.slices.Slices_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.slices.Slices_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
 
 }
-typedef T__struct_2 = stdgo._internal.slices.Slices_t__struct_2.T__struct_2;
-typedef T__struct_3Pointer = stdgo._internal.slices.Slices_t__struct_3pointer.T__struct_3Pointer;
-class T__struct_3_static_extension {
+@:dox(hide) typedef T__struct_2 = stdgo._internal.slices.Slices_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_3Pointer = stdgo._internal.slices.Slices_t__struct_3pointer.T__struct_3Pointer;
+@:dox(hide) class T__struct_3_static_extension {
 
 }
-typedef T__struct_3 = stdgo._internal.slices.Slices_t__struct_3.T__struct_3;
-typedef T__struct_4Pointer = stdgo._internal.slices.Slices_t__struct_4pointer.T__struct_4Pointer;
-class T__struct_4_static_extension {
+@:dox(hide) typedef T__struct_3 = stdgo._internal.slices.Slices_t__struct_3.T__struct_3;
+@:dox(hide) typedef T__struct_4Pointer = stdgo._internal.slices.Slices_t__struct_4pointer.T__struct_4Pointer;
+@:dox(hide) class T__struct_4_static_extension {
 
 }
-typedef T__struct_4 = stdgo._internal.slices.Slices_t__struct_4.T__struct_4;
-typedef T__struct_5Pointer = stdgo._internal.slices.Slices_t__struct_5pointer.T__struct_5Pointer;
-class T__struct_5_static_extension {
+@:dox(hide) typedef T__struct_4 = stdgo._internal.slices.Slices_t__struct_4.T__struct_4;
+@:dox(hide) typedef T__struct_5Pointer = stdgo._internal.slices.Slices_t__struct_5pointer.T__struct_5Pointer;
+@:dox(hide) class T__struct_5_static_extension {
 
 }
-typedef T__struct_5 = stdgo._internal.slices.Slices_t__struct_5.T__struct_5;
-typedef T__struct_6Pointer = stdgo._internal.slices.Slices_t__struct_6pointer.T__struct_6Pointer;
-class T__struct_6_static_extension {
+@:dox(hide) typedef T__struct_5 = stdgo._internal.slices.Slices_t__struct_5.T__struct_5;
+@:dox(hide) typedef T__struct_6Pointer = stdgo._internal.slices.Slices_t__struct_6pointer.T__struct_6Pointer;
+@:dox(hide) class T__struct_6_static_extension {
 
 }
-typedef T__struct_6 = stdgo._internal.slices.Slices_t__struct_6.T__struct_6;
-typedef T__struct_7Pointer = stdgo._internal.slices.Slices_t__struct_7pointer.T__struct_7Pointer;
-class T__struct_7_static_extension {
+@:dox(hide) typedef T__struct_6 = stdgo._internal.slices.Slices_t__struct_6.T__struct_6;
+@:dox(hide) typedef T__struct_7Pointer = stdgo._internal.slices.Slices_t__struct_7pointer.T__struct_7Pointer;
+@:dox(hide) class T__struct_7_static_extension {
 
 }
-typedef T__struct_7 = stdgo._internal.slices.Slices_t__struct_7.T__struct_7;
-typedef T__struct_8Pointer = stdgo._internal.slices.Slices_t__struct_8pointer.T__struct_8Pointer;
-class T__struct_8_static_extension {
+@:dox(hide) typedef T__struct_7 = stdgo._internal.slices.Slices_t__struct_7.T__struct_7;
+@:dox(hide) typedef T__struct_8Pointer = stdgo._internal.slices.Slices_t__struct_8pointer.T__struct_8Pointer;
+@:dox(hide) class T__struct_8_static_extension {
 
 }
-typedef T__struct_8 = stdgo._internal.slices.Slices_t__struct_8.T__struct_8;
-typedef T__struct_9Pointer = stdgo._internal.slices.Slices_t__struct_9pointer.T__struct_9Pointer;
-class T__struct_9_static_extension {
+@:dox(hide) typedef T__struct_8 = stdgo._internal.slices.Slices_t__struct_8.T__struct_8;
+@:dox(hide) typedef T__struct_9Pointer = stdgo._internal.slices.Slices_t__struct_9pointer.T__struct_9Pointer;
+@:dox(hide) class T__struct_9_static_extension {
 
 }
-typedef T__struct_9 = stdgo._internal.slices.Slices_t__struct_9.T__struct_9;
-typedef T__struct_10Pointer = stdgo._internal.slices.Slices_t__struct_10pointer.T__struct_10Pointer;
-class T__struct_10_static_extension {
+@:dox(hide) typedef T__struct_9 = stdgo._internal.slices.Slices_t__struct_9.T__struct_9;
+@:dox(hide) typedef T__struct_10Pointer = stdgo._internal.slices.Slices_t__struct_10pointer.T__struct_10Pointer;
+@:dox(hide) class T__struct_10_static_extension {
 
 }
-typedef T__struct_10 = stdgo._internal.slices.Slices_t__struct_10.T__struct_10;
-typedef T__struct_11Pointer = stdgo._internal.slices.Slices_t__struct_11pointer.T__struct_11Pointer;
-class T__struct_11_static_extension {
+@:dox(hide) typedef T__struct_10 = stdgo._internal.slices.Slices_t__struct_10.T__struct_10;
+@:dox(hide) typedef T__struct_11Pointer = stdgo._internal.slices.Slices_t__struct_11pointer.T__struct_11Pointer;
+@:dox(hide) class T__struct_11_static_extension {
 
 }
-typedef T__struct_11 = stdgo._internal.slices.Slices_t__struct_11.T__struct_11;
-typedef T__struct_12Pointer = stdgo._internal.slices.Slices_t__struct_12pointer.T__struct_12Pointer;
-class T__struct_12_static_extension {
+@:dox(hide) typedef T__struct_11 = stdgo._internal.slices.Slices_t__struct_11.T__struct_11;
+@:dox(hide) typedef T__struct_12Pointer = stdgo._internal.slices.Slices_t__struct_12pointer.T__struct_12Pointer;
+@:dox(hide) class T__struct_12_static_extension {
 
 }
-typedef T__struct_12 = stdgo._internal.slices.Slices_t__struct_12.T__struct_12;
-typedef T__struct_13Pointer = stdgo._internal.slices.Slices_t__struct_13pointer.T__struct_13Pointer;
-class T__struct_13_static_extension {
+@:dox(hide) typedef T__struct_12 = stdgo._internal.slices.Slices_t__struct_12.T__struct_12;
+@:dox(hide) typedef T__struct_13Pointer = stdgo._internal.slices.Slices_t__struct_13pointer.T__struct_13Pointer;
+@:dox(hide) class T__struct_13_static_extension {
 
 }
-typedef T__struct_13 = stdgo._internal.slices.Slices_t__struct_13.T__struct_13;
-typedef T__struct_14Pointer = stdgo._internal.slices.Slices_t__struct_14pointer.T__struct_14Pointer;
-class T__struct_14_static_extension {
+@:dox(hide) typedef T__struct_13 = stdgo._internal.slices.Slices_t__struct_13.T__struct_13;
+@:dox(hide) typedef T__struct_14Pointer = stdgo._internal.slices.Slices_t__struct_14pointer.T__struct_14Pointer;
+@:dox(hide) class T__struct_14_static_extension {
 
 }
-typedef T__struct_14 = stdgo._internal.slices.Slices_t__struct_14.T__struct_14;
-typedef T__struct_15Pointer = stdgo._internal.slices.Slices_t__struct_15pointer.T__struct_15Pointer;
-class T__struct_15_static_extension {
+@:dox(hide) typedef T__struct_14 = stdgo._internal.slices.Slices_t__struct_14.T__struct_14;
+@:dox(hide) typedef T__struct_15Pointer = stdgo._internal.slices.Slices_t__struct_15pointer.T__struct_15Pointer;
+@:dox(hide) class T__struct_15_static_extension {
 
 }
-typedef T__struct_15 = stdgo._internal.slices.Slices_t__struct_15.T__struct_15;
-typedef T__struct_16Pointer = stdgo._internal.slices.Slices_t__struct_16pointer.T__struct_16Pointer;
-class T__struct_16_static_extension {
+@:dox(hide) typedef T__struct_15 = stdgo._internal.slices.Slices_t__struct_15.T__struct_15;
+@:dox(hide) typedef T__struct_16Pointer = stdgo._internal.slices.Slices_t__struct_16pointer.T__struct_16Pointer;
+@:dox(hide) class T__struct_16_static_extension {
 
 }
-typedef T__struct_16 = stdgo._internal.slices.Slices_t__struct_16.T__struct_16;
-typedef T_sortedHint = stdgo._internal.slices.Slices_t_sortedhint.T_sortedHint;
-typedef T_xorshift = stdgo._internal.slices.Slices_t_xorshift.T_xorshift;
-typedef T_myStructs = stdgo._internal.slices.Slices_t_mystructs.T_myStructs;
-typedef T_intPairs = stdgo._internal.slices.Slices_t_intpairs.T_intPairs;
-typedef T_benchmarkEqualFunc_Large___localname___Large_2927 = stdgo._internal.slices.Slices_t_benchmarkequalfunc_large___localname___large_2927.T_benchmarkEqualFunc_Large___localname___Large_2927;
-typedef T_benchmarkIndex_Large___localname___Large_7963 = stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963.T_benchmarkIndex_Large___localname___Large_7963;
-typedef T_benchmarkIndexFunc_Large___localname___Large_8766 = stdgo._internal.slices.Slices_t_benchmarkindexfunc_large___localname___large_8766.T_benchmarkIndexFunc_Large___localname___Large_8766;
-typedef T_benchmarkCompact_Large___localname___Large_15129 = stdgo._internal.slices.Slices_t_benchmarkcompact_large___localname___large_15129.T_benchmarkCompact_Large___localname___Large_15129;
-typedef T_benchmarkCompactFunc_Large___localname___Large_15780 = stdgo._internal.slices.Slices_t_benchmarkcompactfunc_large___localname___large_15780.T_benchmarkCompactFunc_Large___localname___Large_15780;
-typedef T_testInference___localname___S_22782 = stdgo._internal.slices.Slices_t_testinference___localname___s_22782.T_testInference___localname___S_22782;
-typedef T_myStructPointer = stdgo._internal.slices.Slices_t_mystructpointer.T_myStructPointer;
-class T_myStruct_static_extension {
+@:dox(hide) typedef T__struct_16 = stdgo._internal.slices.Slices_t__struct_16.T__struct_16;
+@:dox(hide) typedef T_sortedHint = stdgo._internal.slices.Slices_t_sortedhint.T_sortedHint;
+@:dox(hide) typedef T_xorshift = stdgo._internal.slices.Slices_t_xorshift.T_xorshift;
+@:dox(hide) typedef T_myStructs = stdgo._internal.slices.Slices_t_mystructs.T_myStructs;
+@:dox(hide) typedef T_intPairs = stdgo._internal.slices.Slices_t_intpairs.T_intPairs;
+@:dox(hide) typedef T_benchmarkEqualFunc_Large___localname___Large_2927 = stdgo._internal.slices.Slices_t_benchmarkequalfunc_large___localname___large_2927.T_benchmarkEqualFunc_Large___localname___Large_2927;
+@:dox(hide) typedef T_benchmarkIndex_Large___localname___Large_7963 = stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963.T_benchmarkIndex_Large___localname___Large_7963;
+@:dox(hide) typedef T_benchmarkIndexFunc_Large___localname___Large_8766 = stdgo._internal.slices.Slices_t_benchmarkindexfunc_large___localname___large_8766.T_benchmarkIndexFunc_Large___localname___Large_8766;
+@:dox(hide) typedef T_benchmarkCompact_Large___localname___Large_15129 = stdgo._internal.slices.Slices_t_benchmarkcompact_large___localname___large_15129.T_benchmarkCompact_Large___localname___Large_15129;
+@:dox(hide) typedef T_benchmarkCompactFunc_Large___localname___Large_15780 = stdgo._internal.slices.Slices_t_benchmarkcompactfunc_large___localname___large_15780.T_benchmarkCompactFunc_Large___localname___Large_15780;
+@:dox(hide) typedef T_testInference___localname___S_22782 = stdgo._internal.slices.Slices_t_testinference___localname___s_22782.T_testInference___localname___S_22782;
+@:dox(hide) typedef T_myStructPointer = stdgo._internal.slices.Slices_t_mystructpointer.T_myStructPointer;
+@:dox(hide) class T_myStruct_static_extension {
 
 }
-typedef T_intPairPointer = stdgo._internal.slices.Slices_t_intpairpointer.T_intPairPointer;
-class T_intPair_static_extension {
+@:dox(hide) typedef T_intPairPointer = stdgo._internal.slices.Slices_t_intpairpointer.T_intPairPointer;
+@:dox(hide) class T_intPair_static_extension {
 
 }
 typedef SPointer = stdgo._internal.slices.Slices_spointer.SPointer;
 class S_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.slices.Slices_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.slices.Slices_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.slices.Slices_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.slices.Slices_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
-typedef T__struct_2PointerPointer = stdgo._internal.slices.Slices_t__struct_2pointerpointer.T__struct_2PointerPointer;
-class T__struct_2Pointer_static_extension {
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.slices.Slices_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
 
 }
-typedef T__struct_3PointerPointer = stdgo._internal.slices.Slices_t__struct_3pointerpointer.T__struct_3PointerPointer;
-class T__struct_3Pointer_static_extension {
+@:dox(hide) typedef T__struct_3PointerPointer = stdgo._internal.slices.Slices_t__struct_3pointerpointer.T__struct_3PointerPointer;
+@:dox(hide) class T__struct_3Pointer_static_extension {
 
 }
-typedef T__struct_4PointerPointer = stdgo._internal.slices.Slices_t__struct_4pointerpointer.T__struct_4PointerPointer;
-class T__struct_4Pointer_static_extension {
+@:dox(hide) typedef T__struct_4PointerPointer = stdgo._internal.slices.Slices_t__struct_4pointerpointer.T__struct_4PointerPointer;
+@:dox(hide) class T__struct_4Pointer_static_extension {
 
 }
-typedef T__struct_5PointerPointer = stdgo._internal.slices.Slices_t__struct_5pointerpointer.T__struct_5PointerPointer;
-class T__struct_5Pointer_static_extension {
+@:dox(hide) typedef T__struct_5PointerPointer = stdgo._internal.slices.Slices_t__struct_5pointerpointer.T__struct_5PointerPointer;
+@:dox(hide) class T__struct_5Pointer_static_extension {
 
 }
-typedef T__struct_6PointerPointer = stdgo._internal.slices.Slices_t__struct_6pointerpointer.T__struct_6PointerPointer;
-class T__struct_6Pointer_static_extension {
+@:dox(hide) typedef T__struct_6PointerPointer = stdgo._internal.slices.Slices_t__struct_6pointerpointer.T__struct_6PointerPointer;
+@:dox(hide) class T__struct_6Pointer_static_extension {
 
 }
-typedef T__struct_7PointerPointer = stdgo._internal.slices.Slices_t__struct_7pointerpointer.T__struct_7PointerPointer;
-class T__struct_7Pointer_static_extension {
+@:dox(hide) typedef T__struct_7PointerPointer = stdgo._internal.slices.Slices_t__struct_7pointerpointer.T__struct_7PointerPointer;
+@:dox(hide) class T__struct_7Pointer_static_extension {
 
 }
-typedef T__struct_8PointerPointer = stdgo._internal.slices.Slices_t__struct_8pointerpointer.T__struct_8PointerPointer;
-class T__struct_8Pointer_static_extension {
+@:dox(hide) typedef T__struct_8PointerPointer = stdgo._internal.slices.Slices_t__struct_8pointerpointer.T__struct_8PointerPointer;
+@:dox(hide) class T__struct_8Pointer_static_extension {
 
 }
-typedef T__struct_9PointerPointer = stdgo._internal.slices.Slices_t__struct_9pointerpointer.T__struct_9PointerPointer;
-class T__struct_9Pointer_static_extension {
+@:dox(hide) typedef T__struct_9PointerPointer = stdgo._internal.slices.Slices_t__struct_9pointerpointer.T__struct_9PointerPointer;
+@:dox(hide) class T__struct_9Pointer_static_extension {
 
 }
-typedef T__struct_10PointerPointer = stdgo._internal.slices.Slices_t__struct_10pointerpointer.T__struct_10PointerPointer;
-class T__struct_10Pointer_static_extension {
+@:dox(hide) typedef T__struct_10PointerPointer = stdgo._internal.slices.Slices_t__struct_10pointerpointer.T__struct_10PointerPointer;
+@:dox(hide) class T__struct_10Pointer_static_extension {
 
 }
-typedef T__struct_11PointerPointer = stdgo._internal.slices.Slices_t__struct_11pointerpointer.T__struct_11PointerPointer;
-class T__struct_11Pointer_static_extension {
+@:dox(hide) typedef T__struct_11PointerPointer = stdgo._internal.slices.Slices_t__struct_11pointerpointer.T__struct_11PointerPointer;
+@:dox(hide) class T__struct_11Pointer_static_extension {
 
 }
-typedef T__struct_12PointerPointer = stdgo._internal.slices.Slices_t__struct_12pointerpointer.T__struct_12PointerPointer;
-class T__struct_12Pointer_static_extension {
+@:dox(hide) typedef T__struct_12PointerPointer = stdgo._internal.slices.Slices_t__struct_12pointerpointer.T__struct_12PointerPointer;
+@:dox(hide) class T__struct_12Pointer_static_extension {
 
 }
-typedef T__struct_13PointerPointer = stdgo._internal.slices.Slices_t__struct_13pointerpointer.T__struct_13PointerPointer;
-class T__struct_13Pointer_static_extension {
+@:dox(hide) typedef T__struct_13PointerPointer = stdgo._internal.slices.Slices_t__struct_13pointerpointer.T__struct_13PointerPointer;
+@:dox(hide) class T__struct_13Pointer_static_extension {
 
 }
-typedef T__struct_14PointerPointer = stdgo._internal.slices.Slices_t__struct_14pointerpointer.T__struct_14PointerPointer;
-class T__struct_14Pointer_static_extension {
+@:dox(hide) typedef T__struct_14PointerPointer = stdgo._internal.slices.Slices_t__struct_14pointerpointer.T__struct_14PointerPointer;
+@:dox(hide) class T__struct_14Pointer_static_extension {
 
 }
-typedef T__struct_15PointerPointer = stdgo._internal.slices.Slices_t__struct_15pointerpointer.T__struct_15PointerPointer;
-class T__struct_15Pointer_static_extension {
+@:dox(hide) typedef T__struct_15PointerPointer = stdgo._internal.slices.Slices_t__struct_15pointerpointer.T__struct_15PointerPointer;
+@:dox(hide) class T__struct_15Pointer_static_extension {
 
 }
-typedef T__struct_16PointerPointer = stdgo._internal.slices.Slices_t__struct_16pointerpointer.T__struct_16PointerPointer;
-class T__struct_16Pointer_static_extension {
+@:dox(hide) typedef T__struct_16PointerPointer = stdgo._internal.slices.Slices_t__struct_16pointerpointer.T__struct_16PointerPointer;
+@:dox(hide) class T__struct_16Pointer_static_extension {
 
 }
-typedef T_sortedHintPointer = stdgo._internal.slices.Slices_t_sortedhintpointer.T_sortedHintPointer;
-class T_sortedHint_static_extension {
+@:dox(hide) typedef T_sortedHintPointer = stdgo._internal.slices.Slices_t_sortedhintpointer.T_sortedHintPointer;
+@:dox(hide) class T_sortedHint_static_extension {
 
 }
-typedef T_xorshiftPointer = stdgo._internal.slices.Slices_t_xorshiftpointer.T_xorshiftPointer;
-class T_xorshift_static_extension {
+@:dox(hide) typedef T_xorshiftPointer = stdgo._internal.slices.Slices_t_xorshiftpointer.T_xorshiftPointer;
+@:dox(hide) class T_xorshift_static_extension {
     static public function next(_r:stdgo.Pointer<T_xorshift>):haxe.UInt64 {
         return stdgo._internal.slices.Slices_t_xorshift_static_extension.T_xorshift_static_extension.next(_r);
     }
 }
-typedef T_myStructsPointer = stdgo._internal.slices.Slices_t_mystructspointer.T_myStructsPointer;
-class T_myStructs_static_extension {
+@:dox(hide) typedef T_myStructsPointer = stdgo._internal.slices.Slices_t_mystructspointer.T_myStructsPointer;
+@:dox(hide) class T_myStructs_static_extension {
     static public function swap(_s:T_myStructs, _i:StdTypes.Int, _j:StdTypes.Int):Void {
         final _i = (_i : stdgo.GoInt);
         final _j = (_j : stdgo.GoInt);
@@ -270,8 +270,8 @@ class T_myStructs_static_extension {
         return stdgo._internal.slices.Slices_t_mystructs_static_extension.T_myStructs_static_extension.len(_s);
     }
 }
-typedef T_intPairsPointer = stdgo._internal.slices.Slices_t_intpairspointer.T_intPairsPointer;
-class T_intPairs_static_extension {
+@:dox(hide) typedef T_intPairsPointer = stdgo._internal.slices.Slices_t_intpairspointer.T_intPairsPointer;
+@:dox(hide) class T_intPairs_static_extension {
     static public function _inOrder(_d:T_intPairs):Bool {
         return stdgo._internal.slices.Slices_t_intpairs_static_extension.T_intPairs_static_extension._inOrder(_d);
     }
@@ -279,28 +279,28 @@ class T_intPairs_static_extension {
         stdgo._internal.slices.Slices_t_intpairs_static_extension.T_intPairs_static_extension._initB(_d);
     }
 }
-typedef T_benchmarkEqualFunc_Large___localname___Large_2927Pointer = stdgo._internal.slices.Slices_t_benchmarkequalfunc_large___localname___large_2927pointer.T_benchmarkEqualFunc_Large___localname___Large_2927Pointer;
-class T_benchmarkEqualFunc_Large___localname___Large_2927_static_extension {
+@:dox(hide) typedef T_benchmarkEqualFunc_Large___localname___Large_2927Pointer = stdgo._internal.slices.Slices_t_benchmarkequalfunc_large___localname___large_2927pointer.T_benchmarkEqualFunc_Large___localname___Large_2927Pointer;
+@:dox(hide) class T_benchmarkEqualFunc_Large___localname___Large_2927_static_extension {
 
 }
-typedef T_benchmarkIndex_Large___localname___Large_7963Pointer = stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963pointer.T_benchmarkIndex_Large___localname___Large_7963Pointer;
-class T_benchmarkIndex_Large___localname___Large_7963_static_extension {
+@:dox(hide) typedef T_benchmarkIndex_Large___localname___Large_7963Pointer = stdgo._internal.slices.Slices_t_benchmarkindex_large___localname___large_7963pointer.T_benchmarkIndex_Large___localname___Large_7963Pointer;
+@:dox(hide) class T_benchmarkIndex_Large___localname___Large_7963_static_extension {
 
 }
-typedef T_benchmarkIndexFunc_Large___localname___Large_8766Pointer = stdgo._internal.slices.Slices_t_benchmarkindexfunc_large___localname___large_8766pointer.T_benchmarkIndexFunc_Large___localname___Large_8766Pointer;
-class T_benchmarkIndexFunc_Large___localname___Large_8766_static_extension {
+@:dox(hide) typedef T_benchmarkIndexFunc_Large___localname___Large_8766Pointer = stdgo._internal.slices.Slices_t_benchmarkindexfunc_large___localname___large_8766pointer.T_benchmarkIndexFunc_Large___localname___Large_8766Pointer;
+@:dox(hide) class T_benchmarkIndexFunc_Large___localname___Large_8766_static_extension {
 
 }
-typedef T_benchmarkCompact_Large___localname___Large_15129Pointer = stdgo._internal.slices.Slices_t_benchmarkcompact_large___localname___large_15129pointer.T_benchmarkCompact_Large___localname___Large_15129Pointer;
-class T_benchmarkCompact_Large___localname___Large_15129_static_extension {
+@:dox(hide) typedef T_benchmarkCompact_Large___localname___Large_15129Pointer = stdgo._internal.slices.Slices_t_benchmarkcompact_large___localname___large_15129pointer.T_benchmarkCompact_Large___localname___Large_15129Pointer;
+@:dox(hide) class T_benchmarkCompact_Large___localname___Large_15129_static_extension {
 
 }
-typedef T_benchmarkCompactFunc_Large___localname___Large_15780Pointer = stdgo._internal.slices.Slices_t_benchmarkcompactfunc_large___localname___large_15780pointer.T_benchmarkCompactFunc_Large___localname___Large_15780Pointer;
-class T_benchmarkCompactFunc_Large___localname___Large_15780_static_extension {
+@:dox(hide) typedef T_benchmarkCompactFunc_Large___localname___Large_15780Pointer = stdgo._internal.slices.Slices_t_benchmarkcompactfunc_large___localname___large_15780pointer.T_benchmarkCompactFunc_Large___localname___Large_15780Pointer;
+@:dox(hide) class T_benchmarkCompactFunc_Large___localname___Large_15780_static_extension {
 
 }
-typedef T_testInference___localname___S_22782Pointer = stdgo._internal.slices.Slices_t_testinference___localname___s_22782pointer.T_testInference___localname___S_22782Pointer;
-class T_testInference___localname___S_22782_static_extension {
+@:dox(hide) typedef T_testInference___localname___S_22782Pointer = stdgo._internal.slices.Slices_t_testinference___localname___s_22782pointer.T_testInference___localname___S_22782Pointer;
+@:dox(hide) class T_testInference___localname___S_22782_static_extension {
 
 }
 /**

@@ -48,7 +48,7 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.Log.T_tester_static_extension) abstract T_tester(stdgo._internal.log.Log_t_tester.T_tester) from stdgo._internal.log.Log_t_tester.T_tester to stdgo._internal.log.Log_t_tester.T_tester {
+@:structInit @:using(stdgo.log.Log.T_tester_static_extension) @:dox(hide) abstract T_tester(stdgo._internal.log.Log_t_tester.T_tester) from stdgo._internal.log.Log_t_tester.T_tester to stdgo._internal.log.Log_t_tester.T_tester {
     public var _flag(get, set) : StdTypes.Int;
     function get__flag():StdTypes.Int return this._flag;
     function set__flag(v:StdTypes.Int):StdTypes.Int {
@@ -71,7 +71,7 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.Log.T_discard_static_extension) abstract T_discard(stdgo._internal.log.Log_t_discard.T_discard) from stdgo._internal.log.Log_t_discard.T_discard to stdgo._internal.log.Log_t_discard.T_discard {
+@:structInit @:using(stdgo.log.Log.T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.log.Log_t_discard.T_discard) from stdgo._internal.log.Log_t_discard.T_discard to stdgo._internal.log.Log_t_discard.T_discard {
     public function new() this = new stdgo._internal.log.Log_t_discard.T_discard();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -157,12 +157,12 @@ class Logger_static_extension {
         stdgo._internal.log.Log_logger_static_extension.Logger_static_extension.setOutput(_l, _w);
     }
 }
-typedef T_testerPointer = stdgo._internal.log.Log_t_testerpointer.T_testerPointer;
-class T_tester_static_extension {
+@:dox(hide) typedef T_testerPointer = stdgo._internal.log.Log_t_testerpointer.T_testerPointer;
+@:dox(hide) class T_tester_static_extension {
 
 }
-typedef T_discardPointer = stdgo._internal.log.Log_t_discardpointer.T_discardPointer;
-class T_discard_static_extension {
+@:dox(hide) typedef T_discardPointer = stdgo._internal.log.Log_t_discardpointer.T_discardPointer;
+@:dox(hide) class T_discard_static_extension {
     static public function write(_:T_discard, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {

@@ -58,7 +58,7 @@ package stdgo.internal.coverage.encodemeta;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.T_funcDesc_static_extension) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc {
+@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.T_funcDesc_static_extension) @:dox(hide) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc {
     public var _encoded(get, set) : Array<std.UInt>;
     function get__encoded():Array<std.UInt> return [for (i in this._encoded) i];
     function set__encoded(v:Array<std.UInt>):Array<std.UInt> {
@@ -141,8 +141,8 @@ class CoverageMetaDataBuilder_static_extension {
         return stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder_static_extension.CoverageMetaDataBuilder_static_extension.addFunc(_b, _f);
     }
 }
-typedef T_funcDescPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdescpointer.T_funcDescPointer;
-class T_funcDesc_static_extension {
+@:dox(hide) typedef T_funcDescPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdescpointer.T_funcDescPointer;
+@:dox(hide) class T_funcDesc_static_extension {
 
 }
 typedef CoverageMetaFileWriterPointer = stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriterpointer.CoverageMetaFileWriterPointer;

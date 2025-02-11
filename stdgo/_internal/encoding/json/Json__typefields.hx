@@ -178,7 +178,7 @@ if (_ok) {
         for (_i => _field in _fields) {
             _exactNameIndex[_field._name] = (stdgo.Go.setRef(_fields[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
             {
-                var __tmp__ = (_foldedNameIndex != null && _foldedNameIndex.exists((stdgo._internal.encoding.json.Json__foldname._foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()) ? { _0 : _foldedNameIndex[(stdgo._internal.encoding.json.Json__foldname._foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>), _1 : false }), __4:stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_foldedNameIndex != null && _foldedNameIndex.__exists__((stdgo._internal.encoding.json.Json__foldname._foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()) ? { _0 : _foldedNameIndex[(stdgo._internal.encoding.json.Json__foldname._foldName(_field._nameBytes) : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>), _1 : false }), __4:stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     _foldedNameIndex[(stdgo._internal.encoding.json.Json__foldname._foldName(_field._nameBytes) : stdgo.GoString)] = (stdgo.Go.setRef(_fields[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
                 };

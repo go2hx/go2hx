@@ -6,7 +6,7 @@ function stop(_c:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>):Void {
             stdgo._internal.os.signal.Signal__handlers._handlers.unlock();
             return;
         };
-        if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.remove(_c);
+        if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.__remove__(_c);
         {
             var _n = (0 : stdgo.GoInt);
             while ((_n < (65 : stdgo.GoInt) : Bool)) {

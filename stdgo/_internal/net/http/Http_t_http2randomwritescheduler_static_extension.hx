@@ -12,7 +12,7 @@ package stdgo._internal.net.http;
                 var __tmp__ = @:check2r _q._consume((2147483647 : stdgo.GoInt32)), _wr:stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     if (@:check2r _q._empty()) {
-                        if ((@:checkr _ws ?? throw "null pointer dereference")._sq != null) (@:checkr _ws ?? throw "null pointer dereference")._sq.remove(_streamID);
+                        if ((@:checkr _ws ?? throw "null pointer dereference")._sq != null) (@:checkr _ws ?? throw "null pointer dereference")._sq.__remove__(_streamID);
                         @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._put(_q);
                     };
                     return { _0 : _wr?.__copy__(), _1 : true };
@@ -30,7 +30,7 @@ package stdgo._internal.net.http;
             return;
         };
         var _id = (_wr.streamID() : stdgo.GoUInt32);
-        var __tmp__ = ((@:checkr _ws ?? throw "null pointer dereference")._sq != null && (@:checkr _ws ?? throw "null pointer dereference")._sq.exists(_id) ? { _0 : (@:checkr _ws ?? throw "null pointer dereference")._sq[_id], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue>), _1 : false }), _q:stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _ws ?? throw "null pointer dereference")._sq != null && (@:checkr _ws ?? throw "null pointer dereference")._sq.__exists__(_id) ? { _0 : (@:checkr _ws ?? throw "null pointer dereference")._sq[_id], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue>), _1 : false }), _q:stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _q = @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._get();
             (@:checkr _ws ?? throw "null pointer dereference")._sq[_id] = _q;
@@ -46,11 +46,11 @@ package stdgo._internal.net.http;
     @:tdfield
     static public function closeStream( _ws:stdgo.Ref<stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler>, _streamID:stdgo.GoUInt32):Void {
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler> = _ws;
-        var __tmp__ = ((@:checkr _ws ?? throw "null pointer dereference")._sq != null && (@:checkr _ws ?? throw "null pointer dereference")._sq.exists(_streamID) ? { _0 : (@:checkr _ws ?? throw "null pointer dereference")._sq[_streamID], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue>), _1 : false }), _q:stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _ws ?? throw "null pointer dereference")._sq != null && (@:checkr _ws ?? throw "null pointer dereference")._sq.__exists__(_streamID) ? { _0 : (@:checkr _ws ?? throw "null pointer dereference")._sq[_streamID], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue>), _1 : false }), _q:stdgo.Ref<stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return;
         };
-        if ((@:checkr _ws ?? throw "null pointer dereference")._sq != null) (@:checkr _ws ?? throw "null pointer dereference")._sq.remove(_streamID);
+        if ((@:checkr _ws ?? throw "null pointer dereference")._sq != null) (@:checkr _ws ?? throw "null pointer dereference")._sq.__remove__(_streamID);
         @:check2 (@:checkr _ws ?? throw "null pointer dereference")._queuePool._put(_q);
     }
     @:keep

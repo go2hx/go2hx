@@ -11,7 +11,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
         stdgo._internal.net.http.fcgi.Fcgi_errconnclosed.errConnClosed = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_request_static_extension) abstract T_request(stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request) from stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request to stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_request_static_extension) @:dox(hide) abstract T_request(stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request) from stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request to stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request {
     public var _pw(get, set) : stdgo._internal.io.Io_pipewriter.PipeWriter;
     function get__pw():stdgo._internal.io.Io_pipewriter.PipeWriter return this._pw;
     function set__pw(v:stdgo._internal.io.Io_pipewriter.PipeWriter):stdgo._internal.io.Io_pipewriter.PipeWriter {
@@ -52,12 +52,12 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_envVarsContextKey_static_extension) abstract T_envVarsContextKey(stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey) from stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey to stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_envVarsContextKey_static_extension) @:dox(hide) abstract T_envVarsContextKey(stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey) from stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey to stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey {
     public function new() this = new stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkey.T_envVarsContextKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_response_static_extension) abstract T_response(stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response) from stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response to stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response) from stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response to stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response {
     public var _req(get, set) : T_request;
     function get__req():T_request return this._req;
     function set__req(v:T_request):T_request {
@@ -98,7 +98,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_child_static_extension) abstract T_child(stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child) from stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child to stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_child_static_extension) @:dox(hide) abstract T_child(stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child) from stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child to stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child {
     public var _conn(get, set) : T_conn;
     function get__conn():T_conn return this._conn;
     function set__conn(v:T_conn):T_conn {
@@ -121,7 +121,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_header_static_extension) abstract T_header(stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header) from stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header to stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_header_static_extension) @:dox(hide) abstract T_header(stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header) from stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header to stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header {
     public var version(get, set) : std.UInt;
     function get_version():std.UInt return this.version;
     function set_version(v:std.UInt):std.UInt {
@@ -162,7 +162,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_beginRequest_static_extension) abstract T_beginRequest(stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest) from stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest to stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_beginRequest_static_extension) @:dox(hide) abstract T_beginRequest(stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest) from stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest to stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest {
     public var _role(get, set) : std.UInt;
     function get__role():std.UInt return this._role;
     function set__role(v:std.UInt):std.UInt {
@@ -185,7 +185,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_conn_static_extension) abstract T_conn(stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn) from stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn to stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_conn_static_extension) @:dox(hide) abstract T_conn(stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn) from stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn to stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn {
     public var _mutex(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__mutex():stdgo._internal.sync.Sync_mutex.Mutex return this._mutex;
     function set__mutex(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -226,7 +226,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_record_static_extension) abstract T_record(stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record) from stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record to stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_record_static_extension) @:dox(hide) abstract T_record(stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record) from stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record to stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record {
     public var _h(get, set) : T_header;
     function get__h():T_header return this._h;
     function set__h(v:T_header):T_header {
@@ -243,7 +243,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_bufWriter_static_extension) abstract T_bufWriter(stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter) from stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter to stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_bufWriter_static_extension) @:dox(hide) abstract T_bufWriter(stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter) from stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter to stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter {
     public var _closer(get, set) : stdgo._internal.io.Io_closer.Closer;
     function get__closer():stdgo._internal.io.Io_closer.Closer return this._closer;
     function set__closer(v:stdgo._internal.io.Io_closer.Closer):stdgo._internal.io.Io_closer.Closer {
@@ -260,7 +260,7 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_streamWriter_static_extension) abstract T_streamWriter(stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter) from stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter to stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter {
+@:structInit @:using(stdgo.net.http.fcgi.Fcgi.T_streamWriter_static_extension) @:dox(hide) abstract T_streamWriter(stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter) from stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter to stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter {
     public var _c(get, set) : T_conn;
     function get__c():T_conn return this._c;
     function set__c(v:T_conn):T_conn {
@@ -283,20 +283,20 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_recType = stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType;
-typedef T_requestPointer = stdgo._internal.net.http.fcgi.Fcgi_t_requestpointer.T_requestPointer;
-class T_request_static_extension {
+@:dox(hide) typedef T_recType = stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType;
+@:dox(hide) typedef T_requestPointer = stdgo._internal.net.http.fcgi.Fcgi_t_requestpointer.T_requestPointer;
+@:dox(hide) class T_request_static_extension {
     static public function _parseParams(_r:T_request):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>);
         stdgo._internal.net.http.fcgi.Fcgi_t_request_static_extension.T_request_static_extension._parseParams(_r);
     }
 }
-typedef T_envVarsContextKeyPointer = stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkeypointer.T_envVarsContextKeyPointer;
-class T_envVarsContextKey_static_extension {
+@:dox(hide) typedef T_envVarsContextKeyPointer = stdgo._internal.net.http.fcgi.Fcgi_t_envvarscontextkeypointer.T_envVarsContextKeyPointer;
+@:dox(hide) class T_envVarsContextKey_static_extension {
 
 }
-typedef T_responsePointer = stdgo._internal.net.http.fcgi.Fcgi_t_responsepointer.T_responsePointer;
-class T_response_static_extension {
+@:dox(hide) typedef T_responsePointer = stdgo._internal.net.http.fcgi.Fcgi_t_responsepointer.T_responsePointer;
+@:dox(hide) class T_response_static_extension {
     static public function close(_r:T_response):stdgo.Error {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_response.T_response>);
         return stdgo._internal.net.http.fcgi.Fcgi_t_response_static_extension.T_response_static_extension.close(_r);
@@ -328,8 +328,8 @@ class T_response_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_t_response_static_extension.T_response_static_extension.header(_r);
     }
 }
-typedef T_childPointer = stdgo._internal.net.http.fcgi.Fcgi_t_childpointer.T_childPointer;
-class T_child_static_extension {
+@:dox(hide) typedef T_childPointer = stdgo._internal.net.http.fcgi.Fcgi_t_childpointer.T_childPointer;
+@:dox(hide) class T_child_static_extension {
     static public function _cleanUp(_c:T_child):Void {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child>);
         stdgo._internal.net.http.fcgi.Fcgi_t_child_static_extension.T_child_static_extension._cleanUp(_c);
@@ -349,8 +349,8 @@ class T_child_static_extension {
         stdgo._internal.net.http.fcgi.Fcgi_t_child_static_extension.T_child_static_extension._serve(_c);
     }
 }
-typedef T_headerPointer = stdgo._internal.net.http.fcgi.Fcgi_t_headerpointer.T_headerPointer;
-class T_header_static_extension {
+@:dox(hide) typedef T_headerPointer = stdgo._internal.net.http.fcgi.Fcgi_t_headerpointer.T_headerPointer;
+@:dox(hide) class T_header_static_extension {
     static public function _init(_h:T_header, _recType:T_recType, _reqId:std.UInt, _contentLength:StdTypes.Int):Void {
         final _h = (_h : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_header.T_header>);
         final _reqId = (_reqId : stdgo.GoUInt16);
@@ -358,16 +358,16 @@ class T_header_static_extension {
         stdgo._internal.net.http.fcgi.Fcgi_t_header_static_extension.T_header_static_extension._init(_h, _recType, _reqId, _contentLength);
     }
 }
-typedef T_beginRequestPointer = stdgo._internal.net.http.fcgi.Fcgi_t_beginrequestpointer.T_beginRequestPointer;
-class T_beginRequest_static_extension {
+@:dox(hide) typedef T_beginRequestPointer = stdgo._internal.net.http.fcgi.Fcgi_t_beginrequestpointer.T_beginRequestPointer;
+@:dox(hide) class T_beginRequest_static_extension {
     static public function _read(_br:T_beginRequest, _content:Array<std.UInt>):stdgo.Error {
         final _br = (_br : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest>);
         final _content = ([for (i in _content) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest_static_extension.T_beginRequest_static_extension._read(_br, _content);
     }
 }
-typedef T_connPointer = stdgo._internal.net.http.fcgi.Fcgi_t_connpointer.T_connPointer;
-class T_conn_static_extension {
+@:dox(hide) typedef T_connPointer = stdgo._internal.net.http.fcgi.Fcgi_t_connpointer.T_connPointer;
+@:dox(hide) class T_conn_static_extension {
     static public function _writePairs(_c:T_conn, _recType:T_recType, _reqId:std.UInt, _pairs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn>);
         final _reqId = (_reqId : stdgo.GoUInt16);
@@ -392,8 +392,8 @@ class T_conn_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_t_conn_static_extension.T_conn_static_extension.close(_c);
     }
 }
-typedef T_recordPointer = stdgo._internal.net.http.fcgi.Fcgi_t_recordpointer.T_recordPointer;
-class T_record_static_extension {
+@:dox(hide) typedef T_recordPointer = stdgo._internal.net.http.fcgi.Fcgi_t_recordpointer.T_recordPointer;
+@:dox(hide) class T_record_static_extension {
     static public function _content(_r:T_record):Array<std.UInt> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_record.T_record>);
         return [for (i in stdgo._internal.net.http.fcgi.Fcgi_t_record_static_extension.T_record_static_extension._content(_r)) i];
@@ -403,8 +403,8 @@ class T_record_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_t_record_static_extension.T_record_static_extension._read(_rec, _r);
     }
 }
-typedef T_bufWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_t_bufwriterpointer.T_bufWriterPointer;
-class T_bufWriter_static_extension {
+@:dox(hide) typedef T_bufWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_t_bufwriterpointer.T_bufWriterPointer;
+@:dox(hide) class T_bufWriter_static_extension {
     static public function close(_w:T_bufWriter):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter.T_bufWriter>);
         return stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter_static_extension.T_bufWriter_static_extension.close(_w);
@@ -459,8 +459,8 @@ class T_bufWriter_static_extension {
         return stdgo._internal.net.http.fcgi.Fcgi_t_bufwriter_static_extension.T_bufWriter_static_extension.available(__self__);
     }
 }
-typedef T_streamWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_t_streamwriterpointer.T_streamWriterPointer;
-class T_streamWriter_static_extension {
+@:dox(hide) typedef T_streamWriterPointer = stdgo._internal.net.http.fcgi.Fcgi_t_streamwriterpointer.T_streamWriterPointer;
+@:dox(hide) class T_streamWriter_static_extension {
     static public function close(_w:T_streamWriter):stdgo.Error {
         final _w = (_w : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter.T_streamWriter>);
         return stdgo._internal.net.http.fcgi.Fcgi_t_streamwriter_static_extension.T_streamWriter_static_extension.close(_w);
@@ -474,8 +474,8 @@ class T_streamWriter_static_extension {
         };
     }
 }
-typedef T_recTypePointer = stdgo._internal.net.http.fcgi.Fcgi_t_rectypepointer.T_recTypePointer;
-class T_recType_static_extension {
+@:dox(hide) typedef T_recTypePointer = stdgo._internal.net.http.fcgi.Fcgi_t_rectypepointer.T_recTypePointer;
+@:dox(hide) class T_recType_static_extension {
 
 }
 /**

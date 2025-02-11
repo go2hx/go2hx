@@ -152,9 +152,9 @@ package stdgo._internal.net.http.cookiejar;
                 if (_remove) {
                     if (_submap != null) {
                         {
-                            var __tmp__ = (_submap != null && _submap.exists(_id?.__copy__()) ? { _0 : _submap[_id?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry), _1 : false }), __1:stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = (_submap != null && _submap.__exists__(_id?.__copy__()) ? { _0 : _submap[_id?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry), _1 : false }), __1:stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
-                                if (_submap != null) _submap.remove(_id);
+                                if (_submap != null) _submap.__remove__(_id);
                                 _modified = true;
                             };
                         };
@@ -170,7 +170,7 @@ package stdgo._internal.net.http.cookiejar;
                     } : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
                 };
                 {
-                    var __tmp__ = (_submap != null && _submap.exists(_id?.__copy__()) ? { _0 : _submap[_id?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry), _1 : false }), _old:stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (_submap != null && _submap.__exists__(_id?.__copy__()) ? { _0 : _submap[_id?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry), _1 : false }), _old:stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         _e.creation = _old.creation?.__copy__();
                         _e._seqNum = _old._seqNum;
@@ -186,7 +186,7 @@ package stdgo._internal.net.http.cookiejar;
             };
             if (_modified) {
                 if ((_submap.length) == ((0 : stdgo.GoInt))) {
-                    if ((@:checkr _j ?? throw "null pointer dereference")._entries != null) (@:checkr _j ?? throw "null pointer dereference")._entries.remove(_key);
+                    if ((@:checkr _j ?? throw "null pointer dereference")._entries != null) (@:checkr _j ?? throw "null pointer dereference")._entries.__remove__(_key);
                 } else {
                     (@:checkr _j ?? throw "null pointer dereference")._entries[_key] = _submap;
                 };
@@ -291,7 +291,7 @@ package stdgo._internal.net.http.cookiejar;
             var _selected:stdgo.Slice<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry> = (null : stdgo.Slice<stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>);
             for (_id => _e in _submap) {
                 if ((_e.persistent && !_e.expires.after(_now?.__copy__()) : Bool)) {
-                    if (_submap != null) _submap.remove(_id);
+                    if (_submap != null) _submap.__remove__(_id);
                     _modified = true;
                     continue;
                 };
@@ -305,7 +305,7 @@ package stdgo._internal.net.http.cookiejar;
             };
             if (_modified) {
                 if ((_submap.length) == ((0 : stdgo.GoInt))) {
-                    if ((@:checkr _j ?? throw "null pointer dereference")._entries != null) (@:checkr _j ?? throw "null pointer dereference")._entries.remove(_key);
+                    if ((@:checkr _j ?? throw "null pointer dereference")._entries != null) (@:checkr _j ?? throw "null pointer dereference")._entries.__remove__(_key);
                 } else {
                     (@:checkr _j ?? throw "null pointer dereference")._entries[_key] = _submap;
                 };

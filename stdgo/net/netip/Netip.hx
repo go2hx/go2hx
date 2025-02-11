@@ -16,7 +16,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.T_parseAddrError_static_extension) abstract T_parseAddrError(stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError) from stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError to stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError {
+@:structInit @:using(stdgo.net.netip.Netip.T_parseAddrError_static_extension) @:dox(hide) abstract T_parseAddrError(stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError) from stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError to stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -73,7 +73,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.T_uint128_static_extension) abstract T_uint128(stdgo._internal.net.netip.Netip_t_uint128.T_uint128) from stdgo._internal.net.netip.Netip_t_uint128.T_uint128 to stdgo._internal.net.netip.Netip_t_uint128.T_uint128 {
+@:structInit @:using(stdgo.net.netip.Netip.T_uint128_static_extension) @:dox(hide) abstract T_uint128(stdgo._internal.net.netip.Netip_t_uint128.T_uint128) from stdgo._internal.net.netip.Netip_t_uint128.T_uint128 to stdgo._internal.net.netip.Netip_t_uint128.T_uint128 {
     public var _hi(get, set) : haxe.UInt64;
     function get__hi():haxe.UInt64 return this._hi;
     function set__hi(v:haxe.UInt64):haxe.UInt64 {
@@ -241,8 +241,8 @@ class Addr_static_extension {
         return stdgo._internal.net.netip.Netip_addr_static_extension.Addr_static_extension._v4(_ip, _i);
     }
 }
-typedef T_parseAddrErrorPointer = stdgo._internal.net.netip.Netip_t_parseaddrerrorpointer.T_parseAddrErrorPointer;
-class T_parseAddrError_static_extension {
+@:dox(hide) typedef T_parseAddrErrorPointer = stdgo._internal.net.netip.Netip_t_parseaddrerrorpointer.T_parseAddrErrorPointer;
+@:dox(hide) class T_parseAddrError_static_extension {
     static public function error(_err:T_parseAddrError):String {
         return stdgo._internal.net.netip.Netip_t_parseaddrerror_static_extension.T_parseAddrError_static_extension.error(_err);
     }
@@ -344,8 +344,8 @@ class Prefix_static_extension {
         return stdgo._internal.net.netip.Netip_prefix_static_extension.Prefix_static_extension.addr(_p);
     }
 }
-typedef T_uint128Pointer = stdgo._internal.net.netip.Netip_t_uint128pointer.T_uint128Pointer;
-class T_uint128_static_extension {
+@:dox(hide) typedef T_uint128Pointer = stdgo._internal.net.netip.Netip_t_uint128pointer.T_uint128Pointer;
+@:dox(hide) class T_uint128_static_extension {
     static public function _bitsClearedFrom(_u:T_uint128, _bit:std.UInt):T_uint128 {
         final _bit = (_bit : stdgo.GoUInt8);
         return stdgo._internal.net.netip.Netip_t_uint128_static_extension.T_uint128_static_extension._bitsClearedFrom(_u, _bit);

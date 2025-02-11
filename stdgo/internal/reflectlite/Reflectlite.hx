@@ -5,7 +5,7 @@ final slice : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.inter
 final string : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_string.string;
 final struct_ : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_struct_.struct_;
 typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_rtype_static_extension) abstract T_rtype(stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype) from stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype to stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype {
+@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype) from stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype to stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype {
     public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -16,7 +16,7 @@ typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_mapType_static_extension) abstract T_mapType(stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType) from stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType to stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType {
+@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_mapType_static_extension) @:dox(hide) abstract T_mapType(stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType) from stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType to stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType {
     public var key(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_key():stdgo._internal.internal.abi.Abi_type_.Type_ return this.key;
     function set_key(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -69,7 +69,7 @@ typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_name_static_extension) abstract T_name(stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name) from stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name to stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name {
+@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_name_static_extension) @:dox(hide) abstract T_name(stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name) from stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name to stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name {
     public function new() this = new stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -92,30 +92,30 @@ typedef Value = stdgo._internal.internal.reflectlite.Reflectlite_value.Value;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_emptyInterface_static_extension) abstract T_emptyInterface(stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface) from stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface to stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface {
+@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_emptyInterface_static_extension) @:dox(hide) abstract T_emptyInterface(stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface) from stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface to stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface {
     public function new() this = new stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef Kind = stdgo._internal.internal.reflectlite.Reflectlite_kind.Kind;
-typedef T_nameOff = stdgo._internal.internal.reflectlite.Reflectlite_t_nameoff.T_nameOff;
-typedef T_typeOff = stdgo._internal.internal.reflectlite.Reflectlite_t_typeoff.T_typeOff;
-typedef T_textOff = stdgo._internal.internal.reflectlite.Reflectlite_t_textoff.T_textOff;
-typedef T_uncommonType = stdgo._internal.internal.reflectlite.Reflectlite_t_uncommontype.T_uncommonType;
-typedef T_arrayType = stdgo._internal.internal.reflectlite.Reflectlite_t_arraytype.T_arrayType;
-typedef T_chanType = stdgo._internal.internal.reflectlite.Reflectlite_t_chantype.T_chanType;
-typedef T_funcType = stdgo._internal.internal.reflectlite.Reflectlite_t_functype.T_funcType;
-typedef T_interfaceType = stdgo._internal.internal.reflectlite.Reflectlite_t_interfacetype.T_interfaceType;
-typedef T_ptrType = stdgo._internal.internal.reflectlite.Reflectlite_t_ptrtype.T_ptrType;
-typedef T_sliceType = stdgo._internal.internal.reflectlite.Reflectlite_t_slicetype.T_sliceType;
-typedef T_structType = stdgo._internal.internal.reflectlite.Reflectlite_t_structtype.T_structType;
-typedef T_flag = stdgo._internal.internal.reflectlite.Reflectlite_t_flag.T_flag;
+@:dox(hide) typedef T_nameOff = stdgo._internal.internal.reflectlite.Reflectlite_t_nameoff.T_nameOff;
+@:dox(hide) typedef T_typeOff = stdgo._internal.internal.reflectlite.Reflectlite_t_typeoff.T_typeOff;
+@:dox(hide) typedef T_textOff = stdgo._internal.internal.reflectlite.Reflectlite_t_textoff.T_textOff;
+@:dox(hide) typedef T_uncommonType = stdgo._internal.internal.reflectlite.Reflectlite_t_uncommontype.T_uncommonType;
+@:dox(hide) typedef T_arrayType = stdgo._internal.internal.reflectlite.Reflectlite_t_arraytype.T_arrayType;
+@:dox(hide) typedef T_chanType = stdgo._internal.internal.reflectlite.Reflectlite_t_chantype.T_chanType;
+@:dox(hide) typedef T_funcType = stdgo._internal.internal.reflectlite.Reflectlite_t_functype.T_funcType;
+@:dox(hide) typedef T_interfaceType = stdgo._internal.internal.reflectlite.Reflectlite_t_interfacetype.T_interfaceType;
+@:dox(hide) typedef T_ptrType = stdgo._internal.internal.reflectlite.Reflectlite_t_ptrtype.T_ptrType;
+@:dox(hide) typedef T_sliceType = stdgo._internal.internal.reflectlite.Reflectlite_t_slicetype.T_sliceType;
+@:dox(hide) typedef T_structType = stdgo._internal.internal.reflectlite.Reflectlite_t_structtype.T_structType;
+@:dox(hide) typedef T_flag = stdgo._internal.internal.reflectlite.Reflectlite_t_flag.T_flag;
 typedef Type_Pointer = stdgo._internal.internal.reflectlite.Reflectlite_type_pointer.Type_Pointer;
 class Type__static_extension {
 
 }
-typedef T_rtypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_rtypepointer.T_rtypePointer;
-class T_rtype_static_extension {
+@:dox(hide) typedef T_rtypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_rtypepointer.T_rtypePointer;
+@:dox(hide) class T_rtype_static_extension {
     static public function comparable_(_t:T_rtype):Bool {
         return stdgo._internal.internal.reflectlite.Reflectlite_t_rtype_static_extension.T_rtype_static_extension.comparable_(_t);
     }
@@ -220,8 +220,8 @@ class T_rtype_static_extension {
         return stdgo._internal.internal.reflectlite.Reflectlite_t_rtype_static_extension.T_rtype_static_extension.align(__self__);
     }
 }
-typedef T_mapTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_maptypepointer.T_mapTypePointer;
-class T_mapType_static_extension {
+@:dox(hide) typedef T_mapTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_maptypepointer.T_mapTypePointer;
+@:dox(hide) class T_mapType_static_extension {
     public static function _uncommon(__self__:stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.internal.reflectlite.Reflectlite_t_maptype_static_extension.T_mapType_static_extension._uncommon(__self__);
     }
@@ -335,8 +335,8 @@ class T_mapType_static_extension {
         return stdgo._internal.internal.reflectlite.Reflectlite_t_maptype_static_extension.T_mapType_static_extension.align(__self__);
     }
 }
-typedef T_namePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_namepointer.T_namePointer;
-class T_name_static_extension {
+@:dox(hide) typedef T_namePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_namepointer.T_namePointer;
+@:dox(hide) class T_name_static_extension {
 
 }
 typedef ValuePointer = stdgo._internal.internal.reflectlite.Reflectlite_valuepointer.ValuePointer;
@@ -373,60 +373,60 @@ class ValueError_static_extension {
         return stdgo._internal.internal.reflectlite.Reflectlite_valueerror_static_extension.ValueError_static_extension.error(_e);
     }
 }
-typedef T_emptyInterfacePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterfacepointer.T_emptyInterfacePointer;
-class T_emptyInterface_static_extension {
+@:dox(hide) typedef T_emptyInterfacePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterfacepointer.T_emptyInterfacePointer;
+@:dox(hide) class T_emptyInterface_static_extension {
 
 }
 typedef KindPointer = stdgo._internal.internal.reflectlite.Reflectlite_kindpointer.KindPointer;
 class Kind_static_extension {
 
 }
-typedef T_nameOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_nameoffpointer.T_nameOffPointer;
-class T_nameOff_static_extension {
+@:dox(hide) typedef T_nameOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_nameoffpointer.T_nameOffPointer;
+@:dox(hide) class T_nameOff_static_extension {
 
 }
-typedef T_typeOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_typeoffpointer.T_typeOffPointer;
-class T_typeOff_static_extension {
+@:dox(hide) typedef T_typeOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_typeoffpointer.T_typeOffPointer;
+@:dox(hide) class T_typeOff_static_extension {
 
 }
-typedef T_textOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_textoffpointer.T_textOffPointer;
-class T_textOff_static_extension {
+@:dox(hide) typedef T_textOffPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_textoffpointer.T_textOffPointer;
+@:dox(hide) class T_textOff_static_extension {
 
 }
-typedef T_uncommonTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_uncommontypepointer.T_uncommonTypePointer;
-class T_uncommonType_static_extension {
+@:dox(hide) typedef T_uncommonTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_uncommontypepointer.T_uncommonTypePointer;
+@:dox(hide) class T_uncommonType_static_extension {
 
 }
-typedef T_arrayTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_arraytypepointer.T_arrayTypePointer;
-class T_arrayType_static_extension {
+@:dox(hide) typedef T_arrayTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_arraytypepointer.T_arrayTypePointer;
+@:dox(hide) class T_arrayType_static_extension {
 
 }
-typedef T_chanTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_chantypepointer.T_chanTypePointer;
-class T_chanType_static_extension {
+@:dox(hide) typedef T_chanTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_chantypepointer.T_chanTypePointer;
+@:dox(hide) class T_chanType_static_extension {
 
 }
-typedef T_funcTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_functypepointer.T_funcTypePointer;
-class T_funcType_static_extension {
+@:dox(hide) typedef T_funcTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_functypepointer.T_funcTypePointer;
+@:dox(hide) class T_funcType_static_extension {
 
 }
-typedef T_interfaceTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_interfacetypepointer.T_interfaceTypePointer;
-class T_interfaceType_static_extension {
+@:dox(hide) typedef T_interfaceTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_interfacetypepointer.T_interfaceTypePointer;
+@:dox(hide) class T_interfaceType_static_extension {
 
 }
-typedef T_ptrTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_ptrtypepointer.T_ptrTypePointer;
-class T_ptrType_static_extension {
+@:dox(hide) typedef T_ptrTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_ptrtypepointer.T_ptrTypePointer;
+@:dox(hide) class T_ptrType_static_extension {
 
 }
-typedef T_sliceTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_slicetypepointer.T_sliceTypePointer;
-class T_sliceType_static_extension {
+@:dox(hide) typedef T_sliceTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_slicetypepointer.T_sliceTypePointer;
+@:dox(hide) class T_sliceType_static_extension {
 
 }
-typedef T_structTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_structtypepointer.T_structTypePointer;
-class T_structType_static_extension {
+@:dox(hide) typedef T_structTypePointer = stdgo._internal.internal.reflectlite.Reflectlite_t_structtypepointer.T_structTypePointer;
+@:dox(hide) class T_structType_static_extension {
 
 }
-typedef T_flagPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_flagpointer.T_flagPointer;
-class T_flag_static_extension {
+@:dox(hide) typedef T_flagPointer = stdgo._internal.internal.reflectlite.Reflectlite_t_flagpointer.T_flagPointer;
+@:dox(hide) class T_flag_static_extension {
 
 }
 /**

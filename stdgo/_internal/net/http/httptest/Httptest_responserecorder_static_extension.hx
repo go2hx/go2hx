@@ -23,7 +23,7 @@ package stdgo._internal.net.http.httptest;
         };
         (@:checkr _res ?? throw "null pointer dereference").contentLength = stdgo._internal.net.http.httptest.Httptest__parsecontentlength._parseContentLength((@:checkr _res ?? throw "null pointer dereference").header.get(("Content-Length" : stdgo.GoString))?.__copy__());
         {
-            var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference")._snapHeader != null && (@:checkr _rw ?? throw "null pointer dereference")._snapHeader.exists(("Trailer" : stdgo.GoString)) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference")._snapHeader[("Trailer" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _trailers:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference")._snapHeader != null && (@:checkr _rw ?? throw "null pointer dereference")._snapHeader.__exists__(("Trailer" : stdgo.GoString)) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference")._snapHeader[("Trailer" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _trailers:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _res ?? throw "null pointer dereference").trailer = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
@@ -37,7 +37,7 @@ package stdgo._internal.net.http.httptest;
                         if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validtrailerheader.validTrailerHeader(_k?.__copy__())) {
                             continue;
                         };
-                        var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference").headerMap != null && (@:checkr _rw ?? throw "null pointer dereference").headerMap.exists(_k?.__copy__()) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference").headerMap[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _vv:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference").headerMap != null && (@:checkr _rw ?? throw "null pointer dereference").headerMap.__exists__(_k?.__copy__()) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference").headerMap[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _vv:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             continue;
                         };
@@ -126,7 +126,7 @@ package stdgo._internal.net.http.httptest;
             _str = (_str.__slice__(0, (512 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         var _m = (@:check2r _rw.header() : stdgo._internal.net.http.Http_header.Header);
-        var __tmp__ = (_m != null && _m.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _m[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasType:Bool = __tmp__._1;
+        var __tmp__ = (_m != null && _m.__exists__(("Content-Type" : stdgo.GoString)) ? { _0 : _m[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasType:Bool = __tmp__._1;
         var _hasTE = (_m.get(("Transfer-Encoding" : stdgo.GoString)) != ((stdgo.Go.str() : stdgo.GoString)) : Bool);
         if ((!_hasType && !_hasTE : Bool)) {
             if (_b == null) {

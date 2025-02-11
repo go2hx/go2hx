@@ -51,10 +51,10 @@ private function set_methodValueCallCodePtr(v:() -> stdgo.GoUIntptr):() -> stdgo
         stdgo._internal.reflect.Reflect_methodvaluecallcodeptr.methodValueCallCodePtr = v;
         return v;
     }
-class T_pinUnexpMeth_static_extension {
+@:dox(hide) class T_pinUnexpMeth_static_extension {
 
 }
-typedef T_pinUnexpMeth = stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth;
+@:dox(hide) typedef T_pinUnexpMeth = stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth;
 class Type__static_extension {
     static public function out(t:stdgo._internal.reflect.Reflect_type_.Type_, _i:StdTypes.Int):Type_ {
         final _i = (_i : stdgo.GoInt);
@@ -162,22 +162,22 @@ class Type__static_extension {
     }
 }
 typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
-@:structInit @:using(stdgo.reflect.Reflect.T_abiStep_static_extension) abstract T_abiStep(stdgo._internal.reflect.Reflect_t_abistep.T_abiStep) from stdgo._internal.reflect.Reflect_t_abistep.T_abiStep to stdgo._internal.reflect.Reflect_t_abistep.T_abiStep {
+@:structInit @:using(stdgo.reflect.Reflect.T_abiStep_static_extension) @:dox(hide) abstract T_abiStep(stdgo._internal.reflect.Reflect_t_abistep.T_abiStep) from stdgo._internal.reflect.Reflect_t_abistep.T_abiStep to stdgo._internal.reflect.Reflect_t_abistep.T_abiStep {
     public function new() this = new stdgo._internal.reflect.Reflect_t_abistep.T_abiStep();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_abiSeq_static_extension) abstract T_abiSeq(stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq) from stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq to stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq {
+@:structInit @:using(stdgo.reflect.Reflect.T_abiSeq_static_extension) @:dox(hide) abstract T_abiSeq(stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq) from stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq to stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq {
     public function new() this = new stdgo._internal.reflect.Reflect_t_abiseq.T_abiSeq();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_abiDesc_static_extension) abstract T_abiDesc(stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc) from stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc to stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc {
+@:structInit @:using(stdgo.reflect.Reflect.T_abiDesc_static_extension) @:dox(hide) abstract T_abiDesc(stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc) from stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc to stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc {
     public function new() this = new stdgo._internal.reflect.Reflect_t_abidesc.T_abiDesc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_visit_static_extension) abstract T_visit(stdgo._internal.reflect.Reflect_t_visit.T_visit) from stdgo._internal.reflect.Reflect_t_visit.T_visit to stdgo._internal.reflect.Reflect_t_visit.T_visit {
+@:structInit @:using(stdgo.reflect.Reflect.T_visit_static_extension) @:dox(hide) abstract T_visit(stdgo._internal.reflect.Reflect_t_visit.T_visit) from stdgo._internal.reflect.Reflect_t_visit.T_visit to stdgo._internal.reflect.Reflect_t_visit.T_visit {
     public function new() this = new stdgo._internal.reflect.Reflect_t_visit.T_visit();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -203,22 +203,22 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_makeFuncImpl_static_extension) abstract T_makeFuncImpl(stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl) from stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl to stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl {
+@:structInit @:using(stdgo.reflect.Reflect.T_makeFuncImpl_static_extension) @:dox(hide) abstract T_makeFuncImpl(stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl) from stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl to stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl {
     public function new() this = new stdgo._internal.reflect.Reflect_t_makefuncimpl.T_makeFuncImpl();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_methodValue_static_extension) abstract T_methodValue(stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue) from stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue to stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue {
+@:structInit @:using(stdgo.reflect.Reflect.T_methodValue_static_extension) @:dox(hide) abstract T_methodValue(stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue) from stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue to stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue {
     public function new() this = new stdgo._internal.reflect.Reflect_t_methodvalue.T_methodValue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_makeFuncCtxt_static_extension) abstract T_makeFuncCtxt(stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt) from stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt to stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt {
+@:structInit @:using(stdgo.reflect.Reflect.T_makeFuncCtxt_static_extension) @:dox(hide) abstract T_makeFuncCtxt(stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt) from stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt to stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt {
     public function new() this = new stdgo._internal.reflect.Reflect_t_makefuncctxt.T_makeFuncCtxt();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_common_static_extension) abstract T_common(stdgo._internal.reflect.Reflect_t_common.T_common) from stdgo._internal.reflect.Reflect_t_common.T_common to stdgo._internal.reflect.Reflect_t_common.T_common {
+@:structInit @:using(stdgo.reflect.Reflect.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.reflect.Reflect_t_common.T_common) from stdgo._internal.reflect.Reflect_t_common.T_common to stdgo._internal.reflect.Reflect_t_common.T_common {
     public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -229,12 +229,12 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_rtype_static_extension) abstract T_rtype(stdgo._internal.reflect.Reflect_t_rtype.T_rtype) from stdgo._internal.reflect.Reflect_t_rtype.T_rtype to stdgo._internal.reflect.Reflect_t_rtype.T_rtype {
+@:structInit @:using(stdgo.reflect.Reflect.T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.reflect.Reflect_t_rtype.T_rtype) from stdgo._internal.reflect.Reflect_t_rtype.T_rtype to stdgo._internal.reflect.Reflect_t_rtype.T_rtype {
     public function new() this = new stdgo._internal.reflect.Reflect_t_rtype.T_rtype();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_interfaceType_static_extension) abstract T_interfaceType(stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType) from stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType to stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType {
+@:structInit @:using(stdgo.reflect.Reflect.T_interfaceType_static_extension) @:dox(hide) abstract T_interfaceType(stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType) from stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType to stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType {
     public var interfaceType(get, set) : stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType;
     function get_interfaceType():stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType return this.interfaceType;
     function set_interfaceType(v:stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType):stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
@@ -245,7 +245,7 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_mapType_static_extension) abstract T_mapType(stdgo._internal.reflect.Reflect_t_maptype.T_mapType) from stdgo._internal.reflect.Reflect_t_maptype.T_mapType to stdgo._internal.reflect.Reflect_t_maptype.T_mapType {
+@:structInit @:using(stdgo.reflect.Reflect.T_mapType_static_extension) @:dox(hide) abstract T_mapType(stdgo._internal.reflect.Reflect_t_maptype.T_mapType) from stdgo._internal.reflect.Reflect_t_maptype.T_mapType to stdgo._internal.reflect.Reflect_t_maptype.T_mapType {
     public var mapType(get, set) : stdgo._internal.internal.abi.Abi_maptype.MapType;
     function get_mapType():stdgo._internal.internal.abi.Abi_maptype.MapType return this.mapType;
     function set_mapType(v:stdgo._internal.internal.abi.Abi_maptype.MapType):stdgo._internal.internal.abi.Abi_maptype.MapType {
@@ -256,7 +256,7 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_ptrType_static_extension) abstract T_ptrType(stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType) from stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType to stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType {
+@:structInit @:using(stdgo.reflect.Reflect.T_ptrType_static_extension) @:dox(hide) abstract T_ptrType(stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType) from stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType to stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType {
     public var ptrType(get, set) : stdgo._internal.internal.abi.Abi_ptrtype.PtrType;
     function get_ptrType():stdgo._internal.internal.abi.Abi_ptrtype.PtrType return this.ptrType;
     function set_ptrType(v:stdgo._internal.internal.abi.Abi_ptrtype.PtrType):stdgo._internal.internal.abi.Abi_ptrtype.PtrType {
@@ -267,7 +267,7 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_sliceType_static_extension) abstract T_sliceType(stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType) from stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType to stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType {
+@:structInit @:using(stdgo.reflect.Reflect.T_sliceType_static_extension) @:dox(hide) abstract T_sliceType(stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType) from stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType to stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType {
     public var sliceType(get, set) : stdgo._internal.internal.abi.Abi_slicetype.SliceType;
     function get_sliceType():stdgo._internal.internal.abi.Abi_slicetype.SliceType return this.sliceType;
     function set_sliceType(v:stdgo._internal.internal.abi.Abi_slicetype.SliceType):stdgo._internal.internal.abi.Abi_slicetype.SliceType {
@@ -278,7 +278,7 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_structType_static_extension) abstract T_structType(stdgo._internal.reflect.Reflect_t_structtype.T_structType) from stdgo._internal.reflect.Reflect_t_structtype.T_structType to stdgo._internal.reflect.Reflect_t_structtype.T_structType {
+@:structInit @:using(stdgo.reflect.Reflect.T_structType_static_extension) @:dox(hide) abstract T_structType(stdgo._internal.reflect.Reflect_t_structtype.T_structType) from stdgo._internal.reflect.Reflect_t_structtype.T_structType to stdgo._internal.reflect.Reflect_t_structtype.T_structType {
     public var structType(get, set) : stdgo._internal.internal.abi.Abi_structtype.StructType;
     function get_structType():stdgo._internal.internal.abi.Abi_structtype.StructType return this.structType;
     function set_structType(v:stdgo._internal.internal.abi.Abi_structtype.StructType):stdgo._internal.internal.abi.Abi_structtype.StructType {
@@ -371,32 +371,32 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_fieldScan_static_extension) abstract T_fieldScan(stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan) from stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan to stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan {
+@:structInit @:using(stdgo.reflect.Reflect.T_fieldScan_static_extension) @:dox(hide) abstract T_fieldScan(stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan) from stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan to stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan {
     public function new() this = new stdgo._internal.reflect.Reflect_t_fieldscan.T_fieldScan();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_cacheKey_static_extension) abstract T_cacheKey(stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey) from stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey to stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey {
+@:structInit @:using(stdgo.reflect.Reflect.T_cacheKey_static_extension) @:dox(hide) abstract T_cacheKey(stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey) from stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey to stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey {
     public function new() this = new stdgo._internal.reflect.Reflect_t_cachekey.T_cacheKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_structTypeUncommon_static_extension) abstract T_structTypeUncommon(stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon) from stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon to stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon {
+@:structInit @:using(stdgo.reflect.Reflect.T_structTypeUncommon_static_extension) @:dox(hide) abstract T_structTypeUncommon(stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon) from stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon to stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon {
     public function new() this = new stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_layoutKey_static_extension) abstract T_layoutKey(stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey) from stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey to stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey {
+@:structInit @:using(stdgo.reflect.Reflect.T_layoutKey_static_extension) @:dox(hide) abstract T_layoutKey(stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey) from stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey to stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey {
     public function new() this = new stdgo._internal.reflect.Reflect_t_layoutkey.T_layoutKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_layoutType_static_extension) abstract T_layoutType(stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType) from stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType to stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType {
+@:structInit @:using(stdgo.reflect.Reflect.T_layoutType_static_extension) @:dox(hide) abstract T_layoutType(stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType) from stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType to stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType {
     public function new() this = new stdgo._internal.reflect.Reflect_t_layouttype.T_layoutType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_bitVector_static_extension) abstract T_bitVector(stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector) from stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector to stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector {
+@:structInit @:using(stdgo.reflect.Reflect.T_bitVector_static_extension) @:dox(hide) abstract T_bitVector(stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector) from stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector to stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector {
     public function new() this = new stdgo._internal.reflect.Reflect_t_bitvector.T_bitVector();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -423,17 +423,17 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_emptyInterface_static_extension) abstract T_emptyInterface(stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface) from stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface to stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface {
+@:structInit @:using(stdgo.reflect.Reflect.T_emptyInterface_static_extension) @:dox(hide) abstract T_emptyInterface(stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface) from stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface to stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface {
     public function new() this = new stdgo._internal.reflect.Reflect_t_emptyinterface.T_emptyInterface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_nonEmptyInterface_static_extension) abstract T_nonEmptyInterface(stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface) from stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface to stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface {
+@:structInit @:using(stdgo.reflect.Reflect.T_nonEmptyInterface_static_extension) @:dox(hide) abstract T_nonEmptyInterface(stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface) from stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface to stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface {
     public function new() this = new stdgo._internal.reflect.Reflect_t_nonemptyinterface.T_nonEmptyInterface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_hiter_static_extension) abstract T_hiter(stdgo._internal.reflect.Reflect_t_hiter.T_hiter) from stdgo._internal.reflect.Reflect_t_hiter.T_hiter to stdgo._internal.reflect.Reflect_t_hiter.T_hiter {
+@:structInit @:using(stdgo.reflect.Reflect.T_hiter_static_extension) @:dox(hide) abstract T_hiter(stdgo._internal.reflect.Reflect_t_hiter.T_hiter) from stdgo._internal.reflect.Reflect_t_hiter.T_hiter to stdgo._internal.reflect.Reflect_t_hiter.T_hiter {
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
@@ -489,7 +489,7 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_runtimeSelect_static_extension) abstract T_runtimeSelect(stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect) from stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect to stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect {
+@:structInit @:using(stdgo.reflect.Reflect.T_runtimeSelect_static_extension) @:dox(hide) abstract T_runtimeSelect(stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect) from stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect to stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect {
     public function new() this = new stdgo._internal.reflect.Reflect_t_runtimeselect.T_runtimeSelect();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -517,39 +517,39 @@ typedef Type_ = stdgo._internal.reflect.Reflect_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.reflect.Reflect.T_visibleFieldsWalker_static_extension) abstract T_visibleFieldsWalker(stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker) from stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker to stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker {
+@:structInit @:using(stdgo.reflect.Reflect.T_visibleFieldsWalker_static_extension) @:dox(hide) abstract T_visibleFieldsWalker(stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker) from stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker to stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker {
     public function new() this = new stdgo._internal.reflect.Reflect_t_visiblefieldswalker.T_visibleFieldsWalker();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_abiStepKind = stdgo._internal.reflect.Reflect_t_abistepkind.T_abiStepKind;
+@:dox(hide) typedef T_abiStepKind = stdgo._internal.reflect.Reflect_t_abistepkind.T_abiStepKind;
 typedef Kind = stdgo._internal.reflect.Reflect_kind.Kind;
-typedef T_uncommonType = stdgo._internal.reflect.Reflect_t_uncommontype.T_uncommonType;
-typedef T_aNameOff = stdgo._internal.reflect.Reflect_t_anameoff.T_aNameOff;
-typedef T_aTypeOff = stdgo._internal.reflect.Reflect_t_atypeoff.T_aTypeOff;
-typedef T_aTextOff = stdgo._internal.reflect.Reflect_t_atextoff.T_aTextOff;
+@:dox(hide) typedef T_uncommonType = stdgo._internal.reflect.Reflect_t_uncommontype.T_uncommonType;
+@:dox(hide) typedef T_aNameOff = stdgo._internal.reflect.Reflect_t_anameoff.T_aNameOff;
+@:dox(hide) typedef T_aTypeOff = stdgo._internal.reflect.Reflect_t_atypeoff.T_aTypeOff;
+@:dox(hide) typedef T_aTextOff = stdgo._internal.reflect.Reflect_t_atextoff.T_aTextOff;
 typedef ChanDir = stdgo._internal.reflect.Reflect_chandir.ChanDir;
-typedef T_arrayType = stdgo._internal.reflect.Reflect_t_arraytype.T_arrayType;
-typedef T_chanType = stdgo._internal.reflect.Reflect_t_chantype.T_chanType;
-typedef T_funcType = stdgo._internal.reflect.Reflect_t_functype.T_funcType;
-typedef T_structField = stdgo._internal.reflect.Reflect_t_structfield.T_structField;
+@:dox(hide) typedef T_arrayType = stdgo._internal.reflect.Reflect_t_arraytype.T_arrayType;
+@:dox(hide) typedef T_chanType = stdgo._internal.reflect.Reflect_t_chantype.T_chanType;
+@:dox(hide) typedef T_funcType = stdgo._internal.reflect.Reflect_t_functype.T_funcType;
+@:dox(hide) typedef T_structField = stdgo._internal.reflect.Reflect_t_structfield.T_structField;
 typedef StructTag = stdgo._internal.reflect.Reflect_structtag.StructTag;
-typedef T_flag = stdgo._internal.reflect.Reflect_t_flag.T_flag;
+@:dox(hide) typedef T_flag = stdgo._internal.reflect.Reflect_t_flag.T_flag;
 typedef SelectDir = stdgo._internal.reflect.Reflect_selectdir.SelectDir;
-typedef T_abiStepPointer = stdgo._internal.reflect.Reflect_t_abisteppointer.T_abiStepPointer;
-class T_abiStep_static_extension {
+@:dox(hide) typedef T_abiStepPointer = stdgo._internal.reflect.Reflect_t_abisteppointer.T_abiStepPointer;
+@:dox(hide) class T_abiStep_static_extension {
 
 }
-typedef T_abiSeqPointer = stdgo._internal.reflect.Reflect_t_abiseqpointer.T_abiSeqPointer;
-class T_abiSeq_static_extension {
+@:dox(hide) typedef T_abiSeqPointer = stdgo._internal.reflect.Reflect_t_abiseqpointer.T_abiSeqPointer;
+@:dox(hide) class T_abiSeq_static_extension {
 
 }
-typedef T_abiDescPointer = stdgo._internal.reflect.Reflect_t_abidescpointer.T_abiDescPointer;
-class T_abiDesc_static_extension {
+@:dox(hide) typedef T_abiDescPointer = stdgo._internal.reflect.Reflect_t_abidescpointer.T_abiDescPointer;
+@:dox(hide) class T_abiDesc_static_extension {
 
 }
-typedef T_visitPointer = stdgo._internal.reflect.Reflect_t_visitpointer.T_visitPointer;
-class T_visit_static_extension {
+@:dox(hide) typedef T_visitPointer = stdgo._internal.reflect.Reflect_t_visitpointer.T_visitPointer;
+@:dox(hide) class T_visit_static_extension {
 
 }
 typedef EmbedWithUnexpMethPointer = stdgo._internal.reflect.Reflect_embedwithunexpmethpointer.EmbedWithUnexpMethPointer;
@@ -564,20 +564,20 @@ typedef BufferPointer = stdgo._internal.reflect.Reflect_bufferpointer.BufferPoin
 class Buffer_static_extension {
 
 }
-typedef T_makeFuncImplPointer = stdgo._internal.reflect.Reflect_t_makefuncimplpointer.T_makeFuncImplPointer;
-class T_makeFuncImpl_static_extension {
+@:dox(hide) typedef T_makeFuncImplPointer = stdgo._internal.reflect.Reflect_t_makefuncimplpointer.T_makeFuncImplPointer;
+@:dox(hide) class T_makeFuncImpl_static_extension {
 
 }
-typedef T_methodValuePointer = stdgo._internal.reflect.Reflect_t_methodvaluepointer.T_methodValuePointer;
-class T_methodValue_static_extension {
+@:dox(hide) typedef T_methodValuePointer = stdgo._internal.reflect.Reflect_t_methodvaluepointer.T_methodValuePointer;
+@:dox(hide) class T_methodValue_static_extension {
 
 }
-typedef T_makeFuncCtxtPointer = stdgo._internal.reflect.Reflect_t_makefuncctxtpointer.T_makeFuncCtxtPointer;
-class T_makeFuncCtxt_static_extension {
+@:dox(hide) typedef T_makeFuncCtxtPointer = stdgo._internal.reflect.Reflect_t_makefuncctxtpointer.T_makeFuncCtxtPointer;
+@:dox(hide) class T_makeFuncCtxt_static_extension {
 
 }
-typedef T_commonPointer = stdgo._internal.reflect.Reflect_t_commonpointer.T_commonPointer;
-class T_common_static_extension {
+@:dox(hide) typedef T_commonPointer = stdgo._internal.reflect.Reflect_t_commonpointer.T_commonPointer;
+@:dox(hide) class T_common_static_extension {
     public static function uncommon(__self__:stdgo._internal.reflect.Reflect_t_common.T_common):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.reflect.Reflect_t_common_static_extension.T_common_static_extension.uncommon(__self__);
     }
@@ -647,8 +647,8 @@ class T_common_static_extension {
         return stdgo._internal.reflect.Reflect_t_common_static_extension.T_common_static_extension.align(__self__);
     }
 }
-typedef T_rtypePointer = stdgo._internal.reflect.Reflect_t_rtypepointer.T_rtypePointer;
-class T_rtype_static_extension {
+@:dox(hide) typedef T_rtypePointer = stdgo._internal.reflect.Reflect_t_rtypepointer.T_rtypePointer;
+@:dox(hide) class T_rtype_static_extension {
     static public function comparable_(_t:T_rtype):Bool {
         final _t = (_t : stdgo.Ref<stdgo._internal.reflect.Reflect_t_rtype.T_rtype>);
         return stdgo._internal.reflect.Reflect_t_rtype_static_extension.T_rtype_static_extension.comparable_(_t);
@@ -783,8 +783,8 @@ class T_rtype_static_extension {
         return stdgo._internal.reflect.Reflect_t_rtype_static_extension.T_rtype_static_extension.string(_t);
     }
 }
-typedef T_interfaceTypePointer = stdgo._internal.reflect.Reflect_t_interfacetypepointer.T_interfaceTypePointer;
-class T_interfaceType_static_extension {
+@:dox(hide) typedef T_interfaceTypePointer = stdgo._internal.reflect.Reflect_t_interfacetypepointer.T_interfaceTypePointer;
+@:dox(hide) class T_interfaceType_static_extension {
     static public function methodByName(_t:T_interfaceType, _name:String):stdgo.Tuple<Method, Bool> {
         final _t = (_t : stdgo.Ref<stdgo._internal.reflect.Reflect_t_interfacetype.T_interfaceType>);
         final _name = (_name : stdgo.GoString);
@@ -865,8 +865,8 @@ class T_interfaceType_static_extension {
         return stdgo._internal.reflect.Reflect_t_interfacetype_static_extension.T_interfaceType_static_extension.align(__self__);
     }
 }
-typedef T_mapTypePointer = stdgo._internal.reflect.Reflect_t_maptypepointer.T_mapTypePointer;
-class T_mapType_static_extension {
+@:dox(hide) typedef T_mapTypePointer = stdgo._internal.reflect.Reflect_t_maptypepointer.T_mapTypePointer;
+@:dox(hide) class T_mapType_static_extension {
     public static function uncommon(__self__:stdgo._internal.reflect.Reflect_t_maptype.T_mapType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.reflect.Reflect_t_maptype_static_extension.T_mapType_static_extension.uncommon(__self__);
     }
@@ -942,8 +942,8 @@ class T_mapType_static_extension {
         return stdgo._internal.reflect.Reflect_t_maptype_static_extension.T_mapType_static_extension.align(__self__);
     }
 }
-typedef T_ptrTypePointer = stdgo._internal.reflect.Reflect_t_ptrtypepointer.T_ptrTypePointer;
-class T_ptrType_static_extension {
+@:dox(hide) typedef T_ptrTypePointer = stdgo._internal.reflect.Reflect_t_ptrtypepointer.T_ptrTypePointer;
+@:dox(hide) class T_ptrType_static_extension {
     public static function uncommon(__self__:stdgo._internal.reflect.Reflect_t_ptrtype.T_ptrType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.reflect.Reflect_t_ptrtype_static_extension.T_ptrType_static_extension.uncommon(__self__);
     }
@@ -1010,8 +1010,8 @@ class T_ptrType_static_extension {
         return stdgo._internal.reflect.Reflect_t_ptrtype_static_extension.T_ptrType_static_extension.align(__self__);
     }
 }
-typedef T_sliceTypePointer = stdgo._internal.reflect.Reflect_t_slicetypepointer.T_sliceTypePointer;
-class T_sliceType_static_extension {
+@:dox(hide) typedef T_sliceTypePointer = stdgo._internal.reflect.Reflect_t_slicetypepointer.T_sliceTypePointer;
+@:dox(hide) class T_sliceType_static_extension {
     public static function uncommon(__self__:stdgo._internal.reflect.Reflect_t_slicetype.T_sliceType):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.reflect.Reflect_t_slicetype_static_extension.T_sliceType_static_extension.uncommon(__self__);
     }
@@ -1078,8 +1078,8 @@ class T_sliceType_static_extension {
         return stdgo._internal.reflect.Reflect_t_slicetype_static_extension.T_sliceType_static_extension.align(__self__);
     }
 }
-typedef T_structTypePointer = stdgo._internal.reflect.Reflect_t_structtypepointer.T_structTypePointer;
-class T_structType_static_extension {
+@:dox(hide) typedef T_structTypePointer = stdgo._internal.reflect.Reflect_t_structtypepointer.T_structTypePointer;
+@:dox(hide) class T_structType_static_extension {
     static public function fieldByName(_t:T_structType, _name:String):stdgo.Tuple<StructField, Bool> {
         final _t = (_t : stdgo.Ref<stdgo._internal.reflect.Reflect_t_structtype.T_structType>);
         final _name = (_name : stdgo.GoString);
@@ -1184,16 +1184,16 @@ class StructField_static_extension {
         return stdgo._internal.reflect.Reflect_structfield_static_extension.StructField_static_extension.isExported(_f);
     }
 }
-typedef T_fieldScanPointer = stdgo._internal.reflect.Reflect_t_fieldscanpointer.T_fieldScanPointer;
-class T_fieldScan_static_extension {
+@:dox(hide) typedef T_fieldScanPointer = stdgo._internal.reflect.Reflect_t_fieldscanpointer.T_fieldScanPointer;
+@:dox(hide) class T_fieldScan_static_extension {
 
 }
-typedef T_cacheKeyPointer = stdgo._internal.reflect.Reflect_t_cachekeypointer.T_cacheKeyPointer;
-class T_cacheKey_static_extension {
+@:dox(hide) typedef T_cacheKeyPointer = stdgo._internal.reflect.Reflect_t_cachekeypointer.T_cacheKeyPointer;
+@:dox(hide) class T_cacheKey_static_extension {
 
 }
-typedef T_structTypeUncommonPointer = stdgo._internal.reflect.Reflect_t_structtypeuncommonpointer.T_structTypeUncommonPointer;
-class T_structTypeUncommon_static_extension {
+@:dox(hide) typedef T_structTypeUncommonPointer = stdgo._internal.reflect.Reflect_t_structtypeuncommonpointer.T_structTypeUncommonPointer;
+@:dox(hide) class T_structTypeUncommon_static_extension {
     public static function uncommon(__self__:stdgo._internal.reflect.Reflect_t_structtypeuncommon.T_structTypeUncommon):stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
         return stdgo._internal.reflect.Reflect_t_structtypeuncommon_static_extension.T_structTypeUncommon_static_extension.uncommon(__self__);
     }
@@ -1282,16 +1282,16 @@ class T_structTypeUncommon_static_extension {
         return stdgo._internal.reflect.Reflect_t_structtypeuncommon_static_extension.T_structTypeUncommon_static_extension.align(__self__);
     }
 }
-typedef T_layoutKeyPointer = stdgo._internal.reflect.Reflect_t_layoutkeypointer.T_layoutKeyPointer;
-class T_layoutKey_static_extension {
+@:dox(hide) typedef T_layoutKeyPointer = stdgo._internal.reflect.Reflect_t_layoutkeypointer.T_layoutKeyPointer;
+@:dox(hide) class T_layoutKey_static_extension {
 
 }
-typedef T_layoutTypePointer = stdgo._internal.reflect.Reflect_t_layouttypepointer.T_layoutTypePointer;
-class T_layoutType_static_extension {
+@:dox(hide) typedef T_layoutTypePointer = stdgo._internal.reflect.Reflect_t_layouttypepointer.T_layoutTypePointer;
+@:dox(hide) class T_layoutType_static_extension {
 
 }
-typedef T_bitVectorPointer = stdgo._internal.reflect.Reflect_t_bitvectorpointer.T_bitVectorPointer;
-class T_bitVector_static_extension {
+@:dox(hide) typedef T_bitVectorPointer = stdgo._internal.reflect.Reflect_t_bitvectorpointer.T_bitVectorPointer;
+@:dox(hide) class T_bitVector_static_extension {
 
 }
 typedef ValuePointer = stdgo._internal.reflect.Reflect_valuepointer.ValuePointer;
@@ -1568,16 +1568,16 @@ class ValueError_static_extension {
         return stdgo._internal.reflect.Reflect_valueerror_static_extension.ValueError_static_extension.error(_e);
     }
 }
-typedef T_emptyInterfacePointer = stdgo._internal.reflect.Reflect_t_emptyinterfacepointer.T_emptyInterfacePointer;
-class T_emptyInterface_static_extension {
+@:dox(hide) typedef T_emptyInterfacePointer = stdgo._internal.reflect.Reflect_t_emptyinterfacepointer.T_emptyInterfacePointer;
+@:dox(hide) class T_emptyInterface_static_extension {
 
 }
-typedef T_nonEmptyInterfacePointer = stdgo._internal.reflect.Reflect_t_nonemptyinterfacepointer.T_nonEmptyInterfacePointer;
-class T_nonEmptyInterface_static_extension {
+@:dox(hide) typedef T_nonEmptyInterfacePointer = stdgo._internal.reflect.Reflect_t_nonemptyinterfacepointer.T_nonEmptyInterfacePointer;
+@:dox(hide) class T_nonEmptyInterface_static_extension {
 
 }
-typedef T_hiterPointer = stdgo._internal.reflect.Reflect_t_hiterpointer.T_hiterPointer;
-class T_hiter_static_extension {
+@:dox(hide) typedef T_hiterPointer = stdgo._internal.reflect.Reflect_t_hiterpointer.T_hiterPointer;
+@:dox(hide) class T_hiter_static_extension {
 
 }
 typedef MapIterPointer = stdgo._internal.reflect.Reflect_mapiterpointer.MapIterPointer;
@@ -1607,20 +1607,20 @@ typedef SliceHeaderPointer = stdgo._internal.reflect.Reflect_sliceheaderpointer.
 class SliceHeader_static_extension {
 
 }
-typedef T_runtimeSelectPointer = stdgo._internal.reflect.Reflect_t_runtimeselectpointer.T_runtimeSelectPointer;
-class T_runtimeSelect_static_extension {
+@:dox(hide) typedef T_runtimeSelectPointer = stdgo._internal.reflect.Reflect_t_runtimeselectpointer.T_runtimeSelectPointer;
+@:dox(hide) class T_runtimeSelect_static_extension {
 
 }
 typedef SelectCasePointer = stdgo._internal.reflect.Reflect_selectcasepointer.SelectCasePointer;
 class SelectCase_static_extension {
 
 }
-typedef T_visibleFieldsWalkerPointer = stdgo._internal.reflect.Reflect_t_visiblefieldswalkerpointer.T_visibleFieldsWalkerPointer;
-class T_visibleFieldsWalker_static_extension {
+@:dox(hide) typedef T_visibleFieldsWalkerPointer = stdgo._internal.reflect.Reflect_t_visiblefieldswalkerpointer.T_visibleFieldsWalkerPointer;
+@:dox(hide) class T_visibleFieldsWalker_static_extension {
 
 }
-typedef T_abiStepKindPointer = stdgo._internal.reflect.Reflect_t_abistepkindpointer.T_abiStepKindPointer;
-class T_abiStepKind_static_extension {
+@:dox(hide) typedef T_abiStepKindPointer = stdgo._internal.reflect.Reflect_t_abistepkindpointer.T_abiStepKindPointer;
+@:dox(hide) class T_abiStepKind_static_extension {
 
 }
 typedef KindPointer = stdgo._internal.reflect.Reflect_kindpointer.KindPointer;
@@ -1629,20 +1629,20 @@ class Kind_static_extension {
         return stdgo._internal.reflect.Reflect_kind_static_extension.Kind_static_extension.string(_k);
     }
 }
-typedef T_uncommonTypePointer = stdgo._internal.reflect.Reflect_t_uncommontypepointer.T_uncommonTypePointer;
-class T_uncommonType_static_extension {
+@:dox(hide) typedef T_uncommonTypePointer = stdgo._internal.reflect.Reflect_t_uncommontypepointer.T_uncommonTypePointer;
+@:dox(hide) class T_uncommonType_static_extension {
 
 }
-typedef T_aNameOffPointer = stdgo._internal.reflect.Reflect_t_anameoffpointer.T_aNameOffPointer;
-class T_aNameOff_static_extension {
+@:dox(hide) typedef T_aNameOffPointer = stdgo._internal.reflect.Reflect_t_anameoffpointer.T_aNameOffPointer;
+@:dox(hide) class T_aNameOff_static_extension {
 
 }
-typedef T_aTypeOffPointer = stdgo._internal.reflect.Reflect_t_atypeoffpointer.T_aTypeOffPointer;
-class T_aTypeOff_static_extension {
+@:dox(hide) typedef T_aTypeOffPointer = stdgo._internal.reflect.Reflect_t_atypeoffpointer.T_aTypeOffPointer;
+@:dox(hide) class T_aTypeOff_static_extension {
 
 }
-typedef T_aTextOffPointer = stdgo._internal.reflect.Reflect_t_atextoffpointer.T_aTextOffPointer;
-class T_aTextOff_static_extension {
+@:dox(hide) typedef T_aTextOffPointer = stdgo._internal.reflect.Reflect_t_atextoffpointer.T_aTextOffPointer;
+@:dox(hide) class T_aTextOff_static_extension {
 
 }
 typedef ChanDirPointer = stdgo._internal.reflect.Reflect_chandirpointer.ChanDirPointer;
@@ -1651,20 +1651,20 @@ class ChanDir_static_extension {
         return stdgo._internal.reflect.Reflect_chandir_static_extension.ChanDir_static_extension.string(_d);
     }
 }
-typedef T_arrayTypePointer = stdgo._internal.reflect.Reflect_t_arraytypepointer.T_arrayTypePointer;
-class T_arrayType_static_extension {
+@:dox(hide) typedef T_arrayTypePointer = stdgo._internal.reflect.Reflect_t_arraytypepointer.T_arrayTypePointer;
+@:dox(hide) class T_arrayType_static_extension {
 
 }
-typedef T_chanTypePointer = stdgo._internal.reflect.Reflect_t_chantypepointer.T_chanTypePointer;
-class T_chanType_static_extension {
+@:dox(hide) typedef T_chanTypePointer = stdgo._internal.reflect.Reflect_t_chantypepointer.T_chanTypePointer;
+@:dox(hide) class T_chanType_static_extension {
 
 }
-typedef T_funcTypePointer = stdgo._internal.reflect.Reflect_t_functypepointer.T_funcTypePointer;
-class T_funcType_static_extension {
+@:dox(hide) typedef T_funcTypePointer = stdgo._internal.reflect.Reflect_t_functypepointer.T_funcTypePointer;
+@:dox(hide) class T_funcType_static_extension {
 
 }
-typedef T_structFieldPointer = stdgo._internal.reflect.Reflect_t_structfieldpointer.T_structFieldPointer;
-class T_structField_static_extension {
+@:dox(hide) typedef T_structFieldPointer = stdgo._internal.reflect.Reflect_t_structfieldpointer.T_structFieldPointer;
+@:dox(hide) class T_structField_static_extension {
 
 }
 typedef StructTagPointer = stdgo._internal.reflect.Reflect_structtagpointer.StructTagPointer;
@@ -1681,8 +1681,8 @@ class StructTag_static_extension {
         return stdgo._internal.reflect.Reflect_structtag_static_extension.StructTag_static_extension.get(_tag, _key);
     }
 }
-typedef T_flagPointer = stdgo._internal.reflect.Reflect_t_flagpointer.T_flagPointer;
-class T_flag_static_extension {
+@:dox(hide) typedef T_flagPointer = stdgo._internal.reflect.Reflect_t_flagpointer.T_flagPointer;
+@:dox(hide) class T_flag_static_extension {
 
 }
 typedef SelectDirPointer = stdgo._internal.reflect.Reflect_selectdirpointer.SelectDirPointer;

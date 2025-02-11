@@ -13,7 +13,7 @@ function _formToClass(_form:stdgo._internal.debug.dwarf.Dwarf_t_format.T_format,
                 return (2 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
             } else if (__value__ == ((11u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((5u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((6u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((7u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((13u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((15u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((30u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format)) || __value__ == ((33u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format))) {
                 {
-                    var __tmp__ = (stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass != null && stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass.exists(_attr) ? { _0 : stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass[_attr], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_class_.Class_), _1 : false }), _class:stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass != null && stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass.__exists__(_attr) ? { _0 : stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass[_attr], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_class_.Class_), _1 : false }), _class:stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (((_vers < (4 : stdgo.GoInt) : Bool) && _ok : Bool)) {
                         return _class;
                     };
@@ -29,7 +29,7 @@ function _formToClass(_form:stdgo._internal.debug.dwarf.Dwarf_t_format.T_format,
                 return (12 : stdgo._internal.debug.dwarf.Dwarf_class_.Class_);
             } else if (__value__ == ((23u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format))) {
                 {
-                    var __tmp__ = (stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass != null && stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass.exists(_attr) ? { _0 : stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass[_attr], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_class_.Class_), _1 : false }), _class:stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = (stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass != null && stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass.__exists__(_attr) ? { _0 : stdgo._internal.debug.dwarf.Dwarf__attrptrclass._attrPtrClass[_attr], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_class_.Class_), _1 : false }), _class:stdgo._internal.debug.dwarf.Dwarf_class_.Class_ = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         return _class;
                     };

@@ -172,7 +172,7 @@ package stdgo._internal.internal.pkgbits;
         var _e = (new stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt(_r, _idx) : stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt);
         if ((@:checkr _w ?? throw "null pointer dereference").relocMap != null) {
             {
-                var __tmp__ = ((@:checkr _w ?? throw "null pointer dereference").relocMap != null && (@:checkr _w ?? throw "null pointer dereference").relocMap.exists(_e?.__copy__()) ? { _0 : (@:checkr _w ?? throw "null pointer dereference").relocMap[_e?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _i:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _w ?? throw "null pointer dereference").relocMap != null && (@:checkr _w ?? throw "null pointer dereference").relocMap.__exists__(_e?.__copy__()) ? { _0 : (@:checkr _w ?? throw "null pointer dereference").relocMap[_e?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _i:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return (_i : stdgo.GoInt);
                 };

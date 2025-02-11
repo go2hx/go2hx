@@ -184,12 +184,12 @@ class SubFS_static_extension {
     }
 }
 typedef SubFS = stdgo._internal.io.fs.Fs_subfs.SubFS;
-class T__interface_0_static_extension {
+@:dox(hide) class T__interface_0_static_extension {
     static public function timeout(t:stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0):Bool {
         return stdgo._internal.io.fs.Fs_t__interface_0_static_extension.T__interface_0_static_extension.timeout(t);
     }
 }
-typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
+@:dox(hide) typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) abstract PathError(stdgo._internal.io.fs.Fs_patherror.PathError) from stdgo._internal.io.fs.Fs_patherror.PathError to stdgo._internal.io.fs.Fs_patherror.PathError {
     public var op(get, set) : String;
     function get_op():String return this.op;
@@ -213,7 +213,7 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) abstract T_dirInfo(stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo) from stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo to stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo {
+@:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) @:dox(hide) abstract T_dirInfo(stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo) from stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo to stdgo._internal.io.fs.Fs_t_dirinfo.T_dirInfo {
     public var _fileInfo(get, set) : FileInfo;
     function get__fileInfo():FileInfo return this._fileInfo;
     function set__fileInfo(v:FileInfo):FileInfo {
@@ -224,7 +224,7 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) abstract T_subFS(stdgo._internal.io.fs.Fs_t_subfs.T_subFS) from stdgo._internal.io.fs.Fs_t_subfs.T_subFS to stdgo._internal.io.fs.Fs_t_subfs.T_subFS {
+@:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) @:dox(hide) abstract T_subFS(stdgo._internal.io.fs.Fs_t_subfs.T_subFS) from stdgo._internal.io.fs.Fs_t_subfs.T_subFS to stdgo._internal.io.fs.Fs_t_subfs.T_subFS {
     public var _fsys(get, set) : FS;
     function get__fsys():FS return this._fsys;
     function set__fsys(v:FS):FS {
@@ -241,7 +241,7 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) abstract T_statDirEntry(stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry) from stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry to stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry {
+@:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) @:dox(hide) abstract T_statDirEntry(stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry) from stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry to stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry {
     public var _info(get, set) : FileInfo;
     function get__info():FileInfo return this._info;
     function set__info(v:FileInfo):FileInfo {
@@ -269,8 +269,8 @@ class PathError_static_extension {
         return stdgo._internal.io.fs.Fs_patherror_static_extension.PathError_static_extension.error(_e);
     }
 }
-typedef T_dirInfoPointer = stdgo._internal.io.fs.Fs_t_dirinfopointer.T_dirInfoPointer;
-class T_dirInfo_static_extension {
+@:dox(hide) typedef T_dirInfoPointer = stdgo._internal.io.fs.Fs_t_dirinfopointer.T_dirInfoPointer;
+@:dox(hide) class T_dirInfo_static_extension {
     static public function string(_di:T_dirInfo):String {
         return stdgo._internal.io.fs.Fs_t_dirinfo_static_extension.T_dirInfo_static_extension.string(_di);
     }
@@ -290,8 +290,8 @@ class T_dirInfo_static_extension {
         return stdgo._internal.io.fs.Fs_t_dirinfo_static_extension.T_dirInfo_static_extension.isDir(_di);
     }
 }
-typedef T_subFSPointer = stdgo._internal.io.fs.Fs_t_subfspointer.T_subFSPointer;
-class T_subFS_static_extension {
+@:dox(hide) typedef T_subFSPointer = stdgo._internal.io.fs.Fs_t_subfspointer.T_subFSPointer;
+@:dox(hide) class T_subFS_static_extension {
     static public function sub(_f:T_subFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         final _f = (_f : stdgo.Ref<stdgo._internal.io.fs.Fs_t_subfs.T_subFS>);
         final _dir = (_dir : stdgo.GoString);
@@ -355,8 +355,8 @@ class T_subFS_static_extension {
         };
     }
 }
-typedef T_statDirEntryPointer = stdgo._internal.io.fs.Fs_t_statdirentrypointer.T_statDirEntryPointer;
-class T_statDirEntry_static_extension {
+@:dox(hide) typedef T_statDirEntryPointer = stdgo._internal.io.fs.Fs_t_statdirentrypointer.T_statDirEntryPointer;
+@:dox(hide) class T_statDirEntry_static_extension {
     static public function string(_d:T_statDirEntry):String {
         final _d = (_d : stdgo.Ref<stdgo._internal.io.fs.Fs_t_statdirentry.T_statDirEntry>);
         return stdgo._internal.io.fs.Fs_t_statdirentry_static_extension.T_statDirEntry_static_extension.string(_d);

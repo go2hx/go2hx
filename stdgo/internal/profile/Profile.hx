@@ -5,7 +5,7 @@ private function set_legacyHeapAllocated(v:Bool):Bool {
         stdgo._internal.internal.profile.Profile_legacyheapallocated.legacyHeapAllocated = v;
         return v;
     }
-class T_message_static_extension {
+@:dox(hide) class T_message_static_extension {
     static public function _encode(t:stdgo._internal.internal.profile.Profile_t_message.T_message, _0:T_buffer):Void {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_t_buffer.T_buffer>);
         stdgo._internal.internal.profile.Profile_t_message_static_extension.T_message_static_extension._encode(t, _0);
@@ -14,8 +14,8 @@ class T_message_static_extension {
         return [for (i in stdgo._internal.internal.profile.Profile_t_message_static_extension.T_message_static_extension._decoder(t)) i];
     }
 }
-typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message;
-@:structInit @:using(stdgo.internal.profile.Profile.T_profileMerger_static_extension) abstract T_profileMerger(stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger) from stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger to stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger {
+@:dox(hide) typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message;
+@:structInit @:using(stdgo.internal.profile.Profile.T_profileMerger_static_extension) @:dox(hide) abstract T_profileMerger(stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger) from stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger to stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger {
     public var _p(get, set) : Profile_;
     function get__p():Profile_ return this._p;
     function set__p(v:Profile_):Profile_ {
@@ -68,7 +68,7 @@ typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_mapInfo_static_extension) abstract T_mapInfo(stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo) from stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo to stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo {
+@:structInit @:using(stdgo.internal.profile.Profile.T_mapInfo_static_extension) @:dox(hide) abstract T_mapInfo(stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo) from stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo to stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo {
     public var _m(get, set) : Mapping;
     function get__m():Mapping return this._m;
     function set__m(v:Mapping):Mapping {
@@ -85,7 +85,7 @@ typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_sampleKey_static_extension) abstract T_sampleKey(stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey) from stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey to stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey {
+@:structInit @:using(stdgo.internal.profile.Profile.T_sampleKey_static_extension) @:dox(hide) abstract T_sampleKey(stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey) from stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey to stdgo._internal.internal.profile.Profile_t_samplekey.T_sampleKey {
     public var _locations(get, set) : String;
     function get__locations():String return this._locations;
     function set__locations(v:String):String {
@@ -108,7 +108,7 @@ typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_locationKey_static_extension) abstract T_locationKey(stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey) from stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey to stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey {
+@:structInit @:using(stdgo.internal.profile.Profile.T_locationKey_static_extension) @:dox(hide) abstract T_locationKey(stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey) from stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey to stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey {
     public var _addr(get, set) : haxe.UInt64;
     function get__addr():haxe.UInt64 return this._addr;
     function set__addr(v:haxe.UInt64):haxe.UInt64 {
@@ -137,7 +137,7 @@ typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_mappingKey_static_extension) abstract T_mappingKey(stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey) from stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey to stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey {
+@:structInit @:using(stdgo.internal.profile.Profile.T_mappingKey_static_extension) @:dox(hide) abstract T_mappingKey(stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey) from stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey to stdgo._internal.internal.profile.Profile_t_mappingkey.T_mappingKey {
     public var _size(get, set) : haxe.UInt64;
     function get__size():haxe.UInt64 return this._size;
     function set__size(v:haxe.UInt64):haxe.UInt64 {
@@ -160,7 +160,7 @@ typedef T_message = stdgo._internal.internal.profile.Profile_t_message.T_message
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_functionKey_static_extension) abstract T_functionKey(stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey) from stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey to stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey {
+@:structInit @:using(stdgo.internal.profile.Profile.T_functionKey_static_extension) @:dox(hide) abstract T_functionKey(stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey) from stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey to stdgo._internal.internal.profile.Profile_t_functionkey.T_functionKey {
     public var _startLine(get, set) : haxe.Int64;
     function get__startLine():haxe.Int64 return this._startLine;
     function set__startLine(v:haxe.Int64):haxe.Int64 {
@@ -625,7 +625,7 @@ hasInlineFrames,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.profile.Profile.T_buffer_static_extension) abstract T_buffer(stdgo._internal.internal.profile.Profile_t_buffer.T_buffer) from stdgo._internal.internal.profile.Profile_t_buffer.T_buffer to stdgo._internal.internal.profile.Profile_t_buffer.T_buffer {
+@:structInit @:using(stdgo.internal.profile.Profile.T_buffer_static_extension) @:dox(hide) abstract T_buffer(stdgo._internal.internal.profile.Profile_t_buffer.T_buffer) from stdgo._internal.internal.profile.Profile_t_buffer.T_buffer to stdgo._internal.internal.profile.Profile_t_buffer.T_buffer {
     public var _field(get, set) : StdTypes.Int;
     function get__field():StdTypes.Int return this._field;
     function set__field(v:StdTypes.Int):StdTypes.Int {
@@ -661,11 +661,11 @@ hasInlineFrames,
     public function __copy__() return this.__copy__();
 }
 typedef TagMatch = stdgo._internal.internal.profile.Profile_tagmatch.TagMatch;
-typedef T_sectionType = stdgo._internal.internal.profile.Profile_t_sectiontype.T_sectionType;
+@:dox(hide) typedef T_sectionType = stdgo._internal.internal.profile.Profile_t_sectiontype.T_sectionType;
 typedef Demangler = stdgo._internal.internal.profile.Profile_demangler.Demangler;
-typedef T_decoder = stdgo._internal.internal.profile.Profile_t_decoder.T_decoder;
-typedef T_profileMergerPointer = stdgo._internal.internal.profile.Profile_t_profilemergerpointer.T_profileMergerPointer;
-class T_profileMerger_static_extension {
+@:dox(hide) typedef T_decoder = stdgo._internal.internal.profile.Profile_t_decoder.T_decoder;
+@:dox(hide) typedef T_profileMergerPointer = stdgo._internal.internal.profile.Profile_t_profilemergerpointer.T_profileMergerPointer;
+@:dox(hide) class T_profileMerger_static_extension {
     static public function _mapFunction(_pm:T_profileMerger, _src:Function):Function {
         final _pm = (_pm : stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger>);
         final _src = (_src : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>);
@@ -691,24 +691,24 @@ class T_profileMerger_static_extension {
         return stdgo._internal.internal.profile.Profile_t_profilemerger_static_extension.T_profileMerger_static_extension._mapSample(_pm, _src);
     }
 }
-typedef T_mapInfoPointer = stdgo._internal.internal.profile.Profile_t_mapinfopointer.T_mapInfoPointer;
-class T_mapInfo_static_extension {
+@:dox(hide) typedef T_mapInfoPointer = stdgo._internal.internal.profile.Profile_t_mapinfopointer.T_mapInfoPointer;
+@:dox(hide) class T_mapInfo_static_extension {
 
 }
-typedef T_sampleKeyPointer = stdgo._internal.internal.profile.Profile_t_samplekeypointer.T_sampleKeyPointer;
-class T_sampleKey_static_extension {
+@:dox(hide) typedef T_sampleKeyPointer = stdgo._internal.internal.profile.Profile_t_samplekeypointer.T_sampleKeyPointer;
+@:dox(hide) class T_sampleKey_static_extension {
 
 }
-typedef T_locationKeyPointer = stdgo._internal.internal.profile.Profile_t_locationkeypointer.T_locationKeyPointer;
-class T_locationKey_static_extension {
+@:dox(hide) typedef T_locationKeyPointer = stdgo._internal.internal.profile.Profile_t_locationkeypointer.T_locationKeyPointer;
+@:dox(hide) class T_locationKey_static_extension {
 
 }
-typedef T_mappingKeyPointer = stdgo._internal.internal.profile.Profile_t_mappingkeypointer.T_mappingKeyPointer;
-class T_mappingKey_static_extension {
+@:dox(hide) typedef T_mappingKeyPointer = stdgo._internal.internal.profile.Profile_t_mappingkeypointer.T_mappingKeyPointer;
+@:dox(hide) class T_mappingKey_static_extension {
 
 }
-typedef T_functionKeyPointer = stdgo._internal.internal.profile.Profile_t_functionkeypointer.T_functionKeyPointer;
-class T_functionKey_static_extension {
+@:dox(hide) typedef T_functionKeyPointer = stdgo._internal.internal.profile.Profile_t_functionkeypointer.T_functionKeyPointer;
+@:dox(hide) class T_functionKey_static_extension {
 
 }
 typedef ProfilePointer = stdgo._internal.internal.profile.Profile_profilepointer.ProfilePointer;
@@ -957,24 +957,24 @@ class Function_static_extension {
         return [for (i in stdgo._internal.internal.profile.Profile_function_static_extension.Function_static_extension._decoder(_p)) i];
     }
 }
-typedef T_bufferPointer = stdgo._internal.internal.profile.Profile_t_bufferpointer.T_bufferPointer;
-class T_buffer_static_extension {
+@:dox(hide) typedef T_bufferPointer = stdgo._internal.internal.profile.Profile_t_bufferpointer.T_bufferPointer;
+@:dox(hide) class T_buffer_static_extension {
 
 }
 typedef TagMatchPointer = stdgo._internal.internal.profile.Profile_tagmatchpointer.TagMatchPointer;
 class TagMatch_static_extension {
 
 }
-typedef T_sectionTypePointer = stdgo._internal.internal.profile.Profile_t_sectiontypepointer.T_sectionTypePointer;
-class T_sectionType_static_extension {
+@:dox(hide) typedef T_sectionTypePointer = stdgo._internal.internal.profile.Profile_t_sectiontypepointer.T_sectionTypePointer;
+@:dox(hide) class T_sectionType_static_extension {
 
 }
 typedef DemanglerPointer = stdgo._internal.internal.profile.Profile_demanglerpointer.DemanglerPointer;
 class Demangler_static_extension {
 
 }
-typedef T_decoderPointer = stdgo._internal.internal.profile.Profile_t_decoderpointer.T_decoderPointer;
-class T_decoder_static_extension {
+@:dox(hide) typedef T_decoderPointer = stdgo._internal.internal.profile.Profile_t_decoderpointer.T_decoderPointer;
+@:dox(hide) class T_decoder_static_extension {
 
 }
 /**

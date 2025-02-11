@@ -1,12 +1,12 @@
 package stdgo.compress.lzw;
 final lSB : Order = stdgo._internal.compress.lzw.Lzw_lsb.lSB;
 final mSB = stdgo._internal.compress.lzw.Lzw_msb.mSB;
-class T_writer_static_extension {
+@:dox(hide) class T_writer_static_extension {
     static public function flush(t:stdgo._internal.compress.lzw.Lzw_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.compress.lzw.Lzw_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-typedef T_writer = stdgo._internal.compress.lzw.Lzw_t_writer.T_writer;
+@:dox(hide) typedef T_writer = stdgo._internal.compress.lzw.Lzw_t_writer.T_writer;
 @:structInit @:using(stdgo.compress.lzw.Lzw.Reader_static_extension) abstract Reader(stdgo._internal.compress.lzw.Lzw_reader.Reader) from stdgo._internal.compress.lzw.Lzw_reader.Reader to stdgo._internal.compress.lzw.Lzw_reader.Reader {
     public var _r(get, set) : stdgo._internal.io.Io_bytereader.ByteReader;
     function get__r():stdgo._internal.io.Io_bytereader.ByteReader return this._r;

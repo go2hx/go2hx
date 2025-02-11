@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.x509;
 function decryptPEMBlock(_b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>, _password:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
-        var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference").headers != null && (@:checkr _b ?? throw "null pointer dereference").headers.exists(("DEK-Info" : stdgo.GoString)) ? { _0 : (@:checkr _b ?? throw "null pointer dereference").headers[("DEK-Info" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _dek:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _b ?? throw "null pointer dereference").headers != null && (@:checkr _b ?? throw "null pointer dereference").headers.__exists__(("DEK-Info" : stdgo.GoString)) ? { _0 : (@:checkr _b ?? throw "null pointer dereference").headers[("DEK-Info" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _dek:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: no DEK-Info header in block" : stdgo.GoString)) };
         };

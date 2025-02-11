@@ -22,7 +22,7 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.platform.Platform.T_osArchInfo_static_extension) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo {
+@:structInit @:using(stdgo.internal.platform.Platform.T_osArchInfo_static_extension) @:dox(hide) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo {
     public var cgoSupported(get, set) : Bool;
     function get_cgoSupported():Bool return this.cgoSupported;
     function set_cgoSupported(v:Bool):Bool {
@@ -51,8 +51,8 @@ class OSArch_static_extension {
         return stdgo._internal.internal.platform.Platform_osarch_static_extension.OSArch_static_extension.string(_p);
     }
 }
-typedef T_osArchInfoPointer = stdgo._internal.internal.platform.Platform_t_osarchinfopointer.T_osArchInfoPointer;
-class T_osArchInfo_static_extension {
+@:dox(hide) typedef T_osArchInfoPointer = stdgo._internal.internal.platform.Platform_t_osarchinfopointer.T_osArchInfoPointer;
+@:dox(hide) class T_osArchInfo_static_extension {
 
 }
 class Platform {

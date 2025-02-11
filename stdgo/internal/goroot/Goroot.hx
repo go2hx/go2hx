@@ -1,5 +1,5 @@
 package stdgo.internal.goroot;
-@:structInit @:using(stdgo.internal.goroot.Goroot.T_gccgoDirs_static_extension) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs {
+@:structInit @:using(stdgo.internal.goroot.Goroot.T_gccgoDirs_static_extension) @:dox(hide) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
@@ -16,8 +16,8 @@ package stdgo.internal.goroot;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_gccgoDirsPointer = stdgo._internal.internal.goroot.Goroot_t_gccgodirspointer.T_gccgoDirsPointer;
-class T_gccgoDirs_static_extension {
+@:dox(hide) typedef T_gccgoDirsPointer = stdgo._internal.internal.goroot.Goroot_t_gccgodirspointer.T_gccgoDirsPointer;
+@:dox(hide) class T_gccgoDirs_static_extension {
     static public function _isStandard(_gd:T_gccgoDirs, _path:String):Bool {
         final _gd = (_gd : stdgo.Ref<stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs>);
         final _path = (_path : stdgo.GoString);

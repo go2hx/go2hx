@@ -1,5 +1,5 @@
 package stdgo.testing.slogtest;
-@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_testCase_static_extension) abstract T_testCase(stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase) from stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase to stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase {
+@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_testCase_static_extension) @:dox(hide) abstract T_testCase(stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase) from stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase to stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase {
     public var _explanation(get, set) : String;
     function get__explanation():String return this._explanation;
     function set__explanation(v:String):String {
@@ -28,7 +28,7 @@ package stdgo.testing.slogtest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_wrapper_static_extension) abstract T_wrapper(stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper) from stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper to stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper {
+@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_wrapper_static_extension) @:dox(hide) abstract T_wrapper(stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper) from stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper to stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper {
     public var handler(get, set) : stdgo._internal.log.slog.Slog_handler.Handler;
     function get_handler():stdgo._internal.log.slog.Slog_handler.Handler return this.handler;
     function set_handler(v:stdgo._internal.log.slog.Slog_handler.Handler):stdgo._internal.log.slog.Slog_handler.Handler {
@@ -45,7 +45,7 @@ package stdgo.testing.slogtest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_replace_static_extension) abstract T_replace(stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace) from stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace to stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace {
+@:structInit @:using(stdgo.testing.slogtest.Slogtest.T_replace_static_extension) @:dox(hide) abstract T_replace(stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace) from stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace to stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace {
     public var _v(get, set) : stdgo.AnyInterface;
     function get__v():stdgo.AnyInterface return this._v;
     function set__v(v:stdgo.AnyInterface):stdgo.AnyInterface {
@@ -56,13 +56,13 @@ package stdgo.testing.slogtest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_check = stdgo._internal.testing.slogtest.Slogtest_t_check.T_check;
-typedef T_testCasePointer = stdgo._internal.testing.slogtest.Slogtest_t_testcasepointer.T_testCasePointer;
-class T_testCase_static_extension {
+@:dox(hide) typedef T_check = stdgo._internal.testing.slogtest.Slogtest_t_check.T_check;
+@:dox(hide) typedef T_testCasePointer = stdgo._internal.testing.slogtest.Slogtest_t_testcasepointer.T_testCasePointer;
+@:dox(hide) class T_testCase_static_extension {
 
 }
-typedef T_wrapperPointer = stdgo._internal.testing.slogtest.Slogtest_t_wrapperpointer.T_wrapperPointer;
-class T_wrapper_static_extension {
+@:dox(hide) typedef T_wrapperPointer = stdgo._internal.testing.slogtest.Slogtest_t_wrapperpointer.T_wrapperPointer;
+@:dox(hide) class T_wrapper_static_extension {
     static public function handle(_h:T_wrapper, _ctx:stdgo._internal.context.Context_context.Context, _r:stdgo._internal.log.slog.Slog_record.Record):stdgo.Error {
         final _h = (_h : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper>);
         return stdgo._internal.testing.slogtest.Slogtest_t_wrapper_static_extension.T_wrapper_static_extension.handle(_h, _ctx, _r);
@@ -79,8 +79,8 @@ class T_wrapper_static_extension {
         return stdgo._internal.testing.slogtest.Slogtest_t_wrapper_static_extension.T_wrapper_static_extension.enabled(__self__, _0, _1);
     }
 }
-typedef T_replacePointer = stdgo._internal.testing.slogtest.Slogtest_t_replacepointer.T_replacePointer;
-class T_replace_static_extension {
+@:dox(hide) typedef T_replacePointer = stdgo._internal.testing.slogtest.Slogtest_t_replacepointer.T_replacePointer;
+@:dox(hide) class T_replace_static_extension {
     static public function string(_r:T_replace):String {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.slogtest.Slogtest_t_replace.T_replace>);
         return stdgo._internal.testing.slogtest.Slogtest_t_replace_static_extension.T_replace_static_extension.string(_r);
@@ -90,8 +90,8 @@ class T_replace_static_extension {
         return stdgo._internal.testing.slogtest.Slogtest_t_replace_static_extension.T_replace_static_extension.logValue(_r);
     }
 }
-typedef T_checkPointer = stdgo._internal.testing.slogtest.Slogtest_t_checkpointer.T_checkPointer;
-class T_check_static_extension {
+@:dox(hide) typedef T_checkPointer = stdgo._internal.testing.slogtest.Slogtest_t_checkpointer.T_checkPointer;
+@:dox(hide) class T_check_static_extension {
 
 }
 /**

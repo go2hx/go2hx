@@ -25,11 +25,11 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
         stdgo._internal.database.sql.Sql_errtxdone.errTxDone = (v : stdgo.Error);
         return v;
     }
-class T_decimal_static_extension {
+@:dox(hide) class T_decimal_static_extension {
 
 }
-typedef T_decimal = stdgo._internal.database.sql.Sql_t_decimal.T_decimal;
-class T_decimalDecompose_static_extension {
+@:dox(hide) typedef T_decimal = stdgo._internal.database.sql.Sql_t_decimal.T_decimal;
+@:dox(hide) class T_decimalDecompose_static_extension {
     static public function decompose(t:stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -38,8 +38,8 @@ class T_decimalDecompose_static_extension {
         };
     }
 }
-typedef T_decimalDecompose = stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose;
-class T_decimalCompose_static_extension {
+@:dox(hide) typedef T_decimalDecompose = stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose;
+@:dox(hide) class T_decimalCompose_static_extension {
     static public function compose(t:stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose, _form:std.UInt, _negative:Bool, _coefficient:Array<std.UInt>, _exponent:StdTypes.Int):stdgo.Error {
         final _form = (_form : stdgo.GoUInt8);
         final _coefficient = ([for (i in _coefficient) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -47,7 +47,7 @@ class T_decimalCompose_static_extension {
         return stdgo._internal.database.sql.Sql_t_decimalcompose_static_extension.T_decimalCompose_static_extension.compose(t, _form, _negative, _coefficient, _exponent);
     }
 }
-typedef T_decimalCompose = stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose;
+@:dox(hide) typedef T_decimalCompose = stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose;
 class Scanner_static_extension {
     static public function scan(t:stdgo._internal.database.sql.Sql_scanner.Scanner, _src:stdgo.AnyInterface):stdgo.Error {
         final _src = (_src : stdgo.AnyInterface);
@@ -55,13 +55,13 @@ class Scanner_static_extension {
     }
 }
 typedef Scanner = stdgo._internal.database.sql.Sql_scanner.Scanner;
-class T_finalCloser_static_extension {
+@:dox(hide) class T_finalCloser_static_extension {
     static public function _finalClose(t:stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser):stdgo.Error {
         return stdgo._internal.database.sql.Sql_t_finalcloser_static_extension.T_finalCloser_static_extension._finalClose(t);
     }
 }
-typedef T_finalCloser = stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser;
-class T_stmtConnGrabber_static_extension {
+@:dox(hide) typedef T_finalCloser = stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser;
+@:dox(hide) class T_stmtConnGrabber_static_extension {
     static public function _txCtx(t:stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber):stdgo._internal.context.Context_context.Context {
         return stdgo._internal.database.sql.Sql_t_stmtconngrabber_static_extension.T_stmtConnGrabber_static_extension._txCtx(t);
     }
@@ -72,7 +72,7 @@ class T_stmtConnGrabber_static_extension {
         };
     }
 }
-typedef T_stmtConnGrabber = stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber;
+@:dox(hide) typedef T_stmtConnGrabber = stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber;
 class Result_static_extension {
     static public function rowsAffected(t:stdgo._internal.database.sql.Sql_result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -88,7 +88,7 @@ class Result_static_extension {
     }
 }
 typedef Result = stdgo._internal.database.sql.Sql_result.Result;
-@:structInit @:using(stdgo.database.sql.Sql.T_ccChecker_static_extension) abstract T_ccChecker(stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker) from stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker to stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker {
+@:structInit @:using(stdgo.database.sql.Sql.T_ccChecker_static_extension) @:dox(hide) abstract T_ccChecker(stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker) from stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker to stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker {
     public var _cci(get, set) : stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter;
     function get__cci():stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter return this._cci;
     function set__cci(v:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter):stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter {
@@ -481,7 +481,7 @@ _stop);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverConn_static_extension) abstract T_driverConn(stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn) from stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn to stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn {
+@:structInit @:using(stdgo.database.sql.Sql.T_driverConn_static_extension) @:dox(hide) abstract T_driverConn(stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn) from stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn to stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn {
     public var _db(get, set) : DB;
     function get__db():DB return this._db;
     function set__db(v:DB):DB {
@@ -570,7 +570,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverStmt_static_extension) abstract T_driverStmt(stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt) from stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt to stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt {
+@:structInit @:using(stdgo.database.sql.Sql.T_driverStmt_static_extension) @:dox(hide) abstract T_driverStmt(stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt) from stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt to stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt {
     public var locker(get, set) : stdgo._internal.sync.Sync_locker.Locker;
     function get_locker():stdgo._internal.sync.Sync_locker.Locker return this.locker;
     function set_locker(v:stdgo._internal.sync.Sync_locker.Locker):stdgo._internal.sync.Sync_locker.Locker {
@@ -599,7 +599,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_dsnConnector_static_extension) abstract T_dsnConnector(stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector) from stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector to stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector {
+@:structInit @:using(stdgo.database.sql.Sql.T_dsnConnector_static_extension) @:dox(hide) abstract T_dsnConnector(stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector) from stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector to stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector {
     public var _dsn(get, set) : String;
     function get__dsn():String return this._dsn;
     function set__dsn(v:String):String {
@@ -675,7 +675,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_connRequest_static_extension) abstract T_connRequest(stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest) from stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest to stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest {
+@:structInit @:using(stdgo.database.sql.Sql.T_connRequest_static_extension) @:dox(hide) abstract T_connRequest(stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest) from stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest to stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest {
     public var _conn(get, set) : T_driverConn;
     function get__conn():T_driverConn return this._conn;
     function set__conn(v:T_driverConn):T_driverConn {
@@ -807,7 +807,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_connStmt_static_extension) abstract T_connStmt(stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt) from stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt to stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt {
+@:structInit @:using(stdgo.database.sql.Sql.T_connStmt_static_extension) @:dox(hide) abstract T_connStmt(stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt) from stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt to stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt {
     public var _dc(get, set) : T_driverConn;
     function get__dc():T_driverConn return this._dc;
     function set__dc(v:T_driverConn):T_driverConn {
@@ -1077,7 +1077,7 @@ _hitEOF);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverResult_static_extension) abstract T_driverResult(stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult) from stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult to stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult {
+@:structInit @:using(stdgo.database.sql.Sql.T_driverResult_static_extension) @:dox(hide) abstract T_driverResult(stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult) from stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult to stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult {
     public var locker(get, set) : stdgo._internal.sync.Sync_locker.Locker;
     function get_locker():stdgo._internal.sync.Sync_locker.Locker return this.locker;
     function set_locker(v:stdgo._internal.sync.Sync_locker.Locker):stdgo._internal.sync.Sync_locker.Locker {
@@ -1094,13 +1094,13 @@ _hitEOF);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.database.sql.Sql_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.database.sql.Sql_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.database.sql.Sql_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.database.sql.Sql_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
     public static function _unlockSlow(__self__:stdgo._internal.database.sql.Sql_t__struct_1.T__struct_1, _0:StdTypes.Int):Void {
         final _0 = (_0 : stdgo.GoInt32);
         stdgo._internal.database.sql.Sql_t__struct_1_static_extension.T__struct_1_static_extension._unlockSlow(__self__, _0);
@@ -1118,14 +1118,14 @@ class T__struct_1_static_extension {
         stdgo._internal.database.sql.Sql_t__struct_1_static_extension.T__struct_1_static_extension.lock(__self__);
     }
 }
-typedef T__struct_1 = stdgo._internal.database.sql.Sql_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_1 = stdgo._internal.database.sql.Sql_t__struct_1.T__struct_1;
 typedef IsolationLevel = stdgo._internal.database.sql.Sql_isolationlevel.IsolationLevel;
 typedef RawBytes = stdgo._internal.database.sql.Sql_rawbytes.RawBytes;
-typedef T_connReuseStrategy = stdgo._internal.database.sql.Sql_t_connreusestrategy.T_connReuseStrategy;
-typedef T_depSet = stdgo._internal.database.sql.Sql_t_depset.T_depSet;
-typedef T_releaseConn = stdgo._internal.database.sql.Sql_t_releaseconn.T_releaseConn;
-typedef T_ccCheckerPointer = stdgo._internal.database.sql.Sql_t_cccheckerpointer.T_ccCheckerPointer;
-class T_ccChecker_static_extension {
+@:dox(hide) typedef T_connReuseStrategy = stdgo._internal.database.sql.Sql_t_connreusestrategy.T_connReuseStrategy;
+@:dox(hide) typedef T_depSet = stdgo._internal.database.sql.Sql_t_depset.T_depSet;
+@:dox(hide) typedef T_releaseConn = stdgo._internal.database.sql.Sql_t_releaseconn.T_releaseConn;
+@:dox(hide) typedef T_ccCheckerPointer = stdgo._internal.database.sql.Sql_t_cccheckerpointer.T_ccCheckerPointer;
+@:dox(hide) class T_ccChecker_static_extension {
     static public function checkNamedValue(_c:T_ccChecker, _nv:stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue):stdgo.Error {
         final _nv = (_nv : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return stdgo._internal.database.sql.Sql_t_ccchecker_static_extension.T_ccChecker_static_extension.checkNamedValue(_c, _nv);
@@ -1547,8 +1547,8 @@ class DB_static_extension {
         stdgo._internal.database.sql.Sql_db_static_extension.DB_static_extension._addDep(_db, _x, _dep);
     }
 }
-typedef T_driverConnPointer = stdgo._internal.database.sql.Sql_t_driverconnpointer.T_driverConnPointer;
-class T_driverConn_static_extension {
+@:dox(hide) typedef T_driverConnPointer = stdgo._internal.database.sql.Sql_t_driverconnpointer.T_driverConnPointer;
+@:dox(hide) class T_driverConn_static_extension {
     static public function _finalClose(_dc:T_driverConn):stdgo.Error {
         final _dc = (_dc : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>);
         return stdgo._internal.database.sql.Sql_t_driverconn_static_extension.T_driverConn_static_extension._finalClose(_dc);
@@ -1608,8 +1608,8 @@ class T_driverConn_static_extension {
         stdgo._internal.database.sql.Sql_t_driverconn_static_extension.T_driverConn_static_extension.lock(__self__);
     }
 }
-typedef T_driverStmtPointer = stdgo._internal.database.sql.Sql_t_driverstmtpointer.T_driverStmtPointer;
-class T_driverStmt_static_extension {
+@:dox(hide) typedef T_driverStmtPointer = stdgo._internal.database.sql.Sql_t_driverstmtpointer.T_driverStmtPointer;
+@:dox(hide) class T_driverStmt_static_extension {
     static public function close(_ds:T_driverStmt):stdgo.Error {
         final _ds = (_ds : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>);
         return stdgo._internal.database.sql.Sql_t_driverstmt_static_extension.T_driverStmt_static_extension.close(_ds);
@@ -1621,8 +1621,8 @@ class T_driverStmt_static_extension {
         stdgo._internal.database.sql.Sql_t_driverstmt_static_extension.T_driverStmt_static_extension.lock(__self__);
     }
 }
-typedef T_dsnConnectorPointer = stdgo._internal.database.sql.Sql_t_dsnconnectorpointer.T_dsnConnectorPointer;
-class T_dsnConnector_static_extension {
+@:dox(hide) typedef T_dsnConnectorPointer = stdgo._internal.database.sql.Sql_t_dsnconnectorpointer.T_dsnConnectorPointer;
+@:dox(hide) class T_dsnConnector_static_extension {
     static public function driver(_t:T_dsnConnector):stdgo._internal.database.sql.driver.Driver_driver.Driver {
         return stdgo._internal.database.sql.Sql_t_dsnconnector_static_extension.T_dsnConnector_static_extension.driver(_t);
     }
@@ -1637,8 +1637,8 @@ typedef DBStatsPointer = stdgo._internal.database.sql.Sql_dbstatspointer.DBStats
 class DBStats_static_extension {
 
 }
-typedef T_connRequestPointer = stdgo._internal.database.sql.Sql_t_connrequestpointer.T_connRequestPointer;
-class T_connRequest_static_extension {
+@:dox(hide) typedef T_connRequestPointer = stdgo._internal.database.sql.Sql_t_connrequestpointer.T_connRequestPointer;
+@:dox(hide) class T_connRequest_static_extension {
 
 }
 typedef ConnPointer = stdgo._internal.database.sql.Sql_connpointer.ConnPointer;
@@ -1831,8 +1831,8 @@ class Tx_static_extension {
         stdgo._internal.database.sql.Sql_tx_static_extension.Tx_static_extension._awaitDone(_tx);
     }
 }
-typedef T_connStmtPointer = stdgo._internal.database.sql.Sql_t_connstmtpointer.T_connStmtPointer;
-class T_connStmt_static_extension {
+@:dox(hide) typedef T_connStmtPointer = stdgo._internal.database.sql.Sql_t_connstmtpointer.T_connStmtPointer;
+@:dox(hide) class T_connStmt_static_extension {
 
 }
 typedef StmtPointer = stdgo._internal.database.sql.Sql_stmtpointer.StmtPointer;
@@ -2014,8 +2014,8 @@ class Row_static_extension {
         return stdgo._internal.database.sql.Sql_row_static_extension.Row_static_extension.scan(_r, ...[for (i in _dest) i]);
     }
 }
-typedef T_driverResultPointer = stdgo._internal.database.sql.Sql_t_driverresultpointer.T_driverResultPointer;
-class T_driverResult_static_extension {
+@:dox(hide) typedef T_driverResultPointer = stdgo._internal.database.sql.Sql_t_driverresultpointer.T_driverResultPointer;
+@:dox(hide) class T_driverResult_static_extension {
     static public function rowsAffected(_dr:T_driverResult):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
             final obj = stdgo._internal.database.sql.Sql_t_driverresult_static_extension.T_driverResult_static_extension.rowsAffected(_dr);
@@ -2035,12 +2035,12 @@ class T_driverResult_static_extension {
         stdgo._internal.database.sql.Sql_t_driverresult_static_extension.T_driverResult_static_extension.lock(__self__);
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.database.sql.Sql_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.database.sql.Sql_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.database.sql.Sql_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.database.sql.Sql_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
 typedef IsolationLevelPointer = stdgo._internal.database.sql.Sql_isolationlevelpointer.IsolationLevelPointer;
@@ -2053,16 +2053,16 @@ typedef RawBytesPointer = stdgo._internal.database.sql.Sql_rawbytespointer.RawBy
 class RawBytes_static_extension {
 
 }
-typedef T_connReuseStrategyPointer = stdgo._internal.database.sql.Sql_t_connreusestrategypointer.T_connReuseStrategyPointer;
-class T_connReuseStrategy_static_extension {
+@:dox(hide) typedef T_connReuseStrategyPointer = stdgo._internal.database.sql.Sql_t_connreusestrategypointer.T_connReuseStrategyPointer;
+@:dox(hide) class T_connReuseStrategy_static_extension {
 
 }
-typedef T_depSetPointer = stdgo._internal.database.sql.Sql_t_depsetpointer.T_depSetPointer;
-class T_depSet_static_extension {
+@:dox(hide) typedef T_depSetPointer = stdgo._internal.database.sql.Sql_t_depsetpointer.T_depSetPointer;
+@:dox(hide) class T_depSet_static_extension {
 
 }
-typedef T_releaseConnPointer = stdgo._internal.database.sql.Sql_t_releaseconnpointer.T_releaseConnPointer;
-class T_releaseConn_static_extension {
+@:dox(hide) typedef T_releaseConnPointer = stdgo._internal.database.sql.Sql_t_releaseconnpointer.T_releaseConnPointer;
+@:dox(hide) class T_releaseConn_static_extension {
 
 }
 /**

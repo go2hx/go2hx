@@ -61,7 +61,7 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_auth.Au
             };
             if (((_a != null) && ((@:checkr _c ?? throw "null pointer dereference")._ext != null) : Bool)) {
                 {
-                    var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.exists(("AUTH" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __2:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._ext != null && (@:checkr _c ?? throw "null pointer dereference")._ext.__exists__(("AUTH" : stdgo.GoString)) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._ext[("AUTH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __2:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         {
                             final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("smtp: server doesn\'t support AUTH" : stdgo.GoString));

@@ -68,7 +68,7 @@ package stdgo._internal.internal.coverage.stringtab;
     static public function lookup( _stw:stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer>, _s:stdgo.GoString):stdgo.GoUInt32 {
         @:recv var _stw:stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer> = _stw;
         {
-            var __tmp__ = ((@:checkr _stw ?? throw "null pointer dereference")._stab != null && (@:checkr _stw ?? throw "null pointer dereference")._stab.exists(_s?.__copy__()) ? { _0 : (@:checkr _stw ?? throw "null pointer dereference")._stab[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _idx:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _stw ?? throw "null pointer dereference")._stab != null && (@:checkr _stw ?? throw "null pointer dereference")._stab.__exists__(_s?.__copy__()) ? { _0 : (@:checkr _stw ?? throw "null pointer dereference")._stab[_s?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _idx:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _idx;
             };

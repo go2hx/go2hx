@@ -51,8 +51,8 @@ package stdgo.os.user;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.os.user.User_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.os.user.User_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
     public static function _doSlow(__self__:stdgo._internal.os.user.User_t__struct_0.T__struct_0, _0:() -> Void):Void {
         final _0 = _0;
         stdgo._internal.os.user.User_t__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _0);
@@ -62,8 +62,8 @@ class T__struct_0_static_extension {
         stdgo._internal.os.user.User_t__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _0);
     }
 }
-typedef T__struct_0 = stdgo._internal.os.user.User_t__struct_0.T__struct_0;
-typedef T_lineFunc = stdgo._internal.os.user.User_t_linefunc.T_lineFunc;
+@:dox(hide) typedef T__struct_0 = stdgo._internal.os.user.User_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_lineFunc = stdgo._internal.os.user.User_t_linefunc.T_lineFunc;
 typedef UnknownUserIdError = stdgo._internal.os.user.User_unknownuseriderror.UnknownUserIdError;
 typedef UnknownUserError = stdgo._internal.os.user.User_unknownusererror.UnknownUserError;
 typedef UnknownGroupIdError = stdgo._internal.os.user.User_unknowngroupiderror.UnknownGroupIdError;
@@ -82,12 +82,12 @@ typedef GroupPointer = stdgo._internal.os.user.User_grouppointer.GroupPointer;
 class Group_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.os.user.User_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.os.user.User_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T_lineFuncPointer = stdgo._internal.os.user.User_t_linefuncpointer.T_lineFuncPointer;
-class T_lineFunc_static_extension {
+@:dox(hide) typedef T_lineFuncPointer = stdgo._internal.os.user.User_t_linefuncpointer.T_lineFuncPointer;
+@:dox(hide) class T_lineFunc_static_extension {
 
 }
 typedef UnknownUserIdErrorPointer = stdgo._internal.os.user.User_unknownuseriderrorpointer.UnknownUserIdErrorPointer;

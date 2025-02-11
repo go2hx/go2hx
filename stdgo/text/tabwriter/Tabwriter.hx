@@ -6,7 +6,7 @@ final discardEmptyColumns = stdgo._internal.text.tabwriter.Tabwriter_discardempt
 final tabIndent = stdgo._internal.text.tabwriter.Tabwriter_tabindent.tabIndent;
 final debug = stdgo._internal.text.tabwriter.Tabwriter_debug.debug;
 final escape : StdTypes.Int = stdgo._internal.text.tabwriter.Tabwriter_escape.escape;
-@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_cell_static_extension) abstract T_cell(stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell) from stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell to stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell {
+@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_cell_static_extension) @:dox(hide) abstract T_cell(stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell) from stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell to stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell {
     public var _size(get, set) : StdTypes.Int;
     function get__size():StdTypes.Int return this._size;
     function set__size(v:StdTypes.Int):StdTypes.Int {
@@ -118,7 +118,7 @@ _cell,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_osError_static_extension) abstract T_osError(stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError) from stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError to stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError {
+@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_osError_static_extension) @:dox(hide) abstract T_osError(stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError) from stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError to stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -129,8 +129,8 @@ _cell,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_cellPointer = stdgo._internal.text.tabwriter.Tabwriter_t_cellpointer.T_cellPointer;
-class T_cell_static_extension {
+@:dox(hide) typedef T_cellPointer = stdgo._internal.text.tabwriter.Tabwriter_t_cellpointer.T_cellPointer;
+@:dox(hide) class T_cell_static_extension {
 
 }
 typedef WriterPointer = stdgo._internal.text.tabwriter.Tabwriter_writerpointer.WriterPointer;
@@ -236,8 +236,8 @@ class Writer_static_extension {
         stdgo._internal.text.tabwriter.Tabwriter_writer_static_extension.Writer_static_extension._addLine(_b, _flushed);
     }
 }
-typedef T_osErrorPointer = stdgo._internal.text.tabwriter.Tabwriter_t_oserrorpointer.T_osErrorPointer;
-class T_osError_static_extension {
+@:dox(hide) typedef T_osErrorPointer = stdgo._internal.text.tabwriter.Tabwriter_t_oserrorpointer.T_osErrorPointer;
+@:dox(hide) class T_osError_static_extension {
 
 }
 /**

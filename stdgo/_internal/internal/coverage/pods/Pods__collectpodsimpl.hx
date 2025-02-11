@@ -14,7 +14,7 @@ function _collectPodsImpl(_files:stdgo.Slice<stdgo.GoString>, _dirIndices:stdgo.
                 if (_m != null) {
                     var _tag = (_m[(1 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
                     {
-                        var __tmp__ = (_mm != null && _mm.exists(_tag?.__copy__()) ? { _0 : _mm[_tag?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod), _1 : false }), __1:stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = (_mm != null && _mm.__exists__(_tag?.__copy__()) ? { _0 : _mm[_tag?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod), _1 : false }), __1:stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             _mm[_tag] = ({ _mf : _f?.__copy__() } : stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod);
                         };
@@ -34,7 +34,7 @@ function _collectPodsImpl(_files:stdgo.Slice<stdgo.GoString>, _dirIndices:stdgo.
                         continue;
                     };
                     {
-                        var __tmp__ = (_mm != null && _mm.exists(_tag?.__copy__()) ? { _0 : _mm[_tag?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod), _1 : false }), _v:stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = (_mm != null && _mm.__exists__(_tag?.__copy__()) ? { _0 : _mm[_tag?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod), _1 : false }), _v:stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             var _idx = (-1 : stdgo.GoInt);
                             if (_dirIndices != null) {

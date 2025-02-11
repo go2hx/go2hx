@@ -1,5 +1,5 @@
 package stdgo.net.http.httptrace;
-@:structInit @:using(stdgo.net.http.httptrace.Httptrace.T_clientEventContextKey_static_extension) abstract T_clientEventContextKey(stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey) from stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey to stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey {
+@:structInit @:using(stdgo.net.http.httptrace.Httptrace.T_clientEventContextKey_static_extension) @:dox(hide) abstract T_clientEventContextKey(stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey) from stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey to stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey {
     public function new() this = new stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkey.T_clientEventContextKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -195,8 +195,8 @@ wroteRequest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_clientEventContextKeyPointer = stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkeypointer.T_clientEventContextKeyPointer;
-class T_clientEventContextKey_static_extension {
+@:dox(hide) typedef T_clientEventContextKeyPointer = stdgo._internal.net.http.httptrace.Httptrace_t_clienteventcontextkeypointer.T_clientEventContextKeyPointer;
+@:dox(hide) class T_clientEventContextKey_static_extension {
 
 }
 typedef ClientTracePointer = stdgo._internal.net.http.httptrace.Httptrace_clienttracepointer.ClientTracePointer;

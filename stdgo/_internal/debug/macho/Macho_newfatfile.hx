@@ -58,7 +58,7 @@ if (_err != null) {
                 };
 var _seenArch = ((((_fa.fatArchHeader.cpu : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) | (_fa.fatArchHeader.subCpu : stdgo.GoUInt64) : stdgo.GoUInt64);
 {
-                    var __tmp__ = (_seenArches != null && _seenArches.exists(_seenArch) ? { _0 : _seenArches[_seenArch], _1 : true } : { _0 : false, _1 : false }), _o:Bool = __tmp__._0, _k:Bool = __tmp__._1;
+                    var __tmp__ = (_seenArches != null && _seenArches.__exists__(_seenArch) ? { _0 : _seenArches[_seenArch], _1 : true } : { _0 : false, _1 : false }), _o:Bool = __tmp__._0, _k:Bool = __tmp__._1;
                     if ((_o || _k : Bool)) {
                         return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("duplicate architecture cpu=%v, subcpu=%#x" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fa.fatArchHeader.cpu)), stdgo.Go.toInterface(_fa.fatArchHeader.subCpu)).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
                     };

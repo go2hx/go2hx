@@ -273,7 +273,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.time.Time.T_runtimeTimer_static_extension) abstract T_runtimeTimer(stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer) from stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer to stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer {
+@:structInit @:using(stdgo.time.Time.T_runtimeTimer_static_extension) @:dox(hide) abstract T_runtimeTimer(stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer) from stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer to stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer {
     public var _pp(get, set) : stdgo.GoUIntptr;
     function get__pp():stdgo.GoUIntptr return this._pp;
     function set__pp(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -430,7 +430,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.time.Time.T_zone_static_extension) abstract T_zone(stdgo._internal.time.Time_t_zone.T_zone) from stdgo._internal.time.Time_t_zone.T_zone to stdgo._internal.time.Time_t_zone.T_zone {
+@:structInit @:using(stdgo.time.Time.T_zone_static_extension) @:dox(hide) abstract T_zone(stdgo._internal.time.Time_t_zone.T_zone) from stdgo._internal.time.Time_t_zone.T_zone to stdgo._internal.time.Time_t_zone.T_zone {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -453,7 +453,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.time.Time.T_zoneTrans_static_extension) abstract T_zoneTrans(stdgo._internal.time.Time_t_zonetrans.T_zoneTrans) from stdgo._internal.time.Time_t_zonetrans.T_zoneTrans to stdgo._internal.time.Time_t_zonetrans.T_zoneTrans {
+@:structInit @:using(stdgo.time.Time.T_zoneTrans_static_extension) @:dox(hide) abstract T_zoneTrans(stdgo._internal.time.Time_t_zonetrans.T_zoneTrans) from stdgo._internal.time.Time_t_zonetrans.T_zoneTrans to stdgo._internal.time.Time_t_zonetrans.T_zoneTrans {
     public var _when(get, set) : haxe.Int64;
     function get__when():haxe.Int64 return this._when;
     function set__when(v:haxe.Int64):haxe.Int64 {
@@ -482,7 +482,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.time.Time.T_rule_static_extension) abstract T_rule(stdgo._internal.time.Time_t_rule.T_rule) from stdgo._internal.time.Time_t_rule.T_rule to stdgo._internal.time.Time_t_rule.T_rule {
+@:structInit @:using(stdgo.time.Time.T_rule_static_extension) @:dox(hide) abstract T_rule(stdgo._internal.time.Time_t_rule.T_rule) from stdgo._internal.time.Time_t_rule.T_rule to stdgo._internal.time.Time_t_rule.T_rule {
     public var _kind(get, set) : T_ruleKind;
     function get__kind():T_ruleKind return this._kind;
     function set__kind(v:T_ruleKind):T_ruleKind {
@@ -517,7 +517,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) abstract T_dataIO(stdgo._internal.time.Time_t_dataio.T_dataIO) from stdgo._internal.time.Time_t_dataio.T_dataIO to stdgo._internal.time.Time_t_dataio.T_dataIO {
+@:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) @:dox(hide) abstract T_dataIO(stdgo._internal.time.Time_t_dataio.T_dataIO) from stdgo._internal.time.Time_t_dataio.T_dataIO to stdgo._internal.time.Time_t_dataio.T_dataIO {
     public var _p(get, set) : Array<std.UInt>;
     function get__p():Array<std.UInt> return [for (i in this._p) i];
     function set__p(v:Array<std.UInt>):Array<std.UInt> {
@@ -538,8 +538,8 @@ typedef RuleKind = stdgo._internal.time.Time_rulekind.RuleKind;
 typedef Month = stdgo._internal.time.Time_month.Month;
 typedef Weekday = stdgo._internal.time.Time_weekday.Weekday;
 typedef Duration = stdgo._internal.time.Time_duration.Duration;
-typedef T_ruleKind = stdgo._internal.time.Time_t_rulekind.T_ruleKind;
-typedef T_fileSizeError = stdgo._internal.time.Time_t_filesizeerror.T_fileSizeError;
+@:dox(hide) typedef T_ruleKind = stdgo._internal.time.Time_t_rulekind.T_ruleKind;
+@:dox(hide) typedef T_fileSizeError = stdgo._internal.time.Time_t_filesizeerror.T_fileSizeError;
 typedef RulePointer = stdgo._internal.time.Time_rulepointer.RulePointer;
 class Rule_static_extension {
 
@@ -551,8 +551,8 @@ class ParseError_static_extension {
         return stdgo._internal.time.Time_parseerror_static_extension.ParseError_static_extension.error(_e);
     }
 }
-typedef T_runtimeTimerPointer = stdgo._internal.time.Time_t_runtimetimerpointer.T_runtimeTimerPointer;
-class T_runtimeTimer_static_extension {
+@:dox(hide) typedef T_runtimeTimerPointer = stdgo._internal.time.Time_t_runtimetimerpointer.T_runtimeTimerPointer;
+@:dox(hide) class T_runtimeTimer_static_extension {
 
 }
 typedef TimerPointer = stdgo._internal.time.Time_timerpointer.TimerPointer;
@@ -859,20 +859,20 @@ class Location_static_extension {
         return stdgo._internal.time.Time_location_static_extension.Location_static_extension._get(_l);
     }
 }
-typedef T_zonePointer = stdgo._internal.time.Time_t_zonepointer.T_zonePointer;
-class T_zone_static_extension {
+@:dox(hide) typedef T_zonePointer = stdgo._internal.time.Time_t_zonepointer.T_zonePointer;
+@:dox(hide) class T_zone_static_extension {
 
 }
-typedef T_zoneTransPointer = stdgo._internal.time.Time_t_zonetranspointer.T_zoneTransPointer;
-class T_zoneTrans_static_extension {
+@:dox(hide) typedef T_zoneTransPointer = stdgo._internal.time.Time_t_zonetranspointer.T_zoneTransPointer;
+@:dox(hide) class T_zoneTrans_static_extension {
 
 }
-typedef T_rulePointer = stdgo._internal.time.Time_t_rulepointer.T_rulePointer;
-class T_rule_static_extension {
+@:dox(hide) typedef T_rulePointer = stdgo._internal.time.Time_t_rulepointer.T_rulePointer;
+@:dox(hide) class T_rule_static_extension {
 
 }
-typedef T_dataIOPointer = stdgo._internal.time.Time_t_dataiopointer.T_dataIOPointer;
-class T_dataIO_static_extension {
+@:dox(hide) typedef T_dataIOPointer = stdgo._internal.time.Time_t_dataiopointer.T_dataIOPointer;
+@:dox(hide) class T_dataIO_static_extension {
     static public function _rest(_d:T_dataIO):Array<std.UInt> {
         final _d = (_d : stdgo.Ref<stdgo._internal.time.Time_t_dataio.T_dataIO>);
         return [for (i in stdgo._internal.time.Time_t_dataio_static_extension.T_dataIO_static_extension._rest(_d)) i];
@@ -953,12 +953,12 @@ class Duration_static_extension {
         return stdgo._internal.time.Time_duration_static_extension.Duration_static_extension.string(_d);
     }
 }
-typedef T_ruleKindPointer = stdgo._internal.time.Time_t_rulekindpointer.T_ruleKindPointer;
-class T_ruleKind_static_extension {
+@:dox(hide) typedef T_ruleKindPointer = stdgo._internal.time.Time_t_rulekindpointer.T_ruleKindPointer;
+@:dox(hide) class T_ruleKind_static_extension {
 
 }
-typedef T_fileSizeErrorPointer = stdgo._internal.time.Time_t_filesizeerrorpointer.T_fileSizeErrorPointer;
-class T_fileSizeError_static_extension {
+@:dox(hide) typedef T_fileSizeErrorPointer = stdgo._internal.time.Time_t_filesizeerrorpointer.T_fileSizeErrorPointer;
+@:dox(hide) class T_fileSizeError_static_extension {
     static public function error(_f:T_fileSizeError):String {
         return stdgo._internal.time.Time_t_filesizeerror_static_extension.T_fileSizeError_static_extension.error(_f);
     }

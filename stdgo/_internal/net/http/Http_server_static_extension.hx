@@ -464,7 +464,7 @@ package stdgo._internal.net.http;
             @:check2 (@:checkr _srv ?? throw "null pointer dereference")._mu.lock();
             for (_c => _ in (@:checkr _srv ?? throw "null pointer dereference")._activeConn) {
                 (@:checkr _c ?? throw "null pointer dereference")._rwc.close();
-                if ((@:checkr _srv ?? throw "null pointer dereference")._activeConn != null) (@:checkr _srv ?? throw "null pointer dereference")._activeConn.remove(_c);
+                if ((@:checkr _srv ?? throw "null pointer dereference")._activeConn != null) (@:checkr _srv ?? throw "null pointer dereference")._activeConn.__remove__(_c);
             };
             {
                 for (defer in __deferstack__) {

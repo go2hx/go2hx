@@ -31,14 +31,14 @@ package stdgo._internal.net.url;
     @:tdfield
     static public function has( _v:stdgo._internal.net.url.Url_values.Values, _key:stdgo.GoString):Bool {
         @:recv var _v:stdgo._internal.net.url.Url_values.Values = _v;
-        var __tmp__ = (_v != null && _v.exists(_key?.__copy__()) ? { _0 : _v[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (_v != null && _v.__exists__(_key?.__copy__()) ? { _0 : _v[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
         return _ok;
     }
     @:keep
     @:tdfield
     static public function del( _v:stdgo._internal.net.url.Url_values.Values, _key:stdgo.GoString):Void {
         @:recv var _v:stdgo._internal.net.url.Url_values.Values = _v;
-        if (_v != null) _v.remove(_key);
+        if (_v != null) _v.__remove__(_key);
     }
     @:keep
     @:tdfield

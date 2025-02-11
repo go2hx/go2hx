@@ -39,7 +39,7 @@ package stdgo.crypto.internal.bigmod;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_choice = stdgo._internal.crypto.internal.bigmod.Bigmod_t_choice.T_choice;
+@:dox(hide) typedef T_choice = stdgo._internal.crypto.internal.bigmod.Bigmod_t_choice.T_choice;
 typedef NatPointer = stdgo._internal.crypto.internal.bigmod.Bigmod_natpointer.NatPointer;
 class Nat_static_extension {
     static public function expShort(_out:Nat, _x:Nat, _e:std.UInt, _m:Modulus):Nat {
@@ -212,8 +212,8 @@ class Modulus_static_extension {
         return stdgo._internal.crypto.internal.bigmod.Bigmod_modulus_static_extension.Modulus_static_extension.size(_m);
     }
 }
-typedef T_choicePointer = stdgo._internal.crypto.internal.bigmod.Bigmod_t_choicepointer.T_choicePointer;
-class T_choice_static_extension {
+@:dox(hide) typedef T_choicePointer = stdgo._internal.crypto.internal.bigmod.Bigmod_t_choicepointer.T_choicePointer;
+@:dox(hide) class T_choice_static_extension {
 
 }
 class Bigmod {

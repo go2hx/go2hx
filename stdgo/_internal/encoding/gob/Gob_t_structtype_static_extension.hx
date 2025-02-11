@@ -19,7 +19,7 @@ package stdgo._internal.encoding.gob;
             return ("<nil>" : stdgo.GoString);
         };
         {
-            var __tmp__ = (_seen != null && _seen.exists((@:checkr _s ?? throw "null pointer dereference").commonType.id) ? { _0 : _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id], _1 : true } : { _0 : false, _1 : false }), __8:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_seen != null && _seen.__exists__((@:checkr _s ?? throw "null pointer dereference").commonType.id) ? { _0 : _seen[(@:checkr _s ?? throw "null pointer dereference").commonType.id], _1 : true } : { _0 : false, _1 : false }), __8:Bool = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return (@:checkr _s ?? throw "null pointer dereference").commonType.name?.__copy__();
             };

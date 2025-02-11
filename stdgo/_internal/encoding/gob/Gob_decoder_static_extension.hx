@@ -338,7 +338,7 @@ package stdgo._internal.encoding.gob;
         var _ok:Bool = false;
         {
             {
-                var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._ignorerCache != null && (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache.exists(_wireId) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache[_wireId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>), _1 : false });
+                var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._ignorerCache != null && (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache.__exists__(_wireId) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache[_wireId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>), _1 : false });
                 _enginePtr = @:tmpset0 __tmp__._0;
                 _ok = @:tmpset0 __tmp__._1;
             };
@@ -356,7 +356,7 @@ package stdgo._internal.encoding.gob;
                     _enginePtr = @:check2r _dec._compileIgnoreSingle(_wireId);
                 };
                 if (_err != null) {
-                    if ((@:checkr _dec ?? throw "null pointer dereference")._ignorerCache != null) (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache.remove(_wireId);
+                    if ((@:checkr _dec ?? throw "null pointer dereference")._ignorerCache != null) (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache.__remove__(_wireId);
                 };
             };
         };
@@ -368,7 +368,7 @@ package stdgo._internal.encoding.gob;
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
         var _enginePtr = (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>), _err = (null : stdgo.Error);
         var _rt = ((@:checkr _ut ?? throw "null pointer dereference")._user : stdgo._internal.reflect.Reflect_type_.Type_);
-        var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._decoderCache != null && (@:checkr _dec ?? throw "null pointer dereference")._decoderCache.exists(_rt) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._decoderCache[_rt], _1 : true } : { _0 : (null : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>), _1 : false }), _decoderMap:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._decoderCache != null && (@:checkr _dec ?? throw "null pointer dereference")._decoderCache.__exists__(_rt) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._decoderCache[_rt], _1 : true } : { _0 : (null : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>), _1 : false }), _decoderMap:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             _decoderMap = (({
                 final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
@@ -380,7 +380,7 @@ package stdgo._internal.encoding.gob;
         };
         {
             {
-                var __tmp__ = (_decoderMap != null && _decoderMap.exists(_remoteId) ? { _0 : _decoderMap[_remoteId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>), _1 : false });
+                var __tmp__ = (_decoderMap != null && _decoderMap.__exists__(_remoteId) ? { _0 : _decoderMap[_remoteId], _1 : true } : { _0 : (null : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>), _1 : false });
                 _enginePtr = @:tmpset0 __tmp__._0;
                 _ok = @:tmpset0 __tmp__._1;
             };
@@ -393,7 +393,7 @@ package stdgo._internal.encoding.gob;
                     _err = @:tmpset0 __tmp__._1;
                 };
                 if (_err != null) {
-                    if (_decoderMap != null) _decoderMap.remove(_remoteId);
+                    if (_decoderMap != null) _decoderMap.__remove__(_remoteId);
                 };
             };
         };
@@ -714,14 +714,14 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
     static public function _compatibleType( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>, _fr:stdgo._internal.reflect.Reflect_type_.Type_, _fw:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>):Bool {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
         {
-            var __tmp__ = (_inProgress != null && _inProgress.exists(_fr) ? { _0 : _inProgress[_fr], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), _rhs:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_inProgress != null && _inProgress.__exists__(_fr) ? { _0 : _inProgress[_fr], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId), _1 : false }), _rhs:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 return _rhs == (_fw);
             };
         };
         _inProgress[_fr] = _fw;
         var _ut = stdgo._internal.encoding.gob.Gob__usertype._userType(_fr);
-        var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._wireType != null && (@:checkr _dec ?? throw "null pointer dereference")._wireType.exists(_fw) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._wireType[_fw], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>), _1 : false }), _wire:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._wireType != null && (@:checkr _dec ?? throw "null pointer dereference")._wireType.__exists__(_fw) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._wireType[_fw], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>), _1 : false }), _wire:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (((((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (1 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT != null && (((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__)) : Bool)) || ((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (2 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__)) : Bool)) : Bool) || (((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (3 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__)) : Bool))) : Bool)) {
             return false;
         };
@@ -830,7 +830,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 return _opPtr;
             };
         };
-        var __tmp__ = (stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap != null && stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap.exists(_wireId) ? { _0 : stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap[_wireId], _1 : true } : { _0 : (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _1 : false }), _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap != null && stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap.__exists__(_wireId) ? { _0 : stdgo._internal.encoding.gob.Gob__decignoreopmap._decIgnoreOpMap[_wireId], _1 : true } : { _0 : (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _1 : false }), _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = __tmp__._0, _ok:Bool = __tmp__._1;
         var _op__pointer__ = stdgo.Go.pointer(_op);
         var _op__pointer__ = stdgo.Go.pointer(_op);
         var _op__pointer__ = stdgo.Go.pointer(_op);

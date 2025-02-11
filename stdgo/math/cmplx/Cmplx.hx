@@ -1,5 +1,5 @@
 package stdgo.math.cmplx;
-@:structInit @:using(stdgo.math.cmplx.Cmplx.T_ff_static_extension) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff {
+@:structInit @:using(stdgo.math.cmplx.Cmplx.T_ff_static_extension) @:dox(hide) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff {
     public var _r(get, set) : StdTypes.Float;
     function get__r():StdTypes.Float return this._r;
     function set__r(v:StdTypes.Float):StdTypes.Float {
@@ -16,17 +16,17 @@ package stdgo.math.cmplx;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.math.cmplx.Cmplx_t__struct_0.T__struct_0;
-typedef T_ffPointer = stdgo._internal.math.cmplx.Cmplx_t_ffpointer.T_ffPointer;
-class T_ff_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.math.cmplx.Cmplx_t__struct_0.T__struct_0;
+@:dox(hide) typedef T_ffPointer = stdgo._internal.math.cmplx.Cmplx_t_ffpointer.T_ffPointer;
+@:dox(hide) class T_ff_static_extension {
 
 }
-typedef T__struct_0PointerPointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.math.cmplx.Cmplx_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
 /**

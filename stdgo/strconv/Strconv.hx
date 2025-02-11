@@ -47,7 +47,7 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.strconv.Strconv.T_decimal_static_extension) abstract T_decimal(stdgo._internal.strconv.Strconv_t_decimal.T_decimal) from stdgo._internal.strconv.Strconv_t_decimal.T_decimal to stdgo._internal.strconv.Strconv_t_decimal.T_decimal {
+@:structInit @:using(stdgo.strconv.Strconv.T_decimal_static_extension) @:dox(hide) abstract T_decimal(stdgo._internal.strconv.Strconv_t_decimal.T_decimal) from stdgo._internal.strconv.Strconv_t_decimal.T_decimal to stdgo._internal.strconv.Strconv_t_decimal.T_decimal {
     public var _d(get, set) : haxe.ds.Vector<std.UInt>;
     function get__d():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._d) i]);
     function set__d(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -82,7 +82,7 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.strconv.Strconv.T_leftCheat_static_extension) abstract T_leftCheat(stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat) from stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat to stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat {
+@:structInit @:using(stdgo.strconv.Strconv.T_leftCheat_static_extension) @:dox(hide) abstract T_leftCheat(stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat) from stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat to stdgo._internal.strconv.Strconv_t_leftcheat.T_leftCheat {
     public var _delta(get, set) : StdTypes.Int;
     function get__delta():StdTypes.Int return this._delta;
     function set__delta(v:StdTypes.Int):StdTypes.Int {
@@ -99,7 +99,7 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.strconv.Strconv.T_floatInfo_static_extension) abstract T_floatInfo(stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo) from stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo to stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo {
+@:structInit @:using(stdgo.strconv.Strconv.T_floatInfo_static_extension) @:dox(hide) abstract T_floatInfo(stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo) from stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo to stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo {
     public var _mantbits(get, set) : std.UInt;
     function get__mantbits():std.UInt return this._mantbits;
     function set__mantbits(v:std.UInt):std.UInt {
@@ -122,7 +122,7 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.strconv.Strconv.T_decimalSlice_static_extension) abstract T_decimalSlice(stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice) from stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice to stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice {
+@:structInit @:using(stdgo.strconv.Strconv.T_decimalSlice_static_extension) @:dox(hide) abstract T_decimalSlice(stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice) from stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice to stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice {
     public var _d(get, set) : Array<std.UInt>;
     function get__d():Array<std.UInt> return [for (i in this._d) i];
     function set__d(v:Array<std.UInt>):Array<std.UInt> {
@@ -156,8 +156,8 @@ class NumError_static_extension {
         return stdgo._internal.strconv.Strconv_numerror_static_extension.NumError_static_extension.error(_e);
     }
 }
-typedef T_decimalPointer = stdgo._internal.strconv.Strconv_t_decimalpointer.T_decimalPointer;
-class T_decimal_static_extension {
+@:dox(hide) typedef T_decimalPointer = stdgo._internal.strconv.Strconv_t_decimalpointer.T_decimalPointer;
+@:dox(hide) class T_decimal_static_extension {
     static public function roundedInteger(_a:T_decimal):haxe.UInt64 {
         final _a = (_a : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal.T_decimal>);
         return stdgo._internal.strconv.Strconv_t_decimal_static_extension.T_decimal_static_extension.roundedInteger(_a);
@@ -205,16 +205,16 @@ class T_decimal_static_extension {
         return stdgo._internal.strconv.Strconv_t_decimal_static_extension.T_decimal_static_extension._set(_b, _s);
     }
 }
-typedef T_leftCheatPointer = stdgo._internal.strconv.Strconv_t_leftcheatpointer.T_leftCheatPointer;
-class T_leftCheat_static_extension {
+@:dox(hide) typedef T_leftCheatPointer = stdgo._internal.strconv.Strconv_t_leftcheatpointer.T_leftCheatPointer;
+@:dox(hide) class T_leftCheat_static_extension {
 
 }
-typedef T_floatInfoPointer = stdgo._internal.strconv.Strconv_t_floatinfopointer.T_floatInfoPointer;
-class T_floatInfo_static_extension {
+@:dox(hide) typedef T_floatInfoPointer = stdgo._internal.strconv.Strconv_t_floatinfopointer.T_floatInfoPointer;
+@:dox(hide) class T_floatInfo_static_extension {
 
 }
-typedef T_decimalSlicePointer = stdgo._internal.strconv.Strconv_t_decimalslicepointer.T_decimalSlicePointer;
-class T_decimalSlice_static_extension {
+@:dox(hide) typedef T_decimalSlicePointer = stdgo._internal.strconv.Strconv_t_decimalslicepointer.T_decimalSlicePointer;
+@:dox(hide) class T_decimalSlice_static_extension {
 
 }
 /**

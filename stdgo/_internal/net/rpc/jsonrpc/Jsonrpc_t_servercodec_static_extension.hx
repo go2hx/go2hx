@@ -11,12 +11,12 @@ package stdgo._internal.net.rpc.jsonrpc;
     static public function writeResponse( _c:stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec>, _r:stdgo.Ref<stdgo._internal.net.rpc.Rpc_response.Response>, _x:stdgo.AnyInterface):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec> = _c;
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.lock();
-        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._pending != null && (@:checkr _c ?? throw "null pointer dereference")._pending.exists((@:checkr _r ?? throw "null pointer dereference").seq) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._pending[(@:checkr _r ?? throw "null pointer dereference").seq], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>), _1 : false }), _b:stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = ((@:checkr _c ?? throw "null pointer dereference")._pending != null && (@:checkr _c ?? throw "null pointer dereference")._pending.__exists__((@:checkr _r ?? throw "null pointer dereference").seq) ? { _0 : (@:checkr _c ?? throw "null pointer dereference")._pending[(@:checkr _r ?? throw "null pointer dereference").seq], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>), _1 : false }), _b:stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
             return stdgo._internal.errors.Errors_new_.new_(("invalid sequence number in response" : stdgo.GoString));
         };
-        if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.remove((@:checkr _r ?? throw "null pointer dereference").seq);
+        if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.__remove__((@:checkr _r ?? throw "null pointer dereference").seq);
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
         if ((_b == null || (_b : Dynamic).__nil__)) {
             _b = (stdgo.Go.setRef(nil) : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>);

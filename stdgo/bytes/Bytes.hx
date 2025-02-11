@@ -58,9 +58,9 @@ private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUI
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T_readOp = stdgo._internal.bytes.Bytes_t_readop.T_readOp;
-typedef T_asciiSet = stdgo._internal.bytes.Bytes_t_asciiset.T_asciiSet;
-@:structInit @:using(stdgo.bytes.Bytes.T_fieldsFunc___localname___span_11914_static_extension) abstract T_fieldsFunc___localname___span_11914(stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914) from stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 to stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 {
+@:dox(hide) typedef T_readOp = stdgo._internal.bytes.Bytes_t_readop.T_readOp;
+@:dox(hide) typedef T_asciiSet = stdgo._internal.bytes.Bytes_t_asciiset.T_asciiSet;
+@:structInit @:using(stdgo.bytes.Bytes.T_fieldsFunc___localname___span_11914_static_extension) @:dox(hide) abstract T_fieldsFunc___localname___span_11914(stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914) from stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 to stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {
@@ -308,20 +308,20 @@ class Reader_static_extension {
         return stdgo._internal.bytes.Bytes_reader_static_extension.Reader_static_extension.len(_r);
     }
 }
-typedef T_readOpPointer = stdgo._internal.bytes.Bytes_t_readoppointer.T_readOpPointer;
-class T_readOp_static_extension {
+@:dox(hide) typedef T_readOpPointer = stdgo._internal.bytes.Bytes_t_readoppointer.T_readOpPointer;
+@:dox(hide) class T_readOp_static_extension {
 
 }
-typedef T_asciiSetPointer = stdgo._internal.bytes.Bytes_t_asciisetpointer.T_asciiSetPointer;
-class T_asciiSet_static_extension {
+@:dox(hide) typedef T_asciiSetPointer = stdgo._internal.bytes.Bytes_t_asciisetpointer.T_asciiSetPointer;
+@:dox(hide) class T_asciiSet_static_extension {
     static public function _contains(_as:T_asciiSet, _c:std.UInt):Bool {
         final _as = (_as : stdgo.Ref<stdgo._internal.bytes.Bytes_t_asciiset.T_asciiSet>);
         final _c = (_c : stdgo.GoUInt8);
         return stdgo._internal.bytes.Bytes_t_asciiset_static_extension.T_asciiSet_static_extension._contains(_as, _c);
     }
 }
-typedef T_fieldsFunc___localname___span_11914Pointer = stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914pointer.T_fieldsFunc___localname___span_11914Pointer;
-class T_fieldsFunc___localname___span_11914_static_extension {
+@:dox(hide) typedef T_fieldsFunc___localname___span_11914Pointer = stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914pointer.T_fieldsFunc___localname___span_11914Pointer;
+@:dox(hide) class T_fieldsFunc___localname___span_11914_static_extension {
 
 }
 /**

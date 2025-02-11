@@ -22,7 +22,7 @@ package stdgo.internal.intern;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.intern.Intern.T_key_static_extension) abstract T_key(stdgo._internal.internal.intern.Intern_t_key.T_key) from stdgo._internal.internal.intern.Intern_t_key.T_key to stdgo._internal.internal.intern.Intern_t_key.T_key {
+@:structInit @:using(stdgo.internal.intern.Intern.T_key_static_extension) @:dox(hide) abstract T_key(stdgo._internal.internal.intern.Intern_t_key.T_key) from stdgo._internal.internal.intern.Intern_t_key.T_key to stdgo._internal.internal.intern.Intern_t_key.T_key {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -52,8 +52,8 @@ class Value_static_extension {
         return stdgo._internal.internal.intern.Intern_value_static_extension.Value_static_extension.get(_v);
     }
 }
-typedef T_keyPointer = stdgo._internal.internal.intern.Intern_t_keypointer.T_keyPointer;
-class T_key_static_extension {
+@:dox(hide) typedef T_keyPointer = stdgo._internal.internal.intern.Intern_t_keypointer.T_keyPointer;
+@:dox(hide) class T_key_static_extension {
     static public function value(_k:T_key):Value {
         return stdgo._internal.internal.intern.Intern_t_key_static_extension.T_key_static_extension.value(_k);
     }

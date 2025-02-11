@@ -208,7 +208,7 @@ if (_errv != null) {
                     return _errv;
                 };
 {
-                    var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.exists(_k.__copy__()) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[_k.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __42:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(_k.__copy__()) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[_k.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __42:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("malformed args table" : stdgo.GoString));
                     };
@@ -218,7 +218,7 @@ if (_errv != null) {
             };
         };
         {
-            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.exists(("argc" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("argc" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _argcs:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(("argc" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("argc" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _argcs:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_argcs?.__copy__()), _argc:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -236,13 +236,13 @@ if (_errv != null) {
             };
         };
         {
-            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.exists(("GOOS" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("GOOS" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _goos:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(("GOOS" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("GOOS" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _goos:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _cdr ?? throw "null pointer dereference")._goos = _goos?.__copy__();
             };
         };
         {
-            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.exists(("GOARCH" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("GOARCH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _goarch:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(("GOARCH" : stdgo.GoString)) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[("GOARCH" : stdgo.GoString)], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _goarch:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 (@:checkr _cdr ?? throw "null pointer dereference")._goarch = _goarch?.__copy__();
             };

@@ -5,7 +5,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
         stdgo._internal.testing.iotest.Iotest_errtimeout.errTimeout = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) abstract T_writeLogger(stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger) from stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger to stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) @:dox(hide) abstract T_writeLogger(stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger) from stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger to stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger {
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
@@ -22,7 +22,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_readLogger_static_extension) abstract T_readLogger(stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger) from stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger to stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_readLogger_static_extension) @:dox(hide) abstract T_readLogger(stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger) from stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger to stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger {
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
@@ -39,7 +39,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) abstract T_errWriter(stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter) from stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter to stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) @:dox(hide) abstract T_errWriter(stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter) from stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter to stdgo._internal.testing.iotest.Iotest_t_errwriter.T_errWriter {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -50,7 +50,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_oneByteReader_static_extension) abstract T_oneByteReader(stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader) from stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader to stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_oneByteReader_static_extension) @:dox(hide) abstract T_oneByteReader(stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader) from stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader to stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -61,7 +61,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_halfReader_static_extension) abstract T_halfReader(stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader) from stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader to stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_halfReader_static_extension) @:dox(hide) abstract T_halfReader(stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader) from stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader to stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -72,7 +72,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_dataErrReader_static_extension) abstract T_dataErrReader(stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader) from stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader to stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_dataErrReader_static_extension) @:dox(hide) abstract T_dataErrReader(stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader) from stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader to stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -95,7 +95,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_timeoutReader_static_extension) abstract T_timeoutReader(stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader) from stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader to stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_timeoutReader_static_extension) @:dox(hide) abstract T_timeoutReader(stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader) from stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader to stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -112,7 +112,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) abstract T_errReader(stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader) from stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader to stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) @:dox(hide) abstract T_errReader(stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader) from stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader to stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -123,7 +123,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_smallByteReader_static_extension) abstract T_smallByteReader(stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader) from stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader to stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_smallByteReader_static_extension) @:dox(hide) abstract T_smallByteReader(stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader) from stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader to stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -146,7 +146,7 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_truncateWriter_static_extension) abstract T_truncateWriter(stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter) from stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter to stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_truncateWriter_static_extension) @:dox(hide) abstract T_truncateWriter(stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter) from stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter to stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -163,18 +163,18 @@ private function set_errTimeout(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-typedef T__struct_0Pointer = stdgo._internal.testing.iotest.Iotest_t__struct_0pointer.T__struct_0Pointer;
-class T__struct_0_static_extension {
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.testing.iotest.Iotest_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
 
 }
-typedef T__struct_0 = stdgo._internal.testing.iotest.Iotest_t__struct_0.T__struct_0;
-typedef T__struct_1Pointer = stdgo._internal.testing.iotest.Iotest_t__struct_1pointer.T__struct_1Pointer;
-class T__struct_1_static_extension {
+@:dox(hide) typedef T__struct_0 = stdgo._internal.testing.iotest.Iotest_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.testing.iotest.Iotest_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
 
 }
-typedef T__struct_1 = stdgo._internal.testing.iotest.Iotest_t__struct_1.T__struct_1;
-typedef T_writeLoggerPointer = stdgo._internal.testing.iotest.Iotest_t_writeloggerpointer.T_writeLoggerPointer;
-class T_writeLogger_static_extension {
+@:dox(hide) typedef T__struct_1 = stdgo._internal.testing.iotest.Iotest_t__struct_1.T__struct_1;
+@:dox(hide) typedef T_writeLoggerPointer = stdgo._internal.testing.iotest.Iotest_t_writeloggerpointer.T_writeLoggerPointer;
+@:dox(hide) class T_writeLogger_static_extension {
     static public function write(_l:T_writeLogger, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_writelogger.T_writeLogger>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -184,8 +184,8 @@ class T_writeLogger_static_extension {
         };
     }
 }
-typedef T_readLoggerPointer = stdgo._internal.testing.iotest.Iotest_t_readloggerpointer.T_readLoggerPointer;
-class T_readLogger_static_extension {
+@:dox(hide) typedef T_readLoggerPointer = stdgo._internal.testing.iotest.Iotest_t_readloggerpointer.T_readLoggerPointer;
+@:dox(hide) class T_readLogger_static_extension {
     static public function read(_l:T_readLogger, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _l = (_l : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_readlogger.T_readLogger>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -195,8 +195,8 @@ class T_readLogger_static_extension {
         };
     }
 }
-typedef T_errWriterPointer = stdgo._internal.testing.iotest.Iotest_t_errwriterpointer.T_errWriterPointer;
-class T_errWriter_static_extension {
+@:dox(hide) typedef T_errWriterPointer = stdgo._internal.testing.iotest.Iotest_t_errwriterpointer.T_errWriterPointer;
+@:dox(hide) class T_errWriter_static_extension {
     static public function write(_w:T_errWriter, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return {
@@ -205,8 +205,8 @@ class T_errWriter_static_extension {
         };
     }
 }
-typedef T_oneByteReaderPointer = stdgo._internal.testing.iotest.Iotest_t_onebytereaderpointer.T_oneByteReaderPointer;
-class T_oneByteReader_static_extension {
+@:dox(hide) typedef T_oneByteReaderPointer = stdgo._internal.testing.iotest.Iotest_t_onebytereaderpointer.T_oneByteReaderPointer;
+@:dox(hide) class T_oneByteReader_static_extension {
     static public function read(_r:T_oneByteReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_onebytereader.T_oneByteReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -216,8 +216,8 @@ class T_oneByteReader_static_extension {
         };
     }
 }
-typedef T_halfReaderPointer = stdgo._internal.testing.iotest.Iotest_t_halfreaderpointer.T_halfReaderPointer;
-class T_halfReader_static_extension {
+@:dox(hide) typedef T_halfReaderPointer = stdgo._internal.testing.iotest.Iotest_t_halfreaderpointer.T_halfReaderPointer;
+@:dox(hide) class T_halfReader_static_extension {
     static public function read(_r:T_halfReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_halfreader.T_halfReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -227,8 +227,8 @@ class T_halfReader_static_extension {
         };
     }
 }
-typedef T_dataErrReaderPointer = stdgo._internal.testing.iotest.Iotest_t_dataerrreaderpointer.T_dataErrReaderPointer;
-class T_dataErrReader_static_extension {
+@:dox(hide) typedef T_dataErrReaderPointer = stdgo._internal.testing.iotest.Iotest_t_dataerrreaderpointer.T_dataErrReaderPointer;
+@:dox(hide) class T_dataErrReader_static_extension {
     static public function read(_r:T_dataErrReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_dataerrreader.T_dataErrReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -238,8 +238,8 @@ class T_dataErrReader_static_extension {
         };
     }
 }
-typedef T_timeoutReaderPointer = stdgo._internal.testing.iotest.Iotest_t_timeoutreaderpointer.T_timeoutReaderPointer;
-class T_timeoutReader_static_extension {
+@:dox(hide) typedef T_timeoutReaderPointer = stdgo._internal.testing.iotest.Iotest_t_timeoutreaderpointer.T_timeoutReaderPointer;
+@:dox(hide) class T_timeoutReader_static_extension {
     static public function read(_r:T_timeoutReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_timeoutreader.T_timeoutReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -249,8 +249,8 @@ class T_timeoutReader_static_extension {
         };
     }
 }
-typedef T_errReaderPointer = stdgo._internal.testing.iotest.Iotest_t_errreaderpointer.T_errReaderPointer;
-class T_errReader_static_extension {
+@:dox(hide) typedef T_errReaderPointer = stdgo._internal.testing.iotest.Iotest_t_errreaderpointer.T_errReaderPointer;
+@:dox(hide) class T_errReader_static_extension {
     static public function read(_r:T_errReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_errreader.T_errReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -260,8 +260,8 @@ class T_errReader_static_extension {
         };
     }
 }
-typedef T_smallByteReaderPointer = stdgo._internal.testing.iotest.Iotest_t_smallbytereaderpointer.T_smallByteReaderPointer;
-class T_smallByteReader_static_extension {
+@:dox(hide) typedef T_smallByteReaderPointer = stdgo._internal.testing.iotest.Iotest_t_smallbytereaderpointer.T_smallByteReaderPointer;
+@:dox(hide) class T_smallByteReader_static_extension {
     static public function read(_r:T_smallByteReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_smallbytereader.T_smallByteReader>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -271,8 +271,8 @@ class T_smallByteReader_static_extension {
         };
     }
 }
-typedef T_truncateWriterPointer = stdgo._internal.testing.iotest.Iotest_t_truncatewriterpointer.T_truncateWriterPointer;
-class T_truncateWriter_static_extension {
+@:dox(hide) typedef T_truncateWriterPointer = stdgo._internal.testing.iotest.Iotest_t_truncatewriterpointer.T_truncateWriterPointer;
+@:dox(hide) class T_truncateWriter_static_extension {
     static public function write(_t:T_truncateWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.iotest.Iotest_t_truncatewriter.T_truncateWriter>);
         final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -282,12 +282,12 @@ class T_truncateWriter_static_extension {
         };
     }
 }
-typedef T__struct_0PointerPointer = stdgo._internal.testing.iotest.Iotest_t__struct_0pointerpointer.T__struct_0PointerPointer;
-class T__struct_0Pointer_static_extension {
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.testing.iotest.Iotest_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
 
 }
-typedef T__struct_1PointerPointer = stdgo._internal.testing.iotest.Iotest_t__struct_1pointerpointer.T__struct_1PointerPointer;
-class T__struct_1Pointer_static_extension {
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.testing.iotest.Iotest_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
 /**

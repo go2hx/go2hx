@@ -22,7 +22,7 @@ function testMultiParse(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                 continue;
             };
             for (_i => _name in _test._names) {
-                var __tmp__ = ((@:checkr _template ?? throw "null pointer dereference")._common._tmpl != null && (@:checkr _template ?? throw "null pointer dereference")._common._tmpl.exists(_name?.__copy__()) ? { _0 : (@:checkr _template ?? throw "null pointer dereference")._common._tmpl[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), _1 : false }), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _template ?? throw "null pointer dereference")._common._tmpl != null && (@:checkr _template ?? throw "null pointer dereference")._common._tmpl.__exists__(_name?.__copy__()) ? { _0 : (@:checkr _template ?? throw "null pointer dereference")._common._tmpl[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>), _1 : false }), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     @:check2r _t.errorf(("%s: can\'t find template %q" : stdgo.GoString), stdgo.Go.toInterface(_test._name), stdgo.Go.toInterface(_name));
                     continue;

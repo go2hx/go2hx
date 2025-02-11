@@ -14,5 +14,6 @@
  "js|bytes",
  "js|hash/adler32",
  "js|strings",
- "js|image/color"
+ "js|image/color",
+ "js|hash/crc64"
 ]

@@ -260,13 +260,13 @@
 
 [ERROR] ./_internal/sync_test/Sync_test__testpool.hx:67: characters 34-38
 
-  67 |                     _v_4778614 = _new(_internal.sync_test.Sync_test__string._string);
+  67 |                     _v_5006638 = _new(_internal.sync_test.Sync_test__string._string);
      |                                  ^^^^
      | Unknown identifier : _new
 
 [ERROR] ./_internal/sync_test/Sync_test__testpool.hx:69: characters 82-94
 
-  69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_4778567, (1u32 : stdgo.GoUInt32));
+  69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_5006591, (1u32 : stdgo.GoUInt32));
      |                                                                                  ^^^^^^^^^^^^
      | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
      | For function argument '_addr'
@@ -285,8 +285,8 @@
 
       ->  ./_internal/sync_test/Sync_test__testpool.hx:68: lines 68-70
 
-       68 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_4778614), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
-       69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_4778567, (1u32 : stdgo.GoUInt32));
+       68 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_5006638), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
+       69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_5006591, (1u32 : stdgo.GoUInt32));
        70 |                     }));
           |
           | Called from here
@@ -295,7 +295,7 @@
 
 [ERROR] ./_internal/sync_test/Sync_test__testpool.hx:108: characters 100-112
 
- 108 |                         _fin1_4778572 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_4778567);
+ 108 |                         _fin1_5006596 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_5006591);
      |                                                                                                    ^^^^^^^^^^^^
      | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
      | For function argument '_addr'

@@ -24,7 +24,7 @@ package stdgo._internal.encoding.json;
     public var pText : stdgo.Ref<stdgo._internal.encoding.json.Json_mustnotunmarshaltext.MustNotUnmarshalText> = (null : stdgo.Ref<stdgo._internal.encoding.json.Json_mustnotunmarshaltext.MustNotUnmarshalText>);
     public var pBuffer : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer> = (null : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
     public var pStruct : stdgo.Ref<stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> = (null : stdgo.Ref<stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>);
-    public var raw : stdgo._internal.encoding.json.Json_rawmessage.RawMessage = new stdgo._internal.encoding.json.Json_rawmessage.RawMessage(0, 0);
+    public var raw : stdgo._internal.encoding.json.Json_rawmessage.RawMessage = (new stdgo._internal.encoding.json.Json_rawmessage.RawMessage(0, 0) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage);
     public var time : stdgo._internal.time.Time_time.Time = ({} : stdgo._internal.time.Time_time.Time);
     public var bigInt : stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
     public var text : stdgo._internal.encoding.json.Json_mustnotunmarshaltext.MustNotUnmarshalText = ({} : stdgo._internal.encoding.json.Json_mustnotunmarshaltext.MustNotUnmarshalText);

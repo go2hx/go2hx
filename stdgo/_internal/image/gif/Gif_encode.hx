@@ -24,7 +24,7 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.colorModel()) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
                 } catch(_) {
-                    { _0 : new stdgo._internal.image.color.Color_palette.Palette(0, 0), _1 : false };
+                    { _0 : (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette), _1 : false };
                 }, _cp = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _pm = stdgo._internal.image.Image_newpaletted.newPaletted(_b?.__copy__(), _cp);

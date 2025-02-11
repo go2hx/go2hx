@@ -1,6 +1,7 @@
 package stdgo._internal.path.filepath;
 function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoString; var _2 : stdgo.GoString; } {
         var _star = false, _chunk = ("" : stdgo.GoString), _rest = ("" : stdgo.GoString);
+        var _inrange_3943949:Bool = false;
         var scanBreak = false;
         var _i_3944717:stdgo.GoInt = (0 : stdgo.GoInt);
         var _inrange_3944695:Bool = false;

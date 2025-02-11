@@ -1,6 +1,6 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1860: character 39
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 1860 |         var _keys_6450316:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+      |                                       ^
+      | Invalid character '#'
 

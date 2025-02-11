@@ -8,7 +8,7 @@ function _getNat(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_
             };
         };
         if ((_z == null || (_z : Dynamic).__nil__)) {
-            _z = (stdgo.Go.setRef(new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0)) : stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_nat>);
+            _z = (stdgo.Go.setRef((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)) : stdgo.Ref<stdgo._internal.math.big.Big_t_nat.T_nat>);
         };
         (_z : stdgo._internal.math.big.Big_t_nat.T_nat).__setData__((@:checkr _z ?? throw "null pointer dereference")._make(_n));
         if ((_n > (0 : stdgo.GoInt) : Bool)) {

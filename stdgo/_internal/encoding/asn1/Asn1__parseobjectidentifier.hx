@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.asn1;
 function _parseObjectIdentifier(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier; var _1 : stdgo.Error; } {
-        var _s = new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0), _err = (null : stdgo.Error);
+        var _s = (new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier), _err = (null : stdgo.Error);
         if ((_bytes.length) == ((0 : stdgo.GoInt))) {
             _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError(("zero length OBJECT IDENTIFIER" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError));
             return { _0 : _s, _1 : _err };

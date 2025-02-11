@@ -3,7 +3,8 @@ function _assignID_64(_text:stdgo.Slice<stdgo.GoInt64>, _sa:stdgo.Slice<stdgo.Go
         var _i_3363112:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3362722_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _id_3362644:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3363039:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3363112:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _this_3363054:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
         var _n_3362836:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _j_3362717:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _lastPos_3362689:stdgo.GoInt64 = (0 : stdgo.GoInt64);

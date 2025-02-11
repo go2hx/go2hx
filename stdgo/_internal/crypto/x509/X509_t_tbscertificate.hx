@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.x509;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_t_tbscertificate_static_extension.T_tbsCertificate_static_extension) class T_tbsCertificate {
-    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0);
+    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = (new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent);
     @:tag("`asn1:\"optional,explicit,default:0,tag:0\"`")
     public var version : stdgo.GoInt = 0;
     public var serialNumber : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);

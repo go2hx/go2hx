@@ -154,7 +154,7 @@ package stdgo._internal.archive.tar;
             };
         };
         var _f:stdgo._internal.archive.tar.Tar_t_formatter.T_formatter = ({} : stdgo._internal.archive.tar.Tar_t_formatter.T_formatter);
-        var _spd:stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas = new stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas(0, 0);
+        var _spd:stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas = (new stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas(0, 0) : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas);
         var _spb:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _blk = @:check2r _tw._templateV7Plus(_hdr, @:check2 _f._formatString, @:check2 _f._formatNumeric);
         if (!(@:checkr _hdr ?? throw "null pointer dereference").accessTime.isZero()) {

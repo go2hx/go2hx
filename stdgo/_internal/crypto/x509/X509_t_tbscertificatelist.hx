@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.x509;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_t_tbscertificatelist_static_extension.T_tbsCertificateList_static_extension) class T_tbsCertificateList {
-    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0);
+    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = (new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent);
     @:tag("`asn1:\"optional,default:0\"`")
     public var version : stdgo.GoInt = 0;
     public var signature : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier);

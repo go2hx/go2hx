@@ -7080,7 +7080,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					macro($e : $ct);
 				case sliceType(_.get() => elem):
 					var t = namedTypePath(path, info);
-					macro new $t(0, 0);
+					final ct = ct();
+					macro (new $t(0, 0) : $ct);
 				case arrayType(_.get() => elem, len):
 					final t = namedTypePath(path, info);
 					final elem = defaultValue(elem, info);

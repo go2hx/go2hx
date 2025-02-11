@@ -12,7 +12,7 @@ package stdgo._internal.math.big;
         };
         var _p = ((3u32 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
         var _d = (new stdgo.Slice<stdgo._internal.math.big.Big_word.Word>(1, 1, ...[(1u32 : stdgo._internal.math.big.Big_word.Word)]).__setNumber32__() : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _t1 = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
+        var _t1 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _intD = (stdgo.Go.setRef(({ _abs : _d } : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _intN = (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         while (true) {
@@ -43,7 +43,7 @@ if (_p == ((40u32 : stdgo._internal.math.big.Big_word.Word))) {
         var _natP = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._setWord(_p) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _vk = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._setWord((2u32 : stdgo._internal.math.big.Big_word.Word)) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _vk1 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._setWord(_p) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        var _t2 = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
+        var _t2 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat) : stdgo._internal.math.big.Big_t_nat.T_nat);
         {
             var _i = (_s._bitLen() : stdgo.GoInt);
             while ((_i >= (0 : stdgo.GoInt) : Bool)) {
@@ -425,7 +425,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     @:tdfield
     static public function _divLarge( _z:stdgo._internal.math.big.Big_t_nat.T_nat, _u:stdgo._internal.math.big.Big_t_nat.T_nat, _uIn:stdgo._internal.math.big.Big_t_nat.T_nat, _vIn:stdgo._internal.math.big.Big_t_nat.T_nat):{ var _0 : stdgo._internal.math.big.Big_t_nat.T_nat; var _1 : stdgo._internal.math.big.Big_t_nat.T_nat; } {
         @:recv var _z:stdgo._internal.math.big.Big_t_nat.T_nat = _z;
-        var _q = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), _r = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _q = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _r = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _n = (_vIn.length : stdgo.GoInt);
         var _m = ((_uIn.length) - _n : stdgo.GoInt);
         var _shift = (stdgo._internal.math.big.Big__nlz._nlz(_vIn[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt);
@@ -459,7 +459,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     static public function _modW( _x:stdgo._internal.math.big.Big_t_nat.T_nat, _d:stdgo._internal.math.big.Big_word.Word):stdgo._internal.math.big.Big_word.Word {
         @:recv var _x:stdgo._internal.math.big.Big_t_nat.T_nat = _x;
         var _r = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
-        var _q:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _q:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         _q = _q._make((_x.length));
         return _r = stdgo._internal.math.big.Big__divwvw._divWVW(_q, (0u32 : stdgo._internal.math.big.Big_word.Word), _x, _d);
     }
@@ -467,7 +467,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     @:tdfield
     static public function _divW( _z:stdgo._internal.math.big.Big_t_nat.T_nat, _x:stdgo._internal.math.big.Big_t_nat.T_nat, _y:stdgo._internal.math.big.Big_word.Word):{ var _0 : stdgo._internal.math.big.Big_t_nat.T_nat; var _1 : stdgo._internal.math.big.Big_word.Word; } {
         @:recv var _z:stdgo._internal.math.big.Big_t_nat.T_nat = _z;
-        var _q = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), _r = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
+        var _q = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _r = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
         var _m = (_x.length : stdgo.GoInt);
         if (_y == ((0u32 : stdgo._internal.math.big.Big_word.Word))) {
             throw stdgo.Go.toInterface(("division by zero" : stdgo.GoString));
@@ -487,7 +487,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     @:tdfield
     static public function _div( _z:stdgo._internal.math.big.Big_t_nat.T_nat, _z2:stdgo._internal.math.big.Big_t_nat.T_nat, _u:stdgo._internal.math.big.Big_t_nat.T_nat, _v:stdgo._internal.math.big.Big_t_nat.T_nat):{ var _0 : stdgo._internal.math.big.Big_t_nat.T_nat; var _1 : stdgo._internal.math.big.Big_t_nat.T_nat; } {
         @:recv var _z:stdgo._internal.math.big.Big_t_nat.T_nat = _z;
-        var _q = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), _r = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _q = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _r = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         if ((_v.length) == ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("division by zero" : stdgo.GoString));
         };
@@ -517,7 +517,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     @:tdfield
     static public function _rem( _z:stdgo._internal.math.big.Big_t_nat.T_nat, _u:stdgo._internal.math.big.Big_t_nat.T_nat, _v:stdgo._internal.math.big.Big_t_nat.T_nat):stdgo._internal.math.big.Big_t_nat.T_nat {
         @:recv var _z:stdgo._internal.math.big.Big_t_nat.T_nat = _z;
-        var _r = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _r = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         if (stdgo._internal.math.big.Big__alias._alias(_z, _u)) {
             _z = null;
         };
@@ -538,7 +538,7 @@ _q[(_j : stdgo.GoInt)] = _qhat;
     static public function _convertWords( _q:stdgo._internal.math.big.Big_t_nat.T_nat, _s:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo._internal.math.big.Big_word.Word, _ndigits:stdgo.GoInt, _bb:stdgo._internal.math.big.Big_word.Word, _table:stdgo.Slice<stdgo._internal.math.big.Big_t_divisor.T_divisor>):Void {
         @:recv var _q:stdgo._internal.math.big.Big_t_nat.T_nat = _q;
         if (_table != null) {
-            var _r:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+            var _r:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
             var _index = ((_table.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             while (((_q.length) > stdgo._internal.math.big.Big__leafsize._leafSize : Bool)) {
                 var _maxLength = (_q._bitLen() : stdgo.GoInt);
@@ -681,7 +681,7 @@ if (_nbits == ((0u32 : stdgo.GoUInt))) {
     @:tdfield
     static public function _scan( _z:stdgo._internal.math.big.Big_t_nat.T_nat, _r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base:stdgo.GoInt, _fracOk:Bool):{ var _0 : stdgo._internal.math.big.Big_t_nat.T_nat; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } {
         @:recv var _z:stdgo._internal.math.big.Big_t_nat.T_nat = _z;
-        var _res = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), _b = (0 : stdgo.GoInt), _count = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        var _res = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _b = (0 : stdgo.GoInt), _count = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _baseOk = ((_base == ((0 : stdgo.GoInt)) || ((!_fracOk && ((2 : stdgo.GoInt) <= _base : Bool) : Bool) && (_base <= (62 : stdgo.GoInt) : Bool) : Bool) : Bool) || (_fracOk && ((((_base == ((2 : stdgo.GoInt)) || _base == ((8 : stdgo.GoInt)) : Bool) || _base == ((10 : stdgo.GoInt)) : Bool) || (_base == (16 : stdgo.GoInt)) : Bool)) : Bool) : Bool);
         if (!_baseOk) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid number base %d" : stdgo.GoString), stdgo.Go.toInterface(_base)));
@@ -872,7 +872,7 @@ var _prefix = __1, _b = __0;
         if (stdgo._internal.math.big.Big__alias._alias(_z, _x)) {
             _z = null;
         };
-        var __0:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), __1:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var __0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), __1:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
 var _z2 = __1, _z1 = __0;
         _z1 = _z;
         _z1 = _z1._setUint64((1i64 : stdgo.GoUInt64));
@@ -1226,10 +1226,10 @@ _advance = true;
         var _v = (_y[((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.math.big.Big_word.Word);
         var _shift = (stdgo._internal.math.big.Big__nlz._nlz(_v) + (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
         _v = (_v << (_shift) : stdgo._internal.math.big.Big_word.Word);
-        var _q:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _q:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         {};
         var _w = ((32 : stdgo.GoInt) - (_shift : stdgo.GoInt) : stdgo.GoInt);
-        var __0:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0), __1:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var __0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), __1:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
 var _r = __1, _zz = __0;
         {
             var _j = (0 : stdgo.GoInt);

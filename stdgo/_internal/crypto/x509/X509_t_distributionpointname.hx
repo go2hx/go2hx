@@ -3,7 +3,7 @@ package stdgo._internal.crypto.x509;
     @:tag("`asn1:\"optional,tag:0\"`")
     public var fullName : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue> = (null : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue>);
     @:tag("`asn1:\"optional,tag:1\"`")
-    public var relativeName : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0);
+    public var relativeName : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = (new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
     public function new(?fullName:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue>, ?relativeName:stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence) {
         if (fullName != null) this.fullName = fullName;
         if (relativeName != null) this.relativeName = relativeName;

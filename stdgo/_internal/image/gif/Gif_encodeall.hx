@@ -19,7 +19,7 @@ function encodeAll(_w:stdgo._internal.io.Io_writer.Writer, _g:stdgo.Ref<stdgo._i
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_e._g.config.colorModel) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
                 } catch(_) {
-                    { _0 : new stdgo._internal.image.color.Color_palette.Palette(0, 0), _1 : false };
+                    { _0 : (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette), _1 : false };
                 }, __0 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     return stdgo._internal.errors.Errors_new_.new_(("gif: GIF color model must be a color.Palette" : stdgo.GoString));

@@ -93,11 +93,11 @@ function x509KeyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
                     return _fail(stdgo._internal.errors.Errors_new_.new_(("tls: private key does not match public key" : stdgo.GoString)));
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey))) {
-                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__().value;
+                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__() == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__().value;
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((_cert.privateKey : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey)) : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey), _1 : true };
                 } catch(_) {
-                    { _0 : new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0), _1 : false };
+                    { _0 : (new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey), _1 : false };
                 }, _priv = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     return _fail(stdgo._internal.errors.Errors_new_.new_(("tls: private key type does not match public key type" : stdgo.GoString)));

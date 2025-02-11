@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.x509;
 function _oidFromExtKeyUsage(_eku:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage):{ var _0 : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier; var _1 : Bool; } {
-        var _oid = new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0), _ok = false;
+        var _oid = (new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier), _ok = false;
         for (__1 => _pair in stdgo._internal.crypto.x509.X509__extkeyusageoids._extKeyUsageOIDs) {
             if (_eku == (_pair._extKeyUsage)) {
                 return {

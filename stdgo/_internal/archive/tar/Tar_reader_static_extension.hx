@@ -219,7 +219,7 @@ var _minor = __1, _major = __0;
     @:tdfield
     static public function _handleSparseFile( _tr:stdgo.Ref<stdgo._internal.archive.tar.Tar_reader.Reader>, _hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>, _rawHdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_t_block.T_block>):stdgo.Error {
         @:recv var _tr:stdgo.Ref<stdgo._internal.archive.tar.Tar_reader.Reader> = _tr;
-        var _spd:stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas = new stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas(0, 0);
+        var _spd:stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas = (new stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas(0, 0) : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas);
         var _err:stdgo.Error = (null : stdgo.Error);
         if ((@:checkr _hdr ?? throw "null pointer dereference").typeflag == ((83 : stdgo.GoUInt8))) {
             {

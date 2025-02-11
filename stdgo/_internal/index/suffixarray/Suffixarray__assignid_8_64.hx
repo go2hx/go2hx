@@ -9,7 +9,8 @@ function _assignID_8_64(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.
         var _n_3361420:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _j_3361301:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _i_3361306_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _id_3361228:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lastPos_3361273:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _i_3361696:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

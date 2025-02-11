@@ -1,7 +1,7 @@
 package stdgo._internal.debug.macho;
 @:structInit @:using(stdgo._internal.debug.macho.Macho_dylib_static_extension.Dylib_static_extension) class Dylib {
     @:embedded
-    public var loadBytes : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes = new stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes(0, 0);
+    public var loadBytes : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes = (new stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes(0, 0) : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes);
     public var name : stdgo.GoString = "";
     public var time : stdgo.GoUInt32 = 0;
     public var currentVersion : stdgo.GoUInt32 = 0;

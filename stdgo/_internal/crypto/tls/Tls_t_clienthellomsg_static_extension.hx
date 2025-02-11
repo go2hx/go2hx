@@ -39,7 +39,7 @@ package stdgo._internal.crypto.tls;
         if ((((!@:check2 _s.skip((4 : stdgo.GoInt)) || !@:check2 _s.readUint16(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._vers)) : Bool) || !@:check2 _s.readBytes((stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._random) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), (32 : stdgo.GoInt)) : Bool) || !stdgo._internal.crypto.tls.Tls__readuint8lengthprefixed._readUint8LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._sessionId) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool)) {
             return false;
         };
-        var _cipherSuites:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+        var _cipherSuites:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
         if (!@:check2 _s.readUint16LengthPrefixed((stdgo.Go.setRef(_cipherSuites) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>))) {
             return false;
         };
@@ -62,7 +62,7 @@ package stdgo._internal.crypto.tls;
         if (_s.empty()) {
             return true;
         };
-        var _extensions:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+        var _extensions:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
         if ((!@:check2 _s.readUint16LengthPrefixed((stdgo.Go.setRef(_extensions) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || !_s.empty() : Bool)) {
             return false;
         };
@@ -75,7 +75,7 @@ package stdgo._internal.crypto.tls;
         while (!_extensions.empty()) {
             var _extension:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
             var _extension__pointer__ = stdgo.Go.pointer(_extension);
-            var _extData:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+            var _extData:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
             if ((!@:check2 _extensions.readUint16(_extension__pointer__) || !@:check2 _extensions.readUint16LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) : Bool)) {
                 return false;
             };
@@ -86,14 +86,14 @@ package stdgo._internal.crypto.tls;
             {
                 final __value__ = _extension;
                 if (__value__ == ((0 : stdgo.GoUInt16))) {
-                    var _nameList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _nameList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_nameList) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _nameList.empty() : Bool)) {
                         return false;
                     };
                     while (!_nameList.empty()) {
                         var _nameType:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
                         var _nameType__pointer__ = stdgo.Go.pointer(_nameType);
-                        var _serverName:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                        var _serverName:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                         if (((!@:check2 _nameList.readUint8(_nameType__pointer__) || !@:check2 _nameList.readUint16LengthPrefixed((stdgo.Go.setRef(_serverName) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) : Bool) || _serverName.empty() : Bool)) {
                             return false;
                         };
@@ -111,13 +111,13 @@ package stdgo._internal.crypto.tls;
                 } else if (__value__ == ((5 : stdgo.GoUInt16))) {
                     var _statusType:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
                     var _statusType__pointer__ = stdgo.Go.pointer(_statusType);
-                    var _ignored:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _ignored:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if (((!@:check2 _extData.readUint8(_statusType__pointer__) || !@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_ignored) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) : Bool) || !@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_ignored) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) : Bool)) {
                         return false;
                     };
                     (@:checkr _m ?? throw "null pointer dereference")._ocspStapling = _statusType == ((1 : stdgo.GoUInt8));
                 } else if (__value__ == ((10 : stdgo.GoUInt16))) {
-                    var _curves:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _curves:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_curves) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _curves.empty() : Bool)) {
                         return false;
                     };
@@ -137,7 +137,7 @@ package stdgo._internal.crypto.tls;
                     (@:checkr _m ?? throw "null pointer dereference")._ticketSupported = true;
                     @:check2 _extData.readBytes((stdgo.Go.setRef((@:checkr _m ?? throw "null pointer dereference")._sessionTicket) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), (_extData.length));
                 } else if (__value__ == ((13 : stdgo.GoUInt16))) {
-                    var _sigAndAlgs:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _sigAndAlgs:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_sigAndAlgs) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _sigAndAlgs.empty() : Bool)) {
                         return false;
                     };
@@ -150,7 +150,7 @@ package stdgo._internal.crypto.tls;
                         (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms = ((@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms.__append__((_sigAndAlg : stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme)));
                     };
                 } else if (__value__ == ((50 : stdgo.GoUInt16))) {
-                    var _sigAndAlgs:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _sigAndAlgs:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_sigAndAlgs) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _sigAndAlgs.empty() : Bool)) {
                         return false;
                     };
@@ -170,12 +170,12 @@ package stdgo._internal.crypto.tls;
                 } else if (__value__ == ((23 : stdgo.GoUInt16))) {
                     (@:checkr _m ?? throw "null pointer dereference")._extendedMasterSecret = true;
                 } else if (__value__ == ((16 : stdgo.GoUInt16))) {
-                    var _protoList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _protoList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_protoList) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _protoList.empty() : Bool)) {
                         return false;
                     };
                     while (!_protoList.empty()) {
-                        var _proto:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                        var _proto:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                         if ((!@:check2 _protoList.readUint8LengthPrefixed((stdgo.Go.setRef(_proto) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _proto.empty() : Bool)) {
                             return false;
                         };
@@ -184,7 +184,7 @@ package stdgo._internal.crypto.tls;
                 } else if (__value__ == ((18 : stdgo.GoUInt16))) {
                     (@:checkr _m ?? throw "null pointer dereference")._scts = true;
                 } else if (__value__ == ((43 : stdgo.GoUInt16))) {
-                    var _versList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _versList:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint8LengthPrefixed((stdgo.Go.setRef(_versList) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _versList.empty() : Bool)) {
                         return false;
                     };
@@ -201,7 +201,7 @@ package stdgo._internal.crypto.tls;
                         return false;
                     };
                 } else if (__value__ == ((51 : stdgo.GoUInt16))) {
-                    var _clientShares:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _clientShares:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if (!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_clientShares) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>))) {
                         return false;
                     };
@@ -227,7 +227,7 @@ package stdgo._internal.crypto.tls;
                     if (!_extensions.empty()) {
                         return false;
                     };
-                    var _identities:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _identities:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_identities) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _identities.empty() : Bool)) {
                         return false;
                     };
@@ -238,7 +238,7 @@ package stdgo._internal.crypto.tls;
                         };
                         (@:checkr _m ?? throw "null pointer dereference")._pskIdentities = ((@:checkr _m ?? throw "null pointer dereference")._pskIdentities.__append__(_psk?.__copy__()));
                     };
-                    var _binders:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0);
+                    var _binders:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                     if ((!@:check2 _extData.readUint16LengthPrefixed((stdgo.Go.setRef(_binders) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>)) || _binders.empty() : Bool)) {
                         return false;
                     };

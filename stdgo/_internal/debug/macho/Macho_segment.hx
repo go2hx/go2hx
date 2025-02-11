@@ -1,7 +1,7 @@
 package stdgo._internal.debug.macho;
 @:structInit @:using(stdgo._internal.debug.macho.Macho_segment_static_extension.Segment_static_extension) class Segment {
     @:embedded
-    public var loadBytes : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes = new stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes(0, 0);
+    public var loadBytes : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes = (new stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes(0, 0) : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes);
     @:embedded
     public var segmentHeader : stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader = ({} : stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader);
     @:embedded

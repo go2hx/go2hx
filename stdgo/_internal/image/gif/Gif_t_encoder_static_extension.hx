@@ -63,7 +63,7 @@ package stdgo._internal.image.gif;
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference")._g.config.colorModel) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
             } catch(_) {
-                { _0 : new stdgo._internal.image.color.Color_palette.Palette(0, 0), _1 : false };
+                { _0 : (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette), _1 : false };
             }, _gp = __tmp__._0, _ok = __tmp__._1;
             if (((_ok && (((@:checkr _pm ?? throw "null pointer dereference").palette.length) <= (_gp.length) : Bool) : Bool) && (stdgo.Go.toInterface((stdgo.Go.setRef(_gp[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.color.Color_color.Color>)) == stdgo.Go.toInterface((stdgo.Go.setRef((@:checkr _pm ?? throw "null pointer dereference").palette[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.color.Color_color.Color>))) : Bool)) {
                 @:check2r _e._writeByte((0 : stdgo.GoUInt8));
@@ -160,7 +160,7 @@ if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _e ?? throw "null pointer dereference")._g.config.colorModel) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
             } catch(_) {
-                { _0 : new stdgo._internal.image.color.Color_palette.Palette(0, 0), _1 : false };
+                { _0 : (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette), _1 : false };
             }, _p = __tmp__._0, _ok = __tmp__._1;
             if ((_ok && ((_p.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                 var _paddedSize = (stdgo._internal.image.gif.Gif__log2._log2((_p.length)) : stdgo.GoInt);

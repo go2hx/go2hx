@@ -13,7 +13,7 @@ function _roundShortest(_d:stdgo.Ref<stdgo._internal.math.big.Big_t_decimal.T_de
         };
         _exp = (_exp + (_s) : stdgo.GoInt);
         var _lower:stdgo._internal.math.big.Big_t_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_t_decimal.T_decimal);
-        var _tmp:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+        var _tmp:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         @:check2 _lower._init(_tmp._sub(_mant, stdgo._internal.math.big.Big__natone._natOne), _exp);
         var _upper:stdgo._internal.math.big.Big_t_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_t_decimal.T_decimal);
         @:check2 _upper._init(_tmp._add(_mant, stdgo._internal.math.big.Big__natone._natOne), _exp);

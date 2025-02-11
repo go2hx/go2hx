@@ -1,328 +1,334 @@
-[ERROR] ./_internal/sync_test/Sync_test__bufpool.hx:19: characters 58-62
+[ERROR] ./_internal/sync_test/Sync_test__applymap.hx:3: characters 91-96
 
-  19 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new(stdgo._internal.bytes.Bytes_buffer.buffer)));
-     |                                                          ^^^^
-     | Unknown identifier : _new
+  3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(stdgo._internal.sync.Sync_map_.map_)), _calls);
+    |                                                                                           ^^^^^
+    | Unknown identifier : _new_
 
-       19 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new(stdgo._internal.bytes.Bytes_buffer.buffer)));
-          |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     ->  stdgo/Go.macro.hx:305: lines 305-310
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     305 |   final selfType = Context.typeof(switch expr.expr {
+       - |     [...]
+     310 |   });
+         |
+         | Called from here
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     ->  ./_internal/sync_test/Sync_test__applymap.hx:3: characters 70-134
 
-      ->  ./_internal/sync_test/Sync_test__bufpool.hx:19: characters 37-106
+       3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(stdgo._internal.sync.Sync_map_.map_)), _calls);
+         |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-       19 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new(stdgo._internal.bytes.Bytes_buffer.buffer)));
-          |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      ->  stdgo/Go.macro.hx:305: lines 305-310
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      305 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      310 |   });
-          |
-          | Called from here
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     ->  ./_internal/sync_test/Sync_test_testmapmatchesrwmutex.hx:4: characters 83-154
 
-[ERROR] ./_internal/sync_test/Sync_test__applymap.hx:19: characters 91-95
+       4 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applyrwmutexmap._applyRWMutexMap), null) : stdgo.Error);
+         |                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(stdgo._internal.sync.Sync_map_.map_)), _calls);
-     |                                                                                           ^^^^
-     | Unknown identifier : _new
+         | For function argument '_m'
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[ERROR] ./_internal/sync_test/Sync_test__applyrwmutexmap.hx:3: characters 91-96
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(_internal.sync_test.Sync_test__internal.sync_test.sync_test_rwmutexmap_static_extension.rwmutexmap_static_extension._internal.sync_test.Sync_test_rwmutexmap_static_extension.RWMutexMap_static_extension)), _calls);
+    |                                                                                           ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:305: lines 305-310
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      305 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      310 |   });
-          |
-          | Called from here
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  ./_internal/sync_test/Sync_test__applymap.hx:19: characters 70-133
+     ->  stdgo/Go.macro.hx:305: lines 305-310
 
-       19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(stdgo._internal.sync.Sync_map_.map_)), _calls);
-          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     305 |   final selfType = Context.typeof(switch expr.expr {
+       - |     [...]
+     310 |   });
+         |
+         | Called from here
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  ./_internal/sync_test/Sync_test__applyrwmutexmap.hx:3: characters 70-300
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+       3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(_internal.sync_test.Sync_test__internal.sync_test.sync_test_rwmutexmap_static_extension.rwmutexmap_static_extension._internal.sync_test.Sync_test_rwmutexmap_static_extension.RWMutexMap_static_extension)), _calls);
+         |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  ./_internal/sync_test/Sync_test_testmapmatchesrwmutex.hx:20: characters 83-154
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-       20 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applyrwmutexmap._applyRWMutexMap), null) : stdgo.Error);
-          |                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-          | For function argument '_m'
+     ->  ./_internal/sync_test/Sync_test_testmapmatchesrwmutex.hx:4: characters 156-241
 
-[ERROR] ./_internal/sync_test/Sync_test__applyrwmutexmap.hx:19: characters 91-95
+       4 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applyrwmutexmap._applyRWMutexMap), null) : stdgo.Error);
+         |                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(_internal.sync_test.Sync_test__internal.sync_test.sync_test_rwmutexmap_static_extension.rwmutexmap_static_extension._internal.sync_test.Sync_test_rwmutexmap_static_extension.RWMutexMap_static_extension)), _calls);
-     |                                                                                           ^^^^
-     | Unknown identifier : _new
+         | For function argument '_m'
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[ERROR] ./_internal/sync_test/Sync_test__applydeepcopymap.hx:3: characters 91-96
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(_internal.sync_test.Sync_test__internal.sync_test.sync_test_deepcopymap_static_extension.deepcopymap_static_extension._internal.sync_test.Sync_test_deepcopymap_static_extension.DeepCopyMap_static_extension)), _calls);
+    |                                                                                           ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:305: lines 305-310
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      305 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      310 |   });
-          |
-          | Called from here
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  ./_internal/sync_test/Sync_test__applyrwmutexmap.hx:19: characters 70-299
+     ->  stdgo/Go.macro.hx:305: lines 305-310
 
-       19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(_internal.sync_test.Sync_test__internal.sync_test.sync_test_rwmutexmap_static_extension.rwmutexmap_static_extension._internal.sync_test.Sync_test_rwmutexmap_static_extension.RWMutexMap_static_extension)), _calls);
-          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     305 |   final selfType = Context.typeof(switch expr.expr {
+       - |     [...]
+     310 |   });
+         |
+         | Called from here
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  ./_internal/sync_test/Sync_test__applydeepcopymap.hx:3: characters 70-304
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+       3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(_internal.sync_test.Sync_test__internal.sync_test.sync_test_deepcopymap_static_extension.deepcopymap_static_extension._internal.sync_test.Sync_test_deepcopymap_static_extension.DeepCopyMap_static_extension)), _calls);
+         |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  ./_internal/sync_test/Sync_test_testmapmatchesrwmutex.hx:20: characters 156-241
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-       20 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applyrwmutexmap._applyRWMutexMap), null) : stdgo.Error);
-          |                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-          | For function argument '_m'
+     ->  ./_internal/sync_test/Sync_test_testmapmatchesdeepcopy.hx:4: characters 156-243
 
-[ERROR] ./_internal/sync_test/Sync_test__applydeepcopymap.hx:19: characters 91-95
+       4 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applydeepcopymap._applyDeepCopyMap), null) : stdgo.Error);
+         |                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(_internal.sync_test.Sync_test__internal.sync_test.sync_test_deepcopymap_static_extension.deepcopymap_static_extension._internal.sync_test.Sync_test_deepcopymap_static_extension.DeepCopyMap_static_extension)), _calls);
-     |                                                                                           ^^^^
-     | Unknown identifier : _new
+         | For function argument '_m'
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[ERROR] ./_internal/sync_test/Sync_test_testconcurrentrange.hx:6: characters 22-27
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  6 |             var _m = _new_(stdgo._internal.sync.Sync_map_.map_);
+    |                      ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:305: lines 305-310
+[ERROR] ./_internal/sync_test/Sync_test_testissue40999.hx:9: characters 22-27
 
-      305 |   final selfType = Context.typeof(switch expr.expr {
-        - |     [...]
-      310 |   });
-          |
-          | Called from here
+  9 |             var _p = _new_(_internal.sync_test.Sync_test__int._int);
+    |                      ^^^^^
+    | Unknown identifier : _new_
 
-      ->  ./_internal/sync_test/Sync_test__applydeepcopymap.hx:19: characters 70-303
+[ERROR] ./_internal/sync_test/Sync_test_testsemaphore.hx:3: characters 18-23
 
-       19 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new(_internal.sync_test.Sync_test__internal.sync_test.sync_test_deepcopymap_static_extension.deepcopymap_static_extension._internal.sync_test.Sync_test_deepcopymap_static_extension.DeepCopyMap_static_extension)), _calls);
-          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  3 |         var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
+    |                  ^^^^^
+    | Unknown identifier : _new_
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[ERROR] ./_internal/sync_test/Sync_test_testmutex.hx:16: characters 22-27
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+ 16 |             var _m = _new_(stdgo._internal.sync.Sync_mutex.mutex);
+    |                      ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:3: characters 18-23
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  3 |         var _o = _new_(_internal.sync_test.Sync_test__one._one);
+    |                  ^^^^^
+    | Unknown identifier : _new_
 
-      ->  ./_internal/sync_test/Sync_test_testmapmatchesdeepcopy.hx:20: characters 156-243
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:4: characters 21-26
 
-       20 |             var _err = (stdgo._internal.testing.quick.Quick_checkequal.checkEqual(stdgo.Go.toInterface(_internal.sync_test.Sync_test__applymap._applyMap), stdgo.Go.toInterface(_internal.sync_test.Sync_test__applydeepcopymap._applyDeepCopyMap), null) : stdgo.Error);
-          |                                                                                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  4 |         var _once = _new_(stdgo._internal.sync.Sync_once.once);
+    |                     ^^^^^
+    | Unknown identifier : _new_
 
-          | For function argument '_m'
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:22: characters 113-143
 
-[ERROR] ./_internal/sync_test/Sync_test_testconcurrentrange.hx:22: characters 22-26
+ 22 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
+    |                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | invalid type run asInterface: TDynamic(null)
 
-  22 |             var _m = _new(stdgo._internal.sync.Sync_map_.map_);
-     |                      ^^^^
-     | Unknown identifier : _new
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:51: characters 10-43
 
-[ERROR] ./_internal/sync_test/Sync_test_testissue40999.hx:25: characters 22-26
+      51 |   return load("error", 2)(msg, pos, depth);
+         |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  25 |             var _p = _new(_internal.sync_test.Sync_test__int._int);
-     |                      ^^^^
-     | Unknown identifier : _new
+     ->  stdgo/Go.macro.hx:461: characters 6-79
 
-[ERROR] ./_internal/sync_test/Sync_test_testsemaphore.hx:19: characters 18-22
+     461 |      Context.error("invalid type run asInterface: " + t, Context.currentPos());
+         |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         var _s = _new(_internal.sync_test.Sync_test__uint32._uint32);
-     |                  ^^^^
-     | Unknown identifier : _new
+     465 |   return run();
+         |          ^^^^^
+         | Called from here
 
-[ERROR] ./_internal/sync_test/Sync_test_testmutex.hx:32: characters 22-26
+         | Called from here
 
-  32 |             var _m = _new(stdgo._internal.sync.Sync_mutex.mutex);
-     |                      ^^^^
-     | Unknown identifier : _new
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:19: characters 18-22
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         var _o = _new(_internal.sync_test.Sync_test__one._one);
-     |                  ^^^^
-     | Unknown identifier : _new
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:20: characters 21-25
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  20 |         var _once = _new(stdgo._internal.sync.Sync_once.once);
-     |                     ^^^^
-     | Unknown identifier : _new
+     ->  ./_internal/sync_test/Sync_test_testonce.hx:22: characters 92-144
 
-[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:38: characters 113-143
+      22 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
+         |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  38 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
-     |                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | invalid type run asInterface: TDynamic(null)
+         | For function argument ''
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:51: characters 10-43
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:51: characters 34-39
 
-       51 |   return load("error", 2)(msg, pos, depth);
-          |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+ 51 |                     _v_5006638 = _new_(_internal.sync_test.Sync_test__string._string);
+    |                                  ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:461: characters 6-79
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:53: characters 82-94
 
-      461 |      Context.error("invalid type run asInterface: " + t, Context.currentPos());
-          |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+ 53 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_5006591, (1u32 : stdgo.GoUInt32));
+    |                                                                                  ^^^^^^^^^^^^
+    | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
+    | For function argument '_addr'
 
-      465 |   return run();
-          |          ^^^^^
-          | Called from here
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-          | Called from here
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+     ->  ./_internal/sync_test/Sync_test__testpool.hx:52: lines 52-54
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+      52 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_5006638), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
+      53 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_5006591, (1u32 : stdgo.GoUInt32));
+      54 |                     }));
+         |
+         | Called from here
 
-      ->  ./_internal/sync_test/Sync_test_testonce.hx:38: characters 92-144
+         | For function argument '_finalizer'
 
-       38 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
-          |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:92: characters 100-112
 
-          | For function argument ''
+ 92 |                         _fin1_5006596 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_5006591);
+    |                                                                                                    ^^^^^^^^^^^^
+    | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
+    | For function argument '_addr'
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:67: characters 34-38
+[ERROR] ./_internal/sync_test/Sync_test_testwaitgrouprace.hx:7: characters 10-15
 
-  67 |                     _v_4999790 = _new(_internal.sync_test.Sync_test__string._string);
-     |                                  ^^^^
-     | Unknown identifier : _new
+  7 | var _n = _new_(_internal.sync_test.Sync_test__int32._int32);
+    |          ^^^^^
+    | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:69: characters 82-94
+[ERROR] ./_internal/sync_test/Sync_test_benchmarkuncontendedsemaphore.hx:3: characters 18-23
 
-  69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_4999743, (1u32 : stdgo.GoUInt32));
-     |                                                                                  ^^^^^^^^^^^^
-     | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
-     | For function argument '_addr'
+  3 |         var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
+    |                  ^^^^^
+    | Unknown identifier : _new_
 
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+[ERROR] ./_internal/sync_test/Sync_test_benchmarkcontendedsemaphore.hx:6: characters 22-27
 
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  6 |             var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
+    |                      ^^^^^
+    | Unknown identifier : _new_
 
-      ->  stdgo/Go.macro.hx:653: characters 11-31
+[ERROR] ./_internal/sync_test/Sync_test_benchmarksemauncontended.hx:5: characters 24-29
 
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
+  5 |             var _sem = _new_(_internal.sync_test.Sync_test_paddedsem.paddedSem);
+    |                        ^^^^^
+    | Unknown identifier : _new_
 
-      ->  ./_internal/sync_test/Sync_test__testpool.hx:68: lines 68-70
+         | For function argument '_body'
 
-       68 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_4999790), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
-       69 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_4999743, (1u32 : stdgo.GoUInt32));
-       70 |                     }));
-          |
-          | Called from here
+[ERROR] ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 58-63
 
-          | For function argument '_finalizer'
+  3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+    |                                                          ^^^^^
+    | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:108: characters 100-112
+       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
- 108 |                         _fin1_4999748 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_4999743);
-     |                                                                                                    ^^^^^^^^^^^^
-     | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
-     | For function argument '_addr'
+     ->  stdgo/Go.macro.hx:653: characters 11-31
 
-[ERROR] ./_internal/sync_test/Sync_test_testwaitgrouprace.hx:23: characters 10-14
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  23 | var _n = _new(_internal.sync_test.Sync_test__int32._int32);
-     |          ^^^^
-     | Unknown identifier : _new
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-[ERROR] ./_internal/sync_test/Sync_test_benchmarkuncontendedsemaphore.hx:19: characters 18-22
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  19 |         var _s = _new(_internal.sync_test.Sync_test__uint32._uint32);
-     |                  ^^^^
-     | Unknown identifier : _new
+     ->  ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 37-107
 
-[ERROR] ./_internal/sync_test/Sync_test_benchmarkcontendedsemaphore.hx:22: characters 22-26
+       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+         |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 
-  22 |             var _s = _new(_internal.sync_test.Sync_test__uint32._uint32);
-     |                      ^^^^
-     | Unknown identifier : _new
+     ->  stdgo/Go.macro.hx:305: lines 305-310
 
-[ERROR] ./_internal/sync_test/Sync_test_benchmarksemauncontended.hx:21: characters 24-28
+     305 |   final selfType = Context.typeof(switch expr.expr {
+       - |     [...]
+     310 |   });
+         |
+         | Called from here
 
-  21 |             var _sem = _new(_internal.sync_test.Sync_test_paddedsem.paddedSem);
-     |                        ^^^^
-     | Unknown identifier : _new
+     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-          | For function argument '_body'
+     504 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./_internal/sync_test/Sync_test_log.hx:3: characters 19-159
+
+       3 |         var _b = (stdgo.Go.typeAssert((@:check2 _internal.sync_test.Sync_test__bufpool._bufPool.get() : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
+         |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from macro here
 

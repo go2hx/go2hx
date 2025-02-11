@@ -4,9 +4,9 @@
      |        ^^^^^
      | Uncaught exception invalid underlying type: TAbstract(stdgo.AnyInterface,[])
 
-      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:180: characters 70-223
+      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 70-223
 
-      180 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
+      162 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
           |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
@@ -22,9 +22,9 @@
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:180: characters 92-160
+      ->  ./_internal/reflect_test/Reflect_test__deepequaltests.hx:162: characters 92-160
 
-      180 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
+      162 | (new _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest(stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), stdgo.Go.toInterface((stdgo.Go.setRef(_internal.reflect_test.Reflect_test__loopy1._loopy1) : stdgo.Ref<_internal.reflect_test.Reflect_test_loopy.Loopy>)), true) : _internal.reflect_test.Reflect_test_deepequaltest.DeepEqualTest),
           |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

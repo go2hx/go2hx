@@ -1,6 +1,6 @@
-[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 81-204
+[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 81-204
 
-  12 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
+   2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
      |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | _internal.runtime.debug_test.G<stdgo.GoInt> should be _internal.runtime.debug_test.GPointer<stdgo.GoInt>
      | For function argument '__self__'
@@ -11,15 +11,15 @@
      |                              ^^^^^
      | _internal.runtime.debug_test.G<stdgo.GoInt> has no field value
 
-      ->  ./_internal/runtime/debug_test/Debug_test__dummy.hx:12: characters 60-205
+      ->  ./_internal/runtime/debug_test/Debug_test__dummy.hx:2: characters 60-205
 
-      12 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
-         |                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from macro here
+      2 | var _dummy : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>() : _internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>));
+        |                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from macro here
 
-[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 82-295
+[ERROR] ./_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 82-295
 
-  12 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
+   2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
      |                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> should be _internal.runtime.debug_test.GPointer<_internal.runtime.debug_test.G<stdgo.GoInt>>
      | For function argument '__self__'
@@ -30,9 +30,9 @@
      |                              ^^^^^
      | _internal.runtime.debug_test.G<_internal.runtime.debug_test.G<stdgo.GoInt>> has no field value
 
-      ->  ./_internal/runtime/debug_test/Debug_test__dummy2.hx:12: characters 61-296
+      ->  ./_internal/runtime/debug_test/Debug_test__dummy2.hx:2: characters 61-296
 
-      12 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
-         |                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from macro here
+      2 | var _dummy2 : _internal.runtime.debug_test.Debug_test_i.I = stdgo.Go.asInterface((new _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>() : _internal.runtime.debug_test.Debug_test_g.G<_internal.runtime.debug_test.Debug_test_g.G<stdgo.GoInt>>));
+        |                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from macro here
 

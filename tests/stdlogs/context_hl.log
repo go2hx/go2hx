@@ -1,60 +1,60 @@
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:15: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:6: characters 27-70
 
-  15 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:20: characters 37-80
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:11: characters 37-80
 
-  20 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
+  11 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
      |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:15: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:6: characters 27-70
 
-  15 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:20: characters 37-80
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:11: characters 37-80
 
-  20 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
+  11 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
      |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:16: characters 26-69
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:7: characters 26-69
 
-  16 |             var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {
+   7 |             var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {
      |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:23: characters 37-80
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:14: characters 37-80
 
-  23 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
+  14 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
      |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx:13: characters 23-66
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx:4: characters 23-66
 
-  13 |         var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   4 |         var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx:13: characters 23-66
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx:4: characters 23-66
 
-  13 |         var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   4 |         var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx:13: characters 22-65
+[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx:4: characters 22-65
 
-  13 |         var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {}) : () -> Bool);
+   4 |         var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {}) : () -> Bool);
      |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:13: characters 63-106
+[ERROR] ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:4: characters 63-106
 
-  13 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
+   4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
      |                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
@@ -70,95 +70,95 @@
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:13: characters 42-132
+      ->  ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:4: characters 42-132
 
-       13 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
+        4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
           |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:50: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:41: characters 27-70
 
-  50 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(_internal.context_test.Context_test_context.context.background()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+  41 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(_internal.context_test.Context_test_context.context.background()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_examplewithdeadline.hx:15: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_examplewithdeadline.hx:6: characters 27-70
 
-  15 |             var __tmp__ = _internal.context_test.Context_test_context.context.withDeadline(_internal.context_test.Context_test_context.context.background(), _d?.__copy__()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withDeadline(_internal.context_test.Context_test_context.context.background(), _d?.__copy__()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_examplewithtimeout.hx:14: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_examplewithtimeout.hx:5: characters 27-70
 
-  14 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+   5 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_examplewithvalue.hx:24: characters 21-64
+[ERROR] ./_internal/context_test/Context_test_examplewithvalue.hx:15: characters 21-64
 
-  24 |         var _ctx = (_internal.context_test.Context_test_context.context.withValue(_internal.context_test.Context_test_context.context.background(), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(("Go" : stdgo.GoString))) : stdgo._internal.context.Context_context.Context);
+  15 |         var _ctx = (_internal.context_test.Context_test_context.context.withValue(_internal.context_test.Context_test_context.context.background(), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(("Go" : stdgo.GoString))) : stdgo._internal.context.Context_context.Context);
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:15: characters 31-74
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:6: characters 31-74
 
-  15 |                 var _stopf = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
+   6 |                 var _stopf = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
      |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:173: characters 43-86
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:164: characters 43-86
 
- 173 |                             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+ 164 |                             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
           | For function argument 'func'
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:17: characters 30-73
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:8: characters 30-73
 
-  17 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
+   8 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
      |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:68: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:59: characters 27-70
 
-  68 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+  59 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:15: characters 31-74
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:6: characters 31-74
 
-  15 |                 var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_ctx), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
+   6 |                 var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_ctx), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
      |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:16: characters 30-73
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:7: characters 30-73
 
-  16 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_cancelCtx, function():Void {
+   7 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_cancelCtx, function():Void {
      |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:21: characters 29-72
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:12: characters 29-72
 
-  21 |                     _cancel(_internal.context_test.Context_test_context.context.canceled);
+  12 |                     _cancel(_internal.context_test.Context_test_context.context.canceled);
      |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:24: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:15: characters 27-70
 
-  24 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel1:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
+  15 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel1:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:30: characters 27-70
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:21: characters 27-70
 
-  30 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx2:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel2:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
+  21 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx2:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel2:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:38: characters 74-117
+[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:29: characters 74-117
 
-  38 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
+  29 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
      |                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
@@ -174,9 +174,9 @@
           |           ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
-      ->  ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:38: characters 53-144
+      ->  ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:29: characters 53-144
 
-       38 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
+       29 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
           |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

@@ -18,5 +18,6 @@
  "hl|unicode/utf16",
  "hl|unicode/utf8",
  "hl|internal/cpu",
- "hl|image/color"
+ "hl|image/color",
+ "hl|hash/crc64"
 ]

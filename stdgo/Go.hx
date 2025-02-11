@@ -141,4 +141,7 @@ class Go {
 	@:deprecated
 	@:dox(hide)
 	public static macro function refPointer(expr:Expr):Expr;
+
+	public static macro function min(expr:Array<Expr>):Expr;
+	public static macro function max(expr:Array<Expr>):Expr;
 }

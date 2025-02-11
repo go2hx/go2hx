@@ -1481,6 +1481,25 @@ class Go {
 	}
 	#end
 
+	public static macro function min(exprs:Array<Expr>) {
+		final block:Array<Expr> = [macro var num = ${exprs[0]}];
+		for (i in 1...exprs.length) {
+			block.push(macro if (num > ${exprs[i]}) num = ${exprs[i]});
+		}
+		block.push(macro num);
+		return macro $b{block};
+	}
+
+	public static macro function max(exprs:Array<Expr>) {
+		final block:Array<Expr> = [macro var num = ${exprs[0]}];
+		for (i in 1...exprs.length) {
+			block.push(macro if (num < ${exprs[i]}) num = ${exprs[i]});
+		}
+		block.push(macro num);
+		return macro $b{block};
+	}
+	
+
 	public static macro function setKeys(expr:Expr) {
 		var t = Context.toComplexType(Context.getExpectedType());
 		return macro($expr : $t);

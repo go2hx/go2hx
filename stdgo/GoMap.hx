@@ -29,7 +29,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		If `key` already has a mapping, the previous value disappears.
 		If `key` is `null`, the result is unspecified.
 	**/
-	@:op([]) public inline function set(key:K, value:V)
+	@:op([]) public inline function __set__(key:K, value:V)
 		this.set(key, value);
 
 	public inline function __setData__(map:GoMap<K, V>) {
@@ -38,9 +38,6 @@ abstract GoMap<K, V>(IMap<K, V>) {
 			this.set(key, value);
 		}
 	}
-
-	public function __clear__()
-		return this.clear();
 
 	public var length(get, never):GoInt;
 
@@ -58,14 +55,14 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		used.
 		If `key` is `null`, the result is unspecified.
 	**/
-	@:arrayAccess public inline function get(key:K)
+	@:arrayAccess public inline function __get__(key:K)
 		return this?.get(key);
 
 	/**
 		Returns true if `key` has a mapping, false otherwise.
 		If `key` is `null`, the result is unspecified.
 	**/
-	public inline function exists(key:K)
+	public inline function __exists__(key:K)
 		return this.exists(key);
 
 	/**
@@ -73,7 +70,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		false otherwise.
 		If `key` is `null`, the result is unspecified.
 	**/
-	public inline function remove(key:K) {
+	public inline function __remove__(key:K) {
 		return this.remove(key);
 	}
 
@@ -81,7 +78,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 		Returns an Iterator over the keys of `this` Map.
 		The order of keys is undefined.
 	**/
-	public inline function keys():Iterator<K> {
+	public inline function __keys__():Iterator<K> {
 		return this.keys();
 	}
 
@@ -116,7 +113,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	/**
 		Removes all keys from `this` Map.
 	**/
-	public inline function clear():Void {
+	public inline function __clear__():Void {
 		this.clear();
 	}
 

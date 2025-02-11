@@ -2571,7 +2571,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 			}
 			{
 				ok: true,
-				expr: macro($x != null && $x.exists($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false}),
+				expr: macro($x != null && $x.__exists__($index) ? {_0: $x[$index], _1: true} : {_0: $value, _1: false}),
 			};
 		default:
 			{expr: e, ok: false};
@@ -3611,14 +3611,6 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	]));
 	if (info.returnNamed) {
 		final ct = info.returnType;
-		/*
-		return {
-                    final __tmp__ = _internal.github_dot_com.ulikunitz.xz.lzma.Lzma__newhashtable._newHashTable(_dictCap, (4 : stdgo.GoInt));
-                    _m = stdgo.Go.asInterface(__tmp__._0);
-                    _err = __tmp__._1;
-                    return { _0 : (_m : _internal.github_dot_com.ulikunitz.xz.lzma.Lzma_t_matcher.T_matcher), _1 : (_err : stdgo.Error) };
-                };
-		*/
 		final decls:Array<Expr> = [macro final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {
@@ -4344,13 +4336,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case tuple(_, _.get() => vars):
 								return (macro {
 									final e = $e;
-									e._0.remove(e._1);
+									e._0.__remove__(e._1);
 								}).expr;
 							default:
 								throw info.panic() + "first arg of delete builtin function not of type map: " + t;
 						}
 						return returnExpr(macro if ($e != null)
-							$e.remove($key)).expr;
+							$e.__remove__($key)).expr;
 					case "clear":
 						genArgs(false);
 						final t = getUnderlying(typeof(expr.args[0], info, false));

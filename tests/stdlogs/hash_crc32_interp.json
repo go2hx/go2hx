@@ -1,0 +1,24 @@
+{
+    "passes": [
+        "TestCastagnoliRace",
+        "TestSimple",
+        "TestGoldenMarshal",
+        "TestMarshalTableMismatch",
+        "TestArchIEEE",
+        "TestArchCastagnoli",
+        "TestGolden"
+    ],
+    "fails": [
+        "TestSlicing"
+    ],
+    "runs": [
+        "TestCastagnoliRace",
+        "TestSimple",
+        "TestGoldenMarshal",
+        "TestMarshalTableMismatch",
+        "TestSlicing",
+        "TestArchIEEE",
+        "TestArchCastagnoli",
+        "TestGolden"
+    ]
+}

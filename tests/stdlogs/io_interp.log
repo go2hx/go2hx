@@ -1,14 +1,14 @@
-[ERROR] ./_internal/io_test/Io_test_testpipe2.hx:18: characters 32-64
+[ERROR] ./_internal/io_test/Io_test_testpipe2.hx:5: characters 32-64
 
- 18 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_reader.reader(_t, stdgo.Go.asInterface(_r), _c));
+  5 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_reader.reader(_t, stdgo.Go.asInterface(_r), _c));
     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : _internal.io_test.Io_test_reader
 
         | For function argument 'func'
 
-[ERROR] ./_internal/io_test/Io_test_testpipe3.hx:26: characters 32-64
+[ERROR] ./_internal/io_test/Io_test_testpipe3.hx:13: characters 32-64
 
- 26 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_writer.writer(stdgo.Go.asInterface(_w), _wdat, _c));
+ 13 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_writer.writer(stdgo.Go.asInterface(_w), _wdat, _c));
     |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : _internal.io_test.Io_test_writer
 

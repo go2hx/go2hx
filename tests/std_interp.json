@@ -17,5 +17,6 @@
  "interp|unicode/utf16",
  "interp|unicode/utf8",
  "interp|internal/cpu",
- "interp|image/color"
+ "interp|image/color",
+ "interp|hash/crc64"
 ]

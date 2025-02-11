@@ -1,10 +1,10 @@
-[ERROR] ./_internal/log_test/Log_test_examplelogger.hx:5: characters 189-193
+[ERROR] ./_internal/log_test/Log_test_examplelogger.hx:3: characters 189-193
 
- 5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+ 3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
    |                                                                                                                                                                                             ^^^^
    | Unknown identifier : _buf
 
-      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
         |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
@@ -22,9 +22,9 @@
         |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./_internal/log_test/Log_test_examplelogger.hx:5: characters 173-194
+    ->  ./_internal/log_test/Log_test_examplelogger.hx:3: characters 173-194
 
-      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
+      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
         |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
@@ -42,13 +42,13 @@
 
         | For function argument '_out'
 
-[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 189-193
+[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:3: characters 189-193
 
- 5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+ 3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
    |                                                                                                                                                                                             ^^^^
    | Unknown identifier : _buf
 
-      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
         |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
@@ -66,9 +66,9 @@
         |          ^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./_internal/log_test/Log_test_examplelogger_output.hx:5: characters 173-194
+    ->  ./_internal/log_test/Log_test_examplelogger_output.hx:3: characters 173-194
 
-      5 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
+      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
         |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
@@ -86,9 +86,9 @@
 
         | For function argument '_out'
 
-[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:6: characters 23-30
+[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:4: characters 23-30
 
- 6 |             @:check2r _logger.output((2 : stdgo.GoInt), _info?.__copy__());
+ 4 |             @:check2r _logger.output((2 : stdgo.GoInt), _info?.__copy__());
    |                       ^^^^^^^
    | Unknown identifier : _logger
 

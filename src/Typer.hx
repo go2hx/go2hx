@@ -1779,19 +1779,20 @@ private function createTempVars(vars:Array<Var>):Expr {
 	final vars2:Array<Var> = [];
 	if (vars.length <= 1)
 		return {expr: EVars(vars), pos: null};
-	//final names:Map<String,String> = [];
+	final names:Map<String,String> = [];
 	function createTempName(i:Int):String
 		return "__" + i;
 	for (i in 0...vars.length) {
 		final tempName = createTempName(i);
-
+		final name = vars[i].name;
+		names[tempName] = name;
 		vars2.unshift({
-			name: vars[i].name,
+			name: name,
 			//type: v.type,
 			expr: macro $i{tempName},
 		});
-		//vars[i].expr = replaceIdent(names, vars[i].expr);
-		//names[vars[i].name] = tempName;
+		vars[i].expr = replaceIdent(names, vars[i].expr);
+		names[vars[i].name] = tempName;
 		vars[i].name = tempName;
 	}
 	final e:Expr = {expr: EVars(vars), pos: null};

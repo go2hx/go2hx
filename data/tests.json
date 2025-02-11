@@ -49,6 +49,8 @@
     "internal/race",
     "testing/quick",
     "hash",
+    "hash/crc32",
+    "hash/crc64",
     "crypto/sha1",
     "crypto/rand",
     "fmt",

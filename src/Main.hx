@@ -161,7 +161,7 @@ function compileArgs(args:Array<String>):InstanceData {
 				break;
 		}
 	}
-	for (option in argHandler.options) {
+	for (option in (argHandler.options : Array<Dynamic>)) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
 		for (i in 0...args.length) {

@@ -1,7 +1,0 @@
-[ERROR] ./stdgo/_internal/net/url/Url_values_asinterface.hx:17: characters 112-118
-
- 17 |     public dynamic function set(_key:stdgo.GoString, _value:stdgo.GoString):Void @:_0 __self__.value.set(_key, _value);
-    |                                                                                                                ^^^^^^
-    | stdgo.GoString should be stdgo.Slice<stdgo.GoString>
-    | For function argument 'value'
-

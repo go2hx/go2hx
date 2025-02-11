@@ -50,6 +50,7 @@ steps:
         message: go easy tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    if: github.event_name != 'pull_request'
     continue-on-error: true
   - name: Run std
     run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
@@ -58,4 +59,5 @@ steps:
         message: build std tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    if: github.event_name != 'pull_request'
     continue-on-error: true

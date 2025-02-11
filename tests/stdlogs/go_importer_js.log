@@ -1,6 +1,6 @@
-[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1860: character 39
+[ERROR] ./stdgo/_internal/go/build/Build_context_static_extension.hx:486: character 39
 
- 1860 |         var _keys_6450316:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
-      |                                       ^
-      | Invalid character '#'
+ 486 |         var _keys_4396153:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
+     |                                       ^
+     | Invalid character '#'
 

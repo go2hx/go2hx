@@ -154,5 +154,6 @@
  "interp|base64chan",
  "interp|chantimer",
  "interp|filecasing",
- "interp|test_dash_189"
+ "interp|test_dash_189",
+ "interp|return0"
 ]

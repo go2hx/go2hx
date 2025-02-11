@@ -54,3 +54,4 @@ steps:
         add: ./tests
         pull: --rebase --autostash
     continue-on-error: true
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'

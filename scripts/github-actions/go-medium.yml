@@ -64,4 +64,5 @@ steps:
         message: go medium tests update ::target::
         add: ./tests
         pull: --rebase --autostash
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     continue-on-error: true

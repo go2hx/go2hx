@@ -4,9 +4,9 @@
     |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Uncaught exception Cannot call null
 
-     ->  ./stdgo/GoMap.hx:691: characters 7-15
+     ->  ./stdgo/GoMap.hx:688: characters 7-15
 
-     691 |   if (k1 == k2) {
+     688 |   if (k1 == k2) {
          |       ^^^^^^^^
          | Called from here
 
@@ -16,10 +16,10 @@
          |            ^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 616-632
+     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 571-587
 
       13 | 
-         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^
          | Called from here
 
      ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213

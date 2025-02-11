@@ -1,7 +1,7 @@
-[ERROR] ./stdgo/_internal/net/url/Url_values_asinterface.hx:17: characters 112-118
+/home/runner/work/go2hx/go2hx/ flag redefined: gopher_type
+[ERROR] ./_internal/flag_test/Flag_test.hx:22: characters 75-80
 
- 17 |     public dynamic function set(_key:stdgo.GoString, _value:stdgo.GoString):Void @:_0 __self__.value.set(_key, _value);
-    |                                                                                                                ^^^^^^
-    | stdgo.GoString should be stdgo.Slice<stdgo.GoString>
-    | For function argument 'value'
+ 22 |         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+    |                                                                           ^^^^^
+    | Uncaught exception /home/runner/work/go2hx/go2hx/ flag redefined: gopher_type
 

@@ -3567,7 +3567,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				for (i in 0...info.returnNames.length) {
 					final name = info.returnNames[i];
 					final fieldName = "_" + i;
-					var retType = info.returnTypes[0];
+					var retType = info.returnTypes[i];
 					var e = macro __tmp__.$fieldName;
 					if (retType != null) {
 						final t = typeof(stmt.results[0], info, false);

@@ -7,10 +7,10 @@ package stdgo._internal.strings;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         @:check2 (@:checkr _r ?? throw "null pointer dereference")._once.do_(@:check2r _r._buildOnce);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = (@:checkr _r ?? throw "null pointer dereference")._r.writeString(_w, _s?.__copy__());
+            final __tmp__ = (@:checkr _r ?? throw "null pointer dereference")._r.writeString(_w, _s?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep

@@ -281,10 +281,10 @@ package stdgo._internal.sync;
         };
         if (_ok) {
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = @:check2r _e._delete();
+                final __tmp__ = @:check2r _e._delete();
                 _value = __tmp__._0;
                 _loaded = __tmp__._1;
-                __tmp__;
+                { _0 : _value, _1 : _loaded };
             };
         };
         return {
@@ -399,10 +399,10 @@ package stdgo._internal.sync;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = @:check2r _e._load();
+            final __tmp__ = @:check2r _e._load();
             _value = __tmp__._0;
             _ok = __tmp__._1;
-            __tmp__;
+            { _0 : _value, _1 : _ok };
         };
     }
     @:keep

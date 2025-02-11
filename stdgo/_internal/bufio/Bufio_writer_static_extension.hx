@@ -172,10 +172,10 @@ package stdgo._internal.bufio;
             _n = @:check2r _b.available();
             if ((_n < (4 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r _b.writeString((_r : stdgo.GoString)?.__copy__());
+                    final __tmp__ = @:check2r _b.writeString((_r : stdgo.GoString)?.__copy__());
                     _size = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _size, _1 : _err };
                 };
             };
         };

@@ -101,10 +101,10 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
         var _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (_opts == null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
                 _plaintext = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _plaintext, _1 : _err };
             };
         };
         {
@@ -113,17 +113,17 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                 var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__().value;
                 if ((@:checkr _opts ?? throw "null pointer dereference").mGFHash == ((0u32 : stdgo._internal.crypto.Crypto_hash.Hash))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").hash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
+                        final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").hash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
                         _plaintext = __tmp__._0;
                         _err = __tmp__._1;
-                        __tmp__;
+                        { _0 : _plaintext, _1 : _err };
                     };
                 } else {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").mGFHash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
+                        final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").mGFHash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
                         _plaintext = __tmp__._0;
                         _err = __tmp__._1;
-                        __tmp__;
+                        { _0 : _plaintext, _1 : _err };
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>))) {
@@ -162,10 +162,10 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                         };
                     } else {
                         return {
-                            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                            final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
                             _plaintext = __tmp__._0;
                             _err = __tmp__._1;
-                            __tmp__;
+                            { _0 : _plaintext, _1 : _err };
                         };
                     };
                 };

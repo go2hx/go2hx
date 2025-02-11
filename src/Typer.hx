@@ -3567,12 +3567,30 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				for (i in 0...info.returnNames.length) {
 					final name = info.returnNames[i];
 					final fieldName = "_" + i;
-					assigns.push(macro $i{name} = __tmp__.$fieldName);
+					var retType = info.returnTypes[i];
+					var e = macro __tmp__.$fieldName;
+					if (retType != null) {
+						final t = typeof(stmt.results[0], info, false);
+						switch t {
+							case tuple(_, _.get() => types):
+								e = assignTranslate(types[i], retType, e, info);
+							default:
+								throw "stmt result not a tuple type";
+						}
+					}
+					assigns.push(macro $i{name} = $e);
 				}
-				assigns.push(macro __tmp__);
+				final fields:Array<ObjectField> = [
+					for (i in 0...info.returnTypes.length) {
+						final e = macro $i{info.returnNames[i]};
+						{field: "_" + i, expr: info.returnNamed ? e : defaultValue(info.returnTypes[i], info)};
+					}
+				];
+				assigns.push(toExpr(EObjectDecl(fields)));
 				final ct = info.returnType;
-				e = macro $b{[macro final __tmp__:$ct = $e].concat(assigns)};
+				e = macro $b{[macro final __tmp__ = $e].concat(assigns)};
 			}
+			
 		}
 		return ret(EReturn(e));
 	}
@@ -3593,6 +3611,14 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	]));
 	if (info.returnNamed) {
 		final ct = info.returnType;
+		/*
+		return {
+                    final __tmp__ = _internal.github_dot_com.ulikunitz.xz.lzma.Lzma__newhashtable._newHashTable(_dictCap, (4 : stdgo.GoInt));
+                    _m = stdgo.Go.asInterface(__tmp__._0);
+                    _err = __tmp__._1;
+                    return { _0 : (_m : _internal.github_dot_com.ulikunitz.xz.lzma.Lzma_t_matcher.T_matcher), _1 : (_err : stdgo.Error) };
+                };
+		*/
 		final decls:Array<Expr> = [macro final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {

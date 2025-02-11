@@ -149,10 +149,10 @@ function parsePKCS8PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519().newPrivateKey(_curvePrivateKey);
-                _key = __tmp__._0;
+                final __tmp__ = stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519().newPrivateKey(_curvePrivateKey);
+                _key = stdgo.Go.toInterface(stdgo.Go.asInterface(__tmp__._0));
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _key, _1 : _err };
             };
         } else {
             return {

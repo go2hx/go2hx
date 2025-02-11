@@ -31,10 +31,10 @@ package stdgo._internal.net.http;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = @:check2r _c.do_(_req);
+            final __tmp__ = @:check2r _c.do_(_req);
             _resp = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _resp, _1 : _err };
         };
     }
     @:keep
@@ -43,10 +43,10 @@ package stdgo._internal.net.http;
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_client.Client> = _c;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = @:check2r _c.post(_url?.__copy__(), ("application/x-www-form-urlencoded" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.http.Http__strings._strings.newReader(_data.encode()?.__copy__())));
+            final __tmp__ = @:check2r _c.post(_url?.__copy__(), ("application/x-www-form-urlencoded" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.http.Http__strings._strings.newReader(_data.encode()?.__copy__())));
             _resp = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _resp, _1 : _err };
         };
     }
     @:keep
@@ -65,10 +65,10 @@ package stdgo._internal.net.http;
         };
         (@:checkr _req ?? throw "null pointer dereference").header.set(("Content-Type" : stdgo.GoString), _contentType?.__copy__());
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = @:check2r _c.do_(_req);
+            final __tmp__ = @:check2r _c.do_(_req);
             _resp = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _resp, _1 : _err };
         };
     }
     @:keep
@@ -92,10 +92,10 @@ package stdgo._internal.net.http;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = @:check2r _c.do_(_req);
+            final __tmp__ = @:check2r _c.do_(_req);
             _resp = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _resp, _1 : _err };
         };
     }
 }

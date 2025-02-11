@@ -11,10 +11,10 @@ function _makeField(_v:stdgo._internal.reflect.Reflect_value.Value, _params:stdg
         };
         if (((_v.kind() == (20u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && (_v.type().numMethod() == (0 : stdgo.GoInt)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.elem()?.__copy__(), _params?.__copy__());
+                final __tmp__ = stdgo._internal.encoding.asn1.Asn1__makefield._makeField(_v.elem()?.__copy__(), _params?.__copy__());
                 _e = __tmp__._0;
                 _err = __tmp__._1;
-                __tmp__;
+                { _0 : _e, _1 : _err };
             };
         };
         if (((_v.kind() == ((23u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && _v.len() == ((0 : stdgo.GoInt)) : Bool) && _params._omitEmpty : Bool)) {

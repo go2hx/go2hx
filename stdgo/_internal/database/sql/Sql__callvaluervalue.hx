@@ -13,9 +13,9 @@ function _callValuerValue(_vr:stdgo._internal.database.sql.driver.Driver_valuer.
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.database.sql.driver.Driver_value.Value; var _1 : stdgo.Error; } = _vr.value();
+            final __tmp__ = _vr.value();
             _v = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _v, _1 : _err };
         };
     }

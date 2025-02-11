@@ -290,12 +290,12 @@ _version,
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_month.Month), _day = (0 : stdgo.GoInt), _yday = (0 : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_month.Month; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } = stdgo._internal.time.Time__absdate._absDate(_t._abs(), _full);
+            final __tmp__ = stdgo._internal.time.Time__absdate._absDate(_t._abs(), _full);
             _year = __tmp__._0;
             _month = __tmp__._1;
             _day = __tmp__._2;
             _yday = __tmp__._3;
-            __tmp__;
+            { _0 : _year, _1 : _month, _2 : _day, _3 : _yday };
         };
     }
     @:keep
@@ -393,11 +393,11 @@ _version,
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _hour = (0 : stdgo.GoInt), _min = (0 : stdgo.GoInt), _sec = (0 : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } = stdgo._internal.time.Time__absclock._absClock(_t._abs());
+            final __tmp__ = stdgo._internal.time.Time__absclock._absClock(_t._abs());
             _hour = __tmp__._0;
             _min = __tmp__._1;
             _sec = __tmp__._2;
-            __tmp__;
+            { _0 : _hour, _1 : _min, _2 : _sec };
         };
     }
     @:keep

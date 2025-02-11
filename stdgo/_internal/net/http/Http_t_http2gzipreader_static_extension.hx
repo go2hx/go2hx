@@ -43,10 +43,10 @@ package stdgo._internal.net.http;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r (@:checkr _gz ?? throw "null pointer dereference")._zr.read(_p);
+            final __tmp__ = @:check2r (@:checkr _gz ?? throw "null pointer dereference")._zr.read(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
 }

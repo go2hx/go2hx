@@ -149,12 +149,12 @@ package stdgo._internal.net.textproto;
             return { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } = stdgo._internal.net.textproto.Textproto__parsecodeline._parseCodeLine(_line?.__copy__(), _expectCode);
+            final __tmp__ = stdgo._internal.net.textproto.Textproto__parsecodeline._parseCodeLine(_line?.__copy__(), _expectCode);
             _code = __tmp__._0;
             _continued = __tmp__._1;
-            _message = __tmp__._2;
+            _message = __tmp__._2?.__copy__();
             _err = __tmp__._3;
-            __tmp__;
+            { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
     }
     @:keep

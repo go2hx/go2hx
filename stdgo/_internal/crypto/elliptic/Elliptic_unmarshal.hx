@@ -9,10 +9,10 @@ function unmarshal(_curve:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve, 
             }, _c = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = _c.unmarshal(_data);
+                    final __tmp__ = _c.unmarshal(_data);
                     _x = __tmp__._0;
                     _y = __tmp__._1;
-                    __tmp__;
+                    { _0 : _x, _1 : _y };
                 };
             };
         };

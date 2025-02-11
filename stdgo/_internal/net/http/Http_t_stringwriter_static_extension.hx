@@ -6,10 +6,10 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter = _w?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__ = _w._w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
 }

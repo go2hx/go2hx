@@ -34,12 +34,12 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src.at(_x, _y).rGBA();
+                final __tmp__ = _src.at(_x, _y).rGBA();
                 _r = __tmp__._0;
                 _g = __tmp__._1;
                 _b = __tmp__._2;
                 _a = __tmp__._3;
-                __tmp__;
+                { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
             };
         } : (stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; });
         {
@@ -49,12 +49,12 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.rGBAAt(_x, _y).rGBA();
+                        final __tmp__ = @:check2r _src0.rGBAAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
                         _a = __tmp__._3;
-                        __tmp__;
+                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
@@ -62,12 +62,12 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.nRGBAAt(_x, _y).rGBA();
+                        final __tmp__ = @:check2r _src0.nRGBAAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
                         _a = __tmp__._3;
-                        __tmp__;
+                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>))) {
@@ -75,12 +75,12 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = @:check2r _src0.yCbCrAt(_x, _y).rGBA();
+                        final __tmp__ = @:check2r _src0.yCbCrAt(_x, _y).rGBA();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
                         _a = __tmp__._3;
-                        __tmp__;
+                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
                     };
                 };
             };

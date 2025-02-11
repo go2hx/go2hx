@@ -37,10 +37,10 @@ package stdgo._internal.compress.flate;
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2 (@:checkr _w ?? throw "null pointer dereference")._d._write(_data);
+            final __tmp__ = @:check2 (@:checkr _w ?? throw "null pointer dereference")._d._write(_data);
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
 }

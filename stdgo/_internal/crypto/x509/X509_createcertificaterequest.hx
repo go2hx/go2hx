@@ -158,9 +158,9 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_reader.Reader, _te
             return { _0 : _csr, _1 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCSR : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.X509_t_certificaterequest.T_certificateRequest))));
+            final __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCSR : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.X509_t_certificaterequest.T_certificateRequest))));
             _csr = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _csr, _1 : _err };
         };
     }

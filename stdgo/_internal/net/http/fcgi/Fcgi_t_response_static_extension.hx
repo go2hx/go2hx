@@ -65,10 +65,10 @@ package stdgo._internal.net.http.fcgi;
             @:check2r _r._writeCGIHeader(_p);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = @:check2r (@:checkr _r ?? throw "null pointer dereference")._w.write(_p);
+            final __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._w.write(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _n, _1 : _err };
         };
     }
     @:keep

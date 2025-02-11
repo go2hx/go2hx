@@ -134,10 +134,10 @@ package stdgo._internal.net.http;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_handler.Handler; var _1 : stdgo.GoString; } = @:check2r _mux._handler((@:checkr _r ?? throw "null pointer dereference").host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
+                final __tmp__ = @:check2r _mux._handler((@:checkr _r ?? throw "null pointer dereference").host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
                 _h = __tmp__._0;
-                _pattern = __tmp__._1;
-                __tmp__;
+                _pattern = __tmp__._1?.__copy__();
+                { _0 : _h, _1 : _pattern };
             };
         };
         var _host = (stdgo._internal.net.http.Http__striphostport._stripHostPort((@:checkr _r ?? throw "null pointer dereference").host?.__copy__())?.__copy__() : stdgo.GoString);
@@ -167,10 +167,10 @@ package stdgo._internal.net.http;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_handler.Handler; var _1 : stdgo.GoString; } = @:check2r _mux._handler(_host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
+            final __tmp__ = @:check2r _mux._handler(_host?.__copy__(), (@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__());
             _h = __tmp__._0;
-            _pattern = __tmp__._1;
-            __tmp__;
+            _pattern = __tmp__._1?.__copy__();
+            { _0 : _h, _1 : _pattern };
         };
     }
 }

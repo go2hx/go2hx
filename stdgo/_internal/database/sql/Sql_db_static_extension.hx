@@ -85,10 +85,10 @@ package stdgo._internal.database.sql;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = @:check2r _db._beginDC(_ctx, _dc, @:check2r _dc._releaseConn, _opts);
+            final __tmp__ = @:check2r _db._beginDC(_ctx, _dc, @:check2r _dc._releaseConn, _opts);
             _tx = __tmp__._0;
             _err = __tmp__._1;
-            __tmp__;
+            { _0 : _tx, _1 : _err };
         };
     }
     @:keep
@@ -350,10 +350,10 @@ package stdgo._internal.database.sql;
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__resultfromstatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                    final __tmp__ = stdgo._internal.database.sql.Sql__resultfromstatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
                     _res = __tmp__._0;
                     _err = __tmp__._1;
-                    __tmp__;
+                    { _0 : _res, _1 : _err };
                 };
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

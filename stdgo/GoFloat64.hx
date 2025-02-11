@@ -101,6 +101,12 @@ abstract GoFloat64(Float) from Float to Float {
 	@:op(A % B) private static function mod(a:GoFloat64, b:GoFloat64):GoFloat64
 		return a.toBasic() % b.toBasic();
 
+	@:op(A != B) private static function notEq(a:GoFloat, b:GoFloat):Bool
+		return !eq(a,b);
+
+	@:op(A == B) private static function eq(a:GoFloat, b:GoFloat):Bool
+		return a.toBasic() == b.toBasic();
+
 	@:op(A > B) private static function gt(a:GoFloat64, b:GoFloat64):Bool
 		return a.toBasic() > b.toBasic();
 

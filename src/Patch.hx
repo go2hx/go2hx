@@ -36,6 +36,8 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeof.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	// exclude because it pulls in x/net/
+	"os_test:_createSocketPair" => macro return {_0: null, _1: null},
 	"os:mkdir" => macro @:define("(sys || hxnodejs)") try {
 		sys.FileSystem.createDirectory(_name);
 		return null;
@@ -260,6 +262,15 @@ final list = [
 		@:privateAccess _f._input.close();
 		@:privateAccess _f._output.close();
 		return null;
+	},
+	"os:getEnv" => macro {
+		return @:define("(sys || hxnodejs)") {
+			try {
+				return {_0: std.Sys.getEnv(_key), _1: null};
+			} catch (e) {
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+			}
+		};
 	},
 	"os:getwd" => macro {
 		return @:define("(sys || hxnodejs)") {
@@ -1393,13 +1404,13 @@ final list = [
 	// func (x *Pointer[T]) Swap(new *T) (old *T) { return (*T)(SwapPointer(&x.v, unsafe.Pointer(new))) }
 	"sync.atomic_.Pointer_:swap" => macro {
 		final old = @:privateAccess _x._v;
-		_x._v = stdgo.Go.toInterface(_new);
+		_x._v = stdgo.Go.toInterface(_new_);
 		return stdgo.Go.toInterface(old);
 	},
 	"sync.atomic_.Pointer_:compareAndSwap" => macro {
-		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
+		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new_);
 		if (b)
-			_x._v = stdgo.Go.toInterface(_new);
+			_x._v = stdgo.Go.toInterface(_new_);
 		return b;
 	},
 	"sync.atomic_.Pointer_:store" => macro {

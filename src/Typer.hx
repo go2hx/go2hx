@@ -15,7 +15,7 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable", "environ", "trace", "haxe", "std",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable", "environ", "trace", "haxe", "std", "_new",
 ];
 
 final reservedClassNames = [
@@ -3584,7 +3584,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 					for (i in 0...info.returnTypes.length) {
 						final e = macro $i{info.returnNames[i]};
 						{field: "_" + i, expr: info.returnNamed ? e : defaultValue(info.returnTypes[i], info)};
-					}
+				}
 				];
 				assigns.push(toExpr(EObjectDecl(fields)));
 				final ct = info.returnType;
@@ -6335,7 +6335,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					}
 				}
 				if (!exists) {
-					if (stdgoList.indexOf(toGoPath(info.global.path)) == -1) {
+					if (stdgoList.indexOf(toGoPath(info.global.path)) == -1 && !StringTools.endsWith(toGoPath(info.global.path), "_test")) {
 						info.data.imports.push({
 							path: s.split("."),
 							doc: "",

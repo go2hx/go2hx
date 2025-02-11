@@ -73,4 +73,5 @@ sort_*.json
 prebuild
 _internal/*
 analysis/tests/unitmod/*
+analysis/tests/gotomod/*
 !tests/stdlogs/*.log

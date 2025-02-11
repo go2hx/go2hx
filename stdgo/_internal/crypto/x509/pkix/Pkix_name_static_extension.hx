@@ -4,7 +4,7 @@ package stdgo._internal.crypto.x509.pkix;
     @:tdfield
     static public function string( _n:stdgo._internal.crypto.x509.pkix.Pkix_name.Name):stdgo.GoString {
         @:recv var _n:stdgo._internal.crypto.x509.pkix.Pkix_name.Name = _n?.__copy__();
-        var _rdns:stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0);
+        var _rdns:stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence = (new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         if (_n.extraNames == null) {
             for (__0 => _atv in _n.names) {
                 var _t = (_atv.type : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier);
@@ -26,7 +26,7 @@ package stdgo._internal.crypto.x509.pkix;
     @:tdfield
     static public function toRDNSequence( _n:stdgo._internal.crypto.x509.pkix.Pkix_name.Name):stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence {
         @:recv var _n:stdgo._internal.crypto.x509.pkix.Pkix_name.Name = _n?.__copy__();
-        var _ret = new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0);
+        var _ret = (new stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence(0, 0) : stdgo._internal.crypto.x509.pkix.Pkix_rdnsequence.RDNSequence);
         _ret = _n._appendRDNs(_ret, _n.country, stdgo._internal.crypto.x509.pkix.Pkix__oidcountry._oidCountry);
         _ret = _n._appendRDNs(_ret, _n.province, stdgo._internal.crypto.x509.pkix.Pkix__oidprovince._oidProvince);
         _ret = _n._appendRDNs(_ret, _n.locality, stdgo._internal.crypto.x509.pkix.Pkix__oidlocality._oidLocality);

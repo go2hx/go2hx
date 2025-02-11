@@ -8,7 +8,7 @@ function benchmarkScan(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
                 };
                 @:check2r _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%d/Base%d" : stdgo.GoString), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_base))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void {
                     @:check2r _b.stopTimer();
-                    var _z:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+                    var _z:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
                     _z = _z._expWW((10u32 : stdgo._internal.math.big.Big_word.Word), _y);
                     var _s = _z._utoa(_base);
                     {

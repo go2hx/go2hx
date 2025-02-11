@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.x509;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_t_tbscertificaterequest_static_extension.T_tbsCertificateRequest_static_extension) class T_tbsCertificateRequest {
-    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0);
+    public var raw : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent = (new stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent(0, 0) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent);
     public var version : stdgo.GoInt = 0;
     public var subject : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue = ({} : stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue);
     public var publicKey : stdgo._internal.crypto.x509.X509_t_publickeyinfo.T_publicKeyInfo = ({} : stdgo._internal.crypto.x509.X509_t_publickeyinfo.T_publicKeyInfo);

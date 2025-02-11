@@ -1,7 +1,7 @@
 package stdgo._internal.internal.zstd;
 @:structInit @:using(stdgo._internal.internal.zstd.Zstd_t_reversebitreader_static_extension.T_reverseBitReader_static_extension) class T_reverseBitReader {
     public var _r : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = (null : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>);
-    public var _data : stdgo._internal.internal.zstd.Zstd_t_block.T_block = new stdgo._internal.internal.zstd.Zstd_t_block.T_block(0, 0);
+    public var _data : stdgo._internal.internal.zstd.Zstd_t_block.T_block = (new stdgo._internal.internal.zstd.Zstd_t_block.T_block(0, 0) : stdgo._internal.internal.zstd.Zstd_t_block.T_block);
     public var _off : stdgo.GoUInt32 = 0;
     public var _start : stdgo.GoUInt32 = 0;
     public var _bits : stdgo.GoUInt32 = 0;

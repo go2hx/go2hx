@@ -74,7 +74,7 @@ function _checkSignature(_algo:stdgo._internal.crypto.x509.X509_signaturealgorit
                 };
                 return _err;
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey))) {
-                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__().value;
+                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__() == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__().value;
                 if (_pubKeyAlgo != ((4 : stdgo._internal.crypto.x509.X509_publickeyalgorithm.PublicKeyAlgorithm))) {
                     return _err = stdgo._internal.crypto.x509.X509__signaturepublickeyalgomismatcherror._signaturePublicKeyAlgoMismatchError(_pubKeyAlgo, stdgo.Go.toInterface(stdgo.Go.asInterface(_pub)));
                 };

@@ -29,7 +29,7 @@ function marshalPKCS8PrivateKey(_key:stdgo.AnyInterface):{ var _0 : stdgo.Slice<
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey))) {
-                var _k:stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey = __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : __type__.__underlying__().value;
+                var _k:stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey = __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey) : __type__.__underlying__() == null ? (new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey) : __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_privatekey.PrivateKey) : __type__.__underlying__().value;
                 _privKey.algo = ({ algorithm : stdgo._internal.crypto.x509.X509__oidpublickeyed25519._oidPublicKeyEd25519 } : stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier);
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_k.seed())), _curvePrivateKey:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

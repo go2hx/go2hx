@@ -3,7 +3,7 @@ package stdgo._internal.crypto.x509;
     public var version : stdgo.GoInt = 0;
     public var privateKey : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     @:tag("`asn1:\"optional,explicit,tag:0\"`")
-    public var namedCurveOID : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0);
+    public var namedCurveOID : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier = (new stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier(0, 0) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier);
     @:tag("`asn1:\"optional,explicit,tag:1\"`")
     public var publicKey : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString = ({} : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString);
     public function new(?version:stdgo.GoInt, ?privateKey:stdgo.Slice<stdgo.GoUInt8>, ?namedCurveOID:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier, ?publicKey:stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) {

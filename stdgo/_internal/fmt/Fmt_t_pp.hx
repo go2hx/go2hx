@@ -1,6 +1,6 @@
 package stdgo._internal.fmt;
 @:structInit @:using(stdgo._internal.fmt.Fmt_t_pp_static_extension.T_pp_static_extension) class T_pp {
-    public var _buf : stdgo._internal.fmt.Fmt_t_buffer.T_buffer = new stdgo._internal.fmt.Fmt_t_buffer.T_buffer(0, 0);
+    public var _buf : stdgo._internal.fmt.Fmt_t_buffer.T_buffer = (new stdgo._internal.fmt.Fmt_t_buffer.T_buffer(0, 0) : stdgo._internal.fmt.Fmt_t_buffer.T_buffer);
     public var _arg : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var _value : stdgo._internal.reflect.Reflect_value.Value = ({} : stdgo._internal.reflect.Reflect_value.Value);
     public var _fmt : stdgo._internal.fmt.Fmt_t_fmt.T_fmt = ({} : stdgo._internal.fmt.Fmt_t_fmt.T_fmt);

@@ -118,7 +118,7 @@ package stdgo._internal.crypto.tls;
                                 };
                                 _ecdsaCipherSuite = true;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey))) {
-                                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__ == null ? new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : __type__.__underlying__().value;
+                                var _pub:stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey = __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__() == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__ == null ? (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey) : __type__.__underlying__().value;
                                 if (((_vers < (771 : stdgo.GoUInt16) : Bool) || ((@:checkr _chi ?? throw "null pointer dereference").signatureSchemes.length == (0 : stdgo.GoInt)) : Bool)) {
                                     return stdgo._internal.errors.Errors_new_.new_(("connection doesn\'t support Ed25519" : stdgo.GoString));
                                 };

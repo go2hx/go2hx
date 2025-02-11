@@ -54,7 +54,7 @@ var _max = __1, _min = __0;
         };
         var __0:stdgo.GoUInt = (0 : stdgo.GoUInt), __1:stdgo.GoUInt = (0 : stdgo.GoUInt), __2:stdgo.GoUInt = (0 : stdgo.GoUInt);
 var _sbit = __2, _rbit = __1, _bit0 = __0;
-        var _z:stdgo._internal.math.big.Big_bits.Bits = new stdgo._internal.math.big.Big_bits.Bits(0, 0);
+        var _z:stdgo._internal.math.big.Big_bits.Bits = (new stdgo._internal.math.big.Big_bits.Bits(0, 0) : stdgo._internal.math.big.Big_bits.Bits);
         var _r = (_max - (_prec : stdgo.GoInt) : stdgo.GoInt);
         for (__8 => _b in _x) {
             if (_b == (_r)) {
@@ -95,7 +95,7 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
             };
             _m[_b] = true;
         };
-        var _z:stdgo._internal.math.big.Big_bits.Bits = new stdgo._internal.math.big.Big_bits.Bits(0, 0);
+        var _z:stdgo._internal.math.big.Big_bits.Bits = (new stdgo._internal.math.big.Big_bits.Bits(0, 0) : stdgo._internal.math.big.Big_bits.Bits);
         for (_b => _set in _m) {
             if (_set) {
                 _z = (_z.__append__(_b));
@@ -108,7 +108,7 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
     @:tdfield
     static public function _mul( _x:stdgo._internal.math.big.Big_bits.Bits, _y:stdgo._internal.math.big.Big_bits.Bits):stdgo._internal.math.big.Big_bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_bits.Bits = _x;
-        var _p:stdgo._internal.math.big.Big_bits.Bits = new stdgo._internal.math.big.Big_bits.Bits(0, 0);
+        var _p:stdgo._internal.math.big.Big_bits.Bits = (new stdgo._internal.math.big.Big_bits.Bits(0, 0) : stdgo._internal.math.big.Big_bits.Bits);
         for (__8 => _x in _x) {
             for (__9 => _y in _y) {
                 _p = (_p.__append__((_x + _y : stdgo.GoInt)));

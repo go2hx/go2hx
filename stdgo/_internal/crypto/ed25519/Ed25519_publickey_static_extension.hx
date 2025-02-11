@@ -7,7 +7,7 @@ package stdgo._internal.crypto.ed25519;
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_x : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey)) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey), _1 : true };
         } catch(_) {
-            { _0 : new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0), _1 : false };
+            { _0 : (new stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey(0, 0) : stdgo._internal.crypto.ed25519.Ed25519_publickey.PublicKey), _1 : false };
         }, _xx = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             return false;

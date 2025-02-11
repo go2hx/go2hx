@@ -9,7 +9,7 @@ function leafSizeHelper(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _base
             var _d = (1 : stdgo.GoInt);
             while ((_d <= (10000 : stdgo.GoInt) : Bool)) {
                 @:check2r _b.stopTimer();
-var _z:stdgo._internal.math.big.Big_t_nat.T_nat = new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0);
+var _z:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
 _z = _z._expWW((_base : stdgo._internal.math.big.Big_word.Word), (_d : stdgo._internal.math.big.Big_word.Word));
 var __blank__ = _z._utoa(_base);
 @:check2r _b.startTimer();

@@ -14,7 +14,7 @@ class Map__asInterface {
     public dynamic function compareAndDelete(_key:stdgo.AnyInterface, _old:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndDelete(_key, _old);
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndSwap(_key, _old, _new);
+    public dynamic function compareAndSwap(_key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndSwap(_key, _old, _new_);
     @:keep
     @:tdfield
     public dynamic function swap(_key:stdgo.AnyInterface, _value:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value.swap(_key, _value);

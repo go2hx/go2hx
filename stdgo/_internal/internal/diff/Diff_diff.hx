@@ -1,10 +1,10 @@
 package stdgo._internal.internal.diff;
-function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName:stdgo.GoString, _new:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
-        if (stdgo._internal.bytes.Bytes_equal.equal(_old, _new)) {
+function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName:stdgo.GoString, _new_:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
+        if (stdgo._internal.bytes.Bytes_equal.equal(_old, _new_)) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
         var _x = stdgo._internal.internal.diff.Diff__lines._lines(_old);
-        var _y = stdgo._internal.internal.diff.Diff__lines._lines(_new);
+        var _y = stdgo._internal.internal.diff.Diff__lines._lines(_new_);
         var _out:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));

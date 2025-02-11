@@ -473,12 +473,12 @@ class Map__static_extension {
         final _old = (_old : stdgo.AnyInterface);
         return stdgo._internal.sync.Sync_map__static_extension.Map__static_extension.compareAndDelete(_m, _key, _old);
     }
-    static public function compareAndSwap(_m:Map_, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
+    static public function compareAndSwap(_m:Map_, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool {
         final _m = (_m : stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>);
         final _key = (_key : stdgo.AnyInterface);
         final _old = (_old : stdgo.AnyInterface);
-        final _new = (_new : stdgo.AnyInterface);
-        return stdgo._internal.sync.Sync_map__static_extension.Map__static_extension.compareAndSwap(_m, _key, _old, _new);
+        final _new_ = (_new_ : stdgo.AnyInterface);
+        return stdgo._internal.sync.Sync_map__static_extension.Map__static_extension.compareAndSwap(_m, _key, _old, _new_);
     }
     static public function swap(_m:Map_, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _m = (_m : stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>);
@@ -572,11 +572,11 @@ class Map__static_extension {
         final _e = (_e : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>);
         return stdgo._internal.sync.Sync_t_entry_static_extension.T_entry_static_extension._unexpungeLocked(_e);
     }
-    static public function _tryCompareAndSwap(_e:T_entry, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
+    static public function _tryCompareAndSwap(_e:T_entry, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool {
         final _e = (_e : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>);
         final _old = (_old : stdgo.AnyInterface);
-        final _new = (_new : stdgo.AnyInterface);
-        return stdgo._internal.sync.Sync_t_entry_static_extension.T_entry_static_extension._tryCompareAndSwap(_e, _old, _new);
+        final _new_ = (_new_ : stdgo.AnyInterface);
+        return stdgo._internal.sync.Sync_t_entry_static_extension.T_entry_static_extension._tryCompareAndSwap(_e, _old, _new_);
     }
     static public function _load(_e:T_entry):stdgo.Tuple<stdgo.AnyInterface, Bool> {
         final _e = (_e : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>);
@@ -588,10 +588,10 @@ class Map__static_extension {
 }
 typedef MutexPointer = stdgo._internal.sync.Sync_mutexpointer.MutexPointer;
 class Mutex_static_extension {
-    static public function _unlockSlow(_m:Mutex, _new:StdTypes.Int):Void {
+    static public function _unlockSlow(_m:Mutex, _new_:StdTypes.Int):Void {
         final _m = (_m : stdgo.Ref<stdgo._internal.sync.Sync_mutex.Mutex>);
-        final _new = (_new : stdgo.GoInt32);
-        stdgo._internal.sync.Sync_mutex_static_extension.Mutex_static_extension._unlockSlow(_m, _new);
+        final _new_ = (_new_ : stdgo.GoInt32);
+        stdgo._internal.sync.Sync_mutex_static_extension.Mutex_static_extension._unlockSlow(_m, _new_);
     }
     static public function unlock(_m:Mutex):Void {
         final _m = (_m : stdgo.Ref<stdgo._internal.sync.Sync_mutex.Mutex>);

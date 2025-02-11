@@ -417,10 +417,10 @@ class Template_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);
         return stdgo._internal.html.template.Template_template_static_extension.Template_static_extension.name(_t);
     }
-    static public function _new(_t:Template_, _name:String):Template_ {
+    static public function _new_(_t:Template_, _name:String):Template_ {
         final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);
         final _name = (_name : stdgo.GoString);
-        return stdgo._internal.html.template.Template_template_static_extension.Template_static_extension._new(_t, _name);
+        return stdgo._internal.html.template.Template_template_static_extension.Template_static_extension._new_(_t, _name);
     }
     static public function new_(_t:Template_, _name:String):Template_ {
         final _t = (_t : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);

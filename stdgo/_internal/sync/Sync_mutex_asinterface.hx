@@ -2,7 +2,7 @@ package stdgo._internal.sync;
 class Mutex_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _unlockSlow(_new:stdgo.GoInt32):Void @:_0 __self__.value._unlockSlow(_new);
+    public dynamic function _unlockSlow(_new_:stdgo.GoInt32):Void @:_0 __self__.value._unlockSlow(_new_);
     @:keep
     @:tdfield
     public dynamic function unlock():Void @:_0 __self__.value.unlock();

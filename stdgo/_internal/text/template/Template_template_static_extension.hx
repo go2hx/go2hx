@@ -2,18 +2,18 @@ package stdgo._internal.text.template;
 @:keep @:allow(stdgo._internal.text.template.Template.Template_asInterface) class Template_static_extension {
     @:keep
     @:tdfield
-    static public function _associate( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _new:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Bool {
+    static public function _associate( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _new_:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        if ((@:checkr _new ?? throw "null pointer dereference")._common != ((@:checkr _t ?? throw "null pointer dereference")._common)) {
+        if ((@:checkr _new_ ?? throw "null pointer dereference")._common != ((@:checkr _t ?? throw "null pointer dereference")._common)) {
             throw stdgo.Go.toInterface(("internal error: associate not common" : stdgo.GoString));
         };
         {
-            var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new ?? throw "null pointer dereference")._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
+            var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
             if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && stdgo._internal.text.template.Template__parse._parse.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {
                 return false;
             };
         };
-        (@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new ?? throw "null pointer dereference")._name] = _new;
+        (@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] = _new_;
         return true;
     }
     @:keep

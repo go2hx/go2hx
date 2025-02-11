@@ -81,7 +81,7 @@ package stdgo._internal.sync;
     }
     @:keep
     @:tdfield
-    static public function compareAndSwap( _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
+    static public function compareAndSwap( _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_> = _m;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
@@ -89,7 +89,7 @@ package stdgo._internal.sync;
             {
                 var __tmp__ = (_read._m != null && _read._m.__exists__(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    return @:check2r _e._tryCompareAndSwap(_old, _new);
+                    return @:check2r _e._tryCompareAndSwap(_old, _new_);
                 } else if (!_read._amended) {
                     return false;
                 };
@@ -104,11 +104,11 @@ package stdgo._internal.sync;
             {
                 var __tmp__ = (_read._m != null && _read._m.__exists__(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    _swapped = @:check2r _e._tryCompareAndSwap(_old, _new);
+                    _swapped = @:check2r _e._tryCompareAndSwap(_old, _new_);
                 } else {
                     var __tmp__ = ((@:checkr _m ?? throw "null pointer dereference")._dirty != null && (@:checkr _m ?? throw "null pointer dereference")._dirty.__exists__(_key) ? { _0 : (@:checkr _m ?? throw "null pointer dereference")._dirty[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
-                        _swapped = @:check2r _e._tryCompareAndSwap(_old, _new);
+                        _swapped = @:check2r _e._tryCompareAndSwap(_old, _new_);
                         @:check2r _m._missLocked();
                     };
                 };

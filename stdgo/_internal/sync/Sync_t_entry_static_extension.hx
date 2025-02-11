@@ -124,13 +124,13 @@ package stdgo._internal.sync;
     }
     @:keep
     @:tdfield
-    static public function _tryCompareAndSwap( _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
+    static public function _tryCompareAndSwap( _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool {
         @:recv var _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = _e;
         var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
         if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
             return false;
         };
-        var _nc = (_new : stdgo.AnyInterface);
+        var _nc = (_new_ : stdgo.AnyInterface);
         while (true) {
             if (@:check2 (@:checkr _e ?? throw "null pointer dereference")._p.compareAndSwap(_p, (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>))) {
                 return true;

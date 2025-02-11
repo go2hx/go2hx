@@ -5,10 +5,10 @@ class Int64__asInterface {
     public dynamic function add(_delta:stdgo.GoInt64):stdgo.GoInt64 return @:_0 __self__.value.add(_delta);
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo.GoInt64, _new:stdgo.GoInt64):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoInt64, _new_:stdgo.GoInt64):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
-    public dynamic function swap(_new:stdgo.GoInt64):stdgo.GoInt64 return @:_0 __self__.value.swap(_new);
+    public dynamic function swap(_new_:stdgo.GoInt64):stdgo.GoInt64 return @:_0 __self__.value.swap(_new_);
     @:keep
     @:tdfield
     public dynamic function store(_val:stdgo.GoInt64):Void @:_0 __self__.value.store(_val);

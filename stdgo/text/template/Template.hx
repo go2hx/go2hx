@@ -1081,11 +1081,11 @@ class Tree_static_extension {
 }
 typedef TemplatePointer = stdgo._internal.text.template.Template_templatepointer.TemplatePointer;
 class Template_static_extension {
-    static public function _associate(_t:Template_, _new:Template_, _tree:stdgo._internal.text.template.parse.Parse_tree.Tree):Bool {
+    static public function _associate(_t:Template_, _new_:Template_, _tree:stdgo._internal.text.template.parse.Parse_tree.Tree):Bool {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
-        final _new = (_new : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+        final _new_ = (_new_ : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
         final _tree = (_tree : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
-        return stdgo._internal.text.template.Template_template_static_extension.Template_static_extension._associate(_t, _new, _tree);
+        return stdgo._internal.text.template.Template_template_static_extension.Template_static_extension._associate(_t, _new_, _tree);
     }
     static public function parse(_t:Template_, _text:String):stdgo.Tuple<Template_, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);

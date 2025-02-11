@@ -5,10 +5,10 @@ class Uintptr_asInterface {
     public dynamic function add(_delta:stdgo.GoUIntptr):stdgo.GoUIntptr return @:_0 __self__.value.add(_delta);
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoUIntptr, _new_:stdgo.GoUIntptr):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
-    public dynamic function swap(_new:stdgo.GoUIntptr):stdgo.GoUIntptr return @:_0 __self__.value.swap(_new);
+    public dynamic function swap(_new_:stdgo.GoUIntptr):stdgo.GoUIntptr return @:_0 __self__.value.swap(_new_);
     @:keep
     @:tdfield
     public dynamic function store(_val:stdgo.GoUIntptr):Void @:_0 __self__.value.store(_val);

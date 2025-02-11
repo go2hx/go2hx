@@ -2,7 +2,7 @@ package stdgo._internal.runtime;
 class T_goroutineProfileStateHolder_asInterface {
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo._internal.runtime.Runtime_t_goroutineprofilestate.T_goroutineProfileState, _new:stdgo._internal.runtime.Runtime_t_goroutineprofilestate.T_goroutineProfileState):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo._internal.runtime.Runtime_t_goroutineprofilestate.T_goroutineProfileState, _new_:stdgo._internal.runtime.Runtime_t_goroutineprofilestate.T_goroutineProfileState):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
     public dynamic function store(_value:stdgo._internal.runtime.Runtime_t_goroutineprofilestate.T_goroutineProfileState):Void @:_0 __self__.value.store(_value);

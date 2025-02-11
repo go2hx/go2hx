@@ -23,7 +23,7 @@ class Template_asInterface {
     public dynamic function name():stdgo.GoString return @:_0 __self__.value.name();
     @:keep
     @:tdfield
-    public dynamic function _new(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_template.Template> return @:_0 __self__.value._new(_name);
+    public dynamic function _new_(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_template.Template> return @:_0 __self__.value._new_(_name);
     @:keep
     @:tdfield
     public dynamic function new_(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_template.Template> return @:_0 __self__.value.new_(_name);

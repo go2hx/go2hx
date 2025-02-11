@@ -20,7 +20,7 @@ class T_entry_asInterface {
     public dynamic function _unexpungeLocked():Bool return @:_0 __self__.value._unexpungeLocked();
     @:keep
     @:tdfield
-    public dynamic function _tryCompareAndSwap(_old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return @:_0 __self__.value._tryCompareAndSwap(_old, _new);
+    public dynamic function _tryCompareAndSwap(_old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool return @:_0 __self__.value._tryCompareAndSwap(_old, _new_);
     @:keep
     @:tdfield
     public dynamic function _load():{ var _0 : stdgo.AnyInterface; var _1 : Bool; } return @:_0 __self__.value._load();

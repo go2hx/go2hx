@@ -787,12 +787,12 @@ class Bytes {
         * for a k-rune slice.
         * If n < 0, there is no limit on the number of replacements.
     **/
-    static public inline function replace(_s:Array<std.UInt>, _old:Array<std.UInt>, _new:Array<std.UInt>, _n:StdTypes.Int):Array<std.UInt> {
+    static public inline function replace(_s:Array<std.UInt>, _old:Array<std.UInt>, _new_:Array<std.UInt>, _n:StdTypes.Int):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _old = ([for (i in _old) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _new = ([for (i in _new) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        final _new_ = ([for (i in _new_) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _n = (_n : stdgo.GoInt);
-        return [for (i in stdgo._internal.bytes.Bytes_replace.replace(_s, _old, _new, _n)) i];
+        return [for (i in stdgo._internal.bytes.Bytes_replace.replace(_s, _old, _new_, _n)) i];
     }
     /**
         * ReplaceAll returns a copy of the slice s with all
@@ -801,11 +801,11 @@ class Bytes {
         * and after each UTF-8 sequence, yielding up to k+1 replacements
         * for a k-rune slice.
     **/
-    static public inline function replaceAll(_s:Array<std.UInt>, _old:Array<std.UInt>, _new:Array<std.UInt>):Array<std.UInt> {
+    static public inline function replaceAll(_s:Array<std.UInt>, _old:Array<std.UInt>, _new_:Array<std.UInt>):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _old = ([for (i in _old) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _new = ([for (i in _new) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.bytes.Bytes_replaceall.replaceAll(_s, _old, _new)) i];
+        final _new_ = ([for (i in _new_) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.bytes.Bytes_replaceall.replaceAll(_s, _old, _new_)) i];
     }
     /**
         * EqualFold reports whether s and t, interpreted as UTF-8 strings,

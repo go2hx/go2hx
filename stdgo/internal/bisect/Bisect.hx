@@ -156,11 +156,11 @@ class Matcher_static_extension {
 }
 @:dox(hide) typedef T_atomicPointerDedupPointer = stdgo._internal.internal.bisect.Bisect_t_atomicpointerdeduppointer.T_atomicPointerDedupPointer;
 @:dox(hide) class T_atomicPointerDedup_static_extension {
-    static public function compareAndSwap(_p:T_atomicPointerDedup, _old:T_dedup, _new:T_dedup):Bool {
+    static public function compareAndSwap(_p:T_atomicPointerDedup, _old:T_dedup, _new_:T_dedup):Bool {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup>);
         final _old = (_old : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>);
-        final _new = (_new : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>);
-        return stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup_static_extension.T_atomicPointerDedup_static_extension.compareAndSwap(_p, _old, _new);
+        final _new_ = (_new_ : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>);
+        return stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup_static_extension.T_atomicPointerDedup_static_extension.compareAndSwap(_p, _old, _new_);
     }
     static public function load(_p:T_atomicPointerDedup):T_dedup {
         final _p = (_p : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup>);

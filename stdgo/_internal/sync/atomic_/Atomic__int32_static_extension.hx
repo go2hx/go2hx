@@ -5,10 +5,10 @@ package stdgo._internal.sync.atomic_;
     static public function add( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _delta:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.add is not yet implemented";
     @:keep
     @:tdfield
-    static public function compareAndSwap( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _old:stdgo.GoInt32, _new:stdgo.GoInt32):Bool throw "Int32:sync.atomic_.compareAndSwap is not yet implemented";
+    static public function compareAndSwap( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _old:stdgo.GoInt32, _new_:stdgo.GoInt32):Bool throw "Int32:sync.atomic_.compareAndSwap is not yet implemented";
     @:keep
     @:tdfield
-    static public function swap( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _new:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.swap is not yet implemented";
+    static public function swap( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _new_:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.swap is not yet implemented";
     @:keep
     @:tdfield
     static public function store( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _val:stdgo.GoInt32):Void {

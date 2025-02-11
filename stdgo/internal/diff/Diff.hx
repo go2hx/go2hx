@@ -51,11 +51,11 @@ class Diff {
         * to wait longer (to be patient) for the diff, meaning that it is a slower algorithm,
         * when in fact the algorithm is faster than the standard one.
     **/
-    static public inline function diff(_oldName:String, _old:Array<std.UInt>, _newName:String, _new:Array<std.UInt>):Array<std.UInt> {
+    static public inline function diff(_oldName:String, _old:Array<std.UInt>, _newName:String, _new_:Array<std.UInt>):Array<std.UInt> {
         final _oldName = (_oldName : stdgo.GoString);
         final _old = ([for (i in _old) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _newName = (_newName : stdgo.GoString);
-        final _new = ([for (i in _new) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.internal.diff.Diff_diff.diff(_oldName, _old, _newName, _new)) i];
+        final _new_ = ([for (i in _new_) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.internal.diff.Diff_diff.diff(_oldName, _old, _newName, _new_)) i];
     }
 }

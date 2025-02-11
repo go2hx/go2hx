@@ -1,6 +1,6 @@
 package stdgo._internal.strings;
-function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoString {
-        if (((_old == _new) || (_n == (0 : stdgo.GoInt)) : Bool)) {
+function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new_:stdgo.GoString, _n:stdgo.GoInt):stdgo.GoString {
+        if (((_old == _new_) || (_n == (0 : stdgo.GoInt)) : Bool)) {
             return _s?.__copy__();
         };
         {
@@ -12,7 +12,7 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
             };
         };
         var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
-        @:check2 _b.grow(((_s.length) + (_n * (((_new.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt));
+        @:check2 _b.grow(((_s.length) + (_n * (((_new_.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt));
         var _start = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
@@ -27,7 +27,7 @@ if ((_old.length) == ((0 : stdgo.GoInt))) {
                     _j = (_j + (stdgo._internal.strings.Strings_index.index((_s.__slice__(_start) : stdgo.GoString).__copy__(), _old.__copy__())) : stdgo.GoInt);
                 };
 @:check2 _b.writeString((_s.__slice__(_start, _j) : stdgo.GoString).__copy__());
-@:check2 _b.writeString(_new.__copy__());
+@:check2 _b.writeString(_new_.__copy__());
 _start = (_j + (_old.length) : stdgo.GoInt);
                 _i++;
             };

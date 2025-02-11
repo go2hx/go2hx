@@ -2,7 +2,7 @@ package stdgo._internal.internal.bisect;
 class T_atomicPointerDedup_asInterface {
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>, _new:stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>, _new_:stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup>):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
     public dynamic function load():stdgo.Ref<stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup> return @:_0 __self__.value.load();

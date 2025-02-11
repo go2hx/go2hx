@@ -1006,12 +1006,12 @@ class Strings {
         * for a k-rune string.
         * If n < 0, there is no limit on the number of replacements.
     **/
-    static public inline function replace(_s:String, _old:String, _new:String, _n:StdTypes.Int):String {
+    static public inline function replace(_s:String, _old:String, _new_:String, _n:StdTypes.Int):String {
         final _s = (_s : stdgo.GoString);
         final _old = (_old : stdgo.GoString);
-        final _new = (_new : stdgo.GoString);
+        final _new_ = (_new_ : stdgo.GoString);
         final _n = (_n : stdgo.GoInt);
-        return stdgo._internal.strings.Strings_replace.replace(_s, _old, _new, _n);
+        return stdgo._internal.strings.Strings_replace.replace(_s, _old, _new_, _n);
     }
     /**
         * ReplaceAll returns a copy of the string s with all
@@ -1020,11 +1020,11 @@ class Strings {
         * and after each UTF-8 sequence, yielding up to k+1 replacements
         * for a k-rune string.
     **/
-    static public inline function replaceAll(_s:String, _old:String, _new:String):String {
+    static public inline function replaceAll(_s:String, _old:String, _new_:String):String {
         final _s = (_s : stdgo.GoString);
         final _old = (_old : stdgo.GoString);
-        final _new = (_new : stdgo.GoString);
-        return stdgo._internal.strings.Strings_replaceall.replaceAll(_s, _old, _new);
+        final _new_ = (_new_ : stdgo.GoString);
+        return stdgo._internal.strings.Strings_replaceall.replaceAll(_s, _old, _new_);
     }
     /**
         * EqualFold reports whether s and t, interpreted as UTF-8 strings,

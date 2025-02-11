@@ -5,10 +5,10 @@ class Uint32_asInterface {
     public dynamic function add(_delta:stdgo.GoUInt32):stdgo.GoUInt32 return @:_0 __self__.value.add(_delta);
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo.GoUInt32, _new:stdgo.GoUInt32):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.GoUInt32, _new_:stdgo.GoUInt32):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
-    public dynamic function swap(_new:stdgo.GoUInt32):stdgo.GoUInt32 return @:_0 __self__.value.swap(_new);
+    public dynamic function swap(_new_:stdgo.GoUInt32):stdgo.GoUInt32 return @:_0 __self__.value.swap(_new_);
     @:keep
     @:tdfield
     public dynamic function store(_val:stdgo.GoUInt32):Void @:_0 __self__.value.store(_val);

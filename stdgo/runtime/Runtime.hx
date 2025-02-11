@@ -4420,9 +4420,9 @@ class TimeHistogram_static_extension {
 }
 @:dox(hide) typedef T_goroutineProfileStateHolderPointer = stdgo._internal.runtime.Runtime_t_goroutineprofilestateholderpointer.T_goroutineProfileStateHolderPointer;
 @:dox(hide) class T_goroutineProfileStateHolder_static_extension {
-    static public function compareAndSwap(_p:T_goroutineProfileStateHolder, _old:T_goroutineProfileState, _new:T_goroutineProfileState):Bool {
+    static public function compareAndSwap(_p:T_goroutineProfileStateHolder, _old:T_goroutineProfileState, _new_:T_goroutineProfileState):Bool {
         final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder.T_goroutineProfileStateHolder>);
-        return stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder_static_extension.T_goroutineProfileStateHolder_static_extension.compareAndSwap(_p, _old, _new);
+        return stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder_static_extension.T_goroutineProfileStateHolder_static_extension.compareAndSwap(_p, _old, _new_);
     }
     static public function store(_p:T_goroutineProfileStateHolder, _value:T_goroutineProfileState):Void {
         final _p = (_p : stdgo.Ref<stdgo._internal.runtime.Runtime_t_goroutineprofilestateholder.T_goroutineProfileStateHolder>);

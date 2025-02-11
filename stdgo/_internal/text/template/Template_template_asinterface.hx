@@ -2,7 +2,7 @@ package stdgo._internal.text.template;
 class Template_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _associate(_new:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Bool return @:_0 __self__.value._associate(_new, _tree);
+    public dynamic function _associate(_new_:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _tree:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Bool return @:_0 __self__.value._associate(_new_, _tree);
     @:keep
     @:tdfield
     public dynamic function parse(_text:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>; var _1 : stdgo.Error; } return @:_0 __self__.value.parse(_text);

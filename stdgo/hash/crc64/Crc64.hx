@@ -19,6 +19,41 @@ final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.eCMA;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.hash.crc64.Crc64.T_test_static_extension) @:dox(hide) abstract T_test(stdgo._internal.hash.crc64.Crc64_t_test.T_test) from stdgo._internal.hash.crc64.Crc64_t_test.T_test to stdgo._internal.hash.crc64.Crc64_t_test.T_test {
+    public var _outISO(get, set) : haxe.UInt64;
+    function get__outISO():haxe.UInt64 return this._outISO;
+    function set__outISO(v:haxe.UInt64):haxe.UInt64 {
+        this._outISO = (v : stdgo.GoUInt64);
+        return v;
+    }
+    public var _outECMA(get, set) : haxe.UInt64;
+    function get__outECMA():haxe.UInt64 return this._outECMA;
+    function set__outECMA(v:haxe.UInt64):haxe.UInt64 {
+        this._outECMA = (v : stdgo.GoUInt64);
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfStateISO(get, set) : String;
+    function get__halfStateISO():String return this._halfStateISO;
+    function set__halfStateISO(v:String):String {
+        this._halfStateISO = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfStateECMA(get, set) : String;
+    function get__halfStateECMA():String return this._halfStateECMA;
+    function set__halfStateECMA(v:String):String {
+        this._halfStateECMA = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_outISO:haxe.UInt64, ?_outECMA:haxe.UInt64, ?_in:String, ?_halfStateISO:String, ?_halfStateECMA:String) this = new stdgo._internal.hash.crc64.Crc64_t_test.T_test((_outISO : stdgo.GoUInt64), (_outECMA : stdgo.GoUInt64), (_in : stdgo.GoString), (_halfStateISO : stdgo.GoString), (_halfStateECMA : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
 typedef Table = stdgo._internal.hash.crc64.Crc64_table.Table;
 @:dox(hide) typedef T_digestPointer = stdgo._internal.hash.crc64.Crc64_t_digestpointer.T_digestPointer;
 @:dox(hide) class T_digest_static_extension {
@@ -63,6 +98,10 @@ typedef Table = stdgo._internal.hash.crc64.Crc64_table.Table;
         final _d = (_d : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_t_digest.T_digest>);
         return stdgo._internal.hash.crc64.Crc64_t_digest_static_extension.T_digest_static_extension.size(_d);
     }
+}
+@:dox(hide) typedef T_testPointer = stdgo._internal.hash.crc64.Crc64_t_testpointer.T_testPointer;
+@:dox(hide) class T_test_static_extension {
+
 }
 typedef TablePointer = stdgo._internal.hash.crc64.Crc64_tablepointer.TablePointer;
 class Table_static_extension {
@@ -110,5 +149,21 @@ class Crc64 {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _tab = (_tab : stdgo.Ref<stdgo._internal.hash.crc64.Crc64_table.Table>);
         return stdgo._internal.hash.crc64.Crc64_checksum.checksum(_data, _tab);
+    }
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.crc64.Crc64_testgolden.testGolden(_t);
+    }
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.crc64.Crc64_testgoldenmarshal.testGoldenMarshal(_t);
+    }
+    static public inline function testMarshalTableMismatch(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.crc64.Crc64_testmarshaltablemismatch.testMarshalTableMismatch(_t);
+    }
+    static public inline function benchmarkCrc64(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.crc64.Crc64_benchmarkcrc64.benchmarkCrc64(_b);
     }
 }

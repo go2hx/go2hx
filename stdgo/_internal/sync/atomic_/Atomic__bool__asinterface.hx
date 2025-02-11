@@ -2,10 +2,10 @@ package stdgo._internal.sync.atomic_;
 class Bool__asInterface {
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:Bool, _new:Bool):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:Bool, _new_:Bool):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
-    public dynamic function swap(_new:Bool):Bool return @:_0 __self__.value.swap(_new);
+    public dynamic function swap(_new_:Bool):Bool return @:_0 __self__.value.swap(_new_);
     @:keep
     @:tdfield
     public dynamic function store(_val:Bool):Void @:_0 __self__.value.store(_val);

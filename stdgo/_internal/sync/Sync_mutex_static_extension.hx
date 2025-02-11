@@ -2,19 +2,19 @@ package stdgo._internal.sync;
 @:keep @:allow(stdgo._internal.sync.Sync.Mutex_asInterface) class Mutex_static_extension {
     @:keep
     @:tdfield
-    static public function _unlockSlow( _m:stdgo.Ref<stdgo._internal.sync.Sync_mutex.Mutex>, _new:stdgo.GoInt32):Void {
+    static public function _unlockSlow( _m:stdgo.Ref<stdgo._internal.sync.Sync_mutex.Mutex>, _new_:stdgo.GoInt32):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_mutex.Mutex> = _m;
-        if ((((_new + (1 : stdgo.GoInt32) : stdgo.GoInt32)) & (1 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
+        if ((((_new_ + (1 : stdgo.GoInt32) : stdgo.GoInt32)) & (1 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
             stdgo._internal.sync.Sync__fatal._fatal(("sync: unlock of unlocked mutex" : stdgo.GoString));
         };
-        if ((_new & (4 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
-            var _old = (_new : stdgo.GoInt32);
+        if ((_new_ & (4 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
+            var _old = (_new_ : stdgo.GoInt32);
             while (true) {
                 if ((((_old >> (3i64 : stdgo.GoUInt64) : stdgo.GoInt32) == (0 : stdgo.GoInt32)) || ((_old & (7 : stdgo.GoInt32) : stdgo.GoInt32) != (0 : stdgo.GoInt32)) : Bool)) {
                     return;
                 };
-                _new = (((_old - (8 : stdgo.GoInt32) : stdgo.GoInt32)) | (2 : stdgo.GoInt32) : stdgo.GoInt32);
-                if (stdgo._internal.sync.atomic_.Atomic__compareandswapint32.compareAndSwapInt32(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._state), _old, _new)) {
+                _new_ = (((_old - (8 : stdgo.GoInt32) : stdgo.GoInt32)) | (2 : stdgo.GoInt32) : stdgo.GoInt32);
+                if (stdgo._internal.sync.atomic_.Atomic__compareandswapint32.compareAndSwapInt32(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._state), _old, _new_)) {
                     stdgo._internal.sync.Sync__runtime_semrelease._runtime_Semrelease(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._sema), false, (1 : stdgo.GoInt));
                     return;
                 };
@@ -46,23 +46,23 @@ package stdgo._internal.sync;
                 _old = (@:checkr _m ?? throw "null pointer dereference")._state;
                 continue;
             };
-            var _new = (_old : stdgo.GoInt32);
+            var _new_ = (_old : stdgo.GoInt32);
             if ((_old & (4 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
-                _new = (_new | ((1 : stdgo.GoInt32)) : stdgo.GoInt32);
+                _new_ = (_new_ | ((1 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             if ((_old & (5 : stdgo.GoInt32) : stdgo.GoInt32) != ((0 : stdgo.GoInt32))) {
-                _new = (_new + ((8 : stdgo.GoInt32)) : stdgo.GoInt32);
+                _new_ = (_new_ + ((8 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             if ((_starving && ((_old & (1 : stdgo.GoInt32) : stdgo.GoInt32) != (0 : stdgo.GoInt32)) : Bool)) {
-                _new = (_new | ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
+                _new_ = (_new_ | ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
             if (_awoke) {
-                if ((_new & (2 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
+                if ((_new_ & (2 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                     stdgo._internal.sync.Sync__throw._throw(("sync: inconsistent mutex state" : stdgo.GoString));
                 };
-                _new = (_new & ((((2 : stdgo.GoInt32)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+                _new_ = (_new_ & ((((2 : stdgo.GoInt32)) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
             };
-            if (stdgo._internal.sync.atomic_.Atomic__compareandswapint32.compareAndSwapInt32(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._state), _old, _new)) {
+            if (stdgo._internal.sync.atomic_.Atomic__compareandswapint32.compareAndSwapInt32(stdgo.Go.pointer((@:checkr _m ?? throw "null pointer dereference")._state), _old, _new_)) {
                 if ((_old & (5 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                     break;
                 };

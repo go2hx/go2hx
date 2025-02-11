@@ -116,7 +116,7 @@ package stdgo._internal.html.template;
     }
     @:keep
     @:tdfield
-    static public function _new( _t:stdgo.Ref<stdgo._internal.html.template.Template_template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_template.Template> {
+    static public function _new_( _t:stdgo.Ref<stdgo._internal.html.template.Template_template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.html.template.Template_template.Template> = _t;
         var _tmpl = (stdgo.Go.setRef((new stdgo._internal.html.template.Template_template.Template((null : stdgo.Error), @:check2r (@:checkr _t ?? throw "null pointer dereference")._text.new_(_name?.__copy__()), null, (@:checkr _t ?? throw "null pointer dereference")._nameSpace) : stdgo._internal.html.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);
         {
@@ -148,7 +148,7 @@ package stdgo._internal.html.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_template.Template> = @:check2r _t._new(_name?.__copy__());
+                final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_template.Template> = @:check2r _t._new_(_name?.__copy__());
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;
@@ -452,7 +452,7 @@ package stdgo._internal.html.template;
                 var _name = (@:check2r _v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
                 if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
-                    _tmpl = @:check2r _t._new(_name?.__copy__());
+                    _tmpl = @:check2r _t._new_(_name?.__copy__());
                 };
                 (@:checkr _tmpl ?? throw "null pointer dereference")._text = _v;
                 (@:checkr _tmpl ?? throw "null pointer dereference").tree = (@:checkr _v ?? throw "null pointer dereference").tree;

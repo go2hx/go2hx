@@ -2,10 +2,10 @@ package stdgo._internal.sync.atomic_;
 class Value_asInterface {
     @:keep
     @:tdfield
-    public dynamic function compareAndSwap(_old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndSwap(_old, _new);
+    public dynamic function compareAndSwap(_old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool return @:_0 __self__.value.compareAndSwap(_old, _new_);
     @:keep
     @:tdfield
-    public dynamic function swap(_new:stdgo.AnyInterface):stdgo.AnyInterface return @:_0 __self__.value.swap(_new);
+    public dynamic function swap(_new_:stdgo.AnyInterface):stdgo.AnyInterface return @:_0 __self__.value.swap(_new_);
     @:keep
     @:tdfield
     public dynamic function store(_val:stdgo.AnyInterface):Void @:_0 __self__.value.store(_val);

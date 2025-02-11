@@ -1,5 +1,5 @@
 package stdgo._internal.bytes;
-function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>, _new:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
+function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>, _new_:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         var _m = (0 : stdgo.GoInt);
         if (_n != ((0 : stdgo.GoInt))) {
             _m = stdgo._internal.bytes.Bytes_count.count(_s, _old);
@@ -10,7 +10,7 @@ function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>,
         if (((_n < (0 : stdgo.GoInt) : Bool) || (_m < _n : Bool) : Bool)) {
             _n = _m;
         };
-        var _t = (new stdgo.Slice<stdgo.GoUInt8>(((_s.length) + (_n * (((_new.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+        var _t = (new stdgo.Slice<stdgo.GoUInt8>(((_s.length) + (_n * (((_new_.length) - (_old.length) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _w = (0 : stdgo.GoInt);
         var _start = (0 : stdgo.GoInt);
         {
@@ -26,7 +26,7 @@ if ((_old.length) == ((0 : stdgo.GoInt))) {
                     _j = (_j + (stdgo._internal.bytes.Bytes_index.index((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), _old)) : stdgo.GoInt);
                 };
 _w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(_start, _j) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
-_w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_new)) : stdgo.GoInt);
+_w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_new_)) : stdgo.GoInt);
 _start = (_j + (_old.length) : stdgo.GoInt);
                 _i++;
             };

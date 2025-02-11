@@ -2,10 +2,10 @@ package stdgo._internal.sync.atomic_;
 class Pointer__asInterface<T_> {
     @:keep
     @:tdfield
-    public var compareAndSwap : (_old:stdgo.Ref<Dynamic>, _new:stdgo.Ref<Dynamic>) -> Bool;
+    public var compareAndSwap : (_old:stdgo.Ref<Dynamic>, _new_:stdgo.Ref<Dynamic>) -> Bool;
     @:keep
     @:tdfield
-    public var swap : (_new:stdgo.Ref<Dynamic>) -> stdgo.Ref<Dynamic>;
+    public var swap : (_new_:stdgo.Ref<Dynamic>) -> stdgo.Ref<Dynamic>;
     @:keep
     @:tdfield
     public var store : (_val:stdgo.Ref<Dynamic>) -> Void;

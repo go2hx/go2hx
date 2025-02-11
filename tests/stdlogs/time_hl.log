@@ -1,18 +1,24 @@
 [ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
-   3 |         _stopTimer(_t);
-     |         ^^^^^^^^^^
-     | Unknown identifier : _stopTimer
+  3 |         _stopTimer(_t);
+    |         ^^^^^^^^^^
+    | Unknown identifier : _stopTimer
 
 [ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
 
-   9 |         _startTimer(_t);
-     |         ^^^^^^^^^^^
-     | Unknown identifier : _startTimer
+  9 |         _startTimer(_t);
+    |         ^^^^^^^^^^^
+    | Unknown identifier : _startTimer
 
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:28: characters 35-50
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 28 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+    |                                   ^^^^^^^^^^^^^^^
+    | stdgo.GoString should be Int
+
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:28: characters 33-68
+
+ 28 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Int should be stdgo.GoString
 

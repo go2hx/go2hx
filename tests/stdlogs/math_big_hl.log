@@ -1,6 +1,5 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
-
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
-
+Uncaught exception: Can't cast stdgo._internal.internal.reflect._Type_asInterface to stdgo.AnyInterfaceData
+Called from stdgo.GoAnyInterfaceMap.compare(stdgo/GoMap.hx:691)
+Called from haxe.ds.BalancedTree.exists(/home/runner/haxe/versions/c4868e5/std/haxe/ds/BalancedTree.hx:104)
+Called from stdgo._internal.encoding.gob._Gob__bootstraptype.$Gob__bootstraptype_Fields_._bootstrapType(stdgo/GoMap.hx:69)
+Called from .init(stdgo/_internal/encoding/gob/Gob__tint.hx:2)

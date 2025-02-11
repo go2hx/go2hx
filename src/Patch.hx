@@ -1404,13 +1404,13 @@ final list = [
 	// func (x *Pointer[T]) Swap(new *T) (old *T) { return (*T)(SwapPointer(&x.v, unsafe.Pointer(new))) }
 	"sync.atomic_.Pointer_:swap" => macro {
 		final old = @:privateAccess _x._v;
-		_x._v = stdgo.Go.toInterface(_new);
+		_x._v = stdgo.Go.toInterface(_new_);
 		return stdgo.Go.toInterface(old);
 	},
 	"sync.atomic_.Pointer_:compareAndSwap" => macro {
-		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new);
+		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new_);
 		if (b)
-			_x._v = stdgo.Go.toInterface(_new);
+			_x._v = stdgo.Go.toInterface(_new_);
 		return b;
 	},
 	"sync.atomic_.Pointer_:store" => macro {

@@ -122,7 +122,7 @@ jobs:
             message: stdgo automatic compile
             pull: --rebase --autostash
             add: --no-ignore-removal .
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   create-test-lists:
     timeout-minutes: 15
     needs: []
@@ -152,4 +152,4 @@ jobs:
             message: create test lists
             pull: --rebase --autostash
             add: ./tests
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'

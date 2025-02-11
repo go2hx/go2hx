@@ -123,7 +123,7 @@ jobs:
             message: stdgo automatic compile
             pull: --rebase --autostash
             add: --no-ignore-removal .
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   create-test-lists:
     timeout-minutes: 15
     needs: []
@@ -153,7 +153,7 @@ jobs:
             message: create test lists
             pull: --rebase --autostash
             add: ./tests
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -221,7 +221,7 @@ jobs:
             message: go easy tests update hl
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-easy-interp:
     timeout-minutes: 25
@@ -290,7 +290,7 @@ jobs:
             message: go easy tests update interp
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-easy-js:
     timeout-minutes: 25
@@ -361,7 +361,7 @@ jobs:
             message: go easy tests update js
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   yaegi-easy-hl:
     timeout-minutes: 25
@@ -420,7 +420,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-easy-interp:
     timeout-minutes: 25
     needs: setup
@@ -478,7 +478,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-easy-js:
     timeout-minutes: 25
     needs: setup
@@ -538,7 +538,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -606,7 +606,7 @@ jobs:
             message: go medium tests update hl
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-medium-js:
     timeout-minutes: 25
@@ -677,7 +677,7 @@ jobs:
             message: go medium tests update js
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   yaegi-medium-hl:
     timeout-minutes: 25
@@ -736,7 +736,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -794,7 +794,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -854,7 +854,7 @@ jobs:
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   build-hl:
     
     timeout-minutes: 26
@@ -908,7 +908,7 @@ jobs:
             message: go easy tests update hl
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
@@ -917,7 +917,7 @@ jobs:
             message: build std tests update hl
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   build-interp:
     
@@ -972,7 +972,7 @@ jobs:
             message: go easy tests update interp
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
@@ -981,7 +981,7 @@ jobs:
             message: build std tests update interp
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   build-js:
     
@@ -1038,7 +1038,7 @@ jobs:
             message: go easy tests update js
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
@@ -1047,5 +1047,5 @@ jobs:
             message: build std tests update js
             add: ./tests
             pull: --rebase --autostash
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true

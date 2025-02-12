@@ -36,6 +36,8 @@ jobs:
         run: npx haxe --run Run clean
       - name: Build go2hx compiler
         run: npx haxe --run Run build
+      - name: Precompile go binaries
+        run: npx haxe --run Run binaries
       - name: Create vendor
         run: go mod vendor
       # compile stdgo
@@ -57,6 +59,7 @@ jobs:
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip
+             ./data/go4hx.*
           key: ${{ github.sha }}-build-${{ env.cache-name }}
   goto:
     timeout-minutes: 15
@@ -88,6 +91,35 @@ jobs:
       - name: Create vendor
         run: go mod vendor
       - run: go run . -pointer
+  test-os:
+    timeout-minutes: 15
+    needs: [setup]
+    runs-on: [ubuntu-latest, windows-latest, macos-latest, macos-13]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install lix
+        run: npm i lix -g
+      - name: Run lix
+        run: npx lix download
+      # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
+      - name: Set source
+        run: haxelib dev go2hx .
+      - name: Clean stdgo
+        run: npx haxe --run Run clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+            ./data/go4hx.*
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - name: run compiler
+        run: haxelib run go2hx unicode --test --interp
   stdgo:
     timeout-minutes: 15
     needs: [build-hl,build-interp,build-js]
@@ -115,6 +147,7 @@ jobs:
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip 
+            ./data/go4hx.*
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - uses: EndBug/add-and-commit@v9
         continue-on-error: true

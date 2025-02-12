@@ -33,6 +33,10 @@ function main() {
 		setupHxb();
 		return;
 	}
+	if (args.length > 0 && args.indexOf("binaries") != -1) {
+		buildBinaries();
+		return;
+	}
 	var rebuild = false;
 	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
@@ -139,6 +143,26 @@ function deleteDirectoryRecursively(dir:String):Int {
 	#end
 }
 
+function buildBinaries() {
+	final GOOS_LIST = [
+		"linux",
+		"windows",
+		"darwin",
+	];
+	final GOARCH_LIST = [
+		"amd64",
+		"arm64",
+	];
+	for (GOOS in GOOS_LIST) {
+		for (GOARCH in GOARCH_LIST) {
+			final exec = 'go4hx.${GOOS}_$GOARCH';
+			final cmd = 'GOOS=$GOOS GOARCH=$GOARCH go build -ldflags "-s -w" -o data/$exec .';
+			Sys.println(cmd);
+			Sys.command(cmd);
+		}
+	}
+}
+
 function build(rebuild:Bool) {
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
@@ -157,10 +181,63 @@ function build(rebuild:Bool) {
 			Sys.setCwd("..");
 		}
 	}
-	// run go compiler
-	if (!FileSystem.exists("go4hx") || rebuild) {
+	// run go part of compiler, self built
+	if ((!FileSystem.exists("go4hx") && !FileSystem.exists("go4hx.exe")) ||  rebuild) {
 		Sys.println("build go part of the compiler");
-		Sys.command("go build .");
+		if (Sys.command("go build .") == 0) {
+			// if self built display os and arch built for
+			Sys.println("System:");
+			Sys.command("go env GOOS");
+			Sys.command("go env GOARCH");
+			return;
+		}
+		// if go build fails try using prebuilt binaries
+	}else{
+		// exec already found no need to copy prebuild binary over
+		return;
+	}
+	// prebuilt binaries
+	var goarch = ""; // arch
+	var goos = ""; // os
+	switch systemName.toLowerCase() {
+		case "linux":
+			goos = systemName.toLowerCase();
+			if (process.stdout.readLine() == "x86_64") {
+				goarch = "amd64";
+			}else{
+				goarch = "arm64";
+			}
+		case "mac":
+			goos = "darwin";
+			// check if silicon or intel
+			process = new Process("uname -m");
+			if (process.exitCode(true) != 0)
+				return;
+			if (process.stdout.readLine() == "x86_64") {
+				goarch = "amd64";
+			}else{
+				goarch = "arm64";
+			}
+		case "windows":
+			goos = systemName;
+			process = new Process("echo %PROCESSOR_ARCHITECTURE%");
+			if (process.exitCode(true) != 0)
+				return;
+			if (process.stdout.readLine() == "x86_64") {
+				goarch = "amd64";
+			}else{
+				goarch = "arm64";
+			}
+		default:
+			Sys.println("Unknown systemName: " + systemName);
+			return;
+	}
+	// copy over binaries
+	Sys.println("Use prebuilt binary for " + goos + "/" + goarch);
+	File.copy('data/go4hx.${goos}_$goarch', 'go4hx' + (systemName == "Windows" ? ".exe" : ""));
+	switch systemName {
+		case "Mac", "Linux":
+			Sys.command("chmod +x ./go4hx");
 	}
 }
 

@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testvalueerror___localname___type4_7237_static_extension.T_testValueError___localname___Type4_7237_static_extension) typedef T_testValueError___localname___Type4_7237Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testvalueerror___localname___type4_7237.T_testValueError___localname___Type4_7237>;

@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testoverflow___localname___inputt_15895_static_extension.T_testOverflow___localname___inputT_15895_static_extension) typedef T_testOverflow___localname___inputT_15895Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testoverflow___localname___inputt_15895.T_testOverflow___localname___inputT_15895>;

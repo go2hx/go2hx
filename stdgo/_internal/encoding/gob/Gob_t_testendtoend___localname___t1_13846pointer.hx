@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.gob;
+@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t1_13846_static_extension.T_testEndToEnd___localname___T1_13846_static_extension) typedef T_testEndToEnd___localname___T1_13846Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t1_13846.T_testEndToEnd___localname___T1_13846>;

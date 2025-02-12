@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testdecodepartial___localname___t_28542_static_extension.T_testDecodePartial___localname___T_28542_static_extension) typedef T_testDecodePartial___localname___T_28542Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testdecodepartial___localname___t_28542.T_testDecodePartial___localname___T_28542>;

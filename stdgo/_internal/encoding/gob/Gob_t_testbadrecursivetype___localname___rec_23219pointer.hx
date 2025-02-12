@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:keep @:follow @:using(stdgo._internal.encoding.gob.Gob_t_testbadrecursivetype___localname___rec_23219_static_extension.T_testBadRecursiveType___localname___Rec_23219_static_extension) typedef T_testBadRecursiveType___localname___Rec_23219Pointer = stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_testbadrecursivetype___localname___rec_23219.T_testBadRecursiveType___localname___Rec_23219>;

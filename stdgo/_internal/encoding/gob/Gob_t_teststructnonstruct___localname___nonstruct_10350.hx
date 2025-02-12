@@ -1,2 +1,0 @@
-package stdgo._internal.encoding.gob;
-@:named @:using(stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10350_static_extension.T_testStructNonStruct___localname___NonStruct_10350_static_extension) typedef T_testStructNonStruct___localname___NonStruct_10350 = stdgo.GoString;

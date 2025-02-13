@@ -52,15 +52,6 @@ flowchart LR
   subgraph compiler
     Go_Typed_AST --> Typer --> Generation --> Printer
   end
-
-Macros-->Haxe_compiler
-Reflect-->Haxe_code
-stdgo.Go-->Haxe_code
-Stdlibs-->Haxe_code
-Haxe_compiler-->Javascript
-Haxe_compiler-->C++
-Haxe_compiler-->Hashlink
-Haxe_compiler-->Eval
 ```
 
 # Why Go for Haxe devs

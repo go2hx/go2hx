@@ -3,6 +3,7 @@
 # go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
 
 Go2hx is a haxe compiler, that compiles Go code to haxe
+Spiritual successor to [Elliott stoneham's compiler](#credits)
 
 > [!WARNING]  
 > Alpha version, not able to compile most Go code correctly
@@ -54,7 +55,7 @@ Precompiled libs are avaliable with no setup required: [go2hxlibs](https://githu
 
 
 # Why Go for Haxe devs
-* Large ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of Janurary 2025
+* Large library ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of Janurary 2025
 * High quality code because of the Go language and builtin testing
 * Interfacing with the compiled code is similar to interfacing with handwritten haxe code, examples: [unicode](https://github.com/go2hx/go2hx/blob/master/stdgo/unicode/Unicode.hx#L1751), [regexp/syntax](https://github.com/go2hx/go2hx/blob/master/stdgo/regexp/syntax/Syntax.hx#L633)
 * Go and Haxe are both high level statically typed garbage collected languages
@@ -125,9 +126,14 @@ Likewise for nonpassing std libraries.
 
 To experiment with a few samples take a look at: samples [code](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases) [live](https://go2hx.github.io/samples/)
 
+If you have nodejs installed you can speed up compile times by adding the flag:
+```sh
+--compiler_nodejs
+```
+
 # Usage
 
-To use the gopatch command line tool, provide the following arguments.
+To use go2hx command line tool, provide the following arguments.
 
 ```
 haxelib run go2hx [options] pattern ...
@@ -286,6 +292,7 @@ Fmt will likely work along with the 19+ stdlibs currently passing their tests: [
 
 
 ## Upcoming
+(roadmap)
 
 Besides addressing the various limitations and issues we've already mentioned,
 we have a number of features planned for Go2hx.
@@ -318,7 +325,7 @@ haxe --run Run build
 ```
 Now you can run the compiler, for example on a go test file:
 ```sh
-haxelib run go2hx ./main.go --rebuild --interp
+haxelib run go2hx ./main.go --rebuild
 ```
 
 

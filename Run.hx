@@ -199,35 +199,34 @@ function build(rebuild:Bool) {
 	// prebuilt binaries
 	var goarch = ""; // arch
 	var goos = ""; // os
+
+	function getArch(line:String):String {
+		return switch line {
+			case "x86_64":
+				"amd64";
+			case "arm64":
+				"arm64";
+			default:
+				throw "unknown arch: " + line;
+		}
+	}
 	switch systemName.toLowerCase() {
 		case "linux":
 			goos = systemName.toLowerCase();
-			if (process.stdout.readLine() == "x86_64") {
-				goarch = "amd64";
-			}else{
-				goarch = "arm64";
-			}
+			goarch = getArch(process.stdout.readLine());
 		case "mac":
 			goos = "darwin";
 			// check if silicon or intel
 			process = new Process("uname -m");
 			if (process.exitCode(true) != 0)
 				return;
-			if (process.stdout.readLine() == "x86_64") {
-				goarch = "amd64";
-			}else{
-				goarch = "arm64";
-			}
+			goarch = getArch(process.stdout.readLine());
 		case "windows":
 			goos = systemName;
 			process = new Process("echo %PROCESSOR_ARCHITECTURE%");
 			if (process.exitCode(true) != 0)
 				return;
-			if (process.stdout.readLine() == "x86_64") {
-				goarch = "amd64";
-			}else{
-				goarch = "arm64";
-			}
+			goarch = getArch(process.stdout.readLine());
 		default:
 			Sys.println("Unknown systemName: " + systemName);
 			return;

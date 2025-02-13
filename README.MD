@@ -39,20 +39,29 @@ Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
 Precompiled libs are avaliable with no setup required: [go2hxlibs](https://github.com/go2hx/go2hxlibs?tab=readme-ov-file#go2hxlibs)
 
-```
-┌────────────┐  socket   ┌──────────┐
-│ go4hx      │  (JSON)   │ go2hx    │
-│ + analyzer │ ────────► │ Typed AST│
-│            │ initorder │ Printer  │
-│ (go code)  │           │ .hx      │
-└────────────┘           ├──────────┘
-┌─────────────────────┐  │ ┌────────┐ 
-│ .hx files           │  │ │ Macros │
-│ Haxe compiler into  │◄─┘ │stdgo.Go│
-│ .js, .cpp, .java    │◄──►│reflect │
-└─────────────────────┘    └────────┘
-```
 
+
+```mermaid
+flowchart LR
+  go4hx-->socket_json-->compiler-->Haxe_code-->Haxe_compiler
+
+  subgraph go4hx
+    Go_code-->Typed_AST-->analyzer
+  end
+
+  subgraph compiler
+    Go_Typed_AST --> Typer --> Generation --> Printer
+  end
+
+Macros-->Haxe_compiler
+Reflect-->Haxe_code
+stdgo.Go-->Haxe_code
+Stdlibs-->Haxe_code
+Haxe_compiler-->Javascript
+Haxe_compiler-->C++
+Haxe_compiler-->Hashlink
+Haxe_compiler-->Eval
+```
 
 # Why Go for Haxe devs
 * Large library ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of Janurary 2025

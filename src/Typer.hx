@@ -1759,7 +1759,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 		}
 	}
 	if (vars.length > 0) {
-		final e = createTempVars(vars);
+		final e = createTempVars(vars, false);
 		if (vars2.length > 0) {
 			final e2:Expr = {expr: EVars(vars2), pos: null};
 			return (macro @:mergeBlock {
@@ -1775,7 +1775,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
 
-private function createTempVars(vars:Array<Var>):Expr {
+private function createTempVars(vars:Array<Var>, short:Bool):Expr {
 	final vars2:Array<Var> = [];
 	if (vars.length <= 1)
 		return {expr: EVars(vars), pos: null};
@@ -1791,8 +1791,10 @@ private function createTempVars(vars:Array<Var>):Expr {
 			//type: v.type,
 			expr: macro $i{tempName},
 		});
+		if (!short) {
 		vars[i].expr = replaceIdent(names, vars[i].expr);
 		names[vars[i].name] = tempName;
+		}
 		vars[i].name = tempName;
 	}
 	final e:Expr = {expr: EVars(vars), pos: null};
@@ -3354,7 +3356,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			} else {
 				throw info.panic() + "unknown type assign type: " + stmt;
 			}
-		case DEFINE: // var expr = x; var x = y; x:= y
+		case DEFINE: // x:= y
 			if (stmt.lhs.length == stmt.rhs.length) {
 				// normal vars
 				final vars:Array<Var> = [];
@@ -3394,7 +3396,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 						expr: expr,
 					});
 				}
-				return createTempVars(vars).expr;
+				return createTempVars(vars, true).expr;
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typeExpr(stmt.rhs[0], info);

@@ -13,7 +13,8 @@ var splitFiles:Array<String> = [];
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
-	var actualPathExtern = paths.join("/");
+		// get rid of github.com/org/repo prefix
+	var actualPathExtern = (paths.length > 3 ? paths.slice(3) : paths).join("/");
 	var externDefBool = !module.isMain;
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";

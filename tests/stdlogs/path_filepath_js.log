@@ -31,8 +31,8 @@ Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 45057 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65138:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65139:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestGlobSymlink
 
@@ -43,9 +43,9 @@ Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 45057 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65138:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65139:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1458 column 32)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 
 -- FAIL: TestWindowsGlob
 
@@ -80,7 +80,7 @@ Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 45057 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65138:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65139:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestNonWindowsGlobEscape
 
@@ -130,7 +130,7 @@ Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 45057 column 59)
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65138:1
 Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65139:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1723 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1888 column 10)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestWalk

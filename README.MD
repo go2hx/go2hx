@@ -37,7 +37,14 @@ Spiritual successor to [Elliott stoneham's compiler](#credits)
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
-Precompiled libs are avaliable with no setup required: [go2hxlibs](https://github.com/go2hx/go2hxlibs?tab=readme-ov-file#go2hxlibs)
+Use Haxe with it's promises upkept of a large library ecosystem with cross target support.
+- No target lock in.
+- Lots of maintained and well tested libraries to choose from.
+- Built for Haxe devs needs such as native Haxe types and Haxe style naming convention.
+- Simple to use, CLI default behavior covers 95% of use cases.
+
+
+Precompiled libs are avaliable with [no setup required](https://github.com/go2hx#working-haxelibs-precompiled).
 
 
 

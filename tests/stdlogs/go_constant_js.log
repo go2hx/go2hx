@@ -12,9 +12,9 @@
           |          ^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:207: characters 28-61
+      ->  ./stdgo/_internal/go/constant/Constant_unaryop.hx:207: characters 28-56
 
-      207 |                     return stdgo.Go.asInterface(!_y_5331898);
-          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      207 |                     return stdgo.Go.asInterface(!_y_15);
+          |                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

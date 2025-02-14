@@ -4,21 +4,3 @@
      |                         ^^^
      | stdgo.Chan<stdgo.GoUInt64> has no field keyValueIterator
 
-[ERROR] ./_internal/math/rand_test/Rand_test__initnorm.hx:5: characters 85-88
-
-   5 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__rn._rn, __1 = _dn, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64);
-     |                                                                                     ^^^
-     | Unknown identifier : _dn
-
-[ERROR] ./_internal/math/rand_test/Rand_test__initexp.hx:5: characters 85-88
-
-   5 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__re._re, __1 = _de, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64);
-     |                                                                                     ^^^
-     | Unknown identifier : _de
-
-[ERROR] ./_internal/math/rand_test/Rand_test__testreaduniformity.hx:12: characters 166-173
-
-  12 |         var __0 = (127.5 : stdgo.GoFloat64), __1 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math_sqrt.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2 = (_stddev / stdgo._internal.math.Math_sqrt.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64);
-     |                                                                                                                                                                      ^^^^^^^
-     | Unknown identifier : _stddev
-

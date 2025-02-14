@@ -156,5 +156,7 @@
  "interp|filecasing",
  "interp|test_dash_189",
  "interp|return0",
- "interp|namedmap0"
+ "interp|namedmap0",
+ "interp|var1",
+ "interp|vars0"
 ]

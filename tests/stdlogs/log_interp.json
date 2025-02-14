@@ -1,5 +1,26 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestDefault",
+        "TestOutput",
+        "TestNonNewLogger",
+        "TestOutputRace",
+        "TestDiscard"
+    ],
+    "fails": [
+        "TestAll",
+        "TestFlagAndPrefixSetting",
+        "TestUTCFlag",
+        "TestEmptyPrintCreatesLine"
+    ],
+    "runs": [
+        "TestDefault",
+        "TestAll",
+        "TestOutput",
+        "TestNonNewLogger",
+        "TestOutputRace",
+        "TestFlagAndPrefixSetting",
+        "TestUTCFlag",
+        "TestEmptyPrintCreatesLine",
+        "TestDiscard"
+    ]
 }

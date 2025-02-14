@@ -1,4 +1,4 @@
-package stdgo.os.exec.internal.fdtest;
+package stdgo.fdtest;
 /**
     * Package fdtest provides test helpers for working with file descriptors across exec.
 **/

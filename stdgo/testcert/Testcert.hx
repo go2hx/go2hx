@@ -1,4 +1,4 @@
-package stdgo.net.http.internal.testcert;
+package stdgo.testcert;
 var localhostCert(get, set) : Array<std.UInt>;
 private function get_localhostCert():Array<std.UInt> return [for (i in stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert) i];
 private function set_localhostCert(v:Array<std.UInt>):Array<std.UInt> {

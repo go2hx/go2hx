@@ -1,4 +1,4 @@
-package stdgo.log.slog.internal.benchmarks;
+package stdgo.benchmarks;
 @:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_fastTextHandler_static_extension) @:dox(hide) abstract T_fastTextHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;

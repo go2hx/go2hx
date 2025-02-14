@@ -1,4 +1,4 @@
-package stdgo.net.http.internal.ascii;
+package stdgo.ascii;
 class Ascii {
     /**
         * EqualFold is strings.EqualFold, ASCII only. It reports whether s and t

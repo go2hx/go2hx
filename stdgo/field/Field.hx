@@ -1,4 +1,4 @@
-package stdgo.crypto.internal.edwards25519.field;
+package stdgo.field;
 @:structInit @:using(stdgo.crypto.internal.edwards25519.field.Field.Element_static_extension) abstract Element(stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element) from stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element to stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element {
     public var _l0(get, set) : haxe.UInt64;
     function get__l0():haxe.UInt64 return this._l0;

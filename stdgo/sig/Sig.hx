@@ -1,4 +1,4 @@
-package stdgo.crypto.internal.boring.sig;
+package stdgo.sig;
 /**
     * Package sig holds “code signatures” that can be called
     * and will result in certain code sequences being linked into

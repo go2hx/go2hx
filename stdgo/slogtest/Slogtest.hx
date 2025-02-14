@@ -1,4 +1,4 @@
-package stdgo.log.slog.internal.slogtest;
+package stdgo.slogtest;
 /**
     * Package slogtest contains support functions for testing slog.
 **/

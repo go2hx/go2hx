@@ -1,4 +1,4 @@
-package stdgo.crypto.internal.boring.bbig;
+package stdgo.bbig;
 class Bbig {
     static public inline function enc(_b:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.crypto.internal.boring.Boring_bigint.BigInt {
         final _b = (_b : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);

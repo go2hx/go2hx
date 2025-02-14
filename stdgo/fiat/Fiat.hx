@@ -1,4 +1,4 @@
-package stdgo.crypto.internal.nistec.fiat;
+package stdgo.fiat;
 @:structInit @:using(stdgo.crypto.internal.nistec.fiat.Fiat.P224Element_static_extension) abstract P224Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
     public var _x(get, set) : T_p224MontgomeryDomainFieldElement;
     function get__x():T_p224MontgomeryDomainFieldElement return this._x;

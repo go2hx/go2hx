@@ -54,8 +54,8 @@ function mainPath(modules:Array<Dynamic>):String {
 	return "_internal." + path;
 }
 
-function kbCount(str:String):Float {
-	return str.length / 1000;
+function kbCount(str:String):Int {
+	return std.Math.ceil(str.length / 1000);
 }
 
 function deleteDirectoryRecursively(dir:String):Int {

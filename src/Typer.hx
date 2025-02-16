@@ -5857,7 +5857,7 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	return createMap(underlying, keyComplexType, valueComplexType, exprs, info, ct);
 }
 
-private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
+function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
 	var k:GoType = null;
 	var v:GoType = null;
 	switch getUnderlying(t) {

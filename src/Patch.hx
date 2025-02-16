@@ -207,7 +207,7 @@ final list = [
 		return null;
 	},
 	"os.File:readFrom" => macro {
-		final data = stdgo._internal.io.Io_readAll.readall(_r);
+		final data = stdgo._internal.io.Io_readall.readAll(_r);
 		if (data._1 != null)
 			return {_0: 0, _1: data._1};
 		return _f.write(data._0);

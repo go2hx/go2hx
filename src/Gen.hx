@@ -11,7 +11,7 @@ var clName = "";
 var splitFiles:Array<String> = [];
 
 function cutPrefix(paths:Array<String>):Array<String> {
-	return paths.length > 3 ? paths.slice(3) : paths;
+	return paths.length >= 3 ? paths.slice(3) : paths;
 }
 
 function create(outputPath:String, module:Module, root:String) {
@@ -179,7 +179,7 @@ private function save(dir:String, name:String, content:Array<TypeDefinition>, pr
 		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
 	// used to create the main file and/or hold the init func
-	saveRaw(dir,name,contentString, prefix, extension);
+	saveRaw(dir,name,contentString, prefix, extension, splitDepsContent);
 }
 
 function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>):Array<TypeDefinition> {
@@ -220,18 +220,20 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 	return newContent;
 }
 
-private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String) {
+private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool=true) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
 	var didWrite = Cache.checkHashAndWrite(path, contentString);
+	if (splitFileBool) {
 
-	if (!didWrite) {
-		Sys.println("Skipped: " + dir + name + extension + ".hx");
-		return;
+	}else{
+		if (!didWrite) {
+			Sys.println("Skipped: " + dir + name + extension + ".hx");
+			return;
+		}
+		Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 	}
-
-	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 }
 
 private function appendRaw(dir:String, name:String, contentString, prefix:String, extension:String) {
@@ -523,7 +525,8 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 			usingPath.push(last);
 			usingPath.push(endUsing);
 			usingPath.remove("_internal");
-			usingPath = cutPrefix(usingPath);
+			if (usingPath.length > 1 && usingPath[0] != "stdgo")
+				usingPath = cutPrefix(usingPath);
 			// remove unneeded pack reference
 			meta[i] = {
 				name: meta[i].name,

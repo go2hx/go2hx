@@ -1,5 +1,5 @@
 package stdgo.container.ring;
-@:structInit @:using(stdgo.container.ring.Ring.Ring_static_extension) abstract Ring_(stdgo._internal.container.ring.Ring_ring.Ring) from stdgo._internal.container.ring.Ring_ring.Ring to stdgo._internal.container.ring.Ring_ring.Ring {
+@:structInit @:using(Ring.Ring_static_extension) abstract Ring_(stdgo._internal.container.ring.Ring_ring.Ring) from stdgo._internal.container.ring.Ring_ring.Ring to stdgo._internal.container.ring.Ring_ring.Ring {
     public var _next(get, set) : Ring_;
     function get__next():Ring_ return this._next;
     function set__next(v:Ring_):Ring_ {

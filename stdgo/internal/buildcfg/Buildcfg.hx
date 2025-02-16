@@ -96,7 +96,7 @@ private function set_framePointerEnabled(v:Bool):Bool {
         stdgo._internal.internal.buildcfg.Buildcfg_framepointerenabled.framePointerEnabled = v;
         return v;
     }
-@:structInit @:using(stdgo.internal.buildcfg.Buildcfg.T_gowasmFeatures_static_extension) @:dox(hide) abstract T_gowasmFeatures(stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures) from stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures to stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures {
+@:structInit @:using(Buildcfg.T_gowasmFeatures_static_extension) @:dox(hide) abstract T_gowasmFeatures(stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures) from stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures to stdgo._internal.internal.buildcfg.Buildcfg_t_gowasmfeatures.T_gowasmFeatures {
     public var satConv(get, set) : Bool;
     function get_satConv():Bool return this.satConv;
     function set_satConv(v:Bool):Bool {
@@ -113,7 +113,7 @@ private function set_framePointerEnabled(v:Bool):Bool {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.buildcfg.Buildcfg.ExperimentFlags_static_extension) abstract ExperimentFlags(stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags) from stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags to stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags {
+@:structInit @:using(Buildcfg.ExperimentFlags_static_extension) abstract ExperimentFlags(stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags) from stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags to stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags {
     public var flags(get, set) : stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags;
     function get_flags():stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags return this.flags;
     function set_flags(v:stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags):stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {

@@ -35,7 +35,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
         stdgo._internal.internal.coverage.Coverage_covcountermagic.covCounterMagic = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CoverPkgConfig_static_extension) abstract CoverPkgConfig(stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig) from stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig to stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig {
+@:structInit @:using(Coverage.CoverPkgConfig_static_extension) abstract CoverPkgConfig(stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig) from stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig to stdgo._internal.internal.coverage.Coverage_coverpkgconfig.CoverPkgConfig {
     public var outConfig(get, set) : String;
     function get_outConfig():String return this.outConfig;
     function set_outConfig(v:String):String {
@@ -76,7 +76,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CoverFixupConfig_static_extension) abstract CoverFixupConfig(stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig) from stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig to stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig {
+@:structInit @:using(Coverage.CoverFixupConfig_static_extension) abstract CoverFixupConfig(stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig) from stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig to stdgo._internal.internal.coverage.Coverage_coverfixupconfig.CoverFixupConfig {
     public var metaVar(get, set) : String;
     function get_metaVar():String return this.metaVar;
     function set_metaVar(v:String):String {
@@ -129,7 +129,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.MetaFileCollection_static_extension) abstract MetaFileCollection(stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection) from stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection to stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection {
+@:structInit @:using(Coverage.MetaFileCollection_static_extension) abstract MetaFileCollection(stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection) from stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection to stdgo._internal.internal.coverage.Coverage_metafilecollection.MetaFileCollection {
     public var importPaths(get, set) : Array<String>;
     function get_importPaths():Array<String> return [for (i in this.importPaths) i];
     function set_importPaths(v:Array<String>):Array<String> {
@@ -146,7 +146,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.MetaFileHeader_static_extension) abstract MetaFileHeader(stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader) from stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader to stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader {
+@:structInit @:using(Coverage.MetaFileHeader_static_extension) abstract MetaFileHeader(stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader) from stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader to stdgo._internal.internal.coverage.Coverage_metafileheader.MetaFileHeader {
     public var magic(get, set) : haxe.ds.Vector<std.UInt>;
     function get_magic():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.magic) i]);
     function set_magic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -211,7 +211,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.MetaSymbolHeader_static_extension) abstract MetaSymbolHeader(stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader) from stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader to stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader {
+@:structInit @:using(Coverage.MetaSymbolHeader_static_extension) abstract MetaSymbolHeader(stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader) from stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader to stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader {
     public var length_(get, set) : std.UInt;
     function get_length_():std.UInt return this.length_;
     function set_length_(v:std.UInt):std.UInt {
@@ -270,7 +270,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.FuncDesc_static_extension) abstract FuncDesc(stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc) from stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc to stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc {
+@:structInit @:using(Coverage.FuncDesc_static_extension) abstract FuncDesc(stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc) from stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc to stdgo._internal.internal.coverage.Coverage_funcdesc.FuncDesc {
     public var funcname(get, set) : String;
     function get_funcname():String return this.funcname;
     function set_funcname(v:String):String {
@@ -299,7 +299,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CoverableUnit_static_extension) abstract CoverableUnit(stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit) from stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit to stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit {
+@:structInit @:using(Coverage.CoverableUnit_static_extension) abstract CoverableUnit(stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit) from stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit to stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit {
     public var stLine(get, set) : std.UInt;
     function get_stLine():std.UInt return this.stLine;
     function set_stLine(v:std.UInt):std.UInt {
@@ -340,7 +340,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CounterFileHeader_static_extension) abstract CounterFileHeader(stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader) from stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader to stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader {
+@:structInit @:using(Coverage.CounterFileHeader_static_extension) abstract CounterFileHeader(stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader) from stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader to stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader {
     public var magic(get, set) : haxe.ds.Vector<std.UInt>;
     function get_magic():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.magic) i]);
     function set_magic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -381,7 +381,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CounterSegmentHeader_static_extension) abstract CounterSegmentHeader(stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader) from stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader to stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader {
+@:structInit @:using(Coverage.CounterSegmentHeader_static_extension) abstract CounterSegmentHeader(stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader) from stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader to stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader {
     public var fcnEntries(get, set) : haxe.UInt64;
     function get_fcnEntries():haxe.UInt64 return this.fcnEntries;
     function set_fcnEntries(v:haxe.UInt64):haxe.UInt64 {
@@ -404,7 +404,7 @@ private function set_covCounterMagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.Coverage.CounterFileFooter_static_extension) abstract CounterFileFooter(stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter) from stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter to stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter {
+@:structInit @:using(Coverage.CounterFileFooter_static_extension) abstract CounterFileFooter(stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter) from stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter to stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter {
     public var magic(get, set) : haxe.ds.Vector<std.UInt>;
     function get_magic():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.magic) i]);
     function set_magic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {

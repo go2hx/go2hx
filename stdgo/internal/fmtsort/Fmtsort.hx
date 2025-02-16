@@ -1,5 +1,5 @@
 package stdgo.internal.fmtsort;
-@:structInit @:using(stdgo.internal.fmtsort.Fmtsort.SortedMap_static_extension) abstract SortedMap(stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap) from stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap to stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap {
+@:structInit @:using(Fmtsort.SortedMap_static_extension) abstract SortedMap(stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap) from stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap to stdgo._internal.internal.fmtsort.Fmtsort_sortedmap.SortedMap {
     public var key(get, set) : Array<stdgo._internal.reflect.Reflect_value.Value>;
     function get_key():Array<stdgo._internal.reflect.Reflect_value.Value> return [for (i in this.key) i];
     function set_key(v:Array<stdgo._internal.reflect.Reflect_value.Value>):Array<stdgo._internal.reflect.Reflect_value.Value> {

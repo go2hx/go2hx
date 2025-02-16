@@ -52,7 +52,15 @@ class ByteOrder_static_extension {
         return stdgo._internal.encoding.binary.Binary_byteorder_static_extension.ByteOrder_static_extension.uint16(t, _0);
     }
 }
-typedef ByteOrder = stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder;
+@:forward abstract ByteOrder(stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder) from stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder to stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder {
+    @:from
+    static function fromHaxeInterface(x:{ function uint16(_0:Array<std.UInt>):std.UInt; function uint32(_0:Array<std.UInt>):std.UInt; function uint64(_0:Array<std.UInt>):haxe.UInt64; function putUint16(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint32(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Void; function string():String; }):ByteOrder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ByteOrder = { uint16 : _0 -> x.uint16([for (i in _0) i]), uint32 : _0 -> x.uint32([for (i in _0) i]), uint64 : _0 -> x.uint64([for (i in _0) i]), putUint16 : (_0, _1) -> x.putUint16([for (i in _0) i], _1), putUint32 : (_0, _1) -> x.putUint32([for (i in _0) i], _1), putUint64 : (_0, _1) -> x.putUint64([for (i in _0) i], _1), string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class AppendByteOrder_static_extension {
     static public function string(t:stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder):String {
         return stdgo._internal.encoding.binary.Binary_appendbyteorder_static_extension.AppendByteOrder_static_extension.string(t);
@@ -73,18 +81,26 @@ class AppendByteOrder_static_extension {
         return [for (i in stdgo._internal.encoding.binary.Binary_appendbyteorder_static_extension.AppendByteOrder_static_extension.appendUint16(t, _0, _1)) i];
     }
 }
-typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder;
-@:structInit @:using(stdgo.encoding.binary.Binary.T_littleEndian_static_extension) @:dox(hide) abstract T_littleEndian(stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian) from stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian to stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian {
+@:forward abstract AppendByteOrder(stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder) from stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder to stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder {
+    @:from
+    static function fromHaxeInterface(x:{ function appendUint16(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint32(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt>; function string():String; }):AppendByteOrder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:AppendByteOrder = { appendUint16 : (_0, _1) -> x.appendUint16([for (i in _0) i], _1), appendUint32 : (_0, _1) -> x.appendUint32([for (i in _0) i], _1), appendUint64 : (_0, _1) -> x.appendUint64([for (i in _0) i], _1), string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Binary.T_littleEndian_static_extension) @:dox(hide) abstract T_littleEndian(stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian) from stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian to stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian {
     public function new() this = new stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T_bigEndian_static_extension) @:dox(hide) abstract T_bigEndian(stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian) from stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian to stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian {
+@:structInit @:using(Binary.T_bigEndian_static_extension) @:dox(hide) abstract T_bigEndian(stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian) from stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian to stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian {
     public function new() this = new stdgo._internal.encoding.binary.Binary_t_bigendian.T_bigEndian();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T_coder_static_extension) @:dox(hide) abstract T_coder(stdgo._internal.encoding.binary.Binary_t_coder.T_coder) from stdgo._internal.encoding.binary.Binary_t_coder.T_coder to stdgo._internal.encoding.binary.Binary_t_coder.T_coder {
+@:structInit @:using(Binary.T_coder_static_extension) @:dox(hide) abstract T_coder(stdgo._internal.encoding.binary.Binary_t_coder.T_coder) from stdgo._internal.encoding.binary.Binary_t_coder.T_coder to stdgo._internal.encoding.binary.Binary_t_coder.T_coder {
     public var _order(get, set) : ByteOrder;
     function get__order():ByteOrder return this._order;
     function set__order(v:ByteOrder):ByteOrder {
@@ -107,7 +123,7 @@ typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary_appendbyteorder
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.Struct_static_extension) abstract Struct(stdgo._internal.encoding.binary.Binary_struct.Struct) from stdgo._internal.encoding.binary.Binary_struct.Struct to stdgo._internal.encoding.binary.Binary_struct.Struct {
+@:structInit @:using(Binary.Struct_static_extension) abstract Struct(stdgo._internal.encoding.binary.Binary_struct.Struct) from stdgo._internal.encoding.binary.Binary_struct.Struct to stdgo._internal.encoding.binary.Binary_struct.Struct {
     public var int8(get, set) : StdTypes.Int;
     function get_int8():StdTypes.Int return this.int8;
     function set_int8(v:StdTypes.Int):StdTypes.Int {
@@ -217,7 +233,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.encoding.binary.Binary_t_.T_) from stdgo._internal.encoding.binary.Binary_t_.T_ to stdgo._internal.encoding.binary.Binary_t_.T_ {
+@:structInit @:using(Binary.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.encoding.binary.Binary_t_.T_) from stdgo._internal.encoding.binary.Binary_t_.T_ to stdgo._internal.encoding.binary.Binary_t_.T_ {
     public var int_(get, set) : StdTypes.Int;
     function get_int_():StdTypes.Int return this.int_;
     function set_int_(v:StdTypes.Int):StdTypes.Int {
@@ -246,7 +262,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.BlankFields_static_extension) abstract BlankFields(stdgo._internal.encoding.binary.Binary_blankfields.BlankFields) from stdgo._internal.encoding.binary.Binary_blankfields.BlankFields to stdgo._internal.encoding.binary.Binary_blankfields.BlankFields {
+@:structInit @:using(Binary.BlankFields_static_extension) abstract BlankFields(stdgo._internal.encoding.binary.Binary_blankfields.BlankFields) from stdgo._internal.encoding.binary.Binary_blankfields.BlankFields to stdgo._internal.encoding.binary.Binary_blankfields.BlankFields {
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
@@ -302,7 +318,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.BlankFieldsProbe_static_extension) abstract BlankFieldsProbe(stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe) from stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe to stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe {
+@:structInit @:using(Binary.BlankFieldsProbe_static_extension) abstract BlankFieldsProbe(stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe) from stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe to stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe {
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
@@ -358,7 +374,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.Unexported_static_extension) abstract Unexported(stdgo._internal.encoding.binary.Binary_unexported.Unexported) from stdgo._internal.encoding.binary.Binary_unexported.Unexported to stdgo._internal.encoding.binary.Binary_unexported.Unexported {
+@:structInit @:using(Binary.Unexported_static_extension) abstract Unexported(stdgo._internal.encoding.binary.Binary_unexported.Unexported) from stdgo._internal.encoding.binary.Binary_unexported.Unexported to stdgo._internal.encoding.binary.Binary_unexported.Unexported {
     public var _a(get, set) : StdTypes.Int;
     function get__a():StdTypes.Int return this._a;
     function set__a(v:StdTypes.Int):StdTypes.Int {
@@ -369,7 +385,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T_byteSliceReader_static_extension) @:dox(hide) abstract T_byteSliceReader(stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader) from stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader to stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader {
+@:structInit @:using(Binary.T_byteSliceReader_static_extension) @:dox(hide) abstract T_byteSliceReader(stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader) from stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader to stdgo._internal.encoding.binary.Binary_t_byteslicereader.T_byteSliceReader {
     public var _remain(get, set) : Array<std.UInt>;
     function get__remain():Array<std.UInt> return [for (i in this._remain) i];
     function set__remain(v:Array<std.UInt>):Array<std.UInt> {
@@ -380,7 +396,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T_nativeEndian_static_extension) @:dox(hide) abstract T_nativeEndian(stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian) from stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian to stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian {
+@:structInit @:using(Binary.T_nativeEndian_static_extension) @:dox(hide) abstract T_nativeEndian(stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian) from stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian to stdgo._internal.encoding.binary.Binary_t_nativeendian.T_nativeEndian {
     public var _littleEndian(get, set) : T_littleEndian;
     function get__littleEndian():T_littleEndian return this._littleEndian;
     function set__littleEndian(v:T_littleEndian):T_littleEndian {
@@ -428,7 +444,7 @@ bool_,
 @:dox(hide) typedef T__struct_6 = stdgo._internal.encoding.binary.Binary_t__struct_6.T__struct_6;
 @:dox(hide) typedef T_decoder = stdgo._internal.encoding.binary.Binary_t_decoder.T_decoder;
 @:dox(hide) typedef T_encoder = stdgo._internal.encoding.binary.Binary_t_encoder.T_encoder;
-@:structInit @:using(stdgo.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241_static_extension) @:dox(hide) abstract T_testSizeStructCache___localname___foo_7241(stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241) from stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241 to stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241 {
+@:structInit @:using(Binary.T_testSizeStructCache___localname___foo_7241_static_extension) @:dox(hide) abstract T_testSizeStructCache___localname___foo_7241(stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241) from stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241 to stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___foo_7241.T_testSizeStructCache___localname___foo_7241 {
     public var a(get, set) : std.UInt;
     function get_a():std.UInt return this.a;
     function set_a(v:std.UInt):std.UInt {
@@ -439,7 +455,7 @@ bool_,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275_static_extension) @:dox(hide) abstract T_testSizeStructCache___localname___bar_7275(stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275) from stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275 to stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275 {
+@:structInit @:using(Binary.T_testSizeStructCache___localname___bar_7275_static_extension) @:dox(hide) abstract T_testSizeStructCache___localname___bar_7275(stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275) from stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275 to stdgo._internal.encoding.binary.Binary_t_testsizestructcache___localname___bar_7275.T_testSizeStructCache___localname___bar_7275 {
     public var a(get, set) : Struct;
     function get_a():Struct return this.a;
     function set_a(v:Struct):Struct {
@@ -465,8 +481,16 @@ bool_,
 @:dox(hide) class T_testByteOrder___localname___byteOrder_10108_static_extension {
 
 }
-@:dox(hide) typedef T_testByteOrder___localname___byteOrder_10108 = stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108;
-@:structInit @:using(stdgo.encoding.binary.Binary.T_testNoFixedSize___localname___Person_12888_static_extension) @:dox(hide) abstract T_testNoFixedSize___localname___Person_12888(stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888) from stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888 to stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888 {
+@:dox(hide) @:forward abstract T_testByteOrder___localname___byteOrder_10108(stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108) from stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 to stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_testByteOrder___localname___byteOrder_10108 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_testByteOrder___localname___byteOrder_10108 = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Binary.T_testNoFixedSize___localname___Person_12888_static_extension) @:dox(hide) abstract T_testNoFixedSize___localname___Person_12888(stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888) from stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888 to stdgo._internal.encoding.binary.Binary_t_testnofixedsize___localname___person_12888.T_testNoFixedSize___localname___Person_12888 {
     public var age(get, set) : StdTypes.Int;
     function get_age():StdTypes.Int return this.age;
     function set_age(v:StdTypes.Int):StdTypes.Int {

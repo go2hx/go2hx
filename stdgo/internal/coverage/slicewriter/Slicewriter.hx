@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.slicewriter;
-@:structInit @:using(stdgo.internal.coverage.slicewriter.Slicewriter.WriteSeeker_static_extension) abstract WriteSeeker(stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker) from stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker to stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker {
+@:structInit @:using(slicewriter.Slicewriter.WriteSeeker_static_extension) abstract WriteSeeker(stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker) from stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker to stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker {
     public var _payload(get, set) : Array<std.UInt>;
     function get__payload():Array<std.UInt> return [for (i in this._payload) i];
     function set__payload(v:Array<std.UInt>):Array<std.UInt> {

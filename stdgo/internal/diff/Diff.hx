@@ -1,5 +1,5 @@
 package stdgo.internal.diff;
-@:structInit @:using(stdgo.internal.diff.Diff.T_pair_static_extension) @:dox(hide) abstract T_pair(stdgo._internal.internal.diff.Diff_t_pair.T_pair) from stdgo._internal.internal.diff.Diff_t_pair.T_pair to stdgo._internal.internal.diff.Diff_t_pair.T_pair {
+@:structInit @:using(Diff.T_pair_static_extension) @:dox(hide) abstract T_pair(stdgo._internal.internal.diff.Diff_t_pair.T_pair) from stdgo._internal.internal.diff.Diff_t_pair.T_pair to stdgo._internal.internal.diff.Diff_t_pair.T_pair {
     public var _x(get, set) : StdTypes.Int;
     function get__x():StdTypes.Int return this._x;
     function set__x(v:StdTypes.Int):StdTypes.Int {

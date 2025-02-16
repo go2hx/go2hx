@@ -1,5 +1,5 @@
 package stdgo.hash.maphash;
-@:structInit @:using(stdgo.hash.maphash.Maphash.Seed_static_extension) abstract Seed(stdgo._internal.hash.maphash.Maphash_seed.Seed) from stdgo._internal.hash.maphash.Maphash_seed.Seed to stdgo._internal.hash.maphash.Maphash_seed.Seed {
+@:structInit @:using(Maphash.Seed_static_extension) abstract Seed(stdgo._internal.hash.maphash.Maphash_seed.Seed) from stdgo._internal.hash.maphash.Maphash_seed.Seed to stdgo._internal.hash.maphash.Maphash_seed.Seed {
     public var _s(get, set) : haxe.UInt64;
     function get__s():haxe.UInt64 return this._s;
     function set__s(v:haxe.UInt64):haxe.UInt64 {
@@ -10,7 +10,7 @@ package stdgo.hash.maphash;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.hash.maphash.Maphash.Hash_static_extension) abstract Hash(stdgo._internal.hash.maphash.Maphash_hash.Hash) from stdgo._internal.hash.maphash.Maphash_hash.Hash to stdgo._internal.hash.maphash.Maphash_hash.Hash {
+@:structInit @:using(Maphash.Hash_static_extension) abstract Hash(stdgo._internal.hash.maphash.Maphash_hash.Hash) from stdgo._internal.hash.maphash.Maphash_hash.Hash to stdgo._internal.hash.maphash.Maphash_hash.Hash {
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {

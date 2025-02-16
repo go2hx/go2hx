@@ -1,5 +1,5 @@
 package stdgo.container.list;
-@:structInit @:using(stdgo.container.list.List.Element_static_extension) abstract Element(stdgo._internal.container.list.List_element.Element) from stdgo._internal.container.list.List_element.Element to stdgo._internal.container.list.List_element.Element {
+@:structInit @:using(List.Element_static_extension) abstract Element(stdgo._internal.container.list.List_element.Element) from stdgo._internal.container.list.List_element.Element to stdgo._internal.container.list.List_element.Element {
     public var _next(get, set) : Element;
     function get__next():Element return this._next;
     function set__next(v:Element):Element {
@@ -28,7 +28,7 @@ package stdgo.container.list;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.container.list.List.List_static_extension) abstract List_(stdgo._internal.container.list.List_list.List) from stdgo._internal.container.list.List_list.List to stdgo._internal.container.list.List_list.List {
+@:structInit @:using(List.List_static_extension) abstract List_(stdgo._internal.container.list.List_list.List) from stdgo._internal.container.list.List_list.List to stdgo._internal.container.list.List_list.List {
     public var _root(get, set) : Element;
     function get__root():Element return this._root;
     function set__root(v:Element):Element {

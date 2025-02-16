@@ -10,12 +10,28 @@ class Resetter_static_extension {
         return stdgo._internal.compress.flate.Flate_resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
 }
-typedef Resetter = stdgo._internal.compress.flate.Flate_resetter.Resetter;
+@:forward abstract Resetter(stdgo._internal.compress.flate.Flate_resetter.Resetter) from stdgo._internal.compress.flate.Flate_resetter.Resetter to stdgo._internal.compress.flate.Flate_resetter.Resetter {
+    @:from
+    static function fromHaxeInterface(x:{ function reset(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error; }):Resetter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Resetter = { reset : (_0, _1) -> x.reset(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Reader_static_extension {
 
 }
-typedef Reader = stdgo._internal.compress.flate.Flate_reader.Reader;
-@:structInit @:using(stdgo.compress.flate.Flate.T_compressionLevel_static_extension) @:dox(hide) abstract T_compressionLevel(stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel) from stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel to stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel {
+@:forward abstract Reader(stdgo._internal.compress.flate.Flate_reader.Reader) from stdgo._internal.compress.flate.Flate_reader.Reader to stdgo._internal.compress.flate.Flate_reader.Reader {
+    @:from
+    static function fromHaxeInterface(x:{ }):Reader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Reader = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Flate.T_compressionLevel_static_extension) @:dox(hide) abstract T_compressionLevel(stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel) from stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel to stdgo._internal.compress.flate.Flate_t_compressionlevel.T_compressionLevel {
     public var _level(get, set) : StdTypes.Int;
     function get__level():StdTypes.Int return this._level;
     function set__level(v:StdTypes.Int):StdTypes.Int {
@@ -56,7 +72,7 @@ typedef Reader = stdgo._internal.compress.flate.Flate_reader.Reader;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_compressor_static_extension) @:dox(hide) abstract T_compressor(stdgo._internal.compress.flate.Flate_t_compressor.T_compressor) from stdgo._internal.compress.flate.Flate_t_compressor.T_compressor to stdgo._internal.compress.flate.Flate_t_compressor.T_compressor {
+@:structInit @:using(Flate.T_compressor_static_extension) @:dox(hide) abstract T_compressor(stdgo._internal.compress.flate.Flate_t_compressor.T_compressor) from stdgo._internal.compress.flate.Flate_t_compressor.T_compressor to stdgo._internal.compress.flate.Flate_t_compressor.T_compressor {
     public var _compressionLevel(get, set) : T_compressionLevel;
     function get__compressionLevel():T_compressionLevel return this._compressionLevel;
     function set__compressionLevel(v:T_compressionLevel):T_compressionLevel {
@@ -69,21 +85,21 @@ typedef Reader = stdgo._internal.compress.flate.Flate_reader.Reader;
         this._w = (v : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>);
         return v;
     }
-    public var _bulkHasher(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void;
-    function get__bulkHasher():(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void return (_0, _1) -> this._bulkHasher([for (i in _0) i], [for (i in _1) i]);
-    function set__bulkHasher(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void):(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void {
+    public var _bulkHasher(get, set) : (Array<std.UInt>, Array<std.UInt>) -> Void;
+    function get__bulkHasher():(Array<std.UInt>, Array<std.UInt>) -> Void return (_0, _1) -> this._bulkHasher([for (i in _0) i], [for (i in _1) i]);
+    function set__bulkHasher(v:(Array<std.UInt>, Array<std.UInt>) -> Void):(Array<std.UInt>, Array<std.UInt>) -> Void {
         this._bulkHasher = v;
         return v;
     }
-    public var _fill(get, set) : (stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt;
-    function get__fill():(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
-    function set__fill(v:(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt):(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt {
+    public var _fill(get, set) : (T_compressor, Array<std.UInt>) -> StdTypes.Int;
+    function get__fill():(T_compressor, Array<std.UInt>) -> StdTypes.Int return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
+    function set__fill(v:(T_compressor, Array<std.UInt>) -> StdTypes.Int):(T_compressor, Array<std.UInt>) -> StdTypes.Int {
         this._fill = v;
         return v;
     }
-    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void;
-    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void return _0 -> this._step(_0);
-    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void {
+    public var _step(get, set) : T_compressor -> Void;
+    function get__step():T_compressor -> Void return _0 -> this._step(_0);
+    function set__step(v:T_compressor -> Void):T_compressor -> Void {
         this._step = v;
         return v;
     }
@@ -189,7 +205,7 @@ typedef Reader = stdgo._internal.compress.flate.Flate_reader.Reader;
         this._hashMatch = ([for (i in v) (i : stdgo.GoUInt32)] : stdgo.GoArray<stdgo.GoUInt32>);
         return v;
     }
-    public function new(?_compressionLevel:T_compressionLevel, ?_w:T_huffmanBitWriter, ?_bulkHasher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt32>) -> Void, ?_fill:(stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.GoInt, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> -> Void, ?_sync:Bool, ?_bestSpeed:T_deflateFast, ?_chainHead:StdTypes.Int, ?_hashHead:haxe.ds.Vector<std.UInt>, ?_hashPrev:haxe.ds.Vector<std.UInt>, ?_hashOffset:StdTypes.Int, ?_index:StdTypes.Int, ?_window:Array<std.UInt>, ?_windowEnd:StdTypes.Int, ?_blockStart:StdTypes.Int, ?_byteAvailable:Bool, ?_tokens:Array<T_token>, ?_length:StdTypes.Int, ?_offset:StdTypes.Int, ?_maxInsertIndex:StdTypes.Int, ?_err:stdgo.Error, ?_hashMatch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.flate.Flate_t_compressor.T_compressor(
+    public function new(?_compressionLevel:T_compressionLevel, ?_w:T_huffmanBitWriter, ?_bulkHasher:(Array<std.UInt>, Array<std.UInt>) -> Void, ?_fill:(T_compressor, Array<std.UInt>) -> StdTypes.Int, ?_step:T_compressor -> Void, ?_sync:Bool, ?_bestSpeed:T_deflateFast, ?_chainHead:StdTypes.Int, ?_hashHead:haxe.ds.Vector<std.UInt>, ?_hashPrev:haxe.ds.Vector<std.UInt>, ?_hashOffset:StdTypes.Int, ?_index:StdTypes.Int, ?_window:Array<std.UInt>, ?_windowEnd:StdTypes.Int, ?_blockStart:StdTypes.Int, ?_byteAvailable:Bool, ?_tokens:Array<T_token>, ?_length:StdTypes.Int, ?_offset:StdTypes.Int, ?_maxInsertIndex:StdTypes.Int, ?_err:stdgo.Error, ?_hashMatch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.flate.Flate_t_compressor.T_compressor(
 _compressionLevel,
 (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>),
 _bulkHasher,
@@ -215,7 +231,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_dictWriter_static_extension) @:dox(hide) abstract T_dictWriter(stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter) from stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter to stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter {
+@:structInit @:using(Flate.T_dictWriter_static_extension) @:dox(hide) abstract T_dictWriter(stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter) from stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter to stdgo._internal.compress.flate.Flate_t_dictwriter.T_dictWriter {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -226,7 +242,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.Writer_static_extension) abstract Writer(stdgo._internal.compress.flate.Flate_writer.Writer) from stdgo._internal.compress.flate.Flate_writer.Writer to stdgo._internal.compress.flate.Flate_writer.Writer {
+@:structInit @:using(Flate.Writer_static_extension) abstract Writer(stdgo._internal.compress.flate.Flate_writer.Writer) from stdgo._internal.compress.flate.Flate_writer.Writer to stdgo._internal.compress.flate.Flate_writer.Writer {
     public var _d(get, set) : T_compressor;
     function get__d():T_compressor return this._d;
     function set__d(v:T_compressor):T_compressor {
@@ -243,7 +259,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_tableEntry_static_extension) @:dox(hide) abstract T_tableEntry(stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry) from stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry to stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry {
+@:structInit @:using(Flate.T_tableEntry_static_extension) @:dox(hide) abstract T_tableEntry(stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry) from stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry to stdgo._internal.compress.flate.Flate_t_tableentry.T_tableEntry {
     public var _val(get, set) : std.UInt;
     function get__val():std.UInt return this._val;
     function set__val(v:std.UInt):std.UInt {
@@ -260,7 +276,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_deflateFast_static_extension) @:dox(hide) abstract T_deflateFast(stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast) from stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast to stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast {
+@:structInit @:using(Flate.T_deflateFast_static_extension) @:dox(hide) abstract T_deflateFast(stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast) from stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast to stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast {
     public var _table(get, set) : haxe.ds.Vector<T_tableEntry>;
     function get__table():haxe.ds.Vector<T_tableEntry> return haxe.ds.Vector.fromArrayCopy([for (i in this._table) i]);
     function set__table(v:haxe.ds.Vector<T_tableEntry>):haxe.ds.Vector<T_tableEntry> {
@@ -283,7 +299,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_dictDecoder_static_extension) @:dox(hide) abstract T_dictDecoder(stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder) from stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder to stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder {
+@:structInit @:using(Flate.T_dictDecoder_static_extension) @:dox(hide) abstract T_dictDecoder(stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder) from stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder to stdgo._internal.compress.flate.Flate_t_dictdecoder.T_dictDecoder {
     public var _hist(get, set) : Array<std.UInt>;
     function get__hist():Array<std.UInt> return [for (i in this._hist) i];
     function set__hist(v:Array<std.UInt>):Array<std.UInt> {
@@ -312,7 +328,7 @@ _byteAvailable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_huffmanBitWriter_static_extension) @:dox(hide) abstract T_huffmanBitWriter(stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter) from stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter to stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter {
+@:structInit @:using(Flate.T_huffmanBitWriter_static_extension) @:dox(hide) abstract T_huffmanBitWriter(stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter) from stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter to stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter {
     public var _writer(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__writer():stdgo._internal.io.Io_writer.Writer return this._writer;
     function set__writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -408,7 +424,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_hcode_static_extension) @:dox(hide) abstract T_hcode(stdgo._internal.compress.flate.Flate_t_hcode.T_hcode) from stdgo._internal.compress.flate.Flate_t_hcode.T_hcode to stdgo._internal.compress.flate.Flate_t_hcode.T_hcode {
+@:structInit @:using(Flate.T_hcode_static_extension) @:dox(hide) abstract T_hcode(stdgo._internal.compress.flate.Flate_t_hcode.T_hcode) from stdgo._internal.compress.flate.Flate_t_hcode.T_hcode to stdgo._internal.compress.flate.Flate_t_hcode.T_hcode {
     public var _code(get, set) : std.UInt;
     function get__code():std.UInt return this._code;
     function set__code(v:std.UInt):std.UInt {
@@ -425,7 +441,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_huffmanEncoder_static_extension) @:dox(hide) abstract T_huffmanEncoder(stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder) from stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder to stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder {
+@:structInit @:using(Flate.T_huffmanEncoder_static_extension) @:dox(hide) abstract T_huffmanEncoder(stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder) from stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder to stdgo._internal.compress.flate.Flate_t_huffmanencoder.T_huffmanEncoder {
     public var _codes(get, set) : Array<T_hcode>;
     function get__codes():Array<T_hcode> return [for (i in this._codes) i];
     function set__codes(v:Array<T_hcode>):Array<T_hcode> {
@@ -460,7 +476,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_literalNode_static_extension) @:dox(hide) abstract T_literalNode(stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode) from stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode to stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode {
+@:structInit @:using(Flate.T_literalNode_static_extension) @:dox(hide) abstract T_literalNode(stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode) from stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode to stdgo._internal.compress.flate.Flate_t_literalnode.T_literalNode {
     public var _literal(get, set) : std.UInt;
     function get__literal():std.UInt return this._literal;
     function set__literal(v:std.UInt):std.UInt {
@@ -477,7 +493,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_levelInfo_static_extension) @:dox(hide) abstract T_levelInfo(stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo) from stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo to stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo {
+@:structInit @:using(Flate.T_levelInfo_static_extension) @:dox(hide) abstract T_levelInfo(stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo) from stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo to stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo {
     public var _level(get, set) : StdTypes.Int;
     function get__level():StdTypes.Int return this._level;
     function set__level(v:StdTypes.Int):StdTypes.Int {
@@ -512,7 +528,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.ReadError_static_extension) abstract ReadError(stdgo._internal.compress.flate.Flate_readerror.ReadError) from stdgo._internal.compress.flate.Flate_readerror.ReadError to stdgo._internal.compress.flate.Flate_readerror.ReadError {
+@:structInit @:using(Flate.ReadError_static_extension) abstract ReadError(stdgo._internal.compress.flate.Flate_readerror.ReadError) from stdgo._internal.compress.flate.Flate_readerror.ReadError to stdgo._internal.compress.flate.Flate_readerror.ReadError {
     public var offset(get, set) : haxe.Int64;
     function get_offset():haxe.Int64 return this.offset;
     function set_offset(v:haxe.Int64):haxe.Int64 {
@@ -529,7 +545,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.WriteError_static_extension) abstract WriteError(stdgo._internal.compress.flate.Flate_writeerror.WriteError) from stdgo._internal.compress.flate.Flate_writeerror.WriteError to stdgo._internal.compress.flate.Flate_writeerror.WriteError {
+@:structInit @:using(Flate.WriteError_static_extension) abstract WriteError(stdgo._internal.compress.flate.Flate_writeerror.WriteError) from stdgo._internal.compress.flate.Flate_writeerror.WriteError to stdgo._internal.compress.flate.Flate_writeerror.WriteError {
     public var offset(get, set) : haxe.Int64;
     function get_offset():haxe.Int64 return this.offset;
     function set_offset(v:haxe.Int64):haxe.Int64 {
@@ -546,7 +562,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_huffmanDecoder_static_extension) @:dox(hide) abstract T_huffmanDecoder(stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder) from stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder to stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder {
+@:structInit @:using(Flate.T_huffmanDecoder_static_extension) @:dox(hide) abstract T_huffmanDecoder(stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder) from stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder to stdgo._internal.compress.flate.Flate_t_huffmandecoder.T_huffmanDecoder {
     public var _min(get, set) : StdTypes.Int;
     function get__min():StdTypes.Int return this._min;
     function set__min(v:StdTypes.Int):StdTypes.Int {
@@ -575,7 +591,7 @@ _writer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.flate.Flate.T_decompressor_static_extension) @:dox(hide) abstract T_decompressor(stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor) from stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor to stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor {
+@:structInit @:using(Flate.T_decompressor_static_extension) @:dox(hide) abstract T_decompressor(stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor) from stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor to stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor {
     public var _r(get, set) : Reader;
     function get__r():Reader return this._r;
     function set__r(v:Reader):Reader {
@@ -642,9 +658,9 @@ _writer,
         this._buf = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public var _step(get, set) : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void;
-    function get__step():stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void return _0 -> this._step(_0);
-    function set__step(v:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void):stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void {
+    public var _step(get, set) : T_decompressor -> Void;
+    function get__step():T_decompressor -> Void return _0 -> this._step(_0);
+    function set__step(v:T_decompressor -> Void):T_decompressor -> Void {
         this._step = v;
         return v;
     }
@@ -696,7 +712,7 @@ _writer,
         this._copyDist = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_r:Reader, ?_rBuf:stdgo._internal.bufio.Bufio_reader.Reader, ?_roffset:haxe.Int64, ?_b:std.UInt, ?_nb:std.UInt, ?_h1:T_huffmanDecoder, ?_h2:T_huffmanDecoder, ?_bits:haxe.ds.Vector<StdTypes.Int>, ?_codebits:haxe.ds.Vector<StdTypes.Int>, ?_dict:T_dictDecoder, ?_buf:haxe.ds.Vector<std.UInt>, ?_step:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> -> Void, ?_stepState:StdTypes.Int, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:Array<std.UInt>, ?_hl:T_huffmanDecoder, ?_hd:T_huffmanDecoder, ?_copyLen:StdTypes.Int, ?_copyDist:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor(
+    public function new(?_r:Reader, ?_rBuf:stdgo._internal.bufio.Bufio_reader.Reader, ?_roffset:haxe.Int64, ?_b:std.UInt, ?_nb:std.UInt, ?_h1:T_huffmanDecoder, ?_h2:T_huffmanDecoder, ?_bits:haxe.ds.Vector<StdTypes.Int>, ?_codebits:haxe.ds.Vector<StdTypes.Int>, ?_dict:T_dictDecoder, ?_buf:haxe.ds.Vector<std.UInt>, ?_step:T_decompressor -> Void, ?_stepState:StdTypes.Int, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:Array<std.UInt>, ?_hl:T_huffmanDecoder, ?_hd:T_huffmanDecoder, ?_copyLen:StdTypes.Int, ?_copyDist:StdTypes.Int) this = new stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor(
 _r,
 (_rBuf : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>),
 (_roffset : stdgo.GoInt64),

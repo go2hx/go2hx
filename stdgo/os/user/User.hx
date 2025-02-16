@@ -1,5 +1,5 @@
 package stdgo.os.user;
-@:structInit @:using(stdgo.os.user.User.User_static_extension) abstract User_(stdgo._internal.os.user.User_user.User) from stdgo._internal.os.user.User_user.User to stdgo._internal.os.user.User_user.User {
+@:structInit @:using(User.User_static_extension) abstract User_(stdgo._internal.os.user.User_user.User) from stdgo._internal.os.user.User_user.User to stdgo._internal.os.user.User_user.User {
     public var uid(get, set) : String;
     function get_uid():String return this.uid;
     function set_uid(v:String):String {
@@ -34,7 +34,7 @@ package stdgo.os.user;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.user.User.Group_static_extension) abstract Group(stdgo._internal.os.user.User_group.Group) from stdgo._internal.os.user.User_group.Group to stdgo._internal.os.user.User_group.Group {
+@:structInit @:using(User.Group_static_extension) abstract Group(stdgo._internal.os.user.User_group.Group) from stdgo._internal.os.user.User_group.Group to stdgo._internal.os.user.User_group.Group {
     public var gid(get, set) : String;
     function get_gid():String return this.gid;
     function set_gid(v:String):String {

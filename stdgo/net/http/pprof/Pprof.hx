@@ -1,5 +1,5 @@
 package stdgo.net.http.pprof;
-@:structInit @:using(stdgo.net.http.pprof.Pprof.T_profileEntry_static_extension) @:dox(hide) abstract T_profileEntry(stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry) from stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry to stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry {
+@:structInit @:using(pprof.Pprof.T_profileEntry_static_extension) @:dox(hide) abstract T_profileEntry(stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry) from stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry to stdgo._internal.net.http.pprof.Pprof_t_profileentry.T_profileEntry {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {

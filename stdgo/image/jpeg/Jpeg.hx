@@ -3,14 +3,30 @@ final defaultQuality : haxe.UInt64 = stdgo._internal.image.jpeg.Jpeg_defaultqual
 class Reader_static_extension {
 
 }
-typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
+@:forward abstract Reader(stdgo._internal.image.jpeg.Jpeg_reader.Reader) from stdgo._internal.image.jpeg.Jpeg_reader.Reader to stdgo._internal.image.jpeg.Jpeg_reader.Reader {
+    @:from
+    static function fromHaxeInterface(x:{ }):Reader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Reader = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_writer_static_extension {
     static public function flush(t:stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.image.jpeg.Jpeg_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-@:dox(hide) typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffman_static_extension) @:dox(hide) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman {
+@:dox(hide) @:forward abstract T_writer(stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer) from stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer to stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer {
+    @:from
+    static function fromHaxeInterface(x:{ function flush():stdgo.Error; }):T_writer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_writer = { flush : () -> x.flush(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Jpeg.T_huffman_static_extension) @:dox(hide) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman {
     public var _nCodes(get, set) : StdTypes.Int;
     function get__nCodes():StdTypes.Int return this._nCodes;
     function set__nCodes(v:StdTypes.Int):StdTypes.Int {
@@ -51,7 +67,7 @@ typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_component_static_extension) @:dox(hide) abstract T_component(stdgo._internal.image.jpeg.Jpeg_t_component.T_component) from stdgo._internal.image.jpeg.Jpeg_t_component.T_component to stdgo._internal.image.jpeg.Jpeg_t_component.T_component {
+@:structInit @:using(Jpeg.T_component_static_extension) @:dox(hide) abstract T_component(stdgo._internal.image.jpeg.Jpeg_t_component.T_component) from stdgo._internal.image.jpeg.Jpeg_t_component.T_component to stdgo._internal.image.jpeg.Jpeg_t_component.T_component {
     public var _h(get, set) : StdTypes.Int;
     function get__h():StdTypes.Int return this._h;
     function set__h(v:StdTypes.Int):StdTypes.Int {
@@ -80,7 +96,7 @@ typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_bits_static_extension) @:dox(hide) abstract T_bits(stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits {
+@:structInit @:using(Jpeg.T_bits_static_extension) @:dox(hide) abstract T_bits(stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits) from stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits to stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits {
     public var _a(get, set) : std.UInt;
     function get__a():std.UInt return this._a;
     function set__a(v:std.UInt):std.UInt {
@@ -103,7 +119,7 @@ typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder) from stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder to stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder {
+@:structInit @:using(Jpeg.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder) from stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder to stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -271,7 +287,7 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffmanSpec_static_extension) @:dox(hide) abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec {
+@:structInit @:using(Jpeg.T_huffmanSpec_static_extension) @:dox(hide) abstract T_huffmanSpec(stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec) from stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec to stdgo._internal.image.jpeg.Jpeg_t_huffmanspec.T_huffmanSpec {
     public var _count(get, set) : haxe.ds.Vector<std.UInt>;
     function get__count():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._count) i]);
     function set__count(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -288,7 +304,7 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder) from stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder to stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder {
+@:structInit @:using(Jpeg.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder) from stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder to stdgo._internal.image.jpeg.Jpeg_t_encoder.T_encoder {
     public var _w(get, set) : T_writer;
     function get__w():T_writer return this._w;
     function set__w(v:T_writer):T_writer {
@@ -329,7 +345,7 @@ _adobeTransformValid,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.jpeg.Jpeg.Options_static_extension) abstract Options(stdgo._internal.image.jpeg.Jpeg_options.Options) from stdgo._internal.image.jpeg.Jpeg_options.Options to stdgo._internal.image.jpeg.Jpeg_options.Options {
+@:structInit @:using(Jpeg.Options_static_extension) abstract Options(stdgo._internal.image.jpeg.Jpeg_options.Options) from stdgo._internal.image.jpeg.Jpeg_options.Options to stdgo._internal.image.jpeg.Jpeg_options.Options {
     public var quality(get, set) : StdTypes.Int;
     function get_quality():StdTypes.Int return this.quality;
     function set_quality(v:StdTypes.Int):StdTypes.Int {

@@ -54,7 +54,7 @@ private function set_options(v:Array<T_option>):Array<T_option> {
         stdgo._internal.internal.cpu.Cpu_options.options = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.cpu.Cpu_t_option.T_option>);
         return v;
     }
-@:structInit @:using(stdgo.internal.cpu.Cpu.CacheLinePad_static_extension) abstract CacheLinePad(stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad) from stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad to stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad {
+@:structInit @:using(Cpu.CacheLinePad_static_extension) abstract CacheLinePad(stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad) from stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad to stdgo._internal.internal.cpu.Cpu_cachelinepad.CacheLinePad {
     public var __1(get, set) : haxe.ds.Vector<std.UInt>;
     function get___1():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) i]);
     function set___1(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -65,7 +65,7 @@ private function set_options(v:Array<T_option>):Array<T_option> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.cpu.Cpu.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.internal.cpu.Cpu_t_option.T_option) from stdgo._internal.internal.cpu.Cpu_t_option.T_option to stdgo._internal.internal.cpu.Cpu_t_option.T_option {
+@:structInit @:using(Cpu.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.internal.cpu.Cpu_t_option.T_option) from stdgo._internal.internal.cpu.Cpu_t_option.T_option to stdgo._internal.internal.cpu.Cpu_t_option.T_option {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {

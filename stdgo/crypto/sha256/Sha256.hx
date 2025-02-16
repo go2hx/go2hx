@@ -2,7 +2,7 @@ package stdgo.crypto.sha256;
 final size : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_size.size;
 final size224 : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_size224.size224;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_blocksize.blockSize;
-@:structInit @:using(stdgo.crypto.sha256.Sha256.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest) from stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest to stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest {
+@:structInit @:using(Sha256.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest) from stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest to stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest {
     public var _h(get, set) : haxe.ds.Vector<std.UInt>;
     function get__h():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._h) i]);
     function set__h(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {

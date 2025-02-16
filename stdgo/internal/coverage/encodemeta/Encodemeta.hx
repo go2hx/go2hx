@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.encodemeta;
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaDataBuilder_static_extension) abstract CoverageMetaDataBuilder(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder {
+@:structInit @:using(encodemeta.Encodemeta.CoverageMetaDataBuilder_static_extension) abstract CoverageMetaDataBuilder(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder {
     public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer;
     function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer return this._stab;
     function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer):stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {
@@ -58,7 +58,7 @@ package stdgo.internal.coverage.encodemeta;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.T_funcDesc_static_extension) @:dox(hide) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc {
+@:structInit @:using(encodemeta.Encodemeta.T_funcDesc_static_extension) @:dox(hide) abstract T_funcDesc(stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc to stdgo._internal.internal.coverage.encodemeta.Encodemeta_t_funcdesc.T_funcDesc {
     public var _encoded(get, set) : Array<std.UInt>;
     function get__encoded():Array<std.UInt> return [for (i in this._encoded) i];
     function set__encoded(v:Array<std.UInt>):Array<std.UInt> {
@@ -69,7 +69,7 @@ package stdgo.internal.coverage.encodemeta;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.encodemeta.Encodemeta.CoverageMetaFileWriter_static_extension) abstract CoverageMetaFileWriter(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter {
+@:structInit @:using(encodemeta.Encodemeta.CoverageMetaFileWriter_static_extension) abstract CoverageMetaFileWriter(stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter) from stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter to stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetafilewriter.CoverageMetaFileWriter {
     public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer;
     function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer return this._stab;
     function set__stab(v:stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer):stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {

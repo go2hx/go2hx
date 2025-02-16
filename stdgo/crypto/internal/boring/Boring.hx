@@ -1,7 +1,7 @@
 package stdgo.crypto.internal.boring;
 final enabled : Bool = stdgo._internal.crypto.internal.boring.Boring_enabled.enabled;
 final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_randreader.randReader;
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PublicKeyECDSA_static_extension) abstract PublicKeyECDSA(stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA) from stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA to stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA {
+@:structInit @:using(boring.Boring.PublicKeyECDSA_static_extension) abstract PublicKeyECDSA(stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA) from stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA to stdgo._internal.crypto.internal.boring.Boring_publickeyecdsa.PublicKeyECDSA {
     public var __1(get, set) : StdTypes.Int;
     function get___1():StdTypes.Int return this.__1;
     function set___1(v:StdTypes.Int):StdTypes.Int {
@@ -12,7 +12,7 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PrivateKeyECDSA_static_extension) abstract PrivateKeyECDSA(stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA) from stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA to stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA {
+@:structInit @:using(boring.Boring.PrivateKeyECDSA_static_extension) abstract PrivateKeyECDSA(stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA) from stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA to stdgo._internal.crypto.internal.boring.Boring_privatekeyecdsa.PrivateKeyECDSA {
     public var __2(get, set) : StdTypes.Int;
     function get___2():StdTypes.Int return this.__2;
     function set___2(v:StdTypes.Int):StdTypes.Int {
@@ -23,7 +23,7 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PublicKeyRSA_static_extension) abstract PublicKeyRSA(stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA) from stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA to stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA {
+@:structInit @:using(boring.Boring.PublicKeyRSA_static_extension) abstract PublicKeyRSA(stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA) from stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA to stdgo._internal.crypto.internal.boring.Boring_publickeyrsa.PublicKeyRSA {
     public var __3(get, set) : StdTypes.Int;
     function get___3():StdTypes.Int return this.__3;
     function set___3(v:StdTypes.Int):StdTypes.Int {
@@ -34,7 +34,7 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PrivateKeyRSA_static_extension) abstract PrivateKeyRSA(stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA) from stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA to stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA {
+@:structInit @:using(boring.Boring.PrivateKeyRSA_static_extension) abstract PrivateKeyRSA(stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA) from stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA to stdgo._internal.crypto.internal.boring.Boring_privatekeyrsa.PrivateKeyRSA {
     public var __4(get, set) : StdTypes.Int;
     function get___4():StdTypes.Int return this.__4;
     function set___4(v:StdTypes.Int):StdTypes.Int {
@@ -45,12 +45,12 @@ final randReader : T_randReader = stdgo._internal.crypto.internal.boring.Boring_
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PublicKeyECDH_static_extension) abstract PublicKeyECDH(stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH) from stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH to stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH {
+@:structInit @:using(boring.Boring.PublicKeyECDH_static_extension) abstract PublicKeyECDH(stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH) from stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH to stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH {
     public function new() this = new stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.Boring.PrivateKeyECDH_static_extension) abstract PrivateKeyECDH(stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH) from stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH to stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH {
+@:structInit @:using(boring.Boring.PrivateKeyECDH_static_extension) abstract PrivateKeyECDH(stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH) from stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH to stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH {
     public function new() this = new stdgo._internal.crypto.internal.boring.Boring_privatekeyecdh.PrivateKeyECDH();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

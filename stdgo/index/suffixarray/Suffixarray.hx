@@ -1,5 +1,5 @@
 package stdgo.index.suffixarray;
-@:structInit @:using(stdgo.index.suffixarray.Suffixarray.Index_static_extension) abstract Index(stdgo._internal.index.suffixarray.Suffixarray_index.Index) from stdgo._internal.index.suffixarray.Suffixarray_index.Index to stdgo._internal.index.suffixarray.Suffixarray_index.Index {
+@:structInit @:using(Suffixarray.Index_static_extension) abstract Index(stdgo._internal.index.suffixarray.Suffixarray_index.Index) from stdgo._internal.index.suffixarray.Suffixarray_index.Index to stdgo._internal.index.suffixarray.Suffixarray_index.Index {
     public var _data(get, set) : Array<std.UInt>;
     function get__data():Array<std.UInt> return [for (i in this._data) i];
     function set__data(v:Array<std.UInt>):Array<std.UInt> {
@@ -16,7 +16,7 @@ package stdgo.index.suffixarray;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.index.suffixarray.Suffixarray.T_ints_static_extension) @:dox(hide) abstract T_ints(stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints) from stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints to stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints {
+@:structInit @:using(Suffixarray.T_ints_static_extension) @:dox(hide) abstract T_ints(stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints) from stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints to stdgo._internal.index.suffixarray.Suffixarray_t_ints.T_ints {
     public var _int32(get, set) : Array<StdTypes.Int>;
     function get__int32():Array<StdTypes.Int> return [for (i in this._int32) i];
     function set__int32(v:Array<StdTypes.Int>):Array<StdTypes.Int> {

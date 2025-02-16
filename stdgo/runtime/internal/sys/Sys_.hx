@@ -5,12 +5,12 @@ final pCQuantum : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_pcquant
 final int64Align : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_int64align.int64Align;
 final minFrameSize : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_minframesize.minFrameSize;
 final stackAlign : haxe.UInt64 = stdgo._internal.runtime.internal.sys.Sys_stackalign.stackAlign;
-@:structInit @:using(stdgo.runtime.internal.sys.Sys_.T_nih_static_extension) @:dox(hide) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih {
+@:structInit @:using(sys.Sys_.T_nih_static_extension) @:dox(hide) abstract T_nih(stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih) from stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih to stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih {
     public function new() this = new stdgo._internal.runtime.internal.sys.Sys_t_nih.T_nih();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.internal.sys.Sys_.NotInHeap_static_extension) abstract NotInHeap(stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap) from stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap to stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap {
+@:structInit @:using(sys.Sys_.NotInHeap_static_extension) abstract NotInHeap(stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap) from stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap to stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap {
     public var __1(get, set) : T_nih;
     function get___1():T_nih return this.__1;
     function set___1(v:T_nih):T_nih {
@@ -33,7 +33,7 @@ class NotInHeap_static_extension {
     * package sys contains system- and configuration- and architecture-specific
     * constants used by the runtime.
 **/
-class Sys {
+class Sys_ {
     /**
         * TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
     **/

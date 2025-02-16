@@ -13,7 +13,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base32.Base32_hexencoding.hexEncoding = (v : stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding>);
         return v;
     }
-@:structInit @:using(stdgo.encoding.base32.Base32.Encoding_static_extension) abstract Encoding(stdgo._internal.encoding.base32.Base32_encoding.Encoding) from stdgo._internal.encoding.base32.Base32_encoding.Encoding to stdgo._internal.encoding.base32.Base32_encoding.Encoding {
+@:structInit @:using(Base32.Encoding_static_extension) abstract Encoding(stdgo._internal.encoding.base32.Base32_encoding.Encoding) from stdgo._internal.encoding.base32.Base32_encoding.Encoding to stdgo._internal.encoding.base32.Base32_encoding.Encoding {
     public var _encode(get, set) : haxe.ds.Vector<std.UInt>;
     function get__encode():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._encode) i]);
     function set__encode(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -36,7 +36,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder) from stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder to stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder {
+@:structInit @:using(Base32.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder) from stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder to stdgo._internal.encoding.base32.Base32_t_encoder.T_encoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -77,7 +77,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder) from stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder to stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder {
+@:structInit @:using(Base32.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder) from stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder to stdgo._internal.encoding.base32.Base32_t_decoder.T_decoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -130,7 +130,7 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.base32.Base32.T_newlineFilteringReader_static_extension) @:dox(hide) abstract T_newlineFilteringReader(stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader {
+@:structInit @:using(Base32.T_newlineFilteringReader_static_extension) @:dox(hide) abstract T_newlineFilteringReader(stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader) from stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader to stdgo._internal.encoding.base32.Base32_t_newlinefilteringreader.T_newlineFilteringReader {
     public var _wrapped(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__wrapped():stdgo._internal.io.Io_reader.Reader return this._wrapped;
     function set__wrapped(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {

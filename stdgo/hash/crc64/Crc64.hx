@@ -2,7 +2,7 @@ package stdgo.hash.crc64;
 final size : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_size.size;
 final iSO : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_iso.iSO;
 final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.eCMA;
-@:structInit @:using(stdgo.hash.crc64.Crc64.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.hash.crc64.Crc64_t_digest.T_digest) from stdgo._internal.hash.crc64.Crc64_t_digest.T_digest to stdgo._internal.hash.crc64.Crc64_t_digest.T_digest {
+@:structInit @:using(Crc64.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.hash.crc64.Crc64_t_digest.T_digest) from stdgo._internal.hash.crc64.Crc64_t_digest.T_digest to stdgo._internal.hash.crc64.Crc64_t_digest.T_digest {
     public var _crc(get, set) : haxe.UInt64;
     function get__crc():haxe.UInt64 return this._crc;
     function set__crc(v:haxe.UInt64):haxe.UInt64 {
@@ -19,7 +19,7 @@ final eCMA : haxe.UInt64 = stdgo._internal.hash.crc64.Crc64_ecma.eCMA;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.hash.crc64.Crc64.T_test_static_extension) @:dox(hide) abstract T_test(stdgo._internal.hash.crc64.Crc64_t_test.T_test) from stdgo._internal.hash.crc64.Crc64_t_test.T_test to stdgo._internal.hash.crc64.Crc64_t_test.T_test {
+@:structInit @:using(Crc64.T_test_static_extension) @:dox(hide) abstract T_test(stdgo._internal.hash.crc64.Crc64_t_test.T_test) from stdgo._internal.hash.crc64.Crc64_t_test.T_test to stdgo._internal.hash.crc64.Crc64_t_test.T_test {
     public var _outISO(get, set) : haxe.UInt64;
     function get__outISO():haxe.UInt64 return this._outISO;
     function set__outISO(v:haxe.UInt64):haxe.UInt64 {

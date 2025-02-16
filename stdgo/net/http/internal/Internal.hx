@@ -5,7 +5,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
         stdgo._internal.net.http.internal.Internal_errlinetoolong.errLineTooLong = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedReader_static_extension) @:dox(hide) abstract T_chunkedReader(stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader) from stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader to stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader {
+@:structInit @:using(internal.Internal.T_chunkedReader_static_extension) @:dox(hide) abstract T_chunkedReader(stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader) from stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader to stdgo._internal.net.http.internal.Internal_t_chunkedreader.T_chunkedReader {
     public var _r(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
     function get__r():stdgo._internal.bufio.Bufio_reader.Reader return this._r;
     function set__r(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
@@ -40,7 +40,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.internal.Internal.T_chunkedWriter_static_extension) @:dox(hide) abstract T_chunkedWriter(stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter) from stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter to stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter {
+@:structInit @:using(internal.Internal.T_chunkedWriter_static_extension) @:dox(hide) abstract T_chunkedWriter(stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter) from stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter to stdgo._internal.net.http.internal.Internal_t_chunkedwriter.T_chunkedWriter {
     public var wire(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_wire():stdgo._internal.io.Io_writer.Writer return this.wire;
     function set_wire(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -51,7 +51,7 @@ private function set_errLineTooLong(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.internal.Internal.FlushAfterChunkWriter_static_extension) abstract FlushAfterChunkWriter(stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter) from stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter to stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter {
+@:structInit @:using(internal.Internal.FlushAfterChunkWriter_static_extension) abstract FlushAfterChunkWriter(stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter) from stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter to stdgo._internal.net.http.internal.Internal_flushafterchunkwriter.FlushAfterChunkWriter {
     public var writer(get, set) : stdgo._internal.bufio.Bufio_writer.Writer;
     function get_writer():stdgo._internal.bufio.Bufio_writer.Writer return this.writer;
     function set_writer(v:stdgo._internal.bufio.Bufio_writer.Writer):stdgo._internal.bufio.Bufio_writer.Writer {

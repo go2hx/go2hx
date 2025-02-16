@@ -5,7 +5,7 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
         stdgo._internal.net.mail.Mail_errheadernotpresent.errHeaderNotPresent = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.net.mail.Mail.Message_static_extension) abstract Message(stdgo._internal.net.mail.Mail_message.Message) from stdgo._internal.net.mail.Mail_message.Message to stdgo._internal.net.mail.Mail_message.Message {
+@:structInit @:using(Mail.Message_static_extension) abstract Message(stdgo._internal.net.mail.Mail_message.Message) from stdgo._internal.net.mail.Mail_message.Message to stdgo._internal.net.mail.Mail_message.Message {
     public var header(get, set) : Header;
     function get_header():Header return this.header;
     function set_header(v:Header):Header {
@@ -22,7 +22,7 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.mail.Mail.Address_static_extension) abstract Address(stdgo._internal.net.mail.Mail_address.Address) from stdgo._internal.net.mail.Mail_address.Address to stdgo._internal.net.mail.Mail_address.Address {
+@:structInit @:using(Mail.Address_static_extension) abstract Address(stdgo._internal.net.mail.Mail_address.Address) from stdgo._internal.net.mail.Mail_address.Address to stdgo._internal.net.mail.Mail_address.Address {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -39,7 +39,7 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.mail.Mail.AddressParser_static_extension) abstract AddressParser(stdgo._internal.net.mail.Mail_addressparser.AddressParser) from stdgo._internal.net.mail.Mail_addressparser.AddressParser to stdgo._internal.net.mail.Mail_addressparser.AddressParser {
+@:structInit @:using(Mail.AddressParser_static_extension) abstract AddressParser(stdgo._internal.net.mail.Mail_addressparser.AddressParser) from stdgo._internal.net.mail.Mail_addressparser.AddressParser to stdgo._internal.net.mail.Mail_addressparser.AddressParser {
     public var wordDecoder(get, set) : stdgo._internal.mime.Mime_worddecoder.WordDecoder;
     function get_wordDecoder():stdgo._internal.mime.Mime_worddecoder.WordDecoder return this.wordDecoder;
     function set_wordDecoder(v:stdgo._internal.mime.Mime_worddecoder.WordDecoder):stdgo._internal.mime.Mime_worddecoder.WordDecoder {
@@ -50,7 +50,7 @@ private function set_errHeaderNotPresent(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.mail.Mail.T_addrParser_static_extension) @:dox(hide) abstract T_addrParser(stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser) from stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser to stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser {
+@:structInit @:using(Mail.T_addrParser_static_extension) @:dox(hide) abstract T_addrParser(stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser) from stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser to stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {

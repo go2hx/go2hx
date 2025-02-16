@@ -3,7 +3,7 @@ final kindBad : ValueKind = stdgo._internal.runtime.metrics.Metrics_kindbad.kind
 final kindUint64 = stdgo._internal.runtime.metrics.Metrics_kinduint64.kindUint64;
 final kindFloat64 = stdgo._internal.runtime.metrics.Metrics_kindfloat64.kindFloat64;
 final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindfloat64histogram.kindFloat64Histogram;
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Description_static_extension) abstract Description(stdgo._internal.runtime.metrics.Metrics_description.Description) from stdgo._internal.runtime.metrics.Metrics_description.Description to stdgo._internal.runtime.metrics.Metrics_description.Description {
+@:structInit @:using(Metrics.Description_static_extension) abstract Description(stdgo._internal.runtime.metrics.Metrics_description.Description) from stdgo._internal.runtime.metrics.Metrics_description.Description to stdgo._internal.runtime.metrics.Metrics_description.Description {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -32,7 +32,7 @@ final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindfloat64
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Float64Histogram_static_extension) abstract Float64Histogram(stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram) from stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram to stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram {
+@:structInit @:using(Metrics.Float64Histogram_static_extension) abstract Float64Histogram(stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram) from stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram to stdgo._internal.runtime.metrics.Metrics_float64histogram.Float64Histogram {
     public var counts(get, set) : Array<haxe.UInt64>;
     function get_counts():Array<haxe.UInt64> return [for (i in this.counts) i];
     function set_counts(v:Array<haxe.UInt64>):Array<haxe.UInt64> {
@@ -49,7 +49,7 @@ final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindfloat64
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Sample_static_extension) abstract Sample(stdgo._internal.runtime.metrics.Metrics_sample.Sample) from stdgo._internal.runtime.metrics.Metrics_sample.Sample to stdgo._internal.runtime.metrics.Metrics_sample.Sample {
+@:structInit @:using(Metrics.Sample_static_extension) abstract Sample(stdgo._internal.runtime.metrics.Metrics_sample.Sample) from stdgo._internal.runtime.metrics.Metrics_sample.Sample to stdgo._internal.runtime.metrics.Metrics_sample.Sample {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -66,7 +66,7 @@ final kindFloat64Histogram = stdgo._internal.runtime.metrics.Metrics_kindfloat64
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.metrics.Metrics.Value_static_extension) abstract Value(stdgo._internal.runtime.metrics.Metrics_value.Value) from stdgo._internal.runtime.metrics.Metrics_value.Value to stdgo._internal.runtime.metrics.Metrics_value.Value {
+@:structInit @:using(Metrics.Value_static_extension) abstract Value(stdgo._internal.runtime.metrics.Metrics_value.Value) from stdgo._internal.runtime.metrics.Metrics_value.Value to stdgo._internal.runtime.metrics.Metrics_value.Value {
     public var _kind(get, set) : ValueKind;
     function get__kind():ValueKind return this._kind;
     function set__kind(v:ValueKind):ValueKind {

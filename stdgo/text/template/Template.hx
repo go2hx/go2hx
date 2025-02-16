@@ -4,8 +4,16 @@ class I_static_extension {
         return stdgo._internal.text.template.Template_i_static_extension.I_static_extension.method0(t);
     }
 }
-typedef I = stdgo._internal.text.template.Template_i.I;
-@:structInit @:using(stdgo.text.template.Template.T_state_static_extension) @:dox(hide) abstract T_state(stdgo._internal.text.template.Template_t_state.T_state) from stdgo._internal.text.template.Template_t_state.T_state to stdgo._internal.text.template.Template_t_state.T_state {
+@:forward abstract I(stdgo._internal.text.template.Template_i.I) from stdgo._internal.text.template.Template_i.I to stdgo._internal.text.template.Template_i.I {
+    @:from
+    static function fromHaxeInterface(x:{ function method0():String; }):I {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:I = { method0 : () -> x.method0(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Template.T_state_static_extension) @:dox(hide) abstract T_state(stdgo._internal.text.template.Template_t_state.T_state) from stdgo._internal.text.template.Template_t_state.T_state to stdgo._internal.text.template.Template_t_state.T_state {
     public var _tmpl(get, set) : Template_;
     function get__tmpl():Template_ return this._tmpl;
     function set__tmpl(v:Template_):Template_ {
@@ -40,7 +48,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_variable_static_extension) @:dox(hide) abstract T_variable(stdgo._internal.text.template.Template_t_variable.T_variable) from stdgo._internal.text.template.Template_t_variable.T_variable to stdgo._internal.text.template.Template_t_variable.T_variable {
+@:structInit @:using(Template.T_variable_static_extension) @:dox(hide) abstract T_variable(stdgo._internal.text.template.Template_t_variable.T_variable) from stdgo._internal.text.template.Template_t_variable.T_variable to stdgo._internal.text.template.Template_t_variable.T_variable {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -57,12 +65,12 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_missingValType_static_extension) @:dox(hide) abstract T_missingValType(stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType) from stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType to stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType {
+@:structInit @:using(Template.T_missingValType_static_extension) @:dox(hide) abstract T_missingValType(stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType) from stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType to stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType {
     public function new() this = new stdgo._internal.text.template.Template_t_missingvaltype.T_missingValType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.ExecError_static_extension) abstract ExecError(stdgo._internal.text.template.Template_execerror.ExecError) from stdgo._internal.text.template.Template_execerror.ExecError to stdgo._internal.text.template.Template_execerror.ExecError {
+@:structInit @:using(Template.ExecError_static_extension) abstract ExecError(stdgo._internal.text.template.Template_execerror.ExecError) from stdgo._internal.text.template.Template_execerror.ExecError to stdgo._internal.text.template.Template_execerror.ExecError {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -79,7 +87,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_writeError_static_extension) @:dox(hide) abstract T_writeError(stdgo._internal.text.template.Template_t_writeerror.T_writeError) from stdgo._internal.text.template.Template_t_writeerror.T_writeError to stdgo._internal.text.template.Template_t_writeerror.T_writeError {
+@:structInit @:using(Template.T_writeError_static_extension) @:dox(hide) abstract T_writeError(stdgo._internal.text.template.Template_t_writeerror.T_writeError) from stdgo._internal.text.template.Template_t_writeerror.T_writeError to stdgo._internal.text.template.Template_t_writeerror.T_writeError {
     public var err(get, set) : stdgo.Error;
     function get_err():stdgo.Error return this.err;
     function set_err(v:stdgo.Error):stdgo.Error {
@@ -90,7 +98,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.text.template.Template_t_.T_) from stdgo._internal.text.template.Template_t_.T_ to stdgo._internal.text.template.Template_t_.T_ {
+@:structInit @:using(Template.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.text.template.Template_t_.T_) from stdgo._internal.text.template.Template_t_.T_ to stdgo._internal.text.template.Template_t_.T_ {
     public var __True(get, set) : Bool;
     function get___True():Bool return this.__True;
     function set___True(v:Bool):Bool {
@@ -205,76 +213,220 @@ typedef I = stdgo._internal.text.template.Template_i.I;
         this.aI = ([for (i in v) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>);
         return v;
     }
-    public var mSI(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_mSI():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.mSI;
-    function set_mSI(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.mSI = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var mSI(get, set) : Map<String, StdTypes.Int>;
+    function get_mSI():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.mSI) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mSI(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.mSI = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mSIone(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_mSIone():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.mSIone;
-    function set_mSIone(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.mSIone = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var mSIone(get, set) : Map<String, StdTypes.Int>;
+    function get_mSIone():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.mSIone) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mSIone(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.mSIone = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mSIEmpty(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_mSIEmpty():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.mSIEmpty;
-    function set_mSIEmpty(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.mSIEmpty = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var mSIEmpty(get, set) : Map<String, StdTypes.Int>;
+    function get_mSIEmpty():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.mSIEmpty) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mSIEmpty(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.mSIEmpty = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mXI(get, set) : stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>;
-    function get_mXI():stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt> return this.mXI;
-    function set_mXI(v:stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>):stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt> {
-        this.mXI = (v : stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>);
+    public var mXI(get, set) : Map<stdgo.AnyInterface, StdTypes.Int>;
+    function get_mXI():Map<stdgo.AnyInterface, StdTypes.Int> return {
+        final __obj__:Map<stdgo.AnyInterface, StdTypes.Int> = [];
+        for (key => value in this.mXI) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mXI(v:Map<stdgo.AnyInterface, StdTypes.Int>):Map<stdgo.AnyInterface, StdTypes.Int> {
+        this.mXI = {
+            final __obj__ = new stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.AnyInterface)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mII(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>;
-    function get_mII():stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> return this.mII;
-    function set_mII(v:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> {
-        this.mII = (v : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    public var mII(get, set) : Map<StdTypes.Int, StdTypes.Int>;
+    function get_mII():Map<StdTypes.Int, StdTypes.Int> return {
+        final __obj__:Map<StdTypes.Int, StdTypes.Int> = [];
+        for (key => value in this.mII) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mII(v:Map<StdTypes.Int, StdTypes.Int>):Map<StdTypes.Int, StdTypes.Int> {
+        this.mII = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mI32S(get, set) : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>;
-    function get_mI32S():stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> return this.mI32S;
-    function set_mI32S(v:stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt32, stdgo.GoString> {
-        this.mI32S = (v : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>);
+    public var mI32S(get, set) : Map<StdTypes.Int, String>;
+    function get_mI32S():Map<StdTypes.Int, String> return {
+        final __obj__:Map<StdTypes.Int, String> = [];
+        for (key => value in this.mI32S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mI32S(v:Map<StdTypes.Int, String>):Map<StdTypes.Int, String> {
+        this.mI32S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt32)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mI64S(get, set) : stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>;
-    function get_mI64S():stdgo.GoMap<stdgo.GoInt64, stdgo.GoString> return this.mI64S;
-    function set_mI64S(v:stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt64, stdgo.GoString> {
-        this.mI64S = (v : stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>);
+    public var mI64S(get, set) : Map<haxe.Int64, String>;
+    function get_mI64S():Map<haxe.Int64, String> return {
+        final __obj__:Map<haxe.Int64, String> = [];
+        for (key => value in this.mI64S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mI64S(v:Map<haxe.Int64, String>):Map<haxe.Int64, String> {
+        this.mI64S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt64)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mUI32S(get, set) : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>;
-    function get_mUI32S():stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> return this.mUI32S;
-    function set_mUI32S(v:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> {
-        this.mUI32S = (v : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>);
+    public var mUI32S(get, set) : Map<std.UInt, String>;
+    function get_mUI32S():Map<std.UInt, String> return {
+        final __obj__:Map<std.UInt, String> = [];
+        for (key => value in this.mUI32S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mUI32S(v:Map<std.UInt, String>):Map<std.UInt, String> {
+        this.mUI32S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mUI64S(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>;
-    function get_mUI64S():stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> return this.mUI64S;
-    function set_mUI64S(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> {
-        this.mUI64S = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>);
+    public var mUI64S(get, set) : Map<haxe.UInt64, String>;
+    function get_mUI64S():Map<haxe.UInt64, String> return {
+        final __obj__:Map<haxe.UInt64, String> = [];
+        for (key => value in this.mUI64S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mUI64S(v:Map<haxe.UInt64, String>):Map<haxe.UInt64, String> {
+        this.mUI64S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mI8S(get, set) : stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>;
-    function get_mI8S():stdgo.GoMap<stdgo.GoInt8, stdgo.GoString> return this.mI8S;
-    function set_mI8S(v:stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>):stdgo.GoMap<stdgo.GoInt8, stdgo.GoString> {
-        this.mI8S = (v : stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>);
+    public var mI8S(get, set) : Map<StdTypes.Int, String>;
+    function get_mI8S():Map<StdTypes.Int, String> return {
+        final __obj__:Map<StdTypes.Int, String> = [];
+        for (key => value in this.mI8S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mI8S(v:Map<StdTypes.Int, String>):Map<StdTypes.Int, String> {
+        this.mI8S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt8)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mUI8S(get, set) : stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>;
-    function get_mUI8S():stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString> return this.mUI8S;
-    function set_mUI8S(v:stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString> {
-        this.mUI8S = (v : stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>);
+    public var mUI8S(get, set) : Map<std.UInt, String>;
+    function get_mUI8S():Map<std.UInt, String> return {
+        final __obj__:Map<std.UInt, String> = [];
+        for (key => value in this.mUI8S) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mUI8S(v:Map<std.UInt, String>):Map<std.UInt, String> {
+        this.mUI8S = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt8)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var sMSI(get, set) : Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>;
-    function get_sMSI():Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> return [for (i in this.sMSI) i];
-    function set_sMSI(v:Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>):Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> {
-        this.sMSI = ([for (i in v) (i : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
+    public var sMSI(get, set) : Array<Map<String, StdTypes.Int>>;
+    function get_sMSI():Array<Map<String, StdTypes.Int>> return [for (i in this.sMSI) {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in i) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    }];
+    function set_sMSI(v:Array<Map<String, StdTypes.Int>>):Array<Map<String, StdTypes.Int>> {
+        this.sMSI = ([for (i in v) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
         return v;
     }
     public var empty0(get, set) : stdgo.AnyInterface;
@@ -367,39 +519,39 @@ typedef I = stdgo._internal.text.template.Template_i.I;
         this.nIL = v;
         return v;
     }
-    public var binaryFunc(get, set) : (stdgo.GoString, stdgo.GoString) -> stdgo.GoString;
-    function get_binaryFunc():(stdgo.GoString, stdgo.GoString) -> stdgo.GoString return (_0, _1) -> this.binaryFunc(_0, _1);
-    function set_binaryFunc(v:(stdgo.GoString, stdgo.GoString) -> stdgo.GoString):(stdgo.GoString, stdgo.GoString) -> stdgo.GoString {
+    public var binaryFunc(get, set) : (String, String) -> String;
+    function get_binaryFunc():(String, String) -> String return (_0, _1) -> this.binaryFunc(_0, _1);
+    function set_binaryFunc(v:(String, String) -> String):(String, String) -> String {
         this.binaryFunc = v;
         return v;
     }
-    public var variadicFunc(get, set) : haxe.Rest<stdgo.GoString> -> stdgo.GoString;
-    function get_variadicFunc():haxe.Rest<stdgo.GoString> -> stdgo.GoString return _0 -> this.variadicFunc(_0);
-    function set_variadicFunc(v:haxe.Rest<stdgo.GoString> -> stdgo.GoString):haxe.Rest<stdgo.GoString> -> stdgo.GoString {
+    public var variadicFunc(get, set) : haxe.Rest<String> -> String;
+    function get_variadicFunc():haxe.Rest<String> -> String return _0 -> this.variadicFunc(_0);
+    function set_variadicFunc(v:haxe.Rest<String> -> String):haxe.Rest<String> -> String {
         this.variadicFunc = v;
         return v;
     }
-    public var variadicFuncInt(get, set) : (stdgo.GoInt, haxe.Rest<stdgo.GoString>) -> stdgo.GoString;
-    function get_variadicFuncInt():(stdgo.GoInt, haxe.Rest<stdgo.GoString>) -> stdgo.GoString return (_0, _1) -> this.variadicFuncInt(_0, _1);
-    function set_variadicFuncInt(v:(stdgo.GoInt, haxe.Rest<stdgo.GoString>) -> stdgo.GoString):(stdgo.GoInt, haxe.Rest<stdgo.GoString>) -> stdgo.GoString {
+    public var variadicFuncInt(get, set) : (StdTypes.Int, haxe.Rest<String>) -> String;
+    function get_variadicFuncInt():(StdTypes.Int, haxe.Rest<String>) -> String return (_0, _1) -> this.variadicFuncInt(_0, _1);
+    function set_variadicFuncInt(v:(StdTypes.Int, haxe.Rest<String>) -> String):(StdTypes.Int, haxe.Rest<String>) -> String {
         this.variadicFuncInt = v;
         return v;
     }
-    public var nilOKFunc(get, set) : stdgo.Pointer<stdgo.GoInt> -> Bool;
-    function get_nilOKFunc():stdgo.Pointer<stdgo.GoInt> -> Bool return _0 -> this.nilOKFunc(_0);
-    function set_nilOKFunc(v:stdgo.Pointer<stdgo.GoInt> -> Bool):stdgo.Pointer<stdgo.GoInt> -> Bool {
+    public var nilOKFunc(get, set) : stdgo.Pointer<StdTypes.Int> -> Bool;
+    function get_nilOKFunc():stdgo.Pointer<StdTypes.Int> -> Bool return _0 -> this.nilOKFunc(_0);
+    function set_nilOKFunc(v:stdgo.Pointer<StdTypes.Int> -> Bool):stdgo.Pointer<StdTypes.Int> -> Bool {
         this.nilOKFunc = v;
         return v;
     }
-    public var errFunc(get, set) : () -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; };
-    function get_errFunc():() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } return () -> this.errFunc();
-    function set_errFunc(v:() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; }):() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
+    public var errFunc(get, set) : () -> stdgo.Tuple<String, stdgo.Error>;
+    function get_errFunc():() -> stdgo.Tuple<String, stdgo.Error> return () -> this.errFunc();
+    function set_errFunc(v:() -> stdgo.Tuple<String, stdgo.Error>):() -> stdgo.Tuple<String, stdgo.Error> {
         this.errFunc = v;
         return v;
     }
-    public var panicFunc(get, set) : () -> stdgo.GoString;
-    function get_panicFunc():() -> stdgo.GoString return () -> this.panicFunc();
-    function set_panicFunc(v:() -> stdgo.GoString):() -> stdgo.GoString {
+    public var panicFunc(get, set) : () -> String;
+    function get_panicFunc():() -> String return () -> this.panicFunc();
+    function set_panicFunc(v:() -> String):() -> String {
         this.panicFunc = v;
         return v;
     }
@@ -415,7 +567,7 @@ typedef I = stdgo._internal.text.template.Template_i.I;
         this._unexported = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?__True:Bool, ?i:StdTypes.Int, ?u16:std.UInt, ?x:String, ?s:String, ?floatZero:StdTypes.Float, ?complexZero:stdgo.GoComplex128, ?u:U, ?v0:V, ?v1:V, ?v2:V, ?w0:W, ?w1:W, ?w2:W, ?sI:Array<StdTypes.Int>, ?sICap:Array<StdTypes.Int>, ?sIEmpty:Array<StdTypes.Int>, ?sB:Array<Bool>, ?aI:haxe.ds.Vector<StdTypes.Int>, ?mSI:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?mSIone:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?mSIEmpty:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?mXI:stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>, ?mII:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>, ?mI32S:stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>, ?mI64S:stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>, ?mUI32S:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?mUI64S:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>, ?mI8S:stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>, ?mUI8S:stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>, ?sMSI:Array<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>, ?empty0:stdgo.AnyInterface, ?empty1:stdgo.AnyInterface, ?empty2:stdgo.AnyInterface, ?empty3:stdgo.AnyInterface, ?empty4:stdgo.AnyInterface, ?nonEmptyInterface:I, ?nonEmptyInterfacePtS:I, ?nonEmptyInterfaceNil:I, ?nonEmptyInterfaceTypedNil:I, ?str:stdgo._internal.fmt.Fmt_stringer.Stringer, ?err:stdgo.Error, ?pI:stdgo.Pointer<StdTypes.Int>, ?pS:stdgo.Pointer<String>, ?pSI:Array<StdTypes.Int>, ?nIL:stdgo.Pointer<StdTypes.Int>, ?binaryFunc:(stdgo.GoString, stdgo.GoString) -> stdgo.GoString, ?variadicFunc:haxe.Rest<stdgo.GoString> -> stdgo.GoString, ?variadicFuncInt:(stdgo.GoInt, haxe.Rest<stdgo.GoString>) -> stdgo.GoString, ?nilOKFunc:stdgo.Pointer<stdgo.GoInt> -> Bool, ?errFunc:() -> { var _0 : stdgo.GoString; var _1 : stdgo.Error; }, ?panicFunc:() -> stdgo.GoString, ?tmpl:Template_, ?_unexported:StdTypes.Int) this = new stdgo._internal.text.template.Template_t_.T_(
+    public function new(?__True:Bool, ?i:StdTypes.Int, ?u16:std.UInt, ?x:String, ?s:String, ?floatZero:StdTypes.Float, ?complexZero:stdgo.GoComplex128, ?u:U, ?v0:V, ?v1:V, ?v2:V, ?w0:W, ?w1:W, ?w2:W, ?sI:Array<StdTypes.Int>, ?sICap:Array<StdTypes.Int>, ?sIEmpty:Array<StdTypes.Int>, ?sB:Array<Bool>, ?aI:haxe.ds.Vector<StdTypes.Int>, ?mSI:Map<String, StdTypes.Int>, ?mSIone:Map<String, StdTypes.Int>, ?mSIEmpty:Map<String, StdTypes.Int>, ?mXI:Map<stdgo.AnyInterface, StdTypes.Int>, ?mII:Map<StdTypes.Int, StdTypes.Int>, ?mI32S:Map<StdTypes.Int, String>, ?mI64S:Map<haxe.Int64, String>, ?mUI32S:Map<std.UInt, String>, ?mUI64S:Map<haxe.UInt64, String>, ?mI8S:Map<StdTypes.Int, String>, ?mUI8S:Map<std.UInt, String>, ?sMSI:Array<Map<String, StdTypes.Int>>, ?empty0:stdgo.AnyInterface, ?empty1:stdgo.AnyInterface, ?empty2:stdgo.AnyInterface, ?empty3:stdgo.AnyInterface, ?empty4:stdgo.AnyInterface, ?nonEmptyInterface:I, ?nonEmptyInterfacePtS:I, ?nonEmptyInterfaceNil:I, ?nonEmptyInterfaceTypedNil:I, ?str:stdgo._internal.fmt.Fmt_stringer.Stringer, ?err:stdgo.Error, ?pI:stdgo.Pointer<StdTypes.Int>, ?pS:stdgo.Pointer<String>, ?pSI:Array<StdTypes.Int>, ?nIL:stdgo.Pointer<StdTypes.Int>, ?binaryFunc:(String, String) -> String, ?variadicFunc:haxe.Rest<String> -> String, ?variadicFuncInt:(StdTypes.Int, haxe.Rest<String>) -> String, ?nilOKFunc:stdgo.Pointer<StdTypes.Int> -> Bool, ?errFunc:() -> stdgo.Tuple<String, stdgo.Error>, ?panicFunc:() -> String, ?tmpl:Template_, ?_unexported:StdTypes.Int) this = new stdgo._internal.text.template.Template_t_.T_(
 __True,
 (i : stdgo.GoInt),
 (u16 : stdgo.GoUInt16),
@@ -435,18 +587,90 @@ w0,
 ([for (i in sIEmpty) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>),
 ([for (i in sB) i] : stdgo.Slice<Bool>),
 ([for (i in aI) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>),
-(mSI : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
-(mSIone : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
-(mSIEmpty : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
-(mXI : stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>),
-(mII : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>),
-(mI32S : stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>),
-(mI64S : stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>),
-(mUI32S : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>),
-(mUI64S : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>),
-(mI8S : stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>),
-(mUI8S : stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>),
-([for (i in sMSI) (i : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in mSI) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in mSIone) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in mSIEmpty) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.AnyInterface, stdgo.GoInt>();
+        for (key => value in mXI) {
+            __obj__[(key : stdgo.AnyInterface)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+        for (key => value in mII) {
+            __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt32, stdgo.GoString>();
+        for (key => value in mI32S) {
+            __obj__[(key : stdgo.GoInt32)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt64, stdgo.GoString>();
+        for (key => value in mI64S) {
+            __obj__[(key : stdgo.GoInt64)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+        for (key => value in mUI32S) {
+            __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>();
+        for (key => value in mUI64S) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt8, stdgo.GoString>();
+        for (key => value in mI8S) {
+            __obj__[(key : stdgo.GoInt8)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt8, stdgo.GoString>();
+        for (key => value in mUI8S) {
+            __obj__[(key : stdgo.GoUInt8)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+([for (i in sMSI) {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in i) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>),
 (empty0 : stdgo.AnyInterface),
 (empty1 : stdgo.AnyInterface),
 (empty2 : stdgo.AnyInterface),
@@ -473,7 +697,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.U_static_extension) abstract U(stdgo._internal.text.template.Template_u.U) from stdgo._internal.text.template.Template_u.U to stdgo._internal.text.template.Template_u.U {
+@:structInit @:using(Template.U_static_extension) abstract U(stdgo._internal.text.template.Template_u.U) from stdgo._internal.text.template.Template_u.U to stdgo._internal.text.template.Template_u.U {
     public var v(get, set) : String;
     function get_v():String return this.v;
     function set_v(v:String):String {
@@ -484,7 +708,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.V_static_extension) abstract V(stdgo._internal.text.template.Template_v.V) from stdgo._internal.text.template.Template_v.V to stdgo._internal.text.template.Template_v.V {
+@:structInit @:using(Template.V_static_extension) abstract V(stdgo._internal.text.template.Template_v.V) from stdgo._internal.text.template.Template_v.V to stdgo._internal.text.template.Template_v.V {
     public var _j(get, set) : StdTypes.Int;
     function get__j():StdTypes.Int return this._j;
     function set__j(v:StdTypes.Int):StdTypes.Int {
@@ -495,7 +719,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.W_static_extension) abstract W(stdgo._internal.text.template.Template_w.W) from stdgo._internal.text.template.Template_w.W to stdgo._internal.text.template.Template_w.W {
+@:structInit @:using(Template.W_static_extension) abstract W(stdgo._internal.text.template.Template_w.W) from stdgo._internal.text.template.Template_w.W to stdgo._internal.text.template.Template_w.W {
     public var _k(get, set) : StdTypes.Int;
     function get__k():StdTypes.Int return this._k;
     function set__k(v:StdTypes.Int):StdTypes.Int {
@@ -506,7 +730,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_execTest_static_extension) @:dox(hide) abstract T_execTest(stdgo._internal.text.template.Template_t_exectest.T_execTest) from stdgo._internal.text.template.Template_t_exectest.T_execTest to stdgo._internal.text.template.Template_t_exectest.T_execTest {
+@:structInit @:using(Template.T_execTest_static_extension) @:dox(hide) abstract T_execTest(stdgo._internal.text.template.Template_t_exectest.T_execTest) from stdgo._internal.text.template.Template_t_exectest.T_execTest to stdgo._internal.text.template.Template_t_exectest.T_execTest {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -541,12 +765,12 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.CustomError_static_extension) abstract CustomError(stdgo._internal.text.template.Template_customerror.CustomError) from stdgo._internal.text.template.Template_customerror.CustomError to stdgo._internal.text.template.Template_customerror.CustomError {
+@:structInit @:using(Template.CustomError_static_extension) abstract CustomError(stdgo._internal.text.template.Template_customerror.CustomError) from stdgo._internal.text.template.Template_customerror.CustomError to stdgo._internal.text.template.Template_customerror.CustomError {
     public function new() this = new stdgo._internal.text.template.Template_customerror.CustomError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.Tree_static_extension) abstract Tree(stdgo._internal.text.template.Template_tree.Tree) from stdgo._internal.text.template.Template_tree.Tree to stdgo._internal.text.template.Template_tree.Tree {
+@:structInit @:using(Template.Tree_static_extension) abstract Tree(stdgo._internal.text.template.Template_tree.Tree) from stdgo._internal.text.template.Template_tree.Tree to stdgo._internal.text.template.Template_tree.Tree {
     public var val(get, set) : StdTypes.Int;
     function get_val():StdTypes.Int return this.val;
     function set_val(v:StdTypes.Int):StdTypes.Int {
@@ -569,7 +793,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_cmpTest_static_extension) @:dox(hide) abstract T_cmpTest(stdgo._internal.text.template.Template_t_cmptest.T_cmpTest) from stdgo._internal.text.template.Template_t_cmptest.T_cmpTest to stdgo._internal.text.template.Template_t_cmptest.T_cmpTest {
+@:structInit @:using(Template.T_cmpTest_static_extension) @:dox(hide) abstract T_cmpTest(stdgo._internal.text.template.Template_t_cmptest.T_cmpTest) from stdgo._internal.text.template.Template_t_cmptest.T_cmpTest to stdgo._internal.text.template.Template_t_cmptest.T_cmpTest {
     public var _expr(get, set) : String;
     function get__expr():String return this._expr;
     function set__expr(v:String):String {
@@ -592,7 +816,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_multiParseTest_static_extension) @:dox(hide) abstract T_multiParseTest(stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest) from stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest to stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest {
+@:structInit @:using(Template.T_multiParseTest_static_extension) @:dox(hide) abstract T_multiParseTest(stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest) from stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest to stdgo._internal.text.template.Template_t_multiparsetest.T_multiParseTest {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -627,7 +851,7 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.text.template.Template_t_option.T_option) from stdgo._internal.text.template.Template_t_option.T_option to stdgo._internal.text.template.Template_t_option.T_option {
+@:structInit @:using(Template.T_option_static_extension) @:dox(hide) abstract T_option(stdgo._internal.text.template.Template_t_option.T_option) from stdgo._internal.text.template.Template_t_option.T_option to stdgo._internal.text.template.Template_t_option.T_option {
     public var _missingKey(get, set) : T_missingKeyAction;
     function get__missingKey():T_missingKeyAction return this._missingKey;
     function set__missingKey(v:T_missingKeyAction):T_missingKeyAction {
@@ -638,11 +862,23 @@ panicFunc,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.text.template.Template_t_common.T_common) from stdgo._internal.text.template.Template_t_common.T_common to stdgo._internal.text.template.Template_t_common.T_common {
-    public var _tmpl(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>;
-    function get__tmpl():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>> return this._tmpl;
-    function set__tmpl(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>> {
-        this._tmpl = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
+@:structInit @:using(Template.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.text.template.Template_t_common.T_common) from stdgo._internal.text.template.Template_t_common.T_common to stdgo._internal.text.template.Template_t_common.T_common {
+    public var _tmpl(get, set) : Map<String, Template_>;
+    function get__tmpl():Map<String, Template_> return {
+        final __obj__:Map<String, Template_> = [];
+        for (key => value in this._tmpl) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__tmpl(v:Map<String, Template_>):Map<String, Template_> {
+        this._tmpl = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _muTmpl(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
@@ -669,17 +905,41 @@ panicFunc,
         this._parseFuncs = v;
         return v;
     }
-    public var _execFuncs(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>;
-    function get__execFuncs():stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value> return this._execFuncs;
-    function set__execFuncs(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>):stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value> {
-        this._execFuncs = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>);
+    public var _execFuncs(get, set) : Map<String, stdgo._internal.reflect.Reflect_value.Value>;
+    function get__execFuncs():Map<String, stdgo._internal.reflect.Reflect_value.Value> return {
+        final __obj__:Map<String, stdgo._internal.reflect.Reflect_value.Value> = [];
+        for (key => value in this._execFuncs) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__execFuncs(v:Map<String, stdgo._internal.reflect.Reflect_value.Value>):Map<String, stdgo._internal.reflect.Reflect_value.Value> {
+        this._execFuncs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_tmpl:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>, ?_muTmpl:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_option:T_option, ?_muFuncs:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_parseFuncs:FuncMap, ?_execFuncs:stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>) this = new stdgo._internal.text.template.Template_t_common.T_common((_tmpl : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>), _muTmpl, _option, _muFuncs, _parseFuncs, (_execFuncs : stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>));
+    public function new(?_tmpl:Map<String, Template_>, ?_muTmpl:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_option:T_option, ?_muFuncs:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_parseFuncs:FuncMap, ?_execFuncs:Map<String, stdgo._internal.reflect.Reflect_value.Value>) this = new stdgo._internal.text.template.Template_t_common.T_common({
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>();
+        for (key => value in _tmpl) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+        };
+        __obj__;
+    }, _muTmpl, _option, _muFuncs, _parseFuncs, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.reflect.Reflect_value.Value>();
+        for (key => value in _execFuncs) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.Template_static_extension) abstract Template_(stdgo._internal.text.template.Template_template.Template) from stdgo._internal.text.template.Template_template.Template to stdgo._internal.text.template.Template_template.Template {
+@:structInit @:using(Template.Template_static_extension) abstract Template_(stdgo._internal.text.template.Template_template.Template) from stdgo._internal.text.template.Template_template.Template to stdgo._internal.text.template.Template_template.Template {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -771,7 +1031,7 @@ typedef ErrorWriter = stdgo._internal.text.template.Template_errorwriter.ErrorWr
 typedef FuncMap = stdgo._internal.text.template.Template_funcmap.FuncMap;
 @:dox(hide) typedef T_kind = stdgo._internal.text.template.Template_t_kind.T_kind;
 @:dox(hide) typedef T_missingKeyAction = stdgo._internal.text.template.Template_t_missingkeyaction.T_missingKeyAction;
-@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___A_58273_static_extension) @:dox(hide) abstract T_testIssue48215___localname___A_58273(stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273) from stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 to stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 {
+@:structInit @:using(Template.T_testIssue48215___localname___A_58273_static_extension) @:dox(hide) abstract T_testIssue48215___localname___A_58273(stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273) from stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 to stdgo._internal.text.template.Template_t_testissue48215___localname___a_58273.T_testIssue48215___localname___A_58273 {
     public var s(get, set) : String;
     function get_s():String return this.s;
     function set_s(v:String):String {
@@ -782,7 +1042,7 @@ typedef FuncMap = stdgo._internal.text.template.Template_funcmap.FuncMap;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.Template.T_testIssue48215___localname___B_58304_static_extension) @:dox(hide) abstract T_testIssue48215___localname___B_58304(stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304) from stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 to stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 {
+@:structInit @:using(Template.T_testIssue48215___localname___B_58304_static_extension) @:dox(hide) abstract T_testIssue48215___localname___B_58304(stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304) from stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 to stdgo._internal.text.template.Template_t_testissue48215___localname___b_58304.T_testIssue48215___localname___B_58304 {
     public var a(get, set) : T_testIssue48215___localname___A_58273;
     function get_a():T_testIssue48215___localname___A_58273 return this.a;
     function set_a(v:T_testIssue48215___localname___A_58273):T_testIssue48215___localname___A_58273 {
@@ -1222,10 +1482,22 @@ class Template_static_extension {
     public static function _stopParse(__self__:stdgo._internal.text.template.Template_template.Template):Void {
         stdgo._internal.text.template.Template_template_static_extension.Template_static_extension._stopParse(__self__);
     }
-    public static function _startParse(__self__:stdgo._internal.text.template.Template_template.Template, _0:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _1:stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer, _2:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):Void {
-        final _0 = ([for (i in _0) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+    public static function _startParse(__self__:stdgo._internal.text.template.Template_template.Template, _0:Array<Map<String, stdgo.AnyInterface>>, _1:stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer, _2:Map<String, stdgo._internal.text.template.parse.Parse_tree.Tree>):Void {
+        final _0 = ([for (i in _0) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         final _1 = (_1 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
-        final _2 = (_2 : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+        final _2 = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in _2) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         stdgo._internal.text.template.Template_template_static_extension.Template_static_extension._startParse(__self__, _0, _1, _2);
     }
     public static function _recover(__self__:stdgo._internal.text.template.Template_template.Template, _0:stdgo.Error):Void {

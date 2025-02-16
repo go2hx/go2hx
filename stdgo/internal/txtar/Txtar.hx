@@ -1,5 +1,5 @@
 package stdgo.internal.txtar;
-@:structInit @:using(stdgo.internal.txtar.Txtar.Archive_static_extension) abstract Archive(stdgo._internal.internal.txtar.Txtar_archive.Archive) from stdgo._internal.internal.txtar.Txtar_archive.Archive to stdgo._internal.internal.txtar.Txtar_archive.Archive {
+@:structInit @:using(Txtar.Archive_static_extension) abstract Archive(stdgo._internal.internal.txtar.Txtar_archive.Archive) from stdgo._internal.internal.txtar.Txtar_archive.Archive to stdgo._internal.internal.txtar.Txtar_archive.Archive {
     public var comment(get, set) : Array<std.UInt>;
     function get_comment():Array<std.UInt> return [for (i in this.comment) i];
     function set_comment(v:Array<std.UInt>):Array<std.UInt> {
@@ -16,7 +16,7 @@ package stdgo.internal.txtar;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.txtar.Txtar.File_static_extension) abstract File(stdgo._internal.internal.txtar.Txtar_file.File) from stdgo._internal.internal.txtar.Txtar_file.File to stdgo._internal.internal.txtar.Txtar_file.File {
+@:structInit @:using(Txtar.File_static_extension) abstract File(stdgo._internal.internal.txtar.Txtar_file.File) from stdgo._internal.internal.txtar.Txtar_file.File to stdgo._internal.internal.txtar.Txtar_file.File {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {

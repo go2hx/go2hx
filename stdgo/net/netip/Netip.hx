@@ -1,5 +1,5 @@
 package stdgo.net.netip;
-@:structInit @:using(stdgo.net.netip.Netip.Addr_static_extension) abstract Addr(stdgo._internal.net.netip.Netip_addr.Addr) from stdgo._internal.net.netip.Netip_addr.Addr to stdgo._internal.net.netip.Netip_addr.Addr {
+@:structInit @:using(Netip.Addr_static_extension) abstract Addr(stdgo._internal.net.netip.Netip_addr.Addr) from stdgo._internal.net.netip.Netip_addr.Addr to stdgo._internal.net.netip.Netip_addr.Addr {
     public var _addr(get, set) : T_uint128;
     function get__addr():T_uint128 return this._addr;
     function set__addr(v:T_uint128):T_uint128 {
@@ -16,7 +16,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.T_parseAddrError_static_extension) @:dox(hide) abstract T_parseAddrError(stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError) from stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError to stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError {
+@:structInit @:using(Netip.T_parseAddrError_static_extension) @:dox(hide) abstract T_parseAddrError(stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError) from stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError to stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -39,7 +39,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.AddrPort_static_extension) abstract AddrPort(stdgo._internal.net.netip.Netip_addrport.AddrPort) from stdgo._internal.net.netip.Netip_addrport.AddrPort to stdgo._internal.net.netip.Netip_addrport.AddrPort {
+@:structInit @:using(Netip.AddrPort_static_extension) abstract AddrPort(stdgo._internal.net.netip.Netip_addrport.AddrPort) from stdgo._internal.net.netip.Netip_addrport.AddrPort to stdgo._internal.net.netip.Netip_addrport.AddrPort {
     public var _ip(get, set) : Addr;
     function get__ip():Addr return this._ip;
     function set__ip(v:Addr):Addr {
@@ -56,7 +56,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.Prefix_static_extension) abstract Prefix(stdgo._internal.net.netip.Netip_prefix.Prefix) from stdgo._internal.net.netip.Netip_prefix.Prefix to stdgo._internal.net.netip.Netip_prefix.Prefix {
+@:structInit @:using(Netip.Prefix_static_extension) abstract Prefix(stdgo._internal.net.netip.Netip_prefix.Prefix) from stdgo._internal.net.netip.Netip_prefix.Prefix to stdgo._internal.net.netip.Netip_prefix.Prefix {
     public var _ip(get, set) : Addr;
     function get__ip():Addr return this._ip;
     function set__ip(v:Addr):Addr {
@@ -73,7 +73,7 @@ package stdgo.net.netip;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.netip.Netip.T_uint128_static_extension) @:dox(hide) abstract T_uint128(stdgo._internal.net.netip.Netip_t_uint128.T_uint128) from stdgo._internal.net.netip.Netip_t_uint128.T_uint128 to stdgo._internal.net.netip.Netip_t_uint128.T_uint128 {
+@:structInit @:using(Netip.T_uint128_static_extension) @:dox(hide) abstract T_uint128(stdgo._internal.net.netip.Netip_t_uint128.T_uint128) from stdgo._internal.net.netip.Netip_t_uint128.T_uint128 to stdgo._internal.net.netip.Netip_t_uint128.T_uint128 {
     public var _hi(get, set) : haxe.UInt64;
     function get__hi():haxe.UInt64 return this._hi;
     function set__hi(v:haxe.UInt64):haxe.UInt64 {

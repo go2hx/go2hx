@@ -13,7 +13,7 @@ final rmicroseconds : String = stdgo._internal.log.Log_rmicroseconds.rmicrosecon
 final rline : String = stdgo._internal.log.Log_rline.rline;
 final rlongfile : String = stdgo._internal.log.Log_rlongfile.rlongfile;
 final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
-@:structInit @:using(stdgo.log.Log.Logger_static_extension) abstract Logger(stdgo._internal.log.Log_logger.Logger) from stdgo._internal.log.Log_logger.Logger to stdgo._internal.log.Log_logger.Logger {
+@:structInit @:using(Logger_static_extension) abstract Logger(stdgo._internal.log.Log_logger.Logger) from stdgo._internal.log.Log_logger.Logger to stdgo._internal.log.Log_logger.Logger {
     public var _outMu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__outMu():stdgo._internal.sync.Sync_mutex.Mutex return this._outMu;
     function set__outMu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -48,7 +48,7 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.Log.T_tester_static_extension) @:dox(hide) abstract T_tester(stdgo._internal.log.Log_t_tester.T_tester) from stdgo._internal.log.Log_t_tester.T_tester to stdgo._internal.log.Log_t_tester.T_tester {
+@:structInit @:using(T_tester_static_extension) @:dox(hide) abstract T_tester(stdgo._internal.log.Log_t_tester.T_tester) from stdgo._internal.log.Log_t_tester.T_tester to stdgo._internal.log.Log_t_tester.T_tester {
     public var _flag(get, set) : StdTypes.Int;
     function get__flag():StdTypes.Int return this._flag;
     function set__flag(v:StdTypes.Int):StdTypes.Int {
@@ -71,7 +71,7 @@ final rshortfile : String = stdgo._internal.log.Log_rshortfile.rshortfile;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.Log.T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.log.Log_t_discard.T_discard) from stdgo._internal.log.Log_t_discard.T_discard to stdgo._internal.log.Log_t_discard.T_discard {
+@:structInit @:using(T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.log.Log_t_discard.T_discard) from stdgo._internal.log.Log_t_discard.T_discard to stdgo._internal.log.Log_t_discard.T_discard {
     public function new() this = new stdgo._internal.log.Log_t_discard.T_discard();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -139,7 +139,7 @@ class Logger_static_extension {
         final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         stdgo._internal.log.Log_logger_static_extension.Logger_static_extension.print(_l, ...[for (i in _v) i]);
     }
-    static public function _output(_l:Logger, _pc:stdgo.GoUIntptr, _calldepth:StdTypes.Int, _appendOutput:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
+    static public function _output(_l:Logger, _pc:stdgo.GoUIntptr, _calldepth:StdTypes.Int, _appendOutput:Array<std.UInt> -> Array<std.UInt>):stdgo.Error {
         final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _pc = (_pc : stdgo.GoUIntptr);
         final _calldepth = (_calldepth : stdgo.GoInt);

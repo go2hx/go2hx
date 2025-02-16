@@ -25,7 +25,7 @@ final regabiWrappers : Bool = stdgo._internal.internal.goexperiment.Goexperiment
 final regabiWrappersInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_regabiwrappersint.regabiWrappersInt;
 final staticLockRanking : Bool = stdgo._internal.internal.goexperiment.Goexperiment_staticlockranking.staticLockRanking;
 final staticLockRankingInt : haxe.UInt64 = stdgo._internal.internal.goexperiment.Goexperiment_staticlockrankingint.staticLockRankingInt;
-@:structInit @:using(stdgo.internal.goexperiment.Goexperiment.Flags_static_extension) abstract Flags(stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags) from stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags to stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {
+@:structInit @:using(Goexperiment.Flags_static_extension) abstract Flags(stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags) from stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags to stdgo._internal.internal.goexperiment.Goexperiment_flags.Flags {
     public var fieldTrack(get, set) : Bool;
     function get_fieldTrack():Bool return this.fieldTrack;
     function set_fieldTrack(v:Bool):Bool {

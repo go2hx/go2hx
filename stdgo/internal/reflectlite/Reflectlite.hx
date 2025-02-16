@@ -5,7 +5,7 @@ final slice : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.inter
 final string : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_string.string;
 final struct_ : stdgo._internal.internal.abi.Abi_kind.Kind = stdgo._internal.internal.reflectlite.Reflectlite_struct_.struct_;
 typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype) from stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype to stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype {
+@:structInit @:using(Reflectlite.T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype) from stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype to stdgo._internal.internal.reflectlite.Reflectlite_t_rtype.T_rtype {
     public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -16,7 +16,7 @@ typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_mapType_static_extension) @:dox(hide) abstract T_mapType(stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType) from stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType to stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType {
+@:structInit @:using(Reflectlite.T_mapType_static_extension) @:dox(hide) abstract T_mapType(stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType) from stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType to stdgo._internal.internal.reflectlite.Reflectlite_t_maptype.T_mapType {
     public var key(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_key():stdgo._internal.internal.abi.Abi_type_.Type_ return this.key;
     function set_key(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -69,13 +69,13 @@ typedef Type_ = stdgo._internal.internal.reflectlite.Reflectlite_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_name_static_extension) @:dox(hide) abstract T_name(stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name) from stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name to stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name {
+@:structInit @:using(Reflectlite.T_name_static_extension) @:dox(hide) abstract T_name(stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name) from stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name to stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name {
     public function new() this = new stdgo._internal.internal.reflectlite.Reflectlite_t_name.T_name();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 typedef Value = stdgo._internal.internal.reflectlite.Reflectlite_value.Value;
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.ValueError_static_extension) abstract ValueError(stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError) from stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError to stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError {
+@:structInit @:using(Reflectlite.ValueError_static_extension) abstract ValueError(stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError) from stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError to stdgo._internal.internal.reflectlite.Reflectlite_valueerror.ValueError {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -92,7 +92,7 @@ typedef Value = stdgo._internal.internal.reflectlite.Reflectlite_value.Value;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.reflectlite.Reflectlite.T_emptyInterface_static_extension) @:dox(hide) abstract T_emptyInterface(stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface) from stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface to stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface {
+@:structInit @:using(Reflectlite.T_emptyInterface_static_extension) @:dox(hide) abstract T_emptyInterface(stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface) from stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface to stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface {
     public function new() this = new stdgo._internal.internal.reflectlite.Reflectlite_t_emptyinterface.T_emptyInterface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -440,7 +440,7 @@ class Reflectlite {
         * 
         * Swapper panics if the provided interface is not a slice.
     **/
-    static public inline function swapper(_slice:stdgo.AnyInterface):(stdgo.GoInt, stdgo.GoInt) -> Void {
+    static public inline function swapper(_slice:stdgo.AnyInterface):(StdTypes.Int, StdTypes.Int) -> Void {
         final _slice = (_slice : stdgo.AnyInterface);
         return (_0, _1) -> stdgo._internal.internal.reflectlite.Reflectlite_swapper.swapper(_slice)(_0, _1);
     }

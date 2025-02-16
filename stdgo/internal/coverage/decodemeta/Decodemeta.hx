@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.decodemeta;
-@:structInit @:using(stdgo.internal.coverage.decodemeta.Decodemeta.CoverageMetaDataDecoder_static_extension) abstract CoverageMetaDataDecoder(stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder) from stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder to stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder {
+@:structInit @:using(decodemeta.Decodemeta.CoverageMetaDataDecoder_static_extension) abstract CoverageMetaDataDecoder(stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder) from stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder to stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetadatadecoder.CoverageMetaDataDecoder {
     public var _r(get, set) : stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader;
     function get__r():stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader return this._r;
     function set__r(v:stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader):stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader {
@@ -34,7 +34,7 @@ package stdgo.internal.coverage.decodemeta;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.decodemeta.Decodemeta.CoverageMetaFileReader_static_extension) abstract CoverageMetaFileReader(stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader) from stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader to stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader {
+@:structInit @:using(decodemeta.Decodemeta.CoverageMetaFileReader_static_extension) abstract CoverageMetaFileReader(stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader) from stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader to stdgo._internal.internal.coverage.decodemeta.Decodemeta_coveragemetafilereader.CoverageMetaFileReader {
     public var _f(get, set) : stdgo._internal.os.Os_file.File;
     function get__f():stdgo._internal.os.Os_file.File return this._f;
     function set__f(v:stdgo._internal.os.Os_file.File):stdgo._internal.os.Os_file.File {

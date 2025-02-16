@@ -16,7 +16,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
         stdgo._internal.compress.gzip.Gzip_errheader.errHeader = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.compress.gzip.Gzip.Header_static_extension) abstract Header(stdgo._internal.compress.gzip.Gzip_header.Header) from stdgo._internal.compress.gzip.Gzip_header.Header to stdgo._internal.compress.gzip.Gzip_header.Header {
+@:structInit @:using(Gzip.Header_static_extension) abstract Header(stdgo._internal.compress.gzip.Gzip_header.Header) from stdgo._internal.compress.gzip.Gzip_header.Header to stdgo._internal.compress.gzip.Gzip_header.Header {
     public var comment(get, set) : String;
     function get_comment():String return this.comment;
     function set_comment(v:String):String {
@@ -51,7 +51,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.gzip.Gzip.Reader_static_extension) abstract Reader(stdgo._internal.compress.gzip.Gzip_reader.Reader) from stdgo._internal.compress.gzip.Gzip_reader.Reader to stdgo._internal.compress.gzip.Gzip_reader.Reader {
+@:structInit @:using(Gzip.Reader_static_extension) abstract Reader(stdgo._internal.compress.gzip.Gzip_reader.Reader) from stdgo._internal.compress.gzip.Gzip_reader.Reader to stdgo._internal.compress.gzip.Gzip_reader.Reader {
     public var header(get, set) : Header;
     function get_header():Header return this.header;
     function set_header(v:Header):Header {
@@ -104,7 +104,7 @@ private function set_errHeader(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.gzip.Gzip.Writer_static_extension) abstract Writer(stdgo._internal.compress.gzip.Gzip_writer.Writer) from stdgo._internal.compress.gzip.Gzip_writer.Writer to stdgo._internal.compress.gzip.Gzip_writer.Writer {
+@:structInit @:using(Gzip.Writer_static_extension) abstract Writer(stdgo._internal.compress.gzip.Gzip_writer.Writer) from stdgo._internal.compress.gzip.Gzip_writer.Writer to stdgo._internal.compress.gzip.Gzip_writer.Writer {
     public var header(get, set) : Header;
     function get_header():Header return this.header;
     function set_header(v:Header):Header {

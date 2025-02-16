@@ -112,8 +112,16 @@ class Code_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_code_static_extension.Code_static_extension.marker(t);
     }
 }
-typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
-@:structInit @:using(stdgo.internal.pkgbits.Pkgbits.PkgDecoder_static_extension) abstract PkgDecoder(stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder) from stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder to stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder {
+@:forward abstract Code(stdgo._internal.internal.pkgbits.Pkgbits_code.Code) from stdgo._internal.internal.pkgbits.Pkgbits_code.Code to stdgo._internal.internal.pkgbits.Pkgbits_code.Code {
+    @:from
+    static function fromHaxeInterface(x:{ function marker():SyncMarker; function value():StdTypes.Int; }):Code {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Code = { marker : () -> x.marker(), value : () -> x.value(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Pkgbits.PkgDecoder_static_extension) abstract PkgDecoder(stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder) from stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder to stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder {
     public var _version(get, set) : std.UInt;
     function get__version():std.UInt return this._version;
     function set__version(v:std.UInt):std.UInt {
@@ -160,7 +168,7 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.pkgbits.Pkgbits.Decoder_static_extension) abstract Decoder(stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder) from stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder to stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder {
+@:structInit @:using(Pkgbits.Decoder_static_extension) abstract Decoder(stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder) from stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder to stdgo._internal.internal.pkgbits.Pkgbits_decoder.Decoder {
     public var _common(get, set) : PkgDecoder;
     function get__common():PkgDecoder return this._common;
     function set__common(v:PkgDecoder):PkgDecoder {
@@ -195,17 +203,29 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.pkgbits.Pkgbits.PkgEncoder_static_extension) abstract PkgEncoder(stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder) from stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder to stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder {
+@:structInit @:using(Pkgbits.PkgEncoder_static_extension) abstract PkgEncoder(stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder) from stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder to stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder {
     public var _elems(get, set) : haxe.ds.Vector<Array<String>>;
     function get__elems():haxe.ds.Vector<Array<String>> return haxe.ds.Vector.fromArrayCopy([for (i in this._elems) [for (i in i) i]]);
     function set__elems(v:haxe.ds.Vector<Array<String>>):haxe.ds.Vector<Array<String>> {
         this._elems = ([for (i in v) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoString>>);
         return v;
     }
-    public var _stringsIdx(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>;
-    function get__stringsIdx():stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index> return this._stringsIdx;
-    function set__stringsIdx(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>):stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index> {
-        this._stringsIdx = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>);
+    public var _stringsIdx(get, set) : Map<String, Index>;
+    function get__stringsIdx():Map<String, Index> return {
+        final __obj__:Map<String, Index> = [];
+        for (key => value in this._stringsIdx) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__stringsIdx(v:Map<String, Index>):Map<String, Index> {
+        this._stringsIdx = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _syncFrames(get, set) : StdTypes.Int;
@@ -214,11 +234,17 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
         this._syncFrames = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_elems:haxe.ds.Vector<Array<String>>, ?_stringsIdx:stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>, ?_syncFrames:StdTypes.Int) this = new stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder(([for (i in _elems) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoString>>), (_stringsIdx : stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>), (_syncFrames : stdgo.GoInt));
+    public function new(?_elems:haxe.ds.Vector<Array<String>>, ?_stringsIdx:Map<String, Index>, ?_syncFrames:StdTypes.Int) this = new stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder(([for (i in _elems) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.GoArray<stdgo.Slice<stdgo.GoString>>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>();
+        for (key => value in _stringsIdx) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    }, (_syncFrames : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.pkgbits.Pkgbits.Encoder_static_extension) abstract Encoder(stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder) from stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder to stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder {
+@:structInit @:using(Pkgbits.Encoder_static_extension) abstract Encoder(stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder) from stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder to stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder {
     public var _p(get, set) : PkgEncoder;
     function get__p():PkgEncoder return this._p;
     function set__p(v:PkgEncoder):PkgEncoder {
@@ -231,10 +257,22 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
         this.relocs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>);
         return v;
     }
-    public var relocMap(get, set) : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>;
-    function get_relocMap():stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32> return this.relocMap;
-    function set_relocMap(v:stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>):stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32> {
-        this.relocMap = (v : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>);
+    public var relocMap(get, set) : Map<RelocEnt, std.UInt>;
+    function get_relocMap():Map<RelocEnt, std.UInt> return {
+        final __obj__:Map<RelocEnt, std.UInt> = [];
+        for (key => value in this.relocMap) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_relocMap(v:Map<RelocEnt, std.UInt>):Map<RelocEnt, std.UInt> {
+        this.relocMap = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>();
+            for (key => value in v) {
+                __obj__[key] = (value : stdgo.GoUInt32);
+            };
+            __obj__;
+        };
         return v;
     }
     public var data(get, set) : stdgo._internal.bytes.Bytes_buffer.Buffer;
@@ -261,11 +299,17 @@ typedef Code = stdgo._internal.internal.pkgbits.Pkgbits_code.Code;
         this.idx = v;
         return v;
     }
-    public function new(?_p:PkgEncoder, ?relocs:Array<RelocEnt>, ?relocMap:stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>, ?data:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_encodingRelocHeader:Bool, ?_k:RelocKind, ?idx:Index) this = new stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder((_p : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder>), ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>), (relocMap : stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>), data, _encodingRelocHeader, _k, idx);
+    public function new(?_p:PkgEncoder, ?relocs:Array<RelocEnt>, ?relocMap:Map<RelocEnt, std.UInt>, ?data:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_encodingRelocHeader:Bool, ?_k:RelocKind, ?idx:Index) this = new stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder((_p : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder>), ([for (i in relocs) i] : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>), {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt, stdgo.GoUInt32>();
+        for (key => value in relocMap) {
+            __obj__[key] = (value : stdgo.GoUInt32);
+        };
+        __obj__;
+    }, data, _encodingRelocHeader, _k, idx);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.pkgbits.Pkgbits.RelocEnt_static_extension) abstract RelocEnt(stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt) from stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt to stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt {
+@:structInit @:using(Pkgbits.RelocEnt_static_extension) abstract RelocEnt(stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt) from stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt to stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt {
     public var kind(get, set) : RelocKind;
     function get_kind():RelocKind return this.kind;
     function set_kind(v:RelocKind):RelocKind {

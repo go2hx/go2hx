@@ -1,5 +1,5 @@
 package stdgo.fiat;
-@:structInit @:using(stdgo.crypto.internal.nistec.fiat.Fiat.P224Element_static_extension) abstract P224Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
+@:structInit @:using(nistec.fiat.Fiat.P224Element_static_extension) abstract P224Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element {
     public var _x(get, set) : T_p224MontgomeryDomainFieldElement;
     function get__x():T_p224MontgomeryDomainFieldElement return this._x;
     function set__x(v:T_p224MontgomeryDomainFieldElement):T_p224MontgomeryDomainFieldElement {
@@ -10,7 +10,7 @@ package stdgo.fiat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.nistec.fiat.Fiat.P256Element_static_extension) abstract P256Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element {
+@:structInit @:using(nistec.fiat.Fiat.P256Element_static_extension) abstract P256Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p256element.P256Element {
     public var _x(get, set) : T_p256MontgomeryDomainFieldElement;
     function get__x():T_p256MontgomeryDomainFieldElement return this._x;
     function set__x(v:T_p256MontgomeryDomainFieldElement):T_p256MontgomeryDomainFieldElement {
@@ -21,7 +21,7 @@ package stdgo.fiat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.nistec.fiat.Fiat.P384Element_static_extension) abstract P384Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element {
+@:structInit @:using(nistec.fiat.Fiat.P384Element_static_extension) abstract P384Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element {
     public var _x(get, set) : T_p384MontgomeryDomainFieldElement;
     function get__x():T_p384MontgomeryDomainFieldElement return this._x;
     function set__x(v:T_p384MontgomeryDomainFieldElement):T_p384MontgomeryDomainFieldElement {
@@ -32,7 +32,7 @@ package stdgo.fiat;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.nistec.fiat.Fiat.P521Element_static_extension) abstract P521Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element {
+@:structInit @:using(nistec.fiat.Fiat.P521Element_static_extension) abstract P521Element(stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element) from stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element to stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element {
     public var _x(get, set) : T_p521MontgomeryDomainFieldElement;
     function get__x():T_p521MontgomeryDomainFieldElement return this._x;
     function set__x(v:T_p521MontgomeryDomainFieldElement):T_p521MontgomeryDomainFieldElement {

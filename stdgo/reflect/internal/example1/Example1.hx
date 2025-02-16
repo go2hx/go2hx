@@ -1,5 +1,5 @@
 package stdgo.reflect.internal.example1;
-@:structInit @:using(stdgo.reflect.internal.example1.Example1.MyStruct_static_extension) abstract MyStruct(stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct) from stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct to stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct {
+@:structInit @:using(example1.Example1.MyStruct_static_extension) abstract MyStruct(stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct) from stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct to stdgo._internal.reflect.internal.example1.Example1_mystruct.MyStruct {
     public var myStructs(get, set) : Array<MyStruct>;
     function get_myStructs():Array<MyStruct> return [for (i in this.myStructs) i];
     function set_myStructs(v:Array<MyStruct>):Array<MyStruct> {

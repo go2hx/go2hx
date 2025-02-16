@@ -1,7 +1,7 @@
 package stdgo.internal.coverage.cmerge;
 final modeMergeStrict : ModeMergePolicy = stdgo._internal.internal.coverage.cmerge.Cmerge_modemergestrict.modeMergeStrict;
 final modeMergeRelaxed = stdgo._internal.internal.coverage.cmerge.Cmerge_modemergerelaxed.modeMergeRelaxed;
-@:structInit @:using(stdgo.internal.coverage.cmerge.Cmerge.Merger_static_extension) abstract Merger(stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger) from stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger to stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger {
+@:structInit @:using(cmerge.Cmerge.Merger_static_extension) abstract Merger(stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger) from stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger to stdgo._internal.internal.coverage.cmerge.Cmerge_merger.Merger {
     public var _cmode(get, set) : stdgo._internal.internal.coverage.Coverage_countermode.CounterMode;
     function get__cmode():stdgo._internal.internal.coverage.Coverage_countermode.CounterMode return this._cmode;
     function set__cmode(v:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode):stdgo._internal.internal.coverage.Coverage_countermode.CounterMode {

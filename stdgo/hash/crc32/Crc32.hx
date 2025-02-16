@@ -9,7 +9,7 @@ private function set_iEEETable(v:Table):Table {
         stdgo._internal.hash.crc32.Crc32_ieeetable.iEEETable = (v : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_table.Table>);
         return v;
     }
-@:structInit @:using(stdgo.hash.crc32.Crc32.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.hash.crc32.Crc32_t_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_t_digest.T_digest to stdgo._internal.hash.crc32.Crc32_t_digest.T_digest {
+@:structInit @:using(Crc32.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.hash.crc32.Crc32_t_digest.T_digest) from stdgo._internal.hash.crc32.Crc32_t_digest.T_digest to stdgo._internal.hash.crc32.Crc32_t_digest.T_digest {
     public var _crc(get, set) : std.UInt;
     function get__crc():std.UInt return this._crc;
     function set__crc(v:std.UInt):std.UInt {
@@ -26,7 +26,7 @@ private function set_iEEETable(v:Table):Table {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.hash.crc32.Crc32.T_test_static_extension) @:dox(hide) abstract T_test(stdgo._internal.hash.crc32.Crc32_t_test.T_test) from stdgo._internal.hash.crc32.Crc32_t_test.T_test to stdgo._internal.hash.crc32.Crc32_t_test.T_test {
+@:structInit @:using(Crc32.T_test_static_extension) @:dox(hide) abstract T_test(stdgo._internal.hash.crc32.Crc32_t_test.T_test) from stdgo._internal.hash.crc32.Crc32_t_test.T_test to stdgo._internal.hash.crc32.Crc32_t_test.T_test {
     public var _ieee(get, set) : std.UInt;
     function get__ieee():std.UInt return this._ieee;
     function set__ieee(v:std.UInt):std.UInt {

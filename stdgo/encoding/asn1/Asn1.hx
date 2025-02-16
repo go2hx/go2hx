@@ -42,8 +42,16 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
         return stdgo._internal.encoding.asn1.Asn1_t_encoder_static_extension.T_encoder_static_extension.len(t);
     }
 }
-@:dox(hide) typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder;
-@:structInit @:using(stdgo.encoding.asn1.Asn1.StructuralError_static_extension) abstract StructuralError(stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError) from stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError to stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError {
+@:dox(hide) @:forward abstract T_encoder(stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder) from stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder to stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder {
+    @:from
+    static function fromHaxeInterface(x:{ function len():StdTypes.Int; function encode(_dst:Array<std.UInt>):Void; }):T_encoder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_encoder = { len : () -> x.len(), encode : _0 -> x.encode([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Asn1.StructuralError_static_extension) abstract StructuralError(stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError) from stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError to stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
@@ -54,7 +62,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError) from stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError to stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError {
+@:structInit @:using(Asn1.SyntaxError_static_extension) abstract SyntaxError(stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError) from stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError to stdgo._internal.encoding.asn1.Asn1_syntaxerror.SyntaxError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;
     function set_msg(v:String):String {
@@ -65,7 +73,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.BitString_static_extension) abstract BitString(stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) from stdgo._internal.encoding.asn1.Asn1_bitstring.BitString to stdgo._internal.encoding.asn1.Asn1_bitstring.BitString {
+@:structInit @:using(Asn1.BitString_static_extension) abstract BitString(stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) from stdgo._internal.encoding.asn1.Asn1_bitstring.BitString to stdgo._internal.encoding.asn1.Asn1_bitstring.BitString {
     public var bytes(get, set) : Array<std.UInt>;
     function get_bytes():Array<std.UInt> return [for (i in this.bytes) i];
     function set_bytes(v:Array<std.UInt>):Array<std.UInt> {
@@ -82,7 +90,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.RawValue_static_extension) abstract RawValue(stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) from stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue to stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue {
+@:structInit @:using(Asn1.RawValue_static_extension) abstract RawValue(stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue) from stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue to stdgo._internal.encoding.asn1.Asn1_rawvalue.RawValue {
     public var class_(get, set) : StdTypes.Int;
     function get_class_():StdTypes.Int return this.class_;
     function set_class_(v:StdTypes.Int):StdTypes.Int {
@@ -117,7 +125,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_invalidUnmarshalError_static_extension) @:dox(hide) abstract T_invalidUnmarshalError(stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError) from stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError to stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError {
+@:structInit @:using(Asn1.T_invalidUnmarshalError_static_extension) @:dox(hide) abstract T_invalidUnmarshalError(stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError) from stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError to stdgo._internal.encoding.asn1.Asn1_t_invalidunmarshalerror.T_invalidUnmarshalError {
     public var type(get, set) : stdgo._internal.reflect.Reflect_type_.Type_;
     function get_type():stdgo._internal.reflect.Reflect_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.reflect.Reflect_type_.Type_ {
@@ -128,7 +136,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_tagAndLength_static_extension) @:dox(hide) abstract T_tagAndLength(stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength) from stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength to stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength {
+@:structInit @:using(Asn1.T_tagAndLength_static_extension) @:dox(hide) abstract T_tagAndLength(stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength) from stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength to stdgo._internal.encoding.asn1.Asn1_t_tagandlength.T_tagAndLength {
     public var _class(get, set) : StdTypes.Int;
     function get__class():StdTypes.Int return this._class;
     function set__class(v:StdTypes.Int):StdTypes.Int {
@@ -157,7 +165,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_fieldParameters_static_extension) @:dox(hide) abstract T_fieldParameters(stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters) from stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters to stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters {
+@:structInit @:using(Asn1.T_fieldParameters_static_extension) @:dox(hide) abstract T_fieldParameters(stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters) from stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters to stdgo._internal.encoding.asn1.Asn1_t_fieldparameters.T_fieldParameters {
     public var _optional(get, set) : Bool;
     function get__optional():Bool return this._optional;
     function set__optional(v:Bool):Bool {
@@ -222,7 +230,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.asn1.Asn1.T_taggedEncoder_static_extension) @:dox(hide) abstract T_taggedEncoder(stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder) from stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder to stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder {
+@:structInit @:using(Asn1.T_taggedEncoder_static_extension) @:dox(hide) abstract T_taggedEncoder(stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder) from stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder to stdgo._internal.encoding.asn1.Asn1_t_taggedencoder.T_taggedEncoder {
     public var _scratch(get, set) : haxe.ds.Vector<std.UInt>;
     function get__scratch():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._scratch) i]);
     function set__scratch(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {

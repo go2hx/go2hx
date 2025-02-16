@@ -1,5 +1,5 @@
 package stdgo.internal.godebug;
-@:structInit @:using(stdgo.internal.godebug.Godebug.Setting_static_extension) abstract Setting(stdgo._internal.internal.godebug.Godebug_setting.Setting) from stdgo._internal.internal.godebug.Godebug_setting.Setting to stdgo._internal.internal.godebug.Godebug_setting.Setting {
+@:structInit @:using(Godebug.Setting_static_extension) abstract Setting(stdgo._internal.internal.godebug.Godebug_setting.Setting) from stdgo._internal.internal.godebug.Godebug_setting.Setting to stdgo._internal.internal.godebug.Godebug_setting.Setting {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -22,7 +22,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_setting_static_extension) @:dox(hide) abstract T_setting(stdgo._internal.internal.godebug.Godebug_t_setting.T_setting) from stdgo._internal.internal.godebug.Godebug_t_setting.T_setting to stdgo._internal.internal.godebug.Godebug_t_setting.T_setting {
+@:structInit @:using(Godebug.T_setting_static_extension) @:dox(hide) abstract T_setting(stdgo._internal.internal.godebug.Godebug_t_setting.T_setting) from stdgo._internal.internal.godebug.Godebug_t_setting.T_setting to stdgo._internal.internal.godebug.Godebug_t_setting.T_setting {
     public var _value(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>;
     function get__value():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> return this._value;
     function set__value(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_t_value.T_value> {
@@ -51,7 +51,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_value_static_extension) @:dox(hide) abstract T_value(stdgo._internal.internal.godebug.Godebug_t_value.T_value) from stdgo._internal.internal.godebug.Godebug_t_value.T_value to stdgo._internal.internal.godebug.Godebug_t_value.T_value {
+@:structInit @:using(Godebug.T_value_static_extension) @:dox(hide) abstract T_value(stdgo._internal.internal.godebug.Godebug_t_value.T_value) from stdgo._internal.internal.godebug.Godebug_t_value.T_value to stdgo._internal.internal.godebug.Godebug_t_value.T_value {
     public var _text(get, set) : String;
     function get__text():String return this._text;
     function set__text(v:String):String {
@@ -68,7 +68,7 @@ package stdgo.internal.godebug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.godebug.Godebug.T_runtimeStderr_static_extension) @:dox(hide) abstract T_runtimeStderr(stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr) from stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr to stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr {
+@:structInit @:using(Godebug.T_runtimeStderr_static_extension) @:dox(hide) abstract T_runtimeStderr(stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr) from stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr to stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr {
     public function new() this = new stdgo._internal.internal.godebug.Godebug_t_runtimestderr.T_runtimeStderr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

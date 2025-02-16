@@ -5,7 +5,7 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
         stdgo._internal.internal.platform.Platform_list.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform_osarch.OSArch>);
         return v;
     }
-@:structInit @:using(stdgo.internal.platform.Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_osarch.OSArch) from stdgo._internal.internal.platform.Platform_osarch.OSArch to stdgo._internal.internal.platform.Platform_osarch.OSArch {
+@:structInit @:using(Platform.OSArch_static_extension) abstract OSArch(stdgo._internal.internal.platform.Platform_osarch.OSArch) from stdgo._internal.internal.platform.Platform_osarch.OSArch to stdgo._internal.internal.platform.Platform_osarch.OSArch {
     public var gOOS(get, set) : String;
     function get_gOOS():String return this.gOOS;
     function set_gOOS(v:String):String {
@@ -22,7 +22,7 @@ private function set_list(v:Array<OSArch>):Array<OSArch> {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.platform.Platform.T_osArchInfo_static_extension) @:dox(hide) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo {
+@:structInit @:using(Platform.T_osArchInfo_static_extension) @:dox(hide) abstract T_osArchInfo(stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo) from stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo to stdgo._internal.internal.platform.Platform_t_osarchinfo.T_osArchInfo {
     public var cgoSupported(get, set) : Bool;
     function get_cgoSupported():Bool return this.cgoSupported;
     function set_cgoSupported(v:Bool):Bool {

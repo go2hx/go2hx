@@ -1460,7 +1460,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
         stdgo._internal.debug.elf.Elf_errnosymbols.errNoSymbols = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.debug.elf.Elf.Header32_static_extension) abstract Header32(stdgo._internal.debug.elf.Elf_header32.Header32) from stdgo._internal.debug.elf.Elf_header32.Header32 to stdgo._internal.debug.elf.Elf_header32.Header32 {
+@:structInit @:using(Elf.Header32_static_extension) abstract Header32(stdgo._internal.debug.elf.Elf_header32.Header32) from stdgo._internal.debug.elf.Elf_header32.Header32 to stdgo._internal.debug.elf.Elf_header32.Header32 {
     public var ident(get, set) : haxe.ds.Vector<std.UInt>;
     function get_ident():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.ident) i]);
     function set_ident(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1563,7 +1563,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Section32_static_extension) abstract Section32(stdgo._internal.debug.elf.Elf_section32.Section32) from stdgo._internal.debug.elf.Elf_section32.Section32 to stdgo._internal.debug.elf.Elf_section32.Section32 {
+@:structInit @:using(Elf.Section32_static_extension) abstract Section32(stdgo._internal.debug.elf.Elf_section32.Section32) from stdgo._internal.debug.elf.Elf_section32.Section32 to stdgo._internal.debug.elf.Elf_section32.Section32 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1628,7 +1628,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Prog32_static_extension) abstract Prog32(stdgo._internal.debug.elf.Elf_prog32.Prog32) from stdgo._internal.debug.elf.Elf_prog32.Prog32 to stdgo._internal.debug.elf.Elf_prog32.Prog32 {
+@:structInit @:using(Elf.Prog32_static_extension) abstract Prog32(stdgo._internal.debug.elf.Elf_prog32.Prog32) from stdgo._internal.debug.elf.Elf_prog32.Prog32 to stdgo._internal.debug.elf.Elf_prog32.Prog32 {
     public var type(get, set) : std.UInt;
     function get_type():std.UInt return this.type;
     function set_type(v:std.UInt):std.UInt {
@@ -1681,7 +1681,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Dyn32_static_extension) abstract Dyn32(stdgo._internal.debug.elf.Elf_dyn32.Dyn32) from stdgo._internal.debug.elf.Elf_dyn32.Dyn32 to stdgo._internal.debug.elf.Elf_dyn32.Dyn32 {
+@:structInit @:using(Elf.Dyn32_static_extension) abstract Dyn32(stdgo._internal.debug.elf.Elf_dyn32.Dyn32) from stdgo._internal.debug.elf.Elf_dyn32.Dyn32 to stdgo._internal.debug.elf.Elf_dyn32.Dyn32 {
     public var tag(get, set) : StdTypes.Int;
     function get_tag():StdTypes.Int return this.tag;
     function set_tag(v:StdTypes.Int):StdTypes.Int {
@@ -1698,7 +1698,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Chdr32_static_extension) abstract Chdr32(stdgo._internal.debug.elf.Elf_chdr32.Chdr32) from stdgo._internal.debug.elf.Elf_chdr32.Chdr32 to stdgo._internal.debug.elf.Elf_chdr32.Chdr32 {
+@:structInit @:using(Elf.Chdr32_static_extension) abstract Chdr32(stdgo._internal.debug.elf.Elf_chdr32.Chdr32) from stdgo._internal.debug.elf.Elf_chdr32.Chdr32 to stdgo._internal.debug.elf.Elf_chdr32.Chdr32 {
     public var type(get, set) : std.UInt;
     function get_type():std.UInt return this.type;
     function set_type(v:std.UInt):std.UInt {
@@ -1721,7 +1721,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Rel32_static_extension) abstract Rel32(stdgo._internal.debug.elf.Elf_rel32.Rel32) from stdgo._internal.debug.elf.Elf_rel32.Rel32 to stdgo._internal.debug.elf.Elf_rel32.Rel32 {
+@:structInit @:using(Elf.Rel32_static_extension) abstract Rel32(stdgo._internal.debug.elf.Elf_rel32.Rel32) from stdgo._internal.debug.elf.Elf_rel32.Rel32 to stdgo._internal.debug.elf.Elf_rel32.Rel32 {
     public var off(get, set) : std.UInt;
     function get_off():std.UInt return this.off;
     function set_off(v:std.UInt):std.UInt {
@@ -1738,7 +1738,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Rela32_static_extension) abstract Rela32(stdgo._internal.debug.elf.Elf_rela32.Rela32) from stdgo._internal.debug.elf.Elf_rela32.Rela32 to stdgo._internal.debug.elf.Elf_rela32.Rela32 {
+@:structInit @:using(Elf.Rela32_static_extension) abstract Rela32(stdgo._internal.debug.elf.Elf_rela32.Rela32) from stdgo._internal.debug.elf.Elf_rela32.Rela32 to stdgo._internal.debug.elf.Elf_rela32.Rela32 {
     public var off(get, set) : std.UInt;
     function get_off():std.UInt return this.off;
     function set_off(v:std.UInt):std.UInt {
@@ -1761,7 +1761,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Sym32_static_extension) abstract Sym32(stdgo._internal.debug.elf.Elf_sym32.Sym32) from stdgo._internal.debug.elf.Elf_sym32.Sym32 to stdgo._internal.debug.elf.Elf_sym32.Sym32 {
+@:structInit @:using(Elf.Sym32_static_extension) abstract Sym32(stdgo._internal.debug.elf.Elf_sym32.Sym32) from stdgo._internal.debug.elf.Elf_sym32.Sym32 to stdgo._internal.debug.elf.Elf_sym32.Sym32 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1802,7 +1802,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Header64_static_extension) abstract Header64(stdgo._internal.debug.elf.Elf_header64.Header64) from stdgo._internal.debug.elf.Elf_header64.Header64 to stdgo._internal.debug.elf.Elf_header64.Header64 {
+@:structInit @:using(Elf.Header64_static_extension) abstract Header64(stdgo._internal.debug.elf.Elf_header64.Header64) from stdgo._internal.debug.elf.Elf_header64.Header64 to stdgo._internal.debug.elf.Elf_header64.Header64 {
     public var ident(get, set) : haxe.ds.Vector<std.UInt>;
     function get_ident():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.ident) i]);
     function set_ident(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1905,7 +1905,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Section64_static_extension) abstract Section64(stdgo._internal.debug.elf.Elf_section64.Section64) from stdgo._internal.debug.elf.Elf_section64.Section64 to stdgo._internal.debug.elf.Elf_section64.Section64 {
+@:structInit @:using(Elf.Section64_static_extension) abstract Section64(stdgo._internal.debug.elf.Elf_section64.Section64) from stdgo._internal.debug.elf.Elf_section64.Section64 to stdgo._internal.debug.elf.Elf_section64.Section64 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1970,7 +1970,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Prog64_static_extension) abstract Prog64(stdgo._internal.debug.elf.Elf_prog64.Prog64) from stdgo._internal.debug.elf.Elf_prog64.Prog64 to stdgo._internal.debug.elf.Elf_prog64.Prog64 {
+@:structInit @:using(Elf.Prog64_static_extension) abstract Prog64(stdgo._internal.debug.elf.Elf_prog64.Prog64) from stdgo._internal.debug.elf.Elf_prog64.Prog64 to stdgo._internal.debug.elf.Elf_prog64.Prog64 {
     public var type(get, set) : std.UInt;
     function get_type():std.UInt return this.type;
     function set_type(v:std.UInt):std.UInt {
@@ -2023,7 +2023,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Dyn64_static_extension) abstract Dyn64(stdgo._internal.debug.elf.Elf_dyn64.Dyn64) from stdgo._internal.debug.elf.Elf_dyn64.Dyn64 to stdgo._internal.debug.elf.Elf_dyn64.Dyn64 {
+@:structInit @:using(Elf.Dyn64_static_extension) abstract Dyn64(stdgo._internal.debug.elf.Elf_dyn64.Dyn64) from stdgo._internal.debug.elf.Elf_dyn64.Dyn64 to stdgo._internal.debug.elf.Elf_dyn64.Dyn64 {
     public var tag(get, set) : haxe.Int64;
     function get_tag():haxe.Int64 return this.tag;
     function set_tag(v:haxe.Int64):haxe.Int64 {
@@ -2040,7 +2040,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Chdr64_static_extension) abstract Chdr64(stdgo._internal.debug.elf.Elf_chdr64.Chdr64) from stdgo._internal.debug.elf.Elf_chdr64.Chdr64 to stdgo._internal.debug.elf.Elf_chdr64.Chdr64 {
+@:structInit @:using(Elf.Chdr64_static_extension) abstract Chdr64(stdgo._internal.debug.elf.Elf_chdr64.Chdr64) from stdgo._internal.debug.elf.Elf_chdr64.Chdr64 to stdgo._internal.debug.elf.Elf_chdr64.Chdr64 {
     public var type(get, set) : std.UInt;
     function get_type():std.UInt return this.type;
     function set_type(v:std.UInt):std.UInt {
@@ -2069,7 +2069,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Rel64_static_extension) abstract Rel64(stdgo._internal.debug.elf.Elf_rel64.Rel64) from stdgo._internal.debug.elf.Elf_rel64.Rel64 to stdgo._internal.debug.elf.Elf_rel64.Rel64 {
+@:structInit @:using(Elf.Rel64_static_extension) abstract Rel64(stdgo._internal.debug.elf.Elf_rel64.Rel64) from stdgo._internal.debug.elf.Elf_rel64.Rel64 to stdgo._internal.debug.elf.Elf_rel64.Rel64 {
     public var off(get, set) : haxe.UInt64;
     function get_off():haxe.UInt64 return this.off;
     function set_off(v:haxe.UInt64):haxe.UInt64 {
@@ -2086,7 +2086,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Rela64_static_extension) abstract Rela64(stdgo._internal.debug.elf.Elf_rela64.Rela64) from stdgo._internal.debug.elf.Elf_rela64.Rela64 to stdgo._internal.debug.elf.Elf_rela64.Rela64 {
+@:structInit @:using(Elf.Rela64_static_extension) abstract Rela64(stdgo._internal.debug.elf.Elf_rela64.Rela64) from stdgo._internal.debug.elf.Elf_rela64.Rela64 to stdgo._internal.debug.elf.Elf_rela64.Rela64 {
     public var off(get, set) : haxe.UInt64;
     function get_off():haxe.UInt64 return this.off;
     function set_off(v:haxe.UInt64):haxe.UInt64 {
@@ -2109,7 +2109,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Sym64_static_extension) abstract Sym64(stdgo._internal.debug.elf.Elf_sym64.Sym64) from stdgo._internal.debug.elf.Elf_sym64.Sym64 to stdgo._internal.debug.elf.Elf_sym64.Sym64 {
+@:structInit @:using(Elf.Sym64_static_extension) abstract Sym64(stdgo._internal.debug.elf.Elf_sym64.Sym64) from stdgo._internal.debug.elf.Elf_sym64.Sym64 to stdgo._internal.debug.elf.Elf_sym64.Sym64 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -2150,7 +2150,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.elf.Elf_t_intname.T_intName) from stdgo._internal.debug.elf.Elf_t_intname.T_intName to stdgo._internal.debug.elf.Elf_t_intname.T_intName {
+@:structInit @:using(Elf.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.elf.Elf_t_intname.T_intName) from stdgo._internal.debug.elf.Elf_t_intname.T_intName to stdgo._internal.debug.elf.Elf_t_intname.T_intName {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {
@@ -2167,7 +2167,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.elf.Elf_fileheader.FileHeader) from stdgo._internal.debug.elf.Elf_fileheader.FileHeader to stdgo._internal.debug.elf.Elf_fileheader.FileHeader {
+@:structInit @:using(Elf.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.elf.Elf_fileheader.FileHeader) from stdgo._internal.debug.elf.Elf_fileheader.FileHeader to stdgo._internal.debug.elf.Elf_fileheader.FileHeader {
     public var class_(get, set) : Class_;
     function get_class_():Class_ return this.class_;
     function set_class_(v:Class_):Class_ {
@@ -2226,7 +2226,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.File_static_extension) abstract File(stdgo._internal.debug.elf.Elf_file.File) from stdgo._internal.debug.elf.Elf_file.File to stdgo._internal.debug.elf.Elf_file.File {
+@:structInit @:using(Elf.File_static_extension) abstract File(stdgo._internal.debug.elf.Elf_file.File) from stdgo._internal.debug.elf.Elf_file.File to stdgo._internal.debug.elf.Elf_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -2267,7 +2267,7 @@ private function set_errNoSymbols(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader) from stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader to stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader {
+@:structInit @:using(Elf.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader) from stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader to stdgo._internal.debug.elf.Elf_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -2349,7 +2349,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Section_static_extension) abstract Section(stdgo._internal.debug.elf.Elf_section.Section) from stdgo._internal.debug.elf.Elf_section.Section to stdgo._internal.debug.elf.Elf_section.Section {
+@:structInit @:using(Elf.Section_static_extension) abstract Section(stdgo._internal.debug.elf.Elf_section.Section) from stdgo._internal.debug.elf.Elf_section.Section to stdgo._internal.debug.elf.Elf_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -2384,7 +2384,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.ProgHeader_static_extension) abstract ProgHeader(stdgo._internal.debug.elf.Elf_progheader.ProgHeader) from stdgo._internal.debug.elf.Elf_progheader.ProgHeader to stdgo._internal.debug.elf.Elf_progheader.ProgHeader {
+@:structInit @:using(Elf.ProgHeader_static_extension) abstract ProgHeader(stdgo._internal.debug.elf.Elf_progheader.ProgHeader) from stdgo._internal.debug.elf.Elf_progheader.ProgHeader to stdgo._internal.debug.elf.Elf_progheader.ProgHeader {
     public var type(get, set) : ProgType;
     function get_type():ProgType return this.type;
     function set_type(v:ProgType):ProgType {
@@ -2437,7 +2437,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Prog_static_extension) abstract Prog(stdgo._internal.debug.elf.Elf_prog.Prog) from stdgo._internal.debug.elf.Elf_prog.Prog to stdgo._internal.debug.elf.Elf_prog.Prog {
+@:structInit @:using(Elf.Prog_static_extension) abstract Prog(stdgo._internal.debug.elf.Elf_prog.Prog) from stdgo._internal.debug.elf.Elf_prog.Prog to stdgo._internal.debug.elf.Elf_prog.Prog {
     public var progHeader(get, set) : ProgHeader;
     function get_progHeader():ProgHeader return this.progHeader;
     function set_progHeader(v:ProgHeader):ProgHeader {
@@ -2460,7 +2460,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.elf.Elf_symbol.Symbol) from stdgo._internal.debug.elf.Elf_symbol.Symbol to stdgo._internal.debug.elf.Elf_symbol.Symbol {
+@:structInit @:using(Elf.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.elf.Elf_symbol.Symbol) from stdgo._internal.debug.elf.Elf_symbol.Symbol to stdgo._internal.debug.elf.Elf_symbol.Symbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -2513,7 +2513,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.elf.Elf_formaterror.FormatError) from stdgo._internal.debug.elf.Elf_formaterror.FormatError to stdgo._internal.debug.elf.Elf_formaterror.FormatError {
+@:structInit @:using(Elf.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.elf.Elf_formaterror.FormatError) from stdgo._internal.debug.elf.Elf_formaterror.FormatError to stdgo._internal.debug.elf.Elf_formaterror.FormatError {
     public var _off(get, set) : haxe.Int64;
     function get__off():haxe.Int64 return this._off;
     function set__off(v:haxe.Int64):haxe.Int64 {
@@ -2536,7 +2536,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.ImportedSymbol_static_extension) abstract ImportedSymbol(stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol) from stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol to stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol {
+@:structInit @:using(Elf.ImportedSymbol_static_extension) abstract ImportedSymbol(stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol) from stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol to stdgo._internal.debug.elf.Elf_importedsymbol.ImportedSymbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -2559,7 +2559,7 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_verneed_static_extension) @:dox(hide) abstract T_verneed(stdgo._internal.debug.elf.Elf_t_verneed.T_verneed) from stdgo._internal.debug.elf.Elf_t_verneed.T_verneed to stdgo._internal.debug.elf.Elf_t_verneed.T_verneed {
+@:structInit @:using(Elf.T_verneed_static_extension) @:dox(hide) abstract T_verneed(stdgo._internal.debug.elf.Elf_t_verneed.T_verneed) from stdgo._internal.debug.elf.Elf_t_verneed.T_verneed to stdgo._internal.debug.elf.Elf_t_verneed.T_verneed {
     public var file(get, set) : String;
     function get_file():String return this.file;
     function set_file(v:String):String {
@@ -2576,12 +2576,12 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader {
+@:structInit @:using(Elf.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader {
     public function new() this = new stdgo._internal.debug.elf.Elf_t_nobitssectionreader.T_nobitsSectionReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_errorReader_static_extension) @:dox(hide) abstract T_errorReader(stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader) from stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader to stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader {
+@:structInit @:using(Elf.T_errorReader_static_extension) @:dox(hide) abstract T_errorReader(stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader) from stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader to stdgo._internal.debug.elf.Elf_t_errorreader.T_errorReader {
     public var _error(get, set) : stdgo.Error;
     function get__error():stdgo.Error return this._error;
     function set__error(v:stdgo.Error):stdgo.Error {
@@ -2592,10 +2592,10 @@ flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.elf.Elf.T_readSeekerFromReader_static_extension) @:dox(hide) abstract T_readSeekerFromReader(stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader) from stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader to stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader {
-    public var _reset(get, set) : () -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
-    function get__reset():() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return () -> this._reset();
-    function set__reset(v:() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
+@:structInit @:using(Elf.T_readSeekerFromReader_static_extension) @:dox(hide) abstract T_readSeekerFromReader(stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader) from stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader to stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader {
+    public var _reset(get, set) : () -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
+    function get__reset():() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return () -> this._reset();
+    function set__reset(v:() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
         this._reset = v;
         return v;
     }
@@ -2617,7 +2617,7 @@ flags,
         this._offset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_reset:() -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }, ?_r:stdgo._internal.io.Io_reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader(_reset, _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
+    public function new(?_reset:() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader(_reset, _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -1,9 +1,21 @@
 package stdgo.internal.coverage.stringtab;
-@:structInit @:using(stdgo.internal.coverage.stringtab.Stringtab.Writer_static_extension) abstract Writer(stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer) from stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer to stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {
-    public var _stab(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>;
-    function get__stab():stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> return this._stab;
-    function set__stab(v:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> {
-        this._stab = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>);
+@:structInit @:using(stringtab.Stringtab.Writer_static_extension) abstract Writer(stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer) from stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer to stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer {
+    public var _stab(get, set) : Map<String, std.UInt>;
+    function get__stab():Map<String, std.UInt> return {
+        final __obj__:Map<String, std.UInt> = [];
+        for (key => value in this._stab) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__stab(v:Map<String, std.UInt>):Map<String, std.UInt> {
+        this._stab = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoUInt32);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _strs(get, set) : Array<String>;
@@ -24,11 +36,17 @@ package stdgo.internal.coverage.stringtab;
         this._frozen = v;
         return v;
     }
-    public function new(?_stab:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>, ?_strs:Array<String>, ?_tmp:Array<std.UInt>, ?_frozen:Bool) this = new stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer((_stab : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>), ([for (i in _strs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _frozen);
+    public function new(?_stab:Map<String, std.UInt>, ?_strs:Array<String>, ?_tmp:Array<std.UInt>, ?_frozen:Bool) this = new stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer({
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>();
+        for (key => value in _stab) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoUInt32);
+        };
+        __obj__;
+    }, ([for (i in _strs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), ([for (i in _tmp) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _frozen);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.stringtab.Stringtab.Reader_static_extension) abstract Reader(stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader) from stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader to stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader {
+@:structInit @:using(stringtab.Stringtab.Reader_static_extension) abstract Reader(stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader) from stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader to stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader {
     public var _r(get, set) : stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader;
     function get__r():stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader return this._r;
     function set__r(v:stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader):stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader {

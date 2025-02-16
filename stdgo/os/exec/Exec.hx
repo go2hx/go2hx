@@ -17,7 +17,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
         stdgo._internal.os.exec.Exec_errnotfound.errNotFound = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.os.exec.Exec.Error_static_extension) abstract Error(stdgo._internal.os.exec.Exec_error.Error) from stdgo._internal.os.exec.Exec_error.Error to stdgo._internal.os.exec.Exec_error.Error {
+@:structInit @:using(Exec.Error_static_extension) abstract Error(stdgo._internal.os.exec.Exec_error.Error) from stdgo._internal.os.exec.Exec_error.Error to stdgo._internal.os.exec.Exec_error.Error {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -34,7 +34,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_wrappedError_static_extension) @:dox(hide) abstract T_wrappedError(stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError) from stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError to stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError {
+@:structInit @:using(Exec.T_wrappedError_static_extension) @:dox(hide) abstract T_wrappedError(stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError) from stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError to stdgo._internal.os.exec.Exec_t_wrappederror.T_wrappedError {
     public var _prefix(get, set) : String;
     function get__prefix():String return this._prefix;
     function set__prefix(v:String):String {
@@ -51,7 +51,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.Cmd_static_extension) abstract Cmd(stdgo._internal.os.exec.Exec_cmd.Cmd) from stdgo._internal.os.exec.Exec_cmd.Cmd to stdgo._internal.os.exec.Exec_cmd.Cmd {
+@:structInit @:using(Exec.Cmd_static_extension) abstract Cmd(stdgo._internal.os.exec.Exec_cmd.Cmd) from stdgo._internal.os.exec.Exec_cmd.Cmd to stdgo._internal.os.exec.Exec_cmd.Cmd {
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
@@ -210,7 +210,7 @@ waitDelay,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_ctxResult_static_extension) @:dox(hide) abstract T_ctxResult(stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult) from stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult to stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult {
+@:structInit @:using(Exec.T_ctxResult_static_extension) @:dox(hide) abstract T_ctxResult(stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult) from stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult to stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -227,7 +227,7 @@ waitDelay,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.ExitError_static_extension) abstract ExitError(stdgo._internal.os.exec.Exec_exiterror.ExitError) from stdgo._internal.os.exec.Exec_exiterror.ExitError to stdgo._internal.os.exec.Exec_exiterror.ExitError {
+@:structInit @:using(Exec.ExitError_static_extension) abstract ExitError(stdgo._internal.os.exec.Exec_exiterror.ExitError) from stdgo._internal.os.exec.Exec_exiterror.ExitError to stdgo._internal.os.exec.Exec_exiterror.ExitError {
     public var processState(get, set) : stdgo._internal.os.Os_processstate.ProcessState;
     function get_processState():stdgo._internal.os.Os_processstate.ProcessState return this.processState;
     function set_processState(v:stdgo._internal.os.Os_processstate.ProcessState):stdgo._internal.os.Os_processstate.ProcessState {
@@ -244,7 +244,7 @@ waitDelay,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.exec.Exec.T_prefixSuffixSaver_static_extension) @:dox(hide) abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver {
+@:structInit @:using(Exec.T_prefixSuffixSaver_static_extension) @:dox(hide) abstract T_prefixSuffixSaver(stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver) from stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver to stdgo._internal.os.exec.Exec_t_prefixsuffixsaver.T_prefixSuffixSaver {
     public var n(get, set) : StdTypes.Int;
     function get_n():StdTypes.Int return this.n;
     function set_n(v:StdTypes.Int):StdTypes.Int {

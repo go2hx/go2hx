@@ -34,8 +34,16 @@ package stdgo.crypto.ecdsa;
         return [for (i in stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-@:dox(hide) typedef T_nistPoint = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint<T_>;
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey) from stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey to stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey {
+@:dox(hide) @:forward abstract T_nistPoint(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint {
+    @:from
+    static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function bytesX():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function add(_0:Dynamic, _1:Dynamic):Dynamic; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_nistPoint = { bytes : () -> x.bytes(), bytesX : () -> x.bytesX(), setBytes : _0 -> x.setBytes([for (i in _0) i]), add : (_0, _1) -> x.add(_0, _1), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Ecdsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey) from stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey to stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey {
     public var curve(get, set) : stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
     function get_curve():stdgo._internal.crypto.elliptic.Elliptic_curve.Curve return this.curve;
     function set_curve(v:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve):stdgo._internal.crypto.elliptic.Elliptic_curve.Curve {
@@ -58,7 +66,7 @@ package stdgo.crypto.ecdsa;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey) from stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey to stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey {
+@:structInit @:using(Ecdsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey) from stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey to stdgo._internal.crypto.ecdsa.Ecdsa_privatekey.PrivateKey {
     public var publicKey(get, set) : PublicKey;
     function get_publicKey():PublicKey return this.publicKey;
     function set_publicKey(v:PublicKey):PublicKey {
@@ -75,12 +83,12 @@ package stdgo.crypto.ecdsa;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_zr_static_extension) @:dox(hide) abstract T_zr(stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr) from stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr to stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr {
+@:structInit @:using(Ecdsa.T_zr_static_extension) @:dox(hide) abstract T_zr(stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr) from stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr to stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr {
     public function new() this = new stdgo._internal.crypto.ecdsa.Ecdsa_t_zr.T_zr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.T_nistCurve_static_extension) @:dox(hide) abstract T_nistCurve(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve {
+@:structInit @:using(Ecdsa.T_nistCurve_static_extension) @:dox(hide) abstract T_nistCurve(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve {
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {

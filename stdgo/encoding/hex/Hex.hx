@@ -5,7 +5,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
         stdgo._internal.encoding.hex.Hex_errlength.errLength = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder) from stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder to stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder {
+@:structInit @:using(Hex.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder) from stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder to stdgo._internal.encoding.hex.Hex_t_encoder.T_encoder {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -28,7 +28,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder) from stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder to stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder {
+@:structInit @:using(Hex.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder) from stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder to stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -57,7 +57,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_dumper_static_extension) @:dox(hide) abstract T_dumper(stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper) from stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper to stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper {
+@:structInit @:using(Hex.T_dumper_static_extension) @:dox(hide) abstract T_dumper(stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper) from stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper to stdgo._internal.encoding.hex.Hex_t_dumper.T_dumper {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -98,7 +98,7 @@ private function set_errLength(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.hex.Hex.T_encDecTest_static_extension) @:dox(hide) abstract T_encDecTest(stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest) from stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest to stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest {
+@:structInit @:using(Hex.T_encDecTest_static_extension) @:dox(hide) abstract T_encDecTest(stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest) from stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest to stdgo._internal.encoding.hex.Hex_t_encdectest.T_encDecTest {
     public var _enc(get, set) : String;
     function get__enc():String return this._enc;
     function set__enc(v:String):String {

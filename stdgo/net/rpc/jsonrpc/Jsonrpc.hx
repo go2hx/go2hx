@@ -5,7 +5,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
         stdgo._internal.net.rpc.jsonrpc.Jsonrpc_nil.nil = v;
         return v;
     }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientCodec_static_extension) @:dox(hide) abstract T_clientCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec {
+@:structInit @:using(jsonrpc.Jsonrpc.T_clientCodec_static_extension) @:dox(hide) abstract T_clientCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec {
     public var _dec(get, set) : stdgo._internal.encoding.json.Json_decoder.Decoder;
     function get__dec():stdgo._internal.encoding.json.Json_decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.json.Json_decoder.Decoder):stdgo._internal.encoding.json.Json_decoder.Decoder {
@@ -42,17 +42,35 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
         this._mutex = v;
         return v;
     }
-    public var _pending(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>;
-    function get__pending():stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> return this._pending;
-    function set__pending(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString> {
-        this._pending = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>);
+    public var _pending(get, set) : Map<haxe.UInt64, String>;
+    function get__pending():Map<haxe.UInt64, String> return {
+        final __obj__:Map<haxe.UInt64, String> = [];
+        for (key => value in this._pending) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__pending(v:Map<haxe.UInt64, String>):Map<haxe.UInt64, String> {
+        this._pending = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_dec:stdgo._internal.encoding.json.Json_decoder.Decoder, ?_enc:stdgo._internal.encoding.json.Json_encoder.Encoder, ?_c:stdgo._internal.io.Io_closer.Closer, ?_req:T_clientRequest, ?_resp:T_clientResponse, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_pending:stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>) this = new stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec((_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_encoder.Encoder>), _c, _req, _resp, _mutex, (_pending : stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>));
+    public function new(?_dec:stdgo._internal.encoding.json.Json_decoder.Decoder, ?_enc:stdgo._internal.encoding.json.Json_encoder.Encoder, ?_c:stdgo._internal.io.Io_closer.Closer, ?_req:T_clientRequest, ?_resp:T_clientResponse, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_pending:Map<haxe.UInt64, String>) this = new stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientcodec.T_clientCodec((_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_encoder.Encoder>), _c, _req, _resp, _mutex, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.GoString>();
+        for (key => value in _pending) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientRequest_static_extension) @:dox(hide) abstract T_clientRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest {
+@:structInit @:using(jsonrpc.Jsonrpc.T_clientRequest_static_extension) @:dox(hide) abstract T_clientRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientrequest.T_clientRequest {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -75,7 +93,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_clientResponse_static_extension) @:dox(hide) abstract T_clientResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse {
+@:structInit @:using(jsonrpc.Jsonrpc.T_clientResponse_static_extension) @:dox(hide) abstract T_clientResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_clientresponse.T_clientResponse {
     public var id(get, set) : haxe.UInt64;
     function get_id():haxe.UInt64 return this.id;
     function set_id(v:haxe.UInt64):haxe.UInt64 {
@@ -98,7 +116,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverCodec_static_extension) @:dox(hide) abstract T_serverCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec {
+@:structInit @:using(jsonrpc.Jsonrpc.T_serverCodec_static_extension) @:dox(hide) abstract T_serverCodec(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec {
     public var _dec(get, set) : stdgo._internal.encoding.json.Json_decoder.Decoder;
     function get__dec():stdgo._internal.encoding.json.Json_decoder.Decoder return this._dec;
     function set__dec(v:stdgo._internal.encoding.json.Json_decoder.Decoder):stdgo._internal.encoding.json.Json_decoder.Decoder {
@@ -135,17 +153,35 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
         this._seq = (v : stdgo.GoUInt64);
         return v;
     }
-    public var _pending(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>;
-    function get__pending():stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>> return this._pending;
-    function set__pending(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>> {
-        this._pending = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>);
+    public var _pending(get, set) : Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage>;
+    function get__pending():Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage> return {
+        final __obj__:Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage> = [];
+        for (key => value in this._pending) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__pending(v:Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage>):Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage> {
+        this._pending = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_dec:stdgo._internal.encoding.json.Json_decoder.Decoder, ?_enc:stdgo._internal.encoding.json.Json_encoder.Encoder, ?_c:stdgo._internal.io.Io_closer.Closer, ?_req:T_serverRequest, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>) this = new stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec((_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_encoder.Encoder>), _c, _req, _mutex, (_seq : stdgo.GoUInt64), (_pending : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>));
+    public function new(?_dec:stdgo._internal.encoding.json.Json_decoder.Decoder, ?_enc:stdgo._internal.encoding.json.Json_encoder.Encoder, ?_c:stdgo._internal.io.Io_closer.Closer, ?_req:T_serverRequest, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:Map<haxe.UInt64, stdgo._internal.encoding.json.Json_rawmessage.RawMessage>) this = new stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_servercodec.T_serverCodec((_dec : stdgo.Ref<stdgo._internal.encoding.json.Json_decoder.Decoder>), (_enc : stdgo.Ref<stdgo._internal.encoding.json.Json_encoder.Encoder>), _c, _req, _mutex, (_seq : stdgo.GoUInt64), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>>();
+        for (key => value in _pending) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverRequest_static_extension) @:dox(hide) abstract T_serverRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest {
+@:structInit @:using(jsonrpc.Jsonrpc.T_serverRequest_static_extension) @:dox(hide) abstract T_serverRequest(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverrequest.T_serverRequest {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -168,7 +204,7 @@ private function set_nil(v:stdgo._internal.encoding.json.Json_rawmessage.RawMess
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.rpc.jsonrpc.Jsonrpc.T_serverResponse_static_extension) @:dox(hide) abstract T_serverResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse {
+@:structInit @:using(jsonrpc.Jsonrpc.T_serverResponse_static_extension) @:dox(hide) abstract T_serverResponse(stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse) from stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse to stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse {
     public var id(get, set) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage;
     function get_id():stdgo._internal.encoding.json.Json_rawmessage.RawMessage return this.id;
     function set_id(v:stdgo._internal.encoding.json.Json_rawmessage.RawMessage):stdgo._internal.encoding.json.Json_rawmessage.RawMessage {

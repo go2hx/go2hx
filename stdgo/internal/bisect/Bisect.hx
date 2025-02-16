@@ -8,8 +8,16 @@ class Writer_static_extension {
         };
     }
 }
-typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
-@:structInit @:using(stdgo.internal.bisect.Bisect.Matcher_static_extension) abstract Matcher(stdgo._internal.internal.bisect.Bisect_matcher.Matcher) from stdgo._internal.internal.bisect.Bisect_matcher.Matcher to stdgo._internal.internal.bisect.Bisect_matcher.Matcher {
+@:forward abstract Writer(stdgo._internal.internal.bisect.Bisect_writer.Writer) from stdgo._internal.internal.bisect.Bisect_writer.Writer to stdgo._internal.internal.bisect.Bisect_writer.Writer {
+    @:from
+    static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Writer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Writer = { write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Bisect.Matcher_static_extension) abstract Matcher(stdgo._internal.internal.bisect.Bisect_matcher.Matcher) from stdgo._internal.internal.bisect.Bisect_matcher.Matcher to stdgo._internal.internal.bisect.Bisect_matcher.Matcher {
     public var _verbose(get, set) : Bool;
     function get__verbose():Bool return this._verbose;
     function set__verbose(v:Bool):Bool {
@@ -44,7 +52,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.bisect.Bisect.T_atomicPointerDedup_static_extension) @:dox(hide) abstract T_atomicPointerDedup(stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup) from stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup to stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup {
+@:structInit @:using(Bisect.T_atomicPointerDedup_static_extension) @:dox(hide) abstract T_atomicPointerDedup(stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup) from stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup to stdgo._internal.internal.bisect.Bisect_t_atomicpointerdedup.T_atomicPointerDedup {
     public var _p(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
     function get__p():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._p;
     function set__p(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
@@ -55,7 +63,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.bisect.Bisect.T_cond_static_extension) @:dox(hide) abstract T_cond(stdgo._internal.internal.bisect.Bisect_t_cond.T_cond) from stdgo._internal.internal.bisect.Bisect_t_cond.T_cond to stdgo._internal.internal.bisect.Bisect_t_cond.T_cond {
+@:structInit @:using(Bisect.T_cond_static_extension) @:dox(hide) abstract T_cond(stdgo._internal.internal.bisect.Bisect_t_cond.T_cond) from stdgo._internal.internal.bisect.Bisect_t_cond.T_cond to stdgo._internal.internal.bisect.Bisect_t_cond.T_cond {
     public var _mask(get, set) : haxe.UInt64;
     function get__mask():haxe.UInt64 return this._mask;
     function set__mask(v:haxe.UInt64):haxe.UInt64 {
@@ -78,7 +86,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.bisect.Bisect.T_parseError_static_extension) @:dox(hide) abstract T_parseError(stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError) from stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError to stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError {
+@:structInit @:using(Bisect.T_parseError_static_extension) @:dox(hide) abstract T_parseError(stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError) from stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError to stdgo._internal.internal.bisect.Bisect_t_parseerror.T_parseError {
     public var _text(get, set) : String;
     function get__text():String return this._text;
     function set__text(v:String):String {
@@ -89,7 +97,7 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.bisect.Bisect.T_dedup_static_extension) @:dox(hide) abstract T_dedup(stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup) from stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup to stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup {
+@:structInit @:using(Bisect.T_dedup_static_extension) @:dox(hide) abstract T_dedup(stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup) from stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup to stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup {
     public var _recent(get, set) : haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>>;
     function get__recent():haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>> return haxe.ds.Vector.fromArrayCopy([for (i in this._recent) haxe.ds.Vector.fromArrayCopy([for (i in i) i])]);
     function set__recent(v:haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>>):haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>> {
@@ -102,13 +110,31 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect_writer.Writer;
         this._mu = v;
         return v;
     }
-    public var _m(get, set) : stdgo.GoMap<stdgo.GoUInt64, Bool>;
-    function get__m():stdgo.GoMap<stdgo.GoUInt64, Bool> return this._m;
-    function set__m(v:stdgo.GoMap<stdgo.GoUInt64, Bool>):stdgo.GoMap<stdgo.GoUInt64, Bool> {
-        this._m = (v : stdgo.GoMap<stdgo.GoUInt64, Bool>);
+    public var _m(get, set) : Map<haxe.UInt64, Bool>;
+    function get__m():Map<haxe.UInt64, Bool> return {
+        final __obj__:Map<haxe.UInt64, Bool> = [];
+        for (key => value in this._m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__m(v:Map<haxe.UInt64, Bool>):Map<haxe.UInt64, Bool> {
+        this._m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, Bool>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_recent:haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>>, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:stdgo.GoMap<stdgo.GoUInt64, Bool>) this = new stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup(([for (i in _recent) ([for (i in i) (i : stdgo.GoUInt64)] : stdgo.GoArray<stdgo.GoUInt64>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>), _mu, (_m : stdgo.GoMap<stdgo.GoUInt64, Bool>));
+    public function new(?_recent:haxe.ds.Vector<haxe.ds.Vector<haxe.UInt64>>, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:Map<haxe.UInt64, Bool>) this = new stdgo._internal.internal.bisect.Bisect_t_dedup.T_dedup(([for (i in _recent) ([for (i in i) (i : stdgo.GoUInt64)] : stdgo.GoArray<stdgo.GoUInt64>)] : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>), _mu, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, Bool>();
+        for (key => value in _m) {
+            __obj__[(key : stdgo.GoUInt64)] = value;
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

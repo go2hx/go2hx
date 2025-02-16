@@ -1,5 +1,5 @@
 package stdgo.net.http.cgi;
-@:structInit @:using(stdgo.net.http.cgi.Cgi.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.cgi.Cgi_t_response.T_response) from stdgo._internal.net.http.cgi.Cgi_t_response.T_response to stdgo._internal.net.http.cgi.Cgi_t_response.T_response {
+@:structInit @:using(cgi.Cgi.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.cgi.Cgi_t_response.T_response) from stdgo._internal.net.http.cgi.Cgi_t_response.T_response to stdgo._internal.net.http.cgi.Cgi_t_response.T_response {
     public var _req(get, set) : stdgo._internal.net.http.Http_request.Request;
     function get__req():stdgo._internal.net.http.Http_request.Request return this._req;
     function set__req(v:stdgo._internal.net.http.Http_request.Request):stdgo._internal.net.http.Http_request.Request {
@@ -40,7 +40,7 @@ package stdgo.net.http.cgi;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.cgi.Cgi.Handler_static_extension) abstract Handler(stdgo._internal.net.http.cgi.Cgi_handler.Handler) from stdgo._internal.net.http.cgi.Cgi_handler.Handler to stdgo._internal.net.http.cgi.Cgi_handler.Handler {
+@:structInit @:using(cgi.Cgi.Handler_static_extension) abstract Handler(stdgo._internal.net.http.cgi.Cgi_handler.Handler) from stdgo._internal.net.http.cgi.Cgi_handler.Handler to stdgo._internal.net.http.cgi.Cgi_handler.Handler {
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
@@ -177,8 +177,14 @@ class Cgi {
         * RequestFromMap creates an http.Request from CGI variables.
         * The returned Request's Body field is not populated.
     **/
-    static public inline function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
-        final _params = (_params : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    static public inline function requestFromMap(_params:Map<String, String>):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
+        final _params = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _params) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return {
             final obj = stdgo._internal.net.http.cgi.Cgi_requestfrommap.requestFromMap(_params);
             { _0 : obj._0, _1 : obj._1 };

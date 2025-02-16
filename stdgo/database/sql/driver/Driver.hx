@@ -56,7 +56,15 @@ class Driver_static_extension {
         };
     }
 }
-typedef Driver_ = stdgo._internal.database.sql.driver.Driver_driver.Driver;
+@:forward abstract Driver_(stdgo._internal.database.sql.driver.Driver_driver.Driver) from stdgo._internal.database.sql.driver.Driver_driver.Driver to stdgo._internal.database.sql.driver.Driver_driver.Driver {
+    @:from
+    static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<Conn, stdgo.Error>; }):Driver_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Driver_ = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class DriverContext_static_extension {
     static public function openConnector(t:stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext, _name:String):stdgo.Tuple<Connector, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -66,7 +74,15 @@ class DriverContext_static_extension {
         };
     }
 }
-typedef DriverContext = stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext;
+@:forward abstract DriverContext(stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext) from stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext to stdgo._internal.database.sql.driver.Driver_drivercontext.DriverContext {
+    @:from
+    static function fromHaxeInterface(x:{ function openConnector(_name:String):stdgo.Tuple<Connector, stdgo.Error>; }):DriverContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:DriverContext = { openConnector : _0 -> x.openConnector(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Connector_static_extension {
     static public function driver(t:stdgo._internal.database.sql.driver.Driver_connector.Connector):Driver_ {
         return stdgo._internal.database.sql.driver.Driver_connector_static_extension.Connector_static_extension.driver(t);
@@ -78,13 +94,29 @@ class Connector_static_extension {
         };
     }
 }
-typedef Connector = stdgo._internal.database.sql.driver.Driver_connector.Connector;
+@:forward abstract Connector(stdgo._internal.database.sql.driver.Driver_connector.Connector) from stdgo._internal.database.sql.driver.Driver_connector.Connector to stdgo._internal.database.sql.driver.Driver_connector.Connector {
+    @:from
+    static function fromHaxeInterface(x:{ function connect(_0:stdgo._internal.context.Context_context.Context):stdgo.Tuple<Conn, stdgo.Error>; function driver():Driver_; }):Connector {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Connector = { connect : _0 -> x.connect(_0), driver : () -> x.driver(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Pinger_static_extension {
     static public function ping(t:stdgo._internal.database.sql.driver.Driver_pinger.Pinger, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_pinger_static_extension.Pinger_static_extension.ping(t, _ctx);
     }
 }
-typedef Pinger = stdgo._internal.database.sql.driver.Driver_pinger.Pinger;
+@:forward abstract Pinger(stdgo._internal.database.sql.driver.Driver_pinger.Pinger) from stdgo._internal.database.sql.driver.Driver_pinger.Pinger to stdgo._internal.database.sql.driver.Driver_pinger.Pinger {
+    @:from
+    static function fromHaxeInterface(x:{ function ping(_ctx:stdgo._internal.context.Context_context.Context):stdgo.Error; }):Pinger {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Pinger = { ping : _0 -> x.ping(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Execer_static_extension {
     static public function exec(t:stdgo._internal.database.sql.driver.Driver_execer.Execer, _query:String, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
@@ -95,7 +127,15 @@ class Execer_static_extension {
         };
     }
 }
-typedef Execer = stdgo._internal.database.sql.driver.Driver_execer.Execer;
+@:forward abstract Execer(stdgo._internal.database.sql.driver.Driver_execer.Execer) from stdgo._internal.database.sql.driver.Driver_execer.Execer to stdgo._internal.database.sql.driver.Driver_execer.Execer {
+    @:from
+    static function fromHaxeInterface(x:{ function exec(_query:String, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error>; }):Execer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Execer = { exec : (_0, _1) -> x.exec(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ExecerContext_static_extension {
     static public function execContext(t:stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
@@ -106,7 +146,15 @@ class ExecerContext_static_extension {
         };
     }
 }
-typedef ExecerContext = stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext;
+@:forward abstract ExecerContext(stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext) from stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext to stdgo._internal.database.sql.driver.Driver_execercontext.ExecerContext {
+    @:from
+    static function fromHaxeInterface(x:{ function execContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error>; }):ExecerContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ExecerContext = { execContext : (_0, _1, _2) -> x.execContext(_0, _1, [for (i in _2) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Queryer_static_extension {
     static public function query(t:stdgo._internal.database.sql.driver.Driver_queryer.Queryer, _query:String, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
@@ -117,7 +165,15 @@ class Queryer_static_extension {
         };
     }
 }
-typedef Queryer = stdgo._internal.database.sql.driver.Driver_queryer.Queryer;
+@:forward abstract Queryer(stdgo._internal.database.sql.driver.Driver_queryer.Queryer) from stdgo._internal.database.sql.driver.Driver_queryer.Queryer to stdgo._internal.database.sql.driver.Driver_queryer.Queryer {
+    @:from
+    static function fromHaxeInterface(x:{ function query(_query:String, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error>; }):Queryer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Queryer = { query : (_0, _1) -> x.query(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class QueryerContext_static_extension {
     static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
@@ -128,7 +184,15 @@ class QueryerContext_static_extension {
         };
     }
 }
-typedef QueryerContext = stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext;
+@:forward abstract QueryerContext(stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext) from stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext to stdgo._internal.database.sql.driver.Driver_queryercontext.QueryerContext {
+    @:from
+    static function fromHaxeInterface(x:{ function queryContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error>; }):QueryerContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:QueryerContext = { queryContext : (_0, _1, _2) -> x.queryContext(_0, _1, [for (i in _2) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Conn_static_extension {
     static public function begin(t:stdgo._internal.database.sql.driver.Driver_conn.Conn):stdgo.Tuple<Tx, stdgo.Error> {
         return {
@@ -147,7 +211,15 @@ class Conn_static_extension {
         };
     }
 }
-typedef Conn = stdgo._internal.database.sql.driver.Driver_conn.Conn;
+@:forward abstract Conn(stdgo._internal.database.sql.driver.Driver_conn.Conn) from stdgo._internal.database.sql.driver.Driver_conn.Conn to stdgo._internal.database.sql.driver.Driver_conn.Conn {
+    @:from
+    static function fromHaxeInterface(x:{ function prepare(_query:String):stdgo.Tuple<Stmt, stdgo.Error>; function close():stdgo.Error; function begin():stdgo.Tuple<Tx, stdgo.Error>; }):Conn {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Conn = { prepare : _0 -> x.prepare(_0), close : () -> x.close(), begin : () -> x.begin(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ConnPrepareContext_static_extension {
     static public function prepareContext(t:stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext, _ctx:stdgo._internal.context.Context_context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {
         final _query = (_query : stdgo.GoString);
@@ -157,7 +229,15 @@ class ConnPrepareContext_static_extension {
         };
     }
 }
-typedef ConnPrepareContext = stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext;
+@:forward abstract ConnPrepareContext(stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext) from stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext to stdgo._internal.database.sql.driver.Driver_connpreparecontext.ConnPrepareContext {
+    @:from
+    static function fromHaxeInterface(x:{ function prepareContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error>; }):ConnPrepareContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ConnPrepareContext = { prepareContext : (_0, _1) -> x.prepareContext(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ConnBeginTx_static_extension {
     static public function beginTx(t:stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx, _ctx:stdgo._internal.context.Context_context.Context, _opts:TxOptions):stdgo.Tuple<Tx, stdgo.Error> {
         return {
@@ -166,19 +246,43 @@ class ConnBeginTx_static_extension {
         };
     }
 }
-typedef ConnBeginTx = stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx;
+@:forward abstract ConnBeginTx(stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx) from stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx to stdgo._internal.database.sql.driver.Driver_connbegintx.ConnBeginTx {
+    @:from
+    static function fromHaxeInterface(x:{ function beginTx(_ctx:stdgo._internal.context.Context_context.Context, _opts:TxOptions):stdgo.Tuple<Tx, stdgo.Error>; }):ConnBeginTx {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ConnBeginTx = { beginTx : (_0, _1) -> x.beginTx(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class SessionResetter_static_extension {
     static public function resetSession(t:stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter, _ctx:stdgo._internal.context.Context_context.Context):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_sessionresetter_static_extension.SessionResetter_static_extension.resetSession(t, _ctx);
     }
 }
-typedef SessionResetter = stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter;
+@:forward abstract SessionResetter(stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter) from stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter to stdgo._internal.database.sql.driver.Driver_sessionresetter.SessionResetter {
+    @:from
+    static function fromHaxeInterface(x:{ function resetSession(_ctx:stdgo._internal.context.Context_context.Context):stdgo.Error; }):SessionResetter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:SessionResetter = { resetSession : _0 -> x.resetSession(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Validator_static_extension {
     static public function isValid(t:stdgo._internal.database.sql.driver.Driver_validator.Validator):Bool {
         return stdgo._internal.database.sql.driver.Driver_validator_static_extension.Validator_static_extension.isValid(t);
     }
 }
-typedef Validator = stdgo._internal.database.sql.driver.Driver_validator.Validator;
+@:forward abstract Validator(stdgo._internal.database.sql.driver.Driver_validator.Validator) from stdgo._internal.database.sql.driver.Driver_validator.Validator to stdgo._internal.database.sql.driver.Driver_validator.Validator {
+    @:from
+    static function fromHaxeInterface(x:{ function isValid():Bool; }):Validator {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Validator = { isValid : () -> x.isValid(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Result_static_extension {
     static public function rowsAffected(t:stdgo._internal.database.sql.driver.Driver_result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -193,7 +297,15 @@ class Result_static_extension {
         };
     }
 }
-typedef Result = stdgo._internal.database.sql.driver.Driver_result.Result;
+@:forward abstract Result(stdgo._internal.database.sql.driver.Driver_result.Result) from stdgo._internal.database.sql.driver.Driver_result.Result to stdgo._internal.database.sql.driver.Driver_result.Result {
+    @:from
+    static function fromHaxeInterface(x:{ function lastInsertId():stdgo.Tuple<haxe.Int64, stdgo.Error>; function rowsAffected():stdgo.Tuple<haxe.Int64, stdgo.Error>; }):Result {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Result = { lastInsertId : () -> x.lastInsertId(), rowsAffected : () -> x.rowsAffected(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Stmt_static_extension {
     static public function query(t:stdgo._internal.database.sql.driver.Driver_stmt.Stmt, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error> {
         final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
@@ -216,7 +328,15 @@ class Stmt_static_extension {
         return stdgo._internal.database.sql.driver.Driver_stmt_static_extension.Stmt_static_extension.close(t);
     }
 }
-typedef Stmt = stdgo._internal.database.sql.driver.Driver_stmt.Stmt;
+@:forward abstract Stmt(stdgo._internal.database.sql.driver.Driver_stmt.Stmt) from stdgo._internal.database.sql.driver.Driver_stmt.Stmt to stdgo._internal.database.sql.driver.Driver_stmt.Stmt {
+    @:from
+    static function fromHaxeInterface(x:{ function close():stdgo.Error; function numInput():StdTypes.Int; function exec(_args:Array<Value>):stdgo.Tuple<Result, stdgo.Error>; function query(_args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error>; }):Stmt {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Stmt = { close : () -> x.close(), numInput : () -> x.numInput(), exec : _0 -> x.exec([for (i in _0) i]), query : _0 -> x.query([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class StmtExecContext_static_extension {
     static public function execContext(t:stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext, _ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error> {
         final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
@@ -226,7 +346,15 @@ class StmtExecContext_static_extension {
         };
     }
 }
-typedef StmtExecContext = stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext;
+@:forward abstract StmtExecContext(stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext) from stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext to stdgo._internal.database.sql.driver.Driver_stmtexeccontext.StmtExecContext {
+    @:from
+    static function fromHaxeInterface(x:{ function execContext(_ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error>; }):StmtExecContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:StmtExecContext = { execContext : (_0, _1) -> x.execContext(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class StmtQueryContext_static_extension {
     static public function queryContext(t:stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext, _ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error> {
         final _args = ([for (i in _args) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
@@ -236,21 +364,45 @@ class StmtQueryContext_static_extension {
         };
     }
 }
-typedef StmtQueryContext = stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext;
+@:forward abstract StmtQueryContext(stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext) from stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext to stdgo._internal.database.sql.driver.Driver_stmtquerycontext.StmtQueryContext {
+    @:from
+    static function fromHaxeInterface(x:{ function queryContext(_ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error>; }):StmtQueryContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:StmtQueryContext = { queryContext : (_0, _1) -> x.queryContext(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class NamedValueChecker_static_extension {
     static public function checkNamedValue(t:stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker, _0:NamedValue):stdgo.Error {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue>);
         return stdgo._internal.database.sql.driver.Driver_namedvaluechecker_static_extension.NamedValueChecker_static_extension.checkNamedValue(t, _0);
     }
 }
-typedef NamedValueChecker = stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker;
+@:forward abstract NamedValueChecker(stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker) from stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker to stdgo._internal.database.sql.driver.Driver_namedvaluechecker.NamedValueChecker {
+    @:from
+    static function fromHaxeInterface(x:{ function checkNamedValue(_0:NamedValue):stdgo.Error; }):NamedValueChecker {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:NamedValueChecker = { checkNamedValue : _0 -> x.checkNamedValue(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ColumnConverter_static_extension {
     static public function columnConverter(t:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter, _idx:StdTypes.Int):ValueConverter {
         final _idx = (_idx : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_columnconverter_static_extension.ColumnConverter_static_extension.columnConverter(t, _idx);
     }
 }
-typedef ColumnConverter = stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter;
+@:forward abstract ColumnConverter(stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter) from stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter to stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter {
+    @:from
+    static function fromHaxeInterface(x:{ function columnConverter(_idx:StdTypes.Int):ValueConverter; }):ColumnConverter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ColumnConverter = { columnConverter : _0 -> x.columnConverter(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Rows_static_extension {
     static public function next(t:stdgo._internal.database.sql.driver.Driver_rows.Rows, _dest:Array<Value>):stdgo.Error {
         final _dest = ([for (i in _dest) i] : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_value.Value>);
@@ -263,7 +415,15 @@ class Rows_static_extension {
         return [for (i in stdgo._internal.database.sql.driver.Driver_rows_static_extension.Rows_static_extension.columns(t)) i];
     }
 }
-typedef Rows = stdgo._internal.database.sql.driver.Driver_rows.Rows;
+@:forward abstract Rows(stdgo._internal.database.sql.driver.Driver_rows.Rows) from stdgo._internal.database.sql.driver.Driver_rows.Rows to stdgo._internal.database.sql.driver.Driver_rows.Rows {
+    @:from
+    static function fromHaxeInterface(x:{ function columns():Array<String>; function close():stdgo.Error; function next(_dest:Array<Value>):stdgo.Error; }):Rows {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Rows = { columns : () -> x.columns(), close : () -> x.close(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsNextResultSet_static_extension {
     static public function nextResultSet(t:stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_rowsnextresultset_static_extension.RowsNextResultSet_static_extension.nextResultSet(t);
@@ -272,21 +432,45 @@ class RowsNextResultSet_static_extension {
         return stdgo._internal.database.sql.driver.Driver_rowsnextresultset_static_extension.RowsNextResultSet_static_extension.hasNextResultSet(t);
     }
 }
-typedef RowsNextResultSet = stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet;
+@:forward abstract RowsNextResultSet(stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet) from stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet to stdgo._internal.database.sql.driver.Driver_rowsnextresultset.RowsNextResultSet {
+    @:from
+    static function fromHaxeInterface(x:{ function hasNextResultSet():Bool; function nextResultSet():stdgo.Error; }):RowsNextResultSet {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsNextResultSet = { hasNextResultSet : () -> x.hasNextResultSet(), nextResultSet : () -> x.nextResultSet(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsColumnTypeScanType_static_extension {
     static public function columnTypeScanType(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType, _index:StdTypes.Int):stdgo._internal.reflect.Reflect_type_.Type_ {
         final _index = (_index : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype_static_extension.RowsColumnTypeScanType_static_extension.columnTypeScanType(t, _index);
     }
 }
-typedef RowsColumnTypeScanType = stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType;
+@:forward abstract RowsColumnTypeScanType(stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType) from stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType to stdgo._internal.database.sql.driver.Driver_rowscolumntypescantype.RowsColumnTypeScanType {
+    @:from
+    static function fromHaxeInterface(x:{ function columnTypeScanType(_index:StdTypes.Int):stdgo._internal.reflect.Reflect_type_.Type_; }):RowsColumnTypeScanType {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsColumnTypeScanType = { columnTypeScanType : _0 -> x.columnTypeScanType(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsColumnTypeDatabaseTypeName_static_extension {
     static public function columnTypeDatabaseTypeName(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName, _index:StdTypes.Int):String {
         final _index = (_index : stdgo.GoInt);
         return stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename_static_extension.RowsColumnTypeDatabaseTypeName_static_extension.columnTypeDatabaseTypeName(t, _index);
     }
 }
-typedef RowsColumnTypeDatabaseTypeName = stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName;
+@:forward abstract RowsColumnTypeDatabaseTypeName(stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName) from stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName to stdgo._internal.database.sql.driver.Driver_rowscolumntypedatabasetypename.RowsColumnTypeDatabaseTypeName {
+    @:from
+    static function fromHaxeInterface(x:{ function columnTypeDatabaseTypeName(_index:StdTypes.Int):String; }):RowsColumnTypeDatabaseTypeName {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsColumnTypeDatabaseTypeName = { columnTypeDatabaseTypeName : _0 -> x.columnTypeDatabaseTypeName(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsColumnTypeLength_static_extension {
     static public function columnTypeLength(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength, _index:StdTypes.Int):stdgo.Tuple<haxe.Int64, Bool> {
         final _index = (_index : stdgo.GoInt);
@@ -296,7 +480,15 @@ class RowsColumnTypeLength_static_extension {
         };
     }
 }
-typedef RowsColumnTypeLength = stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength;
+@:forward abstract RowsColumnTypeLength(stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength) from stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength to stdgo._internal.database.sql.driver.Driver_rowscolumntypelength.RowsColumnTypeLength {
+    @:from
+    static function fromHaxeInterface(x:{ function columnTypeLength(_index:StdTypes.Int):stdgo.Tuple<haxe.Int64, Bool>; }):RowsColumnTypeLength {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsColumnTypeLength = { columnTypeLength : _0 -> x.columnTypeLength(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsColumnTypeNullable_static_extension {
     static public function columnTypeNullable(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable, _index:StdTypes.Int):stdgo.Tuple<Bool, Bool> {
         final _index = (_index : stdgo.GoInt);
@@ -306,7 +498,15 @@ class RowsColumnTypeNullable_static_extension {
         };
     }
 }
-typedef RowsColumnTypeNullable = stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable;
+@:forward abstract RowsColumnTypeNullable(stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable) from stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable to stdgo._internal.database.sql.driver.Driver_rowscolumntypenullable.RowsColumnTypeNullable {
+    @:from
+    static function fromHaxeInterface(x:{ function columnTypeNullable(_index:StdTypes.Int):stdgo.Tuple<Bool, Bool>; }):RowsColumnTypeNullable {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsColumnTypeNullable = { columnTypeNullable : _0 -> x.columnTypeNullable(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RowsColumnTypePrecisionScale_static_extension {
     static public function columnTypePrecisionScale(t:stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale, _index:StdTypes.Int):stdgo.Tuple.Tuple3<haxe.Int64, haxe.Int64, Bool> {
         final _index = (_index : stdgo.GoInt);
@@ -316,7 +516,15 @@ class RowsColumnTypePrecisionScale_static_extension {
         };
     }
 }
-typedef RowsColumnTypePrecisionScale = stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale;
+@:forward abstract RowsColumnTypePrecisionScale(stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale) from stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale to stdgo._internal.database.sql.driver.Driver_rowscolumntypeprecisionscale.RowsColumnTypePrecisionScale {
+    @:from
+    static function fromHaxeInterface(x:{ function columnTypePrecisionScale(_index:StdTypes.Int):stdgo.Tuple.Tuple3<haxe.Int64, haxe.Int64, Bool>; }):RowsColumnTypePrecisionScale {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RowsColumnTypePrecisionScale = { columnTypePrecisionScale : _0 -> x.columnTypePrecisionScale(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Tx_static_extension {
     static public function rollback(t:stdgo._internal.database.sql.driver.Driver_tx.Tx):stdgo.Error {
         return stdgo._internal.database.sql.driver.Driver_tx_static_extension.Tx_static_extension.rollback(t);
@@ -325,7 +533,15 @@ class Tx_static_extension {
         return stdgo._internal.database.sql.driver.Driver_tx_static_extension.Tx_static_extension.commit(t);
     }
 }
-typedef Tx = stdgo._internal.database.sql.driver.Driver_tx.Tx;
+@:forward abstract Tx(stdgo._internal.database.sql.driver.Driver_tx.Tx) from stdgo._internal.database.sql.driver.Driver_tx.Tx to stdgo._internal.database.sql.driver.Driver_tx.Tx {
+    @:from
+    static function fromHaxeInterface(x:{ function commit():stdgo.Error; function rollback():stdgo.Error; }):Tx {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Tx = { commit : () -> x.commit(), rollback : () -> x.rollback(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ValueConverter_static_extension {
     static public function convertValue(t:stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter, _v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error> {
         final _v = (_v : stdgo.AnyInterface);
@@ -335,7 +551,15 @@ class ValueConverter_static_extension {
         };
     }
 }
-typedef ValueConverter = stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter;
+@:forward abstract ValueConverter(stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter) from stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter to stdgo._internal.database.sql.driver.Driver_valueconverter.ValueConverter {
+    @:from
+    static function fromHaxeInterface(x:{ function convertValue(_v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error>; }):ValueConverter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ValueConverter = { convertValue : _0 -> x.convertValue(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Valuer_static_extension {
     static public function value(t:stdgo._internal.database.sql.driver.Driver_valuer.Valuer):stdgo.Tuple<Value, stdgo.Error> {
         return {
@@ -344,7 +568,15 @@ class Valuer_static_extension {
         };
     }
 }
-typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
+@:forward abstract Valuer(stdgo._internal.database.sql.driver.Driver_valuer.Valuer) from stdgo._internal.database.sql.driver.Driver_valuer.Valuer to stdgo._internal.database.sql.driver.Driver_valuer.Valuer {
+    @:from
+    static function fromHaxeInterface(x:{ function value():stdgo.Tuple<Value, stdgo.Error>; }):Valuer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Valuer = { value : () -> x.value(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_decimalDecompose_static_extension {
     static public function decompose(t:stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -354,8 +586,16 @@ typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
         };
     }
 }
-@:dox(hide) typedef T_decimalDecompose = stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose;
-@:structInit @:using(stdgo.database.sql.driver.Driver.NamedValue_static_extension) abstract NamedValue(stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue) from stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue to stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue {
+@:dox(hide) @:forward abstract T_decimalDecompose(stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose) from stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose to stdgo._internal.database.sql.driver.Driver_t_decimaldecompose.T_decimalDecompose {
+    @:from
+    static function fromHaxeInterface(x:{ function decompose(_buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int>; }):T_decimalDecompose {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_decimalDecompose = { decompose : _0 -> x.decompose([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(driver.Driver.NamedValue_static_extension) abstract NamedValue(stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue) from stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue to stdgo._internal.database.sql.driver.Driver_namedvalue.NamedValue {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -378,7 +618,7 @@ typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.TxOptions_static_extension) abstract TxOptions(stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions) from stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions to stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions {
+@:structInit @:using(driver.Driver.TxOptions_static_extension) abstract TxOptions(stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions) from stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions to stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions {
     public var isolation(get, set) : IsolationLevel;
     function get_isolation():IsolationLevel return this.isolation;
     function set_isolation(v:IsolationLevel):IsolationLevel {
@@ -395,27 +635,27 @@ typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_noRows_static_extension) @:dox(hide) abstract T_noRows(stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows) from stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows to stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows {
+@:structInit @:using(driver.Driver.T_noRows_static_extension) @:dox(hide) abstract T_noRows(stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows) from stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows to stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_norows.T_noRows();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_boolType_static_extension) @:dox(hide) abstract T_boolType(stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType) from stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType to stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType {
+@:structInit @:using(driver.Driver.T_boolType_static_extension) @:dox(hide) abstract T_boolType(stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType) from stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType to stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_booltype.T_boolType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_int32Type_static_extension) @:dox(hide) abstract T_int32Type(stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type) from stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type to stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type {
+@:structInit @:using(driver.Driver.T_int32Type_static_extension) @:dox(hide) abstract T_int32Type(stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type) from stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type to stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_int32type.T_int32Type();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_stringType_static_extension) @:dox(hide) abstract T_stringType(stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType) from stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType to stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType {
+@:structInit @:using(driver.Driver.T_stringType_static_extension) @:dox(hide) abstract T_stringType(stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType) from stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType to stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_stringtype.T_stringType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.Null__static_extension) abstract Null_(stdgo._internal.database.sql.driver.Driver_null_.Null_) from stdgo._internal.database.sql.driver.Driver_null_.Null_ to stdgo._internal.database.sql.driver.Driver_null_.Null_ {
+@:structInit @:using(driver.Driver.Null__static_extension) abstract Null_(stdgo._internal.database.sql.driver.Driver_null_.Null_) from stdgo._internal.database.sql.driver.Driver_null_.Null_ to stdgo._internal.database.sql.driver.Driver_null_.Null_ {
     public var converter(get, set) : ValueConverter;
     function get_converter():ValueConverter return this.converter;
     function set_converter(v:ValueConverter):ValueConverter {
@@ -426,7 +666,7 @@ typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.NotNull_static_extension) abstract NotNull(stdgo._internal.database.sql.driver.Driver_notnull.NotNull) from stdgo._internal.database.sql.driver.Driver_notnull.NotNull to stdgo._internal.database.sql.driver.Driver_notnull.NotNull {
+@:structInit @:using(driver.Driver.NotNull_static_extension) abstract NotNull(stdgo._internal.database.sql.driver.Driver_notnull.NotNull) from stdgo._internal.database.sql.driver.Driver_notnull.NotNull to stdgo._internal.database.sql.driver.Driver_notnull.NotNull {
     public var converter(get, set) : ValueConverter;
     function get_converter():ValueConverter return this.converter;
     function set_converter(v:ValueConverter):ValueConverter {
@@ -437,7 +677,7 @@ typedef Valuer = stdgo._internal.database.sql.driver.Driver_valuer.Valuer;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.driver.Driver.T_defaultConverter_static_extension) @:dox(hide) abstract T_defaultConverter(stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter) from stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter to stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter {
+@:structInit @:using(driver.Driver.T_defaultConverter_static_extension) @:dox(hide) abstract T_defaultConverter(stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter) from stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter to stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter {
     public function new() this = new stdgo._internal.database.sql.driver.Driver_t_defaultconverter.T_defaultConverter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

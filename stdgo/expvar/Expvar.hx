@@ -4,8 +4,16 @@ class Var_static_extension {
         return stdgo._internal.expvar.Expvar_var_static_extension.Var_static_extension.string(t);
     }
 }
-typedef Var = stdgo._internal.expvar.Expvar_var.Var;
-@:structInit @:using(stdgo.expvar.Expvar.Int__static_extension) abstract Int_(stdgo._internal.expvar.Expvar_int_.Int_) from stdgo._internal.expvar.Expvar_int_.Int_ to stdgo._internal.expvar.Expvar_int_.Int_ {
+@:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):Var {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Var = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Int__static_extension) abstract Int_(stdgo._internal.expvar.Expvar_int_.Int_) from stdgo._internal.expvar.Expvar_int_.Int_ to stdgo._internal.expvar.Expvar_int_.Int_ {
     public var _i(get, set) : haxe.Int64;
     function get__i():haxe.Int64 return this._i;
     function set__i(v:haxe.Int64):haxe.Int64 {
@@ -16,7 +24,7 @@ typedef Var = stdgo._internal.expvar.Expvar_var.Var;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.expvar.Expvar.Float__static_extension) abstract Float_(stdgo._internal.expvar.Expvar_float_.Float_) from stdgo._internal.expvar.Expvar_float_.Float_ to stdgo._internal.expvar.Expvar_float_.Float_ {
+@:structInit @:using(Float__static_extension) abstract Float_(stdgo._internal.expvar.Expvar_float_.Float_) from stdgo._internal.expvar.Expvar_float_.Float_ to stdgo._internal.expvar.Expvar_float_.Float_ {
     public var _f(get, set) : stdgo._internal.sync.atomic_.Atomic__uint64.Uint64;
     function get__f():stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 return this._f;
     function set__f(v:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64):stdgo._internal.sync.atomic_.Atomic__uint64.Uint64 {
@@ -27,7 +35,7 @@ typedef Var = stdgo._internal.expvar.Expvar_var.Var;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.expvar.Expvar.Map__static_extension) abstract Map_(stdgo._internal.expvar.Expvar_map_.Map_) from stdgo._internal.expvar.Expvar_map_.Map_ to stdgo._internal.expvar.Expvar_map_.Map_ {
+@:structInit @:using(Map__static_extension) abstract Map_(stdgo._internal.expvar.Expvar_map_.Map_) from stdgo._internal.expvar.Expvar_map_.Map_ to stdgo._internal.expvar.Expvar_map_.Map_ {
     public var _m(get, set) : stdgo._internal.sync.Sync_map_.Map_;
     function get__m():stdgo._internal.sync.Sync_map_.Map_ return this._m;
     function set__m(v:stdgo._internal.sync.Sync_map_.Map_):stdgo._internal.sync.Sync_map_.Map_ {
@@ -50,7 +58,7 @@ typedef Var = stdgo._internal.expvar.Expvar_var.Var;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.expvar.Expvar.KeyValue_static_extension) abstract KeyValue(stdgo._internal.expvar.Expvar_keyvalue.KeyValue) from stdgo._internal.expvar.Expvar_keyvalue.KeyValue to stdgo._internal.expvar.Expvar_keyvalue.KeyValue {
+@:structInit @:using(KeyValue_static_extension) abstract KeyValue(stdgo._internal.expvar.Expvar_keyvalue.KeyValue) from stdgo._internal.expvar.Expvar_keyvalue.KeyValue to stdgo._internal.expvar.Expvar_keyvalue.KeyValue {
     public var key(get, set) : String;
     function get_key():String return this.key;
     function set_key(v:String):String {
@@ -67,7 +75,7 @@ typedef Var = stdgo._internal.expvar.Expvar_var.Var;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.expvar.Expvar.String__static_extension) abstract String_(stdgo._internal.expvar.Expvar_string_.String_) from stdgo._internal.expvar.Expvar_string_.String_ to stdgo._internal.expvar.Expvar_string_.String_ {
+@:structInit @:using(String__static_extension) abstract String_(stdgo._internal.expvar.Expvar_string_.String_) from stdgo._internal.expvar.Expvar_string_.String_ to stdgo._internal.expvar.Expvar_string_.String_ {
     public var _s(get, set) : stdgo._internal.sync.atomic_.Atomic__value.Value;
     function get__s():stdgo._internal.sync.atomic_.Atomic__value.Value return this._s;
     function set__s(v:stdgo._internal.sync.atomic_.Atomic__value.Value):stdgo._internal.sync.atomic_.Atomic__value.Value {
@@ -123,7 +131,7 @@ class Float__static_extension {
 }
 typedef Map_Pointer = stdgo._internal.expvar.Expvar_map_pointer.Map_Pointer;
 class Map__static_extension {
-    static public function do_(_v:Map_, _f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
+    static public function do_(_v:Map_, _f:KeyValue -> Void):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _f = _f;
         stdgo._internal.expvar.Expvar_map__static_extension.Map__static_extension.do_(_v, _f);
@@ -256,7 +264,7 @@ class Expvar {
         * The global variable map is locked during the iteration,
         * but existing entries may be concurrently updated.
     **/
-    static public inline function do_(_f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
+    static public inline function do_(_f:KeyValue -> Void):Void {
         final _f = _f;
         stdgo._internal.expvar.Expvar_do_.do_(_f);
     }

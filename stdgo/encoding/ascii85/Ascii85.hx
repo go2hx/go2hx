@@ -1,5 +1,5 @@
 package stdgo.encoding.ascii85;
-@:structInit @:using(stdgo.encoding.ascii85.Ascii85.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder) from stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder to stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder {
+@:structInit @:using(Ascii85.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder) from stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder to stdgo._internal.encoding.ascii85.Ascii85_t_encoder.T_encoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -34,7 +34,7 @@ package stdgo.encoding.ascii85;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.ascii85.Ascii85.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder) from stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder to stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder {
+@:structInit @:using(Ascii85.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder) from stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder to stdgo._internal.encoding.ascii85.Ascii85_t_decoder.T_decoder {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {

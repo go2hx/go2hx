@@ -229,7 +229,15 @@ private function set_errUnknownPC(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.debug.dwarf.Dwarf_t_dataformat_static_extension.T_dataFormat_static_extension._version(t);
     }
 }
-@:dox(hide) typedef T_dataFormat = stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat;
+@:dox(hide) @:forward abstract T_dataFormat(stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat) from stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat to stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat {
+    @:from
+    static function fromHaxeInterface(x:{ function _version():StdTypes.Int; function _dwarf64():stdgo.Tuple<Bool, Bool>; function _addrsize():StdTypes.Int; }):T_dataFormat {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_dataFormat = { _version : () -> x._version(), _dwarf64 : () -> x._dwarf64(), _addrsize : () -> x._addrsize(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Type__static_extension {
     static public function size(t:stdgo._internal.debug.dwarf.Dwarf_type_.Type_):haxe.Int64 {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.size(t);
@@ -241,7 +249,15 @@ class Type__static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.common(t);
     }
 }
-typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
+@:forward abstract Type_(stdgo._internal.debug.dwarf.Dwarf_type_.Type_) from stdgo._internal.debug.dwarf.Dwarf_type_.Type_ to stdgo._internal.debug.dwarf.Dwarf_type_.Type_ {
+    @:from
+    static function fromHaxeInterface(x:{ function common():CommonType; function string():String; function size():haxe.Int64; }):Type_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Type_ = { common : () -> x.common(), string : () -> x.string(), size : () -> x.size(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_typeReader_static_extension {
     static public function addressSize(t:stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.addressSize(t);
@@ -262,14 +278,30 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
         stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.seek(t, _0);
     }
 }
-@:dox(hide) typedef T_typeReader = stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader;
+@:dox(hide) @:forward abstract T_typeReader(stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader) from stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader to stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader {
+    @:from
+    static function fromHaxeInterface(x:{ function seek(_0:Offset):Void; function next():stdgo.Tuple<Entry, stdgo.Error>; function _clone():T_typeReader; function _offset():Offset; function addressSize():StdTypes.Int; }):T_typeReader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_typeReader = { seek : _0 -> x.seek(_0), next : () -> x.next(), _clone : () -> x._clone(), _offset : () -> x._offset(), addressSize : () -> x.addressSize(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_0_static_extension {
     static public function basic(t:stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0):BasicType {
         return stdgo._internal.debug.dwarf.Dwarf_t__interface_0_static_extension.T__interface_0_static_extension.basic(t);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0;
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_buf_static_extension) @:dox(hide) abstract T_buf(stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf) from stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf to stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf {
+@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0) from stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 to stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function basic():BasicType; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { basic : () -> x.basic(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Dwarf.T_buf_static_extension) @:dox(hide) abstract T_buf(stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf) from stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf to stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf {
     public var _dwarf(get, set) : Data;
     function get__dwarf():Data return this._dwarf;
     function set__dwarf(v:Data):Data {
@@ -316,12 +348,12 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unknownFormat_static_extension) @:dox(hide) abstract T_unknownFormat(stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat) from stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat to stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat {
+@:structInit @:using(Dwarf.T_unknownFormat_static_extension) @:dox(hide) abstract T_unknownFormat(stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat) from stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat to stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat {
     public function new() this = new stdgo._internal.debug.dwarf.Dwarf_t_unknownformat.T_unknownFormat();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.DecodeError_static_extension) abstract DecodeError(stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError) from stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError to stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError {
+@:structInit @:using(Dwarf.DecodeError_static_extension) abstract DecodeError(stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError) from stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError to stdgo._internal.debug.dwarf.Dwarf_decodeerror.DecodeError {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -344,7 +376,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_abbrev_static_extension) @:dox(hide) abstract T_abbrev(stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev) from stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev to stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev {
+@:structInit @:using(Dwarf.T_abbrev_static_extension) @:dox(hide) abstract T_abbrev(stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev) from stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev to stdgo._internal.debug.dwarf.Dwarf_t_abbrev.T_abbrev {
     public var _tag(get, set) : Tag;
     function get__tag():Tag return this._tag;
     function set__tag(v:Tag):Tag {
@@ -367,7 +399,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_afield_static_extension) @:dox(hide) abstract T_afield(stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield) from stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield to stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield {
+@:structInit @:using(Dwarf.T_afield_static_extension) @:dox(hide) abstract T_afield(stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield) from stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield to stdgo._internal.debug.dwarf.Dwarf_t_afield.T_afield {
     public var _attr(get, set) : Attr;
     function get__attr():Attr return this._attr;
     function set__attr(v:Attr):Attr {
@@ -396,7 +428,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.Entry_static_extension) abstract Entry(stdgo._internal.debug.dwarf.Dwarf_entry.Entry) from stdgo._internal.debug.dwarf.Dwarf_entry.Entry to stdgo._internal.debug.dwarf.Dwarf_entry.Entry {
+@:structInit @:using(Dwarf.Entry_static_extension) abstract Entry(stdgo._internal.debug.dwarf.Dwarf_entry.Entry) from stdgo._internal.debug.dwarf.Dwarf_entry.Entry to stdgo._internal.debug.dwarf.Dwarf_entry.Entry {
     public var offset(get, set) : Offset;
     function get_offset():Offset return this.offset;
     function set_offset(v:Offset):Offset {
@@ -425,7 +457,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.Field_static_extension) abstract Field(stdgo._internal.debug.dwarf.Dwarf_field.Field) from stdgo._internal.debug.dwarf.Dwarf_field.Field to stdgo._internal.debug.dwarf.Dwarf_field.Field {
+@:structInit @:using(Dwarf.Field_static_extension) abstract Field(stdgo._internal.debug.dwarf.Dwarf_field.Field) from stdgo._internal.debug.dwarf.Dwarf_field.Field to stdgo._internal.debug.dwarf.Dwarf_field.Field {
     public var attr(get, set) : Attr;
     function get_attr():Attr return this.attr;
     function set_attr(v:Attr):Attr {
@@ -448,7 +480,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.Reader_static_extension) abstract Reader(stdgo._internal.debug.dwarf.Dwarf_reader.Reader) from stdgo._internal.debug.dwarf.Dwarf_reader.Reader to stdgo._internal.debug.dwarf.Dwarf_reader.Reader {
+@:structInit @:using(Dwarf.Reader_static_extension) abstract Reader(stdgo._internal.debug.dwarf.Dwarf_reader.Reader) from stdgo._internal.debug.dwarf.Dwarf_reader.Reader to stdgo._internal.debug.dwarf.Dwarf_reader.Reader {
     public var _b(get, set) : T_buf;
     function get__b():T_buf return this._b;
     function set__b(v:T_buf):T_buf {
@@ -501,7 +533,7 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.LineReader_static_extension) abstract LineReader(stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader) from stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader to stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader {
+@:structInit @:using(Dwarf.LineReader_static_extension) abstract LineReader(stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader) from stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader to stdgo._internal.debug.dwarf.Dwarf_linereader.LineReader {
     public var _buf(get, set) : T_buf;
     function get__buf():T_buf return this._buf;
     function set__buf(v:T_buf):T_buf {
@@ -653,7 +685,7 @@ _state,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.LineEntry_static_extension) abstract LineEntry(stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry) from stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry to stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry {
+@:structInit @:using(Dwarf.LineEntry_static_extension) abstract LineEntry(stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry) from stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry to stdgo._internal.debug.dwarf.Dwarf_lineentry.LineEntry {
     public var address(get, set) : haxe.UInt64;
     function get_address():haxe.UInt64 return this.address;
     function set_address(v:haxe.UInt64):haxe.UInt64 {
@@ -742,7 +774,7 @@ endSequence);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.LineFile_static_extension) abstract LineFile(stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile) from stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile to stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile {
+@:structInit @:using(Dwarf.LineFile_static_extension) abstract LineFile(stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile) from stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile to stdgo._internal.debug.dwarf.Dwarf_linefile.LineFile {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -765,7 +797,7 @@ endSequence);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_lnctForm_static_extension) @:dox(hide) abstract T_lnctForm(stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm) from stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm to stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm {
+@:structInit @:using(Dwarf.T_lnctForm_static_extension) @:dox(hide) abstract T_lnctForm(stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm) from stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm to stdgo._internal.debug.dwarf.Dwarf_t_lnctform.T_lnctForm {
     public var _lnct(get, set) : StdTypes.Int;
     function get__lnct():StdTypes.Int return this._lnct;
     function set__lnct(v:StdTypes.Int):StdTypes.Int {
@@ -782,7 +814,7 @@ endSequence);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.LineReaderPos_static_extension) abstract LineReaderPos(stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos) from stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos to stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos {
+@:structInit @:using(Dwarf.LineReaderPos_static_extension) abstract LineReaderPos(stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos) from stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos to stdgo._internal.debug.dwarf.Dwarf_linereaderpos.LineReaderPos {
     public var _off(get, set) : Offset;
     function get__off():Offset return this._off;
     function set__off(v:Offset):Offset {
@@ -811,7 +843,7 @@ endSequence);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.Data_static_extension) abstract Data(stdgo._internal.debug.dwarf.Dwarf_data.Data) from stdgo._internal.debug.dwarf.Dwarf_data.Data to stdgo._internal.debug.dwarf.Dwarf_data.Data {
+@:structInit @:using(Dwarf.Data_static_extension) abstract Data(stdgo._internal.debug.dwarf.Dwarf_data.Data) from stdgo._internal.debug.dwarf.Dwarf_data.Data to stdgo._internal.debug.dwarf.Dwarf_data.Data {
     public var _abbrev(get, set) : Array<std.UInt>;
     function get__abbrev():Array<std.UInt> return [for (i in this._abbrev) i];
     function set__abbrev(v:Array<std.UInt>):Array<std.UInt> {
@@ -884,10 +916,22 @@ endSequence);
         this._rngLists = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _abbrevCache(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>;
-    function get__abbrevCache():stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable> return this._abbrevCache;
-    function set__abbrevCache(v:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>):stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable> {
-        this._abbrevCache = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>);
+    public var _abbrevCache(get, set) : Map<haxe.UInt64, T_abbrevTable>;
+    function get__abbrevCache():Map<haxe.UInt64, T_abbrevTable> return {
+        final __obj__:Map<haxe.UInt64, T_abbrevTable> = [];
+        for (key => value in this._abbrevCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__abbrevCache(v:Map<haxe.UInt64, T_abbrevTable>):Map<haxe.UInt64, T_abbrevTable> {
+        this._abbrevCache = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _bigEndian(get, set) : Bool;
@@ -902,16 +946,40 @@ endSequence);
         this._order = v;
         return v;
     }
-    public var _typeCache(get, set) : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>;
-    function get__typeCache():stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_> return this._typeCache;
-    function set__typeCache(v:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>):stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_> {
-        this._typeCache = (v : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>);
+    public var _typeCache(get, set) : Map<Offset, Type_>;
+    function get__typeCache():Map<Offset, Type_> return {
+        final __obj__:Map<Offset, Type_> = [];
+        for (key => value in this._typeCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__typeCache(v:Map<Offset, Type_>):Map<Offset, Type_> {
+        this._typeCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+            for (key => value in v) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _typeSigs(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>;
-    function get__typeSigs():stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>> return this._typeSigs;
-    function set__typeSigs(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>> {
-        this._typeSigs = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>);
+    public var _typeSigs(get, set) : Map<haxe.UInt64, T_typeUnit>;
+    function get__typeSigs():Map<haxe.UInt64, T_typeUnit> return {
+        final __obj__:Map<haxe.UInt64, T_typeUnit> = [];
+        for (key => value in this._typeSigs) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__typeSigs(v:Map<haxe.UInt64, T_typeUnit>):Map<haxe.UInt64, T_typeUnit> {
+        this._typeSigs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _unit(get, set) : Array<T_unit>;
@@ -920,7 +988,7 @@ endSequence);
         this._unit = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>);
         return v;
     }
-    public function new(?_abbrev:Array<std.UInt>, ?_aranges:Array<std.UInt>, ?_frame:Array<std.UInt>, ?_info:Array<std.UInt>, ?_line:Array<std.UInt>, ?_pubnames:Array<std.UInt>, ?_ranges:Array<std.UInt>, ?_str:Array<std.UInt>, ?_addr:Array<std.UInt>, ?_lineStr:Array<std.UInt>, ?_strOffsets:Array<std.UInt>, ?_rngLists:Array<std.UInt>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>, ?_unit:Array<T_unit>) this = new stdgo._internal.debug.dwarf.Dwarf_data.Data(
+    public function new(?_abbrev:Array<std.UInt>, ?_aranges:Array<std.UInt>, ?_frame:Array<std.UInt>, ?_info:Array<std.UInt>, ?_line:Array<std.UInt>, ?_pubnames:Array<std.UInt>, ?_ranges:Array<std.UInt>, ?_str:Array<std.UInt>, ?_addr:Array<std.UInt>, ?_lineStr:Array<std.UInt>, ?_strOffsets:Array<std.UInt>, ?_rngLists:Array<std.UInt>, ?_abbrevCache:Map<haxe.UInt64, T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_typeCache:Map<Offset, Type_>, ?_typeSigs:Map<haxe.UInt64, T_typeUnit>, ?_unit:Array<T_unit>) this = new stdgo._internal.debug.dwarf.Dwarf_data.Data(
 ([for (i in _abbrev) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _aranges) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _frame) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
@@ -933,16 +1001,34 @@ endSequence);
 ([for (i in _lineStr) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _strOffsets) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _rngLists) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
-(_abbrevCache : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>();
+        for (key => value in _abbrevCache) {
+            __obj__[(key : stdgo.GoUInt64)] = value;
+        };
+        __obj__;
+    },
 _bigEndian,
 _order,
-(_typeCache : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>),
-(_typeSigs : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+        for (key => value in _typeCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>();
+        for (key => value in _typeSigs) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>);
+        };
+        __obj__;
+    },
 ([for (i in _unit) i] : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.CommonType_static_extension) abstract CommonType(stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType) from stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType to stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType {
+@:structInit @:using(Dwarf.CommonType_static_extension) abstract CommonType(stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType) from stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType to stdgo._internal.debug.dwarf.Dwarf_commontype.CommonType {
     public var byteSize(get, set) : haxe.Int64;
     function get_byteSize():haxe.Int64 return this.byteSize;
     function set_byteSize(v:haxe.Int64):haxe.Int64 {
@@ -959,7 +1045,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.BasicType_static_extension) abstract BasicType(stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType) from stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType to stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType {
+@:structInit @:using(Dwarf.BasicType_static_extension) abstract BasicType(stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType) from stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType to stdgo._internal.debug.dwarf.Dwarf_basictype.BasicType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -988,7 +1074,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.CharType_static_extension) abstract CharType(stdgo._internal.debug.dwarf.Dwarf_chartype.CharType) from stdgo._internal.debug.dwarf.Dwarf_chartype.CharType to stdgo._internal.debug.dwarf.Dwarf_chartype.CharType {
+@:structInit @:using(Dwarf.CharType_static_extension) abstract CharType(stdgo._internal.debug.dwarf.Dwarf_chartype.CharType) from stdgo._internal.debug.dwarf.Dwarf_chartype.CharType to stdgo._internal.debug.dwarf.Dwarf_chartype.CharType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -999,7 +1085,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.UcharType_static_extension) abstract UcharType(stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType) from stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType to stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType {
+@:structInit @:using(Dwarf.UcharType_static_extension) abstract UcharType(stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType) from stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType to stdgo._internal.debug.dwarf.Dwarf_uchartype.UcharType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1010,7 +1096,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.IntType_static_extension) abstract IntType(stdgo._internal.debug.dwarf.Dwarf_inttype.IntType) from stdgo._internal.debug.dwarf.Dwarf_inttype.IntType to stdgo._internal.debug.dwarf.Dwarf_inttype.IntType {
+@:structInit @:using(Dwarf.IntType_static_extension) abstract IntType(stdgo._internal.debug.dwarf.Dwarf_inttype.IntType) from stdgo._internal.debug.dwarf.Dwarf_inttype.IntType to stdgo._internal.debug.dwarf.Dwarf_inttype.IntType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1021,7 +1107,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.UintType_static_extension) abstract UintType(stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType) from stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType to stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType {
+@:structInit @:using(Dwarf.UintType_static_extension) abstract UintType(stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType) from stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType to stdgo._internal.debug.dwarf.Dwarf_uinttype.UintType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1032,7 +1118,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.FloatType_static_extension) abstract FloatType(stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType) from stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType to stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType {
+@:structInit @:using(Dwarf.FloatType_static_extension) abstract FloatType(stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType) from stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType to stdgo._internal.debug.dwarf.Dwarf_floattype.FloatType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1043,7 +1129,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.ComplexType_static_extension) abstract ComplexType(stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType) from stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType to stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType {
+@:structInit @:using(Dwarf.ComplexType_static_extension) abstract ComplexType(stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType) from stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType to stdgo._internal.debug.dwarf.Dwarf_complextype.ComplexType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1054,7 +1140,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.BoolType_static_extension) abstract BoolType(stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType) from stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType to stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType {
+@:structInit @:using(Dwarf.BoolType_static_extension) abstract BoolType(stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType) from stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType to stdgo._internal.debug.dwarf.Dwarf_booltype.BoolType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1065,7 +1151,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.AddrType_static_extension) abstract AddrType(stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType) from stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType to stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType {
+@:structInit @:using(Dwarf.AddrType_static_extension) abstract AddrType(stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType) from stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType to stdgo._internal.debug.dwarf.Dwarf_addrtype.AddrType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1076,7 +1162,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.UnspecifiedType_static_extension) abstract UnspecifiedType(stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType) from stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType to stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType {
+@:structInit @:using(Dwarf.UnspecifiedType_static_extension) abstract UnspecifiedType(stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType) from stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType to stdgo._internal.debug.dwarf.Dwarf_unspecifiedtype.UnspecifiedType {
     public var basicType(get, set) : BasicType;
     function get_basicType():BasicType return this.basicType;
     function set_basicType(v:BasicType):BasicType {
@@ -1087,7 +1173,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.QualType_static_extension) abstract QualType(stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType) from stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType to stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType {
+@:structInit @:using(Dwarf.QualType_static_extension) abstract QualType(stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType) from stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType to stdgo._internal.debug.dwarf.Dwarf_qualtype.QualType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1110,7 +1196,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.ArrayType_static_extension) abstract ArrayType(stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType) from stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType to stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType {
+@:structInit @:using(Dwarf.ArrayType_static_extension) abstract ArrayType(stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType) from stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType to stdgo._internal.debug.dwarf.Dwarf_arraytype.ArrayType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1139,7 +1225,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.VoidType_static_extension) abstract VoidType(stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType) from stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType to stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType {
+@:structInit @:using(Dwarf.VoidType_static_extension) abstract VoidType(stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType) from stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType to stdgo._internal.debug.dwarf.Dwarf_voidtype.VoidType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1150,7 +1236,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.PtrType_static_extension) abstract PtrType(stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType) from stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType to stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType {
+@:structInit @:using(Dwarf.PtrType_static_extension) abstract PtrType(stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType) from stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType to stdgo._internal.debug.dwarf.Dwarf_ptrtype.PtrType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1167,7 +1253,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.StructType_static_extension) abstract StructType(stdgo._internal.debug.dwarf.Dwarf_structtype.StructType) from stdgo._internal.debug.dwarf.Dwarf_structtype.StructType to stdgo._internal.debug.dwarf.Dwarf_structtype.StructType {
+@:structInit @:using(Dwarf.StructType_static_extension) abstract StructType(stdgo._internal.debug.dwarf.Dwarf_structtype.StructType) from stdgo._internal.debug.dwarf.Dwarf_structtype.StructType to stdgo._internal.debug.dwarf.Dwarf_structtype.StructType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1202,7 +1288,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.StructField_static_extension) abstract StructField(stdgo._internal.debug.dwarf.Dwarf_structfield.StructField) from stdgo._internal.debug.dwarf.Dwarf_structfield.StructField to stdgo._internal.debug.dwarf.Dwarf_structfield.StructField {
+@:structInit @:using(Dwarf.StructField_static_extension) abstract StructField(stdgo._internal.debug.dwarf.Dwarf_structfield.StructField) from stdgo._internal.debug.dwarf.Dwarf_structfield.StructField to stdgo._internal.debug.dwarf.Dwarf_structfield.StructField {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -1249,7 +1335,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.EnumType_static_extension) abstract EnumType(stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType) from stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType to stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType {
+@:structInit @:using(Dwarf.EnumType_static_extension) abstract EnumType(stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType) from stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType to stdgo._internal.debug.dwarf.Dwarf_enumtype.EnumType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1272,7 +1358,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.EnumValue__static_extension) abstract EnumValue_(stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_) from stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_ to stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_ {
+@:structInit @:using(Dwarf.EnumValue__static_extension) abstract EnumValue_(stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_) from stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_ to stdgo._internal.debug.dwarf.Dwarf_enumvalue_.EnumValue_ {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -1289,7 +1375,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.FuncType_static_extension) abstract FuncType(stdgo._internal.debug.dwarf.Dwarf_functype.FuncType) from stdgo._internal.debug.dwarf.Dwarf_functype.FuncType to stdgo._internal.debug.dwarf.Dwarf_functype.FuncType {
+@:structInit @:using(Dwarf.FuncType_static_extension) abstract FuncType(stdgo._internal.debug.dwarf.Dwarf_functype.FuncType) from stdgo._internal.debug.dwarf.Dwarf_functype.FuncType to stdgo._internal.debug.dwarf.Dwarf_functype.FuncType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1312,7 +1398,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.DotDotDotType_static_extension) abstract DotDotDotType(stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType) from stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType to stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType {
+@:structInit @:using(Dwarf.DotDotDotType_static_extension) abstract DotDotDotType(stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType) from stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType to stdgo._internal.debug.dwarf.Dwarf_dotdotdottype.DotDotDotType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1323,7 +1409,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.TypedefType_static_extension) abstract TypedefType(stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType) from stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType to stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType {
+@:structInit @:using(Dwarf.TypedefType_static_extension) abstract TypedefType(stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType) from stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType to stdgo._internal.debug.dwarf.Dwarf_typedeftype.TypedefType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1340,7 +1426,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.UnsupportedType_static_extension) abstract UnsupportedType(stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType) from stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType to stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType {
+@:structInit @:using(Dwarf.UnsupportedType_static_extension) abstract UnsupportedType(stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType) from stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType to stdgo._internal.debug.dwarf.Dwarf_unsupportedtype.UnsupportedType {
     public var commonType(get, set) : CommonType;
     function get_commonType():CommonType return this.commonType;
     function set_commonType(v:CommonType):CommonType {
@@ -1357,7 +1443,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeFixer_static_extension) @:dox(hide) abstract T_typeFixer(stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer) from stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer to stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer {
+@:structInit @:using(Dwarf.T_typeFixer_static_extension) @:dox(hide) abstract T_typeFixer(stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer) from stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer to stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer {
     public var _typedefs(get, set) : Array<TypedefType>;
     function get__typedefs():Array<TypedefType> return [for (i in this._typedefs) i];
     function set__typedefs(v:Array<TypedefType>):Array<TypedefType> {
@@ -1374,7 +1460,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnit_static_extension) @:dox(hide) abstract T_typeUnit(stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit) from stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit to stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit {
+@:structInit @:using(Dwarf.T_typeUnit_static_extension) @:dox(hide) abstract T_typeUnit(stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit) from stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit to stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit {
     public var _unit(get, set) : T_unit;
     function get__unit():T_unit return this._unit;
     function set__unit(v:T_unit):T_unit {
@@ -1403,7 +1489,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_typeUnitReader_static_extension) @:dox(hide) abstract T_typeUnitReader(stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader) from stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader to stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader {
+@:structInit @:using(Dwarf.T_typeUnitReader_static_extension) @:dox(hide) abstract T_typeUnitReader(stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader) from stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader to stdgo._internal.debug.dwarf.Dwarf_t_typeunitreader.T_typeUnitReader {
     public var _d(get, set) : Data;
     function get__d():Data return this._d;
     function set__d(v:Data):Data {
@@ -1432,7 +1518,7 @@ _order,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.dwarf.Dwarf.T_unit_static_extension) @:dox(hide) abstract T_unit(stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit) from stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit to stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit {
+@:structInit @:using(Dwarf.T_unit_static_extension) @:dox(hide) abstract T_unit(stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit) from stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit to stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit {
     public var _base(get, set) : Offset;
     function get__base():Offset return this._base;
     function set__base(v:Offset):Offset {
@@ -1802,10 +1888,16 @@ class Data_static_extension {
         final _types = ([for (i in _types) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.dwarf.Dwarf_data_static_extension.Data_static_extension._parseTypes(_d, _name, _types);
     }
-    static public function _readType(_d:Data, _name:String, _r:T_typeReader, _off:Offset, _typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>, _fixups:T_typeFixer):stdgo.Tuple<Type_, stdgo.Error> {
+    static public function _readType(_d:Data, _name:String, _r:T_typeReader, _off:Offset, _typeCache:Map<Offset, Type_>, _fixups:T_typeFixer):stdgo.Tuple<Type_, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_data.Data>);
         final _name = (_name : stdgo.GoString);
-        final _typeCache = (_typeCache : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>);
+        final _typeCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+            for (key => value in _typeCache) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         final _fixups = (_fixups : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer>);
         return {
             final obj = stdgo._internal.debug.dwarf.Dwarf_data_static_extension.Data_static_extension._readType(_d, _name, _r, _off, _typeCache, _fixups);

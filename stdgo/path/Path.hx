@@ -5,7 +5,7 @@ private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
         stdgo._internal.path.Path_errbadpattern.errBadPattern = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.Path_t_lazybuf.T_lazybuf) from stdgo._internal.path.Path_t_lazybuf.T_lazybuf to stdgo._internal.path.Path_t_lazybuf.T_lazybuf {
+@:structInit @:using(T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.Path_t_lazybuf.T_lazybuf) from stdgo._internal.path.Path_t_lazybuf.T_lazybuf to stdgo._internal.path.Path_t_lazybuf.T_lazybuf {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {

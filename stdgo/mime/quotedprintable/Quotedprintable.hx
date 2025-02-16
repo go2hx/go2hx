@@ -1,5 +1,5 @@
 package stdgo.mime.quotedprintable;
-@:structInit @:using(stdgo.mime.quotedprintable.Quotedprintable.Reader_static_extension) abstract Reader(stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader) from stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader to stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader {
+@:structInit @:using(Quotedprintable.Reader_static_extension) abstract Reader(stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader) from stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader to stdgo._internal.mime.quotedprintable.Quotedprintable_reader.Reader {
     public var _br(get, set) : stdgo._internal.bufio.Bufio_reader.Reader;
     function get__br():stdgo._internal.bufio.Bufio_reader.Reader return this._br;
     function set__br(v:stdgo._internal.bufio.Bufio_reader.Reader):stdgo._internal.bufio.Bufio_reader.Reader {
@@ -22,7 +22,7 @@ package stdgo.mime.quotedprintable;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.mime.quotedprintable.Quotedprintable.Writer_static_extension) abstract Writer(stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer) from stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer to stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer {
+@:structInit @:using(Quotedprintable.Writer_static_extension) abstract Writer(stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer) from stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer to stdgo._internal.mime.quotedprintable.Quotedprintable_writer.Writer {
     public var binary(get, set) : Bool;
     function get_binary():Bool return this.binary;
     function set_binary(v:Bool):Bool {

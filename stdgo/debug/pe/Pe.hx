@@ -96,7 +96,7 @@ final iMAGE_COMDAT_SELECT_SAME_SIZE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_
 final iMAGE_COMDAT_SELECT_EXACT_MATCH : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_comdat_select_exact_match.iMAGE_COMDAT_SELECT_EXACT_MATCH;
 final iMAGE_COMDAT_SELECT_ASSOCIATIVE : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_comdat_select_associative.iMAGE_COMDAT_SELECT_ASSOCIATIVE;
 final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_image_comdat_select_largest.iMAGE_COMDAT_SELECT_LARGEST;
-@:structInit @:using(stdgo.debug.pe.Pe.File_static_extension) abstract File(stdgo._internal.debug.pe.Pe_file.File) from stdgo._internal.debug.pe.Pe_file.File to stdgo._internal.debug.pe.Pe_file.File {
+@:structInit @:using(Pe.File_static_extension) abstract File(stdgo._internal.debug.pe.Pe_file.File) from stdgo._internal.debug.pe.Pe_file.File to stdgo._internal.debug.pe.Pe_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -143,12 +143,12 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader {
+@:structInit @:using(Pe.T_nobitsSectionReader_static_extension) @:dox(hide) abstract T_nobitsSectionReader(stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader) from stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader to stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader {
     public function new() this = new stdgo._internal.debug.pe.Pe_t_nobitssectionreader.T_nobitsSectionReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.ImportDirectory_static_extension) abstract ImportDirectory(stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory) from stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory to stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory {
+@:structInit @:using(Pe.ImportDirectory_static_extension) abstract ImportDirectory(stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory) from stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory to stdgo._internal.debug.pe.Pe_importdirectory.ImportDirectory {
     public var originalFirstThunk(get, set) : std.UInt;
     function get_originalFirstThunk():std.UInt return this.originalFirstThunk;
     function set_originalFirstThunk(v:std.UInt):std.UInt {
@@ -189,12 +189,12 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.pe.Pe_formaterror.FormatError) from stdgo._internal.debug.pe.Pe_formaterror.FormatError to stdgo._internal.debug.pe.Pe_formaterror.FormatError {
+@:structInit @:using(Pe.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.pe.Pe_formaterror.FormatError) from stdgo._internal.debug.pe.Pe_formaterror.FormatError to stdgo._internal.debug.pe.Pe_formaterror.FormatError {
     public function new() this = new stdgo._internal.debug.pe.Pe_formaterror.FormatError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.pe.Pe_fileheader.FileHeader) from stdgo._internal.debug.pe.Pe_fileheader.FileHeader to stdgo._internal.debug.pe.Pe_fileheader.FileHeader {
+@:structInit @:using(Pe.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.pe.Pe_fileheader.FileHeader) from stdgo._internal.debug.pe.Pe_fileheader.FileHeader to stdgo._internal.debug.pe.Pe_fileheader.FileHeader {
     public var machine(get, set) : std.UInt;
     function get_machine():std.UInt return this.machine;
     function set_machine(v:std.UInt):std.UInt {
@@ -241,7 +241,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.DataDirectory_static_extension) abstract DataDirectory(stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory) from stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory to stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory {
+@:structInit @:using(Pe.DataDirectory_static_extension) abstract DataDirectory(stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory) from stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory to stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory {
     public var virtualAddress(get, set) : std.UInt;
     function get_virtualAddress():std.UInt return this.virtualAddress;
     function set_virtualAddress(v:std.UInt):std.UInt {
@@ -258,7 +258,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.OptionalHeader32_static_extension) abstract OptionalHeader32(stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32) from stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 to stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 {
+@:structInit @:using(Pe.OptionalHeader32_static_extension) abstract OptionalHeader32(stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32) from stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 to stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -480,7 +480,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.OptionalHeader64_static_extension) abstract OptionalHeader64(stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64) from stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 to stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 {
+@:structInit @:using(Pe.OptionalHeader64_static_extension) abstract OptionalHeader64(stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64) from stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 to stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -695,7 +695,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.SectionHeader32_static_extension) abstract SectionHeader32(stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32) from stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32 to stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32 {
+@:structInit @:using(Pe.SectionHeader32_static_extension) abstract SectionHeader32(stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32) from stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32 to stdgo._internal.debug.pe.Pe_sectionheader32.SectionHeader32 {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -760,7 +760,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.pe.Pe_reloc.Reloc) from stdgo._internal.debug.pe.Pe_reloc.Reloc to stdgo._internal.debug.pe.Pe_reloc.Reloc {
+@:structInit @:using(Pe.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.pe.Pe_reloc.Reloc) from stdgo._internal.debug.pe.Pe_reloc.Reloc to stdgo._internal.debug.pe.Pe_reloc.Reloc {
     public var virtualAddress(get, set) : std.UInt;
     function get_virtualAddress():std.UInt return this.virtualAddress;
     function set_virtualAddress(v:std.UInt):std.UInt {
@@ -783,7 +783,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader) from stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader to stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader {
+@:structInit @:using(Pe.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader) from stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader to stdgo._internal.debug.pe.Pe_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -848,7 +848,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.Section_static_extension) abstract Section(stdgo._internal.debug.pe.Pe_section.Section) from stdgo._internal.debug.pe.Pe_section.Section to stdgo._internal.debug.pe.Pe_section.Section {
+@:structInit @:using(Pe.Section_static_extension) abstract Section(stdgo._internal.debug.pe.Pe_section.Section) from stdgo._internal.debug.pe.Pe_section.Section to stdgo._internal.debug.pe.Pe_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -877,7 +877,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.COFFSymbol_static_extension) abstract COFFSymbol(stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol) from stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol to stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol {
+@:structInit @:using(Pe.COFFSymbol_static_extension) abstract COFFSymbol(stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol) from stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol to stdgo._internal.debug.pe.Pe_coffsymbol.COFFSymbol {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -918,7 +918,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.pe.Pe_symbol.Symbol) from stdgo._internal.debug.pe.Pe_symbol.Symbol to stdgo._internal.debug.pe.Pe_symbol.Symbol {
+@:structInit @:using(Pe.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.pe.Pe_symbol.Symbol) from stdgo._internal.debug.pe.Pe_symbol.Symbol to stdgo._internal.debug.pe.Pe_symbol.Symbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -953,7 +953,7 @@ final iMAGE_COMDAT_SELECT_LARGEST : haxe.UInt64 = stdgo._internal.debug.pe.Pe_im
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.pe.Pe.COFFSymbolAuxFormat5_static_extension) abstract COFFSymbolAuxFormat5(stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5) from stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5 to stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5 {
+@:structInit @:using(Pe.COFFSymbolAuxFormat5_static_extension) abstract COFFSymbolAuxFormat5(stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5) from stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5 to stdgo._internal.debug.pe.Pe_coffsymbolauxformat5.COFFSymbolAuxFormat5 {
     public var size(get, set) : std.UInt;
     function get_size():std.UInt return this.size;
     function set_size(v:std.UInt):std.UInt {

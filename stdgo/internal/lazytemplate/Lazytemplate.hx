@@ -1,5 +1,5 @@
 package stdgo.internal.lazytemplate;
-@:structInit @:using(stdgo.internal.lazytemplate.Lazytemplate.Template_static_extension) abstract Template(stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template) from stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template to stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template {
+@:structInit @:using(Lazytemplate.Template_static_extension) abstract Template(stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template) from stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template to stdgo._internal.internal.lazytemplate.Lazytemplate_template.Template {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {

@@ -5,7 +5,7 @@ private function set_all(v:Array<Info>):Array<Info> {
         stdgo._internal.internal.godebugs.Godebugs_all.all = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs_info.Info>);
         return v;
     }
-@:structInit @:using(stdgo.internal.godebugs.Godebugs.Info_static_extension) abstract Info(stdgo._internal.internal.godebugs.Godebugs_info.Info) from stdgo._internal.internal.godebugs.Godebugs_info.Info to stdgo._internal.internal.godebugs.Godebugs_info.Info {
+@:structInit @:using(Godebugs.Info_static_extension) abstract Info(stdgo._internal.internal.godebugs.Godebugs_info.Info) from stdgo._internal.internal.godebugs.Godebugs_info.Info to stdgo._internal.internal.godebugs.Godebugs_info.Info {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {

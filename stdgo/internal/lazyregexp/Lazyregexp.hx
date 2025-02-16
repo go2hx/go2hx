@@ -1,5 +1,5 @@
 package stdgo.internal.lazyregexp;
-@:structInit @:using(stdgo.internal.lazyregexp.Lazyregexp.Regexp_static_extension) abstract Regexp(stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp) from stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp to stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp {
+@:structInit @:using(Lazyregexp.Regexp_static_extension) abstract Regexp(stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp) from stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp to stdgo._internal.internal.lazyregexp.Lazyregexp_regexp.Regexp {
     public var _str(get, set) : String;
     function get__str():String return this._str;
     function set__str(v:String):String {

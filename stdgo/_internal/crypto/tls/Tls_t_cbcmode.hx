@@ -1,11 +1,6 @@
 package stdgo._internal.crypto.tls;
 @:interface typedef T_cbcMode = stdgo.StructType & {
     > stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode,
-    /**
-        
-        
-        
-    **/
     @:interfacetypeffun
-    public dynamic function setIV(_0:stdgo.Slice<stdgo.GoUInt8>):Void;
+    function setIV(_0:stdgo.Slice<stdgo.GoUInt8>):Void;
 };

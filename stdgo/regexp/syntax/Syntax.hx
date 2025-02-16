@@ -64,7 +64,7 @@ final opQuest = stdgo._internal.regexp.syntax.Syntax_opquest.opQuest;
 final opRepeat = stdgo._internal.regexp.syntax.Syntax_oprepeat.opRepeat;
 final opConcat = stdgo._internal.regexp.syntax.Syntax_opconcat.opConcat;
 final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate;
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_patchList_static_extension) @:dox(hide) abstract T_patchList(stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList) from stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList to stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList {
+@:structInit @:using(Syntax.T_patchList_static_extension) @:dox(hide) abstract T_patchList(stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList) from stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList to stdgo._internal.regexp.syntax.Syntax_t_patchlist.T_patchList {
     public var _head(get, set) : std.UInt;
     function get__head():std.UInt return this._head;
     function set__head(v:std.UInt):std.UInt {
@@ -81,7 +81,7 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_frag_static_extension) @:dox(hide) abstract T_frag(stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag) from stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag to stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag {
+@:structInit @:using(Syntax.T_frag_static_extension) @:dox(hide) abstract T_frag(stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag) from stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag to stdgo._internal.regexp.syntax.Syntax_t_frag.T_frag {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {
@@ -104,7 +104,7 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_compiler_static_extension) @:dox(hide) abstract T_compiler(stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler) from stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler to stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler {
+@:structInit @:using(Syntax.T_compiler_static_extension) @:dox(hide) abstract T_compiler(stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler) from stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler to stdgo._internal.regexp.syntax.Syntax_t_compiler.T_compiler {
     public var _p(get, set) : Prog;
     function get__p():Prog return this._p;
     function set__p(v:Prog):Prog {
@@ -115,7 +115,7 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.Error_static_extension) abstract Error(stdgo._internal.regexp.syntax.Syntax_error.Error) from stdgo._internal.regexp.syntax.Syntax_error.Error to stdgo._internal.regexp.syntax.Syntax_error.Error {
+@:structInit @:using(Syntax.Error_static_extension) abstract Error(stdgo._internal.regexp.syntax.Syntax_error.Error) from stdgo._internal.regexp.syntax.Syntax_error.Error to stdgo._internal.regexp.syntax.Syntax_error.Error {
     public var code(get, set) : ErrorCode;
     function get_code():ErrorCode return this.code;
     function set_code(v:ErrorCode):ErrorCode {
@@ -132,7 +132,7 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_parser_static_extension) @:dox(hide) abstract T_parser(stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser) from stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser to stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser {
+@:structInit @:using(Syntax.T_parser_static_extension) @:dox(hide) abstract T_parser(stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser) from stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser to stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser {
     public var _flags(get, set) : Flags;
     function get__flags():Flags return this._flags;
     function set__flags(v:Flags):Flags {
@@ -187,19 +187,43 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
         this._repeats = (v : stdgo.GoInt64);
         return v;
     }
-    public var _height(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>;
-    function get__height():stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt> return this._height;
-    function set__height(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt> {
-        this._height = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>);
+    public var _height(get, set) : Map<Regexp, StdTypes.Int>;
+    function get__height():Map<Regexp, StdTypes.Int> return {
+        final __obj__:Map<Regexp, StdTypes.Int> = [];
+        for (key => value in this._height) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__height(v:Map<Regexp, StdTypes.Int>):Map<Regexp, StdTypes.Int> {
+        this._height = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _size(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>;
-    function get__size():stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64> return this._size;
-    function set__size(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>):stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64> {
-        this._size = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>);
+    public var _size(get, set) : Map<Regexp, haxe.Int64>;
+    function get__size():Map<Regexp, haxe.Int64> return {
+        final __obj__:Map<Regexp, haxe.Int64> = [];
+        for (key => value in this._size) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__size(v:Map<Regexp, haxe.Int64>):Map<Regexp, haxe.Int64> {
+        this._size = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt64);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_flags:Flags, ?_stack:Array<Regexp>, ?_free:Regexp, ?_numCap:StdTypes.Int, ?_wholeRegexp:String, ?_tmpClass:Array<StdTypes.Int>, ?_numRegexp:StdTypes.Int, ?_numRunes:StdTypes.Int, ?_repeats:haxe.Int64, ?_height:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>, ?_size:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>) this = new stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser(
+    public function new(?_flags:Flags, ?_stack:Array<Regexp>, ?_free:Regexp, ?_numCap:StdTypes.Int, ?_wholeRegexp:String, ?_tmpClass:Array<StdTypes.Int>, ?_numRegexp:StdTypes.Int, ?_numRunes:StdTypes.Int, ?_repeats:haxe.Int64, ?_height:Map<Regexp, StdTypes.Int>, ?_size:Map<Regexp, haxe.Int64>) this = new stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser(
 _flags,
 ([for (i in _stack) (i : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>),
 (_free : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>),
@@ -209,12 +233,24 @@ _flags,
 (_numRegexp : stdgo.GoInt),
 (_numRunes : stdgo.GoInt),
 (_repeats : stdgo.GoInt64),
-(_height : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>),
-(_size : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>));
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>();
+        for (key => value in _height) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>();
+        for (key => value in _size) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt64);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_charGroup_static_extension) @:dox(hide) abstract T_charGroup(stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup) from stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup to stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup {
+@:structInit @:using(Syntax.T_charGroup_static_extension) @:dox(hide) abstract T_charGroup(stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup) from stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup to stdgo._internal.regexp.syntax.Syntax_t_chargroup.T_charGroup {
     public var _sign(get, set) : StdTypes.Int;
     function get__sign():StdTypes.Int return this._sign;
     function set__sign(v:StdTypes.Int):StdTypes.Int {
@@ -231,7 +267,7 @@ _flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_ranges_static_extension) @:dox(hide) abstract T_ranges(stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges) from stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges to stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges {
+@:structInit @:using(Syntax.T_ranges_static_extension) @:dox(hide) abstract T_ranges(stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges) from stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges to stdgo._internal.regexp.syntax.Syntax_t_ranges.T_ranges {
     public var _p(get, set) : Array<StdTypes.Int>;
     function get__p():Array<StdTypes.Int> return this._p;
     function set__p(v:Array<StdTypes.Int>):Array<StdTypes.Int> {
@@ -242,7 +278,7 @@ _flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.T_parseTest_static_extension) @:dox(hide) abstract T_parseTest(stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest) from stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest to stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest {
+@:structInit @:using(Syntax.T_parseTest_static_extension) @:dox(hide) abstract T_parseTest(stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest) from stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest to stdgo._internal.regexp.syntax.Syntax_t_parsetest.T_parseTest {
     public var regexp(get, set) : String;
     function get_regexp():String return this.regexp;
     function set_regexp(v:String):String {
@@ -259,7 +295,7 @@ _flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.Prog_static_extension) abstract Prog(stdgo._internal.regexp.syntax.Syntax_prog.Prog) from stdgo._internal.regexp.syntax.Syntax_prog.Prog to stdgo._internal.regexp.syntax.Syntax_prog.Prog {
+@:structInit @:using(Syntax.Prog_static_extension) abstract Prog(stdgo._internal.regexp.syntax.Syntax_prog.Prog) from stdgo._internal.regexp.syntax.Syntax_prog.Prog to stdgo._internal.regexp.syntax.Syntax_prog.Prog {
     public var inst(get, set) : Array<Inst>;
     function get_inst():Array<Inst> return [for (i in this.inst) i];
     function set_inst(v:Array<Inst>):Array<Inst> {
@@ -282,7 +318,7 @@ _flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.Inst_static_extension) abstract Inst(stdgo._internal.regexp.syntax.Syntax_inst.Inst) from stdgo._internal.regexp.syntax.Syntax_inst.Inst to stdgo._internal.regexp.syntax.Syntax_inst.Inst {
+@:structInit @:using(Syntax.Inst_static_extension) abstract Inst(stdgo._internal.regexp.syntax.Syntax_inst.Inst) from stdgo._internal.regexp.syntax.Syntax_inst.Inst to stdgo._internal.regexp.syntax.Syntax_inst.Inst {
     public var op(get, set) : InstOp;
     function get_op():InstOp return this.op;
     function set_op(v:InstOp):InstOp {
@@ -311,7 +347,7 @@ _flags,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.regexp.syntax.Syntax.Regexp_static_extension) abstract Regexp(stdgo._internal.regexp.syntax.Syntax_regexp.Regexp) from stdgo._internal.regexp.syntax.Syntax_regexp.Regexp to stdgo._internal.regexp.syntax.Syntax_regexp.Regexp {
+@:structInit @:using(Syntax.Regexp_static_extension) abstract Regexp(stdgo._internal.regexp.syntax.Syntax_regexp.Regexp) from stdgo._internal.regexp.syntax.Syntax_regexp.Regexp to stdgo._internal.regexp.syntax.Syntax_regexp.Regexp {
     public var op(get, set) : Op;
     function get_op():Op return this.op;
     function set_op(v:Op):Op {

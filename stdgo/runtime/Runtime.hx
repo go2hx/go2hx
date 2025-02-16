@@ -36,9 +36,9 @@ final userArenaChunkBytes : stdgo.GoUIntptr = stdgo._internal.runtime.Runtime_us
 final framePointerEnabled : Bool = stdgo._internal.runtime.Runtime_framepointerenabled.framePointerEnabled;
 final gOOS : String = stdgo._internal.runtime.Runtime_goos.gOOS;
 final gOARCH : String = stdgo._internal.runtime.Runtime_goarch.gOARCH;
-var fmtSprintf(get, set) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString;
-private function get_fmtSprintf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString return (_0, _1) -> stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf(_0, _1);
-private function set_fmtSprintf(v:(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString):(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString {
+var fmtSprintf(get, set) : (String, haxe.Rest<stdgo.AnyInterface>) -> String;
+private function get_fmtSprintf():(String, haxe.Rest<stdgo.AnyInterface>) -> String return (_0, _1) -> stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf(_0, _1);
+private function set_fmtSprintf(v:(String, haxe.Rest<stdgo.AnyInterface>) -> String):(String, haxe.Rest<stdgo.AnyInterface>) -> String {
         stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf = v;
         return v;
     }
@@ -66,63 +66,63 @@ private function set_atomicVariables(v:Array<stdgo._internal.unsafe.Unsafe.Unsaf
         stdgo._internal.runtime.Runtime_atomicvariables.atomicVariables = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         return v;
     }
-var dlog(get, set) : () -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>;
-private function get_dlog():() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
-private function set_dlog(v:() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>):() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> {
+var dlog(get, set) : () -> T_dlogger;
+private function get_dlog():() -> T_dlogger return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
+private function set_dlog(v:() -> T_dlogger):() -> T_dlogger {
         stdgo._internal.runtime.Runtime_dlog.dlog = v;
         return v;
     }
-var fadd64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fadd64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fadd64.fadd64(_0, _1);
-private function set_fadd64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fadd64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fadd64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fadd64.fadd64(_0, _1);
+private function set_fadd64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fadd64.fadd64 = v;
         return v;
     }
-var fsub64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fsub64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fsub64.fsub64(_0, _1);
-private function set_fsub64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fsub64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fsub64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fsub64.fsub64(_0, _1);
+private function set_fsub64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fsub64.fsub64 = v;
         return v;
     }
-var fmul64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fmul64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fmul64.fmul64(_0, _1);
-private function set_fmul64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fmul64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fmul64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fmul64.fmul64(_0, _1);
+private function set_fmul64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fmul64.fmul64 = v;
         return v;
     }
-var fdiv64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fdiv64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fdiv64.fdiv64(_0, _1);
-private function set_fdiv64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fdiv64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fdiv64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fdiv64.fdiv64(_0, _1);
+private function set_fdiv64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fdiv64.fdiv64 = v;
         return v;
     }
-var f64to32(get, set) : stdgo.GoUInt64 -> stdgo.GoUInt32;
-private function get_f64to32():stdgo.GoUInt64 -> stdgo.GoUInt32 return _0 -> stdgo._internal.runtime.Runtime_f64to32.f64to32(_0);
-private function set_f64to32(v:stdgo.GoUInt64 -> stdgo.GoUInt32):stdgo.GoUInt64 -> stdgo.GoUInt32 {
+var f64to32(get, set) : haxe.UInt64 -> std.UInt;
+private function get_f64to32():haxe.UInt64 -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_f64to32.f64to32(_0);
+private function set_f64to32(v:haxe.UInt64 -> std.UInt):haxe.UInt64 -> std.UInt {
         stdgo._internal.runtime.Runtime_f64to32.f64to32 = v;
         return v;
     }
-var f32to64(get, set) : stdgo.GoUInt32 -> stdgo.GoUInt64;
-private function get_f32to64():stdgo.GoUInt32 -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_f32to64.f32to64(_0);
-private function set_f32to64(v:stdgo.GoUInt32 -> stdgo.GoUInt64):stdgo.GoUInt32 -> stdgo.GoUInt64 {
+var f32to64(get, set) : std.UInt -> haxe.UInt64;
+private function get_f32to64():std.UInt -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_f32to64.f32to64(_0);
+private function set_f32to64(v:std.UInt -> haxe.UInt64):std.UInt -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_f32to64.f32to64 = v;
         return v;
     }
-var fcmp64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; };
-private function get_fcmp64():(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; } return (_0, _1) -> stdgo._internal.runtime.Runtime_fcmp64.fcmp64(_0, _1);
-private function set_fcmp64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; }):(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; } {
+var fcmp64(get, set) : (haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_fcmp64():(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> return (_0, _1) -> stdgo._internal.runtime.Runtime_fcmp64.fcmp64(_0, _1);
+private function set_fcmp64(v:(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>):(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_fcmp64.fcmp64 = v;
         return v;
     }
-var fintto64(get, set) : stdgo.GoInt64 -> stdgo.GoUInt64;
-private function get_fintto64():stdgo.GoInt64 -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_fintto64.fintto64(_0);
-private function set_fintto64(v:stdgo.GoInt64 -> stdgo.GoUInt64):stdgo.GoInt64 -> stdgo.GoUInt64 {
+var fintto64(get, set) : haxe.Int64 -> haxe.UInt64;
+private function get_fintto64():haxe.Int64 -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_fintto64.fintto64(_0);
+private function set_fintto64(v:haxe.Int64 -> haxe.UInt64):haxe.Int64 -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fintto64.fintto64 = v;
         return v;
     }
-var f64toint(get, set) : stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; };
-private function get_f64toint():stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_f64toint.f64toint(_0);
-private function set_f64toint(v:stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; }):stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; } {
+var f64toint(get, set) : haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>;
+private function get_f64toint():haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_f64toint.f64toint(_0);
+private function set_f64toint(v:haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>):haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> {
         stdgo._internal.runtime.Runtime_f64toint.f64toint = v;
         return v;
     }
@@ -150,33 +150,33 @@ private function set_xadduintptr(v:(stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUInt
         stdgo._internal.runtime.Runtime_xadduintptr.xadduintptr = v;
         return v;
     }
-var fastlog2(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_fastlog2():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.runtime.Runtime_fastlog2.fastlog2(_0);
-private function set_fastlog2(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
+var fastlog2(get, set) : StdTypes.Float -> StdTypes.Float;
+private function get_fastlog2():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.runtime.Runtime_fastlog2.fastlog2(_0);
+private function set_fastlog2(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
         stdgo._internal.runtime.Runtime_fastlog2.fastlog2 = v;
         return v;
     }
-var atoi(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; };
-private function get_atoi():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_atoi.atoi(_0);
-private function set_atoi(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } {
+var atoi(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_atoi():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi.atoi(_0);
+private function set_atoi(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_atoi.atoi = v;
         return v;
     }
-var atoi32(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; };
-private function get_atoi32():stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_atoi32.atoi32(_0);
-private function set_atoi32(v:stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; } {
+var atoi32(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_atoi32():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi32.atoi32(_0);
+private function set_atoi32(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_atoi32.atoi32 = v;
         return v;
     }
-var parseByteCount(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; };
-private function get_parseByteCount():stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount(_0);
-private function set_parseByteCount(v:stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; } {
+var parseByteCount(get, set) : String -> stdgo.Tuple<haxe.Int64, Bool>;
+private function get_parseByteCount():String -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount(_0);
+private function set_parseByteCount(v:String -> stdgo.Tuple<haxe.Int64, Bool>):String -> stdgo.Tuple<haxe.Int64, Bool> {
         stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount = v;
         return v;
     }
-var nanotime(get, set) : () -> stdgo.GoInt64;
-private function get_nanotime():() -> stdgo.GoInt64 return () -> stdgo._internal.runtime.Runtime_nanotime.nanotime();
-private function set_nanotime(v:() -> stdgo.GoInt64):() -> stdgo.GoInt64 {
+var nanotime(get, set) : () -> haxe.Int64;
+private function get_nanotime():() -> haxe.Int64 return () -> stdgo._internal.runtime.Runtime_nanotime.nanotime();
+private function set_nanotime(v:() -> haxe.Int64):() -> haxe.Int64 {
         stdgo._internal.runtime.Runtime_nanotime.nanotime = v;
         return v;
     }
@@ -186,9 +186,9 @@ private function set_netpollBreak(v:() -> Void):() -> Void {
         stdgo._internal.runtime.Runtime_netpollbreak.netpollBreak = v;
         return v;
     }
-var usleep(get, set) : stdgo.GoUInt32 -> Void;
-private function get_usleep():stdgo.GoUInt32 -> Void return _0 -> stdgo._internal.runtime.Runtime_usleep.usleep(_0);
-private function set_usleep(v:stdgo.GoUInt32 -> Void):stdgo.GoUInt32 -> Void {
+var usleep(get, set) : std.UInt -> Void;
+private function get_usleep():std.UInt -> Void return _0 -> stdgo._internal.runtime.Runtime_usleep.usleep(_0);
+private function set_usleep(v:std.UInt -> Void):std.UInt -> Void {
         stdgo._internal.runtime.Runtime_usleep.usleep = v;
         return v;
     }
@@ -234,27 +234,27 @@ private function set_lockPartialOrder(v:Array<Array<T_lockRank>>):Array<Array<T_
         stdgo._internal.runtime.Runtime_lockpartialorder.lockPartialOrder = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>>);
         return v;
     }
-var stringHash(get, set) : (stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_stringHash():(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_stringhash.stringHash(_0, _1);
-private function set_stringHash(v:(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var stringHash(get, set) : (String, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_stringHash():(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_stringhash.stringHash(_0, _1);
+private function set_stringHash(v:(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_stringhash.stringHash = v;
         return v;
     }
-var bytesHash(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_bytesHash():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_byteshash.bytesHash([for (i in _0) i], _1);
-private function set_bytesHash(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var bytesHash(get, set) : (Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_bytesHash():(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_byteshash.bytesHash([for (i in _0) i], _1);
+private function set_bytesHash(v:(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_byteshash.bytesHash = v;
         return v;
     }
-var int32Hash(get, set) : (stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_int32Hash():(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int32hash.int32Hash(_0, _1);
-private function set_int32Hash(v:(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var int32Hash(get, set) : (std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_int32Hash():(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int32hash.int32Hash(_0, _1);
+private function set_int32Hash(v:(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_int32hash.int32Hash = v;
         return v;
     }
-var int64Hash(get, set) : (stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_int64Hash():(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int64hash.int64Hash(_0, _1);
-private function set_int64Hash(v:(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var int64Hash(get, set) : (haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_int64Hash():(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int64hash.int64Hash(_0, _1);
+private function set_int64Hash(v:(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_int64hash.int64Hash = v;
         return v;
     }
@@ -294,27 +294,27 @@ private function set_useAeshash(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
         stdgo._internal.runtime.Runtime_useaeshash.useAeshash = v;
         return v;
     }
-var open(get, set) : (stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_open():(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_open.open(_0, _1, _2);
-private function set_open(v:(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32 {
+var open(get, set) : (stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int;
+private function get_open():(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_open.open(_0, _1, _2);
+private function set_open(v:(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int):(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_open.open = v;
         return v;
     }
-var close(get, set) : stdgo.GoInt32 -> stdgo.GoInt32;
-private function get_close():stdgo.GoInt32 -> stdgo.GoInt32 return _0 -> stdgo._internal.runtime.Runtime_close.close(_0);
-private function set_close(v:stdgo.GoInt32 -> stdgo.GoInt32):stdgo.GoInt32 -> stdgo.GoInt32 {
+var close(get, set) : StdTypes.Int -> StdTypes.Int;
+private function get_close():StdTypes.Int -> StdTypes.Int return _0 -> stdgo._internal.runtime.Runtime_close.close(_0);
+private function set_close(v:StdTypes.Int -> StdTypes.Int):StdTypes.Int -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_close.close = v;
         return v;
     }
-var read(get, set) : (stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_read():(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_read.read(_0, _1, _2);
-private function set_read(v:(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 {
+var read(get, set) : (StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
+private function get_read():(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_read.read(_0, _1, _2);
+private function set_read(v:(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_read.read = v;
         return v;
     }
-var write(get, set) : (stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_write():(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_write.write(_0, _1, _2);
-private function set_write(v:(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 {
+var write(get, set) : (stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
+private function get_write():(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_write.write(_0, _1, _2);
+private function set_write(v:(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_write.write = v;
         return v;
     }
@@ -324,15 +324,15 @@ private function set_forceGCPeriod(v:stdgo.Pointer<haxe.Int64>):stdgo.Pointer<ha
         stdgo._internal.runtime.Runtime_forcegcperiod.forceGCPeriod = v;
         return v;
     }
-var readUnaligned32(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32;
-private function get_readUnaligned32():stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32 return _0 -> stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32(_0);
-private function set_readUnaligned32(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32):stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32 {
+var readUnaligned32(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt;
+private function get_readUnaligned32():stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32(_0);
+private function set_readUnaligned32(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt):stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt {
         stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32 = v;
         return v;
     }
-var readUnaligned64(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64;
-private function get_readUnaligned64():stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64(_0);
-private function set_readUnaligned64(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64):stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64 {
+var readUnaligned64(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64;
+private function get_readUnaligned64():stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64(_0);
+private function set_readUnaligned64(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64):stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64 = v;
         return v;
     }
@@ -348,21 +348,21 @@ private function set_baseChunkIdx(v:ChunkIdx):ChunkIdx {
         stdgo._internal.runtime.Runtime_basechunkidx.baseChunkIdx = v;
         return v;
     }
-var semacquire(get, set) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
-private function get_semacquire():stdgo.Pointer<stdgo.GoUInt32> -> Void return _0 -> stdgo._internal.runtime.Runtime_semacquire.semacquire(_0);
-private function set_semacquire(v:stdgo.Pointer<stdgo.GoUInt32> -> Void):stdgo.Pointer<stdgo.GoUInt32> -> Void {
+var semacquire(get, set) : stdgo.Pointer<std.UInt> -> Void;
+private function get_semacquire():stdgo.Pointer<std.UInt> -> Void return _0 -> stdgo._internal.runtime.Runtime_semacquire.semacquire(_0);
+private function set_semacquire(v:stdgo.Pointer<std.UInt> -> Void):stdgo.Pointer<std.UInt> -> Void {
         stdgo._internal.runtime.Runtime_semacquire.semacquire = v;
         return v;
     }
-var semrelease1(get, set) : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void;
-private function get_semrelease1():(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_semrelease1.semrelease1(_0, _1, _2);
-private function set_semrelease1(v:(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void):(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void {
+var semrelease1(get, set) : (stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void;
+private function get_semrelease1():(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_semrelease1.semrelease1(_0, _1, _2);
+private function set_semrelease1(v:(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void):(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void {
         stdgo._internal.runtime.Runtime_semrelease1.semrelease1 = v;
         return v;
     }
-var timeHistogramMetricsBuckets(get, set) : () -> stdgo.Slice<stdgo.GoFloat64>;
-private function get_timeHistogramMetricsBuckets():() -> stdgo.Slice<stdgo.GoFloat64> return () -> stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets();
-private function set_timeHistogramMetricsBuckets(v:() -> stdgo.Slice<stdgo.GoFloat64>):() -> stdgo.Slice<stdgo.GoFloat64> {
+var timeHistogramMetricsBuckets(get, set) : () -> Array<StdTypes.Float>;
+private function get_timeHistogramMetricsBuckets():() -> Array<StdTypes.Float> return () -> stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets();
+private function set_timeHistogramMetricsBuckets(v:() -> Array<StdTypes.Float>):() -> Array<StdTypes.Float> {
         stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets = v;
         return v;
     }
@@ -372,9 +372,9 @@ private function set_gCTestMoveStackOnNextCall(v:() -> Void):() -> Void {
         stdgo._internal.runtime.Runtime_gctestmovestackonnextcall.gCTestMoveStackOnNextCall = v;
         return v;
     }
-var timediv(get, set) : (stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32;
-private function get_timediv():(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_timediv.timediv(_0, _1, _2);
-private function set_timediv(v:(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32):(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32 {
+var timediv(get, set) : (haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int;
+private function get_timediv():(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_timediv.timediv(_0, _1, _2);
+private function set_timediv(v:(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int):(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_timediv.timediv = v;
         return v;
     }
@@ -407,13 +407,29 @@ class Error_static_extension {
         stdgo._internal.runtime.Runtime_error_static_extension.Error_static_extension.runtimeError(t);
     }
 }
-typedef Error = stdgo._internal.runtime.Runtime_error.Error;
+@:forward abstract Error(stdgo._internal.runtime.Runtime_error.Error) from stdgo._internal.runtime.Runtime_error.Error to stdgo._internal.runtime.Runtime_error.Error {
+    @:from
+    static function fromHaxeInterface(x:{ function runtimeError():Void; }):Error {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Error = { runtimeError : () -> x.runtimeError(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_stringer_static_extension {
     static public function string(t:stdgo._internal.runtime.Runtime_t_stringer.T_stringer):String {
         return stdgo._internal.runtime.Runtime_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) typedef T_stringer = stdgo._internal.runtime.Runtime_t_stringer.T_stringer;
+@:dox(hide) @:forward abstract T_stringer(stdgo._internal.runtime.Runtime_t_stringer.T_stringer) from stdgo._internal.runtime.Runtime_t_stringer.T_stringer to stdgo._internal.runtime.Runtime_t_stringer.T_stringer {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stringer = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class TestingT_static_extension {
     static public function tempDir(t:stdgo._internal.runtime.Runtime_testingt.TestingT):String {
         return stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.tempDir(t);
@@ -477,87 +493,103 @@ class TestingT_static_extension {
         stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.cleanup(t, _0);
     }
 }
-typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
+@:forward abstract TestingT(stdgo._internal.runtime.Runtime_testingt.TestingT) from stdgo._internal.runtime.Runtime_testingt.TestingT to stdgo._internal.runtime.Runtime_testingt.TestingT {
+    @:from
+    static function fromHaxeInterface(x:{ function cleanup(_0:() -> Void):Void; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function setenv(_key:String, _value:String):Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; function tempDir():String; }):TestingT {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:TestingT = { cleanup : _0 -> x.cleanup(() -> _0()), error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), setenv : (_0, _1) -> x.setenv(_0, _1), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), tempDir : () -> x.tempDir(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_floaty_static_extension {
 
 }
-@:dox(hide) typedef T_floaty = stdgo._internal.runtime.Runtime_t_floaty.T_floaty;
-@:structInit @:using(stdgo.runtime.Runtime.T_userArena_static_extension) @:dox(hide) abstract T_userArena(stdgo._internal.runtime.Runtime_t_userarena.T_userArena) from stdgo._internal.runtime.Runtime_t_userarena.T_userArena to stdgo._internal.runtime.Runtime_t_userarena.T_userArena {
+@:dox(hide) @:forward abstract T_floaty(stdgo._internal.runtime.Runtime_t_floaty.T_floaty) from stdgo._internal.runtime.Runtime_t_floaty.T_floaty to stdgo._internal.runtime.Runtime_t_floaty.T_floaty {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_floaty {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_floaty = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(T_userArena_static_extension) @:dox(hide) abstract T_userArena(stdgo._internal.runtime.Runtime_t_userarena.T_userArena) from stdgo._internal.runtime.Runtime_t_userarena.T_userArena to stdgo._internal.runtime.Runtime_t_userarena.T_userArena {
     public function new() this = new stdgo._internal.runtime.Runtime_t_userarena.T_userArena();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_liveUserArenaChunk_static_extension) @:dox(hide) abstract T_liveUserArenaChunk(stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk) from stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk to stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk {
+@:structInit @:using(T_liveUserArenaChunk_static_extension) @:dox(hide) abstract T_liveUserArenaChunk(stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk) from stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk to stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk {
     public function new() this = new stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_argset_static_extension) @:dox(hide) abstract T_argset(stdgo._internal.runtime.Runtime_t_argset.T_argset) from stdgo._internal.runtime.Runtime_t_argset.T_argset to stdgo._internal.runtime.Runtime_t_argset.T_argset {
+@:structInit @:using(T_argset_static_extension) @:dox(hide) abstract T_argset(stdgo._internal.runtime.Runtime_t_argset.T_argset) from stdgo._internal.runtime.Runtime_t_argset.T_argset to stdgo._internal.runtime.Runtime_t_argset.T_argset {
     public function new() this = new stdgo._internal.runtime.Runtime_t_argset.T_argset();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_hchan_static_extension) @:dox(hide) abstract T_hchan(stdgo._internal.runtime.Runtime_t_hchan.T_hchan) from stdgo._internal.runtime.Runtime_t_hchan.T_hchan to stdgo._internal.runtime.Runtime_t_hchan.T_hchan {
+@:structInit @:using(T_hchan_static_extension) @:dox(hide) abstract T_hchan(stdgo._internal.runtime.Runtime_t_hchan.T_hchan) from stdgo._internal.runtime.Runtime_t_hchan.T_hchan to stdgo._internal.runtime.Runtime_t_hchan.T_hchan {
     public function new() this = new stdgo._internal.runtime.Runtime_t_hchan.T_hchan();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_waitq_static_extension) @:dox(hide) abstract T_waitq(stdgo._internal.runtime.Runtime_t_waitq.T_waitq) from stdgo._internal.runtime.Runtime_t_waitq.T_waitq to stdgo._internal.runtime.Runtime_t_waitq.T_waitq {
+@:structInit @:using(T_waitq_static_extension) @:dox(hide) abstract T_waitq(stdgo._internal.runtime.Runtime_t_waitq.T_waitq) from stdgo._internal.runtime.Runtime_t_waitq.T_waitq to stdgo._internal.runtime.Runtime_t_waitq.T_waitq {
     public function new() this = new stdgo._internal.runtime.Runtime_t_waitq.T_waitq();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cpuProfile_static_extension) @:dox(hide) abstract T_cpuProfile(stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile) from stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile to stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile {
+@:structInit @:using(T_cpuProfile_static_extension) @:dox(hide) abstract T_cpuProfile(stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile) from stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile to stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cpuprofile.T_cpuProfile();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_dlogger_static_extension) @:dox(hide) abstract T_dlogger(stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger) from stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger to stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger {
+@:structInit @:using(T_dlogger_static_extension) @:dox(hide) abstract T_dlogger(stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger) from stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger to stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger {
     public function new() this = new stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_debugLogWriter_static_extension) @:dox(hide) abstract T_debugLogWriter(stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter) from stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter to stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter {
+@:structInit @:using(T_debugLogWriter_static_extension) @:dox(hide) abstract T_debugLogWriter(stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter) from stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter to stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter {
     public function new() this = new stdgo._internal.runtime.Runtime_t_debuglogwriter.T_debugLogWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_debugLogBuf_static_extension) @:dox(hide) abstract T_debugLogBuf(stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf) from stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf to stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf {
+@:structInit @:using(T_debugLogBuf_static_extension) @:dox(hide) abstract T_debugLogBuf(stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf) from stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf to stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_debuglogbuf.T_debugLogBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_debugLogReader_static_extension) @:dox(hide) abstract T_debugLogReader(stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader) from stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader to stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader {
+@:structInit @:using(T_debugLogReader_static_extension) @:dox(hide) abstract T_debugLogReader(stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader) from stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader to stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader {
     public function new() this = new stdgo._internal.runtime.Runtime_t_debuglogreader.T_debugLogReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_dlogPerM_static_extension) @:dox(hide) abstract T_dlogPerM(stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM) from stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM to stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM {
+@:structInit @:using(T_dlogPerM_static_extension) @:dox(hide) abstract T_dlogPerM(stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM) from stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM to stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM {
     public function new() this = new stdgo._internal.runtime.Runtime_t_dlogperm.T_dlogPerM();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.TypeAssertionError_static_extension) abstract TypeAssertionError(stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError) from stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError to stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError {
+@:structInit @:using(TypeAssertionError_static_extension) abstract TypeAssertionError(stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError) from stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError to stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError {
     public function new() this = new stdgo._internal.runtime.Runtime_typeassertionerror.TypeAssertionError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_errorAddressString_static_extension) @:dox(hide) abstract T_errorAddressString(stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString) from stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString to stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString {
+@:structInit @:using(T_errorAddressString_static_extension) @:dox(hide) abstract T_errorAddressString(stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString) from stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString to stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString {
     public function new() this = new stdgo._internal.runtime.Runtime_t_erroraddressstring.T_errorAddressString();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_boundsError_static_extension) @:dox(hide) abstract T_boundsError(stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError) from stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError to stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError {
+@:structInit @:using(T_boundsError_static_extension) @:dox(hide) abstract T_boundsError(stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError) from stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError to stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError {
     public function new() this = new stdgo._internal.runtime.Runtime_t_boundserror.T_boundsError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_exitHook_static_extension) @:dox(hide) abstract T_exitHook(stdgo._internal.runtime.Runtime_t_exithook.T_exitHook) from stdgo._internal.runtime.Runtime_t_exithook.T_exitHook to stdgo._internal.runtime.Runtime_t_exithook.T_exitHook {
+@:structInit @:using(T_exitHook_static_extension) @:dox(hide) abstract T_exitHook(stdgo._internal.runtime.Runtime_t_exithook.T_exitHook) from stdgo._internal.runtime.Runtime_t_exithook.T_exitHook to stdgo._internal.runtime.Runtime_t_exithook.T_exitHook {
     public function new() this = new stdgo._internal.runtime.Runtime_t_exithook.T_exitHook();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.LFNode_static_extension) abstract LFNode(stdgo._internal.runtime.Runtime_lfnode.LFNode) from stdgo._internal.runtime.Runtime_lfnode.LFNode to stdgo._internal.runtime.Runtime_lfnode.LFNode {
+@:structInit @:using(LFNode_static_extension) abstract LFNode(stdgo._internal.runtime.Runtime_lfnode.LFNode) from stdgo._internal.runtime.Runtime_lfnode.LFNode to stdgo._internal.runtime.Runtime_lfnode.LFNode {
     public var next(get, set) : haxe.UInt64;
     function get_next():haxe.UInt64 return this.next;
     function set_next(v:haxe.UInt64):haxe.UInt64 {
@@ -574,37 +606,37 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_blockWrapper_static_extension) @:dox(hide) abstract T_blockWrapper(stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper) from stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper to stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper {
+@:structInit @:using(T_blockWrapper_static_extension) @:dox(hide) abstract T_blockWrapper(stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper) from stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper to stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper {
     public function new() this = new stdgo._internal.runtime.Runtime_t_blockwrapper.T_blockWrapper();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_arrayBlockWrapper_static_extension) @:dox(hide) abstract T_arrayBlockWrapper(stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper) from stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper to stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper {
+@:structInit @:using(T_arrayBlockWrapper_static_extension) @:dox(hide) abstract T_arrayBlockWrapper(stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper) from stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper to stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper {
     public function new() this = new stdgo._internal.runtime.Runtime_t_arrayblockwrapper.T_arrayBlockWrapper();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_arrayLargeBlockWrapper_static_extension) @:dox(hide) abstract T_arrayLargeBlockWrapper(stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper) from stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper to stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper {
+@:structInit @:using(T_arrayLargeBlockWrapper_static_extension) @:dox(hide) abstract T_arrayLargeBlockWrapper(stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper) from stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper to stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper {
     public function new() this = new stdgo._internal.runtime.Runtime_t_arraylargeblockwrapper.T_arrayLargeBlockWrapper();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.RWMutex_static_extension) abstract RWMutex(stdgo._internal.runtime.Runtime_rwmutex.RWMutex) from stdgo._internal.runtime.Runtime_rwmutex.RWMutex to stdgo._internal.runtime.Runtime_rwmutex.RWMutex {
+@:structInit @:using(RWMutex_static_extension) abstract RWMutex(stdgo._internal.runtime.Runtime_rwmutex.RWMutex) from stdgo._internal.runtime.Runtime_rwmutex.RWMutex to stdgo._internal.runtime.Runtime_rwmutex.RWMutex {
     public function new() this = new stdgo._internal.runtime.Runtime_rwmutex.RWMutex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.AddrRange_static_extension) abstract AddrRange(stdgo._internal.runtime.Runtime_addrrange.AddrRange) from stdgo._internal.runtime.Runtime_addrrange.AddrRange to stdgo._internal.runtime.Runtime_addrrange.AddrRange {
+@:structInit @:using(AddrRange_static_extension) abstract AddrRange(stdgo._internal.runtime.Runtime_addrrange.AddrRange) from stdgo._internal.runtime.Runtime_addrrange.AddrRange to stdgo._internal.runtime.Runtime_addrrange.AddrRange {
     public function new() this = new stdgo._internal.runtime.Runtime_addrrange.AddrRange();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.AddrRanges_static_extension) abstract AddrRanges(stdgo._internal.runtime.Runtime_addrranges.AddrRanges) from stdgo._internal.runtime.Runtime_addrranges.AddrRanges to stdgo._internal.runtime.Runtime_addrranges.AddrRanges {
+@:structInit @:using(AddrRanges_static_extension) abstract AddrRanges(stdgo._internal.runtime.Runtime_addrranges.AddrRanges) from stdgo._internal.runtime.Runtime_addrranges.AddrRanges to stdgo._internal.runtime.Runtime_addrranges.AddrRanges {
     public function new() this = new stdgo._internal.runtime.Runtime_addrranges.AddrRanges();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.BitRange_static_extension) abstract BitRange(stdgo._internal.runtime.Runtime_bitrange.BitRange) from stdgo._internal.runtime.Runtime_bitrange.BitRange to stdgo._internal.runtime.Runtime_bitrange.BitRange {
+@:structInit @:using(BitRange_static_extension) abstract BitRange(stdgo._internal.runtime.Runtime_bitrange.BitRange) from stdgo._internal.runtime.Runtime_bitrange.BitRange to stdgo._internal.runtime.Runtime_bitrange.BitRange {
     public var i(get, set) : std.UInt;
     function get_i():std.UInt return this.i;
     function set_i(v:std.UInt):std.UInt {
@@ -621,7 +653,7 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.BitsMismatch_static_extension) abstract BitsMismatch(stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch) from stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch to stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch {
+@:structInit @:using(BitsMismatch_static_extension) abstract BitsMismatch(stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch) from stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch to stdgo._internal.runtime.Runtime_bitsmismatch.BitsMismatch {
     public var base(get, set) : stdgo.GoUIntptr;
     function get_base():stdgo.GoUIntptr return this.base;
     function set_base(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -644,17 +676,17 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.SemTable_static_extension) abstract SemTable(stdgo._internal.runtime.Runtime_semtable.SemTable) from stdgo._internal.runtime.Runtime_semtable.SemTable to stdgo._internal.runtime.Runtime_semtable.SemTable {
+@:structInit @:using(SemTable_static_extension) abstract SemTable(stdgo._internal.runtime.Runtime_semtable.SemTable) from stdgo._internal.runtime.Runtime_semtable.SemTable to stdgo._internal.runtime.Runtime_semtable.SemTable {
     public function new() this = new stdgo._internal.runtime.Runtime_semtable.SemTable();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.GCController_static_extension) abstract GCController(stdgo._internal.runtime.Runtime_gccontroller.GCController) from stdgo._internal.runtime.Runtime_gccontroller.GCController to stdgo._internal.runtime.Runtime_gccontroller.GCController {
+@:structInit @:using(GCController_static_extension) abstract GCController(stdgo._internal.runtime.Runtime_gccontroller.GCController) from stdgo._internal.runtime.Runtime_gccontroller.GCController to stdgo._internal.runtime.Runtime_gccontroller.GCController {
     public function new() this = new stdgo._internal.runtime.Runtime_gccontroller.GCController();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.GCControllerReviseDelta_static_extension) abstract GCControllerReviseDelta(stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta) from stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta to stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta {
+@:structInit @:using(GCControllerReviseDelta_static_extension) abstract GCControllerReviseDelta(stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta) from stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta to stdgo._internal.runtime.Runtime_gccontrollerrevisedelta.GCControllerReviseDelta {
     public var heapLive(get, set) : haxe.Int64;
     function get_heapLive():haxe.Int64 return this.heapLive;
     function set_heapLive(v:haxe.Int64):haxe.Int64 {
@@ -689,26 +721,26 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.PIController_static_extension) abstract PIController(stdgo._internal.runtime.Runtime_picontroller.PIController) from stdgo._internal.runtime.Runtime_picontroller.PIController to stdgo._internal.runtime.Runtime_picontroller.PIController {
+@:structInit @:using(PIController_static_extension) abstract PIController(stdgo._internal.runtime.Runtime_picontroller.PIController) from stdgo._internal.runtime.Runtime_picontroller.PIController to stdgo._internal.runtime.Runtime_picontroller.PIController {
     public function new() this = new stdgo._internal.runtime.Runtime_picontroller.PIController();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.GCCPULimiter_static_extension) abstract GCCPULimiter(stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter) from stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter to stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter {
+@:structInit @:using(GCCPULimiter_static_extension) abstract GCCPULimiter(stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter) from stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter to stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter {
     public function new() this = new stdgo._internal.runtime.Runtime_gccpulimiter.GCCPULimiter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.Scavenger_static_extension) abstract Scavenger(stdgo._internal.runtime.Runtime_scavenger.Scavenger) from stdgo._internal.runtime.Runtime_scavenger.Scavenger to stdgo._internal.runtime.Runtime_scavenger.Scavenger {
-    public var sleep(get, set) : stdgo.GoInt64 -> stdgo.GoInt64;
-    function get_sleep():stdgo.GoInt64 -> stdgo.GoInt64 return _0 -> this.sleep(_0);
-    function set_sleep(v:stdgo.GoInt64 -> stdgo.GoInt64):stdgo.GoInt64 -> stdgo.GoInt64 {
+@:structInit @:using(Scavenger_static_extension) abstract Scavenger(stdgo._internal.runtime.Runtime_scavenger.Scavenger) from stdgo._internal.runtime.Runtime_scavenger.Scavenger to stdgo._internal.runtime.Runtime_scavenger.Scavenger {
+    public var sleep(get, set) : haxe.Int64 -> haxe.Int64;
+    function get_sleep():haxe.Int64 -> haxe.Int64 return _0 -> this.sleep(_0);
+    function set_sleep(v:haxe.Int64 -> haxe.Int64):haxe.Int64 -> haxe.Int64 {
         this.sleep = v;
         return v;
     }
-    public var scavenge(get, set) : stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; };
-    function get_scavenge():stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; } return _0 -> this.scavenge(_0);
-    function set_scavenge(v:stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; }):stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; } {
+    public var scavenge(get, set) : stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>;
+    function get_scavenge():stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> return _0 -> this.scavenge(_0);
+    function set_scavenge(v:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>):stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> {
         this.scavenge = v;
         return v;
     }
@@ -718,82 +750,82 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
         this.shouldStop = v;
         return v;
     }
-    public var goMaxProcs(get, set) : () -> stdgo.GoInt32;
-    function get_goMaxProcs():() -> stdgo.GoInt32 return () -> this.goMaxProcs();
-    function set_goMaxProcs(v:() -> stdgo.GoInt32):() -> stdgo.GoInt32 {
+    public var goMaxProcs(get, set) : () -> StdTypes.Int;
+    function get_goMaxProcs():() -> StdTypes.Int return () -> this.goMaxProcs();
+    function set_goMaxProcs(v:() -> StdTypes.Int):() -> StdTypes.Int {
         this.goMaxProcs = v;
         return v;
     }
-    public function new(?sleep:stdgo.GoInt64 -> stdgo.GoInt64, ?scavenge:stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; }, ?shouldStop:() -> Bool, ?goMaxProcs:() -> stdgo.GoInt32) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(sleep, scavenge, shouldStop, goMaxProcs);
+    public function new(?sleep:haxe.Int64 -> haxe.Int64, ?scavenge:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>, ?shouldStop:() -> Bool, ?goMaxProcs:() -> StdTypes.Int) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(sleep, scavenge, shouldStop, goMaxProcs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.ScavengeIndex_static_extension) abstract ScavengeIndex(stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex) from stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex to stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex {
+@:structInit @:using(ScavengeIndex_static_extension) abstract ScavengeIndex(stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex) from stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex to stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex {
     public function new() this = new stdgo._internal.runtime.Runtime_scavengeindex.ScavengeIndex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.UserArena_static_extension) abstract UserArena(stdgo._internal.runtime.Runtime_userarena.UserArena) from stdgo._internal.runtime.Runtime_userarena.UserArena to stdgo._internal.runtime.Runtime_userarena.UserArena {
+@:structInit @:using(UserArena_static_extension) abstract UserArena(stdgo._internal.runtime.Runtime_userarena.UserArena) from stdgo._internal.runtime.Runtime_userarena.UserArena to stdgo._internal.runtime.Runtime_userarena.UserArena {
     public function new() this = new stdgo._internal.runtime.Runtime_userarena.UserArena();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_typeCacheBucket_static_extension) @:dox(hide) abstract T_typeCacheBucket(stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket) from stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket to stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket {
+@:structInit @:using(T_typeCacheBucket_static_extension) @:dox(hide) abstract T_typeCacheBucket(stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket) from stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket to stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket {
     public function new() this = new stdgo._internal.runtime.Runtime_t_typecachebucket.T_typeCacheBucket();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_childInfo_static_extension) @:dox(hide) abstract T_childInfo(stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo) from stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo to stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo {
+@:structInit @:using(T_childInfo_static_extension) @:dox(hide) abstract T_childInfo(stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo) from stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo to stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo {
     public function new() this = new stdgo._internal.runtime.Runtime_t_childinfo.T_childInfo();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_timeHistogram_static_extension) @:dox(hide) abstract T_timeHistogram(stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram) from stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram to stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram {
+@:structInit @:using(T_timeHistogram_static_extension) @:dox(hide) abstract T_timeHistogram(stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram) from stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram to stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram {
     public function new() this = new stdgo._internal.runtime.Runtime_t_timehistogram.T_timeHistogram();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_itabTableType_static_extension) @:dox(hide) abstract T_itabTableType(stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType) from stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType to stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType {
+@:structInit @:using(T_itabTableType_static_extension) @:dox(hide) abstract T_itabTableType(stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType) from stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType to stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType {
     public function new() this = new stdgo._internal.runtime.Runtime_t_itabtabletype.T_itabTableType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_noteWithTimeout_static_extension) @:dox(hide) abstract T_noteWithTimeout(stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout) from stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout to stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout {
+@:structInit @:using(T_noteWithTimeout_static_extension) @:dox(hide) abstract T_noteWithTimeout(stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout) from stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout to stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout {
     public function new() this = new stdgo._internal.runtime.Runtime_t_notewithtimeout.T_noteWithTimeout();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_event_static_extension) @:dox(hide) abstract T_event(stdgo._internal.runtime.Runtime_t_event.T_event) from stdgo._internal.runtime.Runtime_t_event.T_event to stdgo._internal.runtime.Runtime_t_event.T_event {
+@:structInit @:using(T_event_static_extension) @:dox(hide) abstract T_event(stdgo._internal.runtime.Runtime_t_event.T_event) from stdgo._internal.runtime.Runtime_t_event.T_event to stdgo._internal.runtime.Runtime_t_event.T_event {
     public function new() this = new stdgo._internal.runtime.Runtime_t_event.T_event();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_timeoutEvent_static_extension) @:dox(hide) abstract T_timeoutEvent(stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent) from stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent to stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent {
+@:structInit @:using(T_timeoutEvent_static_extension) @:dox(hide) abstract T_timeoutEvent(stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent) from stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent to stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent {
     public function new() this = new stdgo._internal.runtime.Runtime_t_timeoutevent.T_timeoutEvent();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_lockRankStruct_static_extension) @:dox(hide) abstract T_lockRankStruct(stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct) from stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct to stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct {
+@:structInit @:using(T_lockRankStruct_static_extension) @:dox(hide) abstract T_lockRankStruct(stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct) from stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct to stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct {
     public function new() this = new stdgo._internal.runtime.Runtime_t_lockrankstruct.T_lockRankStruct();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_persistentAlloc_static_extension) @:dox(hide) abstract T_persistentAlloc(stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc) from stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc to stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc {
+@:structInit @:using(T_persistentAlloc_static_extension) @:dox(hide) abstract T_persistentAlloc(stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc) from stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc to stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_persistentalloc.T_persistentAlloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_linearAlloc_static_extension) @:dox(hide) abstract T_linearAlloc(stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc) from stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc to stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc {
+@:structInit @:using(T_linearAlloc_static_extension) @:dox(hide) abstract T_linearAlloc(stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc) from stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc to stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_linearalloc.T_linearAlloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_notInHeap_static_extension) @:dox(hide) abstract T_notInHeap(stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap) from stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap to stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap {
+@:structInit @:using(T_notInHeap_static_extension) @:dox(hide) abstract T_notInHeap(stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap) from stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap to stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap {
     public function new() this = new stdgo._internal.runtime.Runtime_t_notinheap.T_notInHeap();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_hmap_static_extension) @:dox(hide) abstract T_hmap(stdgo._internal.runtime.Runtime_t_hmap.T_hmap) from stdgo._internal.runtime.Runtime_t_hmap.T_hmap to stdgo._internal.runtime.Runtime_t_hmap.T_hmap {
+@:structInit @:using(T_hmap_static_extension) @:dox(hide) abstract T_hmap(stdgo._internal.runtime.Runtime_t_hmap.T_hmap) from stdgo._internal.runtime.Runtime_t_hmap.T_hmap to stdgo._internal.runtime.Runtime_t_hmap.T_hmap {
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
@@ -804,17 +836,17 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mapextra_static_extension) @:dox(hide) abstract T_mapextra(stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra) from stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra to stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra {
+@:structInit @:using(T_mapextra_static_extension) @:dox(hide) abstract T_mapextra(stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra) from stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra to stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mapextra.T_mapextra();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_bmap_static_extension) @:dox(hide) abstract T_bmap(stdgo._internal.runtime.Runtime_t_bmap.T_bmap) from stdgo._internal.runtime.Runtime_t_bmap.T_bmap to stdgo._internal.runtime.Runtime_t_bmap.T_bmap {
+@:structInit @:using(T_bmap_static_extension) @:dox(hide) abstract T_bmap(stdgo._internal.runtime.Runtime_t_bmap.T_bmap) from stdgo._internal.runtime.Runtime_t_bmap.T_bmap to stdgo._internal.runtime.Runtime_t_bmap.T_bmap {
     public function new() this = new stdgo._internal.runtime.Runtime_t_bmap.T_bmap();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_hiter_static_extension) @:dox(hide) abstract T_hiter(stdgo._internal.runtime.Runtime_t_hiter.T_hiter) from stdgo._internal.runtime.Runtime_t_hiter.T_hiter to stdgo._internal.runtime.Runtime_t_hiter.T_hiter {
+@:structInit @:using(T_hiter_static_extension) @:dox(hide) abstract T_hiter(stdgo._internal.runtime.Runtime_t_hiter.T_hiter) from stdgo._internal.runtime.Runtime_t_hiter.T_hiter to stdgo._internal.runtime.Runtime_t_hiter.T_hiter {
     public var b(get, set) : std.UInt;
     function get_b():std.UInt return this.b;
     function set_b(v:std.UInt):std.UInt {
@@ -825,362 +857,362 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_evacDst_static_extension) @:dox(hide) abstract T_evacDst(stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst) from stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst to stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst {
+@:structInit @:using(T_evacDst_static_extension) @:dox(hide) abstract T_evacDst(stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst) from stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst to stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst {
     public function new() this = new stdgo._internal.runtime.Runtime_t_evacdst.T_evacDst();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_markBits_static_extension) @:dox(hide) abstract T_markBits(stdgo._internal.runtime.Runtime_t_markbits.T_markBits) from stdgo._internal.runtime.Runtime_t_markbits.T_markBits to stdgo._internal.runtime.Runtime_t_markbits.T_markBits {
+@:structInit @:using(T_markBits_static_extension) @:dox(hide) abstract T_markBits(stdgo._internal.runtime.Runtime_t_markbits.T_markBits) from stdgo._internal.runtime.Runtime_t_markbits.T_markBits to stdgo._internal.runtime.Runtime_t_markbits.T_markBits {
     public function new() this = new stdgo._internal.runtime.Runtime_t_markbits.T_markBits();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_heapBits_static_extension) @:dox(hide) abstract T_heapBits(stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits) from stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits to stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits {
+@:structInit @:using(T_heapBits_static_extension) @:dox(hide) abstract T_heapBits(stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits) from stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits to stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits {
     public function new() this = new stdgo._internal.runtime.Runtime_t_heapbits.T_heapBits();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_writeHeapBits_static_extension) @:dox(hide) abstract T_writeHeapBits(stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits) from stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits to stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits {
+@:structInit @:using(T_writeHeapBits_static_extension) @:dox(hide) abstract T_writeHeapBits(stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits) from stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits to stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits {
     public function new() this = new stdgo._internal.runtime.Runtime_t_writeheapbits.T_writeHeapBits();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mcache_static_extension) @:dox(hide) abstract T_mcache(stdgo._internal.runtime.Runtime_t_mcache.T_mcache) from stdgo._internal.runtime.Runtime_t_mcache.T_mcache to stdgo._internal.runtime.Runtime_t_mcache.T_mcache {
+@:structInit @:using(T_mcache_static_extension) @:dox(hide) abstract T_mcache(stdgo._internal.runtime.Runtime_t_mcache.T_mcache) from stdgo._internal.runtime.Runtime_t_mcache.T_mcache to stdgo._internal.runtime.Runtime_t_mcache.T_mcache {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mcache.T_mcache();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gclink_static_extension) @:dox(hide) abstract T_gclink(stdgo._internal.runtime.Runtime_t_gclink.T_gclink) from stdgo._internal.runtime.Runtime_t_gclink.T_gclink to stdgo._internal.runtime.Runtime_t_gclink.T_gclink {
+@:structInit @:using(T_gclink_static_extension) @:dox(hide) abstract T_gclink(stdgo._internal.runtime.Runtime_t_gclink.T_gclink) from stdgo._internal.runtime.Runtime_t_gclink.T_gclink to stdgo._internal.runtime.Runtime_t_gclink.T_gclink {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gclink.T_gclink();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackfreelist_static_extension) @:dox(hide) abstract T_stackfreelist(stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist) from stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist to stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist {
+@:structInit @:using(T_stackfreelist_static_extension) @:dox(hide) abstract T_stackfreelist(stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist) from stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist to stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackfreelist.T_stackfreelist();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mcentral_static_extension) @:dox(hide) abstract T_mcentral(stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral) from stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral to stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral {
+@:structInit @:using(T_mcentral_static_extension) @:dox(hide) abstract T_mcentral(stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral) from stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral to stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mcentral.T_mcentral();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_checkmarksMap_static_extension) @:dox(hide) abstract T_checkmarksMap(stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap) from stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap to stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap {
+@:structInit @:using(T_checkmarksMap_static_extension) @:dox(hide) abstract T_checkmarksMap(stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap) from stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap to stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap {
     public function new() this = new stdgo._internal.runtime.Runtime_t_checkmarksmap.T_checkmarksMap();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_memHdr_static_extension) @:dox(hide) abstract T_memHdr(stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr) from stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr to stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr {
+@:structInit @:using(T_memHdr_static_extension) @:dox(hide) abstract T_memHdr(stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr) from stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr to stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_memhdr.T_memHdr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_metricData_static_extension) @:dox(hide) abstract T_metricData(stdgo._internal.runtime.Runtime_t_metricdata.T_metricData) from stdgo._internal.runtime.Runtime_t_metricdata.T_metricData to stdgo._internal.runtime.Runtime_t_metricdata.T_metricData {
+@:structInit @:using(T_metricData_static_extension) @:dox(hide) abstract T_metricData(stdgo._internal.runtime.Runtime_t_metricdata.T_metricData) from stdgo._internal.runtime.Runtime_t_metricdata.T_metricData to stdgo._internal.runtime.Runtime_t_metricdata.T_metricData {
     public function new() this = new stdgo._internal.runtime.Runtime_t_metricdata.T_metricData();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_heapStatsAggregate_static_extension) @:dox(hide) abstract T_heapStatsAggregate(stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate) from stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate to stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate {
+@:structInit @:using(T_heapStatsAggregate_static_extension) @:dox(hide) abstract T_heapStatsAggregate(stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate) from stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate to stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_heapstatsaggregate.T_heapStatsAggregate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sysStatsAggregate_static_extension) @:dox(hide) abstract T_sysStatsAggregate(stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate) from stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate to stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate {
+@:structInit @:using(T_sysStatsAggregate_static_extension) @:dox(hide) abstract T_sysStatsAggregate(stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate) from stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate to stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sysstatsaggregate.T_sysStatsAggregate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cpuStatsAggregate_static_extension) @:dox(hide) abstract T_cpuStatsAggregate(stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate) from stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate to stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate {
+@:structInit @:using(T_cpuStatsAggregate_static_extension) @:dox(hide) abstract T_cpuStatsAggregate(stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate) from stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate to stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cpustatsaggregate.T_cpuStatsAggregate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcStatsAggregate_static_extension) @:dox(hide) abstract T_gcStatsAggregate(stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate) from stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate to stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate {
+@:structInit @:using(T_gcStatsAggregate_static_extension) @:dox(hide) abstract T_gcStatsAggregate(stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate) from stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate to stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcstatsaggregate.T_gcStatsAggregate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_statAggregate_static_extension) @:dox(hide) abstract T_statAggregate(stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate) from stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate to stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate {
+@:structInit @:using(T_statAggregate_static_extension) @:dox(hide) abstract T_statAggregate(stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate) from stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate to stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stataggregate.T_statAggregate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_metricSample_static_extension) @:dox(hide) abstract T_metricSample(stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample) from stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample to stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample {
+@:structInit @:using(T_metricSample_static_extension) @:dox(hide) abstract T_metricSample(stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample) from stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample to stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample {
     public function new() this = new stdgo._internal.runtime.Runtime_t_metricsample.T_metricSample();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_metricValue_static_extension) @:dox(hide) abstract T_metricValue(stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue) from stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue to stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue {
+@:structInit @:using(T_metricValue_static_extension) @:dox(hide) abstract T_metricValue(stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue) from stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue to stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue {
     public function new() this = new stdgo._internal.runtime.Runtime_t_metricvalue.T_metricValue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_metricFloat64Histogram_static_extension) @:dox(hide) abstract T_metricFloat64Histogram(stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram) from stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram to stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram {
+@:structInit @:using(T_metricFloat64Histogram_static_extension) @:dox(hide) abstract T_metricFloat64Histogram(stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram) from stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram to stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram {
     public function new() this = new stdgo._internal.runtime.Runtime_t_metricfloat64histogram.T_metricFloat64Histogram();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_metricName_static_extension) @:dox(hide) abstract T_metricName(stdgo._internal.runtime.Runtime_t_metricname.T_metricName) from stdgo._internal.runtime.Runtime_t_metricname.T_metricName to stdgo._internal.runtime.Runtime_t_metricname.T_metricName {
+@:structInit @:using(T_metricName_static_extension) @:dox(hide) abstract T_metricName(stdgo._internal.runtime.Runtime_t_metricname.T_metricName) from stdgo._internal.runtime.Runtime_t_metricname.T_metricName to stdgo._internal.runtime.Runtime_t_metricname.T_metricName {
     public function new() this = new stdgo._internal.runtime.Runtime_t_metricname.T_metricName();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_finblock_static_extension) @:dox(hide) abstract T_finblock(stdgo._internal.runtime.Runtime_t_finblock.T_finblock) from stdgo._internal.runtime.Runtime_t_finblock.T_finblock to stdgo._internal.runtime.Runtime_t_finblock.T_finblock {
+@:structInit @:using(T_finblock_static_extension) @:dox(hide) abstract T_finblock(stdgo._internal.runtime.Runtime_t_finblock.T_finblock) from stdgo._internal.runtime.Runtime_t_finblock.T_finblock to stdgo._internal.runtime.Runtime_t_finblock.T_finblock {
     public function new() this = new stdgo._internal.runtime.Runtime_t_finblock.T_finblock();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_finalizer_static_extension) @:dox(hide) abstract T_finalizer(stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer) from stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer to stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer {
+@:structInit @:using(T_finalizer_static_extension) @:dox(hide) abstract T_finalizer(stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer) from stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer to stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_finalizer.T_finalizer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_fixalloc_static_extension) @:dox(hide) abstract T_fixalloc(stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc) from stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc to stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc {
+@:structInit @:using(T_fixalloc_static_extension) @:dox(hide) abstract T_fixalloc(stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc) from stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc to stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_fixalloc.T_fixalloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mlink_static_extension) @:dox(hide) abstract T_mlink(stdgo._internal.runtime.Runtime_t_mlink.T_mlink) from stdgo._internal.runtime.Runtime_t_mlink.T_mlink to stdgo._internal.runtime.Runtime_t_mlink.T_mlink {
+@:structInit @:using(T_mlink_static_extension) @:dox(hide) abstract T_mlink(stdgo._internal.runtime.Runtime_t_mlink.T_mlink) from stdgo._internal.runtime.Runtime_t_mlink.T_mlink to stdgo._internal.runtime.Runtime_t_mlink.T_mlink {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mlink.T_mlink();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_workType_static_extension) @:dox(hide) abstract T_workType(stdgo._internal.runtime.Runtime_t_worktype.T_workType) from stdgo._internal.runtime.Runtime_t_worktype.T_workType to stdgo._internal.runtime.Runtime_t_worktype.T_workType {
+@:structInit @:using(T_workType_static_extension) @:dox(hide) abstract T_workType(stdgo._internal.runtime.Runtime_t_worktype.T_workType) from stdgo._internal.runtime.Runtime_t_worktype.T_workType to stdgo._internal.runtime.Runtime_t_worktype.T_workType {
     public function new() this = new stdgo._internal.runtime.Runtime_t_worktype.T_workType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcTrigger_static_extension) @:dox(hide) abstract T_gcTrigger(stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger) from stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger to stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger {
+@:structInit @:using(T_gcTrigger_static_extension) @:dox(hide) abstract T_gcTrigger(stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger) from stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger to stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gctrigger.T_gcTrigger();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcBgMarkWorkerNode_static_extension) @:dox(hide) abstract T_gcBgMarkWorkerNode(stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode) from stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode to stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode {
+@:structInit @:using(T_gcBgMarkWorkerNode_static_extension) @:dox(hide) abstract T_gcBgMarkWorkerNode(stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode) from stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode to stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcbgmarkworkernode.T_gcBgMarkWorkerNode();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcCPULimiterState_static_extension) @:dox(hide) abstract T_gcCPULimiterState(stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState) from stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState to stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState {
+@:structInit @:using(T_gcCPULimiterState_static_extension) @:dox(hide) abstract T_gcCPULimiterState(stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState) from stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState to stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gccpulimiterstate.T_gcCPULimiterState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_limiterEvent_static_extension) @:dox(hide) abstract T_limiterEvent(stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent) from stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent to stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent {
+@:structInit @:using(T_limiterEvent_static_extension) @:dox(hide) abstract T_limiterEvent(stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent) from stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent to stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent {
     public function new() this = new stdgo._internal.runtime.Runtime_t_limiterevent.T_limiterEvent();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcControllerState_static_extension) @:dox(hide) abstract T_gcControllerState(stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState) from stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState to stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState {
+@:structInit @:using(T_gcControllerState_static_extension) @:dox(hide) abstract T_gcControllerState(stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState) from stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState to stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gccontrollerstate.T_gcControllerState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_scavengerState_static_extension) @:dox(hide) abstract T_scavengerState(stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState) from stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState to stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState {
+@:structInit @:using(T_scavengerState_static_extension) @:dox(hide) abstract T_scavengerState(stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState) from stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState to stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_scavengerstate.T_scavengerState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_scavengeIndex_static_extension) @:dox(hide) abstract T_scavengeIndex(stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex) from stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex to stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex {
+@:structInit @:using(T_scavengeIndex_static_extension) @:dox(hide) abstract T_scavengeIndex(stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex) from stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex to stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex {
     public function new() this = new stdgo._internal.runtime.Runtime_t_scavengeindex.T_scavengeIndex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_atomicScavChunkData_static_extension) @:dox(hide) abstract T_atomicScavChunkData(stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData) from stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData to stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData {
+@:structInit @:using(T_atomicScavChunkData_static_extension) @:dox(hide) abstract T_atomicScavChunkData(stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData) from stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData to stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData {
     public function new() this = new stdgo._internal.runtime.Runtime_t_atomicscavchunkdata.T_atomicScavChunkData();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_scavChunkData_static_extension) @:dox(hide) abstract T_scavChunkData(stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData) from stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData to stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData {
+@:structInit @:using(T_scavChunkData_static_extension) @:dox(hide) abstract T_scavChunkData(stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData) from stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData to stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData {
     public function new() this = new stdgo._internal.runtime.Runtime_t_scavchunkdata.T_scavChunkData();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_piController_static_extension) @:dox(hide) abstract T_piController(stdgo._internal.runtime.Runtime_t_picontroller.T_piController) from stdgo._internal.runtime.Runtime_t_picontroller.T_piController to stdgo._internal.runtime.Runtime_t_picontroller.T_piController {
+@:structInit @:using(T_piController_static_extension) @:dox(hide) abstract T_piController(stdgo._internal.runtime.Runtime_t_picontroller.T_piController) from stdgo._internal.runtime.Runtime_t_picontroller.T_piController to stdgo._internal.runtime.Runtime_t_picontroller.T_piController {
     public function new() this = new stdgo._internal.runtime.Runtime_t_picontroller.T_piController();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackWorkBuf_static_extension) @:dox(hide) abstract T_stackWorkBuf(stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf) from stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf to stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf {
+@:structInit @:using(T_stackWorkBuf_static_extension) @:dox(hide) abstract T_stackWorkBuf(stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf) from stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf to stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackworkbuf.T_stackWorkBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackWorkBufHdr_static_extension) @:dox(hide) abstract T_stackWorkBufHdr(stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr) from stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr to stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr {
+@:structInit @:using(T_stackWorkBufHdr_static_extension) @:dox(hide) abstract T_stackWorkBufHdr(stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr) from stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr to stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackworkbufhdr.T_stackWorkBufHdr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackObjectBuf_static_extension) @:dox(hide) abstract T_stackObjectBuf(stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf) from stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf to stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf {
+@:structInit @:using(T_stackObjectBuf_static_extension) @:dox(hide) abstract T_stackObjectBuf(stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf) from stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf to stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackobjectbuf.T_stackObjectBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackObjectBufHdr_static_extension) @:dox(hide) abstract T_stackObjectBufHdr(stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr) from stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr to stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr {
+@:structInit @:using(T_stackObjectBufHdr_static_extension) @:dox(hide) abstract T_stackObjectBufHdr(stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr) from stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr to stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackobjectbufhdr.T_stackObjectBufHdr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackObject_static_extension) @:dox(hide) abstract T_stackObject(stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject) from stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject to stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject {
+@:structInit @:using(T_stackObject_static_extension) @:dox(hide) abstract T_stackObject(stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject) from stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject to stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackobject.T_stackObject();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackScanState_static_extension) @:dox(hide) abstract T_stackScanState(stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState) from stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState to stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState {
+@:structInit @:using(T_stackScanState_static_extension) @:dox(hide) abstract T_stackScanState(stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState) from stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState to stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackscanstate.T_stackScanState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sweepdata_static_extension) @:dox(hide) abstract T_sweepdata(stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata) from stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata to stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata {
+@:structInit @:using(T_sweepdata_static_extension) @:dox(hide) abstract T_sweepdata(stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata) from stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata to stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sweepdata.T_sweepdata();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_activeSweep_static_extension) @:dox(hide) abstract T_activeSweep(stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep) from stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep to stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep {
+@:structInit @:using(T_activeSweep_static_extension) @:dox(hide) abstract T_activeSweep(stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep) from stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep to stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep {
     public function new() this = new stdgo._internal.runtime.Runtime_t_activesweep.T_activeSweep();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sweepLocker_static_extension) @:dox(hide) abstract T_sweepLocker(stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker) from stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker to stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker {
+@:structInit @:using(T_sweepLocker_static_extension) @:dox(hide) abstract T_sweepLocker(stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker) from stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker to stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sweeplocker.T_sweepLocker();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sweepLocked_static_extension) @:dox(hide) abstract T_sweepLocked(stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked) from stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked to stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked {
+@:structInit @:using(T_sweepLocked_static_extension) @:dox(hide) abstract T_sweepLocked(stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked) from stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked to stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcWork_static_extension) @:dox(hide) abstract T_gcWork(stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork) from stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork to stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork {
+@:structInit @:using(T_gcWork_static_extension) @:dox(hide) abstract T_gcWork(stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork) from stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork to stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcwork.T_gcWork();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_workbufhdr_static_extension) @:dox(hide) abstract T_workbufhdr(stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr) from stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr to stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr {
+@:structInit @:using(T_workbufhdr_static_extension) @:dox(hide) abstract T_workbufhdr(stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr) from stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr to stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_workbufhdr.T_workbufhdr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_workbuf_static_extension) @:dox(hide) abstract T_workbuf(stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf) from stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf to stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf {
+@:structInit @:using(T_workbuf_static_extension) @:dox(hide) abstract T_workbuf(stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf) from stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf to stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_workbuf.T_workbuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mheap_static_extension) @:dox(hide) abstract T_mheap(stdgo._internal.runtime.Runtime_t_mheap.T_mheap) from stdgo._internal.runtime.Runtime_t_mheap.T_mheap to stdgo._internal.runtime.Runtime_t_mheap.T_mheap {
+@:structInit @:using(T_mheap_static_extension) @:dox(hide) abstract T_mheap(stdgo._internal.runtime.Runtime_t_mheap.T_mheap) from stdgo._internal.runtime.Runtime_t_mheap.T_mheap to stdgo._internal.runtime.Runtime_t_mheap.T_mheap {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mheap.T_mheap();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_heapArena_static_extension) @:dox(hide) abstract T_heapArena(stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena) from stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena to stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena {
+@:structInit @:using(T_heapArena_static_extension) @:dox(hide) abstract T_heapArena(stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena) from stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena to stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena {
     public function new() this = new stdgo._internal.runtime.Runtime_t_heaparena.T_heapArena();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_arenaHint_static_extension) @:dox(hide) abstract T_arenaHint(stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint) from stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint to stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint {
+@:structInit @:using(T_arenaHint_static_extension) @:dox(hide) abstract T_arenaHint(stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint) from stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint to stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint {
     public function new() this = new stdgo._internal.runtime.Runtime_t_arenahint.T_arenaHint();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mSpanStateBox_static_extension) @:dox(hide) abstract T_mSpanStateBox(stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox) from stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox to stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox {
+@:structInit @:using(T_mSpanStateBox_static_extension) @:dox(hide) abstract T_mSpanStateBox(stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox) from stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox to stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mspanstatebox.T_mSpanStateBox();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mSpanList_static_extension) @:dox(hide) abstract T_mSpanList(stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList) from stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList to stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList {
+@:structInit @:using(T_mSpanList_static_extension) @:dox(hide) abstract T_mSpanList(stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList) from stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList to stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mspanlist.T_mSpanList();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mspan_static_extension) @:dox(hide) abstract T_mspan(stdgo._internal.runtime.Runtime_t_mspan.T_mspan) from stdgo._internal.runtime.Runtime_t_mspan.T_mspan to stdgo._internal.runtime.Runtime_t_mspan.T_mspan {
+@:structInit @:using(T_mspan_static_extension) @:dox(hide) abstract T_mspan(stdgo._internal.runtime.Runtime_t_mspan.T_mspan) from stdgo._internal.runtime.Runtime_t_mspan.T_mspan to stdgo._internal.runtime.Runtime_t_mspan.T_mspan {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mspan.T_mspan();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_special_static_extension) @:dox(hide) abstract T_special(stdgo._internal.runtime.Runtime_t_special.T_special) from stdgo._internal.runtime.Runtime_t_special.T_special to stdgo._internal.runtime.Runtime_t_special.T_special {
+@:structInit @:using(T_special_static_extension) @:dox(hide) abstract T_special(stdgo._internal.runtime.Runtime_t_special.T_special) from stdgo._internal.runtime.Runtime_t_special.T_special to stdgo._internal.runtime.Runtime_t_special.T_special {
     public function new() this = new stdgo._internal.runtime.Runtime_t_special.T_special();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_specialfinalizer_static_extension) @:dox(hide) abstract T_specialfinalizer(stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer) from stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer to stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer {
+@:structInit @:using(T_specialfinalizer_static_extension) @:dox(hide) abstract T_specialfinalizer(stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer) from stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer to stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_specialfinalizer.T_specialfinalizer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_specialprofile_static_extension) @:dox(hide) abstract T_specialprofile(stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile) from stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile to stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile {
+@:structInit @:using(T_specialprofile_static_extension) @:dox(hide) abstract T_specialprofile(stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile) from stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile to stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile {
     public function new() this = new stdgo._internal.runtime.Runtime_t_specialprofile.T_specialprofile();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_specialReachable_static_extension) @:dox(hide) abstract T_specialReachable(stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable) from stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable to stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable {
+@:structInit @:using(T_specialReachable_static_extension) @:dox(hide) abstract T_specialReachable(stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable) from stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable to stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable {
     public function new() this = new stdgo._internal.runtime.Runtime_t_specialreachable.T_specialReachable();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_specialPinCounter_static_extension) @:dox(hide) abstract T_specialPinCounter(stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter) from stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter to stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter {
+@:structInit @:using(T_specialPinCounter_static_extension) @:dox(hide) abstract T_specialPinCounter(stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter) from stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter to stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter {
     public function new() this = new stdgo._internal.runtime.Runtime_t_specialpincounter.T_specialPinCounter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_specialsIter_static_extension) @:dox(hide) abstract T_specialsIter(stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter) from stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter to stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter {
+@:structInit @:using(T_specialsIter_static_extension) @:dox(hide) abstract T_specialsIter(stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter) from stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter to stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter {
     public function new() this = new stdgo._internal.runtime.Runtime_t_specialsiter.T_specialsIter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcBits_static_extension) @:dox(hide) abstract T_gcBits(stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits) from stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits to stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits {
+@:structInit @:using(T_gcBits_static_extension) @:dox(hide) abstract T_gcBits(stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits) from stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits to stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcbits.T_gcBits();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcBitsHeader_static_extension) @:dox(hide) abstract T_gcBitsHeader(stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader) from stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader to stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader {
+@:structInit @:using(T_gcBitsHeader_static_extension) @:dox(hide) abstract T_gcBitsHeader(stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader) from stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader to stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcbitsheader.T_gcBitsHeader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gcBitsArena_static_extension) @:dox(hide) abstract T_gcBitsArena(stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena) from stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena to stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena {
+@:structInit @:using(T_gcBitsArena_static_extension) @:dox(hide) abstract T_gcBitsArena(stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena) from stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena to stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gcbitsarena.T_gcBitsArena();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pageAlloc_static_extension) @:dox(hide) abstract T_pageAlloc(stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc) from stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc to stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc {
+@:structInit @:using(T_pageAlloc_static_extension) @:dox(hide) abstract T_pageAlloc(stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc) from stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc to stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pagealloc.T_pageAlloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pageCache_static_extension) @:dox(hide) abstract T_pageCache(stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache) from stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache to stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache {
+@:structInit @:using(T_pageCache_static_extension) @:dox(hide) abstract T_pageCache(stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache) from stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache to stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pagecache.T_pageCache();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pallocData_static_extension) @:dox(hide) abstract T_pallocData(stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData) from stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData to stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData {
+@:structInit @:using(T_pallocData_static_extension) @:dox(hide) abstract T_pallocData(stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData) from stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData to stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pallocdata.T_pallocData();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_bucket_static_extension) @:dox(hide) abstract T_bucket(stdgo._internal.runtime.Runtime_t_bucket.T_bucket) from stdgo._internal.runtime.Runtime_t_bucket.T_bucket to stdgo._internal.runtime.Runtime_t_bucket.T_bucket {
+@:structInit @:using(T_bucket_static_extension) @:dox(hide) abstract T_bucket(stdgo._internal.runtime.Runtime_t_bucket.T_bucket) from stdgo._internal.runtime.Runtime_t_bucket.T_bucket to stdgo._internal.runtime.Runtime_t_bucket.T_bucket {
     public function new() this = new stdgo._internal.runtime.Runtime_t_bucket.T_bucket();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_memRecord_static_extension) @:dox(hide) abstract T_memRecord(stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord) from stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord to stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord {
+@:structInit @:using(T_memRecord_static_extension) @:dox(hide) abstract T_memRecord(stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord) from stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord to stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord {
     public function new() this = new stdgo._internal.runtime.Runtime_t_memrecord.T_memRecord();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_memRecordCycle_static_extension) @:dox(hide) abstract T_memRecordCycle(stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle) from stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle to stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle {
+@:structInit @:using(T_memRecordCycle_static_extension) @:dox(hide) abstract T_memRecordCycle(stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle) from stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle to stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle {
     public function new() this = new stdgo._internal.runtime.Runtime_t_memrecordcycle.T_memRecordCycle();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_blockRecord_static_extension) @:dox(hide) abstract T_blockRecord(stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord) from stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord to stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord {
+@:structInit @:using(T_blockRecord_static_extension) @:dox(hide) abstract T_blockRecord(stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord) from stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord to stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord {
     public function new() this = new stdgo._internal.runtime.Runtime_t_blockrecord.T_blockRecord();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mProfCycleHolder_static_extension) @:dox(hide) abstract T_mProfCycleHolder(stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder) from stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder to stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder {
+@:structInit @:using(T_mProfCycleHolder_static_extension) @:dox(hide) abstract T_mProfCycleHolder(stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder) from stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder to stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mprofcycleholder.T_mProfCycleHolder();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.StackRecord_static_extension) abstract StackRecord(stdgo._internal.runtime.Runtime_stackrecord.StackRecord) from stdgo._internal.runtime.Runtime_stackrecord.StackRecord to stdgo._internal.runtime.Runtime_stackrecord.StackRecord {
+@:structInit @:using(StackRecord_static_extension) abstract StackRecord(stdgo._internal.runtime.Runtime_stackrecord.StackRecord) from stdgo._internal.runtime.Runtime_stackrecord.StackRecord to stdgo._internal.runtime.Runtime_stackrecord.StackRecord {
     public var stack0(get, set) : haxe.ds.Vector<stdgo.GoUIntptr>;
     function get_stack0():haxe.ds.Vector<stdgo.GoUIntptr> return haxe.ds.Vector.fromArrayCopy([for (i in this.stack0) i]);
     function set_stack0(v:haxe.ds.Vector<stdgo.GoUIntptr>):haxe.ds.Vector<stdgo.GoUIntptr> {
@@ -1191,7 +1223,7 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.MemProfileRecord_static_extension) abstract MemProfileRecord(stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord) from stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord to stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord {
+@:structInit @:using(MemProfileRecord_static_extension) abstract MemProfileRecord(stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord) from stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord to stdgo._internal.runtime.Runtime_memprofilerecord.MemProfileRecord {
     public var allocBytes(get, set) : haxe.Int64;
     function get_allocBytes():haxe.Int64 return this.allocBytes;
     function set_allocBytes(v:haxe.Int64):haxe.Int64 {
@@ -1226,7 +1258,7 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.BlockProfileRecord_static_extension) abstract BlockProfileRecord(stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord) from stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord to stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord {
+@:structInit @:using(BlockProfileRecord_static_extension) abstract BlockProfileRecord(stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord) from stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord to stdgo._internal.runtime.Runtime_blockprofilerecord.BlockProfileRecord {
     public var count(get, set) : haxe.Int64;
     function get_count():haxe.Int64 return this.count;
     function set_count(v:haxe.Int64):haxe.Int64 {
@@ -1249,67 +1281,67 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_addrRange_static_extension) @:dox(hide) abstract T_addrRange(stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange) from stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange to stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange {
+@:structInit @:using(T_addrRange_static_extension) @:dox(hide) abstract T_addrRange(stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange) from stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange to stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange {
     public function new() this = new stdgo._internal.runtime.Runtime_t_addrrange.T_addrRange();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_offAddr_static_extension) @:dox(hide) abstract T_offAddr(stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr) from stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr to stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr {
+@:structInit @:using(T_offAddr_static_extension) @:dox(hide) abstract T_offAddr(stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr) from stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr to stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_offaddr.T_offAddr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_atomicOffAddr_static_extension) @:dox(hide) abstract T_atomicOffAddr(stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr) from stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr to stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr {
+@:structInit @:using(T_atomicOffAddr_static_extension) @:dox(hide) abstract T_atomicOffAddr(stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr) from stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr to stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr {
     public function new() this = new stdgo._internal.runtime.Runtime_t_atomicoffaddr.T_atomicOffAddr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_addrRanges_static_extension) @:dox(hide) abstract T_addrRanges(stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges) from stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges to stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges {
+@:structInit @:using(T_addrRanges_static_extension) @:dox(hide) abstract T_addrRanges(stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges) from stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges to stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges {
     public function new() this = new stdgo._internal.runtime.Runtime_t_addrranges.T_addrRanges();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_spanSet_static_extension) @:dox(hide) abstract T_spanSet(stdgo._internal.runtime.Runtime_t_spanset.T_spanSet) from stdgo._internal.runtime.Runtime_t_spanset.T_spanSet to stdgo._internal.runtime.Runtime_t_spanset.T_spanSet {
+@:structInit @:using(T_spanSet_static_extension) @:dox(hide) abstract T_spanSet(stdgo._internal.runtime.Runtime_t_spanset.T_spanSet) from stdgo._internal.runtime.Runtime_t_spanset.T_spanSet to stdgo._internal.runtime.Runtime_t_spanset.T_spanSet {
     public function new() this = new stdgo._internal.runtime.Runtime_t_spanset.T_spanSet();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_spanSetBlock_static_extension) @:dox(hide) abstract T_spanSetBlock(stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock) from stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock to stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock {
+@:structInit @:using(T_spanSetBlock_static_extension) @:dox(hide) abstract T_spanSetBlock(stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock) from stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock to stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock {
     public function new() this = new stdgo._internal.runtime.Runtime_t_spansetblock.T_spanSetBlock();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_atomicSpanSetSpinePointer_static_extension) @:dox(hide) abstract T_atomicSpanSetSpinePointer(stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer) from stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer to stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer {
+@:structInit @:using(T_atomicSpanSetSpinePointer_static_extension) @:dox(hide) abstract T_atomicSpanSetSpinePointer(stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer) from stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer to stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_atomicspansetspinepointer.T_atomicSpanSetSpinePointer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_spanSetSpinePointer_static_extension) @:dox(hide) abstract T_spanSetSpinePointer(stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer) from stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer to stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer {
+@:structInit @:using(T_spanSetSpinePointer_static_extension) @:dox(hide) abstract T_spanSetSpinePointer(stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer) from stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer to stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_spansetspinepointer.T_spanSetSpinePointer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_spanSetBlockAlloc_static_extension) @:dox(hide) abstract T_spanSetBlockAlloc(stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc) from stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc to stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc {
+@:structInit @:using(T_spanSetBlockAlloc_static_extension) @:dox(hide) abstract T_spanSetBlockAlloc(stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc) from stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc to stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_spansetblockalloc.T_spanSetBlockAlloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_atomicHeadTailIndex_static_extension) @:dox(hide) abstract T_atomicHeadTailIndex(stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex) from stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex to stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex {
+@:structInit @:using(T_atomicHeadTailIndex_static_extension) @:dox(hide) abstract T_atomicHeadTailIndex(stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex) from stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex to stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex {
     public function new() this = new stdgo._internal.runtime.Runtime_t_atomicheadtailindex.T_atomicHeadTailIndex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_atomicMSpanPointer_static_extension) @:dox(hide) abstract T_atomicMSpanPointer(stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer) from stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer to stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer {
+@:structInit @:using(T_atomicMSpanPointer_static_extension) @:dox(hide) abstract T_atomicMSpanPointer(stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer) from stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer to stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_atomicmspanpointer.T_atomicMSpanPointer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mstats_static_extension) @:dox(hide) abstract T_mstats(stdgo._internal.runtime.Runtime_t_mstats.T_mstats) from stdgo._internal.runtime.Runtime_t_mstats.T_mstats to stdgo._internal.runtime.Runtime_t_mstats.T_mstats {
+@:structInit @:using(T_mstats_static_extension) @:dox(hide) abstract T_mstats(stdgo._internal.runtime.Runtime_t_mstats.T_mstats) from stdgo._internal.runtime.Runtime_t_mstats.T_mstats to stdgo._internal.runtime.Runtime_t_mstats.T_mstats {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mstats.T_mstats();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.MemStats_static_extension) abstract MemStats(stdgo._internal.runtime.Runtime_memstats.MemStats) from stdgo._internal.runtime.Runtime_memstats.MemStats to stdgo._internal.runtime.Runtime_memstats.MemStats {
+@:structInit @:using(MemStats_static_extension) abstract MemStats(stdgo._internal.runtime.Runtime_memstats.MemStats) from stdgo._internal.runtime.Runtime_memstats.MemStats to stdgo._internal.runtime.Runtime_memstats.MemStats {
     public var alloc(get, set) : haxe.UInt64;
     function get_alloc():haxe.UInt64 return this.alloc;
     function set_alloc(v:haxe.UInt64):haxe.UInt64 {
@@ -1547,217 +1579,217 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_heapStatsDelta_static_extension) @:dox(hide) abstract T_heapStatsDelta(stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta) from stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta to stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta {
+@:structInit @:using(T_heapStatsDelta_static_extension) @:dox(hide) abstract T_heapStatsDelta(stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta) from stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta to stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta {
     public function new() this = new stdgo._internal.runtime.Runtime_t_heapstatsdelta.T_heapStatsDelta();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_consistentHeapStats_static_extension) @:dox(hide) abstract T_consistentHeapStats(stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats) from stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats to stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats {
+@:structInit @:using(T_consistentHeapStats_static_extension) @:dox(hide) abstract T_consistentHeapStats(stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats) from stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats to stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats {
     public function new() this = new stdgo._internal.runtime.Runtime_t_consistentheapstats.T_consistentHeapStats();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cpuStats_static_extension) @:dox(hide) abstract T_cpuStats(stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats) from stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats to stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats {
+@:structInit @:using(T_cpuStats_static_extension) @:dox(hide) abstract T_cpuStats(stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats) from stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats to stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cpustats.T_cpuStats();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_wbBuf_static_extension) @:dox(hide) abstract T_wbBuf(stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf) from stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf to stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf {
+@:structInit @:using(T_wbBuf_static_extension) @:dox(hide) abstract T_wbBuf(stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf) from stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf to stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_wbbuf.T_wbBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pollDesc_static_extension) @:dox(hide) abstract T_pollDesc(stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc) from stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc to stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc {
+@:structInit @:using(T_pollDesc_static_extension) @:dox(hide) abstract T_pollDesc(stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc) from stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc to stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_polldesc.T_pollDesc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pollCache_static_extension) @:dox(hide) abstract T_pollCache(stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache) from stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache to stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache {
+@:structInit @:using(T_pollCache_static_extension) @:dox(hide) abstract T_pollCache(stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache) from stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache to stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pollcache.T_pollCache();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mOS_static_extension) @:dox(hide) abstract T_mOS(stdgo._internal.runtime.Runtime_t_mos.T_mOS) from stdgo._internal.runtime.Runtime_t_mos.T_mOS to stdgo._internal.runtime.Runtime_t_mos.T_mOS {
+@:structInit @:using(T_mOS_static_extension) @:dox(hide) abstract T_mOS(stdgo._internal.runtime.Runtime_t_mos.T_mOS) from stdgo._internal.runtime.Runtime_t_mos.T_mOS to stdgo._internal.runtime.Runtime_t_mos.T_mOS {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mos.T_mOS();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sigset_static_extension) @:dox(hide) abstract T_sigset(stdgo._internal.runtime.Runtime_t_sigset.T_sigset) from stdgo._internal.runtime.Runtime_t_sigset.T_sigset to stdgo._internal.runtime.Runtime_t_sigset.T_sigset {
+@:structInit @:using(T_sigset_static_extension) @:dox(hide) abstract T_sigset(stdgo._internal.runtime.Runtime_t_sigset.T_sigset) from stdgo._internal.runtime.Runtime_t_sigset.T_sigset to stdgo._internal.runtime.Runtime_t_sigset.T_sigset {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sigset.T_sigset();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gsignalStack_static_extension) @:dox(hide) abstract T_gsignalStack(stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack) from stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack to stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack {
+@:structInit @:using(T_gsignalStack_static_extension) @:dox(hide) abstract T_gsignalStack(stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack) from stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack to stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gsignalstack.T_gsignalStack();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pageTraceBuf_static_extension) @:dox(hide) abstract T_pageTraceBuf(stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf) from stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf to stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf {
+@:structInit @:using(T_pageTraceBuf_static_extension) @:dox(hide) abstract T_pageTraceBuf(stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf) from stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf to stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pagetracebuf.T_pageTraceBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.PanicNilError_static_extension) abstract PanicNilError(stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError) from stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError to stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError {
+@:structInit @:using(PanicNilError_static_extension) abstract PanicNilError(stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError) from stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError to stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError {
     public function new() this = new stdgo._internal.runtime.Runtime_panicnilerror.PanicNilError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.Pinner_static_extension) abstract Pinner(stdgo._internal.runtime.Runtime_pinner.Pinner) from stdgo._internal.runtime.Runtime_pinner.Pinner to stdgo._internal.runtime.Runtime_pinner.Pinner {
+@:structInit @:using(Pinner_static_extension) abstract Pinner(stdgo._internal.runtime.Runtime_pinner.Pinner) from stdgo._internal.runtime.Runtime_pinner.Pinner to stdgo._internal.runtime.Runtime_pinner.Pinner {
     public function new() this = new stdgo._internal.runtime.Runtime_pinner.Pinner();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pinner_static_extension) @:dox(hide) abstract T_pinner(stdgo._internal.runtime.Runtime_t_pinner.T_pinner) from stdgo._internal.runtime.Runtime_t_pinner.T_pinner to stdgo._internal.runtime.Runtime_t_pinner.T_pinner {
+@:structInit @:using(T_pinner_static_extension) @:dox(hide) abstract T_pinner(stdgo._internal.runtime.Runtime_t_pinner.T_pinner) from stdgo._internal.runtime.Runtime_t_pinner.T_pinner to stdgo._internal.runtime.Runtime_t_pinner.T_pinner {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pinner.T_pinner();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pinState_static_extension) @:dox(hide) abstract T_pinState(stdgo._internal.runtime.Runtime_t_pinstate.T_pinState) from stdgo._internal.runtime.Runtime_t_pinstate.T_pinState to stdgo._internal.runtime.Runtime_t_pinstate.T_pinState {
+@:structInit @:using(T_pinState_static_extension) @:dox(hide) abstract T_pinState(stdgo._internal.runtime.Runtime_t_pinstate.T_pinState) from stdgo._internal.runtime.Runtime_t_pinstate.T_pinState to stdgo._internal.runtime.Runtime_t_pinstate.T_pinState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pinstate.T_pinState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_ptabEntry_static_extension) @:dox(hide) abstract T_ptabEntry(stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry) from stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry to stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry {
+@:structInit @:using(T_ptabEntry_static_extension) @:dox(hide) abstract T_ptabEntry(stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry) from stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry to stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry {
     public function new() this = new stdgo._internal.runtime.Runtime_t_ptabentry.T_ptabEntry();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_suspendGState_static_extension) @:dox(hide) abstract T_suspendGState(stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState) from stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState to stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState {
+@:structInit @:using(T_suspendGState_static_extension) @:dox(hide) abstract T_suspendGState(stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState) from stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState to stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_suspendgstate.T_suspendGState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cgothreadstart_static_extension) @:dox(hide) abstract T_cgothreadstart(stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart) from stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart to stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart {
+@:structInit @:using(T_cgothreadstart_static_extension) @:dox(hide) abstract T_cgothreadstart(stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart) from stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart to stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cgothreadstart.T_cgothreadstart();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sysmontick_static_extension) @:dox(hide) abstract T_sysmontick(stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick) from stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick to stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick {
+@:structInit @:using(T_sysmontick_static_extension) @:dox(hide) abstract T_sysmontick(stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick) from stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick to stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sysmontick.T_sysmontick();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gQueue_static_extension) @:dox(hide) abstract T_gQueue(stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue) from stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue to stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue {
+@:structInit @:using(T_gQueue_static_extension) @:dox(hide) abstract T_gQueue(stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue) from stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue to stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gqueue.T_gQueue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gList_static_extension) @:dox(hide) abstract T_gList(stdgo._internal.runtime.Runtime_t_glist.T_gList) from stdgo._internal.runtime.Runtime_t_glist.T_gList to stdgo._internal.runtime.Runtime_t_glist.T_gList {
+@:structInit @:using(T_gList_static_extension) @:dox(hide) abstract T_gList(stdgo._internal.runtime.Runtime_t_glist.T_gList) from stdgo._internal.runtime.Runtime_t_glist.T_gList to stdgo._internal.runtime.Runtime_t_glist.T_gList {
     public function new() this = new stdgo._internal.runtime.Runtime_t_glist.T_gList();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_randomOrder_static_extension) @:dox(hide) abstract T_randomOrder(stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder) from stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder to stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder {
+@:structInit @:using(T_randomOrder_static_extension) @:dox(hide) abstract T_randomOrder(stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder) from stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder to stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder {
     public function new() this = new stdgo._internal.runtime.Runtime_t_randomorder.T_randomOrder();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_randomEnum_static_extension) @:dox(hide) abstract T_randomEnum(stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum) from stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum to stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum {
+@:structInit @:using(T_randomEnum_static_extension) @:dox(hide) abstract T_randomEnum(stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum) from stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum to stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum {
     public function new() this = new stdgo._internal.runtime.Runtime_t_randomenum.T_randomEnum();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_initTask_static_extension) @:dox(hide) abstract T_initTask(stdgo._internal.runtime.Runtime_t_inittask.T_initTask) from stdgo._internal.runtime.Runtime_t_inittask.T_initTask to stdgo._internal.runtime.Runtime_t_inittask.T_initTask {
+@:structInit @:using(T_initTask_static_extension) @:dox(hide) abstract T_initTask(stdgo._internal.runtime.Runtime_t_inittask.T_initTask) from stdgo._internal.runtime.Runtime_t_inittask.T_initTask to stdgo._internal.runtime.Runtime_t_inittask.T_initTask {
     public function new() this = new stdgo._internal.runtime.Runtime_t_inittask.T_initTask();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_tracestat_static_extension) @:dox(hide) abstract T_tracestat(stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat) from stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat to stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat {
+@:structInit @:using(T_tracestat_static_extension) @:dox(hide) abstract T_tracestat(stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat) from stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat to stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracestat.T_tracestat();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_profBuf_static_extension) @:dox(hide) abstract T_profBuf(stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf) from stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf to stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf {
+@:structInit @:using(T_profBuf_static_extension) @:dox(hide) abstract T_profBuf(stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf) from stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf to stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_profbuf.T_profBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_ticksType_static_extension) @:dox(hide) abstract T_ticksType(stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType) from stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType to stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType {
+@:structInit @:using(T_ticksType_static_extension) @:dox(hide) abstract T_ticksType(stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType) from stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType to stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tickstype.T_ticksType();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_godebugInc_static_extension) @:dox(hide) abstract T_godebugInc(stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc) from stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc to stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc {
+@:structInit @:using(T_godebugInc_static_extension) @:dox(hide) abstract T_godebugInc(stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc) from stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc to stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_godebuginc.T_godebugInc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_dbgVar_static_extension) @:dox(hide) abstract T_dbgVar(stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar) from stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar to stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar {
+@:structInit @:using(T_dbgVar_static_extension) @:dox(hide) abstract T_dbgVar(stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar) from stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar to stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar {
     public function new() this = new stdgo._internal.runtime.Runtime_t_dbgvar.T_dbgVar();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mutex_static_extension) @:dox(hide) abstract T_mutex(stdgo._internal.runtime.Runtime_t_mutex.T_mutex) from stdgo._internal.runtime.Runtime_t_mutex.T_mutex to stdgo._internal.runtime.Runtime_t_mutex.T_mutex {
+@:structInit @:using(T_mutex_static_extension) @:dox(hide) abstract T_mutex(stdgo._internal.runtime.Runtime_t_mutex.T_mutex) from stdgo._internal.runtime.Runtime_t_mutex.T_mutex to stdgo._internal.runtime.Runtime_t_mutex.T_mutex {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mutex.T_mutex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_note_static_extension) @:dox(hide) abstract T_note(stdgo._internal.runtime.Runtime_t_note.T_note) from stdgo._internal.runtime.Runtime_t_note.T_note to stdgo._internal.runtime.Runtime_t_note.T_note {
+@:structInit @:using(T_note_static_extension) @:dox(hide) abstract T_note(stdgo._internal.runtime.Runtime_t_note.T_note) from stdgo._internal.runtime.Runtime_t_note.T_note to stdgo._internal.runtime.Runtime_t_note.T_note {
     public function new() this = new stdgo._internal.runtime.Runtime_t_note.T_note();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_funcval_static_extension) @:dox(hide) abstract T_funcval(stdgo._internal.runtime.Runtime_t_funcval.T_funcval) from stdgo._internal.runtime.Runtime_t_funcval.T_funcval to stdgo._internal.runtime.Runtime_t_funcval.T_funcval {
+@:structInit @:using(T_funcval_static_extension) @:dox(hide) abstract T_funcval(stdgo._internal.runtime.Runtime_t_funcval.T_funcval) from stdgo._internal.runtime.Runtime_t_funcval.T_funcval to stdgo._internal.runtime.Runtime_t_funcval.T_funcval {
     public function new() this = new stdgo._internal.runtime.Runtime_t_funcval.T_funcval();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_iface_static_extension) @:dox(hide) abstract T_iface(stdgo._internal.runtime.Runtime_t_iface.T_iface) from stdgo._internal.runtime.Runtime_t_iface.T_iface to stdgo._internal.runtime.Runtime_t_iface.T_iface {
+@:structInit @:using(T_iface_static_extension) @:dox(hide) abstract T_iface(stdgo._internal.runtime.Runtime_t_iface.T_iface) from stdgo._internal.runtime.Runtime_t_iface.T_iface to stdgo._internal.runtime.Runtime_t_iface.T_iface {
     public function new() this = new stdgo._internal.runtime.Runtime_t_iface.T_iface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_eface_static_extension) @:dox(hide) abstract T_eface(stdgo._internal.runtime.Runtime_t_eface.T_eface) from stdgo._internal.runtime.Runtime_t_eface.T_eface to stdgo._internal.runtime.Runtime_t_eface.T_eface {
+@:structInit @:using(T_eface_static_extension) @:dox(hide) abstract T_eface(stdgo._internal.runtime.Runtime_t_eface.T_eface) from stdgo._internal.runtime.Runtime_t_eface.T_eface to stdgo._internal.runtime.Runtime_t_eface.T_eface {
     public function new() this = new stdgo._internal.runtime.Runtime_t_eface.T_eface();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gobuf_static_extension) @:dox(hide) abstract T_gobuf(stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf) from stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf to stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf {
+@:structInit @:using(T_gobuf_static_extension) @:dox(hide) abstract T_gobuf(stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf) from stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf to stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gobuf.T_gobuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_sudog_static_extension) @:dox(hide) abstract T_sudog(stdgo._internal.runtime.Runtime_t_sudog.T_sudog) from stdgo._internal.runtime.Runtime_t_sudog.T_sudog to stdgo._internal.runtime.Runtime_t_sudog.T_sudog {
+@:structInit @:using(T_sudog_static_extension) @:dox(hide) abstract T_sudog(stdgo._internal.runtime.Runtime_t_sudog.T_sudog) from stdgo._internal.runtime.Runtime_t_sudog.T_sudog to stdgo._internal.runtime.Runtime_t_sudog.T_sudog {
     public function new() this = new stdgo._internal.runtime.Runtime_t_sudog.T_sudog();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_libcall_static_extension) @:dox(hide) abstract T_libcall(stdgo._internal.runtime.Runtime_t_libcall.T_libcall) from stdgo._internal.runtime.Runtime_t_libcall.T_libcall to stdgo._internal.runtime.Runtime_t_libcall.T_libcall {
+@:structInit @:using(T_libcall_static_extension) @:dox(hide) abstract T_libcall(stdgo._internal.runtime.Runtime_t_libcall.T_libcall) from stdgo._internal.runtime.Runtime_t_libcall.T_libcall to stdgo._internal.runtime.Runtime_t_libcall.T_libcall {
     public function new() this = new stdgo._internal.runtime.Runtime_t_libcall.T_libcall();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stack_static_extension) @:dox(hide) abstract T_stack(stdgo._internal.runtime.Runtime_t_stack.T_stack) from stdgo._internal.runtime.Runtime_t_stack.T_stack to stdgo._internal.runtime.Runtime_t_stack.T_stack {
+@:structInit @:using(T_stack_static_extension) @:dox(hide) abstract T_stack(stdgo._internal.runtime.Runtime_t_stack.T_stack) from stdgo._internal.runtime.Runtime_t_stack.T_stack to stdgo._internal.runtime.Runtime_t_stack.T_stack {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stack.T_stack();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_heldLockInfo_static_extension) @:dox(hide) abstract T_heldLockInfo(stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo) from stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo to stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo {
+@:structInit @:using(T_heldLockInfo_static_extension) @:dox(hide) abstract T_heldLockInfo(stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo) from stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo to stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo {
     public function new() this = new stdgo._internal.runtime.Runtime_t_heldlockinfo.T_heldLockInfo();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_g_static_extension) @:dox(hide) abstract T_g(stdgo._internal.runtime.Runtime_t_g.T_g) from stdgo._internal.runtime.Runtime_t_g.T_g to stdgo._internal.runtime.Runtime_t_g.T_g {
+@:structInit @:using(T_g_static_extension) @:dox(hide) abstract T_g(stdgo._internal.runtime.Runtime_t_g.T_g) from stdgo._internal.runtime.Runtime_t_g.T_g to stdgo._internal.runtime.Runtime_t_g.T_g {
     public function new() this = new stdgo._internal.runtime.Runtime_t_g.T_g();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_m_static_extension) @:dox(hide) abstract T_m(stdgo._internal.runtime.Runtime_t_m.T_m) from stdgo._internal.runtime.Runtime_t_m.T_m to stdgo._internal.runtime.Runtime_t_m.T_m {
+@:structInit @:using(T_m_static_extension) @:dox(hide) abstract T_m(stdgo._internal.runtime.Runtime_t_m.T_m) from stdgo._internal.runtime.Runtime_t_m.T_m to stdgo._internal.runtime.Runtime_t_m.T_m {
     public function new() this = new stdgo._internal.runtime.Runtime_t_m.T_m();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_p_static_extension) @:dox(hide) abstract T_p(stdgo._internal.runtime.Runtime_t_p.T_p) from stdgo._internal.runtime.Runtime_t_p.T_p to stdgo._internal.runtime.Runtime_t_p.T_p {
+@:structInit @:using(T_p_static_extension) @:dox(hide) abstract T_p(stdgo._internal.runtime.Runtime_t_p.T_p) from stdgo._internal.runtime.Runtime_t_p.T_p to stdgo._internal.runtime.Runtime_t_p.T_p {
     public function new() this = new stdgo._internal.runtime.Runtime_t_p.T_p();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_schedt_static_extension) @:dox(hide) abstract T_schedt(stdgo._internal.runtime.Runtime_t_schedt.T_schedt) from stdgo._internal.runtime.Runtime_t_schedt.T_schedt to stdgo._internal.runtime.Runtime_t_schedt.T_schedt {
+@:structInit @:using(T_schedt_static_extension) @:dox(hide) abstract T_schedt(stdgo._internal.runtime.Runtime_t_schedt.T_schedt) from stdgo._internal.runtime.Runtime_t_schedt.T_schedt to stdgo._internal.runtime.Runtime_t_schedt.T_schedt {
     public function new() this = new stdgo._internal.runtime.Runtime_t_schedt.T_schedt();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T__func_static_extension) @:dox(hide) abstract T__func(stdgo._internal.runtime.Runtime_t__func.T__func) from stdgo._internal.runtime.Runtime_t__func.T__func to stdgo._internal.runtime.Runtime_t__func.T__func {
+@:structInit @:using(T__func_static_extension) @:dox(hide) abstract T__func(stdgo._internal.runtime.Runtime_t__func.T__func) from stdgo._internal.runtime.Runtime_t__func.T__func to stdgo._internal.runtime.Runtime_t__func.T__func {
     public var notInHeap(get, set) : stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap;
     function get_notInHeap():stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap return this.notInHeap;
     function set_notInHeap(v:stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap):stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap {
@@ -1768,127 +1800,127 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_funcinl_static_extension) @:dox(hide) abstract T_funcinl(stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl) from stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl to stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl {
+@:structInit @:using(T_funcinl_static_extension) @:dox(hide) abstract T_funcinl(stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl) from stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl to stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl {
     public function new() this = new stdgo._internal.runtime.Runtime_t_funcinl.T_funcinl();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_itab_static_extension) @:dox(hide) abstract T_itab(stdgo._internal.runtime.Runtime_t_itab.T_itab) from stdgo._internal.runtime.Runtime_t_itab.T_itab to stdgo._internal.runtime.Runtime_t_itab.T_itab {
+@:structInit @:using(T_itab_static_extension) @:dox(hide) abstract T_itab(stdgo._internal.runtime.Runtime_t_itab.T_itab) from stdgo._internal.runtime.Runtime_t_itab.T_itab to stdgo._internal.runtime.Runtime_t_itab.T_itab {
     public function new() this = new stdgo._internal.runtime.Runtime_t_itab.T_itab();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_lfnode_static_extension) @:dox(hide) abstract T_lfnode(stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode) from stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode to stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode {
+@:structInit @:using(T_lfnode_static_extension) @:dox(hide) abstract T_lfnode(stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode) from stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode to stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode {
     public function new() this = new stdgo._internal.runtime.Runtime_t_lfnode.T_lfnode();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_forcegcstate_static_extension) @:dox(hide) abstract T_forcegcstate(stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate) from stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate to stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate {
+@:structInit @:using(T_forcegcstate_static_extension) @:dox(hide) abstract T_forcegcstate(stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate) from stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate to stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate {
     public function new() this = new stdgo._internal.runtime.Runtime_t_forcegcstate.T_forcegcstate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T__defer_static_extension) @:dox(hide) abstract T__defer(stdgo._internal.runtime.Runtime_t__defer.T__defer) from stdgo._internal.runtime.Runtime_t__defer.T__defer to stdgo._internal.runtime.Runtime_t__defer.T__defer {
+@:structInit @:using(T__defer_static_extension) @:dox(hide) abstract T__defer(stdgo._internal.runtime.Runtime_t__defer.T__defer) from stdgo._internal.runtime.Runtime_t__defer.T__defer to stdgo._internal.runtime.Runtime_t__defer.T__defer {
     public function new() this = new stdgo._internal.runtime.Runtime_t__defer.T__defer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T__panic_static_extension) @:dox(hide) abstract T__panic(stdgo._internal.runtime.Runtime_t__panic.T__panic) from stdgo._internal.runtime.Runtime_t__panic.T__panic to stdgo._internal.runtime.Runtime_t__panic.T__panic {
+@:structInit @:using(T__panic_static_extension) @:dox(hide) abstract T__panic(stdgo._internal.runtime.Runtime_t__panic.T__panic) from stdgo._internal.runtime.Runtime_t__panic.T__panic to stdgo._internal.runtime.Runtime_t__panic.T__panic {
     public function new() this = new stdgo._internal.runtime.Runtime_t__panic.T__panic();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_ancestorInfo_static_extension) @:dox(hide) abstract T_ancestorInfo(stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo) from stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo to stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo {
+@:structInit @:using(T_ancestorInfo_static_extension) @:dox(hide) abstract T_ancestorInfo(stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo) from stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo to stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo {
     public function new() this = new stdgo._internal.runtime.Runtime_t_ancestorinfo.T_ancestorInfo();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_rwmutex_static_extension) @:dox(hide) abstract T_rwmutex(stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex) from stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex to stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex {
+@:structInit @:using(T_rwmutex_static_extension) @:dox(hide) abstract T_rwmutex(stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex) from stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex to stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex {
     public function new() this = new stdgo._internal.runtime.Runtime_t_rwmutex.T_rwmutex();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_scase_static_extension) @:dox(hide) abstract T_scase(stdgo._internal.runtime.Runtime_t_scase.T_scase) from stdgo._internal.runtime.Runtime_t_scase.T_scase to stdgo._internal.runtime.Runtime_t_scase.T_scase {
+@:structInit @:using(T_scase_static_extension) @:dox(hide) abstract T_scase(stdgo._internal.runtime.Runtime_t_scase.T_scase) from stdgo._internal.runtime.Runtime_t_scase.T_scase to stdgo._internal.runtime.Runtime_t_scase.T_scase {
     public function new() this = new stdgo._internal.runtime.Runtime_t_scase.T_scase();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_runtimeSelect_static_extension) @:dox(hide) abstract T_runtimeSelect(stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect) from stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect to stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect {
+@:structInit @:using(T_runtimeSelect_static_extension) @:dox(hide) abstract T_runtimeSelect(stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect) from stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect to stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect {
     public function new() this = new stdgo._internal.runtime.Runtime_t_runtimeselect.T_runtimeSelect();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_semaRoot_static_extension) @:dox(hide) abstract T_semaRoot(stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot) from stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot to stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot {
+@:structInit @:using(T_semaRoot_static_extension) @:dox(hide) abstract T_semaRoot(stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot) from stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot to stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot {
     public function new() this = new stdgo._internal.runtime.Runtime_t_semaroot.T_semaRoot();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_notifyList_static_extension) @:dox(hide) abstract T_notifyList(stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList) from stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList to stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList {
+@:structInit @:using(T_notifyList_static_extension) @:dox(hide) abstract T_notifyList(stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList) from stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList to stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList {
     public function new() this = new stdgo._internal.runtime.Runtime_t_notifylist.T_notifyList();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_slice_static_extension) @:dox(hide) abstract T_slice(stdgo._internal.runtime.Runtime_t_slice.T_slice) from stdgo._internal.runtime.Runtime_t_slice.T_slice to stdgo._internal.runtime.Runtime_t_slice.T_slice {
+@:structInit @:using(T_slice_static_extension) @:dox(hide) abstract T_slice(stdgo._internal.runtime.Runtime_t_slice.T_slice) from stdgo._internal.runtime.Runtime_t_slice.T_slice to stdgo._internal.runtime.Runtime_t_slice.T_slice {
     public function new() this = new stdgo._internal.runtime.Runtime_t_slice.T_slice();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_notInHeapSlice_static_extension) @:dox(hide) abstract T_notInHeapSlice(stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice) from stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice to stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice {
+@:structInit @:using(T_notInHeapSlice_static_extension) @:dox(hide) abstract T_notInHeapSlice(stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice) from stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice to stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice {
     public function new() this = new stdgo._internal.runtime.Runtime_t_notinheapslice.T_notInHeapSlice();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackpoolItem_static_extension) @:dox(hide) abstract T_stackpoolItem(stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem) from stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem to stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem {
+@:structInit @:using(T_stackpoolItem_static_extension) @:dox(hide) abstract T_stackpoolItem(stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem) from stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem to stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackpoolitem.T_stackpoolItem();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_adjustinfo_static_extension) @:dox(hide) abstract T_adjustinfo(stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo) from stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo to stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo {
+@:structInit @:using(T_adjustinfo_static_extension) @:dox(hide) abstract T_adjustinfo(stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo) from stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo to stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo {
     public function new() this = new stdgo._internal.runtime.Runtime_t_adjustinfo.T_adjustinfo();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_bitvector_static_extension) @:dox(hide) abstract T_bitvector(stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector) from stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector to stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector {
+@:structInit @:using(T_bitvector_static_extension) @:dox(hide) abstract T_bitvector(stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector) from stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector to stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector {
     public function new() this = new stdgo._internal.runtime.Runtime_t_bitvector.T_bitvector();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackObjectRecord_static_extension) @:dox(hide) abstract T_stackObjectRecord(stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord) from stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord to stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord {
+@:structInit @:using(T_stackObjectRecord_static_extension) @:dox(hide) abstract T_stackObjectRecord(stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord) from stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord to stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackobjectrecord.T_stackObjectRecord();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stkframe_static_extension) @:dox(hide) abstract T_stkframe(stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe) from stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe to stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe {
+@:structInit @:using(T_stkframe_static_extension) @:dox(hide) abstract T_stkframe(stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe) from stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe to stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stkframe.T_stkframe();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_reflectMethodValue_static_extension) @:dox(hide) abstract T_reflectMethodValue(stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue) from stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue to stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue {
+@:structInit @:using(T_reflectMethodValue_static_extension) @:dox(hide) abstract T_reflectMethodValue(stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue) from stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue to stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue {
     public function new() this = new stdgo._internal.runtime.Runtime_t_reflectmethodvalue.T_reflectMethodValue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stringStruct_static_extension) @:dox(hide) abstract T_stringStruct(stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct) from stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct to stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct {
+@:structInit @:using(T_stringStruct_static_extension) @:dox(hide) abstract T_stringStruct(stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct) from stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct to stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stringstruct.T_stringStruct();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stringStructDWARF_static_extension) @:dox(hide) abstract T_stringStructDWARF(stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF) from stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF to stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF {
+@:structInit @:using(T_stringStructDWARF_static_extension) @:dox(hide) abstract T_stringStructDWARF(stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF) from stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF to stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stringstructdwarf.T_stringStructDWARF();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_neverCallThisFunction_static_extension) @:dox(hide) abstract T_neverCallThisFunction(stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction) from stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction to stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction {
+@:structInit @:using(T_neverCallThisFunction_static_extension) @:dox(hide) abstract T_neverCallThisFunction(stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction) from stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction to stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction {
     public function new() this = new stdgo._internal.runtime.Runtime_t_nevercallthisfunction.T_neverCallThisFunction();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.Frames_static_extension) abstract Frames(stdgo._internal.runtime.Runtime_frames.Frames) from stdgo._internal.runtime.Runtime_frames.Frames to stdgo._internal.runtime.Runtime_frames.Frames {
+@:structInit @:using(Frames_static_extension) abstract Frames(stdgo._internal.runtime.Runtime_frames.Frames) from stdgo._internal.runtime.Runtime_frames.Frames to stdgo._internal.runtime.Runtime_frames.Frames {
     public function new() this = new stdgo._internal.runtime.Runtime_frames.Frames();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.Frame_static_extension) abstract Frame(stdgo._internal.runtime.Runtime_frame.Frame) from stdgo._internal.runtime.Runtime_frame.Frame to stdgo._internal.runtime.Runtime_frame.Frame {
+@:structInit @:using(Frame_static_extension) abstract Frame(stdgo._internal.runtime.Runtime_frame.Frame) from stdgo._internal.runtime.Runtime_frame.Frame to stdgo._internal.runtime.Runtime_frame.Frame {
     public var pC(get, set) : stdgo.GoUIntptr;
     function get_pC():stdgo.GoUIntptr return this.pC;
     function set_pC(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -1929,17 +1961,17 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.Func_static_extension) abstract Func(stdgo._internal.runtime.Runtime_func.Func) from stdgo._internal.runtime.Runtime_func.Func to stdgo._internal.runtime.Runtime_func.Func {
+@:structInit @:using(Func_static_extension) abstract Func(stdgo._internal.runtime.Runtime_func.Func) from stdgo._internal.runtime.Runtime_func.Func to stdgo._internal.runtime.Runtime_func.Func {
     public function new() this = new stdgo._internal.runtime.Runtime_func.Func();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pcHeader_static_extension) @:dox(hide) abstract T_pcHeader(stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader) from stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader to stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader {
+@:structInit @:using(T_pcHeader_static_extension) @:dox(hide) abstract T_pcHeader(stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader) from stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader to stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pcheader.T_pcHeader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_moduledata_static_extension) @:dox(hide) abstract T_moduledata(stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata) from stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata to stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata {
+@:structInit @:using(T_moduledata_static_extension) @:dox(hide) abstract T_moduledata(stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata) from stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata to stdgo._internal.runtime.Runtime_t_moduledata.T_moduledata {
     public var notInHeap(get, set) : stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap;
     function get_notInHeap():stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap return this.notInHeap;
     function set_notInHeap(v:stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap):stdgo._internal.runtime.internal.sys.Sys_notinheap.NotInHeap {
@@ -1950,112 +1982,112 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_modulehash_static_extension) @:dox(hide) abstract T_modulehash(stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash) from stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash to stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash {
+@:structInit @:using(T_modulehash_static_extension) @:dox(hide) abstract T_modulehash(stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash) from stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash to stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash {
     public function new() this = new stdgo._internal.runtime.Runtime_t_modulehash.T_modulehash();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_functab_static_extension) @:dox(hide) abstract T_functab(stdgo._internal.runtime.Runtime_t_functab.T_functab) from stdgo._internal.runtime.Runtime_t_functab.T_functab to stdgo._internal.runtime.Runtime_t_functab.T_functab {
+@:structInit @:using(T_functab_static_extension) @:dox(hide) abstract T_functab(stdgo._internal.runtime.Runtime_t_functab.T_functab) from stdgo._internal.runtime.Runtime_t_functab.T_functab to stdgo._internal.runtime.Runtime_t_functab.T_functab {
     public function new() this = new stdgo._internal.runtime.Runtime_t_functab.T_functab();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_textsect_static_extension) @:dox(hide) abstract T_textsect(stdgo._internal.runtime.Runtime_t_textsect.T_textsect) from stdgo._internal.runtime.Runtime_t_textsect.T_textsect to stdgo._internal.runtime.Runtime_t_textsect.T_textsect {
+@:structInit @:using(T_textsect_static_extension) @:dox(hide) abstract T_textsect(stdgo._internal.runtime.Runtime_t_textsect.T_textsect) from stdgo._internal.runtime.Runtime_t_textsect.T_textsect to stdgo._internal.runtime.Runtime_t_textsect.T_textsect {
     public function new() this = new stdgo._internal.runtime.Runtime_t_textsect.T_textsect();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_findfuncbucket_static_extension) @:dox(hide) abstract T_findfuncbucket(stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket) from stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket to stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket {
+@:structInit @:using(T_findfuncbucket_static_extension) @:dox(hide) abstract T_findfuncbucket(stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket) from stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket to stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket {
     public function new() this = new stdgo._internal.runtime.Runtime_t_findfuncbucket.T_findfuncbucket();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_funcInfo_static_extension) @:dox(hide) abstract T_funcInfo(stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo) from stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo to stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo {
+@:structInit @:using(T_funcInfo_static_extension) @:dox(hide) abstract T_funcInfo(stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo) from stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo to stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo {
     public function new() this = new stdgo._internal.runtime.Runtime_t_funcinfo.T_funcInfo();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_srcFunc_static_extension) @:dox(hide) abstract T_srcFunc(stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc) from stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc to stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc {
+@:structInit @:using(T_srcFunc_static_extension) @:dox(hide) abstract T_srcFunc(stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc) from stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc to stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_srcfunc.T_srcFunc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pcvalueCache_static_extension) @:dox(hide) abstract T_pcvalueCache(stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache) from stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache to stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache {
+@:structInit @:using(T_pcvalueCache_static_extension) @:dox(hide) abstract T_pcvalueCache(stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache) from stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache to stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pcvaluecache.T_pcvalueCache();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pcvalueCacheEnt_static_extension) @:dox(hide) abstract T_pcvalueCacheEnt(stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt) from stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt to stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt {
+@:structInit @:using(T_pcvalueCacheEnt_static_extension) @:dox(hide) abstract T_pcvalueCacheEnt(stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt) from stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt to stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt {
     public function new() this = new stdgo._internal.runtime.Runtime_t_pcvaluecacheent.T_pcvalueCacheEnt();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_stackmap_static_extension) @:dox(hide) abstract T_stackmap(stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap) from stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap to stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap {
+@:structInit @:using(T_stackmap_static_extension) @:dox(hide) abstract T_stackmap(stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap) from stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap to stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap {
     public function new() this = new stdgo._internal.runtime.Runtime_t_stackmap.T_stackmap();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_inlinedCall_static_extension) @:dox(hide) abstract T_inlinedCall(stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall) from stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall to stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall {
+@:structInit @:using(T_inlinedCall_static_extension) @:dox(hide) abstract T_inlinedCall(stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall) from stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall to stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall {
     public function new() this = new stdgo._internal.runtime.Runtime_t_inlinedcall.T_inlinedCall();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_inlineUnwinder_static_extension) @:dox(hide) abstract T_inlineUnwinder(stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder) from stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder to stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder {
+@:structInit @:using(T_inlineUnwinder_static_extension) @:dox(hide) abstract T_inlineUnwinder(stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder) from stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder to stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder {
     public function new() this = new stdgo._internal.runtime.Runtime_t_inlineunwinder.T_inlineUnwinder();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_inlineFrame_static_extension) @:dox(hide) abstract T_inlineFrame(stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame) from stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame to stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame {
+@:structInit @:using(T_inlineFrame_static_extension) @:dox(hide) abstract T_inlineFrame(stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame) from stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame to stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame {
     public function new() this = new stdgo._internal.runtime.Runtime_t_inlineframe.T_inlineFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_m0Stack_static_extension) @:dox(hide) abstract T_m0Stack(stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack) from stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack to stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack {
+@:structInit @:using(T_m0Stack_static_extension) @:dox(hide) abstract T_m0Stack(stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack) from stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack to stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack {
     public function new() this = new stdgo._internal.runtime.Runtime_t_m0stack.T_m0Stack();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_timer_static_extension) @:dox(hide) abstract T_timer(stdgo._internal.runtime.Runtime_t_timer.T_timer) from stdgo._internal.runtime.Runtime_t_timer.T_timer to stdgo._internal.runtime.Runtime_t_timer.T_timer {
+@:structInit @:using(T_timer_static_extension) @:dox(hide) abstract T_timer(stdgo._internal.runtime.Runtime_t_timer.T_timer) from stdgo._internal.runtime.Runtime_t_timer.T_timer to stdgo._internal.runtime.Runtime_t_timer.T_timer {
     public function new() this = new stdgo._internal.runtime.Runtime_t_timer.T_timer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_gTraceState_static_extension) @:dox(hide) abstract T_gTraceState(stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState) from stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState to stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState {
+@:structInit @:using(T_gTraceState_static_extension) @:dox(hide) abstract T_gTraceState(stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState) from stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState to stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_gtracestate.T_gTraceState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_mTraceState_static_extension) @:dox(hide) abstract T_mTraceState(stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState) from stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState to stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState {
+@:structInit @:using(T_mTraceState_static_extension) @:dox(hide) abstract T_mTraceState(stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState) from stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState to stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_mtracestate.T_mTraceState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_pTraceState_static_extension) @:dox(hide) abstract T_pTraceState(stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState) from stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState to stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState {
+@:structInit @:using(T_pTraceState_static_extension) @:dox(hide) abstract T_pTraceState(stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState) from stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState to stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState {
     public function new() this = new stdgo._internal.runtime.Runtime_t_ptracestate.T_pTraceState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceBufHeader_static_extension) @:dox(hide) abstract T_traceBufHeader(stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader) from stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader to stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader {
+@:structInit @:using(T_traceBufHeader_static_extension) @:dox(hide) abstract T_traceBufHeader(stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader) from stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader to stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracebufheader.T_traceBufHeader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceBuf_static_extension) @:dox(hide) abstract T_traceBuf(stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf) from stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf to stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf {
+@:structInit @:using(T_traceBuf_static_extension) @:dox(hide) abstract T_traceBuf(stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf) from stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf to stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracebuf.T_traceBuf();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceStackTable_static_extension) @:dox(hide) abstract T_traceStackTable(stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable) from stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable to stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable {
+@:structInit @:using(T_traceStackTable_static_extension) @:dox(hide) abstract T_traceStackTable(stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable) from stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable to stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracestacktable.T_traceStackTable();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceStack_static_extension) @:dox(hide) abstract T_traceStack(stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack) from stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack to stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack {
+@:structInit @:using(T_traceStack_static_extension) @:dox(hide) abstract T_traceStack(stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack) from stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack to stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracestack.T_traceStack();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceFrame_static_extension) @:dox(hide) abstract T_traceFrame(stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame) from stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame to stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame {
+@:structInit @:using(T_traceFrame_static_extension) @:dox(hide) abstract T_traceFrame(stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame) from stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame to stdgo._internal.runtime.Runtime_t_traceframe.T_traceFrame {
     public var pC(get, set) : stdgo.GoUIntptr;
     function get_pC():stdgo.GoUIntptr return this.pC;
     function set_pC(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -2066,37 +2098,37 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceAlloc_static_extension) @:dox(hide) abstract T_traceAlloc(stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc) from stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc to stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc {
+@:structInit @:using(T_traceAlloc_static_extension) @:dox(hide) abstract T_traceAlloc(stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc) from stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc to stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc {
     public function new() this = new stdgo._internal.runtime.Runtime_t_tracealloc.T_traceAlloc();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_traceAllocBlock_static_extension) @:dox(hide) abstract T_traceAllocBlock(stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock) from stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock to stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock {
+@:structInit @:using(T_traceAllocBlock_static_extension) @:dox(hide) abstract T_traceAllocBlock(stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock) from stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock to stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock {
     public function new() this = new stdgo._internal.runtime.Runtime_t_traceallocblock.T_traceAllocBlock();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_unwinder_static_extension) @:dox(hide) abstract T_unwinder(stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder) from stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder to stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder {
+@:structInit @:using(T_unwinder_static_extension) @:dox(hide) abstract T_unwinder(stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder) from stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder to stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder {
     public function new() this = new stdgo._internal.runtime.Runtime_t_unwinder.T_unwinder();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cgoTracebackArg_static_extension) @:dox(hide) abstract T_cgoTracebackArg(stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg) from stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg to stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg {
+@:structInit @:using(T_cgoTracebackArg_static_extension) @:dox(hide) abstract T_cgoTracebackArg(stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg) from stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg to stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cgotracebackarg.T_cgoTracebackArg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cgoContextArg_static_extension) @:dox(hide) abstract T_cgoContextArg(stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg) from stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg to stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg {
+@:structInit @:using(T_cgoContextArg_static_extension) @:dox(hide) abstract T_cgoContextArg(stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg) from stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg to stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cgocontextarg.T_cgoContextArg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_cgoSymbolizerArg_static_extension) @:dox(hide) abstract T_cgoSymbolizerArg(stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg) from stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg to stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg {
+@:structInit @:using(T_cgoSymbolizerArg_static_extension) @:dox(hide) abstract T_cgoSymbolizerArg(stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg) from stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg to stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg {
     public function new() this = new stdgo._internal.runtime.Runtime_t_cgosymbolizerarg.T_cgoSymbolizerArg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.runtime.Runtime_t_rtype.T_rtype) from stdgo._internal.runtime.Runtime_t_rtype.T_rtype to stdgo._internal.runtime.Runtime_t_rtype.T_rtype {
+@:structInit @:using(T_rtype_static_extension) @:dox(hide) abstract T_rtype(stdgo._internal.runtime.Runtime_t_rtype.T_rtype) from stdgo._internal.runtime.Runtime_t_rtype.T_rtype to stdgo._internal.runtime.Runtime_t_rtype.T_rtype {
     public var type(get, set) : stdgo._internal.internal.abi.Abi_type_.Type_;
     function get_type():stdgo._internal.internal.abi.Abi_type_.Type_ return this.type;
     function set_type(v:stdgo._internal.internal.abi.Abi_type_.Type_):stdgo._internal.internal.abi.Abi_type_.Type_ {
@@ -2107,7 +2139,7 @@ debugGC,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.Runtime.T__typePair_static_extension) @:dox(hide) abstract T__typePair(stdgo._internal.runtime.Runtime_t__typepair.T__typePair) from stdgo._internal.runtime.Runtime_t__typepair.T__typePair to stdgo._internal.runtime.Runtime_t__typepair.T__typePair {
+@:structInit @:using(T__typePair_static_extension) @:dox(hide) abstract T__typePair(stdgo._internal.runtime.Runtime_t__typepair.T__typePair) from stdgo._internal.runtime.Runtime_t__typepair.T__typePair to stdgo._internal.runtime.Runtime_t__typepair.T__typePair {
     public function new() this = new stdgo._internal.runtime.Runtime_t__typepair.T__typePair();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -5039,12 +5071,24 @@ class Runtime {
     static public inline function blockOnSystemStack():Void {
         stdgo._internal.runtime.Runtime_blockonsystemstack.blockOnSystemStack();
     }
-    static public inline function mapBucketsCount(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):StdTypes.Int {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapBucketsCount(_m:Map<StdTypes.Int, StdTypes.Int>):StdTypes.Int {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_mapbucketscount.mapBucketsCount(_m);
     }
-    static public inline function mapBucketsPointerIsNil(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):Bool {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapBucketsPointerIsNil(_m:Map<StdTypes.Int, StdTypes.Int>):Bool {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_mapbucketspointerisnil.mapBucketsPointerIsNil(_m);
     }
     static public inline function lockOSCounts():stdgo.Tuple<std.UInt, std.UInt> {
@@ -5103,8 +5147,14 @@ class Runtime {
     static public inline function g0StackOverflow():Void {
         stdgo._internal.runtime.Runtime_g0stackoverflow.g0StackOverflow();
     }
-    static public inline function mapTombstoneCheck(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):Void {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapTombstoneCheck(_m:Map<StdTypes.Int, StdTypes.Int>):Void {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         stdgo._internal.runtime.Runtime_maptombstonecheck.mapTombstoneCheck(_m);
     }
     static public inline function runGetgThreadSwitchTest():Void {
@@ -5212,9 +5262,21 @@ class Runtime {
         * chunk index in scav must appear in chunks; ones that do not are
         * ignored.
     **/
-    static public inline function newPageAlloc(_chunks:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>, _scav:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>):PageAlloc {
-        final _chunks = (_chunks : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
-        final _scav = (_scav : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
+    static public inline function newPageAlloc(_chunks:Map<ChunkIdx, Array<BitRange>>, _scav:Map<ChunkIdx, Array<BitRange>>):PageAlloc {
+        final _chunks = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>();
+            for (key => value in _chunks) {
+                __obj__[key] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>);
+            };
+            __obj__;
+        };
+        final _scav = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>();
+            for (key => value in _scav) {
+                __obj__[key] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_newpagealloc.newPageAlloc(_chunks, _scav);
     }
     /**

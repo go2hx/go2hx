@@ -1,5 +1,5 @@
 package stdgo.testing.fstest;
-@:structInit @:using(stdgo.testing.fstest.Fstest.MapFile_static_extension) abstract MapFile(stdgo._internal.testing.fstest.Fstest_mapfile.MapFile) from stdgo._internal.testing.fstest.Fstest_mapfile.MapFile to stdgo._internal.testing.fstest.Fstest_mapfile.MapFile {
+@:structInit @:using(Fstest.MapFile_static_extension) abstract MapFile(stdgo._internal.testing.fstest.Fstest_mapfile.MapFile) from stdgo._internal.testing.fstest.Fstest_mapfile.MapFile to stdgo._internal.testing.fstest.Fstest_mapfile.MapFile {
     public var data(get, set) : Array<std.UInt>;
     function get_data():Array<std.UInt> return [for (i in this.data) i];
     function set_data(v:Array<std.UInt>):Array<std.UInt> {
@@ -28,7 +28,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) @:dox(hide) abstract T_fsOnly(stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly) from stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly to stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly {
+@:structInit @:using(Fstest.T_fsOnly_static_extension) @:dox(hide) abstract T_fsOnly(stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly) from stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly to stdgo._internal.testing.fstest.Fstest_t_fsonly.T_fsOnly {
     public var fS(get, set) : stdgo._internal.io.fs.Fs_fs.FS;
     function get_fS():stdgo._internal.io.fs.Fs_fs.FS return this.fS;
     function set_fS(v:stdgo._internal.io.fs.Fs_fs.FS):stdgo._internal.io.fs.Fs_fs.FS {
@@ -39,7 +39,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) @:dox(hide) abstract T_noSub(stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub) from stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub to stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub {
+@:structInit @:using(Fstest.T_noSub_static_extension) @:dox(hide) abstract T_noSub(stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub) from stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub to stdgo._internal.testing.fstest.Fstest_t_nosub.T_noSub {
     public var mapFS(get, set) : MapFS;
     function get_mapFS():MapFS return this.mapFS;
     function set_mapFS(v:MapFS):MapFS {
@@ -50,7 +50,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) @:dox(hide) abstract T_mapFileInfo(stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo) from stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo to stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo {
+@:structInit @:using(Fstest.T_mapFileInfo_static_extension) @:dox(hide) abstract T_mapFileInfo(stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo) from stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo to stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -67,7 +67,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) @:dox(hide) abstract T_openMapFile(stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile) from stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile to stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile {
+@:structInit @:using(Fstest.T_openMapFile_static_extension) @:dox(hide) abstract T_openMapFile(stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile) from stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile to stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -90,7 +90,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) @:dox(hide) abstract T_mapDir(stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir) from stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir to stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir {
+@:structInit @:using(Fstest.T_mapDir_static_extension) @:dox(hide) abstract T_mapDir(stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir) from stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir to stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -119,7 +119,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) @:dox(hide) abstract T_fsTester(stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester) from stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester to stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester {
+@:structInit @:using(Fstest.T_fsTester_static_extension) @:dox(hide) abstract T_fsTester(stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester) from stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester to stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester {
     public var _fsys(get, set) : stdgo._internal.io.fs.Fs_fs.FS;
     function get__fsys():stdgo._internal.io.fs.Fs_fs.FS return this._fsys;
     function set__fsys(v:stdgo._internal.io.fs.Fs_fs.FS):stdgo._internal.io.fs.Fs_fs.FS {
@@ -148,7 +148,7 @@ package stdgo.testing.fstest;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_shuffledFile_static_extension) @:dox(hide) abstract T_shuffledFile(stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile) from stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile to stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile {
+@:structInit @:using(Fstest.T_shuffledFile_static_extension) @:dox(hide) abstract T_shuffledFile(stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile) from stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile to stdgo._internal.testing.fstest.Fstest_t_shuffledfile.T_shuffledFile {
     public var file(get, set) : stdgo._internal.io.fs.Fs_file.File;
     function get_file():stdgo._internal.io.fs.Fs_file.File return this.file;
     function set_file(v:stdgo._internal.io.fs.Fs_file.File):stdgo._internal.io.fs.Fs_file.File {
@@ -390,7 +390,7 @@ class MapFile_static_extension {
 }
 @:dox(hide) typedef T_fsTesterPointer = stdgo._internal.testing.fstest.Fstest_t_fstesterpointer.T_fsTesterPointer;
 @:dox(hide) class T_fsTester_static_extension {
-    static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:stdgo.GoString -> stdgo.Error):Void {
+    static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:String -> stdgo.Error):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester>);
         final _file = (_file : stdgo.GoString);
         final _desc = (_desc : stdgo.GoString);

@@ -9,7 +9,7 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
         stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.Parameters_static_extension) abstract Parameters(stdgo._internal.crypto.dsa.Dsa_parameters.Parameters) from stdgo._internal.crypto.dsa.Dsa_parameters.Parameters to stdgo._internal.crypto.dsa.Dsa_parameters.Parameters {
+@:structInit @:using(Dsa.Parameters_static_extension) abstract Parameters(stdgo._internal.crypto.dsa.Dsa_parameters.Parameters) from stdgo._internal.crypto.dsa.Dsa_parameters.Parameters to stdgo._internal.crypto.dsa.Dsa_parameters.Parameters {
     public var p(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_p():stdgo._internal.math.big.Big_int_.Int_ return this.p;
     function set_p(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
@@ -32,7 +32,7 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey) from stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey to stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey {
+@:structInit @:using(Dsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey) from stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey to stdgo._internal.crypto.dsa.Dsa_publickey.PublicKey {
     public var parameters(get, set) : Parameters;
     function get_parameters():Parameters return this.parameters;
     function set_parameters(v:Parameters):Parameters {
@@ -49,7 +49,7 @@ private function set_errInvalidPublicKey(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.dsa.Dsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey) from stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey to stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey {
+@:structInit @:using(Dsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey) from stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey to stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey {
     public var publicKey(get, set) : PublicKey;
     function get_publicKey():PublicKey return this.publicKey;
     function set_publicKey(v:PublicKey):PublicKey {

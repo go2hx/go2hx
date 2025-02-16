@@ -1,28 +1,82 @@
 package stdgo.internal.dag;
-@:structInit @:using(stdgo.internal.dag.Dag.Graph_static_extension) abstract Graph(stdgo._internal.internal.dag.Dag_graph.Graph) from stdgo._internal.internal.dag.Dag_graph.Graph to stdgo._internal.internal.dag.Dag_graph.Graph {
+@:structInit @:using(Dag.Graph_static_extension) abstract Graph(stdgo._internal.internal.dag.Dag_graph.Graph) from stdgo._internal.internal.dag.Dag_graph.Graph to stdgo._internal.internal.dag.Dag_graph.Graph {
     public var nodes(get, set) : Array<String>;
     function get_nodes():Array<String> return [for (i in this.nodes) i];
     function set_nodes(v:Array<String>):Array<String> {
         this.nodes = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _byLabel(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get__byLabel():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this._byLabel;
-    function set__byLabel(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this._byLabel = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var _byLabel(get, set) : Map<String, StdTypes.Int>;
+    function get__byLabel():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this._byLabel) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__byLabel(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this._byLabel = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _edges(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>;
-    function get__edges():stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>> return this._edges;
-    function set__edges(v:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>):stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>> {
-        this._edges = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>);
+    public var _edges(get, set) : Map<String, Map<String, Bool>>;
+    function get__edges():Map<String, Map<String, Bool>> return {
+        final __obj__:Map<String, Map<String, Bool>> = [];
+        for (key => value in this._edges) {
+            __obj__[key] = {
+                final __obj__:Map<String, Bool> = [];
+                for (key => value in value) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    };
+    function set__edges(v:Map<String, Map<String, Bool>>):Map<String, Map<String, Bool>> {
+        this._edges = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = {
+                    final __obj__ = new stdgo.GoMap<stdgo.GoString, Bool>();
+                    for (key => value in value) {
+                        __obj__[(key : stdgo.GoString)] = value;
+                    };
+                    __obj__;
+                };
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?nodes:Array<String>, ?_byLabel:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?_edges:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>) this = new stdgo._internal.internal.dag.Dag_graph.Graph(([for (i in nodes) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), (_byLabel : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), (_edges : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>));
+    public function new(?nodes:Array<String>, ?_byLabel:Map<String, StdTypes.Int>, ?_edges:Map<String, Map<String, Bool>>) this = new stdgo._internal.internal.dag.Dag_graph.Graph(([for (i in nodes) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in _byLabel) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, Bool>>();
+        for (key => value in _edges) {
+            __obj__[(key : stdgo.GoString)] = {
+                final __obj__ = new stdgo.GoMap<stdgo.GoString, Bool>();
+                for (key => value in value) {
+                    __obj__[(key : stdgo.GoString)] = value;
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.dag.Dag.T_rule_static_extension) @:dox(hide) abstract T_rule(stdgo._internal.internal.dag.Dag_t_rule.T_rule) from stdgo._internal.internal.dag.Dag_t_rule.T_rule to stdgo._internal.internal.dag.Dag_t_rule.T_rule {
+@:structInit @:using(Dag.T_rule_static_extension) @:dox(hide) abstract T_rule(stdgo._internal.internal.dag.Dag_t_rule.T_rule) from stdgo._internal.internal.dag.Dag_t_rule.T_rule to stdgo._internal.internal.dag.Dag_t_rule.T_rule {
     public var _less(get, set) : Array<String>;
     function get__less():Array<String> return [for (i in this._less) i];
     function set__less(v:Array<String>):Array<String> {
@@ -45,7 +99,7 @@ package stdgo.internal.dag;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.dag.Dag.T_rulesParser_static_extension) @:dox(hide) abstract T_rulesParser(stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser) from stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser to stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser {
+@:structInit @:using(Dag.T_rulesParser_static_extension) @:dox(hide) abstract T_rulesParser(stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser) from stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser to stdgo._internal.internal.dag.Dag_t_rulesparser.T_rulesParser {
     public var _lineno(get, set) : StdTypes.Int;
     function get__lineno():StdTypes.Int return this._lineno;
     function set__lineno(v:StdTypes.Int):StdTypes.Int {

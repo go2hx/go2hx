@@ -1,5 +1,5 @@
 package stdgo.internal.goroot;
-@:structInit @:using(stdgo.internal.goroot.Goroot.T_gccgoDirs_static_extension) @:dox(hide) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs {
+@:structInit @:using(Goroot.T_gccgoDirs_static_extension) @:dox(hide) abstract T_gccgoDirs(stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs) from stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs to stdgo._internal.internal.goroot.Goroot_t_gccgodirs.T_gccgoDirs {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {

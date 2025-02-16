@@ -43,8 +43,16 @@ class Node_static_extension {
         return stdgo._internal.text.template.parse.Parse_node_static_extension.Node_static_extension.type(t);
     }
 }
-typedef Node = stdgo._internal.text.template.parse.Parse_node.Node;
-@:structInit @:using(stdgo.text.template.parse.Parse.T_item_static_extension) @:dox(hide) abstract T_item(stdgo._internal.text.template.parse.Parse_t_item.T_item) from stdgo._internal.text.template.parse.Parse_t_item.T_item to stdgo._internal.text.template.parse.Parse_t_item.T_item {
+@:forward abstract Node(stdgo._internal.text.template.parse.Parse_node.Node) from stdgo._internal.text.template.parse.Parse_node.Node to stdgo._internal.text.template.parse.Parse_node.Node {
+    @:from
+    static function fromHaxeInterface(x:{ function type():NodeType; function string():String; function copy():Node; function position():Pos; function _tree():Tree; function _writeTo(_0:stdgo._internal.strings.Strings_builder.Builder):Void; }):Node {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Node = { type : () -> x.type(), string : () -> x.string(), copy : () -> x.copy(), position : () -> x.position(), _tree : () -> x._tree(), _writeTo : _0 -> x._writeTo(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(parse.Parse.T_item_static_extension) @:dox(hide) abstract T_item(stdgo._internal.text.template.parse.Parse_t_item.T_item) from stdgo._internal.text.template.parse.Parse_t_item.T_item to stdgo._internal.text.template.parse.Parse_t_item.T_item {
     public var _typ(get, set) : T_itemType;
     function get__typ():T_itemType return this._typ;
     function set__typ(v:T_itemType):T_itemType {
@@ -73,7 +81,7 @@ typedef Node = stdgo._internal.text.template.parse.Parse_node.Node;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.T_lexer_static_extension) @:dox(hide) abstract T_lexer(stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer) from stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer to stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer {
+@:structInit @:using(parse.Parse.T_lexer_static_extension) @:dox(hide) abstract T_lexer(stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer) from stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer to stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -169,7 +177,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.T_lexOptions_static_extension) @:dox(hide) abstract T_lexOptions(stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions) from stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions to stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions {
+@:structInit @:using(parse.Parse.T_lexOptions_static_extension) @:dox(hide) abstract T_lexOptions(stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions) from stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions to stdgo._internal.text.template.parse.Parse_t_lexoptions.T_lexOptions {
     public var _emitComment(get, set) : Bool;
     function get__emitComment():Bool return this._emitComment;
     function set__emitComment(v:Bool):Bool {
@@ -192,7 +200,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.ListNode_static_extension) abstract ListNode(stdgo._internal.text.template.parse.Parse_listnode.ListNode) from stdgo._internal.text.template.parse.Parse_listnode.ListNode to stdgo._internal.text.template.parse.Parse_listnode.ListNode {
+@:structInit @:using(parse.Parse.ListNode_static_extension) abstract ListNode(stdgo._internal.text.template.parse.Parse_listnode.ListNode) from stdgo._internal.text.template.parse.Parse_listnode.ListNode to stdgo._internal.text.template.parse.Parse_listnode.ListNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -221,7 +229,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.TextNode_static_extension) abstract TextNode(stdgo._internal.text.template.parse.Parse_textnode.TextNode) from stdgo._internal.text.template.parse.Parse_textnode.TextNode to stdgo._internal.text.template.parse.Parse_textnode.TextNode {
+@:structInit @:using(parse.Parse.TextNode_static_extension) abstract TextNode(stdgo._internal.text.template.parse.Parse_textnode.TextNode) from stdgo._internal.text.template.parse.Parse_textnode.TextNode to stdgo._internal.text.template.parse.Parse_textnode.TextNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -250,7 +258,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.CommentNode_static_extension) abstract CommentNode(stdgo._internal.text.template.parse.Parse_commentnode.CommentNode) from stdgo._internal.text.template.parse.Parse_commentnode.CommentNode to stdgo._internal.text.template.parse.Parse_commentnode.CommentNode {
+@:structInit @:using(parse.Parse.CommentNode_static_extension) abstract CommentNode(stdgo._internal.text.template.parse.Parse_commentnode.CommentNode) from stdgo._internal.text.template.parse.Parse_commentnode.CommentNode to stdgo._internal.text.template.parse.Parse_commentnode.CommentNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -279,7 +287,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.PipeNode_static_extension) abstract PipeNode(stdgo._internal.text.template.parse.Parse_pipenode.PipeNode) from stdgo._internal.text.template.parse.Parse_pipenode.PipeNode to stdgo._internal.text.template.parse.Parse_pipenode.PipeNode {
+@:structInit @:using(parse.Parse.PipeNode_static_extension) abstract PipeNode(stdgo._internal.text.template.parse.Parse_pipenode.PipeNode) from stdgo._internal.text.template.parse.Parse_pipenode.PipeNode to stdgo._internal.text.template.parse.Parse_pipenode.PipeNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -326,7 +334,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.ActionNode_static_extension) abstract ActionNode(stdgo._internal.text.template.parse.Parse_actionnode.ActionNode) from stdgo._internal.text.template.parse.Parse_actionnode.ActionNode to stdgo._internal.text.template.parse.Parse_actionnode.ActionNode {
+@:structInit @:using(parse.Parse.ActionNode_static_extension) abstract ActionNode(stdgo._internal.text.template.parse.Parse_actionnode.ActionNode) from stdgo._internal.text.template.parse.Parse_actionnode.ActionNode to stdgo._internal.text.template.parse.Parse_actionnode.ActionNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -361,7 +369,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.CommandNode_static_extension) abstract CommandNode(stdgo._internal.text.template.parse.Parse_commandnode.CommandNode) from stdgo._internal.text.template.parse.Parse_commandnode.CommandNode to stdgo._internal.text.template.parse.Parse_commandnode.CommandNode {
+@:structInit @:using(parse.Parse.CommandNode_static_extension) abstract CommandNode(stdgo._internal.text.template.parse.Parse_commandnode.CommandNode) from stdgo._internal.text.template.parse.Parse_commandnode.CommandNode to stdgo._internal.text.template.parse.Parse_commandnode.CommandNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -390,7 +398,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.IdentifierNode_static_extension) abstract IdentifierNode(stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode) from stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode to stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode {
+@:structInit @:using(parse.Parse.IdentifierNode_static_extension) abstract IdentifierNode(stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode) from stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode to stdgo._internal.text.template.parse.Parse_identifiernode.IdentifierNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -419,7 +427,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.VariableNode_static_extension) abstract VariableNode(stdgo._internal.text.template.parse.Parse_variablenode.VariableNode) from stdgo._internal.text.template.parse.Parse_variablenode.VariableNode to stdgo._internal.text.template.parse.Parse_variablenode.VariableNode {
+@:structInit @:using(parse.Parse.VariableNode_static_extension) abstract VariableNode(stdgo._internal.text.template.parse.Parse_variablenode.VariableNode) from stdgo._internal.text.template.parse.Parse_variablenode.VariableNode to stdgo._internal.text.template.parse.Parse_variablenode.VariableNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -448,7 +456,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.DotNode_static_extension) abstract DotNode(stdgo._internal.text.template.parse.Parse_dotnode.DotNode) from stdgo._internal.text.template.parse.Parse_dotnode.DotNode to stdgo._internal.text.template.parse.Parse_dotnode.DotNode {
+@:structInit @:using(parse.Parse.DotNode_static_extension) abstract DotNode(stdgo._internal.text.template.parse.Parse_dotnode.DotNode) from stdgo._internal.text.template.parse.Parse_dotnode.DotNode to stdgo._internal.text.template.parse.Parse_dotnode.DotNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -471,7 +479,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.NilNode_static_extension) abstract NilNode(stdgo._internal.text.template.parse.Parse_nilnode.NilNode) from stdgo._internal.text.template.parse.Parse_nilnode.NilNode to stdgo._internal.text.template.parse.Parse_nilnode.NilNode {
+@:structInit @:using(parse.Parse.NilNode_static_extension) abstract NilNode(stdgo._internal.text.template.parse.Parse_nilnode.NilNode) from stdgo._internal.text.template.parse.Parse_nilnode.NilNode to stdgo._internal.text.template.parse.Parse_nilnode.NilNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -494,7 +502,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.FieldNode_static_extension) abstract FieldNode(stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode) from stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode to stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode {
+@:structInit @:using(parse.Parse.FieldNode_static_extension) abstract FieldNode(stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode) from stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode to stdgo._internal.text.template.parse.Parse_fieldnode.FieldNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -523,7 +531,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.ChainNode_static_extension) abstract ChainNode(stdgo._internal.text.template.parse.Parse_chainnode.ChainNode) from stdgo._internal.text.template.parse.Parse_chainnode.ChainNode to stdgo._internal.text.template.parse.Parse_chainnode.ChainNode {
+@:structInit @:using(parse.Parse.ChainNode_static_extension) abstract ChainNode(stdgo._internal.text.template.parse.Parse_chainnode.ChainNode) from stdgo._internal.text.template.parse.Parse_chainnode.ChainNode to stdgo._internal.text.template.parse.Parse_chainnode.ChainNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -558,7 +566,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.BoolNode_static_extension) abstract BoolNode(stdgo._internal.text.template.parse.Parse_boolnode.BoolNode) from stdgo._internal.text.template.parse.Parse_boolnode.BoolNode to stdgo._internal.text.template.parse.Parse_boolnode.BoolNode {
+@:structInit @:using(parse.Parse.BoolNode_static_extension) abstract BoolNode(stdgo._internal.text.template.parse.Parse_boolnode.BoolNode) from stdgo._internal.text.template.parse.Parse_boolnode.BoolNode to stdgo._internal.text.template.parse.Parse_boolnode.BoolNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -587,7 +595,7 @@ _options);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.NumberNode_static_extension) abstract NumberNode(stdgo._internal.text.template.parse.Parse_numbernode.NumberNode) from stdgo._internal.text.template.parse.Parse_numbernode.NumberNode to stdgo._internal.text.template.parse.Parse_numbernode.NumberNode {
+@:structInit @:using(parse.Parse.NumberNode_static_extension) abstract NumberNode(stdgo._internal.text.template.parse.Parse_numbernode.NumberNode) from stdgo._internal.text.template.parse.Parse_numbernode.NumberNode to stdgo._internal.text.template.parse.Parse_numbernode.NumberNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -676,7 +684,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.StringNode_static_extension) abstract StringNode(stdgo._internal.text.template.parse.Parse_stringnode.StringNode) from stdgo._internal.text.template.parse.Parse_stringnode.StringNode to stdgo._internal.text.template.parse.Parse_stringnode.StringNode {
+@:structInit @:using(parse.Parse.StringNode_static_extension) abstract StringNode(stdgo._internal.text.template.parse.Parse_stringnode.StringNode) from stdgo._internal.text.template.parse.Parse_stringnode.StringNode to stdgo._internal.text.template.parse.Parse_stringnode.StringNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -711,7 +719,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.T_endNode_static_extension) @:dox(hide) abstract T_endNode(stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode) from stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode to stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode {
+@:structInit @:using(parse.Parse.T_endNode_static_extension) @:dox(hide) abstract T_endNode(stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode) from stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode to stdgo._internal.text.template.parse.Parse_t_endnode.T_endNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -734,7 +742,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.T_elseNode_static_extension) @:dox(hide) abstract T_elseNode(stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode) from stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode to stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode {
+@:structInit @:using(parse.Parse.T_elseNode_static_extension) @:dox(hide) abstract T_elseNode(stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode) from stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode to stdgo._internal.text.template.parse.Parse_t_elsenode.T_elseNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -763,7 +771,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.BranchNode_static_extension) abstract BranchNode(stdgo._internal.text.template.parse.Parse_branchnode.BranchNode) from stdgo._internal.text.template.parse.Parse_branchnode.BranchNode to stdgo._internal.text.template.parse.Parse_branchnode.BranchNode {
+@:structInit @:using(parse.Parse.BranchNode_static_extension) abstract BranchNode(stdgo._internal.text.template.parse.Parse_branchnode.BranchNode) from stdgo._internal.text.template.parse.Parse_branchnode.BranchNode to stdgo._internal.text.template.parse.Parse_branchnode.BranchNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -810,7 +818,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.IfNode_static_extension) abstract IfNode(stdgo._internal.text.template.parse.Parse_ifnode.IfNode) from stdgo._internal.text.template.parse.Parse_ifnode.IfNode to stdgo._internal.text.template.parse.Parse_ifnode.IfNode {
+@:structInit @:using(parse.Parse.IfNode_static_extension) abstract IfNode(stdgo._internal.text.template.parse.Parse_ifnode.IfNode) from stdgo._internal.text.template.parse.Parse_ifnode.IfNode to stdgo._internal.text.template.parse.Parse_ifnode.IfNode {
     public var branchNode(get, set) : BranchNode;
     function get_branchNode():BranchNode return this.branchNode;
     function set_branchNode(v:BranchNode):BranchNode {
@@ -821,7 +829,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.BreakNode_static_extension) abstract BreakNode(stdgo._internal.text.template.parse.Parse_breaknode.BreakNode) from stdgo._internal.text.template.parse.Parse_breaknode.BreakNode to stdgo._internal.text.template.parse.Parse_breaknode.BreakNode {
+@:structInit @:using(parse.Parse.BreakNode_static_extension) abstract BreakNode(stdgo._internal.text.template.parse.Parse_breaknode.BreakNode) from stdgo._internal.text.template.parse.Parse_breaknode.BreakNode to stdgo._internal.text.template.parse.Parse_breaknode.BreakNode {
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
@@ -850,7 +858,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.ContinueNode_static_extension) abstract ContinueNode(stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode) from stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode to stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode {
+@:structInit @:using(parse.Parse.ContinueNode_static_extension) abstract ContinueNode(stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode) from stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode to stdgo._internal.text.template.parse.Parse_continuenode.ContinueNode {
     public var _tr(get, set) : Tree;
     function get__tr():Tree return this._tr;
     function set__tr(v:Tree):Tree {
@@ -879,7 +887,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.RangeNode_static_extension) abstract RangeNode(stdgo._internal.text.template.parse.Parse_rangenode.RangeNode) from stdgo._internal.text.template.parse.Parse_rangenode.RangeNode to stdgo._internal.text.template.parse.Parse_rangenode.RangeNode {
+@:structInit @:using(parse.Parse.RangeNode_static_extension) abstract RangeNode(stdgo._internal.text.template.parse.Parse_rangenode.RangeNode) from stdgo._internal.text.template.parse.Parse_rangenode.RangeNode to stdgo._internal.text.template.parse.Parse_rangenode.RangeNode {
     public var branchNode(get, set) : BranchNode;
     function get_branchNode():BranchNode return this.branchNode;
     function set_branchNode(v:BranchNode):BranchNode {
@@ -890,7 +898,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.WithNode_static_extension) abstract WithNode(stdgo._internal.text.template.parse.Parse_withnode.WithNode) from stdgo._internal.text.template.parse.Parse_withnode.WithNode to stdgo._internal.text.template.parse.Parse_withnode.WithNode {
+@:structInit @:using(parse.Parse.WithNode_static_extension) abstract WithNode(stdgo._internal.text.template.parse.Parse_withnode.WithNode) from stdgo._internal.text.template.parse.Parse_withnode.WithNode to stdgo._internal.text.template.parse.Parse_withnode.WithNode {
     public var branchNode(get, set) : BranchNode;
     function get_branchNode():BranchNode return this.branchNode;
     function set_branchNode(v:BranchNode):BranchNode {
@@ -901,7 +909,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.TemplateNode_static_extension) abstract TemplateNode(stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode) from stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode to stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode {
+@:structInit @:using(parse.Parse.TemplateNode_static_extension) abstract TemplateNode(stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode) from stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode to stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode {
     public var nodeType(get, set) : NodeType;
     function get_nodeType():NodeType return this.nodeType;
     function set_nodeType(v:NodeType):NodeType {
@@ -942,7 +950,7 @@ isComplex,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.template.parse.Parse.Tree_static_extension) abstract Tree(stdgo._internal.text.template.parse.Parse_tree.Tree) from stdgo._internal.text.template.parse.Parse_tree.Tree to stdgo._internal.text.template.parse.Parse_tree.Tree {
+@:structInit @:using(parse.Parse.Tree_static_extension) abstract Tree(stdgo._internal.text.template.parse.Parse_tree.Tree) from stdgo._internal.text.template.parse.Parse_tree.Tree to stdgo._internal.text.template.parse.Parse_tree.Tree {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -973,10 +981,22 @@ isComplex,
         this._text = (v : stdgo.GoString);
         return v;
     }
-    public var _funcs(get, set) : Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>;
-    function get__funcs():Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>> return [for (i in this._funcs) i];
-    function set__funcs(v:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>> {
-        this._funcs = ([for (i in v) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+    public var _funcs(get, set) : Array<Map<String, stdgo.AnyInterface>>;
+    function get__funcs():Array<Map<String, stdgo.AnyInterface>> return [for (i in this._funcs) {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in i) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    }];
+    function set__funcs(v:Array<Map<String, stdgo.AnyInterface>>):Array<Map<String, stdgo.AnyInterface>> {
+        this._funcs = ([for (i in v) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         return v;
     }
     public var _lex(get, set) : T_lexer;
@@ -1003,10 +1023,22 @@ isComplex,
         this._vars = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _treeSet(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>;
-    function get__treeSet():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> return this._treeSet;
-    function set__treeSet(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> {
-        this._treeSet = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+    public var _treeSet(get, set) : Map<String, Tree>;
+    function get__treeSet():Map<String, Tree> return {
+        final __obj__:Map<String, Tree> = [];
+        for (key => value in this._treeSet) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__treeSet(v:Map<String, Tree>):Map<String, Tree> {
+        this._treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _actionLine(get, set) : StdTypes.Int;
@@ -1021,18 +1053,30 @@ isComplex,
         this._rangeDepth = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_tree.Tree(
+    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<Map<String, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:Map<String, Tree>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_tree.Tree(
 (name : stdgo.GoString),
 (parseName : stdgo.GoString),
 (root : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>),
 mode,
 (_text : stdgo.GoString),
-([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>),
+([for (i in _funcs) {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in i) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>),
 (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>),
 ([for (i in _token) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>),
 (_peekCount : stdgo.GoInt),
 ([for (i in _vars) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
-(_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+        for (key => value in _treeSet) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+        };
+        __obj__;
+    },
 (_actionLine : stdgo.GoInt),
 (_rangeDepth : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -1897,12 +1941,18 @@ class Tree_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._add(_t);
     }
-    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
+    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:Map<String, Tree>, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);
         final _rightDelim = (_rightDelim : stdgo.GoString);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+        final _treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in _treeSet) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         return {
             final obj = stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension.parse(_t, _text, _leftDelim, _rightDelim, _treeSet, ...[for (i in _funcs) i]);
             { _0 : obj._0, _1 : obj._1 };
@@ -1912,11 +1962,23 @@ class Tree_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._stopParse(_t);
     }
-    static public function _startParse(_t:Tree, _funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):Void {
+    static public function _startParse(_t:Tree, _funcs:Array<Map<String, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:Map<String, Tree>):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
-        final _funcs = ([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        final _funcs = ([for (i in _funcs) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         final _lex = (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+        final _treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in _treeSet) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._startParse(_t, _funcs, _lex, _treeSet);
     }
     static public function _recover(_t:Tree, _errp:stdgo.Error):Void {
@@ -2153,20 +2215,26 @@ class Parse {
         * given the specified name. If an error is encountered, parsing stops and an
         * empty map is returned with the error.
     **/
-    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, stdgo.Error> {
+    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):stdgo.Tuple<Map<String, Tree>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);
         final _rightDelim = (_rightDelim : stdgo.GoString);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_parse.parse(_name, _text, _leftDelim, _rightDelim, ...[for (i in _funcs) i]);
-            { _0 : obj._0, _1 : obj._1 };
+            { _0 : {
+                final __obj__:Map<String, Tree> = [];
+                for (key => value in obj._0) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            }, _1 : obj._1 };
         };
     }
     /**
         * New allocates a new parse tree with the given name.
     **/
-    static public inline function new_(_name:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):Tree {
+    static public inline function new_(_name:String, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):Tree {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_new_.new_(_name, ...[for (i in _funcs) i]);
     }

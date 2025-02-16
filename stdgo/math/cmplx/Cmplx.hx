@@ -1,5 +1,5 @@
 package stdgo.math.cmplx;
-@:structInit @:using(stdgo.math.cmplx.Cmplx.T_ff_static_extension) @:dox(hide) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff {
+@:structInit @:using(Cmplx.T_ff_static_extension) @:dox(hide) abstract T_ff(stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff) from stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff to stdgo._internal.math.cmplx.Cmplx_t_ff.T_ff {
     public var _r(get, set) : StdTypes.Float;
     function get__r():StdTypes.Float return this._r;
     function set__r(v:StdTypes.Float):StdTypes.Float {

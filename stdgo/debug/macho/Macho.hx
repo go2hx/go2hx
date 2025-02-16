@@ -95,8 +95,16 @@ class Load_static_extension {
         return [for (i in stdgo._internal.debug.macho.Macho_load_static_extension.Load_static_extension.raw(t)) i];
     }
 }
-typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
-@:structInit @:using(stdgo.debug.macho.Macho.FatFile_static_extension) abstract FatFile(stdgo._internal.debug.macho.Macho_fatfile.FatFile) from stdgo._internal.debug.macho.Macho_fatfile.FatFile to stdgo._internal.debug.macho.Macho_fatfile.FatFile {
+@:forward abstract Load(stdgo._internal.debug.macho.Macho_load.Load) from stdgo._internal.debug.macho.Macho_load.Load to stdgo._internal.debug.macho.Macho_load.Load {
+    @:from
+    static function fromHaxeInterface(x:{ function raw():Array<std.UInt>; }):Load {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Load = { raw : () -> x.raw(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Macho.FatFile_static_extension) abstract FatFile(stdgo._internal.debug.macho.Macho_fatfile.FatFile) from stdgo._internal.debug.macho.Macho_fatfile.FatFile to stdgo._internal.debug.macho.Macho_fatfile.FatFile {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -119,7 +127,7 @@ typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FatArchHeader_static_extension) abstract FatArchHeader(stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader) from stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader to stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader {
+@:structInit @:using(Macho.FatArchHeader_static_extension) abstract FatArchHeader(stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader) from stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader to stdgo._internal.debug.macho.Macho_fatarchheader.FatArchHeader {
     public var cpu(get, set) : Cpu;
     function get_cpu():Cpu return this.cpu;
     function set_cpu(v:Cpu):Cpu {
@@ -154,7 +162,7 @@ typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FatArch_static_extension) abstract FatArch(stdgo._internal.debug.macho.Macho_fatarch.FatArch) from stdgo._internal.debug.macho.Macho_fatarch.FatArch to stdgo._internal.debug.macho.Macho_fatarch.FatArch {
+@:structInit @:using(Macho.FatArch_static_extension) abstract FatArch(stdgo._internal.debug.macho.Macho_fatarch.FatArch) from stdgo._internal.debug.macho.Macho_fatarch.FatArch to stdgo._internal.debug.macho.Macho_fatarch.FatArch {
     public var fatArchHeader(get, set) : FatArchHeader;
     function get_fatArchHeader():FatArchHeader return this.fatArchHeader;
     function set_fatArchHeader(v:FatArchHeader):FatArchHeader {
@@ -171,7 +179,7 @@ typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.File_static_extension) abstract File(stdgo._internal.debug.macho.Macho_file.File) from stdgo._internal.debug.macho.Macho_file.File to stdgo._internal.debug.macho.Macho_file.File {
+@:structInit @:using(Macho.File_static_extension) abstract File(stdgo._internal.debug.macho.Macho_file.File) from stdgo._internal.debug.macho.Macho_file.File to stdgo._internal.debug.macho.Macho_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -218,7 +226,7 @@ typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SegmentHeader_static_extension) abstract SegmentHeader(stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader) from stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader to stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader {
+@:structInit @:using(Macho.SegmentHeader_static_extension) abstract SegmentHeader(stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader) from stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader to stdgo._internal.debug.macho.Macho_segmentheader.SegmentHeader {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -300,7 +308,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment_static_extension) abstract Segment(stdgo._internal.debug.macho.Macho_segment.Segment) from stdgo._internal.debug.macho.Macho_segment.Segment to stdgo._internal.debug.macho.Macho_segment.Segment {
+@:structInit @:using(Macho.Segment_static_extension) abstract Segment(stdgo._internal.debug.macho.Macho_segment.Segment) from stdgo._internal.debug.macho.Macho_segment.Segment to stdgo._internal.debug.macho.Macho_segment.Segment {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -329,7 +337,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader) from stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader to stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader {
+@:structInit @:using(Macho.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader) from stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader to stdgo._internal.debug.macho.Macho_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -388,7 +396,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.macho.Macho_reloc.Reloc) from stdgo._internal.debug.macho.Macho_reloc.Reloc to stdgo._internal.debug.macho.Macho_reloc.Reloc {
+@:structInit @:using(Macho.Reloc_static_extension) abstract Reloc(stdgo._internal.debug.macho.Macho_reloc.Reloc) from stdgo._internal.debug.macho.Macho_reloc.Reloc to stdgo._internal.debug.macho.Macho_reloc.Reloc {
     public var addr(get, set) : std.UInt;
     function get_addr():std.UInt return this.addr;
     function set_addr(v:std.UInt):std.UInt {
@@ -435,7 +443,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section_static_extension) abstract Section(stdgo._internal.debug.macho.Macho_section.Section) from stdgo._internal.debug.macho.Macho_section.Section to stdgo._internal.debug.macho.Macho_section.Section {
+@:structInit @:using(Macho.Section_static_extension) abstract Section(stdgo._internal.debug.macho.Macho_section.Section) from stdgo._internal.debug.macho.Macho_section.Section to stdgo._internal.debug.macho.Macho_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -464,7 +472,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Dylib_static_extension) abstract Dylib(stdgo._internal.debug.macho.Macho_dylib.Dylib) from stdgo._internal.debug.macho.Macho_dylib.Dylib to stdgo._internal.debug.macho.Macho_dylib.Dylib {
+@:structInit @:using(Macho.Dylib_static_extension) abstract Dylib(stdgo._internal.debug.macho.Macho_dylib.Dylib) from stdgo._internal.debug.macho.Macho_dylib.Dylib to stdgo._internal.debug.macho.Macho_dylib.Dylib {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -499,7 +507,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Symtab_static_extension) abstract Symtab(stdgo._internal.debug.macho.Macho_symtab.Symtab) from stdgo._internal.debug.macho.Macho_symtab.Symtab to stdgo._internal.debug.macho.Macho_symtab.Symtab {
+@:structInit @:using(Macho.Symtab_static_extension) abstract Symtab(stdgo._internal.debug.macho.Macho_symtab.Symtab) from stdgo._internal.debug.macho.Macho_symtab.Symtab to stdgo._internal.debug.macho.Macho_symtab.Symtab {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -522,7 +530,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Dysymtab_static_extension) abstract Dysymtab(stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab) from stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab to stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab {
+@:structInit @:using(Macho.Dysymtab_static_extension) abstract Dysymtab(stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab) from stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab to stdgo._internal.debug.macho.Macho_dysymtab.Dysymtab {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -545,7 +553,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Rpath_static_extension) abstract Rpath(stdgo._internal.debug.macho.Macho_rpath.Rpath) from stdgo._internal.debug.macho.Macho_rpath.Rpath to stdgo._internal.debug.macho.Macho_rpath.Rpath {
+@:structInit @:using(Macho.Rpath_static_extension) abstract Rpath(stdgo._internal.debug.macho.Macho_rpath.Rpath) from stdgo._internal.debug.macho.Macho_rpath.Rpath to stdgo._internal.debug.macho.Macho_rpath.Rpath {
     public var loadBytes(get, set) : LoadBytes;
     function get_loadBytes():LoadBytes return this.loadBytes;
     function set_loadBytes(v:LoadBytes):LoadBytes {
@@ -562,7 +570,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.macho.Macho_symbol.Symbol) from stdgo._internal.debug.macho.Macho_symbol.Symbol to stdgo._internal.debug.macho.Macho_symbol.Symbol {
+@:structInit @:using(Macho.Symbol_static_extension) abstract Symbol(stdgo._internal.debug.macho.Macho_symbol.Symbol) from stdgo._internal.debug.macho.Macho_symbol.Symbol to stdgo._internal.debug.macho.Macho_symbol.Symbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -597,7 +605,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.macho.Macho_formaterror.FormatError) from stdgo._internal.debug.macho.Macho_formaterror.FormatError to stdgo._internal.debug.macho.Macho_formaterror.FormatError {
+@:structInit @:using(Macho.FormatError_static_extension) abstract FormatError(stdgo._internal.debug.macho.Macho_formaterror.FormatError) from stdgo._internal.debug.macho.Macho_formaterror.FormatError to stdgo._internal.debug.macho.Macho_formaterror.FormatError {
     public var _off(get, set) : haxe.Int64;
     function get__off():haxe.Int64 return this._off;
     function set__off(v:haxe.Int64):haxe.Int64 {
@@ -620,7 +628,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_relocInfo_static_extension) @:dox(hide) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo to stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo {
+@:structInit @:using(Macho.T_relocInfo_static_extension) @:dox(hide) abstract T_relocInfo(stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo) from stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo to stdgo._internal.debug.macho.Macho_t_relocinfo.T_relocInfo {
     public var addr(get, set) : std.UInt;
     function get_addr():std.UInt return this.addr;
     function set_addr(v:std.UInt):std.UInt {
@@ -637,7 +645,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.macho.Macho_fileheader.FileHeader) from stdgo._internal.debug.macho.Macho_fileheader.FileHeader to stdgo._internal.debug.macho.Macho_fileheader.FileHeader {
+@:structInit @:using(Macho.FileHeader_static_extension) abstract FileHeader(stdgo._internal.debug.macho.Macho_fileheader.FileHeader) from stdgo._internal.debug.macho.Macho_fileheader.FileHeader to stdgo._internal.debug.macho.Macho_fileheader.FileHeader {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;
     function set_magic(v:std.UInt):std.UInt {
@@ -684,7 +692,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment32_static_extension) abstract Segment32(stdgo._internal.debug.macho.Macho_segment32.Segment32) from stdgo._internal.debug.macho.Macho_segment32.Segment32 to stdgo._internal.debug.macho.Macho_segment32.Segment32 {
+@:structInit @:using(Macho.Segment32_static_extension) abstract Segment32(stdgo._internal.debug.macho.Macho_segment32.Segment32) from stdgo._internal.debug.macho.Macho_segment32.Segment32 to stdgo._internal.debug.macho.Macho_segment32.Segment32 {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -766,7 +774,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Segment64_static_extension) abstract Segment64(stdgo._internal.debug.macho.Macho_segment64.Segment64) from stdgo._internal.debug.macho.Macho_segment64.Segment64 to stdgo._internal.debug.macho.Macho_segment64.Segment64 {
+@:structInit @:using(Macho.Segment64_static_extension) abstract Segment64(stdgo._internal.debug.macho.Macho_segment64.Segment64) from stdgo._internal.debug.macho.Macho_segment64.Segment64 to stdgo._internal.debug.macho.Macho_segment64.Segment64 {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -848,7 +856,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.SymtabCmd_static_extension) abstract SymtabCmd(stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd) from stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd to stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd {
+@:structInit @:using(Macho.SymtabCmd_static_extension) abstract SymtabCmd(stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd) from stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd to stdgo._internal.debug.macho.Macho_symtabcmd.SymtabCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -889,7 +897,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.DysymtabCmd_static_extension) abstract DysymtabCmd(stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd) from stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd to stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd {
+@:structInit @:using(Macho.DysymtabCmd_static_extension) abstract DysymtabCmd(stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd) from stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd to stdgo._internal.debug.macho.Macho_dysymtabcmd.DysymtabCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1034,7 +1042,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.DylibCmd_static_extension) abstract DylibCmd(stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd) from stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd to stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd {
+@:structInit @:using(Macho.DylibCmd_static_extension) abstract DylibCmd(stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd) from stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd to stdgo._internal.debug.macho.Macho_dylibcmd.DylibCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1075,7 +1083,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.RpathCmd_static_extension) abstract RpathCmd(stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd) from stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd to stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd {
+@:structInit @:using(Macho.RpathCmd_static_extension) abstract RpathCmd(stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd) from stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd to stdgo._internal.debug.macho.Macho_rpathcmd.RpathCmd {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1098,7 +1106,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Thread_static_extension) abstract Thread(stdgo._internal.debug.macho.Macho_thread.Thread) from stdgo._internal.debug.macho.Macho_thread.Thread to stdgo._internal.debug.macho.Macho_thread.Thread {
+@:structInit @:using(Macho.Thread_static_extension) abstract Thread(stdgo._internal.debug.macho.Macho_thread.Thread) from stdgo._internal.debug.macho.Macho_thread.Thread to stdgo._internal.debug.macho.Macho_thread.Thread {
     public var cmd(get, set) : LoadCmd;
     function get_cmd():LoadCmd return this.cmd;
     function set_cmd(v:LoadCmd):LoadCmd {
@@ -1127,7 +1135,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section32_static_extension) abstract Section32(stdgo._internal.debug.macho.Macho_section32.Section32) from stdgo._internal.debug.macho.Macho_section32.Section32 to stdgo._internal.debug.macho.Macho_section32.Section32 {
+@:structInit @:using(Macho.Section32_static_extension) abstract Section32(stdgo._internal.debug.macho.Macho_section32.Section32) from stdgo._internal.debug.macho.Macho_section32.Section32 to stdgo._internal.debug.macho.Macho_section32.Section32 {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1209,7 +1217,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Section64_static_extension) abstract Section64(stdgo._internal.debug.macho.Macho_section64.Section64) from stdgo._internal.debug.macho.Macho_section64.Section64 to stdgo._internal.debug.macho.Macho_section64.Section64 {
+@:structInit @:using(Macho.Section64_static_extension) abstract Section64(stdgo._internal.debug.macho.Macho_section64.Section64) from stdgo._internal.debug.macho.Macho_section64.Section64 to stdgo._internal.debug.macho.Macho_section64.Section64 {
     public var name(get, set) : haxe.ds.Vector<std.UInt>;
     function get_name():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.name) i]);
     function set_name(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1298,7 +1306,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Nlist32_static_extension) abstract Nlist32(stdgo._internal.debug.macho.Macho_nlist32.Nlist32) from stdgo._internal.debug.macho.Macho_nlist32.Nlist32 to stdgo._internal.debug.macho.Macho_nlist32.Nlist32 {
+@:structInit @:using(Macho.Nlist32_static_extension) abstract Nlist32(stdgo._internal.debug.macho.Macho_nlist32.Nlist32) from stdgo._internal.debug.macho.Macho_nlist32.Nlist32 to stdgo._internal.debug.macho.Macho_nlist32.Nlist32 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1333,7 +1341,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Nlist64_static_extension) abstract Nlist64(stdgo._internal.debug.macho.Macho_nlist64.Nlist64) from stdgo._internal.debug.macho.Macho_nlist64.Nlist64 to stdgo._internal.debug.macho.Macho_nlist64.Nlist64 {
+@:structInit @:using(Macho.Nlist64_static_extension) abstract Nlist64(stdgo._internal.debug.macho.Macho_nlist64.Nlist64) from stdgo._internal.debug.macho.Macho_nlist64.Nlist64 to stdgo._internal.debug.macho.Macho_nlist64.Nlist64 {
     public var name(get, set) : std.UInt;
     function get_name():std.UInt return this.name;
     function set_name(v:std.UInt):std.UInt {
@@ -1368,7 +1376,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.Regs386_static_extension) abstract Regs386(stdgo._internal.debug.macho.Macho_regs386.Regs386) from stdgo._internal.debug.macho.Macho_regs386.Regs386 to stdgo._internal.debug.macho.Macho_regs386.Regs386 {
+@:structInit @:using(Macho.Regs386_static_extension) abstract Regs386(stdgo._internal.debug.macho.Macho_regs386.Regs386) from stdgo._internal.debug.macho.Macho_regs386.Regs386 to stdgo._internal.debug.macho.Macho_regs386.Regs386 {
     public var aX(get, set) : std.UInt;
     function get_aX():std.UInt return this.aX;
     function set_aX(v:std.UInt):std.UInt {
@@ -1485,7 +1493,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.RegsAMD64_static_extension) abstract RegsAMD64(stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64) from stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 to stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 {
+@:structInit @:using(Macho.RegsAMD64_static_extension) abstract RegsAMD64(stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64) from stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 to stdgo._internal.debug.macho.Macho_regsamd64.RegsAMD64 {
     public var aX(get, set) : haxe.UInt64;
     function get_aX():haxe.UInt64 return this.aX;
     function set_aX(v:haxe.UInt64):haxe.UInt64 {
@@ -1637,7 +1645,7 @@ cmd,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.macho.Macho.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.macho.Macho_t_intname.T_intName) from stdgo._internal.debug.macho.Macho_t_intname.T_intName to stdgo._internal.debug.macho.Macho_t_intname.T_intName {
+@:structInit @:using(Macho.T_intName_static_extension) @:dox(hide) abstract T_intName(stdgo._internal.debug.macho.Macho_t_intname.T_intName) from stdgo._internal.debug.macho.Macho_t_intname.T_intName to stdgo._internal.debug.macho.Macho_t_intname.T_intName {
     public var _i(get, set) : std.UInt;
     function get__i():std.UInt return this._i;
     function set__i(v:std.UInt):std.UInt {

@@ -12,7 +12,7 @@ final below : Accuracy = stdgo._internal.math.big.Big_below.below;
 final exact : Accuracy = stdgo._internal.math.big.Big_exact.exact;
 final above : Accuracy = stdgo._internal.math.big.Big_above.above;
 final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
-@:structInit @:using(stdgo.math.big.Big.T_argVV_static_extension) @:dox(hide) abstract T_argVV(stdgo._internal.math.big.Big_t_argvv.T_argVV) from stdgo._internal.math.big.Big_t_argvv.T_argVV to stdgo._internal.math.big.Big_t_argvv.T_argVV {
+@:structInit @:using(Big.T_argVV_static_extension) @:dox(hide) abstract T_argVV(stdgo._internal.math.big.Big_t_argvv.T_argVV) from stdgo._internal.math.big.Big_t_argvv.T_argVV to stdgo._internal.math.big.Big_t_argvv.T_argVV {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -41,7 +41,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVW_static_extension) @:dox(hide) abstract T_argVW(stdgo._internal.math.big.Big_t_argvw.T_argVW) from stdgo._internal.math.big.Big_t_argvw.T_argVW to stdgo._internal.math.big.Big_t_argvw.T_argVW {
+@:structInit @:using(Big.T_argVW_static_extension) @:dox(hide) abstract T_argVW(stdgo._internal.math.big.Big_t_argvw.T_argVW) from stdgo._internal.math.big.Big_t_argvw.T_argVW to stdgo._internal.math.big.Big_t_argvw.T_argVW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -70,7 +70,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVU_static_extension) @:dox(hide) abstract T_argVU(stdgo._internal.math.big.Big_t_argvu.T_argVU) from stdgo._internal.math.big.Big_t_argvu.T_argVU to stdgo._internal.math.big.Big_t_argvu.T_argVU {
+@:structInit @:using(Big.T_argVU_static_extension) @:dox(hide) abstract T_argVU(stdgo._internal.math.big.Big_t_argvu.T_argVU) from stdgo._internal.math.big.Big_t_argvu.T_argVU to stdgo._internal.math.big.Big_t_argvu.T_argVU {
     public var _d(get, set) : Array<Word>;
     function get__d():Array<Word> return [for (i in this._d) i];
     function set__d(v:Array<Word>):Array<Word> {
@@ -123,7 +123,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argVWW_static_extension) @:dox(hide) abstract T_argVWW(stdgo._internal.math.big.Big_t_argvww.T_argVWW) from stdgo._internal.math.big.Big_t_argvww.T_argVWW to stdgo._internal.math.big.Big_t_argvww.T_argVWW {
+@:structInit @:using(Big.T_argVWW_static_extension) @:dox(hide) abstract T_argVWW(stdgo._internal.math.big.Big_t_argvww.T_argVWW) from stdgo._internal.math.big.Big_t_argvww.T_argVWW to stdgo._internal.math.big.Big_t_argvww.T_argVWW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -158,7 +158,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argWVW_static_extension) @:dox(hide) abstract T_argWVW(stdgo._internal.math.big.Big_t_argwvw.T_argWVW) from stdgo._internal.math.big.Big_t_argwvw.T_argWVW to stdgo._internal.math.big.Big_t_argwvw.T_argWVW {
+@:structInit @:using(Big.T_argWVW_static_extension) @:dox(hide) abstract T_argWVW(stdgo._internal.math.big.Big_t_argwvw.T_argWVW) from stdgo._internal.math.big.Big_t_argwvw.T_argWVW to stdgo._internal.math.big.Big_t_argwvw.T_argWVW {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -193,7 +193,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_decimal_static_extension) @:dox(hide) abstract T_decimal(stdgo._internal.math.big.Big_t_decimal.T_decimal) from stdgo._internal.math.big.Big_t_decimal.T_decimal to stdgo._internal.math.big.Big_t_decimal.T_decimal {
+@:structInit @:using(Big.T_decimal_static_extension) @:dox(hide) abstract T_decimal(stdgo._internal.math.big.Big_t_decimal.T_decimal) from stdgo._internal.math.big.Big_t_decimal.T_decimal to stdgo._internal.math.big.Big_t_decimal.T_decimal {
     public var _mant(get, set) : Array<std.UInt>;
     function get__mant():Array<std.UInt> return [for (i in this._mant) i];
     function set__mant(v:Array<std.UInt>):Array<std.UInt> {
@@ -210,7 +210,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.Float__static_extension) abstract Float_(stdgo._internal.math.big.Big_float_.Float_) from stdgo._internal.math.big.Big_float_.Float_ to stdgo._internal.math.big.Big_float_.Float_ {
+@:structInit @:using(Big.Float__static_extension) abstract Float_(stdgo._internal.math.big.Big_float_.Float_) from stdgo._internal.math.big.Big_float_.Float_ to stdgo._internal.math.big.Big_float_.Float_ {
     public var _prec(get, set) : std.UInt;
     function get__prec():std.UInt return this._prec;
     function set__prec(v:std.UInt):std.UInt {
@@ -257,7 +257,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.ErrNaN_static_extension) abstract ErrNaN(stdgo._internal.math.big.Big_errnan.ErrNaN) from stdgo._internal.math.big.Big_errnan.ErrNaN to stdgo._internal.math.big.Big_errnan.ErrNaN {
+@:structInit @:using(Big.ErrNaN_static_extension) abstract ErrNaN(stdgo._internal.math.big.Big_errnan.ErrNaN) from stdgo._internal.math.big.Big_errnan.ErrNaN to stdgo._internal.math.big.Big_errnan.ErrNaN {
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
@@ -268,7 +268,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_matrix_static_extension) @:dox(hide) abstract T_matrix(stdgo._internal.math.big.Big_t_matrix.T_matrix) from stdgo._internal.math.big.Big_t_matrix.T_matrix to stdgo._internal.math.big.Big_t_matrix.T_matrix {
+@:structInit @:using(Big.T_matrix_static_extension) @:dox(hide) abstract T_matrix(stdgo._internal.math.big.Big_t_matrix.T_matrix) from stdgo._internal.math.big.Big_t_matrix.T_matrix to stdgo._internal.math.big.Big_t_matrix.T_matrix {
     public var _n(get, set) : StdTypes.Int;
     function get__n():StdTypes.Int return this._n;
     function set__n(v:StdTypes.Int):StdTypes.Int {
@@ -291,7 +291,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.Int__static_extension) abstract Int_(stdgo._internal.math.big.Big_int_.Int_) from stdgo._internal.math.big.Big_int_.Int_ to stdgo._internal.math.big.Big_int_.Int_ {
+@:structInit @:using(Big.Int__static_extension) abstract Int_(stdgo._internal.math.big.Big_int_.Int_) from stdgo._internal.math.big.Big_int_.Int_ to stdgo._internal.math.big.Big_int_.Int_ {
     public var _neg(get, set) : Bool;
     function get__neg():Bool return this._neg;
     function set__neg(v:Bool):Bool {
@@ -308,7 +308,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argZZ_static_extension) @:dox(hide) abstract T_argZZ(stdgo._internal.math.big.Big_t_argzz.T_argZZ) from stdgo._internal.math.big.Big_t_argzz.T_argZZ to stdgo._internal.math.big.Big_t_argzz.T_argZZ {
+@:structInit @:using(Big.T_argZZ_static_extension) @:dox(hide) abstract T_argZZ(stdgo._internal.math.big.Big_t_argzz.T_argZZ) from stdgo._internal.math.big.Big_t_argzz.T_argZZ to stdgo._internal.math.big.Big_t_argzz.T_argZZ {
     public var _z(get, set) : Int_;
     function get__z():Int_ return this._z;
     function set__z(v:Int_):Int_ {
@@ -331,7 +331,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_intShiftTest_static_extension) @:dox(hide) abstract T_intShiftTest(stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest) from stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest to stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest {
+@:structInit @:using(Big.T_intShiftTest_static_extension) @:dox(hide) abstract T_intShiftTest(stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest) from stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest to stdgo._internal.math.big.Big_t_intshifttest.T_intShiftTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -354,7 +354,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_byteReader_static_extension) @:dox(hide) abstract T_byteReader(stdgo._internal.math.big.Big_t_bytereader.T_byteReader) from stdgo._internal.math.big.Big_t_bytereader.T_byteReader to stdgo._internal.math.big.Big_t_bytereader.T_byteReader {
+@:structInit @:using(Big.T_byteReader_static_extension) @:dox(hide) abstract T_byteReader(stdgo._internal.math.big.Big_t_bytereader.T_byteReader) from stdgo._internal.math.big.Big_t_bytereader.T_byteReader to stdgo._internal.math.big.Big_t_bytereader.T_byteReader {
     public var scanState(get, set) : stdgo._internal.fmt.Fmt_scanstate.ScanState;
     function get_scanState():stdgo._internal.fmt.Fmt_scanstate.ScanState return this.scanState;
     function set_scanState(v:stdgo._internal.fmt.Fmt_scanstate.ScanState):stdgo._internal.fmt.Fmt_scanstate.ScanState {
@@ -365,7 +365,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_argNN_static_extension) @:dox(hide) abstract T_argNN(stdgo._internal.math.big.Big_t_argnn.T_argNN) from stdgo._internal.math.big.Big_t_argnn.T_argNN to stdgo._internal.math.big.Big_t_argnn.T_argNN {
+@:structInit @:using(Big.T_argNN_static_extension) @:dox(hide) abstract T_argNN(stdgo._internal.math.big.Big_t_argnn.T_argNN) from stdgo._internal.math.big.Big_t_argnn.T_argNN to stdgo._internal.math.big.Big_t_argnn.T_argNN {
     public var _z(get, set) : T_nat;
     function get__z():T_nat return this._z;
     function set__z(v:T_nat):T_nat {
@@ -388,7 +388,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_shiftTest_static_extension) @:dox(hide) abstract T_shiftTest(stdgo._internal.math.big.Big_t_shifttest.T_shiftTest) from stdgo._internal.math.big.Big_t_shifttest.T_shiftTest to stdgo._internal.math.big.Big_t_shifttest.T_shiftTest {
+@:structInit @:using(Big.T_shiftTest_static_extension) @:dox(hide) abstract T_shiftTest(stdgo._internal.math.big.Big_t_shifttest.T_shiftTest) from stdgo._internal.math.big.Big_t_shifttest.T_shiftTest to stdgo._internal.math.big.Big_t_shifttest.T_shiftTest {
     public var _in(get, set) : T_nat;
     function get__in():T_nat return this._in;
     function set__in(v:T_nat):T_nat {
@@ -411,7 +411,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_modWTest_static_extension) @:dox(hide) abstract T_modWTest(stdgo._internal.math.big.Big_t_modwtest.T_modWTest) from stdgo._internal.math.big.Big_t_modwtest.T_modWTest to stdgo._internal.math.big.Big_t_modwtest.T_modWTest {
+@:structInit @:using(Big.T_modWTest_static_extension) @:dox(hide) abstract T_modWTest(stdgo._internal.math.big.Big_t_modwtest.T_modWTest) from stdgo._internal.math.big.Big_t_modwtest.T_modWTest to stdgo._internal.math.big.Big_t_modwtest.T_modWTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -434,7 +434,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_divisor_static_extension) @:dox(hide) abstract T_divisor(stdgo._internal.math.big.Big_t_divisor.T_divisor) from stdgo._internal.math.big.Big_t_divisor.T_divisor to stdgo._internal.math.big.Big_t_divisor.T_divisor {
+@:structInit @:using(Big.T_divisor_static_extension) @:dox(hide) abstract T_divisor(stdgo._internal.math.big.Big_t_divisor.T_divisor) from stdgo._internal.math.big.Big_t_divisor.T_divisor to stdgo._internal.math.big.Big_t_divisor.T_divisor {
     public var _bbb(get, set) : T_nat;
     function get__bbb():T_nat return this._bbb;
     function set__bbb(v:T_nat):T_nat {
@@ -457,7 +457,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.Rat_static_extension) abstract Rat(stdgo._internal.math.big.Big_rat.Rat) from stdgo._internal.math.big.Big_rat.Rat to stdgo._internal.math.big.Big_rat.Rat {
+@:structInit @:using(Big.Rat_static_extension) abstract Rat(stdgo._internal.math.big.Big_rat.Rat) from stdgo._internal.math.big.Big_rat.Rat to stdgo._internal.math.big.Big_rat.Rat {
     public var _a(get, set) : Int_;
     function get__a():Int_ return this._a;
     function set__a(v:Int_):Int_ {
@@ -474,7 +474,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.T_ratBinArg_static_extension) @:dox(hide) abstract T_ratBinArg(stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg) from stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg to stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg {
+@:structInit @:using(Big.T_ratBinArg_static_extension) @:dox(hide) abstract T_ratBinArg(stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg) from stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg to stdgo._internal.math.big.Big_t_ratbinarg.T_ratBinArg {
     public var _x(get, set) : String;
     function get__x():String return this._x;
     function set__x(v:String):String {
@@ -497,7 +497,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.math.big.Big.StringTest_static_extension) abstract StringTest(stdgo._internal.math.big.Big_stringtest.StringTest) from stdgo._internal.math.big.Big_stringtest.StringTest to stdgo._internal.math.big.Big_stringtest.StringTest {
+@:structInit @:using(Big.StringTest_static_extension) abstract StringTest(stdgo._internal.math.big.Big_stringtest.StringTest) from stdgo._internal.math.big.Big_stringtest.StringTest to stdgo._internal.math.big.Big_stringtest.StringTest {
     public var _in(get, set) : String;
     function get__in():String return this._in;
     function set__in(v:String):String {
@@ -1768,7 +1768,7 @@ class Int__static_extension {
     public static function unreadRune(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.unreadRune(__self__);
     }
-    public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _1 = _1;
         return {
             final obj = stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.token(__self__, _0, _1);

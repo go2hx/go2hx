@@ -5,14 +5,30 @@ final disposalPrevious : haxe.UInt64 = stdgo._internal.image.gif.Gif_disposalpre
 @:dox(hide) class T_reader_static_extension {
 
 }
-@:dox(hide) typedef T_reader = stdgo._internal.image.gif.Gif_t_reader.T_reader;
+@:dox(hide) @:forward abstract T_reader(stdgo._internal.image.gif.Gif_t_reader.T_reader) from stdgo._internal.image.gif.Gif_t_reader.T_reader to stdgo._internal.image.gif.Gif_t_reader.T_reader {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_reader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_reader = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_writer_static_extension {
     static public function flush(t:stdgo._internal.image.gif.Gif_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.image.gif.Gif_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-@:dox(hide) typedef T_writer = stdgo._internal.image.gif.Gif_t_writer.T_writer;
-@:structInit @:using(stdgo.image.gif.Gif.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.gif.Gif_t_decoder.T_decoder) from stdgo._internal.image.gif.Gif_t_decoder.T_decoder to stdgo._internal.image.gif.Gif_t_decoder.T_decoder {
+@:dox(hide) @:forward abstract T_writer(stdgo._internal.image.gif.Gif_t_writer.T_writer) from stdgo._internal.image.gif.Gif_t_writer.T_writer to stdgo._internal.image.gif.Gif_t_writer.T_writer {
+    @:from
+    static function fromHaxeInterface(x:{ function flush():stdgo.Error; }):T_writer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_writer = { flush : () -> x.flush(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Gif.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.gif.Gif_t_decoder.T_decoder) from stdgo._internal.image.gif.Gif_t_decoder.T_decoder to stdgo._internal.image.gif.Gif_t_decoder.T_decoder {
     public var _r(get, set) : T_reader;
     function get__r():T_reader return this._r;
     function set__r(v:T_reader):T_reader {
@@ -129,7 +145,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.T_blockReader_static_extension) @:dox(hide) abstract T_blockReader(stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader) from stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader to stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader {
+@:structInit @:using(Gif.T_blockReader_static_extension) @:dox(hide) abstract T_blockReader(stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader) from stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader to stdgo._internal.image.gif.Gif_t_blockreader.T_blockReader {
     public var _d(get, set) : T_decoder;
     function get__d():T_decoder return this._d;
     function set__d(v:T_decoder):T_decoder {
@@ -158,7 +174,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.T_interlaceScan_static_extension) @:dox(hide) abstract T_interlaceScan(stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan) from stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan to stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan {
+@:structInit @:using(Gif.T_interlaceScan_static_extension) @:dox(hide) abstract T_interlaceScan(stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan) from stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan to stdgo._internal.image.gif.Gif_t_interlacescan.T_interlaceScan {
     public var _skip(get, set) : StdTypes.Int;
     function get__skip():StdTypes.Int return this._skip;
     function set__skip(v:StdTypes.Int):StdTypes.Int {
@@ -175,7 +191,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.GIF_static_extension) abstract GIF(stdgo._internal.image.gif.Gif_gif.GIF) from stdgo._internal.image.gif.Gif_gif.GIF to stdgo._internal.image.gif.Gif_gif.GIF {
+@:structInit @:using(Gif.GIF_static_extension) abstract GIF(stdgo._internal.image.gif.Gif_gif.GIF) from stdgo._internal.image.gif.Gif_gif.GIF to stdgo._internal.image.gif.Gif_gif.GIF {
     public var image(get, set) : Array<stdgo._internal.image.Image_paletted.Paletted>;
     function get_image():Array<stdgo._internal.image.Image_paletted.Paletted> return [for (i in this.image) i];
     function set_image(v:Array<stdgo._internal.image.Image_paletted.Paletted>):Array<stdgo._internal.image.Image_paletted.Paletted> {
@@ -216,7 +232,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.gif.Gif_t_encoder.T_encoder) from stdgo._internal.image.gif.Gif_t_encoder.T_encoder to stdgo._internal.image.gif.Gif_t_encoder.T_encoder {
+@:structInit @:using(Gif.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.gif.Gif_t_encoder.T_encoder) from stdgo._internal.image.gif.Gif_t_encoder.T_encoder to stdgo._internal.image.gif.Gif_t_encoder.T_encoder {
     public var _w(get, set) : T_writer;
     function get__w():T_writer return this._w;
     function set__w(v:T_writer):T_writer {
@@ -263,7 +279,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.T_blockWriter_static_extension) @:dox(hide) abstract T_blockWriter(stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter) from stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter to stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter {
+@:structInit @:using(Gif.T_blockWriter_static_extension) @:dox(hide) abstract T_blockWriter(stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter) from stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter to stdgo._internal.image.gif.Gif_t_blockwriter.T_blockWriter {
     public var _e(get, set) : T_encoder;
     function get__e():T_encoder return this._e;
     function set__e(v:T_encoder):T_encoder {
@@ -274,7 +290,7 @@ _globalColorTable,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.gif.Gif.Options_static_extension) abstract Options(stdgo._internal.image.gif.Gif_options.Options) from stdgo._internal.image.gif.Gif_options.Options to stdgo._internal.image.gif.Gif_options.Options {
+@:structInit @:using(Gif.Options_static_extension) abstract Options(stdgo._internal.image.gif.Gif_options.Options) from stdgo._internal.image.gif.Gif_options.Options to stdgo._internal.image.gif.Gif_options.Options {
     public var numColors(get, set) : StdTypes.Int;
     function get_numColors():StdTypes.Int return this.numColors;
     function set_numColors(v:StdTypes.Int):StdTypes.Int {

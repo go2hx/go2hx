@@ -19,13 +19,13 @@ private function set_skipAll(v:stdgo.Error):stdgo.Error {
         stdgo._internal.path.filepath.Filepath_skipall.skipAll = (v : stdgo.Error);
         return v;
     }
-var lstatP(get, set) : stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>;
-private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.path.filepath.Filepath_lstatp.lstatP(_0);
-private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>):stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> {
+var lstatP(get, set) : stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>;
+private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> stdgo._internal.path.filepath.Filepath_lstatp.lstatP(_0);
+private function set_lstatP(v:stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>):stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> {
         stdgo._internal.path.filepath.Filepath_lstatp.lstatP = v;
         return v;
     }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf {
+@:structInit @:using(Filepath.T_lazybuf_static_extension) @:dox(hide) abstract T_lazybuf(stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf) from stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf to stdgo._internal.path.filepath.Filepath_t_lazybuf.T_lazybuf {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -60,7 +60,7 @@ private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.path.filepath.Filepath.T_statDirEntry_static_extension) @:dox(hide) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry {
+@:structInit @:using(Filepath.T_statDirEntry_static_extension) @:dox(hide) abstract T_statDirEntry(stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry) from stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry to stdgo._internal.path.filepath.Filepath_t_statdirentry.T_statDirEntry {
     public var _info(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo;
     function get__info():stdgo._internal.io.fs.Fs_fileinfo.FileInfo return this._info;
     function set__info(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo._internal.io.fs.Fs_fileinfo.FileInfo {

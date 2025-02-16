@@ -55,13 +55,13 @@ private function set_errFinalToken(v:stdgo.Error):stdgo.Error {
         stdgo._internal.bufio.Bufio_errfinaltoken.errFinalToken = (v : stdgo.Error);
         return v;
     }
-var isSpace(get, set) : stdgo.GoInt32 -> Bool;
-private function get_isSpace():stdgo.GoInt32 -> Bool return _0 -> stdgo._internal.bufio.Bufio_isspace.isSpace(_0);
-private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
+var isSpace(get, set) : StdTypes.Int -> Bool;
+private function get_isSpace():StdTypes.Int -> Bool return _0 -> stdgo._internal.bufio.Bufio_isspace.isSpace(_0);
+private function set_isSpace(v:StdTypes.Int -> Bool):StdTypes.Int -> Bool {
         stdgo._internal.bufio.Bufio_isspace.isSpace = v;
         return v;
     }
-@:structInit @:using(stdgo.bufio.Bufio.Reader_static_extension) abstract Reader(stdgo._internal.bufio.Bufio_reader.Reader) from stdgo._internal.bufio.Bufio_reader.Reader to stdgo._internal.bufio.Bufio_reader.Reader {
+@:structInit @:using(Reader_static_extension) abstract Reader(stdgo._internal.bufio.Bufio_reader.Reader) from stdgo._internal.bufio.Bufio_reader.Reader to stdgo._internal.bufio.Bufio_reader.Reader {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
@@ -108,7 +108,7 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.bufio.Bufio.Writer_static_extension) abstract Writer(stdgo._internal.bufio.Bufio_writer.Writer) from stdgo._internal.bufio.Bufio_writer.Writer to stdgo._internal.bufio.Bufio_writer.Writer {
+@:structInit @:using(Writer_static_extension) abstract Writer(stdgo._internal.bufio.Bufio_writer.Writer) from stdgo._internal.bufio.Bufio_writer.Writer to stdgo._internal.bufio.Bufio_writer.Writer {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -137,7 +137,7 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.bufio.Bufio.ReadWriter_static_extension) abstract ReadWriter(stdgo._internal.bufio.Bufio_readwriter.ReadWriter) from stdgo._internal.bufio.Bufio_readwriter.ReadWriter to stdgo._internal.bufio.Bufio_readwriter.ReadWriter {
+@:structInit @:using(ReadWriter_static_extension) abstract ReadWriter(stdgo._internal.bufio.Bufio_readwriter.ReadWriter) from stdgo._internal.bufio.Bufio_readwriter.ReadWriter to stdgo._internal.bufio.Bufio_readwriter.ReadWriter {
     public var reader(get, set) : Reader;
     function get_reader():Reader return this.reader;
     function set_reader(v:Reader):Reader {
@@ -154,7 +154,7 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.bufio.Bufio.Scanner_static_extension) abstract Scanner(stdgo._internal.bufio.Bufio_scanner.Scanner) from stdgo._internal.bufio.Bufio_scanner.Scanner to stdgo._internal.bufio.Bufio_scanner.Scanner {
+@:structInit @:using(Scanner_static_extension) abstract Scanner(stdgo._internal.bufio.Bufio_scanner.Scanner) from stdgo._internal.bufio.Bufio_scanner.Scanner to stdgo._internal.bufio.Bufio_scanner.Scanner {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {

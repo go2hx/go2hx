@@ -5,7 +5,7 @@ private function set_cPU(v:T_cpuInfo):T_cpuInfo {
         stdgo._internal.internal.sysinfo.Sysinfo_cpu.cPU = v;
         return v;
     }
-@:structInit @:using(stdgo.internal.sysinfo.Sysinfo.T_cpuInfo_static_extension) @:dox(hide) abstract T_cpuInfo(stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo) from stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo to stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo {
+@:structInit @:using(Sysinfo.T_cpuInfo_static_extension) @:dox(hide) abstract T_cpuInfo(stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo) from stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo to stdgo._internal.internal.sysinfo.Sysinfo_t_cpuinfo.T_cpuInfo {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {

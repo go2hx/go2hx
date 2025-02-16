@@ -1,5 +1,5 @@
 package stdgo.crypto.x509.pkix;
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AlgorithmIdentifier_static_extension) abstract AlgorithmIdentifier(stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier) from stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier to stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier {
+@:structInit @:using(pkix.Pkix.AlgorithmIdentifier_static_extension) abstract AlgorithmIdentifier(stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier) from stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier to stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier {
     public var algorithm(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
     function get_algorithm():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.algorithm;
     function set_algorithm(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
@@ -16,7 +16,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue_static_extension) abstract AttributeTypeAndValue(stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue) from stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue to stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue {
+@:structInit @:using(pkix.Pkix.AttributeTypeAndValue_static_extension) abstract AttributeTypeAndValue(stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue) from stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue to stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalue.AttributeTypeAndValue {
     public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
     function get_type():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.type;
     function set_type(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
@@ -33,7 +33,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValueSET_static_extension) abstract AttributeTypeAndValueSET(stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET) from stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET to stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET {
+@:structInit @:using(pkix.Pkix.AttributeTypeAndValueSET_static_extension) abstract AttributeTypeAndValueSET(stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET) from stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET to stdgo._internal.crypto.x509.pkix.Pkix_attributetypeandvalueset.AttributeTypeAndValueSET {
     public var type(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
     function get_type():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.type;
     function set_type(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
@@ -50,7 +50,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.Extension_static_extension) abstract Extension(stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension) from stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension to stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension {
+@:structInit @:using(pkix.Pkix.Extension_static_extension) abstract Extension(stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension) from stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension to stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension {
     public var id(get, set) : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier;
     function get_id():stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier return this.id;
     function set_id(v:stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier):stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier {
@@ -73,7 +73,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.Name_static_extension) abstract Name(stdgo._internal.crypto.x509.pkix.Pkix_name.Name) from stdgo._internal.crypto.x509.pkix.Pkix_name.Name to stdgo._internal.crypto.x509.pkix.Pkix_name.Name {
+@:structInit @:using(pkix.Pkix.Name_static_extension) abstract Name(stdgo._internal.crypto.x509.pkix.Pkix_name.Name) from stdgo._internal.crypto.x509.pkix.Pkix_name.Name to stdgo._internal.crypto.x509.pkix.Pkix_name.Name {
     public var country(get, set) : Array<String>;
     function get_country():Array<String> return [for (i in this.country) i];
     function set_country(v:Array<String>):Array<String> {
@@ -155,7 +155,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.CertificateList_static_extension) abstract CertificateList(stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList to stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList {
+@:structInit @:using(pkix.Pkix.CertificateList_static_extension) abstract CertificateList(stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList to stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList {
     public var tBSCertList(get, set) : TBSCertificateList;
     function get_tBSCertList():TBSCertificateList return this.tBSCertList;
     function set_tBSCertList(v:TBSCertificateList):TBSCertificateList {
@@ -178,7 +178,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.TBSCertificateList_static_extension) abstract TBSCertificateList(stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList to stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList {
+@:structInit @:using(pkix.Pkix.TBSCertificateList_static_extension) abstract TBSCertificateList(stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList) from stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList to stdgo._internal.crypto.x509.pkix.Pkix_tbscertificatelist.TBSCertificateList {
     public var raw(get, set) : stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent;
     function get_raw():stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent return this.raw;
     function set_raw(v:stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent):stdgo._internal.encoding.asn1.Asn1_rawcontent.RawContent {
@@ -231,7 +231,7 @@ package stdgo.crypto.x509.pkix;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.x509.pkix.Pkix.RevokedCertificate_static_extension) abstract RevokedCertificate(stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate) from stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate to stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate {
+@:structInit @:using(pkix.Pkix.RevokedCertificate_static_extension) abstract RevokedCertificate(stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate) from stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate to stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate {
     public var serialNumber(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_serialNumber():stdgo._internal.math.big.Big_int_.Int_ return this.serialNumber;
     function set_serialNumber(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {

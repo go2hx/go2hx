@@ -1,7 +1,7 @@
 package stdgo.crypto.md5;
 final size : haxe.UInt64 = stdgo._internal.crypto.md5.Md5_size.size;
 final blockSize : haxe.UInt64 = stdgo._internal.crypto.md5.Md5_blocksize.blockSize;
-@:structInit @:using(stdgo.crypto.md5.Md5.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.md5.Md5_t_digest.T_digest) from stdgo._internal.crypto.md5.Md5_t_digest.T_digest to stdgo._internal.crypto.md5.Md5_t_digest.T_digest {
+@:structInit @:using(Md5.T_digest_static_extension) @:dox(hide) abstract T_digest(stdgo._internal.crypto.md5.Md5_t_digest.T_digest) from stdgo._internal.crypto.md5.Md5_t_digest.T_digest to stdgo._internal.crypto.md5.Md5_t_digest.T_digest {
     public var _s(get, set) : haxe.ds.Vector<std.UInt>;
     function get__s():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._s) i]);
     function set__s(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {

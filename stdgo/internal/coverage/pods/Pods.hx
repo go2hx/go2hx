@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.pods;
-@:structInit @:using(stdgo.internal.coverage.pods.Pods.Pod_static_extension) abstract Pod(stdgo._internal.internal.coverage.pods.Pods_pod.Pod) from stdgo._internal.internal.coverage.pods.Pods_pod.Pod to stdgo._internal.internal.coverage.pods.Pods_pod.Pod {
+@:structInit @:using(pods.Pods.Pod_static_extension) abstract Pod(stdgo._internal.internal.coverage.pods.Pods_pod.Pod) from stdgo._internal.internal.coverage.pods.Pods_pod.Pod to stdgo._internal.internal.coverage.pods.Pods_pod.Pod {
     public var metaFile(get, set) : String;
     function get_metaFile():String return this.metaFile;
     function set_metaFile(v:String):String {
@@ -28,7 +28,7 @@ package stdgo.internal.coverage.pods;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_fileWithAnnotations_static_extension) @:dox(hide) abstract T_fileWithAnnotations(stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations) from stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations to stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations {
+@:structInit @:using(pods.Pods.T_fileWithAnnotations_static_extension) @:dox(hide) abstract T_fileWithAnnotations(stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations) from stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations to stdgo._internal.internal.coverage.pods.Pods_t_filewithannotations.T_fileWithAnnotations {
     public var _file(get, set) : String;
     function get__file():String return this._file;
     function set__file(v:String):String {
@@ -51,7 +51,7 @@ package stdgo.internal.coverage.pods;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.pods.Pods.T_protoPod_static_extension) @:dox(hide) abstract T_protoPod(stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod) from stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod to stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod {
+@:structInit @:using(pods.Pods.T_protoPod_static_extension) @:dox(hide) abstract T_protoPod(stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod) from stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod to stdgo._internal.internal.coverage.pods.Pods_t_protopod.T_protoPod {
     public var _mf(get, set) : String;
     function get__mf():String return this._mf;
     function set__mf(v:String):String {

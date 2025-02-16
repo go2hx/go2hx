@@ -5,14 +5,30 @@ package stdgo.crypto.cipher;
         return stdgo._internal.crypto.cipher.Cipher_t_cbcencable_static_extension.T_cbcEncAble_static_extension.newCBCEncrypter(t, _iv);
     }
 }
-@:dox(hide) typedef T_cbcEncAble = stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble;
+@:dox(hide) @:forward abstract T_cbcEncAble(stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble to stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble {
+    @:from
+    static function fromHaxeInterface(x:{ function newCBCEncrypter(_iv:Array<std.UInt>):BlockMode; }):T_cbcEncAble {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_cbcEncAble = { newCBCEncrypter : _0 -> x.newCBCEncrypter([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_cbcDecAble_static_extension {
     static public function newCBCDecrypter(t:stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble, _iv:Array<std.UInt>):BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_t_cbcdecable_static_extension.T_cbcDecAble_static_extension.newCBCDecrypter(t, _iv);
     }
 }
-@:dox(hide) typedef T_cbcDecAble = stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble;
+@:dox(hide) @:forward abstract T_cbcDecAble(stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble to stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble {
+    @:from
+    static function fromHaxeInterface(x:{ function newCBCDecrypter(_iv:Array<std.UInt>):BlockMode; }):T_cbcDecAble {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_cbcDecAble = { newCBCDecrypter : _0 -> x.newCBCDecrypter([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Block_static_extension {
     static public function decrypt(t:stdgo._internal.crypto.cipher.Cipher_block.Block, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -28,7 +44,15 @@ class Block_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_block_static_extension.Block_static_extension.blockSize(t);
     }
 }
-typedef Block = stdgo._internal.crypto.cipher.Cipher_block.Block;
+@:forward abstract Block(stdgo._internal.crypto.cipher.Cipher_block.Block) from stdgo._internal.crypto.cipher.Cipher_block.Block to stdgo._internal.crypto.cipher.Cipher_block.Block {
+    @:from
+    static function fromHaxeInterface(x:{ function blockSize():StdTypes.Int; function encrypt(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; function decrypt(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):Block {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Block = { blockSize : () -> x.blockSize(), encrypt : (_0, _1) -> x.encrypt([for (i in _0) i], [for (i in _1) i]), decrypt : (_0, _1) -> x.decrypt([for (i in _0) i], [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Stream_static_extension {
     static public function xORKeyStream(t:stdgo._internal.crypto.cipher.Cipher_stream.Stream, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -36,7 +60,15 @@ class Stream_static_extension {
         stdgo._internal.crypto.cipher.Cipher_stream_static_extension.Stream_static_extension.xORKeyStream(t, _dst, _src);
     }
 }
-typedef Stream = stdgo._internal.crypto.cipher.Cipher_stream.Stream;
+@:forward abstract Stream(stdgo._internal.crypto.cipher.Cipher_stream.Stream) from stdgo._internal.crypto.cipher.Cipher_stream.Stream to stdgo._internal.crypto.cipher.Cipher_stream.Stream {
+    @:from
+    static function fromHaxeInterface(x:{ function xORKeyStream(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):Stream {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Stream = { xORKeyStream : (_0, _1) -> x.xORKeyStream([for (i in _0) i], [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class BlockMode_static_extension {
     static public function cryptBlocks(t:stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode, _dst:Array<std.UInt>, _src:Array<std.UInt>):Void {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -47,14 +79,30 @@ class BlockMode_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_blockmode_static_extension.BlockMode_static_extension.blockSize(t);
     }
 }
-typedef BlockMode = stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode;
+@:forward abstract BlockMode(stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode) from stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode to stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode {
+    @:from
+    static function fromHaxeInterface(x:{ function blockSize():StdTypes.Int; function cryptBlocks(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):BlockMode {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:BlockMode = { blockSize : () -> x.blockSize(), cryptBlocks : (_0, _1) -> x.cryptBlocks([for (i in _0) i], [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_ctrAble_static_extension {
     static public function newCTR(t:stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble, _iv:Array<std.UInt>):Stream {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_t_ctrable_static_extension.T_ctrAble_static_extension.newCTR(t, _iv);
     }
 }
-@:dox(hide) typedef T_ctrAble = stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble;
+@:dox(hide) @:forward abstract T_ctrAble(stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble) from stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble to stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble {
+    @:from
+    static function fromHaxeInterface(x:{ function newCTR(_iv:Array<std.UInt>):Stream; }):T_ctrAble {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_ctrAble = { newCTR : _0 -> x.newCTR([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class AEAD_static_extension {
     static public function open(t:stdgo._internal.crypto.cipher.Cipher_aead.AEAD, _dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _dst = ([for (i in _dst) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -80,7 +128,15 @@ class AEAD_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_aead_static_extension.AEAD_static_extension.nonceSize(t);
     }
 }
-typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
+@:forward abstract AEAD(stdgo._internal.crypto.cipher.Cipher_aead.AEAD) from stdgo._internal.crypto.cipher.Cipher_aead.AEAD to stdgo._internal.crypto.cipher.Cipher_aead.AEAD {
+    @:from
+    static function fromHaxeInterface(x:{ function nonceSize():StdTypes.Int; function overhead():StdTypes.Int; function seal(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _additionalData:Array<std.UInt>):Array<std.UInt>; function open(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):AEAD {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:AEAD = { nonceSize : () -> x.nonceSize(), overhead : () -> x.overhead(), seal : (_0, _1, _2, _3) -> x.seal([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), open : (_0, _1, _2, _3) -> x.open([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_gcmAble_static_extension {
     static public function newGCM(t:stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble, _nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error> {
         final _nonceSize = (_nonceSize : stdgo.GoInt);
@@ -91,8 +147,16 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
         };
     }
 }
-@:dox(hide) typedef T_gcmAble = stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble;
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_cbc_static_extension) @:dox(hide) abstract T_cbc(stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc) from stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc to stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc {
+@:dox(hide) @:forward abstract T_gcmAble(stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble) from stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble to stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble {
+    @:from
+    static function fromHaxeInterface(x:{ function newGCM(_nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error>; }):T_gcmAble {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_gcmAble = { newGCM : (_0, _1) -> x.newGCM(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Cipher.T_cbc_static_extension) @:dox(hide) abstract T_cbc(stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc) from stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc to stdgo._internal.crypto.cipher.Cipher_t_cbc.T_cbc {
     public var _b(get, set) : Block;
     function get__b():Block return this._b;
     function set__b(v:Block):Block {
@@ -121,7 +185,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_cfb_static_extension) @:dox(hide) abstract T_cfb(stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb) from stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb to stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb {
+@:structInit @:using(Cipher.T_cfb_static_extension) @:dox(hide) abstract T_cfb(stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb) from stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb to stdgo._internal.crypto.cipher.Cipher_t_cfb.T_cfb {
     public var _b(get, set) : Block;
     function get__b():Block return this._b;
     function set__b(v:Block):Block {
@@ -156,7 +220,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_ctr_static_extension) @:dox(hide) abstract T_ctr(stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr) from stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr to stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr {
+@:structInit @:using(Cipher.T_ctr_static_extension) @:dox(hide) abstract T_ctr(stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr) from stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr to stdgo._internal.crypto.cipher.Cipher_t_ctr.T_ctr {
     public var _b(get, set) : Block;
     function get__b():Block return this._b;
     function set__b(v:Block):Block {
@@ -185,7 +249,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_gcmFieldElement_static_extension) @:dox(hide) abstract T_gcmFieldElement(stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement) from stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement to stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement {
+@:structInit @:using(Cipher.T_gcmFieldElement_static_extension) @:dox(hide) abstract T_gcmFieldElement(stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement) from stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement to stdgo._internal.crypto.cipher.Cipher_t_gcmfieldelement.T_gcmFieldElement {
     public var _low(get, set) : haxe.UInt64;
     function get__low():haxe.UInt64 return this._low;
     function set__low(v:haxe.UInt64):haxe.UInt64 {
@@ -202,7 +266,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_gcm_static_extension) @:dox(hide) abstract T_gcm(stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm) from stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm to stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm {
+@:structInit @:using(Cipher.T_gcm_static_extension) @:dox(hide) abstract T_gcm(stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm) from stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm to stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm {
     public var _cipher(get, set) : Block;
     function get__cipher():Block return this._cipher;
     function set__cipher(v:Block):Block {
@@ -231,7 +295,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.StreamReader_static_extension) abstract StreamReader(stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader) from stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader to stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader {
+@:structInit @:using(Cipher.StreamReader_static_extension) abstract StreamReader(stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader) from stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader to stdgo._internal.crypto.cipher.Cipher_streamreader.StreamReader {
     public var s(get, set) : Stream;
     function get_s():Stream return this.s;
     function set_s(v:Stream):Stream {
@@ -248,7 +312,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.StreamWriter_static_extension) abstract StreamWriter(stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter) from stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter to stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter {
+@:structInit @:using(Cipher.StreamWriter_static_extension) abstract StreamWriter(stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter) from stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter to stdgo._internal.crypto.cipher.Cipher_streamwriter.StreamWriter {
     public var s(get, set) : Stream;
     function get_s():Stream return this.s;
     function set_s(v:Stream):Stream {
@@ -271,7 +335,7 @@ typedef AEAD = stdgo._internal.crypto.cipher.Cipher_aead.AEAD;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.cipher.Cipher.T_ofb_static_extension) @:dox(hide) abstract T_ofb(stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb) from stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb to stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb {
+@:structInit @:using(Cipher.T_ofb_static_extension) @:dox(hide) abstract T_ofb(stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb) from stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb to stdgo._internal.crypto.cipher.Cipher_t_ofb.T_ofb {
     public var _b(get, set) : Block;
     function get__b():Block return this._b;
     function set__b(v:Block):Block {

@@ -39,8 +39,16 @@ final lOG_LOCAL7 = stdgo._internal.log.syslog.Syslog_log_local7.lOG_LOCAL7;
         return stdgo._internal.log.syslog.Syslog_t_serverconn_static_extension.T_serverConn_static_extension._writeString(t, _p, _hostname, _tag, _s, _nl);
     }
 }
-@:dox(hide) typedef T_serverConn = stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn;
-@:structInit @:using(stdgo.log.syslog.Syslog.Writer_static_extension) abstract Writer(stdgo._internal.log.syslog.Syslog_writer.Writer) from stdgo._internal.log.syslog.Syslog_writer.Writer to stdgo._internal.log.syslog.Syslog_writer.Writer {
+@:dox(hide) @:forward abstract T_serverConn(stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn) from stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn to stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn {
+    @:from
+    static function fromHaxeInterface(x:{ function _writeString(_p:Priority, _hostname:String, _tag:String, _s:String, _nl:String):stdgo.Error; function _close():stdgo.Error; }):T_serverConn {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_serverConn = { _writeString : (_0, _1, _2, _3, _4) -> x._writeString(_0, _1, _2, _3, _4), _close : () -> x._close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Syslog.Writer_static_extension) abstract Writer(stdgo._internal.log.syslog.Syslog_writer.Writer) from stdgo._internal.log.syslog.Syslog_writer.Writer to stdgo._internal.log.syslog.Syslog_writer.Writer {
     public var _priority(get, set) : Priority;
     function get__priority():Priority return this._priority;
     function set__priority(v:Priority):Priority {
@@ -87,7 +95,7 @@ final lOG_LOCAL7 = stdgo._internal.log.syslog.Syslog_log_local7.lOG_LOCAL7;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.syslog.Syslog.T_netConn_static_extension) @:dox(hide) abstract T_netConn(stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn) from stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn to stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn {
+@:structInit @:using(Syslog.T_netConn_static_extension) @:dox(hide) abstract T_netConn(stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn) from stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn to stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn {
     public var _local(get, set) : Bool;
     function get__local():Bool return this._local;
     function set__local(v:Bool):Bool {

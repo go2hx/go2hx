@@ -13,7 +13,7 @@ private function set_jSGo(v:Value):Value {
         stdgo._internal.syscall.js.Js_jsgo.jSGo = v;
         return v;
     }
-@:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) abstract Func(stdgo._internal.syscall.js.Js_func.Func) from stdgo._internal.syscall.js.Js_func.Func to stdgo._internal.syscall.js.Js_func.Func {
+@:structInit @:using(Js.Func_static_extension) abstract Func(stdgo._internal.syscall.js.Js_func.Func) from stdgo._internal.syscall.js.Js_func.Func to stdgo._internal.syscall.js.Js_func.Func {
     public var value(get, set) : Value;
     function get_value():Value return this.value;
     function set_value(v:Value):Value {
@@ -30,7 +30,7 @@ private function set_jSGo(v:Value):Value {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) abstract Value(stdgo._internal.syscall.js.Js_value.Value) from stdgo._internal.syscall.js.Js_value.Value to stdgo._internal.syscall.js.Js_value.Value {
+@:structInit @:using(Js.Value_static_extension) abstract Value(stdgo._internal.syscall.js.Js_value.Value) from stdgo._internal.syscall.js.Js_value.Value to stdgo._internal.syscall.js.Js_value.Value {
     public var __32(get, set) : haxe.ds.Vector<() -> Void>;
     function get___32():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__32) () -> i()]);
     function set___32(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
@@ -53,7 +53,7 @@ private function set_jSGo(v:Value):Value {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.syscall.js.Js.Error_static_extension) abstract Error(stdgo._internal.syscall.js.Js_error.Error) from stdgo._internal.syscall.js.Js_error.Error to stdgo._internal.syscall.js.Js_error.Error {
+@:structInit @:using(Js.Error_static_extension) abstract Error(stdgo._internal.syscall.js.Js_error.Error) from stdgo._internal.syscall.js.Js_error.Error to stdgo._internal.syscall.js.Js_error.Error {
     public var value(get, set) : Value;
     function get_value():Value return this.value;
     function set_value(v:Value):Value {
@@ -64,7 +64,7 @@ private function set_jSGo(v:Value):Value {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) abstract ValueError(stdgo._internal.syscall.js.Js_valueerror.ValueError) from stdgo._internal.syscall.js.Js_valueerror.ValueError to stdgo._internal.syscall.js.Js_valueerror.ValueError {
+@:structInit @:using(Js.ValueError_static_extension) abstract ValueError(stdgo._internal.syscall.js.Js_valueerror.ValueError) from stdgo._internal.syscall.js.Js_valueerror.ValueError to stdgo._internal.syscall.js.Js_valueerror.ValueError {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -371,7 +371,7 @@ class Js {
         * 
         * Func.Release must be called to free up resources when the function will not be invoked any more.
     **/
-    static public inline function funcOf(_fn:(stdgo._internal.syscall.js.Js_value.Value, stdgo.Slice<stdgo._internal.syscall.js.Js_value.Value>) -> stdgo.AnyInterface):Func {
+    static public inline function funcOf(_fn:(Value, Array<Value>) -> stdgo.AnyInterface):Func {
         final _fn = _fn;
         return stdgo._internal.syscall.js.Js_funcof.funcOf(_fn);
     }

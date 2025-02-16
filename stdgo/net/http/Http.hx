@@ -260,7 +260,15 @@ class RoundTripper_static_extension {
         };
     }
 }
-typedef RoundTripper = stdgo._internal.net.http.Http_roundtripper.RoundTripper;
+@:forward abstract RoundTripper(stdgo._internal.net.http.Http_roundtripper.RoundTripper) from stdgo._internal.net.http.Http_roundtripper.RoundTripper to stdgo._internal.net.http.Http_roundtripper.RoundTripper {
+    @:from
+    static function fromHaxeInterface(x:{ function roundTrip(_0:Request):stdgo.Tuple<Response, stdgo.Error>; }):RoundTripper {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RoundTripper = { roundTrip : _0 -> x.roundTrip(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class FileSystem_static_extension {
     static public function open(t:stdgo._internal.net.http.Http_filesystem.FileSystem, _name:String):stdgo.Tuple<File, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -270,7 +278,15 @@ class FileSystem_static_extension {
         };
     }
 }
-typedef FileSystem = stdgo._internal.net.http.Http_filesystem.FileSystem;
+@:forward abstract FileSystem(stdgo._internal.net.http.Http_filesystem.FileSystem) from stdgo._internal.net.http.Http_filesystem.FileSystem to stdgo._internal.net.http.Http_filesystem.FileSystem {
+    @:from
+    static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<File, stdgo.Error>; }):FileSystem {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:FileSystem = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class File_static_extension {
     static public function stat(t:stdgo._internal.net.http.Http_file.File):stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error> {
         return {
@@ -286,11 +302,27 @@ class File_static_extension {
         };
     }
 }
-typedef File = stdgo._internal.net.http.Http_file.File;
+@:forward abstract File(stdgo._internal.net.http.Http_file.File) from stdgo._internal.net.http.Http_file.File to stdgo._internal.net.http.Http_file.File {
+    @:from
+    static function fromHaxeInterface(x:{ function readdir(_count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error>; function stat():stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>; }):File {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:File = { readdir : _0 -> x.readdir(_0), stat : () -> x.stat(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_anyDirs_static_extension {
 
 }
-@:dox(hide) typedef T_anyDirs = stdgo._internal.net.http.Http_t_anydirs.T_anyDirs;
+@:dox(hide) @:forward abstract T_anyDirs(stdgo._internal.net.http.Http_t_anydirs.T_anyDirs) from stdgo._internal.net.http.Http_t_anydirs.T_anyDirs to stdgo._internal.net.http.Http_t_anydirs.T_anyDirs {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_anyDirs {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_anyDirs = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2ClientConnPool_static_extension {
     static public function markDead(t:stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2ClientConnPool, _0:T_http2ClientConn):Void {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>);
@@ -305,35 +337,83 @@ typedef File = stdgo._internal.net.http.Http_file.File;
         };
     }
 }
-@:dox(hide) typedef T_http2ClientConnPool = stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2ClientConnPool;
+@:dox(hide) @:forward abstract T_http2ClientConnPool(stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2ClientConnPool) from stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2ClientConnPool to stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2ClientConnPool {
+    @:from
+    static function fromHaxeInterface(x:{ function getClientConn(_req:Request, _addr:String):stdgo.Tuple<T_http2ClientConn, stdgo.Error>; function markDead(_0:T_http2ClientConn):Void; }):T_http2ClientConnPool {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2ClientConnPool = { getClientConn : (_0, _1) -> x.getClientConn(_0, _1), markDead : _0 -> x.markDead(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2clientConnPoolIdleCloser_static_extension {
 
 }
-@:dox(hide) typedef T_http2clientConnPoolIdleCloser = stdgo._internal.net.http.Http_t_http2clientconnpoolidlecloser.T_http2clientConnPoolIdleCloser;
+@:dox(hide) @:forward abstract T_http2clientConnPoolIdleCloser(stdgo._internal.net.http.Http_t_http2clientconnpoolidlecloser.T_http2clientConnPoolIdleCloser) from stdgo._internal.net.http.Http_t_http2clientconnpoolidlecloser.T_http2clientConnPoolIdleCloser to stdgo._internal.net.http.Http_t_http2clientconnpoolidlecloser.T_http2clientConnPoolIdleCloser {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_http2clientConnPoolIdleCloser {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2clientConnPoolIdleCloser = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2Frame_static_extension {
     static public function header(t:stdgo._internal.net.http.Http_t_http2frame.T_http2Frame):T_http2FrameHeader {
         return stdgo._internal.net.http.Http_t_http2frame_static_extension.T_http2Frame_static_extension.header(t);
     }
 }
-@:dox(hide) typedef T_http2Frame = stdgo._internal.net.http.Http_t_http2frame.T_http2Frame;
+@:dox(hide) @:forward abstract T_http2Frame(stdgo._internal.net.http.Http_t_http2frame.T_http2Frame) from stdgo._internal.net.http.Http_t_http2frame.T_http2Frame to stdgo._internal.net.http.Http_t_http2frame.T_http2Frame {
+    @:from
+    static function fromHaxeInterface(x:{ function header():T_http2FrameHeader; }):T_http2Frame {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2Frame = { header : () -> x.header(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2streamEnder_static_extension {
     static public function streamEnded(t:stdgo._internal.net.http.Http_t_http2streamender.T_http2streamEnder):Bool {
         return stdgo._internal.net.http.Http_t_http2streamender_static_extension.T_http2streamEnder_static_extension.streamEnded(t);
     }
 }
-@:dox(hide) typedef T_http2streamEnder = stdgo._internal.net.http.Http_t_http2streamender.T_http2streamEnder;
+@:dox(hide) @:forward abstract T_http2streamEnder(stdgo._internal.net.http.Http_t_http2streamender.T_http2streamEnder) from stdgo._internal.net.http.Http_t_http2streamender.T_http2streamEnder to stdgo._internal.net.http.Http_t_http2streamender.T_http2streamEnder {
+    @:from
+    static function fromHaxeInterface(x:{ function streamEnded():Bool; }):T_http2streamEnder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2streamEnder = { streamEnded : () -> x.streamEnded(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2headersEnder_static_extension {
     static public function headersEnded(t:stdgo._internal.net.http.Http_t_http2headersender.T_http2headersEnder):Bool {
         return stdgo._internal.net.http.Http_t_http2headersender_static_extension.T_http2headersEnder_static_extension.headersEnded(t);
     }
 }
-@:dox(hide) typedef T_http2headersEnder = stdgo._internal.net.http.Http_t_http2headersender.T_http2headersEnder;
+@:dox(hide) @:forward abstract T_http2headersEnder(stdgo._internal.net.http.Http_t_http2headersender.T_http2headersEnder) from stdgo._internal.net.http.Http_t_http2headersender.T_http2headersEnder to stdgo._internal.net.http.Http_t_http2headersender.T_http2headersEnder {
+    @:from
+    static function fromHaxeInterface(x:{ function headersEnded():Bool; }):T_http2headersEnder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2headersEnder = { headersEnded : () -> x.headersEnded(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2headersOrContinuation_static_extension {
     static public function headerBlockFragment(t:stdgo._internal.net.http.Http_t_http2headersorcontinuation.T_http2headersOrContinuation):Array<std.UInt> {
         return [for (i in stdgo._internal.net.http.Http_t_http2headersorcontinuation_static_extension.T_http2headersOrContinuation_static_extension.headerBlockFragment(t)) i];
     }
 }
-@:dox(hide) typedef T_http2headersOrContinuation = stdgo._internal.net.http.Http_t_http2headersorcontinuation.T_http2headersOrContinuation;
+@:dox(hide) @:forward abstract T_http2headersOrContinuation(stdgo._internal.net.http.Http_t_http2headersorcontinuation.T_http2headersOrContinuation) from stdgo._internal.net.http.Http_t_http2headersorcontinuation.T_http2headersOrContinuation to stdgo._internal.net.http.Http_t_http2headersorcontinuation.T_http2headersOrContinuation {
+    @:from
+    static function fromHaxeInterface(x:{ function headerBlockFragment():Array<std.UInt>; }):T_http2headersOrContinuation {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2headersOrContinuation = { headerBlockFragment : () -> x.headerBlockFragment(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2stringWriter_static_extension {
     static public function writeString(t:stdgo._internal.net.http.Http_t_http2stringwriter.T_http2stringWriter, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _s = (_s : stdgo.GoString);
@@ -343,23 +423,55 @@ typedef File = stdgo._internal.net.http.Http_file.File;
         };
     }
 }
-@:dox(hide) typedef T_http2stringWriter = stdgo._internal.net.http.Http_t_http2stringwriter.T_http2stringWriter;
+@:dox(hide) @:forward abstract T_http2stringWriter(stdgo._internal.net.http.Http_t_http2stringwriter.T_http2stringWriter) from stdgo._internal.net.http.Http_t_http2stringwriter.T_http2stringWriter to stdgo._internal.net.http.Http_t_http2stringwriter.T_http2stringWriter {
+    @:from
+    static function fromHaxeInterface(x:{ function writeString(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_http2stringWriter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2stringWriter = { writeString : _0 -> x.writeString(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2connectionStater_static_extension {
     static public function connectionState(t:stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater):stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState {
         return stdgo._internal.net.http.Http_t_http2connectionstater_static_extension.T_http2connectionStater_static_extension.connectionState(t);
     }
 }
-@:dox(hide) typedef T_http2connectionStater = stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater;
+@:dox(hide) @:forward abstract T_http2connectionStater(stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater) from stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater to stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater {
+    @:from
+    static function fromHaxeInterface(x:{ function connectionState():stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState; }):T_http2connectionStater {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2connectionStater = { connectionState : () -> x.connectionState(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2pipeBuffer_static_extension {
     static public function len(t:stdgo._internal.net.http.Http_t_http2pipebuffer.T_http2pipeBuffer):StdTypes.Int {
         return stdgo._internal.net.http.Http_t_http2pipebuffer_static_extension.T_http2pipeBuffer_static_extension.len(t);
     }
 }
-@:dox(hide) typedef T_http2pipeBuffer = stdgo._internal.net.http.Http_t_http2pipebuffer.T_http2pipeBuffer;
+@:dox(hide) @:forward abstract T_http2pipeBuffer(stdgo._internal.net.http.Http_t_http2pipebuffer.T_http2pipeBuffer) from stdgo._internal.net.http.Http_t_http2pipebuffer.T_http2pipeBuffer to stdgo._internal.net.http.Http_t_http2pipebuffer.T_http2pipeBuffer {
+    @:from
+    static function fromHaxeInterface(x:{ function len():StdTypes.Int; }):T_http2pipeBuffer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2pipeBuffer = { len : () -> x.len(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2writeFramer_static_extension {
 
 }
-@:dox(hide) typedef T_http2writeFramer = stdgo._internal.net.http.Http_t_http2writeframer.T_http2writeFramer;
+@:dox(hide) @:forward abstract T_http2writeFramer(stdgo._internal.net.http.Http_t_http2writeframer.T_http2writeFramer) from stdgo._internal.net.http.Http_t_http2writeframer.T_http2writeFramer to stdgo._internal.net.http.Http_t_http2writeframer.T_http2writeFramer {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_http2writeFramer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2writeFramer = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2writeContext_static_extension {
     static public function headerEncoder(t:stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext):stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
         return {
@@ -377,7 +489,15 @@ typedef File = stdgo._internal.net.http.Http_file.File;
         return stdgo._internal.net.http.Http_t_http2writecontext_static_extension.T_http2writeContext_static_extension.framer(t);
     }
 }
-@:dox(hide) typedef T_http2writeContext = stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext;
+@:dox(hide) @:forward abstract T_http2writeContext(stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext) from stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext to stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext {
+    @:from
+    static function fromHaxeInterface(x:{ function framer():T_http2Framer; function flush():stdgo.Error; function closeConn():stdgo.Error; function headerEncoder():stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer>; }):T_http2writeContext {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2writeContext = { framer : () -> x.framer(), flush : () -> x.flush(), closeConn : () -> x.closeConn(), headerEncoder : () -> x.headerEncoder(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_http2WriteScheduler_static_extension {
     static public function pop(t:stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler):stdgo.Tuple<T_http2FrameWriteRequest, Bool> {
         return {
@@ -401,7 +521,15 @@ typedef File = stdgo._internal.net.http.Http_file.File;
         stdgo._internal.net.http.Http_t_http2writescheduler_static_extension.T_http2WriteScheduler_static_extension.openStream(t, _streamID, _options);
     }
 }
-@:dox(hide) typedef T_http2WriteScheduler = stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler;
+@:dox(hide) @:forward abstract T_http2WriteScheduler(stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler) from stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler to stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler {
+    @:from
+    static function fromHaxeInterface(x:{ function openStream(_streamID:std.UInt, _options:T_http2OpenStreamOptions):Void; function closeStream(_streamID:std.UInt):Void; function adjustStream(_streamID:std.UInt, _priority:T_http2PriorityParam):Void; function push(_wr:T_http2FrameWriteRequest):Void; function pop():stdgo.Tuple<T_http2FrameWriteRequest, Bool>; }):T_http2WriteScheduler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_http2WriteScheduler = { openStream : (_0, _1) -> x.openStream(_0, _1), closeStream : _0 -> x.closeStream(_0), adjustStream : (_0, _1) -> x.adjustStream(_0, _1), push : _0 -> x.push(_0), pop : () -> x.pop(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Pusher_static_extension {
     static public function push(t:stdgo._internal.net.http.Http_pusher.Pusher, _target:String, _opts:PushOptions):stdgo.Error {
         final _target = (_target : stdgo.GoString);
@@ -409,7 +537,15 @@ class Pusher_static_extension {
         return stdgo._internal.net.http.Http_pusher_static_extension.Pusher_static_extension.push(t, _target, _opts);
     }
 }
-typedef Pusher = stdgo._internal.net.http.Http_pusher.Pusher;
+@:forward abstract Pusher(stdgo._internal.net.http.Http_pusher.Pusher) from stdgo._internal.net.http.Http_pusher.Pusher to stdgo._internal.net.http.Http_pusher.Pusher {
+    @:from
+    static function fromHaxeInterface(x:{ function push(_target:String, _opts:PushOptions):stdgo.Error; }):Pusher {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Pusher = { push : (_0, _1) -> x.push(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class CookieJar_static_extension {
     static public function cookies(t:stdgo._internal.net.http.Http_cookiejar.CookieJar, _u:stdgo._internal.net.url.Url_url.URL):Array<Cookie> {
         final _u = (_u : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
@@ -421,20 +557,44 @@ class CookieJar_static_extension {
         stdgo._internal.net.http.Http_cookiejar_static_extension.CookieJar_static_extension.setCookies(t, _u, _cookies);
     }
 }
-typedef CookieJar = stdgo._internal.net.http.Http_cookiejar.CookieJar;
+@:forward abstract CookieJar(stdgo._internal.net.http.Http_cookiejar.CookieJar) from stdgo._internal.net.http.Http_cookiejar.CookieJar to stdgo._internal.net.http.Http_cookiejar.CookieJar {
+    @:from
+    static function fromHaxeInterface(x:{ function setCookies(_u:stdgo._internal.net.url.Url_url.URL, _cookies:Array<Cookie>):Void; function cookies(_u:stdgo._internal.net.url.Url_url.URL):Array<Cookie>; }):CookieJar {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:CookieJar = { setCookies : (_0, _1) -> x.setCookies(_0, [for (i in _1) i]), cookies : _0 -> x.cookies(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_rwUnwrapper_static_extension {
     static public function unwrap(t:stdgo._internal.net.http.Http_t_rwunwrapper.T_rwUnwrapper):ResponseWriter {
         return stdgo._internal.net.http.Http_t_rwunwrapper_static_extension.T_rwUnwrapper_static_extension.unwrap(t);
     }
 }
-@:dox(hide) typedef T_rwUnwrapper = stdgo._internal.net.http.Http_t_rwunwrapper.T_rwUnwrapper;
+@:dox(hide) @:forward abstract T_rwUnwrapper(stdgo._internal.net.http.Http_t_rwunwrapper.T_rwUnwrapper) from stdgo._internal.net.http.Http_t_rwunwrapper.T_rwUnwrapper to stdgo._internal.net.http.Http_t_rwunwrapper.T_rwUnwrapper {
+    @:from
+    static function fromHaxeInterface(x:{ function unwrap():ResponseWriter; }):T_rwUnwrapper {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_rwUnwrapper = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Handler_static_extension {
     static public function serveHTTP(t:stdgo._internal.net.http.Http_handler.Handler, _0:ResponseWriter, _1:Request):Void {
         final _1 = (_1 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         stdgo._internal.net.http.Http_handler_static_extension.Handler_static_extension.serveHTTP(t, _0, _1);
     }
 }
-typedef Handler = stdgo._internal.net.http.Http_handler.Handler;
+@:forward abstract Handler(stdgo._internal.net.http.Http_handler.Handler) from stdgo._internal.net.http.Http_handler.Handler to stdgo._internal.net.http.Http_handler.Handler {
+    @:from
+    static function fromHaxeInterface(x:{ function serveHTTP(_0:ResponseWriter, _1:Request):Void; }):Handler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Handler = { serveHTTP : (_0, _1) -> x.serveHTTP(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ResponseWriter_static_extension {
     static public function writeHeader(t:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _statusCode:StdTypes.Int):Void {
         final _statusCode = (_statusCode : stdgo.GoInt);
@@ -451,13 +611,29 @@ class ResponseWriter_static_extension {
         return stdgo._internal.net.http.Http_responsewriter_static_extension.ResponseWriter_static_extension.header(t);
     }
 }
-typedef ResponseWriter = stdgo._internal.net.http.Http_responsewriter.ResponseWriter;
+@:forward abstract ResponseWriter(stdgo._internal.net.http.Http_responsewriter.ResponseWriter) from stdgo._internal.net.http.Http_responsewriter.ResponseWriter to stdgo._internal.net.http.Http_responsewriter.ResponseWriter {
+    @:from
+    static function fromHaxeInterface(x:{ function header():Header; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function writeHeader(_statusCode:StdTypes.Int):Void; }):ResponseWriter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ResponseWriter = { header : () -> x.header(), write : _0 -> x.write([for (i in _0) i]), writeHeader : _0 -> x.writeHeader(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Flusher_static_extension {
     static public function flush(t:stdgo._internal.net.http.Http_flusher.Flusher):Void {
         stdgo._internal.net.http.Http_flusher_static_extension.Flusher_static_extension.flush(t);
     }
 }
-typedef Flusher = stdgo._internal.net.http.Http_flusher.Flusher;
+@:forward abstract Flusher(stdgo._internal.net.http.Http_flusher.Flusher) from stdgo._internal.net.http.Http_flusher.Flusher to stdgo._internal.net.http.Http_flusher.Flusher {
+    @:from
+    static function fromHaxeInterface(x:{ function flush():Void; }):Flusher {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Flusher = { flush : () -> x.flush(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Hijacker_static_extension {
     static public function hijack(t:stdgo._internal.net.http.Http_hijacker.Hijacker):stdgo.Tuple.Tuple3<stdgo._internal.net.Net_conn.Conn, stdgo._internal.bufio.Bufio_readwriter.ReadWriter, stdgo.Error> {
         return {
@@ -466,69 +642,149 @@ class Hijacker_static_extension {
         };
     }
 }
-typedef Hijacker = stdgo._internal.net.http.Http_hijacker.Hijacker;
+@:forward abstract Hijacker(stdgo._internal.net.http.Http_hijacker.Hijacker) from stdgo._internal.net.http.Http_hijacker.Hijacker to stdgo._internal.net.http.Http_hijacker.Hijacker {
+    @:from
+    static function fromHaxeInterface(x:{ function hijack():stdgo.Tuple.Tuple3<stdgo._internal.net.Net_conn.Conn, stdgo._internal.bufio.Bufio_readwriter.ReadWriter, stdgo.Error>; }):Hijacker {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Hijacker = { hijack : () -> x.hijack(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class CloseNotifier_static_extension {
     static public function closeNotify(t:stdgo._internal.net.http.Http_closenotifier.CloseNotifier):stdgo.Chan<Bool> {
         return stdgo._internal.net.http.Http_closenotifier_static_extension.CloseNotifier_static_extension.closeNotify(t);
     }
 }
-typedef CloseNotifier = stdgo._internal.net.http.Http_closenotifier.CloseNotifier;
+@:forward abstract CloseNotifier(stdgo._internal.net.http.Http_closenotifier.CloseNotifier) from stdgo._internal.net.http.Http_closenotifier.CloseNotifier to stdgo._internal.net.http.Http_closenotifier.CloseNotifier {
+    @:from
+    static function fromHaxeInterface(x:{ function closeNotify():stdgo.Chan<Bool>; }):CloseNotifier {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:CloseNotifier = { closeNotify : () -> x.closeNotify(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_closeWriter_static_extension {
     static public function closeWrite(t:stdgo._internal.net.http.Http_t_closewriter.T_closeWriter):stdgo.Error {
         return stdgo._internal.net.http.Http_t_closewriter_static_extension.T_closeWriter_static_extension.closeWrite(t);
     }
 }
-@:dox(hide) typedef T_closeWriter = stdgo._internal.net.http.Http_t_closewriter.T_closeWriter;
+@:dox(hide) @:forward abstract T_closeWriter(stdgo._internal.net.http.Http_t_closewriter.T_closeWriter) from stdgo._internal.net.http.Http_t_closewriter.T_closeWriter to stdgo._internal.net.http.Http_t_closewriter.T_closeWriter {
+    @:from
+    static function fromHaxeInterface(x:{ function closeWrite():stdgo.Error; }):T_closeWriter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_closeWriter = { closeWrite : () -> x.closeWrite(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_sniffSig_static_extension {
 
 }
-@:dox(hide) typedef T_sniffSig = stdgo._internal.net.http.Http_t_sniffsig.T_sniffSig;
+@:dox(hide) @:forward abstract T_sniffSig(stdgo._internal.net.http.Http_t_sniffsig.T_sniffSig) from stdgo._internal.net.http.Http_t_sniffsig.T_sniffSig to stdgo._internal.net.http.Http_t_sniffsig.T_sniffSig {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_sniffSig {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_sniffSig = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_h2Transport_static_extension {
     static public function closeIdleConnections(t:stdgo._internal.net.http.Http_t_h2transport.T_h2Transport):Void {
         stdgo._internal.net.http.Http_t_h2transport_static_extension.T_h2Transport_static_extension.closeIdleConnections(t);
     }
 }
-@:dox(hide) typedef T_h2Transport = stdgo._internal.net.http.Http_t_h2transport.T_h2Transport;
+@:dox(hide) @:forward abstract T_h2Transport(stdgo._internal.net.http.Http_t_h2transport.T_h2Transport) from stdgo._internal.net.http.Http_t_h2transport.T_h2Transport to stdgo._internal.net.http.Http_t_h2transport.T_h2Transport {
+    @:from
+    static function fromHaxeInterface(x:{ function closeIdleConnections():Void; }):T_h2Transport {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_h2Transport = { closeIdleConnections : () -> x.closeIdleConnections(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_erringRoundTripper_static_extension {
     static public function roundTripErr(t:stdgo._internal.net.http.Http_t_erringroundtripper.T_erringRoundTripper):stdgo.Error {
         return stdgo._internal.net.http.Http_t_erringroundtripper_static_extension.T_erringRoundTripper_static_extension.roundTripErr(t);
     }
 }
-@:dox(hide) typedef T_erringRoundTripper = stdgo._internal.net.http.Http_t_erringroundtripper.T_erringRoundTripper;
+@:dox(hide) @:forward abstract T_erringRoundTripper(stdgo._internal.net.http.Http_t_erringroundtripper.T_erringRoundTripper) from stdgo._internal.net.http.Http_t_erringroundtripper.T_erringRoundTripper to stdgo._internal.net.http.Http_t_erringroundtripper.T_erringRoundTripper {
+    @:from
+    static function fromHaxeInterface(x:{ function roundTripErr():stdgo.Error; }):T_erringRoundTripper {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_erringRoundTripper = { roundTripErr : () -> x.roundTripErr(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_0_static_extension {
     static public function flushError(t:stdgo._internal.net.http.Http_t__interface_0.T__interface_0):stdgo.Error {
         return stdgo._internal.net.http.Http_t__interface_0_static_extension.T__interface_0_static_extension.flushError(t);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.net.http.Http_t__interface_0.T__interface_0;
+@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.net.http.Http_t__interface_0.T__interface_0) from stdgo._internal.net.http.Http_t__interface_0.T__interface_0 to stdgo._internal.net.http.Http_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function flushError():stdgo.Error; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { flushError : () -> x.flushError(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_1_static_extension {
     static public function setReadDeadline(t:stdgo._internal.net.http.Http_t__interface_1.T__interface_1, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.net.http.Http_t__interface_1_static_extension.T__interface_1_static_extension.setReadDeadline(t, _0);
     }
 }
-@:dox(hide) typedef T__interface_1 = stdgo._internal.net.http.Http_t__interface_1.T__interface_1;
+@:dox(hide) @:forward abstract T__interface_1(stdgo._internal.net.http.Http_t__interface_1.T__interface_1) from stdgo._internal.net.http.Http_t__interface_1.T__interface_1 to stdgo._internal.net.http.Http_t__interface_1.T__interface_1 {
+    @:from
+    static function fromHaxeInterface(x:{ function setReadDeadline(_0:stdgo._internal.time.Time_time.Time):stdgo.Error; }):T__interface_1 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_1 = { setReadDeadline : _0 -> x.setReadDeadline(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_2_static_extension {
     static public function setWriteDeadline(t:stdgo._internal.net.http.Http_t__interface_2.T__interface_2, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
         return stdgo._internal.net.http.Http_t__interface_2_static_extension.T__interface_2_static_extension.setWriteDeadline(t, _0);
     }
 }
-@:dox(hide) typedef T__interface_2 = stdgo._internal.net.http.Http_t__interface_2.T__interface_2;
+@:dox(hide) @:forward abstract T__interface_2(stdgo._internal.net.http.Http_t__interface_2.T__interface_2) from stdgo._internal.net.http.Http_t__interface_2.T__interface_2 to stdgo._internal.net.http.Http_t__interface_2.T__interface_2 {
+    @:from
+    static function fromHaxeInterface(x:{ function setWriteDeadline(_0:stdgo._internal.time.Time_time.Time):stdgo.Error; }):T__interface_2 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_2 = { setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_3_static_extension {
     static public function enableFullDuplex(t:stdgo._internal.net.http.Http_t__interface_3.T__interface_3):stdgo.Error {
         return stdgo._internal.net.http.Http_t__interface_3_static_extension.T__interface_3_static_extension.enableFullDuplex(t);
     }
 }
-@:dox(hide) typedef T__interface_3 = stdgo._internal.net.http.Http_t__interface_3.T__interface_3;
-@:structInit @:using(stdgo.net.http.Http.Client_static_extension) abstract Client(stdgo._internal.net.http.Http_client.Client) from stdgo._internal.net.http.Http_client.Client to stdgo._internal.net.http.Http_client.Client {
+@:dox(hide) @:forward abstract T__interface_3(stdgo._internal.net.http.Http_t__interface_3.T__interface_3) from stdgo._internal.net.http.Http_t__interface_3.T__interface_3 to stdgo._internal.net.http.Http_t__interface_3.T__interface_3 {
+    @:from
+    static function fromHaxeInterface(x:{ function enableFullDuplex():stdgo.Error; }):T__interface_3 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_3 = { enableFullDuplex : () -> x.enableFullDuplex(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Http.Client_static_extension) abstract Client(stdgo._internal.net.http.Http_client.Client) from stdgo._internal.net.http.Http_client.Client to stdgo._internal.net.http.Http_client.Client {
     public var transport(get, set) : RoundTripper;
     function get_transport():RoundTripper return this.transport;
     function set_transport(v:RoundTripper):RoundTripper {
         this.transport = v;
         return v;
     }
-    public var checkRedirect(get, set) : (stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>) -> stdgo.Error;
-    function get_checkRedirect():(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>) -> stdgo.Error return (_0, _1) -> this.checkRedirect(_0, [for (i in _1) i]);
-    function set_checkRedirect(v:(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>) -> stdgo.Error):(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>) -> stdgo.Error {
+    public var checkRedirect(get, set) : (Request, Array<Request>) -> stdgo.Error;
+    function get_checkRedirect():(Request, Array<Request>) -> stdgo.Error return (_0, _1) -> this.checkRedirect(_0, [for (i in _1) i]);
+    function set_checkRedirect(v:(Request, Array<Request>) -> stdgo.Error):(Request, Array<Request>) -> stdgo.Error {
         this.checkRedirect = v;
         return v;
     }
@@ -544,16 +800,16 @@ typedef CloseNotifier = stdgo._internal.net.http.Http_closenotifier.CloseNotifie
         this.timeout = v;
         return v;
     }
-    public function new(?transport:RoundTripper, ?checkRedirect:(stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>) -> stdgo.Error, ?jar:CookieJar, ?timeout:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.http.Http_client.Client(transport, checkRedirect, jar, timeout);
+    public function new(?transport:RoundTripper, ?checkRedirect:(Request, Array<Request>) -> stdgo.Error, ?jar:CookieJar, ?timeout:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.http.Http_client.Client(transport, checkRedirect, jar, timeout);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_cancelTimerBody_static_extension) @:dox(hide) abstract T_cancelTimerBody(stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody) from stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody to stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody {
+@:structInit @:using(Http.T_cancelTimerBody_static_extension) @:dox(hide) abstract T_cancelTimerBody(stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody) from stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody to stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody {
     public function new() this = new stdgo._internal.net.http.Http_t_canceltimerbody.T_cancelTimerBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.Cookie_static_extension) abstract Cookie(stdgo._internal.net.http.Http_cookie.Cookie) from stdgo._internal.net.http.Http_cookie.Cookie to stdgo._internal.net.http.Http_cookie.Cookie {
+@:structInit @:using(Http.Cookie_static_extension) abstract Cookie(stdgo._internal.net.http.Http_cookie.Cookie) from stdgo._internal.net.http.Http_cookie.Cookie to stdgo._internal.net.http.Http_cookie.Cookie {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -642,62 +898,62 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_fileTransport_static_extension) @:dox(hide) abstract T_fileTransport(stdgo._internal.net.http.Http_t_filetransport.T_fileTransport) from stdgo._internal.net.http.Http_t_filetransport.T_fileTransport to stdgo._internal.net.http.Http_t_filetransport.T_fileTransport {
+@:structInit @:using(Http.T_fileTransport_static_extension) @:dox(hide) abstract T_fileTransport(stdgo._internal.net.http.Http_t_filetransport.T_fileTransport) from stdgo._internal.net.http.Http_t_filetransport.T_fileTransport to stdgo._internal.net.http.Http_t_filetransport.T_fileTransport {
     public function new() this = new stdgo._internal.net.http.Http_t_filetransport.T_fileTransport();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_populateResponse_static_extension) @:dox(hide) abstract T_populateResponse(stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse) from stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse to stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse {
+@:structInit @:using(Http.T_populateResponse_static_extension) @:dox(hide) abstract T_populateResponse(stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse) from stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse to stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse {
     public function new() this = new stdgo._internal.net.http.Http_t_populateresponse.T_populateResponse();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_fileHandler_static_extension) @:dox(hide) abstract T_fileHandler(stdgo._internal.net.http.Http_t_filehandler.T_fileHandler) from stdgo._internal.net.http.Http_t_filehandler.T_fileHandler to stdgo._internal.net.http.Http_t_filehandler.T_fileHandler {
+@:structInit @:using(Http.T_fileHandler_static_extension) @:dox(hide) abstract T_fileHandler(stdgo._internal.net.http.Http_t_filehandler.T_fileHandler) from stdgo._internal.net.http.Http_t_filehandler.T_fileHandler to stdgo._internal.net.http.Http_t_filehandler.T_fileHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_filehandler.T_fileHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_ioFS_static_extension) @:dox(hide) abstract T_ioFS(stdgo._internal.net.http.Http_t_iofs.T_ioFS) from stdgo._internal.net.http.Http_t_iofs.T_ioFS to stdgo._internal.net.http.Http_t_iofs.T_ioFS {
+@:structInit @:using(Http.T_ioFS_static_extension) @:dox(hide) abstract T_ioFS(stdgo._internal.net.http.Http_t_iofs.T_ioFS) from stdgo._internal.net.http.Http_t_iofs.T_ioFS to stdgo._internal.net.http.Http_t_iofs.T_ioFS {
     public function new() this = new stdgo._internal.net.http.Http_t_iofs.T_ioFS();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_ioFile_static_extension) @:dox(hide) abstract T_ioFile(stdgo._internal.net.http.Http_t_iofile.T_ioFile) from stdgo._internal.net.http.Http_t_iofile.T_ioFile to stdgo._internal.net.http.Http_t_iofile.T_ioFile {
+@:structInit @:using(Http.T_ioFile_static_extension) @:dox(hide) abstract T_ioFile(stdgo._internal.net.http.Http_t_iofile.T_ioFile) from stdgo._internal.net.http.Http_t_iofile.T_ioFile to stdgo._internal.net.http.Http_t_iofile.T_ioFile {
     public function new() this = new stdgo._internal.net.http.Http_t_iofile.T_ioFile();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_httpRange_static_extension) @:dox(hide) abstract T_httpRange(stdgo._internal.net.http.Http_t_httprange.T_httpRange) from stdgo._internal.net.http.Http_t_httprange.T_httpRange to stdgo._internal.net.http.Http_t_httprange.T_httpRange {
+@:structInit @:using(Http.T_httpRange_static_extension) @:dox(hide) abstract T_httpRange(stdgo._internal.net.http.Http_t_httprange.T_httpRange) from stdgo._internal.net.http.Http_t_httprange.T_httpRange to stdgo._internal.net.http.Http_t_httprange.T_httpRange {
     public function new() this = new stdgo._internal.net.http.Http_t_httprange.T_httpRange();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2clientConnPool_static_extension) @:dox(hide) abstract T_http2clientConnPool(stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool) from stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool to stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool {
+@:structInit @:using(Http.T_http2clientConnPool_static_extension) @:dox(hide) abstract T_http2clientConnPool(stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool) from stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool to stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool {
     public function new() this = new stdgo._internal.net.http.Http_t_http2clientconnpool.T_http2clientConnPool();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2dialCall_static_extension) @:dox(hide) abstract T_http2dialCall(stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall) from stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall to stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall {
+@:structInit @:using(Http.T_http2dialCall_static_extension) @:dox(hide) abstract T_http2dialCall(stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall) from stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall to stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall {
     public function new() this = new stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2addConnCall_static_extension) @:dox(hide) abstract T_http2addConnCall(stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall) from stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall to stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall {
+@:structInit @:using(Http.T_http2addConnCall_static_extension) @:dox(hide) abstract T_http2addConnCall(stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall) from stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall to stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall {
     public function new() this = new stdgo._internal.net.http.Http_t_http2addconncall.T_http2addConnCall();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2noDialClientConnPool_static_extension) @:dox(hide) abstract T_http2noDialClientConnPool(stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool) from stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool to stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool {
+@:structInit @:using(Http.T_http2noDialClientConnPool_static_extension) @:dox(hide) abstract T_http2noDialClientConnPool(stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool) from stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool to stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool {
     public function new() this = new stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2dataBuffer_static_extension) @:dox(hide) abstract T_http2dataBuffer(stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer) from stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer to stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer {
+@:structInit @:using(Http.T_http2dataBuffer_static_extension) @:dox(hide) abstract T_http2dataBuffer(stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer) from stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer to stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer {
     public function new() this = new stdgo._internal.net.http.Http_t_http2databuffer.T_http2dataBuffer();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2StreamError_static_extension) @:dox(hide) abstract T_http2StreamError(stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError) from stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError to stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError {
+@:structInit @:using(Http.T_http2StreamError_static_extension) @:dox(hide) abstract T_http2StreamError(stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError) from stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError to stdgo._internal.net.http.Http_t_http2streamerror.T_http2StreamError {
     public var streamID(get, set) : std.UInt;
     function get_streamID():std.UInt return this.streamID;
     function set_streamID(v:std.UInt):std.UInt {
@@ -720,12 +976,12 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2goAwayFlowError_static_extension) @:dox(hide) abstract T_http2goAwayFlowError(stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError) from stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError to stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError {
+@:structInit @:using(Http.T_http2goAwayFlowError_static_extension) @:dox(hide) abstract T_http2goAwayFlowError(stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError) from stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError to stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError {
     public function new() this = new stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2connError_static_extension) @:dox(hide) abstract T_http2connError(stdgo._internal.net.http.Http_t_http2connerror.T_http2connError) from stdgo._internal.net.http.Http_t_http2connerror.T_http2connError to stdgo._internal.net.http.Http_t_http2connerror.T_http2connError {
+@:structInit @:using(Http.T_http2connError_static_extension) @:dox(hide) abstract T_http2connError(stdgo._internal.net.http.Http_t_http2connerror.T_http2connError) from stdgo._internal.net.http.Http_t_http2connerror.T_http2connError to stdgo._internal.net.http.Http_t_http2connerror.T_http2connError {
     public var code(get, set) : T_http2ErrCode;
     function get_code():T_http2ErrCode return this.code;
     function set_code(v:T_http2ErrCode):T_http2ErrCode {
@@ -742,17 +998,17 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2inflow_static_extension) @:dox(hide) abstract T_http2inflow(stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow) from stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow to stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow {
+@:structInit @:using(Http.T_http2inflow_static_extension) @:dox(hide) abstract T_http2inflow(stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow) from stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow to stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow {
     public function new() this = new stdgo._internal.net.http.Http_t_http2inflow.T_http2inflow();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2outflow_static_extension) @:dox(hide) abstract T_http2outflow(stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow) from stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow to stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow {
+@:structInit @:using(Http.T_http2outflow_static_extension) @:dox(hide) abstract T_http2outflow(stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow) from stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow to stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow {
     public function new() this = new stdgo._internal.net.http.Http_t_http2outflow.T_http2outflow();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2FrameHeader_static_extension) @:dox(hide) abstract T_http2FrameHeader(stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader) from stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader to stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader {
+@:structInit @:using(Http.T_http2FrameHeader_static_extension) @:dox(hide) abstract T_http2FrameHeader(stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader) from stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader to stdgo._internal.net.http.Http_t_http2frameheader.T_http2FrameHeader {
     public var type(get, set) : T_http2FrameType;
     function get_type():T_http2FrameType return this.type;
     function set_type(v:T_http2FrameType):T_http2FrameType {
@@ -781,7 +1037,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2Framer_static_extension) @:dox(hide) abstract T_http2Framer(stdgo._internal.net.http.Http_t_http2framer.T_http2Framer) from stdgo._internal.net.http.Http_t_http2framer.T_http2Framer to stdgo._internal.net.http.Http_t_http2framer.T_http2Framer {
+@:structInit @:using(Http.T_http2Framer_static_extension) @:dox(hide) abstract T_http2Framer(stdgo._internal.net.http.Http_t_http2framer.T_http2Framer) from stdgo._internal.net.http.Http_t_http2framer.T_http2Framer to stdgo._internal.net.http.Http_t_http2framer.T_http2Framer {
     public var allowIllegalWrites(get, set) : Bool;
     function get_allowIllegalWrites():Bool return this.allowIllegalWrites;
     function set_allowIllegalWrites(v:Bool):Bool {
@@ -810,22 +1066,22 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2frameCache_static_extension) @:dox(hide) abstract T_http2frameCache(stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache) from stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache to stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache {
+@:structInit @:using(Http.T_http2frameCache_static_extension) @:dox(hide) abstract T_http2frameCache(stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache) from stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache to stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache {
     public function new() this = new stdgo._internal.net.http.Http_t_http2framecache.T_http2frameCache();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2DataFrame_static_extension) @:dox(hide) abstract T_http2DataFrame(stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame) from stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame to stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame {
+@:structInit @:using(Http.T_http2DataFrame_static_extension) @:dox(hide) abstract T_http2DataFrame(stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame) from stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame to stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2dataframe.T_http2DataFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2SettingsFrame_static_extension) @:dox(hide) abstract T_http2SettingsFrame(stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame) from stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame to stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame {
+@:structInit @:using(Http.T_http2SettingsFrame_static_extension) @:dox(hide) abstract T_http2SettingsFrame(stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame) from stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame to stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PingFrame_static_extension) @:dox(hide) abstract T_http2PingFrame(stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame) from stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame to stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame {
+@:structInit @:using(Http.T_http2PingFrame_static_extension) @:dox(hide) abstract T_http2PingFrame(stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame) from stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame to stdgo._internal.net.http.Http_t_http2pingframe.T_http2PingFrame {
     public var data(get, set) : haxe.ds.Vector<std.UInt>;
     function get_data():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.data) i]);
     function set_data(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -836,7 +1092,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2GoAwayFrame_static_extension) @:dox(hide) abstract T_http2GoAwayFrame(stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame) from stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame to stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame {
+@:structInit @:using(Http.T_http2GoAwayFrame_static_extension) @:dox(hide) abstract T_http2GoAwayFrame(stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame) from stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame to stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame {
     public var lastStreamID(get, set) : std.UInt;
     function get_lastStreamID():std.UInt return this.lastStreamID;
     function set_lastStreamID(v:std.UInt):std.UInt {
@@ -853,12 +1109,12 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2UnknownFrame_static_extension) @:dox(hide) abstract T_http2UnknownFrame(stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame) from stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame to stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame {
+@:structInit @:using(Http.T_http2UnknownFrame_static_extension) @:dox(hide) abstract T_http2UnknownFrame(stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame) from stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame to stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2unknownframe.T_http2UnknownFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2WindowUpdateFrame_static_extension) @:dox(hide) abstract T_http2WindowUpdateFrame(stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame) from stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame to stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame {
+@:structInit @:using(Http.T_http2WindowUpdateFrame_static_extension) @:dox(hide) abstract T_http2WindowUpdateFrame(stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame) from stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame to stdgo._internal.net.http.Http_t_http2windowupdateframe.T_http2WindowUpdateFrame {
     public var increment(get, set) : std.UInt;
     function get_increment():std.UInt return this.increment;
     function set_increment(v:std.UInt):std.UInt {
@@ -869,7 +1125,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2HeadersFrame_static_extension) @:dox(hide) abstract T_http2HeadersFrame(stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame) from stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame to stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame {
+@:structInit @:using(Http.T_http2HeadersFrame_static_extension) @:dox(hide) abstract T_http2HeadersFrame(stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame) from stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame to stdgo._internal.net.http.Http_t_http2headersframe.T_http2HeadersFrame {
     public var priority(get, set) : T_http2PriorityParam;
     function get_priority():T_http2PriorityParam return this.priority;
     function set_priority(v:T_http2PriorityParam):T_http2PriorityParam {
@@ -880,7 +1136,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2HeadersFrameParam_static_extension) @:dox(hide) abstract T_http2HeadersFrameParam(stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam) from stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam to stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam {
+@:structInit @:using(Http.T_http2HeadersFrameParam_static_extension) @:dox(hide) abstract T_http2HeadersFrameParam(stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam) from stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam to stdgo._internal.net.http.Http_t_http2headersframeparam.T_http2HeadersFrameParam {
     public var streamID(get, set) : std.UInt;
     function get_streamID():std.UInt return this.streamID;
     function set_streamID(v:std.UInt):std.UInt {
@@ -921,12 +1177,12 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PriorityFrame_static_extension) @:dox(hide) abstract T_http2PriorityFrame(stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame) from stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame to stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame {
+@:structInit @:using(Http.T_http2PriorityFrame_static_extension) @:dox(hide) abstract T_http2PriorityFrame(stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame) from stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame to stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2priorityframe.T_http2PriorityFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PriorityParam_static_extension) @:dox(hide) abstract T_http2PriorityParam(stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam) from stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam to stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam {
+@:structInit @:using(Http.T_http2PriorityParam_static_extension) @:dox(hide) abstract T_http2PriorityParam(stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam) from stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam to stdgo._internal.net.http.Http_t_http2priorityparam.T_http2PriorityParam {
     public var streamDep(get, set) : std.UInt;
     function get_streamDep():std.UInt return this.streamDep;
     function set_streamDep(v:std.UInt):std.UInt {
@@ -949,7 +1205,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2RSTStreamFrame_static_extension) @:dox(hide) abstract T_http2RSTStreamFrame(stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame) from stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame to stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame {
+@:structInit @:using(Http.T_http2RSTStreamFrame_static_extension) @:dox(hide) abstract T_http2RSTStreamFrame(stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame) from stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame to stdgo._internal.net.http.Http_t_http2rststreamframe.T_http2RSTStreamFrame {
     public var errCode(get, set) : T_http2ErrCode;
     function get_errCode():T_http2ErrCode return this.errCode;
     function set_errCode(v:T_http2ErrCode):T_http2ErrCode {
@@ -960,12 +1216,12 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2ContinuationFrame_static_extension) @:dox(hide) abstract T_http2ContinuationFrame(stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame) from stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame to stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame {
+@:structInit @:using(Http.T_http2ContinuationFrame_static_extension) @:dox(hide) abstract T_http2ContinuationFrame(stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame) from stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame to stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2continuationframe.T_http2ContinuationFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PushPromiseFrame_static_extension) @:dox(hide) abstract T_http2PushPromiseFrame(stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame) from stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame to stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame {
+@:structInit @:using(Http.T_http2PushPromiseFrame_static_extension) @:dox(hide) abstract T_http2PushPromiseFrame(stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame) from stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame to stdgo._internal.net.http.Http_t_http2pushpromiseframe.T_http2PushPromiseFrame {
     public var promiseID(get, set) : std.UInt;
     function get_promiseID():std.UInt return this.promiseID;
     function set_promiseID(v:std.UInt):std.UInt {
@@ -976,7 +1232,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PushPromiseParam_static_extension) @:dox(hide) abstract T_http2PushPromiseParam(stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam) from stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam to stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam {
+@:structInit @:using(Http.T_http2PushPromiseParam_static_extension) @:dox(hide) abstract T_http2PushPromiseParam(stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam) from stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam to stdgo._internal.net.http.Http_t_http2pushpromiseparam.T_http2PushPromiseParam {
     public var streamID(get, set) : std.UInt;
     function get_streamID():std.UInt return this.streamID;
     function set_streamID(v:std.UInt):std.UInt {
@@ -1011,7 +1267,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2MetaHeadersFrame_static_extension) @:dox(hide) abstract T_http2MetaHeadersFrame(stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame) from stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame to stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame {
+@:structInit @:using(Http.T_http2MetaHeadersFrame_static_extension) @:dox(hide) abstract T_http2MetaHeadersFrame(stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame) from stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame to stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame {
     public var fields(get, set) : Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>;
     function get_fields():Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> return [for (i in this.fields) i];
     function set_fields(v:Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
@@ -1028,7 +1284,7 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2Setting_static_extension) @:dox(hide) abstract T_http2Setting(stdgo._internal.net.http.Http_t_http2setting.T_http2Setting) from stdgo._internal.net.http.Http_t_http2setting.T_http2Setting to stdgo._internal.net.http.Http_t_http2setting.T_http2Setting {
+@:structInit @:using(Http.T_http2Setting_static_extension) @:dox(hide) abstract T_http2Setting(stdgo._internal.net.http.Http_t_http2setting.T_http2Setting) from stdgo._internal.net.http.Http_t_http2setting.T_http2Setting to stdgo._internal.net.http.Http_t_http2setting.T_http2Setting {
     public var iD(get, set) : T_http2SettingID;
     function get_iD():T_http2SettingID return this.iD;
     function set_iD(v:T_http2SettingID):T_http2SettingID {
@@ -1045,27 +1301,27 @@ sameSite,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2bufferedWriter_static_extension) @:dox(hide) abstract T_http2bufferedWriter(stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter) from stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter to stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter {
+@:structInit @:using(Http.T_http2bufferedWriter_static_extension) @:dox(hide) abstract T_http2bufferedWriter(stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter) from stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter to stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2bufferedwriter.T_http2bufferedWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2httpError_static_extension) @:dox(hide) abstract T_http2httpError(stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError) from stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError to stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError {
+@:structInit @:using(Http.T_http2httpError_static_extension) @:dox(hide) abstract T_http2httpError(stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError) from stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError to stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError {
     public function new() this = new stdgo._internal.net.http.Http_t_http2httperror.T_http2httpError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2sorter_static_extension) @:dox(hide) abstract T_http2sorter(stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter) from stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter to stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter {
+@:structInit @:using(Http.T_http2sorter_static_extension) @:dox(hide) abstract T_http2sorter(stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter) from stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter to stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2sorter.T_http2sorter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2pipe_static_extension) @:dox(hide) abstract T_http2pipe(stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe) from stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe to stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe {
+@:structInit @:using(Http.T_http2pipe_static_extension) @:dox(hide) abstract T_http2pipe(stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe) from stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe to stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe {
     public function new() this = new stdgo._internal.net.http.Http_t_http2pipe.T_http2pipe();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2Server_static_extension) @:dox(hide) abstract T_http2Server(stdgo._internal.net.http.Http_t_http2server.T_http2Server) from stdgo._internal.net.http.Http_t_http2server.T_http2Server to stdgo._internal.net.http.Http_t_http2server.T_http2Server {
+@:structInit @:using(Http.T_http2Server_static_extension) @:dox(hide) abstract T_http2Server(stdgo._internal.net.http.Http_t_http2server.T_http2Server) from stdgo._internal.net.http.Http_t_http2server.T_http2Server to stdgo._internal.net.http.Http_t_http2server.T_http2Server {
     public var maxHandlers(get, set) : StdTypes.Int;
     function get_maxHandlers():StdTypes.Int return this.maxHandlers;
     function set_maxHandlers(v:StdTypes.Int):StdTypes.Int {
@@ -1120,19 +1376,19 @@ sameSite,
         this.maxUploadBufferPerStream = (v : stdgo.GoInt32);
         return v;
     }
-    public var newWriteScheduler(get, set) : () -> stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler;
-    function get_newWriteScheduler():() -> stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler return () -> this.newWriteScheduler();
-    function set_newWriteScheduler(v:() -> stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler):() -> stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler {
+    public var newWriteScheduler(get, set) : () -> T_http2WriteScheduler;
+    function get_newWriteScheduler():() -> T_http2WriteScheduler return () -> this.newWriteScheduler();
+    function set_newWriteScheduler(v:() -> T_http2WriteScheduler):() -> T_http2WriteScheduler {
         this.newWriteScheduler = v;
         return v;
     }
-    public var countError(get, set) : stdgo.GoString -> Void;
-    function get_countError():stdgo.GoString -> Void return _0 -> this.countError(_0);
-    function set_countError(v:stdgo.GoString -> Void):stdgo.GoString -> Void {
+    public var countError(get, set) : String -> Void;
+    function get_countError():String -> Void return _0 -> this.countError(_0);
+    function set_countError(v:String -> Void):String -> Void {
         this.countError = v;
         return v;
     }
-    public function new(?maxHandlers:StdTypes.Int, ?maxConcurrentStreams:std.UInt, ?maxDecoderHeaderTableSize:std.UInt, ?maxEncoderHeaderTableSize:std.UInt, ?maxReadFrameSize:std.UInt, ?permitProhibitedCipherSuites:Bool, ?idleTimeout:stdgo._internal.time.Time_duration.Duration, ?maxUploadBufferPerConnection:StdTypes.Int, ?maxUploadBufferPerStream:StdTypes.Int, ?newWriteScheduler:() -> stdgo._internal.net.http.Http_t_http2writescheduler.T_http2WriteScheduler, ?countError:stdgo.GoString -> Void) this = new stdgo._internal.net.http.Http_t_http2server.T_http2Server(
+    public function new(?maxHandlers:StdTypes.Int, ?maxConcurrentStreams:std.UInt, ?maxDecoderHeaderTableSize:std.UInt, ?maxEncoderHeaderTableSize:std.UInt, ?maxReadFrameSize:std.UInt, ?permitProhibitedCipherSuites:Bool, ?idleTimeout:stdgo._internal.time.Time_duration.Duration, ?maxUploadBufferPerConnection:StdTypes.Int, ?maxUploadBufferPerStream:StdTypes.Int, ?newWriteScheduler:() -> T_http2WriteScheduler, ?countError:String -> Void) this = new stdgo._internal.net.http.Http_t_http2server.T_http2Server(
 (maxHandlers : stdgo.GoInt),
 (maxConcurrentStreams : stdgo.GoUInt32),
 (maxDecoderHeaderTableSize : stdgo.GoUInt32),
@@ -1147,12 +1403,12 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2serverInternalState_static_extension) @:dox(hide) abstract T_http2serverInternalState(stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState) from stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState to stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState {
+@:structInit @:using(Http.T_http2serverInternalState_static_extension) @:dox(hide) abstract T_http2serverInternalState(stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState) from stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState to stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState {
     public function new() this = new stdgo._internal.net.http.Http_t_http2serverinternalstate.T_http2serverInternalState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2ServeConnOpts_static_extension) @:dox(hide) abstract T_http2ServeConnOpts(stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts) from stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts to stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts {
+@:structInit @:using(Http.T_http2ServeConnOpts_static_extension) @:dox(hide) abstract T_http2ServeConnOpts(stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts) from stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts to stdgo._internal.net.http.Http_t_http2serveconnopts.T_http2ServeConnOpts {
     public var context(get, set) : stdgo._internal.context.Context_context.Context;
     function get_context():stdgo._internal.context.Context_context.Context return this.context;
     function set_context(v:stdgo._internal.context.Context_context.Context):stdgo._internal.context.Context_context.Context {
@@ -1193,76 +1449,76 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2serverConn_static_extension) @:dox(hide) abstract T_http2serverConn(stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn) from stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn to stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn {
+@:structInit @:using(Http.T_http2serverConn_static_extension) @:dox(hide) abstract T_http2serverConn(stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn) from stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn to stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn {
     public function new() this = new stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2stream_static_extension) @:dox(hide) abstract T_http2stream(stdgo._internal.net.http.Http_t_http2stream.T_http2stream) from stdgo._internal.net.http.Http_t_http2stream.T_http2stream to stdgo._internal.net.http.Http_t_http2stream.T_http2stream {
+@:structInit @:using(Http.T_http2stream_static_extension) @:dox(hide) abstract T_http2stream(stdgo._internal.net.http.Http_t_http2stream.T_http2stream) from stdgo._internal.net.http.Http_t_http2stream.T_http2stream to stdgo._internal.net.http.Http_t_http2stream.T_http2stream {
     public function new() this = new stdgo._internal.net.http.Http_t_http2stream.T_http2stream();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2readFrameResult_static_extension) @:dox(hide) abstract T_http2readFrameResult(stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult) from stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult to stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult {
+@:structInit @:using(Http.T_http2readFrameResult_static_extension) @:dox(hide) abstract T_http2readFrameResult(stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult) from stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult to stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult {
     public function new() this = new stdgo._internal.net.http.Http_t_http2readframeresult.T_http2readFrameResult();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2frameWriteResult_static_extension) @:dox(hide) abstract T_http2frameWriteResult(stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult) from stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult to stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult {
+@:structInit @:using(Http.T_http2frameWriteResult_static_extension) @:dox(hide) abstract T_http2frameWriteResult(stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult) from stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult to stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult {
     public function new() this = new stdgo._internal.net.http.Http_t_http2framewriteresult.T_http2frameWriteResult();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2requestParam_static_extension) @:dox(hide) abstract T_http2requestParam(stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam) from stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam to stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam {
+@:structInit @:using(Http.T_http2requestParam_static_extension) @:dox(hide) abstract T_http2requestParam(stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam) from stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam to stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam {
     public function new() this = new stdgo._internal.net.http.Http_t_http2requestparam.T_http2requestParam();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2unstartedHandler_static_extension) @:dox(hide) abstract T_http2unstartedHandler(stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler) from stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler to stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler {
+@:structInit @:using(Http.T_http2unstartedHandler_static_extension) @:dox(hide) abstract T_http2unstartedHandler(stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler) from stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler to stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_http2unstartedhandler.T_http2unstartedHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2bodyReadMsg_static_extension) @:dox(hide) abstract T_http2bodyReadMsg(stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg) from stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg to stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg {
+@:structInit @:using(Http.T_http2bodyReadMsg_static_extension) @:dox(hide) abstract T_http2bodyReadMsg(stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg) from stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg to stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg {
     public function new() this = new stdgo._internal.net.http.Http_t_http2bodyreadmsg.T_http2bodyReadMsg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2requestBody_static_extension) @:dox(hide) abstract T_http2requestBody(stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody) from stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody to stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody {
+@:structInit @:using(Http.T_http2requestBody_static_extension) @:dox(hide) abstract T_http2requestBody(stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody) from stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody to stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody {
     public function new() this = new stdgo._internal.net.http.Http_t_http2requestbody.T_http2requestBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2responseWriter_static_extension) @:dox(hide) abstract T_http2responseWriter(stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter) from stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter to stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter {
+@:structInit @:using(Http.T_http2responseWriter_static_extension) @:dox(hide) abstract T_http2responseWriter(stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter) from stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter to stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2responsewriter.T_http2responseWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2responseWriterState_static_extension) @:dox(hide) abstract T_http2responseWriterState(stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState) from stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState to stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState {
+@:structInit @:using(Http.T_http2responseWriterState_static_extension) @:dox(hide) abstract T_http2responseWriterState(stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState) from stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState to stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState {
     public function new() this = new stdgo._internal.net.http.Http_t_http2responsewriterstate.T_http2responseWriterState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2chunkWriter_static_extension) @:dox(hide) abstract T_http2chunkWriter(stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter) from stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter to stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter {
+@:structInit @:using(Http.T_http2chunkWriter_static_extension) @:dox(hide) abstract T_http2chunkWriter(stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter) from stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter to stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2chunkwriter.T_http2chunkWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2startPushRequest_static_extension) @:dox(hide) abstract T_http2startPushRequest(stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest) from stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest to stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest {
+@:structInit @:using(Http.T_http2startPushRequest_static_extension) @:dox(hide) abstract T_http2startPushRequest(stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest) from stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest to stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest {
     public function new() this = new stdgo._internal.net.http.Http_t_http2startpushrequest.T_http2startPushRequest();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2Transport_static_extension) @:dox(hide) abstract T_http2Transport(stdgo._internal.net.http.Http_t_http2transport.T_http2Transport) from stdgo._internal.net.http.Http_t_http2transport.T_http2Transport to stdgo._internal.net.http.Http_t_http2transport.T_http2Transport {
-    public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1, _2, _3) -> this.dialTLSContext(_0, _1, _2, _3);
-    function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+@:structInit @:using(Http.T_http2Transport_static_extension) @:dox(hide) abstract T_http2Transport(stdgo._internal.net.http.Http_t_http2transport.T_http2Transport) from stdgo._internal.net.http.Http_t_http2transport.T_http2Transport to stdgo._internal.net.http.Http_t_http2transport.T_http2Transport {
+    public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2, _3) -> this.dialTLSContext(_0, _1, _2, _3);
+    function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dialTLSContext = v;
         return v;
     }
-    public var dialTLS(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dialTLS():(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1, _2) -> this.dialTLS(_0, _1, _2);
-    function set_dialTLS(v:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+    public var dialTLS(get, set) : (String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dialTLS():(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialTLS(_0, _1, _2);
+    function set_dialTLS(v:(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dialTLS = v;
         return v;
     }
@@ -1338,13 +1594,13 @@ countError);
         this.writeByteTimeout = v;
         return v;
     }
-    public var countError(get, set) : stdgo.GoString -> Void;
-    function get_countError():stdgo.GoString -> Void return _0 -> this.countError(_0);
-    function set_countError(v:stdgo.GoString -> Void):stdgo.GoString -> Void {
+    public var countError(get, set) : String -> Void;
+    function get_countError():String -> Void return _0 -> this.countError(_0);
+    function set_countError(v:String -> Void):String -> Void {
         this.countError = v;
         return v;
     }
-    public function new(?dialTLSContext:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?dialTLS:(stdgo.GoString, stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?connPool:T_http2ClientConnPool, ?disableCompression:Bool, ?allowHTTP:Bool, ?maxHeaderListSize:std.UInt, ?maxReadFrameSize:std.UInt, ?maxDecoderHeaderTableSize:std.UInt, ?maxEncoderHeaderTableSize:std.UInt, ?strictMaxConcurrentStreams:Bool, ?readIdleTimeout:stdgo._internal.time.Time_duration.Duration, ?pingTimeout:stdgo._internal.time.Time_duration.Duration, ?writeByteTimeout:stdgo._internal.time.Time_duration.Duration, ?countError:stdgo.GoString -> Void) this = new stdgo._internal.net.http.Http_t_http2transport.T_http2Transport(
+    public function new(?dialTLSContext:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLS:(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?connPool:T_http2ClientConnPool, ?disableCompression:Bool, ?allowHTTP:Bool, ?maxHeaderListSize:std.UInt, ?maxReadFrameSize:std.UInt, ?maxDecoderHeaderTableSize:std.UInt, ?maxEncoderHeaderTableSize:std.UInt, ?strictMaxConcurrentStreams:Bool, ?readIdleTimeout:stdgo._internal.time.Time_duration.Duration, ?pingTimeout:stdgo._internal.time.Time_duration.Duration, ?writeByteTimeout:stdgo._internal.time.Time_duration.Duration, ?countError:String -> Void) this = new stdgo._internal.net.http.Http_t_http2transport.T_http2Transport(
 dialTLSContext,
 dialTLS,
 (tLSClientConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>),
@@ -1363,12 +1619,12 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2ClientConn_static_extension) @:dox(hide) abstract T_http2ClientConn(stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn) from stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn to stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn {
+@:structInit @:using(Http.T_http2ClientConn_static_extension) @:dox(hide) abstract T_http2ClientConn(stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn) from stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn to stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn {
     public function new() this = new stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2clientStream_static_extension) @:dox(hide) abstract T_http2clientStream(stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream) from stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream to stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream {
+@:structInit @:using(Http.T_http2clientStream_static_extension) @:dox(hide) abstract T_http2clientStream(stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream) from stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream to stdgo._internal.net.http.Http_t_http2clientstream.T_http2clientStream {
     public var iD(get, set) : std.UInt;
     function get_iD():std.UInt return this.iD;
     function set_iD(v:std.UInt):std.UInt {
@@ -1379,17 +1635,17 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2stickyErrWriter_static_extension) @:dox(hide) abstract T_http2stickyErrWriter(stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter) from stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter to stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter {
+@:structInit @:using(Http.T_http2stickyErrWriter_static_extension) @:dox(hide) abstract T_http2stickyErrWriter(stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter) from stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter to stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2stickyerrwriter.T_http2stickyErrWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2noCachedConnError_static_extension) @:dox(hide) abstract T_http2noCachedConnError(stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError) from stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError to stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError {
+@:structInit @:using(Http.T_http2noCachedConnError_static_extension) @:dox(hide) abstract T_http2noCachedConnError(stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError) from stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError to stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError {
     public function new() this = new stdgo._internal.net.http.Http_t_http2nocachedconnerror.T_http2noCachedConnError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2RoundTripOpt_static_extension) @:dox(hide) abstract T_http2RoundTripOpt(stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt) from stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt to stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt {
+@:structInit @:using(Http.T_http2RoundTripOpt_static_extension) @:dox(hide) abstract T_http2RoundTripOpt(stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt) from stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt to stdgo._internal.net.http.Http_t_http2roundtripopt.T_http2RoundTripOpt {
     public var onlyCachedConn(get, set) : Bool;
     function get_onlyCachedConn():Bool return this.onlyCachedConn;
     function set_onlyCachedConn(v:Bool):Bool {
@@ -1400,7 +1656,7 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2ClientConnState_static_extension) @:dox(hide) abstract T_http2ClientConnState(stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState) from stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState to stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState {
+@:structInit @:using(Http.T_http2ClientConnState_static_extension) @:dox(hide) abstract T_http2ClientConnState(stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState) from stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState to stdgo._internal.net.http.Http_t_http2clientconnstate.T_http2ClientConnState {
     public var closed(get, set) : Bool;
     function get_closed():Bool return this.closed;
     function set_closed(v:Bool):Bool {
@@ -1447,22 +1703,22 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2clientConnIdleState_static_extension) @:dox(hide) abstract T_http2clientConnIdleState(stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState) from stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState to stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState {
+@:structInit @:using(Http.T_http2clientConnIdleState_static_extension) @:dox(hide) abstract T_http2clientConnIdleState(stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState) from stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState to stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState {
     public function new() this = new stdgo._internal.net.http.Http_t_http2clientconnidlestate.T_http2clientConnIdleState();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2resAndError_static_extension) @:dox(hide) abstract T_http2resAndError(stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError) from stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError to stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError {
+@:structInit @:using(Http.T_http2resAndError_static_extension) @:dox(hide) abstract T_http2resAndError(stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError) from stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError to stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError {
     public function new() this = new stdgo._internal.net.http.Http_t_http2resanderror.T_http2resAndError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2clientConnReadLoop_static_extension) @:dox(hide) abstract T_http2clientConnReadLoop(stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop) from stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop to stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop {
+@:structInit @:using(Http.T_http2clientConnReadLoop_static_extension) @:dox(hide) abstract T_http2clientConnReadLoop(stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop) from stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop to stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop {
     public function new() this = new stdgo._internal.net.http.Http_t_http2clientconnreadloop.T_http2clientConnReadLoop();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2GoAwayError_static_extension) @:dox(hide) abstract T_http2GoAwayError(stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError) from stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError to stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError {
+@:structInit @:using(Http.T_http2GoAwayError_static_extension) @:dox(hide) abstract T_http2GoAwayError(stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError) from stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError to stdgo._internal.net.http.Http_t_http2goawayerror.T_http2GoAwayError {
     public var lastStreamID(get, set) : std.UInt;
     function get_lastStreamID():std.UInt return this.lastStreamID;
     function set_lastStreamID(v:std.UInt):std.UInt {
@@ -1485,57 +1741,57 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2transportResponseBody_static_extension) @:dox(hide) abstract T_http2transportResponseBody(stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody) from stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody to stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody {
+@:structInit @:using(Http.T_http2transportResponseBody_static_extension) @:dox(hide) abstract T_http2transportResponseBody(stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody) from stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody to stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody {
     public function new() this = new stdgo._internal.net.http.Http_t_http2transportresponsebody.T_http2transportResponseBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2noBodyReader_static_extension) @:dox(hide) abstract T_http2noBodyReader(stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader) from stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader to stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader {
+@:structInit @:using(Http.T_http2noBodyReader_static_extension) @:dox(hide) abstract T_http2noBodyReader(stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader) from stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader to stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader {
     public function new() this = new stdgo._internal.net.http.Http_t_http2nobodyreader.T_http2noBodyReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2missingBody_static_extension) @:dox(hide) abstract T_http2missingBody(stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody) from stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody to stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody {
+@:structInit @:using(Http.T_http2missingBody_static_extension) @:dox(hide) abstract T_http2missingBody(stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody) from stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody to stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody {
     public function new() this = new stdgo._internal.net.http.Http_t_http2missingbody.T_http2missingBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2erringRoundTripper_static_extension) @:dox(hide) abstract T_http2erringRoundTripper(stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper) from stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper to stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper {
+@:structInit @:using(Http.T_http2erringRoundTripper_static_extension) @:dox(hide) abstract T_http2erringRoundTripper(stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper) from stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper to stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper {
     public function new() this = new stdgo._internal.net.http.Http_t_http2erringroundtripper.T_http2erringRoundTripper();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2gzipReader_static_extension) @:dox(hide) abstract T_http2gzipReader(stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader) from stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader to stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader {
+@:structInit @:using(Http.T_http2gzipReader_static_extension) @:dox(hide) abstract T_http2gzipReader(stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader) from stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader to stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader {
     public function new() this = new stdgo._internal.net.http.Http_t_http2gzipreader.T_http2gzipReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2errorReader_static_extension) @:dox(hide) abstract T_http2errorReader(stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader) from stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader to stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader {
+@:structInit @:using(Http.T_http2errorReader_static_extension) @:dox(hide) abstract T_http2errorReader(stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader) from stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader to stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader {
     public function new() this = new stdgo._internal.net.http.Http_t_http2errorreader.T_http2errorReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2noDialH2RoundTripper_static_extension) @:dox(hide) abstract T_http2noDialH2RoundTripper(stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper) from stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper to stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper {
+@:structInit @:using(Http.T_http2noDialH2RoundTripper_static_extension) @:dox(hide) abstract T_http2noDialH2RoundTripper(stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper) from stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper to stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper {
     public function new() this = new stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2flushFrameWriter_static_extension) @:dox(hide) abstract T_http2flushFrameWriter(stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter) from stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter to stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter {
+@:structInit @:using(Http.T_http2flushFrameWriter_static_extension) @:dox(hide) abstract T_http2flushFrameWriter(stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter) from stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter to stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_http2flushframewriter.T_http2flushFrameWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeGoAway_static_extension) @:dox(hide) abstract T_http2writeGoAway(stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway) from stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway to stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway {
+@:structInit @:using(Http.T_http2writeGoAway_static_extension) @:dox(hide) abstract T_http2writeGoAway(stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway) from stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway to stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writegoaway.T_http2writeGoAway();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeData_static_extension) @:dox(hide) abstract T_http2writeData(stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData) from stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData to stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData {
+@:structInit @:using(Http.T_http2writeData_static_extension) @:dox(hide) abstract T_http2writeData(stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData) from stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData to stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writedata.T_http2writeData();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2handlerPanicRST_static_extension) @:dox(hide) abstract T_http2handlerPanicRST(stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST) from stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST to stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST {
+@:structInit @:using(Http.T_http2handlerPanicRST_static_extension) @:dox(hide) abstract T_http2handlerPanicRST(stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST) from stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST to stdgo._internal.net.http.Http_t_http2handlerpanicrst.T_http2handlerPanicRST {
     public var streamID(get, set) : std.UInt;
     function get_streamID():std.UInt return this.streamID;
     function set_streamID(v:std.UInt):std.UInt {
@@ -1546,37 +1802,37 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writePingAck_static_extension) @:dox(hide) abstract T_http2writePingAck(stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck) from stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck to stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck {
+@:structInit @:using(Http.T_http2writePingAck_static_extension) @:dox(hide) abstract T_http2writePingAck(stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck) from stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck to stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writepingack.T_http2writePingAck();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeSettingsAck_static_extension) @:dox(hide) abstract T_http2writeSettingsAck(stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck) from stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck to stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck {
+@:structInit @:using(Http.T_http2writeSettingsAck_static_extension) @:dox(hide) abstract T_http2writeSettingsAck(stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck) from stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck to stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writesettingsack.T_http2writeSettingsAck();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeResHeaders_static_extension) @:dox(hide) abstract T_http2writeResHeaders(stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders) from stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders to stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders {
+@:structInit @:using(Http.T_http2writeResHeaders_static_extension) @:dox(hide) abstract T_http2writeResHeaders(stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders) from stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders to stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writeresheaders.T_http2writeResHeaders();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writePushPromise_static_extension) @:dox(hide) abstract T_http2writePushPromise(stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise) from stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise to stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise {
+@:structInit @:using(Http.T_http2writePushPromise_static_extension) @:dox(hide) abstract T_http2writePushPromise(stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise) from stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise to stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writepushpromise.T_http2writePushPromise();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2write100ContinueHeadersFrame_static_extension) @:dox(hide) abstract T_http2write100ContinueHeadersFrame(stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame) from stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame to stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame {
+@:structInit @:using(Http.T_http2write100ContinueHeadersFrame_static_extension) @:dox(hide) abstract T_http2write100ContinueHeadersFrame(stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame) from stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame to stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame {
     public function new() this = new stdgo._internal.net.http.Http_t_http2write100continueheadersframe.T_http2write100ContinueHeadersFrame();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeWindowUpdate_static_extension) @:dox(hide) abstract T_http2writeWindowUpdate(stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate) from stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate to stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate {
+@:structInit @:using(Http.T_http2writeWindowUpdate_static_extension) @:dox(hide) abstract T_http2writeWindowUpdate(stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate) from stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate to stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writewindowupdate.T_http2writeWindowUpdate();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2OpenStreamOptions_static_extension) @:dox(hide) abstract T_http2OpenStreamOptions(stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions) from stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions to stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions {
+@:structInit @:using(Http.T_http2OpenStreamOptions_static_extension) @:dox(hide) abstract T_http2OpenStreamOptions(stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions) from stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions to stdgo._internal.net.http.Http_t_http2openstreamoptions.T_http2OpenStreamOptions {
     public var pusherID(get, set) : std.UInt;
     function get_pusherID():std.UInt return this.pusherID;
     function set_pusherID(v:std.UInt):std.UInt {
@@ -1587,17 +1843,17 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2FrameWriteRequest_static_extension) @:dox(hide) abstract T_http2FrameWriteRequest(stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest) from stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest to stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest {
+@:structInit @:using(Http.T_http2FrameWriteRequest_static_extension) @:dox(hide) abstract T_http2FrameWriteRequest(stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest) from stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest to stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest {
     public function new() this = new stdgo._internal.net.http.Http_t_http2framewriterequest.T_http2FrameWriteRequest();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2writeQueue_static_extension) @:dox(hide) abstract T_http2writeQueue(stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue) from stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue to stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue {
+@:structInit @:using(Http.T_http2writeQueue_static_extension) @:dox(hide) abstract T_http2writeQueue(stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue) from stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue to stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue {
     public function new() this = new stdgo._internal.net.http.Http_t_http2writequeue.T_http2writeQueue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2PriorityWriteSchedulerConfig_static_extension) @:dox(hide) abstract T_http2PriorityWriteSchedulerConfig(stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig) from stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig to stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig {
+@:structInit @:using(Http.T_http2PriorityWriteSchedulerConfig_static_extension) @:dox(hide) abstract T_http2PriorityWriteSchedulerConfig(stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig) from stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig to stdgo._internal.net.http.Http_t_http2prioritywriteschedulerconfig.T_http2PriorityWriteSchedulerConfig {
     public var maxClosedNodesInTree(get, set) : StdTypes.Int;
     function get_maxClosedNodesInTree():StdTypes.Int return this.maxClosedNodesInTree;
     function set_maxClosedNodesInTree(v:StdTypes.Int):StdTypes.Int {
@@ -1620,52 +1876,52 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2priorityNode_static_extension) @:dox(hide) abstract T_http2priorityNode(stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode) from stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode to stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode {
+@:structInit @:using(Http.T_http2priorityNode_static_extension) @:dox(hide) abstract T_http2priorityNode(stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode) from stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode to stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode {
     public function new() this = new stdgo._internal.net.http.Http_t_http2prioritynode.T_http2priorityNode();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2priorityWriteScheduler_static_extension) @:dox(hide) abstract T_http2priorityWriteScheduler(stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler) from stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler to stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler {
+@:structInit @:using(Http.T_http2priorityWriteScheduler_static_extension) @:dox(hide) abstract T_http2priorityWriteScheduler(stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler) from stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler to stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler {
     public function new() this = new stdgo._internal.net.http.Http_t_http2prioritywritescheduler.T_http2priorityWriteScheduler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2randomWriteScheduler_static_extension) @:dox(hide) abstract T_http2randomWriteScheduler(stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler) from stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler to stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler {
+@:structInit @:using(Http.T_http2randomWriteScheduler_static_extension) @:dox(hide) abstract T_http2randomWriteScheduler(stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler) from stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler to stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler {
     public function new() this = new stdgo._internal.net.http.Http_t_http2randomwritescheduler.T_http2randomWriteScheduler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_http2roundRobinWriteScheduler_static_extension) @:dox(hide) abstract T_http2roundRobinWriteScheduler(stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler) from stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler to stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler {
+@:structInit @:using(Http.T_http2roundRobinWriteScheduler_static_extension) @:dox(hide) abstract T_http2roundRobinWriteScheduler(stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler) from stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler to stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler {
     public function new() this = new stdgo._internal.net.http.Http_t_http2roundrobinwritescheduler.T_http2roundRobinWriteScheduler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_stringWriter_static_extension) @:dox(hide) abstract T_stringWriter(stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter) from stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter to stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter {
+@:structInit @:using(Http.T_stringWriter_static_extension) @:dox(hide) abstract T_stringWriter(stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter) from stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter to stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_stringwriter.T_stringWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_keyValues_static_extension) @:dox(hide) abstract T_keyValues(stdgo._internal.net.http.Http_t_keyvalues.T_keyValues) from stdgo._internal.net.http.Http_t_keyvalues.T_keyValues to stdgo._internal.net.http.Http_t_keyvalues.T_keyValues {
+@:structInit @:using(Http.T_keyValues_static_extension) @:dox(hide) abstract T_keyValues(stdgo._internal.net.http.Http_t_keyvalues.T_keyValues) from stdgo._internal.net.http.Http_t_keyvalues.T_keyValues to stdgo._internal.net.http.Http_t_keyvalues.T_keyValues {
     public function new() this = new stdgo._internal.net.http.Http_t_keyvalues.T_keyValues();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_headerSorter_static_extension) @:dox(hide) abstract T_headerSorter(stdgo._internal.net.http.Http_t_headersorter.T_headerSorter) from stdgo._internal.net.http.Http_t_headersorter.T_headerSorter to stdgo._internal.net.http.Http_t_headersorter.T_headerSorter {
+@:structInit @:using(Http.T_headerSorter_static_extension) @:dox(hide) abstract T_headerSorter(stdgo._internal.net.http.Http_t_headersorter.T_headerSorter) from stdgo._internal.net.http.Http_t_headersorter.T_headerSorter to stdgo._internal.net.http.Http_t_headersorter.T_headerSorter {
     public function new() this = new stdgo._internal.net.http.Http_t_headersorter.T_headerSorter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_contextKey_static_extension) @:dox(hide) abstract T_contextKey(stdgo._internal.net.http.Http_t_contextkey.T_contextKey) from stdgo._internal.net.http.Http_t_contextkey.T_contextKey to stdgo._internal.net.http.Http_t_contextkey.T_contextKey {
+@:structInit @:using(Http.T_contextKey_static_extension) @:dox(hide) abstract T_contextKey(stdgo._internal.net.http.Http_t_contextkey.T_contextKey) from stdgo._internal.net.http.Http_t_contextkey.T_contextKey to stdgo._internal.net.http.Http_t_contextkey.T_contextKey {
     public function new() this = new stdgo._internal.net.http.Http_t_contextkey.T_contextKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_noBody_static_extension) @:dox(hide) abstract T_noBody(stdgo._internal.net.http.Http_t_nobody.T_noBody) from stdgo._internal.net.http.Http_t_nobody.T_noBody to stdgo._internal.net.http.Http_t_nobody.T_noBody {
+@:structInit @:using(Http.T_noBody_static_extension) @:dox(hide) abstract T_noBody(stdgo._internal.net.http.Http_t_nobody.T_noBody) from stdgo._internal.net.http.Http_t_nobody.T_noBody to stdgo._internal.net.http.Http_t_nobody.T_noBody {
     public function new() this = new stdgo._internal.net.http.Http_t_nobody.T_noBody();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.PushOptions_static_extension) abstract PushOptions(stdgo._internal.net.http.Http_pushoptions.PushOptions) from stdgo._internal.net.http.Http_pushoptions.PushOptions to stdgo._internal.net.http.Http_pushoptions.PushOptions {
+@:structInit @:using(Http.PushOptions_static_extension) abstract PushOptions(stdgo._internal.net.http.Http_pushoptions.PushOptions) from stdgo._internal.net.http.Http_pushoptions.PushOptions to stdgo._internal.net.http.Http_pushoptions.PushOptions {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -1682,7 +1938,7 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.ProtocolError_static_extension) abstract ProtocolError(stdgo._internal.net.http.Http_protocolerror.ProtocolError) from stdgo._internal.net.http.Http_protocolerror.ProtocolError to stdgo._internal.net.http.Http_protocolerror.ProtocolError {
+@:structInit @:using(Http.ProtocolError_static_extension) abstract ProtocolError(stdgo._internal.net.http.Http_protocolerror.ProtocolError) from stdgo._internal.net.http.Http_protocolerror.ProtocolError to stdgo._internal.net.http.Http_protocolerror.ProtocolError {
     public var errorString(get, set) : String;
     function get_errorString():String return this.errorString;
     function set_errorString(v:String):String {
@@ -1693,7 +1949,7 @@ countError);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.Request_static_extension) abstract Request(stdgo._internal.net.http.Http_request.Request) from stdgo._internal.net.http.Http_request.Request to stdgo._internal.net.http.Http_request.Request {
+@:structInit @:using(Http.Request_static_extension) abstract Request(stdgo._internal.net.http.Http_request.Request) from stdgo._internal.net.http.Http_request.Request to stdgo._internal.net.http.Http_request.Request {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -1736,9 +1992,9 @@ countError);
         this.body = v;
         return v;
     }
-    public var getBody(get, set) : () -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; };
-    function get_getBody():() -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; } return () -> this.getBody();
-    function set_getBody(v:() -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; }):() -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; } {
+    public var getBody(get, set) : () -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error>;
+    function get_getBody():() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error> return () -> this.getBody();
+    function set_getBody(v:() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error>):() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error> {
         this.getBody = v;
         return v;
     }
@@ -1820,7 +2076,7 @@ countError);
         this.response = (v : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         return v;
     }
-    public function new(?method:String, ?uRL:stdgo._internal.net.url.Url_url.URL, ?proto:String, ?protoMajor:StdTypes.Int, ?protoMinor:StdTypes.Int, ?header:Header, ?body:stdgo._internal.io.Io_readcloser.ReadCloser, ?getBody:() -> { var _0 : stdgo._internal.io.Io_readcloser.ReadCloser; var _1 : stdgo.Error; }, ?contentLength:haxe.Int64, ?transferEncoding:Array<String>, ?close:Bool, ?host:String, ?form:stdgo._internal.net.url.Url_values.Values, ?postForm:stdgo._internal.net.url.Url_values.Values, ?multipartForm:stdgo._internal.mime.multipart.Multipart_form.Form, ?trailer:Header, ?remoteAddr:String, ?requestURI:String, ?tLS:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, ?cancel:stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError>, ?response:Response) this = new stdgo._internal.net.http.Http_request.Request(
+    public function new(?method:String, ?uRL:stdgo._internal.net.url.Url_url.URL, ?proto:String, ?protoMajor:StdTypes.Int, ?protoMinor:StdTypes.Int, ?header:Header, ?body:stdgo._internal.io.Io_readcloser.ReadCloser, ?getBody:() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error>, ?contentLength:haxe.Int64, ?transferEncoding:Array<String>, ?close:Bool, ?host:String, ?form:stdgo._internal.net.url.Url_values.Values, ?postForm:stdgo._internal.net.url.Url_values.Values, ?multipartForm:stdgo._internal.mime.multipart.Multipart_form.Form, ?trailer:Header, ?remoteAddr:String, ?requestURI:String, ?tLS:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, ?cancel:stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError>, ?response:Response) this = new stdgo._internal.net.http.Http_request.Request(
 (method : stdgo.GoString),
 (uRL : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>),
 (proto : stdgo.GoString),
@@ -1845,12 +2101,12 @@ trailer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_requestBodyReadError_static_extension) @:dox(hide) abstract T_requestBodyReadError(stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError) from stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError to stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError {
+@:structInit @:using(Http.T_requestBodyReadError_static_extension) @:dox(hide) abstract T_requestBodyReadError(stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError) from stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError to stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError {
     public function new() this = new stdgo._internal.net.http.Http_t_requestbodyreaderror.T_requestBodyReadError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.MaxBytesError_static_extension) abstract MaxBytesError(stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError) from stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError to stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError {
+@:structInit @:using(Http.MaxBytesError_static_extension) abstract MaxBytesError(stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError) from stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError to stdgo._internal.net.http.Http_maxbyteserror.MaxBytesError {
     public var limit(get, set) : haxe.Int64;
     function get_limit():haxe.Int64 return this.limit;
     function set_limit(v:haxe.Int64):haxe.Int64 {
@@ -1861,12 +2117,12 @@ trailer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_maxBytesReader_static_extension) @:dox(hide) abstract T_maxBytesReader(stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader) from stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader to stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader {
+@:structInit @:using(Http.T_maxBytesReader_static_extension) @:dox(hide) abstract T_maxBytesReader(stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader) from stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader to stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader {
     public function new() this = new stdgo._internal.net.http.Http_t_maxbytesreader.T_maxBytesReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.Response_static_extension) abstract Response(stdgo._internal.net.http.Http_response.Response) from stdgo._internal.net.http.Http_response.Response to stdgo._internal.net.http.Http_response.Response {
+@:structInit @:using(Http.Response_static_extension) abstract Response(stdgo._internal.net.http.Http_response.Response) from stdgo._internal.net.http.Http_response.Response to stdgo._internal.net.http.Http_response.Response {
     public var status(get, set) : String;
     function get_status():String return this.status;
     function set_status(v:String):String {
@@ -1969,37 +2225,37 @@ trailer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.ResponseController_static_extension) abstract ResponseController(stdgo._internal.net.http.Http_responsecontroller.ResponseController) from stdgo._internal.net.http.Http_responsecontroller.ResponseController to stdgo._internal.net.http.Http_responsecontroller.ResponseController {
+@:structInit @:using(Http.ResponseController_static_extension) abstract ResponseController(stdgo._internal.net.http.Http_responsecontroller.ResponseController) from stdgo._internal.net.http.Http_responsecontroller.ResponseController to stdgo._internal.net.http.Http_responsecontroller.ResponseController {
     public function new() this = new stdgo._internal.net.http.Http_responsecontroller.ResponseController();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_streamReader_static_extension) @:dox(hide) abstract T_streamReader(stdgo._internal.net.http.Http_t_streamreader.T_streamReader) from stdgo._internal.net.http.Http_t_streamreader.T_streamReader to stdgo._internal.net.http.Http_t_streamreader.T_streamReader {
+@:structInit @:using(Http.T_streamReader_static_extension) @:dox(hide) abstract T_streamReader(stdgo._internal.net.http.Http_t_streamreader.T_streamReader) from stdgo._internal.net.http.Http_t_streamreader.T_streamReader to stdgo._internal.net.http.Http_t_streamreader.T_streamReader {
     public function new() this = new stdgo._internal.net.http.Http_t_streamreader.T_streamReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_arrayReader_static_extension) @:dox(hide) abstract T_arrayReader(stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader) from stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader to stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader {
+@:structInit @:using(Http.T_arrayReader_static_extension) @:dox(hide) abstract T_arrayReader(stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader) from stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader to stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader {
     public function new() this = new stdgo._internal.net.http.Http_t_arrayreader.T_arrayReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_conn_static_extension) @:dox(hide) abstract T_conn(stdgo._internal.net.http.Http_t_conn.T_conn) from stdgo._internal.net.http.Http_t_conn.T_conn to stdgo._internal.net.http.Http_t_conn.T_conn {
+@:structInit @:using(Http.T_conn_static_extension) @:dox(hide) abstract T_conn(stdgo._internal.net.http.Http_t_conn.T_conn) from stdgo._internal.net.http.Http_t_conn.T_conn to stdgo._internal.net.http.Http_t_conn.T_conn {
     public function new() this = new stdgo._internal.net.http.Http_t_conn.T_conn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_chunkWriter_static_extension) @:dox(hide) abstract T_chunkWriter(stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter) from stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter to stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter {
+@:structInit @:using(Http.T_chunkWriter_static_extension) @:dox(hide) abstract T_chunkWriter(stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter) from stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter to stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_chunkwriter.T_chunkWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.Http_t_response.T_response) from stdgo._internal.net.http.Http_t_response.T_response to stdgo._internal.net.http.Http_t_response.T_response {
+@:structInit @:using(Http.T_response_static_extension) @:dox(hide) abstract T_response(stdgo._internal.net.http.Http_t_response.T_response) from stdgo._internal.net.http.Http_t_response.T_response to stdgo._internal.net.http.Http_t_response.T_response {
     public function new() this = new stdgo._internal.net.http.Http_t_response.T_response();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_writerOnly_static_extension) @:dox(hide) abstract T_writerOnly(stdgo._internal.net.http.Http_t_writeronly.T_writerOnly) from stdgo._internal.net.http.Http_t_writeronly.T_writerOnly to stdgo._internal.net.http.Http_t_writeronly.T_writerOnly {
+@:structInit @:using(Http.T_writerOnly_static_extension) @:dox(hide) abstract T_writerOnly(stdgo._internal.net.http.Http_t_writeronly.T_writerOnly) from stdgo._internal.net.http.Http_t_writeronly.T_writerOnly to stdgo._internal.net.http.Http_t_writeronly.T_writerOnly {
     public var writer(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_writer():stdgo._internal.io.Io_writer.Writer return this.writer;
     function set_writer(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -2010,47 +2266,47 @@ trailer,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_readResult_static_extension) @:dox(hide) abstract T_readResult(stdgo._internal.net.http.Http_t_readresult.T_readResult) from stdgo._internal.net.http.Http_t_readresult.T_readResult to stdgo._internal.net.http.Http_t_readresult.T_readResult {
+@:structInit @:using(Http.T_readResult_static_extension) @:dox(hide) abstract T_readResult(stdgo._internal.net.http.Http_t_readresult.T_readResult) from stdgo._internal.net.http.Http_t_readresult.T_readResult to stdgo._internal.net.http.Http_t_readresult.T_readResult {
     public function new() this = new stdgo._internal.net.http.Http_t_readresult.T_readResult();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_connReader_static_extension) @:dox(hide) abstract T_connReader(stdgo._internal.net.http.Http_t_connreader.T_connReader) from stdgo._internal.net.http.Http_t_connreader.T_connReader to stdgo._internal.net.http.Http_t_connreader.T_connReader {
+@:structInit @:using(Http.T_connReader_static_extension) @:dox(hide) abstract T_connReader(stdgo._internal.net.http.Http_t_connreader.T_connReader) from stdgo._internal.net.http.Http_t_connreader.T_connReader to stdgo._internal.net.http.Http_t_connreader.T_connReader {
     public function new() this = new stdgo._internal.net.http.Http_t_connreader.T_connReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_expectContinueReader_static_extension) @:dox(hide) abstract T_expectContinueReader(stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader) from stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader to stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader {
+@:structInit @:using(Http.T_expectContinueReader_static_extension) @:dox(hide) abstract T_expectContinueReader(stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader) from stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader to stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader {
     public function new() this = new stdgo._internal.net.http.Http_t_expectcontinuereader.T_expectContinueReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_extraHeader_static_extension) @:dox(hide) abstract T_extraHeader(stdgo._internal.net.http.Http_t_extraheader.T_extraHeader) from stdgo._internal.net.http.Http_t_extraheader.T_extraHeader to stdgo._internal.net.http.Http_t_extraheader.T_extraHeader {
+@:structInit @:using(Http.T_extraHeader_static_extension) @:dox(hide) abstract T_extraHeader(stdgo._internal.net.http.Http_t_extraheader.T_extraHeader) from stdgo._internal.net.http.Http_t_extraheader.T_extraHeader to stdgo._internal.net.http.Http_t_extraheader.T_extraHeader {
     public function new() this = new stdgo._internal.net.http.Http_t_extraheader.T_extraHeader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_statusError_static_extension) @:dox(hide) abstract T_statusError(stdgo._internal.net.http.Http_t_statuserror.T_statusError) from stdgo._internal.net.http.Http_t_statuserror.T_statusError to stdgo._internal.net.http.Http_t_statuserror.T_statusError {
+@:structInit @:using(Http.T_statusError_static_extension) @:dox(hide) abstract T_statusError(stdgo._internal.net.http.Http_t_statuserror.T_statusError) from stdgo._internal.net.http.Http_t_statuserror.T_statusError to stdgo._internal.net.http.Http_t_statuserror.T_statusError {
     public function new() this = new stdgo._internal.net.http.Http_t_statuserror.T_statusError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_redirectHandler_static_extension) @:dox(hide) abstract T_redirectHandler(stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler) from stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler to stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler {
+@:structInit @:using(Http.T_redirectHandler_static_extension) @:dox(hide) abstract T_redirectHandler(stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler) from stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler to stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_redirecthandler.T_redirectHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.ServeMux_static_extension) abstract ServeMux(stdgo._internal.net.http.Http_servemux.ServeMux) from stdgo._internal.net.http.Http_servemux.ServeMux to stdgo._internal.net.http.Http_servemux.ServeMux {
+@:structInit @:using(Http.ServeMux_static_extension) abstract ServeMux(stdgo._internal.net.http.Http_servemux.ServeMux) from stdgo._internal.net.http.Http_servemux.ServeMux to stdgo._internal.net.http.Http_servemux.ServeMux {
     public function new() this = new stdgo._internal.net.http.Http_servemux.ServeMux();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_muxEntry_static_extension) @:dox(hide) abstract T_muxEntry(stdgo._internal.net.http.Http_t_muxentry.T_muxEntry) from stdgo._internal.net.http.Http_t_muxentry.T_muxEntry to stdgo._internal.net.http.Http_t_muxentry.T_muxEntry {
+@:structInit @:using(Http.T_muxEntry_static_extension) @:dox(hide) abstract T_muxEntry(stdgo._internal.net.http.Http_t_muxentry.T_muxEntry) from stdgo._internal.net.http.Http_t_muxentry.T_muxEntry to stdgo._internal.net.http.Http_t_muxentry.T_muxEntry {
     public function new() this = new stdgo._internal.net.http.Http_t_muxentry.T_muxEntry();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.Server_static_extension) abstract Server(stdgo._internal.net.http.Http_server.Server) from stdgo._internal.net.http.Http_server.Server to stdgo._internal.net.http.Http_server.Server {
+@:structInit @:using(Http.Server_static_extension) abstract Server(stdgo._internal.net.http.Http_server.Server) from stdgo._internal.net.http.Http_server.Server to stdgo._internal.net.http.Http_server.Server {
     public var addr(get, set) : String;
     function get_addr():String return this.addr;
     function set_addr(v:String):String {
@@ -2105,15 +2361,27 @@ trailer,
         this.maxHeaderBytes = (v : stdgo.GoInt);
         return v;
     }
-    public var tLSNextProto(get, set) : stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>;
-    function get_tLSNextProto():stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void> return this.tLSNextProto;
-    function set_tLSNextProto(v:stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>):stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void> {
-        this.tLSNextProto = (v : stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>);
+    public var tLSNextProto(get, set) : Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void>;
+    function get_tLSNextProto():Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void> return {
+        final __obj__:Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void> = [];
+        for (key => value in this.tLSNextProto) {
+            __obj__[key] = (_0, _1, _2) -> value(_0, _1, _2);
+        };
+        __obj__;
+    };
+    function set_tLSNextProto(v:Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void>):Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void> {
+        this.tLSNextProto = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var connState(get, set) : (stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState) -> Void;
-    function get_connState():(stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState) -> Void return (_0, _1) -> this.connState(_0, _1);
-    function set_connState(v:(stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState) -> Void):(stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState) -> Void {
+    public var connState(get, set) : (stdgo._internal.net.Net_conn.Conn, ConnState) -> Void;
+    function get_connState():(stdgo._internal.net.Net_conn.Conn, ConnState) -> Void return (_0, _1) -> this.connState(_0, _1);
+    function set_connState(v:(stdgo._internal.net.Net_conn.Conn, ConnState) -> Void):(stdgo._internal.net.Net_conn.Conn, ConnState) -> Void {
         this.connState = v;
         return v;
     }
@@ -2135,7 +2403,7 @@ trailer,
         this.connContext = v;
         return v;
     }
-    public function new(?addr:String, ?handler:Handler, ?disableGeneralOptionsHandler:Bool, ?tLSConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?readTimeout:stdgo._internal.time.Time_duration.Duration, ?readHeaderTimeout:stdgo._internal.time.Time_duration.Duration, ?writeTimeout:stdgo._internal.time.Time_duration.Duration, ?idleTimeout:stdgo._internal.time.Time_duration.Duration, ?maxHeaderBytes:StdTypes.Int, ?tLSNextProto:stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>, ?connState:(stdgo._internal.net.Net_conn.Conn, stdgo._internal.net.http.Http_connstate.ConnState) -> Void, ?errorLog:stdgo._internal.log.Log_logger.Logger, ?baseContext:stdgo._internal.net.Net_listener.Listener -> stdgo._internal.context.Context_context.Context, ?connContext:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.Net_conn.Conn) -> stdgo._internal.context.Context_context.Context) this = new stdgo._internal.net.http.Http_server.Server(
+    public function new(?addr:String, ?handler:Handler, ?disableGeneralOptionsHandler:Bool, ?tLSConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?readTimeout:stdgo._internal.time.Time_duration.Duration, ?readHeaderTimeout:stdgo._internal.time.Time_duration.Duration, ?writeTimeout:stdgo._internal.time.Time_duration.Duration, ?idleTimeout:stdgo._internal.time.Time_duration.Duration, ?maxHeaderBytes:StdTypes.Int, ?tLSNextProto:Map<String, (Server, stdgo._internal.crypto.tls.Tls_conn.Conn, Handler) -> Void>, ?connState:(stdgo._internal.net.Net_conn.Conn, ConnState) -> Void, ?errorLog:stdgo._internal.log.Log_logger.Logger, ?baseContext:stdgo._internal.net.Net_listener.Listener -> stdgo._internal.context.Context_context.Context, ?connContext:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.Net_conn.Conn) -> stdgo._internal.context.Context_context.Context) this = new stdgo._internal.net.http.Http_server.Server(
 (addr : stdgo.GoString),
 handler,
 disableGeneralOptionsHandler,
@@ -2145,7 +2413,13 @@ readHeaderTimeout,
 writeTimeout,
 idleTimeout,
 (maxHeaderBytes : stdgo.GoInt),
-(tLSNextProto : stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, (stdgo.Ref<stdgo._internal.net.http.Http_server.Server>, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>, stdgo._internal.net.http.Http_handler.Handler) -> Void>();
+        for (key => value in tLSNextProto) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
 connState,
 (errorLog : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>),
 baseContext,
@@ -2153,22 +2427,22 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_serverHandler_static_extension) @:dox(hide) abstract T_serverHandler(stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler) from stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler to stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler {
+@:structInit @:using(Http.T_serverHandler_static_extension) @:dox(hide) abstract T_serverHandler(stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler) from stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler to stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_serverhandler.T_serverHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_timeoutHandler_static_extension) @:dox(hide) abstract T_timeoutHandler(stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler) from stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler to stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler {
+@:structInit @:using(Http.T_timeoutHandler_static_extension) @:dox(hide) abstract T_timeoutHandler(stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler) from stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler to stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_timeouthandler.T_timeoutHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_timeoutWriter_static_extension) @:dox(hide) abstract T_timeoutWriter(stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter) from stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter to stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter {
+@:structInit @:using(Http.T_timeoutWriter_static_extension) @:dox(hide) abstract T_timeoutWriter(stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter) from stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter to stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_timeoutwriter.T_timeoutWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_onceCloseListener_static_extension) @:dox(hide) abstract T_onceCloseListener(stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener) from stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener to stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener {
+@:structInit @:using(Http.T_onceCloseListener_static_extension) @:dox(hide) abstract T_onceCloseListener(stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener) from stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener to stdgo._internal.net.http.Http_t_oncecloselistener.T_onceCloseListener {
     public var listener(get, set) : stdgo._internal.net.Net_listener.Listener;
     function get_listener():stdgo._internal.net.Net_listener.Listener return this.listener;
     function set_listener(v:stdgo._internal.net.Net_listener.Listener):stdgo._internal.net.Net_listener.Listener {
@@ -2179,17 +2453,17 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_globalOptionsHandler_static_extension) @:dox(hide) abstract T_globalOptionsHandler(stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler) from stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler to stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler {
+@:structInit @:using(Http.T_globalOptionsHandler_static_extension) @:dox(hide) abstract T_globalOptionsHandler(stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler) from stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler to stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler {
     public function new() this = new stdgo._internal.net.http.Http_t_globaloptionshandler.T_globalOptionsHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_initALPNRequest_static_extension) @:dox(hide) abstract T_initALPNRequest(stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest) from stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest to stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest {
+@:structInit @:using(Http.T_initALPNRequest_static_extension) @:dox(hide) abstract T_initALPNRequest(stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest) from stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest to stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest {
     public function new() this = new stdgo._internal.net.http.Http_t_initalpnrequest.T_initALPNRequest();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_loggingConn_static_extension) @:dox(hide) abstract T_loggingConn(stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn) from stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn to stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn {
+@:structInit @:using(Http.T_loggingConn_static_extension) @:dox(hide) abstract T_loggingConn(stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn) from stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn to stdgo._internal.net.http.Http_t_loggingconn.T_loggingConn {
     public var conn(get, set) : stdgo._internal.net.Net_conn.Conn;
     function get_conn():stdgo._internal.net.Net_conn.Conn return this.conn;
     function set_conn(v:stdgo._internal.net.Net_conn.Conn):stdgo._internal.net.Net_conn.Conn {
@@ -2200,32 +2474,32 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_checkConnErrorWriter_static_extension) @:dox(hide) abstract T_checkConnErrorWriter(stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter) from stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter to stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter {
+@:structInit @:using(Http.T_checkConnErrorWriter_static_extension) @:dox(hide) abstract T_checkConnErrorWriter(stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter) from stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter to stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_checkconnerrorwriter.T_checkConnErrorWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_exactSig_static_extension) @:dox(hide) abstract T_exactSig(stdgo._internal.net.http.Http_t_exactsig.T_exactSig) from stdgo._internal.net.http.Http_t_exactsig.T_exactSig to stdgo._internal.net.http.Http_t_exactsig.T_exactSig {
+@:structInit @:using(Http.T_exactSig_static_extension) @:dox(hide) abstract T_exactSig(stdgo._internal.net.http.Http_t_exactsig.T_exactSig) from stdgo._internal.net.http.Http_t_exactsig.T_exactSig to stdgo._internal.net.http.Http_t_exactsig.T_exactSig {
     public function new() this = new stdgo._internal.net.http.Http_t_exactsig.T_exactSig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_maskedSig_static_extension) @:dox(hide) abstract T_maskedSig(stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig) from stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig to stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig {
+@:structInit @:using(Http.T_maskedSig_static_extension) @:dox(hide) abstract T_maskedSig(stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig) from stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig to stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig {
     public function new() this = new stdgo._internal.net.http.Http_t_maskedsig.T_maskedSig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_mp4Sig_static_extension) @:dox(hide) abstract T_mp4Sig(stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig) from stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig to stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig {
+@:structInit @:using(Http.T_mp4Sig_static_extension) @:dox(hide) abstract T_mp4Sig(stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig) from stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig to stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig {
     public function new() this = new stdgo._internal.net.http.Http_t_mp4sig.T_mp4Sig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_textSig_static_extension) @:dox(hide) abstract T_textSig(stdgo._internal.net.http.Http_t_textsig.T_textSig) from stdgo._internal.net.http.Http_t_textsig.T_textSig to stdgo._internal.net.http.Http_t_textsig.T_textSig {
+@:structInit @:using(Http.T_textSig_static_extension) @:dox(hide) abstract T_textSig(stdgo._internal.net.http.Http_t_textsig.T_textSig) from stdgo._internal.net.http.Http_t_textsig.T_textSig to stdgo._internal.net.http.Http_t_textsig.T_textSig {
     public function new() this = new stdgo._internal.net.http.Http_t_textsig.T_textSig();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_socksAddr_static_extension) @:dox(hide) abstract T_socksAddr(stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr) from stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr to stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr {
+@:structInit @:using(Http.T_socksAddr_static_extension) @:dox(hide) abstract T_socksAddr(stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr) from stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr to stdgo._internal.net.http.Http_t_socksaddr.T_socksAddr {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -2248,7 +2522,7 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_socksConn_static_extension) @:dox(hide) abstract T_socksConn(stdgo._internal.net.http.Http_t_socksconn.T_socksConn) from stdgo._internal.net.http.Http_t_socksconn.T_socksConn to stdgo._internal.net.http.Http_t_socksconn.T_socksConn {
+@:structInit @:using(Http.T_socksConn_static_extension) @:dox(hide) abstract T_socksConn(stdgo._internal.net.http.Http_t_socksconn.T_socksConn) from stdgo._internal.net.http.Http_t_socksconn.T_socksConn to stdgo._internal.net.http.Http_t_socksconn.T_socksConn {
     public var conn(get, set) : stdgo._internal.net.Net_conn.Conn;
     function get_conn():stdgo._internal.net.Net_conn.Conn return this.conn;
     function set_conn(v:stdgo._internal.net.Net_conn.Conn):stdgo._internal.net.Net_conn.Conn {
@@ -2259,10 +2533,10 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_socksDialer_static_extension) @:dox(hide) abstract T_socksDialer(stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer) from stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer to stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer {
-    public var proxyDial(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_proxyDial():(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1, _2) -> this.proxyDial(_0, _1, _2);
-    function set_proxyDial(v:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+@:structInit @:using(Http.T_socksDialer_static_extension) @:dox(hide) abstract T_socksDialer(stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer) from stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer to stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer {
+    public var proxyDial(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_proxyDial():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.proxyDial(_0, _1, _2);
+    function set_proxyDial(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.proxyDial = v;
         return v;
     }
@@ -2272,17 +2546,17 @@ connContext);
         this.authMethods = ([for (i in v) i] : stdgo.Slice<stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod>);
         return v;
     }
-    public var authenticate(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod) -> stdgo.Error;
-    function get_authenticate():(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod) -> stdgo.Error return (_0, _1, _2) -> this.authenticate(_0, _1, _2);
-    function set_authenticate(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod) -> stdgo.Error {
+    public var authenticate(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error;
+    function get_authenticate():(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error return (_0, _1, _2) -> this.authenticate(_0, _1, _2);
+    function set_authenticate(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error {
         this.authenticate = v;
         return v;
     }
-    public function new(?proxyDial:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?authMethods:Array<T_socksAuthMethod>, ?authenticate:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod) -> stdgo.Error) this = new stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer(proxyDial, ([for (i in authMethods) i] : stdgo.Slice<stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod>), authenticate);
+    public function new(?proxyDial:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?authMethods:Array<T_socksAuthMethod>, ?authenticate:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error) this = new stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer(proxyDial, ([for (i in authMethods) i] : stdgo.Slice<stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod>), authenticate);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_socksUsernamePassword_static_extension) @:dox(hide) abstract T_socksUsernamePassword(stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword) from stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword to stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword {
+@:structInit @:using(Http.T_socksUsernamePassword_static_extension) @:dox(hide) abstract T_socksUsernamePassword(stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword) from stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword to stdgo._internal.net.http.Http_t_socksusernamepassword.T_socksUsernamePassword {
     public var username(get, set) : String;
     function get_username():String return this.username;
     function set_username(v:String):String {
@@ -2299,17 +2573,17 @@ connContext);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_errorReader_static_extension) @:dox(hide) abstract T_errorReader(stdgo._internal.net.http.Http_t_errorreader.T_errorReader) from stdgo._internal.net.http.Http_t_errorreader.T_errorReader to stdgo._internal.net.http.Http_t_errorreader.T_errorReader {
+@:structInit @:using(Http.T_errorReader_static_extension) @:dox(hide) abstract T_errorReader(stdgo._internal.net.http.Http_t_errorreader.T_errorReader) from stdgo._internal.net.http.Http_t_errorreader.T_errorReader to stdgo._internal.net.http.Http_t_errorreader.T_errorReader {
     public function new() this = new stdgo._internal.net.http.Http_t_errorreader.T_errorReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_byteReader_static_extension) @:dox(hide) abstract T_byteReader(stdgo._internal.net.http.Http_t_bytereader.T_byteReader) from stdgo._internal.net.http.Http_t_bytereader.T_byteReader to stdgo._internal.net.http.Http_t_bytereader.T_byteReader {
+@:structInit @:using(Http.T_byteReader_static_extension) @:dox(hide) abstract T_byteReader(stdgo._internal.net.http.Http_t_bytereader.T_byteReader) from stdgo._internal.net.http.Http_t_bytereader.T_byteReader to stdgo._internal.net.http.Http_t_bytereader.T_byteReader {
     public function new() this = new stdgo._internal.net.http.Http_t_bytereader.T_byteReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_transferWriter_static_extension) @:dox(hide) abstract T_transferWriter(stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter) from stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter to stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter {
+@:structInit @:using(Http.T_transferWriter_static_extension) @:dox(hide) abstract T_transferWriter(stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter) from stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter to stdgo._internal.net.http.Http_t_transferwriter.T_transferWriter {
     public var method(get, set) : String;
     function get_method():String return this.method;
     function set_method(v:String):String {
@@ -2398,7 +2672,7 @@ flushHeaders,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_transferReader_static_extension) @:dox(hide) abstract T_transferReader(stdgo._internal.net.http.Http_t_transferreader.T_transferReader) from stdgo._internal.net.http.Http_t_transferreader.T_transferReader to stdgo._internal.net.http.Http_t_transferreader.T_transferReader {
+@:structInit @:using(Http.T_transferReader_static_extension) @:dox(hide) abstract T_transferReader(stdgo._internal.net.http.Http_t_transferreader.T_transferReader) from stdgo._internal.net.http.Http_t_transferreader.T_transferReader to stdgo._internal.net.http.Http_t_transferreader.T_transferReader {
     public var header(get, set) : Header;
     function get_header():Header return this.header;
     function set_header(v:Header):Header {
@@ -2463,65 +2737,65 @@ flushHeaders,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_unsupportedTEError_static_extension) @:dox(hide) abstract T_unsupportedTEError(stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError) from stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError to stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError {
+@:structInit @:using(Http.T_unsupportedTEError_static_extension) @:dox(hide) abstract T_unsupportedTEError(stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError) from stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError to stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError {
     public function new() this = new stdgo._internal.net.http.Http_t_unsupportedteerror.T_unsupportedTEError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_body_static_extension) @:dox(hide) abstract T_body(stdgo._internal.net.http.Http_t_body.T_body) from stdgo._internal.net.http.Http_t_body.T_body to stdgo._internal.net.http.Http_t_body.T_body {
+@:structInit @:using(Http.T_body_static_extension) @:dox(hide) abstract T_body(stdgo._internal.net.http.Http_t_body.T_body) from stdgo._internal.net.http.Http_t_body.T_body to stdgo._internal.net.http.Http_t_body.T_body {
     public function new() this = new stdgo._internal.net.http.Http_t_body.T_body();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_bodyLocked_static_extension) @:dox(hide) abstract T_bodyLocked(stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked) from stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked to stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked {
+@:structInit @:using(Http.T_bodyLocked_static_extension) @:dox(hide) abstract T_bodyLocked(stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked) from stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked to stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked {
     public function new() this = new stdgo._internal.net.http.Http_t_bodylocked.T_bodyLocked();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_finishAsyncByteRead_static_extension) @:dox(hide) abstract T_finishAsyncByteRead(stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead) from stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead to stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead {
+@:structInit @:using(Http.T_finishAsyncByteRead_static_extension) @:dox(hide) abstract T_finishAsyncByteRead(stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead) from stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead to stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead {
     public function new() this = new stdgo._internal.net.http.Http_t_finishasyncbyteread.T_finishAsyncByteRead();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_bufioFlushWriter_static_extension) @:dox(hide) abstract T_bufioFlushWriter(stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter) from stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter to stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter {
+@:structInit @:using(Http.T_bufioFlushWriter_static_extension) @:dox(hide) abstract T_bufioFlushWriter(stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter) from stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter to stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_bufioflushwriter.T_bufioFlushWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.Transport_static_extension) abstract Transport(stdgo._internal.net.http.Http_transport.Transport) from stdgo._internal.net.http.Http_transport.Transport to stdgo._internal.net.http.Http_transport.Transport {
-    public var proxy(get, set) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; };
-    function get_proxy():stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; } return _0 -> this.proxy(_0);
-    function set_proxy(v:stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; }):stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; } {
+@:structInit @:using(Http.Transport_static_extension) abstract Transport(stdgo._internal.net.http.Http_transport.Transport) from stdgo._internal.net.http.Http_transport.Transport to stdgo._internal.net.http.Http_transport.Transport {
+    public var proxy(get, set) : Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>;
+    function get_proxy():Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> return _0 -> this.proxy(_0);
+    function set_proxy(v:Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>):Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> {
         this.proxy = v;
         return v;
     }
-    public var onProxyConnectResponse(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_response.Response>) -> stdgo.Error;
-    function get_onProxyConnectResponse():(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_response.Response>) -> stdgo.Error return (_0, _1, _2, _3) -> this.onProxyConnectResponse(_0, _1, _2, _3);
-    function set_onProxyConnectResponse(v:(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_response.Response>) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_response.Response>) -> stdgo.Error {
+    public var onProxyConnectResponse(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error;
+    function get_onProxyConnectResponse():(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error return (_0, _1, _2, _3) -> this.onProxyConnectResponse(_0, _1, _2, _3);
+    function set_onProxyConnectResponse(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error {
         this.onProxyConnectResponse = v;
         return v;
     }
-    public var dialContext(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dialContext():(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1, _2) -> this.dialContext(_0, _1, _2);
-    function set_dialContext(v:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+    public var dialContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dialContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialContext(_0, _1, _2);
+    function set_dialContext(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dialContext = v;
         return v;
     }
-    public var dial(get, set) : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dial():(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1) -> this.dial(_0, _1);
-    function set_dial(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+    public var dial(get, set) : (String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dial():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> this.dial(_0, _1);
+    function set_dial(v:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dial = v;
         return v;
     }
-    public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1, _2) -> this.dialTLSContext(_0, _1, _2);
-    function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+    public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialTLSContext(_0, _1, _2);
+    function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dialTLSContext = v;
         return v;
     }
-    public var dialTLS(get, set) : (stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; };
-    function get_dialTLS():(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return (_0, _1) -> this.dialTLS(_0, _1);
-    function set_dialTLS(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } {
+    public var dialTLS(get, set) : (String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
+    function get_dialTLS():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> this.dialTLS(_0, _1);
+    function set_dialTLS(v:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
         this.dialTLS = v;
         return v;
     }
@@ -2585,10 +2859,22 @@ flushHeaders,
         this.expectContinueTimeout = v;
         return v;
     }
-    public var tLSNextProto(get, set) : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>;
-    function get_tLSNextProto():stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper> return this.tLSNextProto;
-    function set_tLSNextProto(v:stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>):stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper> {
-        this.tLSNextProto = (v : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>);
+    public var tLSNextProto(get, set) : Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper>;
+    function get_tLSNextProto():Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper> return {
+        final __obj__:Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper> = [];
+        for (key => value in this.tLSNextProto) {
+            __obj__[key] = (_0, _1) -> value(_0, _1);
+        };
+        __obj__;
+    };
+    function set_tLSNextProto(v:Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper>):Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper> {
+        this.tLSNextProto = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var proxyConnectHeader(get, set) : Header;
@@ -2597,9 +2883,9 @@ flushHeaders,
         this.proxyConnectHeader = v;
         return v;
     }
-    public var getProxyConnectHeader(get, set) : (stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_header.Header; var _1 : stdgo.Error; };
-    function get_getProxyConnectHeader():(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_header.Header; var _1 : stdgo.Error; } return (_0, _1, _2) -> this.getProxyConnectHeader(_0, _1, _2);
-    function set_getProxyConnectHeader(v:(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_header.Header; var _1 : stdgo.Error; }):(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_header.Header; var _1 : stdgo.Error; } {
+    public var getProxyConnectHeader(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>;
+    function get_getProxyConnectHeader():(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error> return (_0, _1, _2) -> this.getProxyConnectHeader(_0, _1, _2);
+    function set_getProxyConnectHeader(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>):(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error> {
         this.getProxyConnectHeader = v;
         return v;
     }
@@ -2627,7 +2913,7 @@ flushHeaders,
         this.forceAttemptHTTP2 = v;
         return v;
     }
-    public function new(?proxy:stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; }, ?onProxyConnectResponse:(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, stdgo.Ref<stdgo._internal.net.http.Http_response.Response>) -> stdgo.Error, ?dialContext:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?dial:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?dialTLSContext:(stdgo._internal.context.Context_context.Context, stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?dialTLS:(stdgo.GoString, stdgo.GoString) -> { var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; }, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?tLSHandshakeTimeout:stdgo._internal.time.Time_duration.Duration, ?disableKeepAlives:Bool, ?disableCompression:Bool, ?maxIdleConns:StdTypes.Int, ?maxIdleConnsPerHost:StdTypes.Int, ?maxConnsPerHost:StdTypes.Int, ?idleConnTimeout:stdgo._internal.time.Time_duration.Duration, ?responseHeaderTimeout:stdgo._internal.time.Time_duration.Duration, ?expectContinueTimeout:stdgo._internal.time.Time_duration.Duration, ?tLSNextProto:stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>, ?proxyConnectHeader:Header, ?getProxyConnectHeader:(stdgo._internal.context.Context_context.Context, stdgo.Ref<stdgo._internal.net.url.Url_url.URL>, stdgo.GoString) -> { var _0 : stdgo._internal.net.http.Http_header.Header; var _1 : stdgo.Error; }, ?maxResponseHeaderBytes:haxe.Int64, ?writeBufferSize:StdTypes.Int, ?readBufferSize:StdTypes.Int, ?forceAttemptHTTP2:Bool) this = new stdgo._internal.net.http.Http_transport.Transport(
+    public function new(?proxy:Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>, ?onProxyConnectResponse:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error, ?dialContext:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dial:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLSContext:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLS:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?tLSHandshakeTimeout:stdgo._internal.time.Time_duration.Duration, ?disableKeepAlives:Bool, ?disableCompression:Bool, ?maxIdleConns:StdTypes.Int, ?maxIdleConnsPerHost:StdTypes.Int, ?maxConnsPerHost:StdTypes.Int, ?idleConnTimeout:stdgo._internal.time.Time_duration.Duration, ?responseHeaderTimeout:stdgo._internal.time.Time_duration.Duration, ?expectContinueTimeout:stdgo._internal.time.Time_duration.Duration, ?tLSNextProto:Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper>, ?proxyConnectHeader:Header, ?getProxyConnectHeader:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>, ?maxResponseHeaderBytes:haxe.Int64, ?writeBufferSize:StdTypes.Int, ?readBufferSize:StdTypes.Int, ?forceAttemptHTTP2:Bool) this = new stdgo._internal.net.http.Http_transport.Transport(
 proxy,
 onProxyConnectResponse,
 dialContext,
@@ -2644,7 +2930,13 @@ disableCompression,
 idleConnTimeout,
 responseHeaderTimeout,
 expectContinueTimeout,
-(tLSNextProto : stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, (stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>) -> stdgo._internal.net.http.Http_roundtripper.RoundTripper>();
+        for (key => value in tLSNextProto) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
 proxyConnectHeader,
 getProxyConnectHeader,
 (maxResponseHeaderBytes : stdgo.GoInt64),
@@ -2654,12 +2946,12 @@ forceAttemptHTTP2);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_cancelKey_static_extension) @:dox(hide) abstract T_cancelKey(stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey) from stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey to stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey {
+@:structInit @:using(Http.T_cancelKey_static_extension) @:dox(hide) abstract T_cancelKey(stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey) from stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey to stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey {
     public function new() this = new stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_transportRequest_static_extension) @:dox(hide) abstract T_transportRequest(stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest) from stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest to stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest {
+@:structInit @:using(Http.T_transportRequest_static_extension) @:dox(hide) abstract T_transportRequest(stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest) from stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest to stdgo._internal.net.http.Http_t_transportrequest.T_transportRequest {
     public var request(get, set) : Request;
     function get_request():Request return this.request;
     function set_request(v:Request):Request {
@@ -2670,7 +2962,7 @@ forceAttemptHTTP2);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_readTrackingBody_static_extension) @:dox(hide) abstract T_readTrackingBody(stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody) from stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody to stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody {
+@:structInit @:using(Http.T_readTrackingBody_static_extension) @:dox(hide) abstract T_readTrackingBody(stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody) from stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody to stdgo._internal.net.http.Http_t_readtrackingbody.T_readTrackingBody {
     public var readCloser(get, set) : stdgo._internal.io.Io_readcloser.ReadCloser;
     function get_readCloser():stdgo._internal.io.Io_readcloser.ReadCloser return this.readCloser;
     function set_readCloser(v:stdgo._internal.io.Io_readcloser.ReadCloser):stdgo._internal.io.Io_readcloser.ReadCloser {
@@ -2681,42 +2973,42 @@ forceAttemptHTTP2);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_transportReadFromServerError_static_extension) @:dox(hide) abstract T_transportReadFromServerError(stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError) from stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError to stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError {
+@:structInit @:using(Http.T_transportReadFromServerError_static_extension) @:dox(hide) abstract T_transportReadFromServerError(stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError) from stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError to stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError {
     public function new() this = new stdgo._internal.net.http.Http_t_transportreadfromservererror.T_transportReadFromServerError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_wantConn_static_extension) @:dox(hide) abstract T_wantConn(stdgo._internal.net.http.Http_t_wantconn.T_wantConn) from stdgo._internal.net.http.Http_t_wantconn.T_wantConn to stdgo._internal.net.http.Http_t_wantconn.T_wantConn {
+@:structInit @:using(Http.T_wantConn_static_extension) @:dox(hide) abstract T_wantConn(stdgo._internal.net.http.Http_t_wantconn.T_wantConn) from stdgo._internal.net.http.Http_t_wantconn.T_wantConn to stdgo._internal.net.http.Http_t_wantconn.T_wantConn {
     public function new() this = new stdgo._internal.net.http.Http_t_wantconn.T_wantConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_wantConnQueue_static_extension) @:dox(hide) abstract T_wantConnQueue(stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue) from stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue to stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue {
+@:structInit @:using(Http.T_wantConnQueue_static_extension) @:dox(hide) abstract T_wantConnQueue(stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue) from stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue to stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue {
     public function new() this = new stdgo._internal.net.http.Http_t_wantconnqueue.T_wantConnQueue();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_persistConnWriter_static_extension) @:dox(hide) abstract T_persistConnWriter(stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter) from stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter to stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter {
+@:structInit @:using(Http.T_persistConnWriter_static_extension) @:dox(hide) abstract T_persistConnWriter(stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter) from stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter to stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter {
     public function new() this = new stdgo._internal.net.http.Http_t_persistconnwriter.T_persistConnWriter();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_connectMethod_static_extension) @:dox(hide) abstract T_connectMethod(stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod) from stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod to stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod {
+@:structInit @:using(Http.T_connectMethod_static_extension) @:dox(hide) abstract T_connectMethod(stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod) from stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod to stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod {
     public function new() this = new stdgo._internal.net.http.Http_t_connectmethod.T_connectMethod();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_connectMethodKey_static_extension) @:dox(hide) abstract T_connectMethodKey(stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey) from stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey to stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey {
+@:structInit @:using(Http.T_connectMethodKey_static_extension) @:dox(hide) abstract T_connectMethodKey(stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey) from stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey to stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey {
     public function new() this = new stdgo._internal.net.http.Http_t_connectmethodkey.T_connectMethodKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_persistConn_static_extension) @:dox(hide) abstract T_persistConn(stdgo._internal.net.http.Http_t_persistconn.T_persistConn) from stdgo._internal.net.http.Http_t_persistconn.T_persistConn to stdgo._internal.net.http.Http_t_persistconn.T_persistConn {
+@:structInit @:using(Http.T_persistConn_static_extension) @:dox(hide) abstract T_persistConn(stdgo._internal.net.http.Http_t_persistconn.T_persistConn) from stdgo._internal.net.http.Http_t_persistconn.T_persistConn to stdgo._internal.net.http.Http_t_persistconn.T_persistConn {
     public function new() this = new stdgo._internal.net.http.Http_t_persistconn.T_persistConn();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_readWriteCloserBody_static_extension) @:dox(hide) abstract T_readWriteCloserBody(stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody) from stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody to stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody {
+@:structInit @:using(Http.T_readWriteCloserBody_static_extension) @:dox(hide) abstract T_readWriteCloserBody(stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody) from stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody to stdgo._internal.net.http.Http_t_readwritecloserbody.T_readWriteCloserBody {
     public var readWriteCloser(get, set) : stdgo._internal.io.Io_readwritecloser.ReadWriteCloser;
     function get_readWriteCloser():stdgo._internal.io.Io_readwritecloser.ReadWriteCloser return this.readWriteCloser;
     function set_readWriteCloser(v:stdgo._internal.io.Io_readwritecloser.ReadWriteCloser):stdgo._internal.io.Io_readwritecloser.ReadWriteCloser {
@@ -2727,57 +3019,57 @@ forceAttemptHTTP2);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_nothingWrittenError_static_extension) @:dox(hide) abstract T_nothingWrittenError(stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError) from stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError to stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError {
+@:structInit @:using(Http.T_nothingWrittenError_static_extension) @:dox(hide) abstract T_nothingWrittenError(stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError) from stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError to stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError {
     public function new() this = new stdgo._internal.net.http.Http_t_nothingwrittenerror.T_nothingWrittenError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_responseAndError_static_extension) @:dox(hide) abstract T_responseAndError(stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError) from stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError to stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError {
+@:structInit @:using(Http.T_responseAndError_static_extension) @:dox(hide) abstract T_responseAndError(stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError) from stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError to stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError {
     public function new() this = new stdgo._internal.net.http.Http_t_responseanderror.T_responseAndError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_requestAndChan_static_extension) @:dox(hide) abstract T_requestAndChan(stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan) from stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan to stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan {
+@:structInit @:using(Http.T_requestAndChan_static_extension) @:dox(hide) abstract T_requestAndChan(stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan) from stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan to stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan {
     public function new() this = new stdgo._internal.net.http.Http_t_requestandchan.T_requestAndChan();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_writeRequest_static_extension) @:dox(hide) abstract T_writeRequest(stdgo._internal.net.http.Http_t_writerequest.T_writeRequest) from stdgo._internal.net.http.Http_t_writerequest.T_writeRequest to stdgo._internal.net.http.Http_t_writerequest.T_writeRequest {
+@:structInit @:using(Http.T_writeRequest_static_extension) @:dox(hide) abstract T_writeRequest(stdgo._internal.net.http.Http_t_writerequest.T_writeRequest) from stdgo._internal.net.http.Http_t_writerequest.T_writeRequest to stdgo._internal.net.http.Http_t_writerequest.T_writeRequest {
     public function new() this = new stdgo._internal.net.http.Http_t_writerequest.T_writeRequest();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_httpError_static_extension) @:dox(hide) abstract T_httpError(stdgo._internal.net.http.Http_t_httperror.T_httpError) from stdgo._internal.net.http.Http_t_httperror.T_httpError to stdgo._internal.net.http.Http_t_httperror.T_httpError {
+@:structInit @:using(Http.T_httpError_static_extension) @:dox(hide) abstract T_httpError(stdgo._internal.net.http.Http_t_httperror.T_httpError) from stdgo._internal.net.http.Http_t_httperror.T_httpError to stdgo._internal.net.http.Http_t_httperror.T_httpError {
     public function new() this = new stdgo._internal.net.http.Http_t_httperror.T_httpError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_tLogKey_static_extension) @:dox(hide) abstract T_tLogKey(stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey) from stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey to stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey {
+@:structInit @:using(Http.T_tLogKey_static_extension) @:dox(hide) abstract T_tLogKey(stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey) from stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey to stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey {
     public function new() this = new stdgo._internal.net.http.Http_t_tlogkey.T_tLogKey();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_bodyEOFSignal_static_extension) @:dox(hide) abstract T_bodyEOFSignal(stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal) from stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal to stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal {
+@:structInit @:using(Http.T_bodyEOFSignal_static_extension) @:dox(hide) abstract T_bodyEOFSignal(stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal) from stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal to stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal {
     public function new() this = new stdgo._internal.net.http.Http_t_bodyeofsignal.T_bodyEOFSignal();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_gzipReader_static_extension) @:dox(hide) abstract T_gzipReader(stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader) from stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader to stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader {
+@:structInit @:using(Http.T_gzipReader_static_extension) @:dox(hide) abstract T_gzipReader(stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader) from stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader to stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader {
     public function new() this = new stdgo._internal.net.http.Http_t_gzipreader.T_gzipReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_tlsHandshakeTimeoutError_static_extension) @:dox(hide) abstract T_tlsHandshakeTimeoutError(stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError) from stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError to stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError {
+@:structInit @:using(Http.T_tlsHandshakeTimeoutError_static_extension) @:dox(hide) abstract T_tlsHandshakeTimeoutError(stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError) from stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError to stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError {
     public function new() this = new stdgo._internal.net.http.Http_t_tlshandshaketimeouterror.T_tlsHandshakeTimeoutError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_fakeLocker_static_extension) @:dox(hide) abstract T_fakeLocker(stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker) from stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker to stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker {
+@:structInit @:using(Http.T_fakeLocker_static_extension) @:dox(hide) abstract T_fakeLocker(stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker) from stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker to stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker {
     public function new() this = new stdgo._internal.net.http.Http_t_fakelocker.T_fakeLocker();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.net.http.Http.T_connLRU_static_extension) @:dox(hide) abstract T_connLRU(stdgo._internal.net.http.Http_t_connlru.T_connLRU) from stdgo._internal.net.http.Http_t_connlru.T_connLRU to stdgo._internal.net.http.Http_t_connlru.T_connLRU {
+@:structInit @:using(Http.T_connLRU_static_extension) @:dox(hide) abstract T_connLRU(stdgo._internal.net.http.Http_t_connlru.T_connLRU) from stdgo._internal.net.http.Http_t_connlru.T_connLRU to stdgo._internal.net.http.Http_t_connlru.T_connLRU {
     public function new() this = new stdgo._internal.net.http.Http_t_connlru.T_connLRU();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -2888,7 +3180,15 @@ class Client_static_extension {
         stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464_static_extension.T_closeIdleConnections___localname___closeIdler_31464_static_extension.closeIdleConnections(t);
     }
 }
-@:dox(hide) typedef T_closeIdleConnections___localname___closeIdler_31464 = stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464;
+@:dox(hide) @:forward abstract T_closeIdleConnections___localname___closeIdler_31464(stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464) from stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464 to stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464 {
+    @:from
+    static function fromHaxeInterface(x:{ function closeIdleConnections():Void; }):T_closeIdleConnections___localname___closeIdler_31464 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_closeIdleConnections___localname___closeIdler_31464 = { closeIdleConnections : () -> x.closeIdleConnections(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) typedef T_cancelTimerBodyPointer = stdgo._internal.net.http.Http_t_canceltimerbodypointer.T_cancelTimerBodyPointer;
 @:dox(hide) class T_cancelTimerBody_static_extension {
     static public function close(_b:T_cancelTimerBody):stdgo.Error {
@@ -3263,7 +3563,7 @@ class Cookie_static_extension {
 }
 @:dox(hide) typedef T_http2SettingsFramePointer = stdgo._internal.net.http.Http_t_http2settingsframepointer.T_http2SettingsFramePointer;
 @:dox(hide) class T_http2SettingsFrame_static_extension {
-    static public function foreachSetting(_f:T_http2SettingsFrame, _fn:stdgo._internal.net.http.Http_t_http2setting.T_http2Setting -> stdgo.Error):stdgo.Error {
+    static public function foreachSetting(_f:T_http2SettingsFrame, _fn:T_http2Setting -> stdgo.Error):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame>);
         final _fn = _fn;
         return stdgo._internal.net.http.Http_t_http2settingsframe_static_extension.T_http2SettingsFrame_static_extension.foreachSetting(_f, _fn);
@@ -4517,7 +4817,15 @@ class MaxBytesError_static_extension {
         stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156_static_extension.T_read___localname___requestTooLarger_39156_static_extension._requestTooLarge(t);
     }
 }
-@:dox(hide) typedef T_read___localname___requestTooLarger_39156 = stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156;
+@:dox(hide) @:forward abstract T_read___localname___requestTooLarger_39156(stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156) from stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156 to stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156 {
+    @:from
+    static function fromHaxeInterface(x:{ function _requestTooLarge():Void; }):T_read___localname___requestTooLarger_39156 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_read___localname___requestTooLarger_39156 = { _requestTooLarge : () -> x._requestTooLarge(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 typedef ResponsePointer = stdgo._internal.net.http.Http_responsepointer.ResponsePointer;
 class Response_static_extension {
     static public function write(_r:Response, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
@@ -4742,7 +5050,7 @@ class ResponseController_static_extension {
 }
 typedef ServeMuxPointer = stdgo._internal.net.http.Http_servemuxpointer.ServeMuxPointer;
 class ServeMux_static_extension {
-    static public function handleFunc(_mux:ServeMux, _pattern:String, _handler:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>) -> Void):Void {
+    static public function handleFunc(_mux:ServeMux, _pattern:String, _handler:(ResponseWriter, Request) -> Void):Void {
         final _mux = (_mux : stdgo.Ref<stdgo._internal.net.http.Http_servemux.ServeMux>);
         final _pattern = (_pattern : stdgo.GoString);
         final _handler = _handler;
@@ -5623,8 +5931,14 @@ class Dir_static_extension {
 }
 typedef HeaderPointer = stdgo._internal.net.http.Http_headerpointer.HeaderPointer;
 class Header_static_extension {
-    static public function writeSubset(_h:Header, _w:stdgo._internal.io.Io_writer.Writer, _exclude:stdgo.GoMap<stdgo.GoString, Bool>):stdgo.Error {
-        final _exclude = (_exclude : stdgo.GoMap<stdgo.GoString, Bool>);
+    static public function writeSubset(_h:Header, _w:stdgo._internal.io.Io_writer.Writer, _exclude:Map<String, Bool>):stdgo.Error {
+        final _exclude = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, Bool>();
+            for (key => value in _exclude) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.net.http.Http_header_static_extension.Header_static_extension.writeSubset(_h, _w, _exclude);
     }
     static public function clone(_h:Header):Header {
@@ -6261,7 +6575,7 @@ class Http {
         * in the DefaultServeMux.
         * The documentation for ServeMux explains how patterns are matched.
     **/
-    static public inline function handleFunc(_pattern:String, _handler:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo.Ref<stdgo._internal.net.http.Http_request.Request>) -> Void):Void {
+    static public inline function handleFunc(_pattern:String, _handler:(ResponseWriter, Request) -> Void):Void {
         final _pattern = (_pattern : stdgo.GoString);
         final _handler = _handler;
         stdgo._internal.net.http.Http_handlefunc.handleFunc(_pattern, _handler);
@@ -6415,7 +6729,7 @@ class Http {
         * ProxyURL returns a proxy function (for use in a Transport)
         * that always returns the same URL.
     **/
-    static public inline function proxyURL(_fixedURL:stdgo._internal.net.url.Url_url.URL):stdgo.Ref<stdgo._internal.net.http.Http_request.Request> -> { var _0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>; var _1 : stdgo.Error; } {
+    static public inline function proxyURL(_fixedURL:stdgo._internal.net.url.Url_url.URL):Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> {
         final _fixedURL = (_fixedURL : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         return _0 -> stdgo._internal.net.http.Http_proxyurl.proxyURL(_fixedURL)(_0);
     }

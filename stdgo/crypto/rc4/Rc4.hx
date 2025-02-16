@@ -1,5 +1,5 @@
 package stdgo.crypto.rc4;
-@:structInit @:using(stdgo.crypto.rc4.Rc4.Cipher_static_extension) abstract Cipher(stdgo._internal.crypto.rc4.Rc4_cipher.Cipher) from stdgo._internal.crypto.rc4.Rc4_cipher.Cipher to stdgo._internal.crypto.rc4.Rc4_cipher.Cipher {
+@:structInit @:using(Rc4.Cipher_static_extension) abstract Cipher(stdgo._internal.crypto.rc4.Rc4_cipher.Cipher) from stdgo._internal.crypto.rc4.Rc4_cipher.Cipher to stdgo._internal.crypto.rc4.Rc4_cipher.Cipher {
     public var _s(get, set) : haxe.ds.Vector<std.UInt>;
     function get__s():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._s) i]);
     function set__s(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {

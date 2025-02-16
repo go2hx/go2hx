@@ -96,7 +96,7 @@ final recvDir : ChanDir = stdgo._internal.internal.abi.Abi_recvdir.recvDir;
 final sendDir = stdgo._internal.internal.abi.Abi_senddir.sendDir;
 final bothDir : ChanDir = stdgo._internal.internal.abi.Abi_bothdir.bothDir;
 final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invaliddir.invalidDir;
-@:structInit @:using(stdgo.internal.abi.Abi.RegArgs_static_extension) abstract RegArgs(stdgo._internal.internal.abi.Abi_regargs.RegArgs) from stdgo._internal.internal.abi.Abi_regargs.RegArgs to stdgo._internal.internal.abi.Abi_regargs.RegArgs {
+@:structInit @:using(Abi.RegArgs_static_extension) abstract RegArgs(stdgo._internal.internal.abi.Abi_regargs.RegArgs) from stdgo._internal.internal.abi.Abi_regargs.RegArgs to stdgo._internal.internal.abi.Abi_regargs.RegArgs {
     public var ints(get, set) : haxe.ds.Vector<stdgo.GoUIntptr>;
     function get_ints():haxe.ds.Vector<stdgo.GoUIntptr> return haxe.ds.Vector.fromArrayCopy([for (i in this.ints) i]);
     function set_ints(v:haxe.ds.Vector<stdgo.GoUIntptr>):haxe.ds.Vector<stdgo.GoUIntptr> {
@@ -125,7 +125,7 @@ final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invaliddir.invalid
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.Offset_static_extension) abstract Offset(stdgo._internal.internal.abi.Abi_offset.Offset) from stdgo._internal.internal.abi.Abi_offset.Offset to stdgo._internal.internal.abi.Abi_offset.Offset {
+@:structInit @:using(Abi.Offset_static_extension) abstract Offset(stdgo._internal.internal.abi.Abi_offset.Offset) from stdgo._internal.internal.abi.Abi_offset.Offset to stdgo._internal.internal.abi.Abi_offset.Offset {
     public var _off(get, set) : haxe.UInt64;
     function get__off():haxe.UInt64 return this._off;
     function set__off(v:haxe.UInt64):haxe.UInt64 {
@@ -154,7 +154,7 @@ final invalidDir : ChanDir = stdgo._internal.internal.abi.Abi_invaliddir.invalid
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.Type__static_extension) abstract Type_(stdgo._internal.internal.abi.Abi_type_.Type_) from stdgo._internal.internal.abi.Abi_type_.Type_ to stdgo._internal.internal.abi.Abi_type_.Type_ {
+@:structInit @:using(Abi.Type__static_extension) abstract Type_(stdgo._internal.internal.abi.Abi_type_.Type_) from stdgo._internal.internal.abi.Abi_type_.Type_ to stdgo._internal.internal.abi.Abi_type_.Type_ {
     public var size_(get, set) : stdgo.GoUIntptr;
     function get_size_():stdgo.GoUIntptr return this.size_;
     function set_size_(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -236,7 +236,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.Method_static_extension) abstract Method(stdgo._internal.internal.abi.Abi_method.Method) from stdgo._internal.internal.abi.Abi_method.Method to stdgo._internal.internal.abi.Abi_method.Method {
+@:structInit @:using(Abi.Method_static_extension) abstract Method(stdgo._internal.internal.abi.Abi_method.Method) from stdgo._internal.internal.abi.Abi_method.Method to stdgo._internal.internal.abi.Abi_method.Method {
     public var name(get, set) : NameOff;
     function get_name():NameOff return this.name;
     function set_name(v:NameOff):NameOff {
@@ -265,7 +265,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.UncommonType_static_extension) abstract UncommonType(stdgo._internal.internal.abi.Abi_uncommontype.UncommonType) from stdgo._internal.internal.abi.Abi_uncommontype.UncommonType to stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
+@:structInit @:using(Abi.UncommonType_static_extension) abstract UncommonType(stdgo._internal.internal.abi.Abi_uncommontype.UncommonType) from stdgo._internal.internal.abi.Abi_uncommontype.UncommonType to stdgo._internal.internal.abi.Abi_uncommontype.UncommonType {
     public var pkgPath(get, set) : NameOff;
     function get_pkgPath():NameOff return this.pkgPath;
     function set_pkgPath(v:NameOff):NameOff {
@@ -300,7 +300,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.Imethod_static_extension) abstract Imethod(stdgo._internal.internal.abi.Abi_imethod.Imethod) from stdgo._internal.internal.abi.Abi_imethod.Imethod to stdgo._internal.internal.abi.Abi_imethod.Imethod {
+@:structInit @:using(Abi.Imethod_static_extension) abstract Imethod(stdgo._internal.internal.abi.Abi_imethod.Imethod) from stdgo._internal.internal.abi.Abi_imethod.Imethod to stdgo._internal.internal.abi.Abi_imethod.Imethod {
     public var name(get, set) : NameOff;
     function get_name():NameOff return this.name;
     function set_name(v:NameOff):NameOff {
@@ -317,7 +317,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.ArrayType_static_extension) abstract ArrayType(stdgo._internal.internal.abi.Abi_arraytype.ArrayType) from stdgo._internal.internal.abi.Abi_arraytype.ArrayType to stdgo._internal.internal.abi.Abi_arraytype.ArrayType {
+@:structInit @:using(Abi.ArrayType_static_extension) abstract ArrayType(stdgo._internal.internal.abi.Abi_arraytype.ArrayType) from stdgo._internal.internal.abi.Abi_arraytype.ArrayType to stdgo._internal.internal.abi.Abi_arraytype.ArrayType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -346,7 +346,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.ChanType_static_extension) abstract ChanType(stdgo._internal.internal.abi.Abi_chantype.ChanType) from stdgo._internal.internal.abi.Abi_chantype.ChanType to stdgo._internal.internal.abi.Abi_chantype.ChanType {
+@:structInit @:using(Abi.ChanType_static_extension) abstract ChanType(stdgo._internal.internal.abi.Abi_chantype.ChanType) from stdgo._internal.internal.abi.Abi_chantype.ChanType to stdgo._internal.internal.abi.Abi_chantype.ChanType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -369,7 +369,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.T_structTypeUncommon_static_extension) @:dox(hide) abstract T_structTypeUncommon(stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon) from stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon to stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon {
+@:structInit @:using(Abi.T_structTypeUncommon_static_extension) @:dox(hide) abstract T_structTypeUncommon(stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon) from stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon to stdgo._internal.internal.abi.Abi_t_structtypeuncommon.T_structTypeUncommon {
     public var structType(get, set) : StructType;
     function get_structType():StructType return this.structType;
     function set_structType(v:StructType):StructType {
@@ -386,7 +386,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.InterfaceType_static_extension) abstract InterfaceType(stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType) from stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType to stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
+@:structInit @:using(Abi.InterfaceType_static_extension) abstract InterfaceType(stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType) from stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType to stdgo._internal.internal.abi.Abi_interfacetype.InterfaceType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -409,7 +409,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.MapType_static_extension) abstract MapType(stdgo._internal.internal.abi.Abi_maptype.MapType) from stdgo._internal.internal.abi.Abi_maptype.MapType to stdgo._internal.internal.abi.Abi_maptype.MapType {
+@:structInit @:using(Abi.MapType_static_extension) abstract MapType(stdgo._internal.internal.abi.Abi_maptype.MapType) from stdgo._internal.internal.abi.Abi_maptype.MapType to stdgo._internal.internal.abi.Abi_maptype.MapType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -468,7 +468,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.SliceType_static_extension) abstract SliceType(stdgo._internal.internal.abi.Abi_slicetype.SliceType) from stdgo._internal.internal.abi.Abi_slicetype.SliceType to stdgo._internal.internal.abi.Abi_slicetype.SliceType {
+@:structInit @:using(Abi.SliceType_static_extension) abstract SliceType(stdgo._internal.internal.abi.Abi_slicetype.SliceType) from stdgo._internal.internal.abi.Abi_slicetype.SliceType to stdgo._internal.internal.abi.Abi_slicetype.SliceType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -485,7 +485,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.FuncType_static_extension) abstract FuncType(stdgo._internal.internal.abi.Abi_functype.FuncType) from stdgo._internal.internal.abi.Abi_functype.FuncType to stdgo._internal.internal.abi.Abi_functype.FuncType {
+@:structInit @:using(Abi.FuncType_static_extension) abstract FuncType(stdgo._internal.internal.abi.Abi_functype.FuncType) from stdgo._internal.internal.abi.Abi_functype.FuncType to stdgo._internal.internal.abi.Abi_functype.FuncType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -508,7 +508,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.PtrType_static_extension) abstract PtrType(stdgo._internal.internal.abi.Abi_ptrtype.PtrType) from stdgo._internal.internal.abi.Abi_ptrtype.PtrType to stdgo._internal.internal.abi.Abi_ptrtype.PtrType {
+@:structInit @:using(Abi.PtrType_static_extension) abstract PtrType(stdgo._internal.internal.abi.Abi_ptrtype.PtrType) from stdgo._internal.internal.abi.Abi_ptrtype.PtrType to stdgo._internal.internal.abi.Abi_ptrtype.PtrType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -525,7 +525,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.StructField_static_extension) abstract StructField(stdgo._internal.internal.abi.Abi_structfield.StructField) from stdgo._internal.internal.abi.Abi_structfield.StructField to stdgo._internal.internal.abi.Abi_structfield.StructField {
+@:structInit @:using(Abi.StructField_static_extension) abstract StructField(stdgo._internal.internal.abi.Abi_structfield.StructField) from stdgo._internal.internal.abi.Abi_structfield.StructField to stdgo._internal.internal.abi.Abi_structfield.StructField {
     public var name(get, set) : Name;
     function get_name():Name return this.name;
     function set_name(v:Name):Name {
@@ -548,7 +548,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.StructType_static_extension) abstract StructType(stdgo._internal.internal.abi.Abi_structtype.StructType) from stdgo._internal.internal.abi.Abi_structtype.StructType to stdgo._internal.internal.abi.Abi_structtype.StructType {
+@:structInit @:using(Abi.StructType_static_extension) abstract StructType(stdgo._internal.internal.abi.Abi_structtype.StructType) from stdgo._internal.internal.abi.Abi_structtype.StructType to stdgo._internal.internal.abi.Abi_structtype.StructType {
     public var type(get, set) : Type_;
     function get_type():Type_ return this.type;
     function set_type(v:Type_):Type_ {
@@ -571,7 +571,7 @@ ptrToThis);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.abi.Abi.Name_static_extension) abstract Name(stdgo._internal.internal.abi.Abi_name.Name) from stdgo._internal.internal.abi.Abi_name.Name to stdgo._internal.internal.abi.Abi_name.Name {
+@:structInit @:using(Abi.Name_static_extension) abstract Name(stdgo._internal.internal.abi.Abi_name.Name) from stdgo._internal.internal.abi.Abi_name.Name to stdgo._internal.internal.abi.Abi_name.Name {
     public var bytes(get, set) : stdgo.Pointer<std.UInt>;
     function get_bytes():stdgo.Pointer<std.UInt> return this.bytes;
     function set_bytes(v:stdgo.Pointer<std.UInt>):stdgo.Pointer<std.UInt> {

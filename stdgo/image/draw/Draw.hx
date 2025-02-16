@@ -14,7 +14,15 @@ class Image_static_extension {
         stdgo._internal.image.draw.Draw_image_static_extension.Image_static_extension.set(t, _x, _y, _c);
     }
 }
-typedef Image = stdgo._internal.image.draw.Draw_image.Image;
+@:forward abstract Image(stdgo._internal.image.draw.Draw_image.Image) from stdgo._internal.image.draw.Draw_image.Image to stdgo._internal.image.draw.Draw_image.Image {
+    @:from
+    static function fromHaxeInterface(x:{ function set(_x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_color.Color):Void; }):Image {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Image = { set : (_0, _1, _2) -> x.set(_0, _1, _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RGBA64Image_static_extension {
     static public function setRGBA64(t:stdgo._internal.image.draw.Draw_rgba64image.RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_rgba64.RGBA64):Void {
         final _x = (_x : stdgo.GoInt);
@@ -27,20 +35,44 @@ class RGBA64Image_static_extension {
         stdgo._internal.image.draw.Draw_rgba64image_static_extension.RGBA64Image_static_extension.set(t, _x, _y, _c);
     }
 }
-typedef RGBA64Image = stdgo._internal.image.draw.Draw_rgba64image.RGBA64Image;
+@:forward abstract RGBA64Image(stdgo._internal.image.draw.Draw_rgba64image.RGBA64Image) from stdgo._internal.image.draw.Draw_rgba64image.RGBA64Image to stdgo._internal.image.draw.Draw_rgba64image.RGBA64Image {
+    @:from
+    static function fromHaxeInterface(x:{ function set(_x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_color.Color):Void; function setRGBA64(_x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_rgba64.RGBA64):Void; }):RGBA64Image {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RGBA64Image = { set : (_0, _1, _2) -> x.set(_0, _1, _2), setRGBA64 : (_0, _1, _2) -> x.setRGBA64(_0, _1, _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Quantizer_static_extension {
     static public function quantize(t:stdgo._internal.image.draw.Draw_quantizer.Quantizer, _p:stdgo._internal.image.color.Color_palette.Palette, _m:stdgo._internal.image.Image_image.Image):stdgo._internal.image.color.Color_palette.Palette {
         return stdgo._internal.image.draw.Draw_quantizer_static_extension.Quantizer_static_extension.quantize(t, _p, _m);
     }
 }
-typedef Quantizer = stdgo._internal.image.draw.Draw_quantizer.Quantizer;
+@:forward abstract Quantizer(stdgo._internal.image.draw.Draw_quantizer.Quantizer) from stdgo._internal.image.draw.Draw_quantizer.Quantizer to stdgo._internal.image.draw.Draw_quantizer.Quantizer {
+    @:from
+    static function fromHaxeInterface(x:{ function quantize(_p:stdgo._internal.image.color.Color_palette.Palette, _m:stdgo._internal.image.Image_image.Image):stdgo._internal.image.color.Color_palette.Palette; }):Quantizer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Quantizer = { quantize : (_0, _1) -> x.quantize(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Drawer_static_extension {
     static public function draw(t:stdgo._internal.image.draw.Draw_drawer.Drawer, _dst:Image, _r:stdgo._internal.image.Image_rectangle.Rectangle, _src:stdgo._internal.image.Image_image.Image, _sp:stdgo._internal.image.Image_point.Point):Void {
         stdgo._internal.image.draw.Draw_drawer_static_extension.Drawer_static_extension.draw(t, _dst, _r, _src, _sp);
     }
 }
-typedef Drawer = stdgo._internal.image.draw.Draw_drawer.Drawer;
-@:structInit @:using(stdgo.image.draw.Draw.T_floydSteinberg_static_extension) @:dox(hide) abstract T_floydSteinberg(stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg) from stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg to stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg {
+@:forward abstract Drawer(stdgo._internal.image.draw.Draw_drawer.Drawer) from stdgo._internal.image.draw.Draw_drawer.Drawer to stdgo._internal.image.draw.Draw_drawer.Drawer {
+    @:from
+    static function fromHaxeInterface(x:{ function draw(_dst:Image, _r:stdgo._internal.image.Image_rectangle.Rectangle, _src:stdgo._internal.image.Image_image.Image, _sp:stdgo._internal.image.Image_point.Point):Void; }):Drawer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Drawer = { draw : (_0, _1, _2, _3) -> x.draw(_0, _1, _2, _3), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Draw.T_floydSteinberg_static_extension) @:dox(hide) abstract T_floydSteinberg(stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg) from stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg to stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg {
     public function new() this = new stdgo._internal.image.draw.Draw_t_floydsteinberg.T_floydSteinberg();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

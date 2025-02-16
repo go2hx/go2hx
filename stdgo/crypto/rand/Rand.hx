@@ -5,7 +5,7 @@ private function set_reader(v:stdgo._internal.io.Io_reader.Reader):stdgo._intern
         stdgo._internal.crypto.rand.Rand_reader.reader = v;
         return v;
     }
-@:structInit @:using(stdgo.crypto.rand.Rand.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.crypto.rand.Rand_t_reader.T_reader) from stdgo._internal.crypto.rand.Rand_t_reader.T_reader to stdgo._internal.crypto.rand.Rand_t_reader.T_reader {
+@:structInit @:using(Rand.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.crypto.rand.Rand_t_reader.T_reader) from stdgo._internal.crypto.rand.Rand_t_reader.T_reader to stdgo._internal.crypto.rand.Rand_t_reader.T_reader {
     public function new() this = new stdgo._internal.crypto.rand.Rand_t_reader.T_reader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

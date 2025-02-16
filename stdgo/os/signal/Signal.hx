@@ -4,8 +4,16 @@ package stdgo.os.signal;
         return stdgo._internal.os.signal.Signal_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) typedef T_stringer = stdgo._internal.os.signal.Signal_t_stringer.T_stringer;
-@:structInit @:using(stdgo.os.signal.Signal.T_stopping_static_extension) @:dox(hide) abstract T_stopping(stdgo._internal.os.signal.Signal_t_stopping.T_stopping) from stdgo._internal.os.signal.Signal_t_stopping.T_stopping to stdgo._internal.os.signal.Signal_t_stopping.T_stopping {
+@:dox(hide) @:forward abstract T_stringer(stdgo._internal.os.signal.Signal_t_stringer.T_stringer) from stdgo._internal.os.signal.Signal_t_stringer.T_stringer to stdgo._internal.os.signal.Signal_t_stringer.T_stringer {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stringer = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Signal.T_stopping_static_extension) @:dox(hide) abstract T_stopping(stdgo._internal.os.signal.Signal_t_stopping.T_stopping) from stdgo._internal.os.signal.Signal_t_stopping.T_stopping to stdgo._internal.os.signal.Signal_t_stopping.T_stopping {
     public var _c(get, set) : stdgo.Chan<stdgo._internal.os.Os_signal.Signal>;
     function get__c():stdgo.Chan<stdgo._internal.os.Os_signal.Signal> return this._c;
     function set__c(v:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>):stdgo.Chan<stdgo._internal.os.Os_signal.Signal> {
@@ -22,7 +30,7 @@ package stdgo.os.signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.signal.Signal.T_handler_static_extension) @:dox(hide) abstract T_handler(stdgo._internal.os.signal.Signal_t_handler.T_handler) from stdgo._internal.os.signal.Signal_t_handler.T_handler to stdgo._internal.os.signal.Signal_t_handler.T_handler {
+@:structInit @:using(Signal.T_handler_static_extension) @:dox(hide) abstract T_handler(stdgo._internal.os.signal.Signal_t_handler.T_handler) from stdgo._internal.os.signal.Signal_t_handler.T_handler to stdgo._internal.os.signal.Signal_t_handler.T_handler {
     public var _mask(get, set) : haxe.ds.Vector<std.UInt>;
     function get__mask():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this._mask) i]);
     function set__mask(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -33,7 +41,7 @@ package stdgo.os.signal;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.os.signal.Signal.T_signalCtx_static_extension) @:dox(hide) abstract T_signalCtx(stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx) from stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx to stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx {
+@:structInit @:using(Signal.T_signalCtx_static_extension) @:dox(hide) abstract T_signalCtx(stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx) from stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx to stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx {
     public var context(get, set) : stdgo._internal.context.Context_context.Context;
     function get_context():stdgo._internal.context.Context_context.Context return this.context;
     function set_context(v:stdgo._internal.context.Context_context.Context):stdgo._internal.context.Context_context.Context {

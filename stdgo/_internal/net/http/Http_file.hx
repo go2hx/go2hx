@@ -3,18 +3,8 @@ package stdgo._internal.net.http;
     > stdgo._internal.io.Io_closer.Closer,
     > stdgo._internal.io.Io_reader.Reader,
     > stdgo._internal.io.Io_seeker.Seeker,
-    /**
-        
-        
-        
-    **/
     @:interfacetypeffun
-    public dynamic function readdir(_count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>; var _1 : stdgo.Error; };
-    /**
-        
-        
-        
-    **/
+    function readdir(_count:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>; var _1 : stdgo.Error; };
     @:interfacetypeffun
-    public dynamic function stat():{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; };
+    function stat():{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; };
 };

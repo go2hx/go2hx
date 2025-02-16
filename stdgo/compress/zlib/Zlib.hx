@@ -28,8 +28,16 @@ class Resetter_static_extension {
         return stdgo._internal.compress.zlib.Zlib_resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
 }
-typedef Resetter = stdgo._internal.compress.zlib.Zlib_resetter.Resetter;
-@:structInit @:using(stdgo.compress.zlib.Zlib.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.compress.zlib.Zlib_t_reader.T_reader) from stdgo._internal.compress.zlib.Zlib_t_reader.T_reader to stdgo._internal.compress.zlib.Zlib_t_reader.T_reader {
+@:forward abstract Resetter(stdgo._internal.compress.zlib.Zlib_resetter.Resetter) from stdgo._internal.compress.zlib.Zlib_resetter.Resetter to stdgo._internal.compress.zlib.Zlib_resetter.Resetter {
+    @:from
+    static function fromHaxeInterface(x:{ function reset(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error; }):Resetter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Resetter = { reset : (_0, _1) -> x.reset(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Zlib.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.compress.zlib.Zlib_t_reader.T_reader) from stdgo._internal.compress.zlib.Zlib_t_reader.T_reader to stdgo._internal.compress.zlib.Zlib_t_reader.T_reader {
     public var _r(get, set) : stdgo._internal.compress.flate.Flate_reader.Reader;
     function get__r():stdgo._internal.compress.flate.Flate_reader.Reader return this._r;
     function set__r(v:stdgo._internal.compress.flate.Flate_reader.Reader):stdgo._internal.compress.flate.Flate_reader.Reader {
@@ -64,7 +72,7 @@ typedef Resetter = stdgo._internal.compress.zlib.Zlib_resetter.Resetter;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.compress.zlib.Zlib.Writer_static_extension) abstract Writer(stdgo._internal.compress.zlib.Zlib_writer.Writer) from stdgo._internal.compress.zlib.Zlib_writer.Writer to stdgo._internal.compress.zlib.Zlib_writer.Writer {
+@:structInit @:using(Zlib.Writer_static_extension) abstract Writer(stdgo._internal.compress.zlib.Zlib_writer.Writer) from stdgo._internal.compress.zlib.Zlib_writer.Writer to stdgo._internal.compress.zlib.Zlib_writer.Writer {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {

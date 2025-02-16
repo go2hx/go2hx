@@ -1,5 +1,5 @@
 package stdgo.debug.gosym;
-@:structInit @:using(stdgo.debug.gosym.Gosym.LineTable_static_extension) abstract LineTable(stdgo._internal.debug.gosym.Gosym_linetable.LineTable) from stdgo._internal.debug.gosym.Gosym_linetable.LineTable to stdgo._internal.debug.gosym.Gosym_linetable.LineTable {
+@:structInit @:using(Gosym.LineTable_static_extension) abstract LineTable(stdgo._internal.debug.gosym.Gosym_linetable.LineTable) from stdgo._internal.debug.gosym.Gosym_linetable.LineTable to stdgo._internal.debug.gosym.Gosym_linetable.LineTable {
     public var data(get, set) : Array<std.UInt>;
     function get_data():Array<std.UInt> return [for (i in this.data) i];
     function set_data(v:Array<std.UInt>):Array<std.UInt> {
@@ -102,25 +102,61 @@ package stdgo.debug.gosym;
         this._nfiletab = (v : stdgo.GoUInt32);
         return v;
     }
-    public var _funcNames(get, set) : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>;
-    function get__funcNames():stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> return this._funcNames;
-    function set__funcNames(v:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> {
-        this._funcNames = (v : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>);
+    public var _funcNames(get, set) : Map<std.UInt, String>;
+    function get__funcNames():Map<std.UInt, String> return {
+        final __obj__:Map<std.UInt, String> = [];
+        for (key => value in this._funcNames) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__funcNames(v:Map<std.UInt, String>):Map<std.UInt, String> {
+        this._funcNames = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _strings(get, set) : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>;
-    function get__strings():stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> return this._strings;
-    function set__strings(v:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>):stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString> {
-        this._strings = (v : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>);
+    public var _strings(get, set) : Map<std.UInt, String>;
+    function get__strings():Map<std.UInt, String> return {
+        final __obj__:Map<std.UInt, String> = [];
+        for (key => value in this._strings) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__strings(v:Map<std.UInt, String>):Map<std.UInt, String> {
+        this._strings = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _fileMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>;
-    function get__fileMap():stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> return this._fileMap;
-    function set__fileMap(v:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32> {
-        this._fileMap = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>);
+    public var _fileMap(get, set) : Map<String, std.UInt>;
+    function get__fileMap():Map<String, std.UInt> return {
+        final __obj__:Map<String, std.UInt> = [];
+        for (key => value in this._fileMap) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__fileMap(v:Map<String, std.UInt>):Map<String, std.UInt> {
+        this._fileMap = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoUInt32);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?data:Array<std.UInt>, ?pC:haxe.UInt64, ?line:StdTypes.Int, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_version:T_version, ?_binary:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_quantum:std.UInt, ?_ptrsize:std.UInt, ?_textStart:haxe.UInt64, ?_funcnametab:Array<std.UInt>, ?_cutab:Array<std.UInt>, ?_funcdata:Array<std.UInt>, ?_functab:Array<std.UInt>, ?_nfunctab:std.UInt, ?_filetab:Array<std.UInt>, ?_pctab:Array<std.UInt>, ?_nfiletab:std.UInt, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>) this = new stdgo._internal.debug.gosym.Gosym_linetable.LineTable(
+    public function new(?data:Array<std.UInt>, ?pC:haxe.UInt64, ?line:StdTypes.Int, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_version:T_version, ?_binary:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_quantum:std.UInt, ?_ptrsize:std.UInt, ?_textStart:haxe.UInt64, ?_funcnametab:Array<std.UInt>, ?_cutab:Array<std.UInt>, ?_funcdata:Array<std.UInt>, ?_functab:Array<std.UInt>, ?_nfunctab:std.UInt, ?_filetab:Array<std.UInt>, ?_pctab:Array<std.UInt>, ?_nfiletab:std.UInt, ?_funcNames:Map<std.UInt, String>, ?_strings:Map<std.UInt, String>, ?_fileMap:Map<String, std.UInt>) this = new stdgo._internal.debug.gosym.Gosym_linetable.LineTable(
 ([for (i in data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 (pC : stdgo.GoUInt64),
 (line : stdgo.GoInt),
@@ -138,13 +174,31 @@ _binary,
 ([for (i in _filetab) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _pctab) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 (_nfiletab : stdgo.GoUInt32),
-(_funcNames : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>),
-(_strings : stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>),
-(_fileMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>));
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+        for (key => value in _funcNames) {
+            __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>();
+        for (key => value in _strings) {
+            __obj__[(key : stdgo.GoUInt32)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>();
+        for (key => value in _fileMap) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoUInt32);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcTab_static_extension) @:dox(hide) abstract T_funcTab(stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab) from stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab to stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab {
+@:structInit @:using(Gosym.T_funcTab_static_extension) @:dox(hide) abstract T_funcTab(stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab) from stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab to stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab {
     public var lineTable(get, set) : LineTable;
     function get_lineTable():LineTable return this.lineTable;
     function set_lineTable(v:LineTable):LineTable {
@@ -161,7 +215,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_funcData_static_extension) @:dox(hide) abstract T_funcData(stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData) from stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData to stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData {
+@:structInit @:using(Gosym.T_funcData_static_extension) @:dox(hide) abstract T_funcData(stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData) from stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData to stdgo._internal.debug.gosym.Gosym_t_funcdata.T_funcData {
     public var _t(get, set) : LineTable;
     function get__t():LineTable return this._t;
     function set__t(v:LineTable):LineTable {
@@ -178,7 +232,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.Sym_static_extension) abstract Sym(stdgo._internal.debug.gosym.Gosym_sym.Sym) from stdgo._internal.debug.gosym.Gosym_sym.Sym to stdgo._internal.debug.gosym.Gosym_sym.Sym {
+@:structInit @:using(Gosym.Sym_static_extension) abstract Sym(stdgo._internal.debug.gosym.Gosym_sym.Sym) from stdgo._internal.debug.gosym.Gosym_sym.Sym to stdgo._internal.debug.gosym.Gosym_sym.Sym {
     public var value(get, set) : haxe.UInt64;
     function get_value():haxe.UInt64 return this.value;
     function set_value(v:haxe.UInt64):haxe.UInt64 {
@@ -219,7 +273,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.Func_static_extension) abstract Func(stdgo._internal.debug.gosym.Gosym_func.Func) from stdgo._internal.debug.gosym.Gosym_func.Func to stdgo._internal.debug.gosym.Gosym_func.Func {
+@:structInit @:using(Gosym.Func_static_extension) abstract Func(stdgo._internal.debug.gosym.Gosym_func.Func) from stdgo._internal.debug.gosym.Gosym_func.Func to stdgo._internal.debug.gosym.Gosym_func.Func {
     public var entry(get, set) : haxe.UInt64;
     function get_entry():haxe.UInt64 return this.entry;
     function set_entry(v:haxe.UInt64):haxe.UInt64 {
@@ -272,7 +326,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.Obj_static_extension) abstract Obj(stdgo._internal.debug.gosym.Gosym_obj.Obj) from stdgo._internal.debug.gosym.Gosym_obj.Obj to stdgo._internal.debug.gosym.Gosym_obj.Obj {
+@:structInit @:using(Gosym.Obj_static_extension) abstract Obj(stdgo._internal.debug.gosym.Gosym_obj.Obj) from stdgo._internal.debug.gosym.Gosym_obj.Obj to stdgo._internal.debug.gosym.Gosym_obj.Obj {
     public var funcs(get, set) : Array<Func>;
     function get_funcs():Array<Func> return [for (i in this.funcs) i];
     function set_funcs(v:Array<Func>):Array<Func> {
@@ -289,7 +343,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.Table_static_extension) abstract Table(stdgo._internal.debug.gosym.Gosym_table.Table) from stdgo._internal.debug.gosym.Gosym_table.Table to stdgo._internal.debug.gosym.Gosym_table.Table {
+@:structInit @:using(Gosym.Table_static_extension) abstract Table(stdgo._internal.debug.gosym.Gosym_table.Table) from stdgo._internal.debug.gosym.Gosym_table.Table to stdgo._internal.debug.gosym.Gosym_table.Table {
     public var syms(get, set) : Array<Sym>;
     function get_syms():Array<Sym> return [for (i in this.syms) i];
     function set_syms(v:Array<Sym>):Array<Sym> {
@@ -302,10 +356,22 @@ _binary,
         this.funcs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_func.Func>);
         return v;
     }
-    public var files(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>;
-    function get_files():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>> return this.files;
-    function set_files(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>> {
-        this.files = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>);
+    public var files(get, set) : Map<String, Obj>;
+    function get_files():Map<String, Obj> return {
+        final __obj__:Map<String, Obj> = [];
+        for (key => value in this.files) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_files(v:Map<String, Obj>):Map<String, Obj> {
+        this.files = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var objs(get, set) : Array<Obj>;
@@ -320,11 +386,17 @@ _binary,
         this._go12line = (v : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>);
         return v;
     }
-    public function new(?syms:Array<Sym>, ?funcs:Array<Func>, ?files:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>, ?objs:Array<Obj>, ?_go12line:LineTable) this = new stdgo._internal.debug.gosym.Gosym_table.Table(([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>), ([for (i in funcs) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_func.Func>), (files : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>), ([for (i in objs) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_obj.Obj>), (_go12line : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>));
+    public function new(?syms:Array<Sym>, ?funcs:Array<Func>, ?files:Map<String, Obj>, ?objs:Array<Obj>, ?_go12line:LineTable) this = new stdgo._internal.debug.gosym.Gosym_table.Table(([for (i in syms) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>), ([for (i in funcs) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_func.Func>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>();
+        for (key => value in files) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
+        };
+        __obj__;
+    }, ([for (i in objs) i] : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_obj.Obj>), (_go12line : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.T_sym_static_extension) @:dox(hide) abstract T_sym(stdgo._internal.debug.gosym.Gosym_t_sym.T_sym) from stdgo._internal.debug.gosym.Gosym_t_sym.T_sym to stdgo._internal.debug.gosym.Gosym_t_sym.T_sym {
+@:structInit @:using(Gosym.T_sym_static_extension) @:dox(hide) abstract T_sym(stdgo._internal.debug.gosym.Gosym_t_sym.T_sym) from stdgo._internal.debug.gosym.Gosym_t_sym.T_sym to stdgo._internal.debug.gosym.Gosym_t_sym.T_sym {
     public var _value(get, set) : haxe.UInt64;
     function get__value():haxe.UInt64 return this._value;
     function set__value(v:haxe.UInt64):haxe.UInt64 {
@@ -353,7 +425,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.UnknownLineError_static_extension) abstract UnknownLineError(stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError) from stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError to stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError {
+@:structInit @:using(Gosym.UnknownLineError_static_extension) abstract UnknownLineError(stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError) from stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError to stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError {
     public var file(get, set) : String;
     function get_file():String return this.file;
     function set_file(v:String):String {
@@ -370,7 +442,7 @@ _binary,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.debug.gosym.Gosym.DecodingError_static_extension) abstract DecodingError(stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError) from stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError to stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError {
+@:structInit @:using(Gosym.DecodingError_static_extension) abstract DecodingError(stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError) from stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError to stdgo._internal.debug.gosym.Gosym_decodingerror.DecodingError {
     public var _off(get, set) : StdTypes.Int;
     function get__off():StdTypes.Int return this._off;
     function set__off(v:StdTypes.Int):StdTypes.Int {
@@ -397,9 +469,15 @@ _binary,
 typedef UnknownFileError = stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError;
 typedef LineTablePointer = stdgo._internal.debug.gosym.Gosym_linetablepointer.LineTablePointer;
 class LineTable_static_extension {
-    static public function _go12MapFiles(_t:LineTable, _m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>, _obj:Obj):Void {
+    static public function _go12MapFiles(_t:LineTable, _m:Map<String, Obj>, _obj:Obj):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>);
-        final _m = (_m : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>);
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
+            };
+            __obj__;
+        };
         final _obj = (_obj : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
         stdgo._internal.debug.gosym.Gosym_linetable_static_extension.LineTable_static_extension._go12MapFiles(_t, _m, _obj);
     }
@@ -600,8 +678,14 @@ class LineTable_static_extension {
         final _0 = (_0 : stdgo.GoUInt64);
         return stdgo._internal.debug.gosym.Gosym_t_functab_static_extension.T_funcTab_static_extension._go12PCToFile(__self__, _0);
     }
-    public static function _go12MapFiles(__self__:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab, _0:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>, _1:Obj):Void {
-        final _0 = (_0 : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>);
+    public static function _go12MapFiles(__self__:stdgo._internal.debug.gosym.Gosym_t_functab.T_funcTab, _0:Map<String, Obj>, _1:Obj):Void {
+        final _0 = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>();
+            for (key => value in _0) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
+            };
+            __obj__;
+        };
         final _1 = (_1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
         stdgo._internal.debug.gosym.Gosym_t_functab_static_extension.T_funcTab_static_extension._go12MapFiles(__self__, _0, _1);
     }

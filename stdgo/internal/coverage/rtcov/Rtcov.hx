@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.rtcov;
-@:structInit @:using(stdgo.internal.coverage.rtcov.Rtcov.CovMetaBlob_static_extension) abstract CovMetaBlob(stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob) from stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob to stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob {
+@:structInit @:using(rtcov.Rtcov.CovMetaBlob_static_extension) abstract CovMetaBlob(stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob) from stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob to stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob.CovMetaBlob {
     public var p(get, set) : stdgo.Pointer<std.UInt>;
     function get_p():stdgo.Pointer<std.UInt> return this.p;
     function set_p(v:stdgo.Pointer<std.UInt>):stdgo.Pointer<std.UInt> {
@@ -46,7 +46,7 @@ package stdgo.internal.coverage.rtcov;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.coverage.rtcov.Rtcov.CovCounterBlob_static_extension) abstract CovCounterBlob(stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob) from stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob to stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob {
+@:structInit @:using(rtcov.Rtcov.CovCounterBlob_static_extension) abstract CovCounterBlob(stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob) from stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob to stdgo._internal.internal.coverage.rtcov.Rtcov_covcounterblob.CovCounterBlob {
     public var counters(get, set) : stdgo.Pointer<std.UInt>;
     function get_counters():stdgo.Pointer<std.UInt> return this.counters;
     function set_counters(v:stdgo.Pointer<std.UInt>):stdgo.Pointer<std.UInt> {

@@ -19,7 +19,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
         stdgo._internal.crypto.rsa.Rsa_errverification.errVerification = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.PKCS1v15DecryptOptions_static_extension) abstract PKCS1v15DecryptOptions(stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions) from stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions to stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions {
+@:structInit @:using(Rsa.PKCS1v15DecryptOptions_static_extension) abstract PKCS1v15DecryptOptions(stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions) from stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions to stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions {
     public var sessionKeyLen(get, set) : StdTypes.Int;
     function get_sessionKeyLen():StdTypes.Int return this.sessionKeyLen;
     function set_sessionKeyLen(v:StdTypes.Int):StdTypes.Int {
@@ -30,7 +30,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.PSSOptions_static_extension) abstract PSSOptions(stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions) from stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions to stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions {
+@:structInit @:using(Rsa.PSSOptions_static_extension) abstract PSSOptions(stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions) from stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions to stdgo._internal.crypto.rsa.Rsa_pssoptions.PSSOptions {
     public var saltLength(get, set) : StdTypes.Int;
     function get_saltLength():StdTypes.Int return this.saltLength;
     function set_saltLength(v:StdTypes.Int):StdTypes.Int {
@@ -47,7 +47,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey) from stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey to stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey {
+@:structInit @:using(Rsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey) from stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey to stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey {
     public var n(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_n():stdgo._internal.math.big.Big_int_.Int_ return this.n;
     function set_n(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
@@ -64,7 +64,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.OAEPOptions_static_extension) abstract OAEPOptions(stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions) from stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions to stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions {
+@:structInit @:using(Rsa.OAEPOptions_static_extension) abstract OAEPOptions(stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions) from stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions to stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions {
     public var hash(get, set) : stdgo._internal.crypto.Crypto_hash.Hash;
     function get_hash():stdgo._internal.crypto.Crypto_hash.Hash return this.hash;
     function set_hash(v:stdgo._internal.crypto.Crypto_hash.Hash):stdgo._internal.crypto.Crypto_hash.Hash {
@@ -87,7 +87,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey) from stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey to stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey {
+@:structInit @:using(Rsa.PrivateKey_static_extension) abstract PrivateKey(stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey) from stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey to stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey {
     public var publicKey(get, set) : PublicKey;
     function get_publicKey():PublicKey return this.publicKey;
     function set_publicKey(v:PublicKey):PublicKey {
@@ -116,7 +116,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.PrecomputedValues_static_extension) abstract PrecomputedValues(stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues) from stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues to stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues {
+@:structInit @:using(Rsa.PrecomputedValues_static_extension) abstract PrecomputedValues(stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues) from stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues to stdgo._internal.crypto.rsa.Rsa_precomputedvalues.PrecomputedValues {
     public var dp(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_dp():stdgo._internal.math.big.Big_int_.Int_ return this.dp;
     function set_dp(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {
@@ -163,7 +163,7 @@ private function set_errVerification(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.rsa.Rsa.CRTValue_static_extension) abstract CRTValue(stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue) from stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue to stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue {
+@:structInit @:using(Rsa.CRTValue_static_extension) abstract CRTValue(stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue) from stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue to stdgo._internal.crypto.rsa.Rsa_crtvalue.CRTValue {
     public var exp(get, set) : stdgo._internal.math.big.Big_int_.Int_;
     function get_exp():stdgo._internal.math.big.Big_int_.Int_ return this.exp;
     function set_exp(v:stdgo._internal.math.big.Big_int_.Int_):stdgo._internal.math.big.Big_int_.Int_ {

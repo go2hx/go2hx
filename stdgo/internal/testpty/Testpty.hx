@@ -5,7 +5,7 @@ private function set_errNotSupported(v:stdgo.Error):stdgo.Error {
         stdgo._internal.internal.testpty.Testpty_errnotsupported.errNotSupported = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.internal.testpty.Testpty.PtyError_static_extension) abstract PtyError(stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError) from stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError to stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError {
+@:structInit @:using(Testpty.PtyError_static_extension) abstract PtyError(stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError) from stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError to stdgo._internal.internal.testpty.Testpty_ptyerror.PtyError {
     public var funcName(get, set) : String;
     function get_funcName():String return this.funcName;
     function set_funcName(v:String):String {

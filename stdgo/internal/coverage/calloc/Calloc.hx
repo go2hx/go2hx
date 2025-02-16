@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.calloc;
-@:structInit @:using(stdgo.internal.coverage.calloc.Calloc.BatchCounterAlloc_static_extension) abstract BatchCounterAlloc(stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc) from stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc to stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc {
+@:structInit @:using(calloc.Calloc.BatchCounterAlloc_static_extension) abstract BatchCounterAlloc(stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc) from stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc to stdgo._internal.internal.coverage.calloc.Calloc_batchcounteralloc.BatchCounterAlloc {
     public var _pool(get, set) : Array<std.UInt>;
     function get__pool():Array<std.UInt> return [for (i in this._pool) i];
     function set__pool(v:Array<std.UInt>):Array<std.UInt> {

@@ -130,7 +130,7 @@ final r_TLSM : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tlsm.r_TLSM;
 final r_TLSML : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tlsml.r_TLSML;
 final r_TOCU : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocu.r_TOCU;
 final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarFileHeader_static_extension) @:dox(hide) abstract T_bigarFileHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader {
+@:structInit @:using(Xcoff.T_bigarFileHeader_static_extension) @:dox(hide) abstract T_bigarFileHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarfileheader.T_bigarFileHeader {
     public var flmagic(get, set) : haxe.ds.Vector<std.UInt>;
     function get_flmagic():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.flmagic) i]);
     function set_flmagic(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -177,7 +177,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_bigarMemberHeader_static_extension) @:dox(hide) abstract T_bigarMemberHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader {
+@:structInit @:using(Xcoff.T_bigarMemberHeader_static_extension) @:dox(hide) abstract T_bigarMemberHeader(stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader) from stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader to stdgo._internal.internal.xcoff.Xcoff_t_bigarmemberheader.T_bigarMemberHeader {
     public var arsize(get, set) : haxe.ds.Vector<std.UInt>;
     function get_arsize():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.arsize) i]);
     function set_arsize(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -230,7 +230,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Archive_static_extension) abstract Archive(stdgo._internal.internal.xcoff.Xcoff_archive.Archive) from stdgo._internal.internal.xcoff.Xcoff_archive.Archive to stdgo._internal.internal.xcoff.Xcoff_archive.Archive {
+@:structInit @:using(Xcoff.Archive_static_extension) abstract Archive(stdgo._internal.internal.xcoff.Xcoff_archive.Archive) from stdgo._internal.internal.xcoff.Xcoff_archive.Archive to stdgo._internal.internal.xcoff.Xcoff_archive.Archive {
     public var archiveHeader(get, set) : ArchiveHeader;
     function get_archiveHeader():ArchiveHeader return this.archiveHeader;
     function set_archiveHeader(v:ArchiveHeader):ArchiveHeader {
@@ -253,7 +253,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.ArchiveHeader_static_extension) abstract ArchiveHeader(stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader) from stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader to stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader {
+@:structInit @:using(Xcoff.ArchiveHeader_static_extension) abstract ArchiveHeader(stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader) from stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader to stdgo._internal.internal.xcoff.Xcoff_archiveheader.ArchiveHeader {
     public var _magic(get, set) : String;
     function get__magic():String return this._magic;
     function set__magic(v:String):String {
@@ -264,7 +264,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Member_static_extension) abstract Member(stdgo._internal.internal.xcoff.Xcoff_member.Member) from stdgo._internal.internal.xcoff.Xcoff_member.Member to stdgo._internal.internal.xcoff.Xcoff_member.Member {
+@:structInit @:using(Xcoff.Member_static_extension) abstract Member(stdgo._internal.internal.xcoff.Xcoff_member.Member) from stdgo._internal.internal.xcoff.Xcoff_member.Member to stdgo._internal.internal.xcoff.Xcoff_member.Member {
     public var memberHeader(get, set) : MemberHeader;
     function get_memberHeader():MemberHeader return this.memberHeader;
     function set_memberHeader(v:MemberHeader):MemberHeader {
@@ -281,7 +281,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.MemberHeader_static_extension) abstract MemberHeader(stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader) from stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader to stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader {
+@:structInit @:using(Xcoff.MemberHeader_static_extension) abstract MemberHeader(stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader) from stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader to stdgo._internal.internal.xcoff.Xcoff_memberheader.MemberHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -298,7 +298,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader) from stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader to stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader {
+@:structInit @:using(Xcoff.SectionHeader_static_extension) abstract SectionHeader(stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader) from stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader to stdgo._internal.internal.xcoff.Xcoff_sectionheader.SectionHeader {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -339,7 +339,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Section_static_extension) abstract Section(stdgo._internal.internal.xcoff.Xcoff_section.Section) from stdgo._internal.internal.xcoff.Xcoff_section.Section to stdgo._internal.internal.xcoff.Xcoff_section.Section {
+@:structInit @:using(Xcoff.Section_static_extension) abstract Section(stdgo._internal.internal.xcoff.Xcoff_section.Section) from stdgo._internal.internal.xcoff.Xcoff_section.Section to stdgo._internal.internal.xcoff.Xcoff_section.Section {
     public var sectionHeader(get, set) : SectionHeader;
     function get_sectionHeader():SectionHeader return this.sectionHeader;
     function set_sectionHeader(v:SectionHeader):SectionHeader {
@@ -368,7 +368,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxiliaryCSect_static_extension) abstract AuxiliaryCSect(stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect) from stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect to stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect {
+@:structInit @:using(Xcoff.AuxiliaryCSect_static_extension) abstract AuxiliaryCSect(stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect) from stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect to stdgo._internal.internal.xcoff.Xcoff_auxiliarycsect.AuxiliaryCSect {
     public var length_(get, set) : haxe.Int64;
     function get_length_():haxe.Int64 return this.length_;
     function set_length_(v:haxe.Int64):haxe.Int64 {
@@ -391,7 +391,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxiliaryFcn_static_extension) abstract AuxiliaryFcn(stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn) from stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn to stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn {
+@:structInit @:using(Xcoff.AuxiliaryFcn_static_extension) abstract AuxiliaryFcn(stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn) from stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn to stdgo._internal.internal.xcoff.Xcoff_auxiliaryfcn.AuxiliaryFcn {
     public var size(get, set) : haxe.Int64;
     function get_size():haxe.Int64 return this.size;
     function set_size(v:haxe.Int64):haxe.Int64 {
@@ -402,7 +402,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Symbol_static_extension) abstract Symbol(stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol) from stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol to stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol {
+@:structInit @:using(Xcoff.Symbol_static_extension) abstract Symbol(stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol) from stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol to stdgo._internal.internal.xcoff.Xcoff_symbol.Symbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -443,7 +443,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Reloc_static_extension) abstract Reloc(stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc) from stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc to stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc {
+@:structInit @:using(Xcoff.Reloc_static_extension) abstract Reloc(stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc) from stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc to stdgo._internal.internal.xcoff.Xcoff_reloc.Reloc {
     public var virtualAddress(get, set) : haxe.UInt64;
     function get_virtualAddress():haxe.UInt64 return this.virtualAddress;
     function set_virtualAddress(v:haxe.UInt64):haxe.UInt64 {
@@ -484,7 +484,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.ImportedSymbol_static_extension) abstract ImportedSymbol(stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol) from stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol to stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol {
+@:structInit @:using(Xcoff.ImportedSymbol_static_extension) abstract ImportedSymbol(stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol) from stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol to stdgo._internal.internal.xcoff.Xcoff_importedsymbol.ImportedSymbol {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -501,7 +501,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.FileHeader_static_extension) abstract FileHeader(stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader) from stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader to stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader {
+@:structInit @:using(Xcoff.FileHeader_static_extension) abstract FileHeader(stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader) from stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader to stdgo._internal.internal.xcoff.Xcoff_fileheader.FileHeader {
     public var targetMachine(get, set) : std.UInt;
     function get_targetMachine():std.UInt return this.targetMachine;
     function set_targetMachine(v:std.UInt):std.UInt {
@@ -512,7 +512,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.File_static_extension) abstract File(stdgo._internal.internal.xcoff.Xcoff_file.File) from stdgo._internal.internal.xcoff.Xcoff_file.File to stdgo._internal.internal.xcoff.Xcoff_file.File {
+@:structInit @:using(Xcoff.File_static_extension) abstract File(stdgo._internal.internal.xcoff.Xcoff_file.File) from stdgo._internal.internal.xcoff.Xcoff_file.File to stdgo._internal.internal.xcoff.Xcoff_file.File {
     public var fileHeader(get, set) : FileHeader;
     function get_fileHeader():FileHeader return this.fileHeader;
     function set_fileHeader(v:FileHeader):FileHeader {
@@ -553,12 +553,12 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.T_zeroReaderAt_static_extension) @:dox(hide) abstract T_zeroReaderAt(stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt) from stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt to stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt {
+@:structInit @:using(Xcoff.T_zeroReaderAt_static_extension) @:dox(hide) abstract T_zeroReaderAt(stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt) from stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt to stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt {
     public function new() this = new stdgo._internal.internal.xcoff.Xcoff_t_zeroreaderat.T_zeroReaderAt();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.FileHeader32_static_extension) abstract FileHeader32(stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32) from stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32 to stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32 {
+@:structInit @:using(Xcoff.FileHeader32_static_extension) abstract FileHeader32(stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32) from stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32 to stdgo._internal.internal.xcoff.Xcoff_fileheader32.FileHeader32 {
     public var fmagic(get, set) : std.UInt;
     function get_fmagic():std.UInt return this.fmagic;
     function set_fmagic(v:std.UInt):std.UInt {
@@ -605,7 +605,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.FileHeader64_static_extension) abstract FileHeader64(stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64) from stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64 to stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64 {
+@:structInit @:using(Xcoff.FileHeader64_static_extension) abstract FileHeader64(stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64) from stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64 to stdgo._internal.internal.xcoff.Xcoff_fileheader64.FileHeader64 {
     public var fmagic(get, set) : std.UInt;
     function get_fmagic():std.UInt return this.fmagic;
     function set_fmagic(v:std.UInt):std.UInt {
@@ -652,7 +652,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.SectionHeader32_static_extension) abstract SectionHeader32(stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32) from stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32 to stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32 {
+@:structInit @:using(Xcoff.SectionHeader32_static_extension) abstract SectionHeader32(stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32) from stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32 to stdgo._internal.internal.xcoff.Xcoff_sectionheader32.SectionHeader32 {
     public var sname(get, set) : haxe.ds.Vector<std.UInt>;
     function get_sname():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.sname) i]);
     function set_sname(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -717,7 +717,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.SectionHeader64_static_extension) abstract SectionHeader64(stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64) from stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64 to stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64 {
+@:structInit @:using(Xcoff.SectionHeader64_static_extension) abstract SectionHeader64(stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64) from stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64 to stdgo._internal.internal.xcoff.Xcoff_sectionheader64.SectionHeader64 {
     public var sname(get, set) : haxe.ds.Vector<std.UInt>;
     function get_sname():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.sname) i]);
     function set_sname(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -799,7 +799,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.SymEnt32_static_extension) abstract SymEnt32(stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32) from stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32 to stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32 {
+@:structInit @:using(Xcoff.SymEnt32_static_extension) abstract SymEnt32(stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32) from stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32 to stdgo._internal.internal.xcoff.Xcoff_syment32.SymEnt32 {
     public var nname(get, set) : haxe.ds.Vector<std.UInt>;
     function get_nname():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.nname) i]);
     function set_nname(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -840,7 +840,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.SymEnt64_static_extension) abstract SymEnt64(stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64) from stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64 to stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64 {
+@:structInit @:using(Xcoff.SymEnt64_static_extension) abstract SymEnt64(stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64) from stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64 to stdgo._internal.internal.xcoff.Xcoff_syment64.SymEnt64 {
     public var nvalue(get, set) : haxe.UInt64;
     function get_nvalue():haxe.UInt64 return this.nvalue;
     function set_nvalue(v:haxe.UInt64):haxe.UInt64 {
@@ -881,7 +881,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxFile64_static_extension) abstract AuxFile64(stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64) from stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64 to stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64 {
+@:structInit @:using(Xcoff.AuxFile64_static_extension) abstract AuxFile64(stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64) from stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64 to stdgo._internal.internal.xcoff.Xcoff_auxfile64.AuxFile64 {
     public var xfname(get, set) : haxe.ds.Vector<std.UInt>;
     function get_xfname():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.xfname) i]);
     function set_xfname(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -904,7 +904,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxFcn32_static_extension) abstract AuxFcn32(stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32) from stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32 to stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32 {
+@:structInit @:using(Xcoff.AuxFcn32_static_extension) abstract AuxFcn32(stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32) from stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32 to stdgo._internal.internal.xcoff.Xcoff_auxfcn32.AuxFcn32 {
     public var xexptr(get, set) : std.UInt;
     function get_xexptr():std.UInt return this.xexptr;
     function set_xexptr(v:std.UInt):std.UInt {
@@ -939,7 +939,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxFcn64_static_extension) abstract AuxFcn64(stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64) from stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64 to stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64 {
+@:structInit @:using(Xcoff.AuxFcn64_static_extension) abstract AuxFcn64(stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64) from stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64 to stdgo._internal.internal.xcoff.Xcoff_auxfcn64.AuxFcn64 {
     public var xlnnoptr(get, set) : haxe.UInt64;
     function get_xlnnoptr():haxe.UInt64 return this.xlnnoptr;
     function set_xlnnoptr(v:haxe.UInt64):haxe.UInt64 {
@@ -974,7 +974,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxSect64_static_extension) abstract AuxSect64(stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64) from stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64 to stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64 {
+@:structInit @:using(Xcoff.AuxSect64_static_extension) abstract AuxSect64(stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64) from stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64 to stdgo._internal.internal.xcoff.Xcoff_auxsect64.AuxSect64 {
     public var xscnlen(get, set) : haxe.UInt64;
     function get_xscnlen():haxe.UInt64 return this.xscnlen;
     function set_xscnlen(v:haxe.UInt64):haxe.UInt64 {
@@ -1003,7 +1003,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxCSect32_static_extension) abstract AuxCSect32(stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32) from stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32 to stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32 {
+@:structInit @:using(Xcoff.AuxCSect32_static_extension) abstract AuxCSect32(stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32) from stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32 to stdgo._internal.internal.xcoff.Xcoff_auxcsect32.AuxCSect32 {
     public var xscnlen(get, set) : std.UInt;
     function get_xscnlen():std.UInt return this.xscnlen;
     function set_xscnlen(v:std.UInt):std.UInt {
@@ -1050,7 +1050,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.AuxCSect64_static_extension) abstract AuxCSect64(stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64) from stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64 to stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64 {
+@:structInit @:using(Xcoff.AuxCSect64_static_extension) abstract AuxCSect64(stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64) from stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64 to stdgo._internal.internal.xcoff.Xcoff_auxcsect64.AuxCSect64 {
     public var xscnlenlo(get, set) : std.UInt;
     function get_xscnlenlo():std.UInt return this.xscnlenlo;
     function set_xscnlenlo(v:std.UInt):std.UInt {
@@ -1103,7 +1103,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.LoaderHeader32_static_extension) abstract LoaderHeader32(stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32) from stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32 to stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32 {
+@:structInit @:using(Xcoff.LoaderHeader32_static_extension) abstract LoaderHeader32(stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32) from stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32 to stdgo._internal.internal.xcoff.Xcoff_loaderheader32.LoaderHeader32 {
     public var lversion(get, set) : std.UInt;
     function get_lversion():std.UInt return this.lversion;
     function set_lversion(v:std.UInt):std.UInt {
@@ -1156,7 +1156,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.LoaderHeader64_static_extension) abstract LoaderHeader64(stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64) from stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64 to stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64 {
+@:structInit @:using(Xcoff.LoaderHeader64_static_extension) abstract LoaderHeader64(stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64) from stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64 to stdgo._internal.internal.xcoff.Xcoff_loaderheader64.LoaderHeader64 {
     public var lversion(get, set) : std.UInt;
     function get_lversion():std.UInt return this.lversion;
     function set_lversion(v:std.UInt):std.UInt {
@@ -1221,7 +1221,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.LoaderSymbol32_static_extension) abstract LoaderSymbol32(stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32) from stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32 to stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32 {
+@:structInit @:using(Xcoff.LoaderSymbol32_static_extension) abstract LoaderSymbol32(stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32) from stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32 to stdgo._internal.internal.xcoff.Xcoff_loadersymbol32.LoaderSymbol32 {
     public var lname(get, set) : haxe.ds.Vector<std.UInt>;
     function get_lname():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.lname) i]);
     function set_lname(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
@@ -1268,7 +1268,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.LoaderSymbol64_static_extension) abstract LoaderSymbol64(stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64) from stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64 to stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64 {
+@:structInit @:using(Xcoff.LoaderSymbol64_static_extension) abstract LoaderSymbol64(stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64) from stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64 to stdgo._internal.internal.xcoff.Xcoff_loadersymbol64.LoaderSymbol64 {
     public var lvalue(get, set) : haxe.UInt64;
     function get_lvalue():haxe.UInt64 return this.lvalue;
     function set_lvalue(v:haxe.UInt64):haxe.UInt64 {
@@ -1315,7 +1315,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Reloc32_static_extension) abstract Reloc32(stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32) from stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32 to stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32 {
+@:structInit @:using(Xcoff.Reloc32_static_extension) abstract Reloc32(stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32) from stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32 to stdgo._internal.internal.xcoff.Xcoff_reloc32.Reloc32 {
     public var rvaddr(get, set) : std.UInt;
     function get_rvaddr():std.UInt return this.rvaddr;
     function set_rvaddr(v:std.UInt):std.UInt {
@@ -1344,7 +1344,7 @@ final r_TOCL : haxe.UInt64 = stdgo._internal.internal.xcoff.Xcoff_r_tocl.r_TOCL;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.xcoff.Xcoff.Reloc64_static_extension) abstract Reloc64(stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64) from stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64 to stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64 {
+@:structInit @:using(Xcoff.Reloc64_static_extension) abstract Reloc64(stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64) from stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64 to stdgo._internal.internal.xcoff.Xcoff_reloc64.Reloc64 {
     public var rvaddr(get, set) : haxe.UInt64;
     function get_rvaddr():haxe.UInt64 return this.rvaddr;
     function set_rvaddr(v:haxe.UInt64):haxe.UInt64 {

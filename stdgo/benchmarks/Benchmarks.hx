@@ -1,5 +1,5 @@
 package stdgo.benchmarks;
-@:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_fastTextHandler_static_extension) @:dox(hide) abstract T_fastTextHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler {
+@:structInit @:using(internal.benchmarks.Benchmarks.T_fastTextHandler_static_extension) @:dox(hide) abstract T_fastTextHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_fasttexthandler.T_fastTextHandler {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -10,7 +10,7 @@ package stdgo.benchmarks;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_asyncHandler_static_extension) @:dox(hide) abstract T_asyncHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler {
+@:structInit @:using(internal.benchmarks.Benchmarks.T_asyncHandler_static_extension) @:dox(hide) abstract T_asyncHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_asynchandler.T_asyncHandler {
     public var _ringBuffer(get, set) : haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record>;
     function get__ringBuffer():haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record> return haxe.ds.Vector.fromArrayCopy([for (i in this._ringBuffer) i]);
     function set__ringBuffer(v:haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record>):haxe.ds.Vector<stdgo._internal.log.slog.Slog_record.Record> {
@@ -27,7 +27,7 @@ package stdgo.benchmarks;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.log.slog.internal.benchmarks.Benchmarks.T_disabledHandler_static_extension) @:dox(hide) abstract T_disabledHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler {
+@:structInit @:using(internal.benchmarks.Benchmarks.T_disabledHandler_static_extension) @:dox(hide) abstract T_disabledHandler(stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler) from stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler to stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler {
     public function new() this = new stdgo._internal.log.slog.internal.benchmarks.Benchmarks_t_disabledhandler.T_disabledHandler();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

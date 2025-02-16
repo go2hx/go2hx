@@ -1,5 +1,5 @@
 package stdgo.runtime.debug;
-@:structInit @:using(stdgo.runtime.debug.Debug.GCStats_static_extension) abstract GCStats(stdgo._internal.runtime.debug.Debug_gcstats.GCStats) from stdgo._internal.runtime.debug.Debug_gcstats.GCStats to stdgo._internal.runtime.debug.Debug_gcstats.GCStats {
+@:structInit @:using(Debug.GCStats_static_extension) abstract GCStats(stdgo._internal.runtime.debug.Debug_gcstats.GCStats) from stdgo._internal.runtime.debug.Debug_gcstats.GCStats to stdgo._internal.runtime.debug.Debug_gcstats.GCStats {
     public var lastGC(get, set) : stdgo._internal.time.Time_time.Time;
     function get_lastGC():stdgo._internal.time.Time_time.Time return this.lastGC;
     function set_lastGC(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
@@ -40,7 +40,7 @@ package stdgo.runtime.debug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.debug.Debug.BuildInfo_static_extension) abstract BuildInfo(stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo) from stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo to stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo {
+@:structInit @:using(Debug.BuildInfo_static_extension) abstract BuildInfo(stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo) from stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo to stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo {
     public var goVersion(get, set) : String;
     function get_goVersion():String return this.goVersion;
     function set_goVersion(v:String):String {
@@ -75,7 +75,7 @@ package stdgo.runtime.debug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.debug.Debug.Module_static_extension) abstract Module(stdgo._internal.runtime.debug.Debug_module.Module) from stdgo._internal.runtime.debug.Debug_module.Module to stdgo._internal.runtime.debug.Debug_module.Module {
+@:structInit @:using(Debug.Module_static_extension) abstract Module(stdgo._internal.runtime.debug.Debug_module.Module) from stdgo._internal.runtime.debug.Debug_module.Module to stdgo._internal.runtime.debug.Debug_module.Module {
     public var path(get, set) : String;
     function get_path():String return this.path;
     function set_path(v:String):String {
@@ -104,7 +104,7 @@ package stdgo.runtime.debug;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.runtime.debug.Debug.BuildSetting_static_extension) abstract BuildSetting(stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting) from stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting to stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting {
+@:structInit @:using(Debug.BuildSetting_static_extension) abstract BuildSetting(stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting) from stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting to stdgo._internal.runtime.debug.Debug_buildsetting.BuildSetting {
     public var key(get, set) : String;
     function get_key():String return this.key;
     function set_key(v:String):String {

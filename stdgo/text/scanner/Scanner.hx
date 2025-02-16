@@ -17,7 +17,7 @@ final string = stdgo._internal.text.scanner.Scanner_string.string;
 final rawString = stdgo._internal.text.scanner.Scanner_rawstring.rawString;
 final comment = stdgo._internal.text.scanner.Scanner_comment.comment;
 final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhitespace.goWhitespace;
-@:structInit @:using(stdgo.text.scanner.Scanner.Position_static_extension) abstract Position(stdgo._internal.text.scanner.Scanner_position.Position) from stdgo._internal.text.scanner.Scanner_position.Position to stdgo._internal.text.scanner.Scanner_position.Position {
+@:structInit @:using(Scanner.Position_static_extension) abstract Position(stdgo._internal.text.scanner.Scanner_position.Position) from stdgo._internal.text.scanner.Scanner_position.Position to stdgo._internal.text.scanner.Scanner_position.Position {
     public var filename(get, set) : String;
     function get_filename():String return this.filename;
     function set_filename(v:String):String {
@@ -46,7 +46,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.Scanner_static_extension) abstract Scanner_(stdgo._internal.text.scanner.Scanner_scanner.Scanner) from stdgo._internal.text.scanner.Scanner_scanner.Scanner to stdgo._internal.text.scanner.Scanner_scanner.Scanner {
+@:structInit @:using(Scanner.Scanner_static_extension) abstract Scanner_(stdgo._internal.text.scanner.Scanner_scanner.Scanner) from stdgo._internal.text.scanner.Scanner_scanner.Scanner to stdgo._internal.text.scanner.Scanner_scanner.Scanner {
     public var _src(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__src():stdgo._internal.io.Io_reader.Reader return this._src;
     function set__src(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -125,9 +125,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this._ch = (v : stdgo.GoInt32);
         return v;
     }
-    public var error(get, set) : (stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void;
-    function get_error():(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void return (_0, _1) -> this.error(_0, _1);
-    function set_error(v:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void):(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void {
+    public var error(get, set) : (Scanner_, String) -> Void;
+    function get_error():(Scanner_, String) -> Void return (_0, _1) -> this.error(_0, _1);
+    function set_error(v:(Scanner_, String) -> Void):(Scanner_, String) -> Void {
         this.error = v;
         return v;
     }
@@ -149,9 +149,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this.whitespace = (v : stdgo.GoUInt64);
         return v;
     }
-    public var isIdentRune(get, set) : (stdgo.GoInt32, stdgo.GoInt) -> Bool;
-    function get_isIdentRune():(stdgo.GoInt32, stdgo.GoInt) -> Bool return (_0, _1) -> this.isIdentRune(_0, _1);
-    function set_isIdentRune(v:(stdgo.GoInt32, stdgo.GoInt) -> Bool):(stdgo.GoInt32, stdgo.GoInt) -> Bool {
+    public var isIdentRune(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
+    function get_isIdentRune():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.isIdentRune(_0, _1);
+    function set_isIdentRune(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
         this.isIdentRune = v;
         return v;
     }
@@ -161,7 +161,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this.position = v;
         return v;
     }
-    public function new(?_src:stdgo._internal.io.Io_reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_scanner.Scanner(
+    public function new(?_src:stdgo._internal.io.Io_reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(Scanner_, String) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(StdTypes.Int, StdTypes.Int) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_scanner.Scanner(
 _src,
 ([for (i in _srcBuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 (_srcPos : stdgo.GoInt),
@@ -184,7 +184,7 @@ position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.StringReader_static_extension) abstract StringReader(stdgo._internal.text.scanner.Scanner_stringreader.StringReader) from stdgo._internal.text.scanner.Scanner_stringreader.StringReader to stdgo._internal.text.scanner.Scanner_stringreader.StringReader {
+@:structInit @:using(Scanner.StringReader_static_extension) abstract StringReader(stdgo._internal.text.scanner.Scanner_stringreader.StringReader) from stdgo._internal.text.scanner.Scanner_stringreader.StringReader to stdgo._internal.text.scanner.Scanner_stringreader.StringReader {
     public var _data(get, set) : Array<String>;
     function get__data():Array<String> return [for (i in this._data) i];
     function set__data(v:Array<String>):Array<String> {
@@ -201,7 +201,7 @@ position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.T_token_static_extension) @:dox(hide) abstract T_token(stdgo._internal.text.scanner.Scanner_t_token.T_token) from stdgo._internal.text.scanner.Scanner_t_token.T_token to stdgo._internal.text.scanner.Scanner_t_token.T_token {
+@:structInit @:using(Scanner.T_token_static_extension) @:dox(hide) abstract T_token(stdgo._internal.text.scanner.Scanner_t_token.T_token) from stdgo._internal.text.scanner.Scanner_t_token.T_token to stdgo._internal.text.scanner.Scanner_t_token.T_token {
     public var _tok(get, set) : StdTypes.Int;
     function get__tok():StdTypes.Int return this._tok;
     function set__tok(v:StdTypes.Int):StdTypes.Int {
@@ -218,7 +218,7 @@ position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.scanner.Scanner.T_errReader_static_extension) @:dox(hide) abstract T_errReader(stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader) from stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader to stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader {
+@:structInit @:using(Scanner.T_errReader_static_extension) @:dox(hide) abstract T_errReader(stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader) from stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader to stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader {
     public function new() this = new stdgo._internal.text.scanner.Scanner_t_errreader.T_errReader();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

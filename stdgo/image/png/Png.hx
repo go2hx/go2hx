@@ -12,14 +12,30 @@ class EncoderBufferPool_static_extension {
         return stdgo._internal.image.png.Png_encoderbufferpool_static_extension.EncoderBufferPool_static_extension.get(t);
     }
 }
-typedef EncoderBufferPool = stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool;
+@:forward abstract EncoderBufferPool(stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool) from stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool to stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool {
+    @:from
+    static function fromHaxeInterface(x:{ function get():EncoderBuffer; function put(_0:EncoderBuffer):Void; }):EncoderBufferPool {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:EncoderBufferPool = { get : () -> x.get(), put : _0 -> x.put(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_opaquer_static_extension {
     static public function opaque(t:stdgo._internal.image.png.Png_t_opaquer.T_opaquer):Bool {
         return stdgo._internal.image.png.Png_t_opaquer_static_extension.T_opaquer_static_extension.opaque(t);
     }
 }
-@:dox(hide) typedef T_opaquer = stdgo._internal.image.png.Png_t_opaquer.T_opaquer;
-@:structInit @:using(stdgo.image.png.Png.T_interlaceScan_static_extension) @:dox(hide) abstract T_interlaceScan(stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan) from stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan to stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan {
+@:dox(hide) @:forward abstract T_opaquer(stdgo._internal.image.png.Png_t_opaquer.T_opaquer) from stdgo._internal.image.png.Png_t_opaquer.T_opaquer to stdgo._internal.image.png.Png_t_opaquer.T_opaquer {
+    @:from
+    static function fromHaxeInterface(x:{ function opaque():Bool; }):T_opaquer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_opaquer = { opaque : () -> x.opaque(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Png.T_interlaceScan_static_extension) @:dox(hide) abstract T_interlaceScan(stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan) from stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan to stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan {
     public var _xFactor(get, set) : StdTypes.Int;
     function get__xFactor():StdTypes.Int return this._xFactor;
     function set__xFactor(v:StdTypes.Int):StdTypes.Int {
@@ -48,7 +64,7 @@ typedef EncoderBufferPool = stdgo._internal.image.png.Png_encoderbufferpool.Enco
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.png.Png_t_decoder.T_decoder) from stdgo._internal.image.png.Png_t_decoder.T_decoder to stdgo._internal.image.png.Png_t_decoder.T_decoder {
+@:structInit @:using(Png.T_decoder_static_extension) @:dox(hide) abstract T_decoder(stdgo._internal.image.png.Png_t_decoder.T_decoder) from stdgo._internal.image.png.Png_t_decoder.T_decoder to stdgo._internal.image.png.Png_t_decoder.T_decoder {
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__r():stdgo._internal.io.Io_reader.Reader return this._r;
     function set__r(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
@@ -151,7 +167,7 @@ _useTransparent,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.Encoder_static_extension) abstract Encoder(stdgo._internal.image.png.Png_encoder.Encoder) from stdgo._internal.image.png.Png_encoder.Encoder to stdgo._internal.image.png.Png_encoder.Encoder {
+@:structInit @:using(Png.Encoder_static_extension) abstract Encoder(stdgo._internal.image.png.Png_encoder.Encoder) from stdgo._internal.image.png.Png_encoder.Encoder to stdgo._internal.image.png.Png_encoder.Encoder {
     public var compressionLevel(get, set) : CompressionLevel;
     function get_compressionLevel():CompressionLevel return this.compressionLevel;
     function set_compressionLevel(v:CompressionLevel):CompressionLevel {
@@ -168,7 +184,7 @@ _useTransparent,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.image.png.Png.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.png.Png_t_encoder.T_encoder) from stdgo._internal.image.png.Png_t_encoder.T_encoder to stdgo._internal.image.png.Png_t_encoder.T_encoder {
+@:structInit @:using(Png.T_encoder_static_extension) @:dox(hide) abstract T_encoder(stdgo._internal.image.png.Png_t_encoder.T_encoder) from stdgo._internal.image.png.Png_t_encoder.T_encoder to stdgo._internal.image.png.Png_t_encoder.T_encoder {
     public var _enc(get, set) : Encoder;
     function get__enc():Encoder return this._enc;
     function set__enc(v:Encoder):Encoder {

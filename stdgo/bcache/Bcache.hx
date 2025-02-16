@@ -1,5 +1,5 @@
 package stdgo.bcache;
-@:structInit @:using(stdgo.crypto.internal.boring.bcache.Bcache.Cache_static_extension) abstract Cache(stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache) from stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache to stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache {
+@:structInit @:using(boring.bcache.Bcache.Cache_static_extension) abstract Cache(stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache) from stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache to stdgo._internal.crypto.internal.boring.bcache.Bcache_cache.Cache {
     public var _ptable(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<Dynamic, Dynamic>>;
     function get__ptable():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<Dynamic, Dynamic>> return this._ptable;
     function set__ptable(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<Dynamic, Dynamic>>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cachetable.T_cacheTable<Dynamic, Dynamic>> {
@@ -10,7 +10,7 @@ package stdgo.bcache;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.crypto.internal.boring.bcache.Bcache.T_cacheEntry_static_extension) @:dox(hide) abstract T_cacheEntry(stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry {
+@:structInit @:using(boring.bcache.Bcache.T_cacheEntry_static_extension) @:dox(hide) abstract T_cacheEntry(stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.internal.boring.bcache.Bcache_t_cacheentry.T_cacheEntry {
     public var _k(get, set) : Dynamic;
     function get__k():Dynamic return this._k;
     function set__k(v:Dynamic):Dynamic {

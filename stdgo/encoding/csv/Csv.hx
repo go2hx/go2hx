@@ -23,7 +23,7 @@ private function set_errTrailingComma(v:stdgo.Error):stdgo.Error {
         stdgo._internal.encoding.csv.Csv_errtrailingcomma.errTrailingComma = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(stdgo.encoding.csv.Csv.ParseError_static_extension) abstract ParseError(stdgo._internal.encoding.csv.Csv_parseerror.ParseError) from stdgo._internal.encoding.csv.Csv_parseerror.ParseError to stdgo._internal.encoding.csv.Csv_parseerror.ParseError {
+@:structInit @:using(Csv.ParseError_static_extension) abstract ParseError(stdgo._internal.encoding.csv.Csv_parseerror.ParseError) from stdgo._internal.encoding.csv.Csv_parseerror.ParseError to stdgo._internal.encoding.csv.Csv_parseerror.ParseError {
     public var startLine(get, set) : StdTypes.Int;
     function get_startLine():StdTypes.Int return this.startLine;
     function set_startLine(v:StdTypes.Int):StdTypes.Int {
@@ -52,7 +52,7 @@ private function set_errTrailingComma(v:stdgo.Error):stdgo.Error {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.Reader_static_extension) abstract Reader(stdgo._internal.encoding.csv.Csv_reader.Reader) from stdgo._internal.encoding.csv.Csv_reader.Reader to stdgo._internal.encoding.csv.Csv_reader.Reader {
+@:structInit @:using(Csv.Reader_static_extension) abstract Reader(stdgo._internal.encoding.csv.Csv_reader.Reader) from stdgo._internal.encoding.csv.Csv_reader.Reader to stdgo._internal.encoding.csv.Csv_reader.Reader {
     public var comma(get, set) : StdTypes.Int;
     function get_comma():StdTypes.Int return this.comma;
     function set_comma(v:StdTypes.Int):StdTypes.Int {
@@ -162,7 +162,7 @@ trailingComma,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.T_position_static_extension) @:dox(hide) abstract T_position(stdgo._internal.encoding.csv.Csv_t_position.T_position) from stdgo._internal.encoding.csv.Csv_t_position.T_position to stdgo._internal.encoding.csv.Csv_t_position.T_position {
+@:structInit @:using(Csv.T_position_static_extension) @:dox(hide) abstract T_position(stdgo._internal.encoding.csv.Csv_t_position.T_position) from stdgo._internal.encoding.csv.Csv_t_position.T_position to stdgo._internal.encoding.csv.Csv_t_position.T_position {
     public var _line(get, set) : StdTypes.Int;
     function get__line():StdTypes.Int return this._line;
     function set__line(v:StdTypes.Int):StdTypes.Int {
@@ -179,7 +179,7 @@ trailingComma,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.Writer_static_extension) abstract Writer(stdgo._internal.encoding.csv.Csv_writer.Writer) from stdgo._internal.encoding.csv.Csv_writer.Writer to stdgo._internal.encoding.csv.Csv_writer.Writer {
+@:structInit @:using(Csv.Writer_static_extension) abstract Writer(stdgo._internal.encoding.csv.Csv_writer.Writer) from stdgo._internal.encoding.csv.Csv_writer.Writer to stdgo._internal.encoding.csv.Csv_writer.Writer {
     public var comma(get, set) : StdTypes.Int;
     function get_comma():StdTypes.Int return this.comma;
     function set_comma(v:StdTypes.Int):StdTypes.Int {

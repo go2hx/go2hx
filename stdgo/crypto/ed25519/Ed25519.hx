@@ -3,7 +3,7 @@ final publicKeySize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_publi
 final privateKeySize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_privatekeysize.privateKeySize;
 final signatureSize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_signaturesize.signatureSize;
 final seedSize : haxe.UInt64 = stdgo._internal.crypto.ed25519.Ed25519_seedsize.seedSize;
-@:structInit @:using(stdgo.crypto.ed25519.Ed25519.Options_static_extension) abstract Options(stdgo._internal.crypto.ed25519.Ed25519_options.Options) from stdgo._internal.crypto.ed25519.Ed25519_options.Options to stdgo._internal.crypto.ed25519.Ed25519_options.Options {
+@:structInit @:using(Ed25519.Options_static_extension) abstract Options(stdgo._internal.crypto.ed25519.Ed25519_options.Options) from stdgo._internal.crypto.ed25519.Ed25519_options.Options to stdgo._internal.crypto.ed25519.Ed25519_options.Options {
     public var hash(get, set) : stdgo._internal.crypto.Crypto_hash.Hash;
     function get_hash():stdgo._internal.crypto.Crypto_hash.Hash return this.hash;
     function set_hash(v:stdgo._internal.crypto.Crypto_hash.Hash):stdgo._internal.crypto.Crypto_hash.Hash {

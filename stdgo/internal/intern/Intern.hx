@@ -1,5 +1,5 @@
 package stdgo.internal.intern;
-@:structInit @:using(stdgo.internal.intern.Intern.Value_static_extension) abstract Value(stdgo._internal.internal.intern.Intern_value.Value) from stdgo._internal.internal.intern.Intern_value.Value to stdgo._internal.internal.intern.Intern_value.Value {
+@:structInit @:using(Intern.Value_static_extension) abstract Value(stdgo._internal.internal.intern.Intern_value.Value) from stdgo._internal.internal.intern.Intern_value.Value to stdgo._internal.internal.intern.Intern_value.Value {
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
@@ -22,7 +22,7 @@ package stdgo.internal.intern;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.internal.intern.Intern.T_key_static_extension) @:dox(hide) abstract T_key(stdgo._internal.internal.intern.Intern_t_key.T_key) from stdgo._internal.internal.intern.Intern_t_key.T_key to stdgo._internal.internal.intern.Intern_t_key.T_key {
+@:structInit @:using(Intern.T_key_static_extension) @:dox(hide) abstract T_key(stdgo._internal.internal.intern.Intern_t_key.T_key) from stdgo._internal.internal.intern.Intern_t_key.T_key to stdgo._internal.internal.intern.Intern_t_key.T_key {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {

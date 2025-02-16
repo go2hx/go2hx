@@ -1,5 +1,5 @@
 package stdgo.internal.coverage.slicereader;
-@:structInit @:using(stdgo.internal.coverage.slicereader.Slicereader.Reader_static_extension) abstract Reader(stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader) from stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader to stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader {
+@:structInit @:using(slicereader.Slicereader.Reader_static_extension) abstract Reader(stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader) from stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader to stdgo._internal.internal.coverage.slicereader.Slicereader_reader.Reader {
     public var _b(get, set) : Array<std.UInt>;
     function get__b():Array<std.UInt> return [for (i in this._b) i];
     function set__b(v:Array<std.UInt>):Array<std.UInt> {

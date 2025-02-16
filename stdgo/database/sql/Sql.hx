@@ -28,7 +28,15 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
 @:dox(hide) class T_decimal_static_extension {
 
 }
-@:dox(hide) typedef T_decimal = stdgo._internal.database.sql.Sql_t_decimal.T_decimal;
+@:dox(hide) @:forward abstract T_decimal(stdgo._internal.database.sql.Sql_t_decimal.T_decimal) from stdgo._internal.database.sql.Sql_t_decimal.T_decimal to stdgo._internal.database.sql.Sql_t_decimal.T_decimal {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_decimal {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_decimal = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_decimalDecompose_static_extension {
     static public function decompose(t:stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose, _buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int> {
         final _buf = ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -38,7 +46,15 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
         };
     }
 }
-@:dox(hide) typedef T_decimalDecompose = stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose;
+@:dox(hide) @:forward abstract T_decimalDecompose(stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose) from stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose to stdgo._internal.database.sql.Sql_t_decimaldecompose.T_decimalDecompose {
+    @:from
+    static function fromHaxeInterface(x:{ function decompose(_buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int>; }):T_decimalDecompose {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_decimalDecompose = { decompose : _0 -> x.decompose([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_decimalCompose_static_extension {
     static public function compose(t:stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose, _form:std.UInt, _negative:Bool, _coefficient:Array<std.UInt>, _exponent:StdTypes.Int):stdgo.Error {
         final _form = (_form : stdgo.GoUInt8);
@@ -47,20 +63,44 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.database.sql.Sql_t_decimalcompose_static_extension.T_decimalCompose_static_extension.compose(t, _form, _negative, _coefficient, _exponent);
     }
 }
-@:dox(hide) typedef T_decimalCompose = stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose;
+@:dox(hide) @:forward abstract T_decimalCompose(stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose) from stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose to stdgo._internal.database.sql.Sql_t_decimalcompose.T_decimalCompose {
+    @:from
+    static function fromHaxeInterface(x:{ function compose(_form:std.UInt, _negative:Bool, _coefficient:Array<std.UInt>, _exponent:StdTypes.Int):stdgo.Error; }):T_decimalCompose {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_decimalCompose = { compose : (_0, _1, _2, _3) -> x.compose(_0, _1, [for (i in _2) i], _3), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Scanner_static_extension {
     static public function scan(t:stdgo._internal.database.sql.Sql_scanner.Scanner, _src:stdgo.AnyInterface):stdgo.Error {
         final _src = (_src : stdgo.AnyInterface);
         return stdgo._internal.database.sql.Sql_scanner_static_extension.Scanner_static_extension.scan(t, _src);
     }
 }
-typedef Scanner = stdgo._internal.database.sql.Sql_scanner.Scanner;
+@:forward abstract Scanner(stdgo._internal.database.sql.Sql_scanner.Scanner) from stdgo._internal.database.sql.Sql_scanner.Scanner to stdgo._internal.database.sql.Sql_scanner.Scanner {
+    @:from
+    static function fromHaxeInterface(x:{ function scan(_src:stdgo.AnyInterface):stdgo.Error; }):Scanner {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Scanner = { scan : _0 -> x.scan(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_finalCloser_static_extension {
     static public function _finalClose(t:stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser):stdgo.Error {
         return stdgo._internal.database.sql.Sql_t_finalcloser_static_extension.T_finalCloser_static_extension._finalClose(t);
     }
 }
-@:dox(hide) typedef T_finalCloser = stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser;
+@:dox(hide) @:forward abstract T_finalCloser(stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser) from stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser to stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser {
+    @:from
+    static function fromHaxeInterface(x:{ function _finalClose():stdgo.Error; }):T_finalCloser {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_finalCloser = { _finalClose : () -> x._finalClose(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_stmtConnGrabber_static_extension {
     static public function _txCtx(t:stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber):stdgo._internal.context.Context_context.Context {
         return stdgo._internal.database.sql.Sql_t_stmtconngrabber_static_extension.T_stmtConnGrabber_static_extension._txCtx(t);
@@ -72,7 +112,15 @@ typedef Scanner = stdgo._internal.database.sql.Sql_scanner.Scanner;
         };
     }
 }
-@:dox(hide) typedef T_stmtConnGrabber = stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber;
+@:dox(hide) @:forward abstract T_stmtConnGrabber(stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber) from stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber to stdgo._internal.database.sql.Sql_t_stmtconngrabber.T_stmtConnGrabber {
+    @:from
+    static function fromHaxeInterface(x:{ function _grabConn(_0:stdgo._internal.context.Context_context.Context):stdgo.Tuple.Tuple3<T_driverConn, T_releaseConn, stdgo.Error>; function _txCtx():stdgo._internal.context.Context_context.Context; }):T_stmtConnGrabber {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stmtConnGrabber = { _grabConn : _0 -> x._grabConn(_0), _txCtx : () -> x._txCtx(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Result_static_extension {
     static public function rowsAffected(t:stdgo._internal.database.sql.Sql_result.Result):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -87,8 +135,16 @@ class Result_static_extension {
         };
     }
 }
-typedef Result = stdgo._internal.database.sql.Sql_result.Result;
-@:structInit @:using(stdgo.database.sql.Sql.T_ccChecker_static_extension) @:dox(hide) abstract T_ccChecker(stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker) from stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker to stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker {
+@:forward abstract Result(stdgo._internal.database.sql.Sql_result.Result) from stdgo._internal.database.sql.Sql_result.Result to stdgo._internal.database.sql.Sql_result.Result {
+    @:from
+    static function fromHaxeInterface(x:{ function lastInsertId():stdgo.Tuple<haxe.Int64, stdgo.Error>; function rowsAffected():stdgo.Tuple<haxe.Int64, stdgo.Error>; }):Result {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Result = { lastInsertId : () -> x.lastInsertId(), rowsAffected : () -> x.rowsAffected(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(Sql.T_ccChecker_static_extension) @:dox(hide) abstract T_ccChecker(stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker) from stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker to stdgo._internal.database.sql.Sql_t_ccchecker.T_ccChecker {
     public var _cci(get, set) : stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter;
     function get__cci():stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter return this._cci;
     function set__cci(v:stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter):stdgo._internal.database.sql.driver.Driver_columnconverter.ColumnConverter {
@@ -105,7 +161,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NamedArg_static_extension) abstract NamedArg(stdgo._internal.database.sql.Sql_namedarg.NamedArg) from stdgo._internal.database.sql.Sql_namedarg.NamedArg to stdgo._internal.database.sql.Sql_namedarg.NamedArg {
+@:structInit @:using(Sql.NamedArg_static_extension) abstract NamedArg(stdgo._internal.database.sql.Sql_namedarg.NamedArg) from stdgo._internal.database.sql.Sql_namedarg.NamedArg to stdgo._internal.database.sql.Sql_namedarg.NamedArg {
     public var __NamedFieldsRequired(get, set) : stdgo.Tuple.Tuple0;
     function get___NamedFieldsRequired():stdgo.Tuple.Tuple0 return {
         final obj = this.__NamedFieldsRequired;
@@ -137,7 +193,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.TxOptions_static_extension) abstract TxOptions(stdgo._internal.database.sql.Sql_txoptions.TxOptions) from stdgo._internal.database.sql.Sql_txoptions.TxOptions to stdgo._internal.database.sql.Sql_txoptions.TxOptions {
+@:structInit @:using(Sql.TxOptions_static_extension) abstract TxOptions(stdgo._internal.database.sql.Sql_txoptions.TxOptions) from stdgo._internal.database.sql.Sql_txoptions.TxOptions to stdgo._internal.database.sql.Sql_txoptions.TxOptions {
     public var isolation(get, set) : IsolationLevel;
     function get_isolation():IsolationLevel return this.isolation;
     function set_isolation(v:IsolationLevel):IsolationLevel {
@@ -154,7 +210,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullString_static_extension) abstract NullString(stdgo._internal.database.sql.Sql_nullstring.NullString) from stdgo._internal.database.sql.Sql_nullstring.NullString to stdgo._internal.database.sql.Sql_nullstring.NullString {
+@:structInit @:using(Sql.NullString_static_extension) abstract NullString(stdgo._internal.database.sql.Sql_nullstring.NullString) from stdgo._internal.database.sql.Sql_nullstring.NullString to stdgo._internal.database.sql.Sql_nullstring.NullString {
     public var string(get, set) : String;
     function get_string():String return this.string;
     function set_string(v:String):String {
@@ -171,7 +227,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullInt64_static_extension) abstract NullInt64(stdgo._internal.database.sql.Sql_nullint64.NullInt64) from stdgo._internal.database.sql.Sql_nullint64.NullInt64 to stdgo._internal.database.sql.Sql_nullint64.NullInt64 {
+@:structInit @:using(Sql.NullInt64_static_extension) abstract NullInt64(stdgo._internal.database.sql.Sql_nullint64.NullInt64) from stdgo._internal.database.sql.Sql_nullint64.NullInt64 to stdgo._internal.database.sql.Sql_nullint64.NullInt64 {
     public var int64(get, set) : haxe.Int64;
     function get_int64():haxe.Int64 return this.int64;
     function set_int64(v:haxe.Int64):haxe.Int64 {
@@ -188,7 +244,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullInt32_static_extension) abstract NullInt32(stdgo._internal.database.sql.Sql_nullint32.NullInt32) from stdgo._internal.database.sql.Sql_nullint32.NullInt32 to stdgo._internal.database.sql.Sql_nullint32.NullInt32 {
+@:structInit @:using(Sql.NullInt32_static_extension) abstract NullInt32(stdgo._internal.database.sql.Sql_nullint32.NullInt32) from stdgo._internal.database.sql.Sql_nullint32.NullInt32 to stdgo._internal.database.sql.Sql_nullint32.NullInt32 {
     public var int32(get, set) : StdTypes.Int;
     function get_int32():StdTypes.Int return this.int32;
     function set_int32(v:StdTypes.Int):StdTypes.Int {
@@ -205,7 +261,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullInt16_static_extension) abstract NullInt16(stdgo._internal.database.sql.Sql_nullint16.NullInt16) from stdgo._internal.database.sql.Sql_nullint16.NullInt16 to stdgo._internal.database.sql.Sql_nullint16.NullInt16 {
+@:structInit @:using(Sql.NullInt16_static_extension) abstract NullInt16(stdgo._internal.database.sql.Sql_nullint16.NullInt16) from stdgo._internal.database.sql.Sql_nullint16.NullInt16 to stdgo._internal.database.sql.Sql_nullint16.NullInt16 {
     public var int16(get, set) : StdTypes.Int;
     function get_int16():StdTypes.Int return this.int16;
     function set_int16(v:StdTypes.Int):StdTypes.Int {
@@ -222,7 +278,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullByte_static_extension) abstract NullByte(stdgo._internal.database.sql.Sql_nullbyte.NullByte) from stdgo._internal.database.sql.Sql_nullbyte.NullByte to stdgo._internal.database.sql.Sql_nullbyte.NullByte {
+@:structInit @:using(Sql.NullByte_static_extension) abstract NullByte(stdgo._internal.database.sql.Sql_nullbyte.NullByte) from stdgo._internal.database.sql.Sql_nullbyte.NullByte to stdgo._internal.database.sql.Sql_nullbyte.NullByte {
     public var byte(get, set) : std.UInt;
     function get_byte():std.UInt return this.byte;
     function set_byte(v:std.UInt):std.UInt {
@@ -239,7 +295,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullFloat64_static_extension) abstract NullFloat64(stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64) from stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64 to stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64 {
+@:structInit @:using(Sql.NullFloat64_static_extension) abstract NullFloat64(stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64) from stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64 to stdgo._internal.database.sql.Sql_nullfloat64.NullFloat64 {
     public var float64(get, set) : StdTypes.Float;
     function get_float64():StdTypes.Float return this.float64;
     function set_float64(v:StdTypes.Float):StdTypes.Float {
@@ -256,7 +312,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullBool_static_extension) abstract NullBool(stdgo._internal.database.sql.Sql_nullbool.NullBool) from stdgo._internal.database.sql.Sql_nullbool.NullBool to stdgo._internal.database.sql.Sql_nullbool.NullBool {
+@:structInit @:using(Sql.NullBool_static_extension) abstract NullBool(stdgo._internal.database.sql.Sql_nullbool.NullBool) from stdgo._internal.database.sql.Sql_nullbool.NullBool to stdgo._internal.database.sql.Sql_nullbool.NullBool {
     public var bool_(get, set) : Bool;
     function get_bool_():Bool return this.bool_;
     function set_bool_(v:Bool):Bool {
@@ -273,7 +329,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.NullTime_static_extension) abstract NullTime(stdgo._internal.database.sql.Sql_nulltime.NullTime) from stdgo._internal.database.sql.Sql_nulltime.NullTime to stdgo._internal.database.sql.Sql_nulltime.NullTime {
+@:structInit @:using(Sql.NullTime_static_extension) abstract NullTime(stdgo._internal.database.sql.Sql_nulltime.NullTime) from stdgo._internal.database.sql.Sql_nulltime.NullTime to stdgo._internal.database.sql.Sql_nulltime.NullTime {
     public var time(get, set) : stdgo._internal.time.Time_time.Time;
     function get_time():stdgo._internal.time.Time_time.Time return this.time;
     function set_time(v:stdgo._internal.time.Time_time.Time):stdgo._internal.time.Time_time.Time {
@@ -290,7 +346,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Out_static_extension) abstract Out(stdgo._internal.database.sql.Sql_out.Out) from stdgo._internal.database.sql.Sql_out.Out to stdgo._internal.database.sql.Sql_out.Out {
+@:structInit @:using(Sql.Out_static_extension) abstract Out(stdgo._internal.database.sql.Sql_out.Out) from stdgo._internal.database.sql.Sql_out.Out to stdgo._internal.database.sql.Sql_out.Out {
     public var __NamedFieldsRequired(get, set) : stdgo.Tuple.Tuple0;
     function get___NamedFieldsRequired():stdgo.Tuple.Tuple0 return {
         final obj = this.__NamedFieldsRequired;
@@ -322,7 +378,7 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.DB_static_extension) abstract DB(stdgo._internal.database.sql.Sql_db.DB) from stdgo._internal.database.sql.Sql_db.DB to stdgo._internal.database.sql.Sql_db.DB {
+@:structInit @:using(Sql.DB_static_extension) abstract DB(stdgo._internal.database.sql.Sql_db.DB) from stdgo._internal.database.sql.Sql_db.DB to stdgo._internal.database.sql.Sql_db.DB {
     public var _waitDuration(get, set) : stdgo._internal.sync.atomic_.Atomic__int64_.Int64_;
     function get__waitDuration():stdgo._internal.sync.atomic_.Atomic__int64_.Int64_ return this._waitDuration;
     function set__waitDuration(v:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_):stdgo._internal.sync.atomic_.Atomic__int64_.Int64_ {
@@ -353,10 +409,22 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._freeConn = ([for (i in v) (i : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>);
         return v;
     }
-    public var _connRequests(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>;
-    function get__connRequests():stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>> return this._connRequests;
-    function set__connRequests(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>> {
-        this._connRequests = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>);
+    public var _connRequests(get, set) : Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>;
+    function get__connRequests():Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>> return {
+        final __obj__:Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>> = [];
+        for (key => value in this._connRequests) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__connRequests(v:Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>):Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>> {
+        this._connRequests = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _nextRequest(get, set) : haxe.UInt64;
@@ -383,16 +451,40 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._closed = v;
         return v;
     }
-    public var _dep(get, set) : stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>;
-    function get__dep():stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet> return this._dep;
-    function set__dep(v:stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>):stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet> {
-        this._dep = (v : stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>);
+    public var _dep(get, set) : Map<T_finalCloser, T_depSet>;
+    function get__dep():Map<T_finalCloser, T_depSet> return {
+        final __obj__:Map<T_finalCloser, T_depSet> = [];
+        for (key => value in this._dep) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__dep(v:Map<T_finalCloser, T_depSet>):Map<T_finalCloser, T_depSet> {
+        this._dep = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>();
+            for (key => value in v) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _lastPut(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>;
-    function get__lastPut():stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString> return this._lastPut;
-    function set__lastPut(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>):stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString> {
-        this._lastPut = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>);
+    public var _lastPut(get, set) : Map<T_driverConn, String>;
+    function get__lastPut():Map<T_driverConn, String> return {
+        final __obj__:Map<T_driverConn, String> = [];
+        for (key => value in this._lastPut) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__lastPut(v:Map<T_driverConn, String>):Map<T_driverConn, String> {
+        this._lastPut = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _maxIdleCount(get, set) : StdTypes.Int;
@@ -455,19 +547,37 @@ typedef Result = stdgo._internal.database.sql.Sql_result.Result;
         this._stop = v;
         return v;
     }
-    public function new(?_waitDuration:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_connector:stdgo._internal.database.sql.driver.Driver_connector.Connector, ?_numClosed:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>, ?_lastPut:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_db.DB(
+    public function new(?_waitDuration:stdgo._internal.sync.atomic_.Atomic__int64_.Int64_, ?_connector:stdgo._internal.database.sql.driver.Driver_connector.Connector, ?_numClosed:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_freeConn:Array<T_driverConn>, ?_connRequests:Map<haxe.UInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>, ?_nextRequest:haxe.UInt64, ?_numOpen:StdTypes.Int, ?_openerCh:stdgo.Chan<{ }>, ?_closed:Bool, ?_dep:Map<T_finalCloser, T_depSet>, ?_lastPut:Map<T_driverConn, String>, ?_maxIdleCount:StdTypes.Int, ?_maxOpen:StdTypes.Int, ?_maxLifetime:stdgo._internal.time.Time_duration.Duration, ?_maxIdleTime:stdgo._internal.time.Time_duration.Duration, ?_cleanerCh:stdgo.Chan<{ }>, ?_waitCount:haxe.Int64, ?_maxIdleClosed:haxe.Int64, ?_maxIdleTimeClosed:haxe.Int64, ?_maxLifetimeClosed:haxe.Int64, ?_stop:() -> Void) this = new stdgo._internal.database.sql.Sql_db.DB(
 _waitDuration,
 _connector,
 _numClosed,
 _mu,
 ([for (i in _freeConn) (i : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>>),
-(_connRequests : stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>>();
+        for (key => value in _connRequests) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Chan<stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest>);
+        };
+        __obj__;
+    },
 (_nextRequest : stdgo.GoUInt64),
 (_numOpen : stdgo.GoInt),
 (_openerCh : stdgo.Chan<{ }>),
 _closed,
-(_dep : stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>),
-(_lastPut : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo._internal.database.sql.Sql_t_finalcloser.T_finalCloser, stdgo._internal.database.sql.Sql_t_depset.T_depSet>();
+        for (key => value in _dep) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>, stdgo.GoString>();
+        for (key => value in _lastPut) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 (_maxIdleCount : stdgo.GoInt),
 (_maxOpen : stdgo.GoInt),
 _maxLifetime,
@@ -481,7 +591,7 @@ _stop);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverConn_static_extension) @:dox(hide) abstract T_driverConn(stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn) from stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn to stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn {
+@:structInit @:using(Sql.T_driverConn_static_extension) @:dox(hide) abstract T_driverConn(stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn) from stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn to stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn {
     public var _db(get, set) : DB;
     function get__db():DB return this._db;
     function set__db(v:DB):DB {
@@ -524,10 +634,22 @@ _stop);
         this._finalClosed = v;
         return v;
     }
-    public var _openStmt(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>;
-    function get__openStmt():stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool> return this._openStmt;
-    function set__openStmt(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>):stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool> {
-        this._openStmt = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>);
+    public var _openStmt(get, set) : Map<T_driverStmt, Bool>;
+    function get__openStmt():Map<T_driverStmt, Bool> return {
+        final __obj__:Map<T_driverStmt, Bool> = [];
+        for (key => value in this._openStmt) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__openStmt(v:Map<T_driverStmt, Bool>):Map<T_driverStmt, Bool> {
+        this._openStmt = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _inUse(get, set) : Bool;
@@ -554,7 +676,7 @@ _stop);
         this._dbmuClosed = v;
         return v;
     }
-    public function new(?_db:DB, ?_createdAt:stdgo._internal.time.Time_time.Time, ?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_ci:stdgo._internal.database.sql.driver.Driver_conn.Conn, ?_needReset:Bool, ?_closed:Bool, ?_finalClosed:Bool, ?_openStmt:stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>, ?_inUse:Bool, ?_returnedAt:stdgo._internal.time.Time_time.Time, ?_onPut:Array<() -> Void>, ?_dbmuClosed:Bool) this = new stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn(
+    public function new(?_db:DB, ?_createdAt:stdgo._internal.time.Time_time.Time, ?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_ci:stdgo._internal.database.sql.driver.Driver_conn.Conn, ?_needReset:Bool, ?_closed:Bool, ?_finalClosed:Bool, ?_openStmt:Map<T_driverStmt, Bool>, ?_inUse:Bool, ?_returnedAt:stdgo._internal.time.Time_time.Time, ?_onPut:Array<() -> Void>, ?_dbmuClosed:Bool) this = new stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn(
 (_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>),
 _createdAt,
 mutex,
@@ -562,7 +684,13 @@ _ci,
 _needReset,
 _closed,
 _finalClosed,
-(_openStmt : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>, Bool>();
+        for (key => value in _openStmt) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>)] = value;
+        };
+        __obj__;
+    },
 _inUse,
 _returnedAt,
 ([for (i in _onPut) i] : stdgo.Slice<() -> Void>),
@@ -570,7 +698,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverStmt_static_extension) @:dox(hide) abstract T_driverStmt(stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt) from stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt to stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt {
+@:structInit @:using(Sql.T_driverStmt_static_extension) @:dox(hide) abstract T_driverStmt(stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt) from stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt to stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt {
     public var locker(get, set) : stdgo._internal.sync.Sync_locker.Locker;
     function get_locker():stdgo._internal.sync.Sync_locker.Locker return this.locker;
     function set_locker(v:stdgo._internal.sync.Sync_locker.Locker):stdgo._internal.sync.Sync_locker.Locker {
@@ -599,7 +727,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_dsnConnector_static_extension) @:dox(hide) abstract T_dsnConnector(stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector) from stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector to stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector {
+@:structInit @:using(Sql.T_dsnConnector_static_extension) @:dox(hide) abstract T_dsnConnector(stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector) from stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector to stdgo._internal.database.sql.Sql_t_dsnconnector.T_dsnConnector {
     public var _dsn(get, set) : String;
     function get__dsn():String return this._dsn;
     function set__dsn(v:String):String {
@@ -616,7 +744,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.DBStats_static_extension) abstract DBStats(stdgo._internal.database.sql.Sql_dbstats.DBStats) from stdgo._internal.database.sql.Sql_dbstats.DBStats to stdgo._internal.database.sql.Sql_dbstats.DBStats {
+@:structInit @:using(Sql.DBStats_static_extension) abstract DBStats(stdgo._internal.database.sql.Sql_dbstats.DBStats) from stdgo._internal.database.sql.Sql_dbstats.DBStats to stdgo._internal.database.sql.Sql_dbstats.DBStats {
     public var maxOpenConnections(get, set) : StdTypes.Int;
     function get_maxOpenConnections():StdTypes.Int return this.maxOpenConnections;
     function set_maxOpenConnections(v:StdTypes.Int):StdTypes.Int {
@@ -675,7 +803,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_connRequest_static_extension) @:dox(hide) abstract T_connRequest(stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest) from stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest to stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest {
+@:structInit @:using(Sql.T_connRequest_static_extension) @:dox(hide) abstract T_connRequest(stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest) from stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest to stdgo._internal.database.sql.Sql_t_connrequest.T_connRequest {
     public var _conn(get, set) : T_driverConn;
     function get__conn():T_driverConn return this._conn;
     function set__conn(v:T_driverConn):T_driverConn {
@@ -692,7 +820,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Conn_static_extension) abstract Conn(stdgo._internal.database.sql.Sql_conn.Conn) from stdgo._internal.database.sql.Sql_conn.Conn to stdgo._internal.database.sql.Sql_conn.Conn {
+@:structInit @:using(Sql.Conn_static_extension) abstract Conn(stdgo._internal.database.sql.Sql_conn.Conn) from stdgo._internal.database.sql.Sql_conn.Conn to stdgo._internal.database.sql.Sql_conn.Conn {
     public var _db(get, set) : DB;
     function get__db():DB return this._db;
     function set__db(v:DB):DB {
@@ -733,7 +861,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Tx_static_extension) abstract Tx(stdgo._internal.database.sql.Sql_tx.Tx) from stdgo._internal.database.sql.Sql_tx.Tx to stdgo._internal.database.sql.Sql_tx.Tx {
+@:structInit @:using(Sql.Tx_static_extension) abstract Tx(stdgo._internal.database.sql.Sql_tx.Tx) from stdgo._internal.database.sql.Sql_tx.Tx to stdgo._internal.database.sql.Sql_tx.Tx {
     public var _db(get, set) : DB;
     function get__db():DB return this._db;
     function set__db(v:DB):DB {
@@ -807,7 +935,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_connStmt_static_extension) @:dox(hide) abstract T_connStmt(stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt) from stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt to stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt {
+@:structInit @:using(Sql.T_connStmt_static_extension) @:dox(hide) abstract T_connStmt(stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt) from stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt to stdgo._internal.database.sql.Sql_t_connstmt.T_connStmt {
     public var _dc(get, set) : T_driverConn;
     function get__dc():T_driverConn return this._dc;
     function set__dc(v:T_driverConn):T_driverConn {
@@ -824,7 +952,7 @@ _dbmuClosed);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Stmt_static_extension) abstract Stmt(stdgo._internal.database.sql.Sql_stmt.Stmt) from stdgo._internal.database.sql.Sql_stmt.Stmt to stdgo._internal.database.sql.Sql_stmt.Stmt {
+@:structInit @:using(Sql.Stmt_static_extension) abstract Stmt(stdgo._internal.database.sql.Sql_stmt.Stmt) from stdgo._internal.database.sql.Sql_stmt.Stmt to stdgo._internal.database.sql.Sql_stmt.Stmt {
     public var _db(get, set) : DB;
     function get__db():DB return this._db;
     function set__db(v:DB):DB {
@@ -906,7 +1034,7 @@ _closed,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Rows_static_extension) abstract Rows(stdgo._internal.database.sql.Sql_rows.Rows) from stdgo._internal.database.sql.Sql_rows.Rows to stdgo._internal.database.sql.Sql_rows.Rows {
+@:structInit @:using(Sql.Rows_static_extension) abstract Rows(stdgo._internal.database.sql.Sql_rows.Rows) from stdgo._internal.database.sql.Sql_rows.Rows to stdgo._internal.database.sql.Sql_rows.Rows {
     public var _dc(get, set) : T_driverConn;
     function get__dc():T_driverConn return this._dc;
     function set__dc(v:T_driverConn):T_driverConn {
@@ -995,7 +1123,7 @@ _hitEOF);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.ColumnType_static_extension) abstract ColumnType(stdgo._internal.database.sql.Sql_columntype.ColumnType) from stdgo._internal.database.sql.Sql_columntype.ColumnType to stdgo._internal.database.sql.Sql_columntype.ColumnType {
+@:structInit @:using(Sql.ColumnType_static_extension) abstract ColumnType(stdgo._internal.database.sql.Sql_columntype.ColumnType) from stdgo._internal.database.sql.Sql_columntype.ColumnType to stdgo._internal.database.sql.Sql_columntype.ColumnType {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -1060,7 +1188,7 @@ _hitEOF);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.Row_static_extension) abstract Row(stdgo._internal.database.sql.Sql_row.Row) from stdgo._internal.database.sql.Sql_row.Row to stdgo._internal.database.sql.Sql_row.Row {
+@:structInit @:using(Sql.Row_static_extension) abstract Row(stdgo._internal.database.sql.Sql_row.Row) from stdgo._internal.database.sql.Sql_row.Row to stdgo._internal.database.sql.Sql_row.Row {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -1077,7 +1205,7 @@ _hitEOF);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.database.sql.Sql.T_driverResult_static_extension) @:dox(hide) abstract T_driverResult(stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult) from stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult to stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult {
+@:structInit @:using(Sql.T_driverResult_static_extension) @:dox(hide) abstract T_driverResult(stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult) from stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult to stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult {
     public var locker(get, set) : stdgo._internal.sync.Sync_locker.Locker;
     function get_locker():stdgo._internal.sync.Sync_locker.Locker return this.locker;
     function set_locker(v:stdgo._internal.sync.Sync_locker.Locker):stdgo._internal.sync.Sync_locker.Locker {
@@ -1417,7 +1545,7 @@ class DB_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _retry(_db:DB, _fn:stdgo._internal.database.sql.Sql_t_connreusestrategy.T_connReuseStrategy -> stdgo.Error):stdgo.Error {
+    static public function _retry(_db:DB, _fn:T_connReuseStrategy -> stdgo.Error):stdgo.Error {
         final _db = (_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>);
         final _fn = _fn;
         return stdgo._internal.database.sql.Sql_db_static_extension.DB_static_extension._retry(_db, _fn);

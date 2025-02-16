@@ -6,7 +6,7 @@ final discardEmptyColumns = stdgo._internal.text.tabwriter.Tabwriter_discardempt
 final tabIndent = stdgo._internal.text.tabwriter.Tabwriter_tabindent.tabIndent;
 final debug = stdgo._internal.text.tabwriter.Tabwriter_debug.debug;
 final escape : StdTypes.Int = stdgo._internal.text.tabwriter.Tabwriter_escape.escape;
-@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_cell_static_extension) @:dox(hide) abstract T_cell(stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell) from stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell to stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell {
+@:structInit @:using(Tabwriter.T_cell_static_extension) @:dox(hide) abstract T_cell(stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell) from stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell to stdgo._internal.text.tabwriter.Tabwriter_t_cell.T_cell {
     public var _size(get, set) : StdTypes.Int;
     function get__size():StdTypes.Int return this._size;
     function set__size(v:StdTypes.Int):StdTypes.Int {
@@ -29,7 +29,7 @@ final escape : StdTypes.Int = stdgo._internal.text.tabwriter.Tabwriter_escape.es
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.tabwriter.Tabwriter.Writer_static_extension) abstract Writer(stdgo._internal.text.tabwriter.Tabwriter_writer.Writer) from stdgo._internal.text.tabwriter.Tabwriter_writer.Writer to stdgo._internal.text.tabwriter.Tabwriter_writer.Writer {
+@:structInit @:using(Tabwriter.Writer_static_extension) abstract Writer(stdgo._internal.text.tabwriter.Tabwriter_writer.Writer) from stdgo._internal.text.tabwriter.Tabwriter_writer.Writer to stdgo._internal.text.tabwriter.Tabwriter_writer.Writer {
     public var _output(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__output():stdgo._internal.io.Io_writer.Writer return this._output;
     function set__output(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -118,7 +118,7 @@ _cell,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.text.tabwriter.Tabwriter.T_osError_static_extension) @:dox(hide) abstract T_osError(stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError) from stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError to stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError {
+@:structInit @:using(Tabwriter.T_osError_static_extension) @:dox(hide) abstract T_osError(stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError) from stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError to stdgo._internal.text.tabwriter.Tabwriter_t_oserror.T_osError {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {

@@ -5,12 +5,12 @@ private function set_importPath(v:String):String {
         stdgo._internal.testing.internal.testdeps.Testdeps_importpath.importPath = (v : stdgo.GoString);
         return v;
     }
-@:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.TestDeps_static_extension) abstract TestDeps(stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps) from stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps to stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps {
+@:structInit @:using(testdeps.Testdeps.TestDeps_static_extension) abstract TestDeps(stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps) from stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps to stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps {
     public function new() this = new stdgo._internal.testing.internal.testdeps.Testdeps_testdeps.TestDeps();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) @:dox(hide) abstract T_testLog(stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog) from stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog to stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog {
+@:structInit @:using(testdeps.Testdeps.T_testLog_static_extension) @:dox(hide) abstract T_testLog(stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog) from stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog to stdgo._internal.testing.internal.testdeps.Testdeps_t_testlog.T_testLog {
     public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
     function get__mu():stdgo._internal.sync.Sync_mutex.Mutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_mutex.Mutex):stdgo._internal.sync.Sync_mutex.Mutex {
@@ -57,7 +57,7 @@ class TestDeps_static_extension {
             }], _1 : obj._1 };
         };
     }
-    static public function runFuzzWorker(_:TestDeps, _fn:({ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error {
+    static public function runFuzzWorker(_:TestDeps, _fn:stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool> -> stdgo.Error):stdgo.Error {
         final _fn = _fn;
         return stdgo._internal.testing.internal.testdeps.Testdeps_testdeps_static_extension.TestDeps_static_extension.runFuzzWorker(_, _fn);
     }

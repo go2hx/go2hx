@@ -13,7 +13,15 @@ private function set_sigquit(v:stdgo._internal.os.Os_signal.Signal):stdgo._inter
         };
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0;
+@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0) from stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0 to stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function deadline():stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool>; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { deadline : () -> x.deadline(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 /**
     * Package testenv provides information about what functionality
     * is available in different testing environments run by the Go team.
@@ -287,9 +295,15 @@ class Testenv {
         * pkgs may include any package pattern that is valid to pass to 'go list',
         * so it may also be a list of Go source files all in the same directory.
     **/
-    static public inline function writeImportcfg(_t:stdgo._internal.testing.Testing_tb.TB, _dstPath:String, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<String>):Void {
+    static public inline function writeImportcfg(_t:stdgo._internal.testing.Testing_tb.TB, _dstPath:String, _packageFiles:Map<String, String>, _pkgs:haxe.Rest<String>):Void {
         final _dstPath = (_dstPath : stdgo.GoString);
-        final _packageFiles = (_packageFiles : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _packageFiles = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _packageFiles) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         stdgo._internal.internal.testenv.Testenv_writeimportcfg.writeImportcfg(_t, _dstPath, _packageFiles, ...[for (i in _pkgs) i]);
     }
     /**

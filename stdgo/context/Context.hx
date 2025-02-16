@@ -29,14 +29,30 @@ class Context_static_extension {
         };
     }
 }
-typedef Context_ = stdgo._internal.context.Context_context.Context;
+@:forward abstract Context_(stdgo._internal.context.Context_context.Context) from stdgo._internal.context.Context_context.Context to stdgo._internal.context.Context_context.Context {
+    @:from
+    static function fromHaxeInterface(x:{ function deadline():stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool>; function done():stdgo.Chan<{ }>; function err():stdgo.Error; function value(_key:stdgo.AnyInterface):stdgo.AnyInterface; }):Context_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Context_ = { deadline : () -> x.deadline(), done : () -> x.done(), err : () -> x.err(), value : _0 -> x.value(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_afterFuncer_static_extension {
     static public function afterFunc(t:stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer, _0:() -> Void):() -> Bool {
         final _0 = _0;
         return () -> stdgo._internal.context.Context_t_afterfuncer_static_extension.T_afterFuncer_static_extension.afterFunc(t, _0)();
     }
 }
-@:dox(hide) typedef T_afterFuncer = stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer;
+@:dox(hide) @:forward abstract T_afterFuncer(stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer) from stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer to stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer {
+    @:from
+    static function fromHaxeInterface(x:{ function afterFunc(_0:() -> Void):() -> Bool; }):T_afterFuncer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_afterFuncer = { afterFunc : _0 -> x.afterFunc(() -> _0()), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_canceler_static_extension {
     static public function done(t:stdgo._internal.context.Context_t_canceler.T_canceler):stdgo.Chan<{ }> {
         return stdgo._internal.context.Context_t_canceler_static_extension.T_canceler_static_extension.done(t);
@@ -47,13 +63,29 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
         stdgo._internal.context.Context_t_canceler_static_extension.T_canceler_static_extension._cancel(t, _removeFromParent, _err, _cause);
     }
 }
-@:dox(hide) typedef T_canceler = stdgo._internal.context.Context_t_canceler.T_canceler;
+@:dox(hide) @:forward abstract T_canceler(stdgo._internal.context.Context_t_canceler.T_canceler) from stdgo._internal.context.Context_t_canceler.T_canceler to stdgo._internal.context.Context_t_canceler.T_canceler {
+    @:from
+    static function fromHaxeInterface(x:{ function _cancel(_removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void; function done():stdgo.Chan<{ }>; }):T_canceler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_canceler = { _cancel : (_0, _1, _2) -> x._cancel(_0, _1, _2), done : () -> x.done(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_stringer_static_extension {
     static public function string(t:stdgo._internal.context.Context_t_stringer.T_stringer):String {
         return stdgo._internal.context.Context_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) typedef T_stringer = stdgo._internal.context.Context_t_stringer.T_stringer;
+@:dox(hide) @:forward abstract T_stringer(stdgo._internal.context.Context_t_stringer.T_stringer) from stdgo._internal.context.Context_t_stringer.T_stringer to stdgo._internal.context.Context_t_stringer.T_stringer {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stringer = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_testingT_static_extension {
     static public function skipped(t:stdgo._internal.context.Context_t_testingt.T_testingT):Bool {
         return stdgo._internal.context.Context_t_testingt_static_extension.T_testingT_static_extension.skipped(t);
@@ -114,18 +146,26 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
         };
     }
 }
-@:dox(hide) typedef T_testingT = stdgo._internal.context.Context_t_testingt.T_testingT;
-@:structInit @:using(stdgo.context.Context.T_deadlineExceededError_static_extension) @:dox(hide) abstract T_deadlineExceededError(stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError) from stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError to stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError {
+@:dox(hide) @:forward abstract T_testingT(stdgo._internal.context.Context_t_testingt.T_testingT) from stdgo._internal.context.Context_t_testingt.T_testingT to stdgo._internal.context.Context_t_testingt.T_testingT {
+    @:from
+    static function fromHaxeInterface(x:{ function deadline():stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool>; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function parallel():Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; }):T_testingT {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_testingT = { deadline : () -> x.deadline(), error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), parallel : () -> x.parallel(), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
+@:structInit @:using(T_deadlineExceededError_static_extension) @:dox(hide) abstract T_deadlineExceededError(stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError) from stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError to stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError {
     public function new() this = new stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_emptyCtx_static_extension) @:dox(hide) abstract T_emptyCtx(stdgo._internal.context.Context_t_emptyctx.T_emptyCtx) from stdgo._internal.context.Context_t_emptyctx.T_emptyCtx to stdgo._internal.context.Context_t_emptyctx.T_emptyCtx {
+@:structInit @:using(T_emptyCtx_static_extension) @:dox(hide) abstract T_emptyCtx(stdgo._internal.context.Context_t_emptyctx.T_emptyCtx) from stdgo._internal.context.Context_t_emptyctx.T_emptyCtx to stdgo._internal.context.Context_t_emptyctx.T_emptyCtx {
     public function new() this = new stdgo._internal.context.Context_t_emptyctx.T_emptyCtx();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_backgroundCtx_static_extension) @:dox(hide) abstract T_backgroundCtx(stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx) from stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx to stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx {
+@:structInit @:using(T_backgroundCtx_static_extension) @:dox(hide) abstract T_backgroundCtx(stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx) from stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx to stdgo._internal.context.Context_t_backgroundctx.T_backgroundCtx {
     public var _emptyCtx(get, set) : T_emptyCtx;
     function get__emptyCtx():T_emptyCtx return this._emptyCtx;
     function set__emptyCtx(v:T_emptyCtx):T_emptyCtx {
@@ -136,7 +176,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_todoCtx_static_extension) @:dox(hide) abstract T_todoCtx(stdgo._internal.context.Context_t_todoctx.T_todoCtx) from stdgo._internal.context.Context_t_todoctx.T_todoCtx to stdgo._internal.context.Context_t_todoctx.T_todoCtx {
+@:structInit @:using(T_todoCtx_static_extension) @:dox(hide) abstract T_todoCtx(stdgo._internal.context.Context_t_todoctx.T_todoCtx) from stdgo._internal.context.Context_t_todoctx.T_todoCtx to stdgo._internal.context.Context_t_todoctx.T_todoCtx {
     public var _emptyCtx(get, set) : T_emptyCtx;
     function get__emptyCtx():T_emptyCtx return this._emptyCtx;
     function set__emptyCtx(v:T_emptyCtx):T_emptyCtx {
@@ -147,7 +187,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_afterFuncCtx_static_extension) @:dox(hide) abstract T_afterFuncCtx(stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx) from stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx to stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx {
+@:structInit @:using(T_afterFuncCtx_static_extension) @:dox(hide) abstract T_afterFuncCtx(stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx) from stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx to stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx {
     public var _cancelCtx(get, set) : T_cancelCtx;
     function get__cancelCtx():T_cancelCtx return this._cancelCtx;
     function set__cancelCtx(v:T_cancelCtx):T_cancelCtx {
@@ -170,7 +210,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_stopCtx_static_extension) @:dox(hide) abstract T_stopCtx(stdgo._internal.context.Context_t_stopctx.T_stopCtx) from stdgo._internal.context.Context_t_stopctx.T_stopCtx to stdgo._internal.context.Context_t_stopctx.T_stopCtx {
+@:structInit @:using(T_stopCtx_static_extension) @:dox(hide) abstract T_stopCtx(stdgo._internal.context.Context_t_stopctx.T_stopCtx) from stdgo._internal.context.Context_t_stopctx.T_stopCtx to stdgo._internal.context.Context_t_stopctx.T_stopCtx {
     public var context(get, set) : Context_;
     function get_context():Context_ return this.context;
     function set_context(v:Context_):Context_ {
@@ -187,7 +227,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_cancelCtx_static_extension) @:dox(hide) abstract T_cancelCtx(stdgo._internal.context.Context_t_cancelctx.T_cancelCtx) from stdgo._internal.context.Context_t_cancelctx.T_cancelCtx to stdgo._internal.context.Context_t_cancelctx.T_cancelCtx {
+@:structInit @:using(T_cancelCtx_static_extension) @:dox(hide) abstract T_cancelCtx(stdgo._internal.context.Context_t_cancelctx.T_cancelCtx) from stdgo._internal.context.Context_t_cancelctx.T_cancelCtx to stdgo._internal.context.Context_t_cancelctx.T_cancelCtx {
     public var context(get, set) : Context_;
     function get_context():Context_ return this.context;
     function set_context(v:Context_):Context_ {
@@ -206,10 +246,22 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
         this._done = v;
         return v;
     }
-    public var _children(get, set) : stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>;
-    function get__children():stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError> return this._children;
-    function set__children(v:stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>):stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError> {
-        this._children = (v : stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>);
+    public var _children(get, set) : Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>;
+    function get__children():Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError> return {
+        final __obj__:Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError> = [];
+        for (key => value in this._children) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__children(v:Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>):Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError> {
+        this._children = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>();
+            for (key => value in v) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _err(get, set) : stdgo.Error;
@@ -224,11 +276,17 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
         this._cause = (v : stdgo.Error);
         return v;
     }
-    public function new(?context:Context_, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_done:stdgo._internal.sync.atomic_.Atomic__value.Value, ?_children:stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) this = new stdgo._internal.context.Context_t_cancelctx.T_cancelCtx(context, _mu, _done, (_children : stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>), (_err : stdgo.Error), (_cause : stdgo.Error));
+    public function new(?context:Context_, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_done:stdgo._internal.sync.atomic_.Atomic__value.Value, ?_children:Map<T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>, ?_err:stdgo.Error, ?_cause:stdgo.Error) this = new stdgo._internal.context.Context_t_cancelctx.T_cancelCtx(context, _mu, _done, {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.context.Context_t_canceler.T_canceler, stdgo._internal.context.Context_t_deadlineexceedederror.T_deadlineExceededError>();
+        for (key => value in _children) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    }, (_err : stdgo.Error), (_cause : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_withoutCancelCtx_static_extension) @:dox(hide) abstract T_withoutCancelCtx(stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx) from stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx to stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx {
+@:structInit @:using(T_withoutCancelCtx_static_extension) @:dox(hide) abstract T_withoutCancelCtx(stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx) from stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx to stdgo._internal.context.Context_t_withoutcancelctx.T_withoutCancelCtx {
     public var _c(get, set) : Context_;
     function get__c():Context_ return this._c;
     function set__c(v:Context_):Context_ {
@@ -239,7 +297,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_timerCtx_static_extension) @:dox(hide) abstract T_timerCtx(stdgo._internal.context.Context_t_timerctx.T_timerCtx) from stdgo._internal.context.Context_t_timerctx.T_timerCtx to stdgo._internal.context.Context_t_timerctx.T_timerCtx {
+@:structInit @:using(T_timerCtx_static_extension) @:dox(hide) abstract T_timerCtx(stdgo._internal.context.Context_t_timerctx.T_timerCtx) from stdgo._internal.context.Context_t_timerctx.T_timerCtx to stdgo._internal.context.Context_t_timerctx.T_timerCtx {
     public var _cancelCtx(get, set) : T_cancelCtx;
     function get__cancelCtx():T_cancelCtx return this._cancelCtx;
     function set__cancelCtx(v:T_cancelCtx):T_cancelCtx {
@@ -262,7 +320,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_valueCtx_static_extension) @:dox(hide) abstract T_valueCtx(stdgo._internal.context.Context_t_valuectx.T_valueCtx) from stdgo._internal.context.Context_t_valuectx.T_valueCtx to stdgo._internal.context.Context_t_valuectx.T_valueCtx {
+@:structInit @:using(T_valueCtx_static_extension) @:dox(hide) abstract T_valueCtx(stdgo._internal.context.Context_t_valuectx.T_valueCtx) from stdgo._internal.context.Context_t_valuectx.T_valueCtx to stdgo._internal.context.Context_t_valuectx.T_valueCtx {
     public var context(get, set) : Context_;
     function get_context():Context_ return this.context;
     function set_context(v:Context_):Context_ {
@@ -285,7 +343,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_myCtx_static_extension) @:dox(hide) abstract T_myCtx(stdgo._internal.context.Context_t_myctx.T_myCtx) from stdgo._internal.context.Context_t_myctx.T_myCtx to stdgo._internal.context.Context_t_myctx.T_myCtx {
+@:structInit @:using(T_myCtx_static_extension) @:dox(hide) abstract T_myCtx(stdgo._internal.context.Context_t_myctx.T_myCtx) from stdgo._internal.context.Context_t_myctx.T_myCtx to stdgo._internal.context.Context_t_myctx.T_myCtx {
     public var context(get, set) : Context_;
     function get_context():Context_ return this.context;
     function set_context(v:Context_):Context_ {
@@ -296,7 +354,7 @@ typedef Context_ = stdgo._internal.context.Context_context.Context;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.context.Context.T_myDoneCtx_static_extension) @:dox(hide) abstract T_myDoneCtx(stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx) from stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx to stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx {
+@:structInit @:using(T_myDoneCtx_static_extension) @:dox(hide) abstract T_myDoneCtx(stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx) from stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx to stdgo._internal.context.Context_t_mydonectx.T_myDoneCtx {
     public var context(get, set) : Context_;
     function get_context():Context_ return this.context;
     function set_context(v:Context_):Context_ {

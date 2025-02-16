@@ -22,6 +22,13 @@ function main() {
             Sys.command("sh ./scripts/deletefiles.sh");
         case ["codespaces"]:
             Sys.command("sh ./scripts/codespaces.sh");
+        case ["actions"]:
+            Sys.command("haxe scripts/github-actions/build.hxml");
+        case ["interop"]:
+            Sys.println("build");
+            Sys.command("haxelib run go2hx ./tests/interop --nolibwrap");
+            Sys.println("test");
+            Sys.command("haxe tests/interop.hxml");
         case _ if (args[0] == "test"):
             var file = args[1];
             file = StringTools.replace(file, "/", "_");

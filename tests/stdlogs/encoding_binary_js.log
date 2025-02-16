@@ -9,7 +9,7 @@ Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/hom
 Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13289 column 11)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testread__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12309 column 14)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testlittleendianread_testLittleEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:12274:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52949 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52981 column 9)
 Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45555 column 59)
 
 -- FAIL: TestLittleEndianRead
@@ -25,7 +25,7 @@ Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/hom
 Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24941 column 14)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 23718 column 13)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testlittleendianwrite_testLittleEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:23702:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52949 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52981 column 9)
 Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45555 column 59)
 
 -- FAIL: TestLittleEndianWrite
@@ -46,7 +46,7 @@ Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/hom
 Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13289 column 11)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testread__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12309 column 14)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianread_testBigEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:26649:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52949 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52981 column 9)
 Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45555 column 59)
 
 -- FAIL: TestBigEndianRead
@@ -62,7 +62,7 @@ Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/hom
 Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24941 column 14)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 23718 column 13)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianwrite_testBigEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:26728:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52949 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52981 column 9)
 Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45555 column 59)
 
 -- FAIL: TestBigEndianWrite
@@ -91,13 +91,13 @@ Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home
 === RUN  TestSliceRoundTrip
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53709 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53613 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:53136:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53741 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53645 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:53168:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testsliceroundtrip_testSliceRoundTrip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27136:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52949 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52981 column 9)
 Called from ._$internal_encoding_binary_$dot_$test_Binary_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45555 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61897:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61898:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61929:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61930:3)
 
 -- FAIL: TestSliceRoundTrip

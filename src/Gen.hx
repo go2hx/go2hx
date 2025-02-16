@@ -11,7 +11,7 @@ var clName = "";
 var splitFiles:Array<String> = [];
 
 function cutPrefix(paths:Array<String>):Array<String> {
-	return paths.length >= 3 ? paths.slice(3) : paths;
+	return paths.length >= 2 ? paths.slice(2) : paths;
 }
 
 function create(outputPath:String, module:Module, root:String) {
@@ -209,7 +209,6 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 		final fullPath = dir + "," + name + "_" + td.name.toLowerCase();
 		var contentString = Typer.printer.printTypeDefinition(td,false);
 		if (splitFiles.indexOf(fullPath) != -1) {
-			trace("aready exists");
 			appendRaw(dir,name + "_" + td.name.toLowerCase(),contentString, prefix, extension);
 		}else{
 			contentString = prefix + contentString;

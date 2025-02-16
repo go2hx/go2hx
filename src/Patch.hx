@@ -104,7 +104,7 @@ final list = [
 				var result = "";
 		
 				for (i in 0...length) {
-					var randomIndex = Math.floor(Math.random() * chars.length);
+					var randomIndex = std.Math.floor(std.Math.random() * chars.length);
 					result += chars.charAt(randomIndex);
 				}
 		

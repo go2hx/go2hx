@@ -146,7 +146,7 @@ class Scanner_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_wrapError_static_extension) @:dox(hide) abstract T_wrapError(stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError) from stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError to stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError {
+@:structInit @:using(stdgo.fmt.Fmt.T_wrapError_static_extension) @:dox(hide) abstract T_wrapError(stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError) from stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError to stdgo._internal.fmt.Fmt_t_wraperror.T_wrapError {
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
@@ -163,7 +163,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_wrapErrors_static_extension) @:dox(hide) abstract T_wrapErrors(stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors) from stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors to stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors {
+@:structInit @:using(stdgo.fmt.Fmt.T_wrapErrors_static_extension) @:dox(hide) abstract T_wrapErrors(stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors) from stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors to stdgo._internal.fmt.Fmt_t_wraperrors.T_wrapErrors {
     public var _msg(get, set) : String;
     function get__msg():String return this._msg;
     function set__msg(v:String):String {
@@ -180,7 +180,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_fmtFlags_static_extension) @:dox(hide) abstract T_fmtFlags(stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags) from stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags to stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags {
+@:structInit @:using(stdgo.fmt.Fmt.T_fmtFlags_static_extension) @:dox(hide) abstract T_fmtFlags(stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags) from stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags to stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags {
     public var _widPresent(get, set) : Bool;
     function get__widPresent():Bool return this._widPresent;
     function set__widPresent(v:Bool):Bool {
@@ -239,7 +239,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_fmt_static_extension) @:dox(hide) abstract T_fmt(stdgo._internal.fmt.Fmt_t_fmt.T_fmt) from stdgo._internal.fmt.Fmt_t_fmt.T_fmt to stdgo._internal.fmt.Fmt_t_fmt.T_fmt {
+@:structInit @:using(stdgo.fmt.Fmt.T_fmt_static_extension) @:dox(hide) abstract T_fmt(stdgo._internal.fmt.Fmt_t_fmt.T_fmt) from stdgo._internal.fmt.Fmt_t_fmt.T_fmt to stdgo._internal.fmt.Fmt_t_fmt.T_fmt {
     public var _buf(get, set) : T_buffer;
     function get__buf():T_buffer return this._buf;
     function set__buf(v:T_buffer):T_buffer {
@@ -274,7 +274,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_pp_static_extension) @:dox(hide) abstract T_pp(stdgo._internal.fmt.Fmt_t_pp.T_pp) from stdgo._internal.fmt.Fmt_t_pp.T_pp to stdgo._internal.fmt.Fmt_t_pp.T_pp {
+@:structInit @:using(stdgo.fmt.Fmt.T_pp_static_extension) @:dox(hide) abstract T_pp(stdgo._internal.fmt.Fmt_t_pp.T_pp) from stdgo._internal.fmt.Fmt_t_pp.T_pp to stdgo._internal.fmt.Fmt_t_pp.T_pp {
     public var _buf(get, set) : T_buffer;
     function get__buf():T_buffer return this._buf;
     function set__buf(v:T_buffer):T_buffer {
@@ -339,7 +339,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_scanError_static_extension) @:dox(hide) abstract T_scanError(stdgo._internal.fmt.Fmt_t_scanerror.T_scanError) from stdgo._internal.fmt.Fmt_t_scanerror.T_scanError to stdgo._internal.fmt.Fmt_t_scanerror.T_scanError {
+@:structInit @:using(stdgo.fmt.Fmt.T_scanError_static_extension) @:dox(hide) abstract T_scanError(stdgo._internal.fmt.Fmt_t_scanerror.T_scanError) from stdgo._internal.fmt.Fmt_t_scanerror.T_scanError to stdgo._internal.fmt.Fmt_t_scanerror.T_scanError {
     public var _err(get, set) : stdgo.Error;
     function get__err():stdgo.Error return this._err;
     function set__err(v:stdgo.Error):stdgo.Error {
@@ -350,7 +350,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_ss_static_extension) @:dox(hide) abstract T_ss(stdgo._internal.fmt.Fmt_t_ss.T_ss) from stdgo._internal.fmt.Fmt_t_ss.T_ss to stdgo._internal.fmt.Fmt_t_ss.T_ss {
+@:structInit @:using(stdgo.fmt.Fmt.T_ss_static_extension) @:dox(hide) abstract T_ss(stdgo._internal.fmt.Fmt_t_ss.T_ss) from stdgo._internal.fmt.Fmt_t_ss.T_ss to stdgo._internal.fmt.Fmt_t_ss.T_ss {
     public var _rs(get, set) : stdgo._internal.io.Io_runescanner.RuneScanner;
     function get__rs():stdgo._internal.io.Io_runescanner.RuneScanner return this._rs;
     function set__rs(v:stdgo._internal.io.Io_runescanner.RuneScanner):stdgo._internal.io.Io_runescanner.RuneScanner {
@@ -385,7 +385,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_ssave_static_extension) @:dox(hide) abstract T_ssave(stdgo._internal.fmt.Fmt_t_ssave.T_ssave) from stdgo._internal.fmt.Fmt_t_ssave.T_ssave to stdgo._internal.fmt.Fmt_t_ssave.T_ssave {
+@:structInit @:using(stdgo.fmt.Fmt.T_ssave_static_extension) @:dox(hide) abstract T_ssave(stdgo._internal.fmt.Fmt_t_ssave.T_ssave) from stdgo._internal.fmt.Fmt_t_ssave.T_ssave to stdgo._internal.fmt.Fmt_t_ssave.T_ssave {
     public var _validSave(get, set) : Bool;
     function get__validSave():Bool return this._validSave;
     function set__validSave(v:Bool):Bool {
@@ -426,7 +426,7 @@ class Scanner_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_readRune_static_extension) @:dox(hide) abstract T_readRune(stdgo._internal.fmt.Fmt_t_readrune.T_readRune) from stdgo._internal.fmt.Fmt_t_readrune.T_readRune to stdgo._internal.fmt.Fmt_t_readrune.T_readRune {
+@:structInit @:using(stdgo.fmt.Fmt.T_readRune_static_extension) @:dox(hide) abstract T_readRune(stdgo._internal.fmt.Fmt_t_readrune.T_readRune) from stdgo._internal.fmt.Fmt_t_readrune.T_readRune to stdgo._internal.fmt.Fmt_t_readrune.T_readRune {
     public var _reader(get, set) : stdgo._internal.io.Io_reader.Reader;
     function get__reader():stdgo._internal.io.Io_reader.Reader return this._reader;
     function set__reader(v:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {

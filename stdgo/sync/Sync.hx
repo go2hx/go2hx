@@ -67,7 +67,7 @@ class Locker_static_extension {
         return y;
     }
 }
-@:structInit @:using(Cond_static_extension) abstract Cond(stdgo._internal.sync.Sync_cond.Cond) from stdgo._internal.sync.Sync_cond.Cond to stdgo._internal.sync.Sync_cond.Cond {
+@:structInit @:using(stdgo.sync.Sync.Cond_static_extension) abstract Cond(stdgo._internal.sync.Sync_cond.Cond) from stdgo._internal.sync.Sync_cond.Cond to stdgo._internal.sync.Sync_cond.Cond {
     public var _noCopy(get, set) : T_noCopy;
     function get__noCopy():T_noCopy return this._noCopy;
     function set__noCopy(v:T_noCopy):T_noCopy {
@@ -96,12 +96,12 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_noCopy_static_extension) @:dox(hide) abstract T_noCopy(stdgo._internal.sync.Sync_t_nocopy.T_noCopy) from stdgo._internal.sync.Sync_t_nocopy.T_noCopy to stdgo._internal.sync.Sync_t_nocopy.T_noCopy {
+@:structInit @:using(stdgo.sync.Sync.T_noCopy_static_extension) @:dox(hide) abstract T_noCopy(stdgo._internal.sync.Sync_t_nocopy.T_noCopy) from stdgo._internal.sync.Sync_t_nocopy.T_noCopy to stdgo._internal.sync.Sync_t_nocopy.T_noCopy {
     public function new() this = new stdgo._internal.sync.Sync_t_nocopy.T_noCopy();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Map__static_extension) abstract Map_(stdgo._internal.sync.Sync_map_.Map_) from stdgo._internal.sync.Sync_map_.Map_ to stdgo._internal.sync.Sync_map_.Map_ {
+@:structInit @:using(stdgo.sync.Sync.Map__static_extension) abstract Map_(stdgo._internal.sync.Sync_map_.Map_) from stdgo._internal.sync.Sync_map_.Map_ to stdgo._internal.sync.Sync_map_.Map_ {
     public var _mu(get, set) : Mutex;
     function get__mu():Mutex return this._mu;
     function set__mu(v:Mutex):Mutex {
@@ -148,7 +148,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_readOnly_static_extension) @:dox(hide) abstract T_readOnly(stdgo._internal.sync.Sync_t_readonly.T_readOnly) from stdgo._internal.sync.Sync_t_readonly.T_readOnly to stdgo._internal.sync.Sync_t_readonly.T_readOnly {
+@:structInit @:using(stdgo.sync.Sync.T_readOnly_static_extension) @:dox(hide) abstract T_readOnly(stdgo._internal.sync.Sync_t_readonly.T_readOnly) from stdgo._internal.sync.Sync_t_readonly.T_readOnly to stdgo._internal.sync.Sync_t_readonly.T_readOnly {
     public var _m(get, set) : Map<stdgo.AnyInterface, T_entry>;
     function get__m():Map<stdgo.AnyInterface, T_entry> return {
         final __obj__:Map<stdgo.AnyInterface, T_entry> = [];
@@ -183,7 +183,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_entry_static_extension) @:dox(hide) abstract T_entry(stdgo._internal.sync.Sync_t_entry.T_entry) from stdgo._internal.sync.Sync_t_entry.T_entry to stdgo._internal.sync.Sync_t_entry.T_entry {
+@:structInit @:using(stdgo.sync.Sync.T_entry_static_extension) @:dox(hide) abstract T_entry(stdgo._internal.sync.Sync_t_entry.T_entry) from stdgo._internal.sync.Sync_t_entry.T_entry to stdgo._internal.sync.Sync_t_entry.T_entry {
     public var _p(get, set) : stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.AnyInterface>;
     function get__p():stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.AnyInterface> return this._p;
     function set__p(v:stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.AnyInterface>):stdgo._internal.sync.atomic_.Atomic__pointer_.Pointer_<stdgo.AnyInterface> {
@@ -194,7 +194,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Mutex_static_extension) abstract Mutex(stdgo._internal.sync.Sync_mutex.Mutex) from stdgo._internal.sync.Sync_mutex.Mutex to stdgo._internal.sync.Sync_mutex.Mutex {
+@:structInit @:using(stdgo.sync.Sync.Mutex_static_extension) abstract Mutex(stdgo._internal.sync.Sync_mutex.Mutex) from stdgo._internal.sync.Sync_mutex.Mutex to stdgo._internal.sync.Sync_mutex.Mutex {
     public var _state(get, set) : StdTypes.Int;
     function get__state():StdTypes.Int return this._state;
     function set__state(v:StdTypes.Int):StdTypes.Int {
@@ -211,7 +211,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Once_static_extension) abstract Once(stdgo._internal.sync.Sync_once.Once) from stdgo._internal.sync.Sync_once.Once to stdgo._internal.sync.Sync_once.Once {
+@:structInit @:using(stdgo.sync.Sync.Once_static_extension) abstract Once(stdgo._internal.sync.Sync_once.Once) from stdgo._internal.sync.Sync_once.Once to stdgo._internal.sync.Sync_once.Once {
     public var _done(get, set) : std.UInt;
     function get__done():std.UInt return this._done;
     function set__done(v:std.UInt):std.UInt {
@@ -228,7 +228,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Pool_static_extension) abstract Pool(stdgo._internal.sync.Sync_pool.Pool) from stdgo._internal.sync.Sync_pool.Pool to stdgo._internal.sync.Sync_pool.Pool {
+@:structInit @:using(stdgo.sync.Sync.Pool_static_extension) abstract Pool(stdgo._internal.sync.Sync_pool.Pool) from stdgo._internal.sync.Sync_pool.Pool to stdgo._internal.sync.Sync_pool.Pool {
     public var _noCopy(get, set) : T_noCopy;
     function get__noCopy():T_noCopy return this._noCopy;
     function set__noCopy(v:T_noCopy):T_noCopy {
@@ -269,7 +269,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_poolLocalInternal_static_extension) @:dox(hide) abstract T_poolLocalInternal(stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal) from stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal to stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal {
+@:structInit @:using(stdgo.sync.Sync.T_poolLocalInternal_static_extension) @:dox(hide) abstract T_poolLocalInternal(stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal) from stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal to stdgo._internal.sync.Sync_t_poollocalinternal.T_poolLocalInternal {
     public var _private(get, set) : stdgo.AnyInterface;
     function get__private():stdgo.AnyInterface return this._private;
     function set__private(v:stdgo.AnyInterface):stdgo.AnyInterface {
@@ -286,7 +286,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_poolLocal_static_extension) @:dox(hide) abstract T_poolLocal(stdgo._internal.sync.Sync_t_poollocal.T_poolLocal) from stdgo._internal.sync.Sync_t_poollocal.T_poolLocal to stdgo._internal.sync.Sync_t_poollocal.T_poolLocal {
+@:structInit @:using(stdgo.sync.Sync.T_poolLocal_static_extension) @:dox(hide) abstract T_poolLocal(stdgo._internal.sync.Sync_t_poollocal.T_poolLocal) from stdgo._internal.sync.Sync_t_poollocal.T_poolLocal to stdgo._internal.sync.Sync_t_poollocal.T_poolLocal {
     public var _poolLocalInternal(get, set) : T_poolLocalInternal;
     function get__poolLocalInternal():T_poolLocalInternal return this._poolLocalInternal;
     function set__poolLocalInternal(v:T_poolLocalInternal):T_poolLocalInternal {
@@ -303,7 +303,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_poolDequeue_static_extension) @:dox(hide) abstract T_poolDequeue(stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue) from stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue to stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue {
+@:structInit @:using(stdgo.sync.Sync.T_poolDequeue_static_extension) @:dox(hide) abstract T_poolDequeue(stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue) from stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue to stdgo._internal.sync.Sync_t_pooldequeue.T_poolDequeue {
     public var _headTail(get, set) : haxe.UInt64;
     function get__headTail():haxe.UInt64 return this._headTail;
     function set__headTail(v:haxe.UInt64):haxe.UInt64 {
@@ -320,7 +320,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_eface_static_extension) @:dox(hide) abstract T_eface(stdgo._internal.sync.Sync_t_eface.T_eface) from stdgo._internal.sync.Sync_t_eface.T_eface to stdgo._internal.sync.Sync_t_eface.T_eface {
+@:structInit @:using(stdgo.sync.Sync.T_eface_static_extension) @:dox(hide) abstract T_eface(stdgo._internal.sync.Sync_t_eface.T_eface) from stdgo._internal.sync.Sync_t_eface.T_eface to stdgo._internal.sync.Sync_t_eface.T_eface {
     public var _typ(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
     function get__typ():stdgo._internal.unsafe.Unsafe.UnsafePointer return this._typ;
     function set__typ(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
@@ -337,7 +337,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_poolChain_static_extension) @:dox(hide) abstract T_poolChain(stdgo._internal.sync.Sync_t_poolchain.T_poolChain) from stdgo._internal.sync.Sync_t_poolchain.T_poolChain to stdgo._internal.sync.Sync_t_poolchain.T_poolChain {
+@:structInit @:using(stdgo.sync.Sync.T_poolChain_static_extension) @:dox(hide) abstract T_poolChain(stdgo._internal.sync.Sync_t_poolchain.T_poolChain) from stdgo._internal.sync.Sync_t_poolchain.T_poolChain to stdgo._internal.sync.Sync_t_poolchain.T_poolChain {
     public var _head(get, set) : T_poolChainElt;
     function get__head():T_poolChainElt return this._head;
     function set__head(v:T_poolChainElt):T_poolChainElt {
@@ -354,7 +354,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_poolChainElt_static_extension) @:dox(hide) abstract T_poolChainElt(stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt) from stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt to stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt {
+@:structInit @:using(stdgo.sync.Sync.T_poolChainElt_static_extension) @:dox(hide) abstract T_poolChainElt(stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt) from stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt to stdgo._internal.sync.Sync_t_poolchainelt.T_poolChainElt {
     public var _poolDequeue(get, set) : T_poolDequeue;
     function get__poolDequeue():T_poolDequeue return this._poolDequeue;
     function set__poolDequeue(v:T_poolDequeue):T_poolDequeue {
@@ -377,7 +377,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_notifyList_static_extension) @:dox(hide) abstract T_notifyList(stdgo._internal.sync.Sync_t_notifylist.T_notifyList) from stdgo._internal.sync.Sync_t_notifylist.T_notifyList to stdgo._internal.sync.Sync_t_notifylist.T_notifyList {
+@:structInit @:using(stdgo.sync.Sync.T_notifyList_static_extension) @:dox(hide) abstract T_notifyList(stdgo._internal.sync.Sync_t_notifylist.T_notifyList) from stdgo._internal.sync.Sync_t_notifylist.T_notifyList to stdgo._internal.sync.Sync_t_notifylist.T_notifyList {
     public var _wait(get, set) : std.UInt;
     function get__wait():std.UInt return this._wait;
     function set__wait(v:std.UInt):std.UInt {
@@ -412,7 +412,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(RWMutex_static_extension) abstract RWMutex(stdgo._internal.sync.Sync_rwmutex.RWMutex) from stdgo._internal.sync.Sync_rwmutex.RWMutex to stdgo._internal.sync.Sync_rwmutex.RWMutex {
+@:structInit @:using(stdgo.sync.Sync.RWMutex_static_extension) abstract RWMutex(stdgo._internal.sync.Sync_rwmutex.RWMutex) from stdgo._internal.sync.Sync_rwmutex.RWMutex to stdgo._internal.sync.Sync_rwmutex.RWMutex {
     public var _w(get, set) : Mutex;
     function get__w():Mutex return this._w;
     function set__w(v:Mutex):Mutex {
@@ -447,7 +447,7 @@ class Locker_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(WaitGroup_static_extension) abstract WaitGroup(stdgo._internal.sync.Sync_waitgroup.WaitGroup) from stdgo._internal.sync.Sync_waitgroup.WaitGroup to stdgo._internal.sync.Sync_waitgroup.WaitGroup {
+@:structInit @:using(stdgo.sync.Sync.WaitGroup_static_extension) abstract WaitGroup(stdgo._internal.sync.Sync_waitgroup.WaitGroup) from stdgo._internal.sync.Sync_waitgroup.WaitGroup to stdgo._internal.sync.Sync_waitgroup.WaitGroup {
     public var _noCopy(get, set) : T_noCopy;
     function get__noCopy():T_noCopy return this._noCopy;
     function set__noCopy(v:T_noCopy):T_noCopy {

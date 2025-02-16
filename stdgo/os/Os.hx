@@ -179,7 +179,7 @@ class Signal_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_dirInfo_static_extension) @:dox(hide) abstract T_dirInfo(stdgo._internal.os.Os_t_dirinfo.T_dirInfo) from stdgo._internal.os.Os_t_dirinfo.T_dirInfo to stdgo._internal.os.Os_t_dirinfo.T_dirInfo {
+@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) @:dox(hide) abstract T_dirInfo(stdgo._internal.os.Os_t_dirinfo.T_dirInfo) from stdgo._internal.os.Os_t_dirinfo.T_dirInfo to stdgo._internal.os.Os_t_dirinfo.T_dirInfo {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return this._buf;
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
@@ -202,7 +202,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(SyscallError_static_extension) abstract SyscallError(stdgo._internal.os.Os_syscallerror.SyscallError) from stdgo._internal.os.Os_syscallerror.SyscallError to stdgo._internal.os.Os_syscallerror.SyscallError {
+@:structInit @:using(stdgo.os.Os.SyscallError_static_extension) abstract SyscallError(stdgo._internal.os.Os_syscallerror.SyscallError) from stdgo._internal.os.Os_syscallerror.SyscallError to stdgo._internal.os.Os_syscallerror.SyscallError {
     public var syscall(get, set) : String;
     function get_syscall():String return this.syscall;
     function set_syscall(v:String):String {
@@ -219,7 +219,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Process_static_extension) abstract Process(stdgo._internal.os.Os_process.Process) from stdgo._internal.os.Os_process.Process to stdgo._internal.os.Os_process.Process {
+@:structInit @:using(stdgo.os.Os.Process_static_extension) abstract Process(stdgo._internal.os.Os_process.Process) from stdgo._internal.os.Os_process.Process to stdgo._internal.os.Os_process.Process {
     public var pid(get, set) : StdTypes.Int;
     function get_pid():StdTypes.Int return this.pid;
     function set_pid(v:StdTypes.Int):StdTypes.Int {
@@ -248,7 +248,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ProcAttr_static_extension) abstract ProcAttr(stdgo._internal.os.Os_procattr.ProcAttr) from stdgo._internal.os.Os_procattr.ProcAttr to stdgo._internal.os.Os_procattr.ProcAttr {
+@:structInit @:using(stdgo.os.Os.ProcAttr_static_extension) abstract ProcAttr(stdgo._internal.os.Os_procattr.ProcAttr) from stdgo._internal.os.Os_procattr.ProcAttr to stdgo._internal.os.Os_procattr.ProcAttr {
     public var dir(get, set) : String;
     function get_dir():String return this.dir;
     function set_dir(v:String):String {
@@ -277,7 +277,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ProcessState_static_extension) abstract ProcessState(stdgo._internal.os.Os_processstate.ProcessState) from stdgo._internal.os.Os_processstate.ProcessState to stdgo._internal.os.Os_processstate.ProcessState {
+@:structInit @:using(stdgo.os.Os.ProcessState_static_extension) abstract ProcessState(stdgo._internal.os.Os_processstate.ProcessState) from stdgo._internal.os.Os_processstate.ProcessState to stdgo._internal.os.Os_processstate.ProcessState {
     public var _pid(get, set) : StdTypes.Int;
     function get__pid():StdTypes.Int return this._pid;
     function set__pid(v:StdTypes.Int):StdTypes.Int {
@@ -300,7 +300,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(LinkError_static_extension) abstract LinkError(stdgo._internal.os.Os_linkerror.LinkError) from stdgo._internal.os.Os_linkerror.LinkError to stdgo._internal.os.Os_linkerror.LinkError {
+@:structInit @:using(stdgo.os.Os.LinkError_static_extension) abstract LinkError(stdgo._internal.os.Os_linkerror.LinkError) from stdgo._internal.os.Os_linkerror.LinkError to stdgo._internal.os.Os_linkerror.LinkError {
     public var op(get, set) : String;
     function get_op():String return this.op;
     function set_op(v:String):String {
@@ -329,7 +329,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_fileWithoutReadFrom_static_extension) @:dox(hide) abstract T_fileWithoutReadFrom(stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom) from stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom to stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom {
+@:structInit @:using(stdgo.os.Os.T_fileWithoutReadFrom_static_extension) @:dox(hide) abstract T_fileWithoutReadFrom(stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom) from stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom to stdgo._internal.os.Os_t_filewithoutreadfrom.T_fileWithoutReadFrom {
     public var file(get, set) : File;
     function get_file():File return this.file;
     function set_file(v:File):File {
@@ -340,7 +340,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.os.Os_t_file.T_file) from stdgo._internal.os.Os_t_file.T_file to stdgo._internal.os.Os_t_file.T_file {
+@:structInit @:using(stdgo.os.Os.T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.os.Os_t_file.T_file) from stdgo._internal.os.Os_t_file.T_file to stdgo._internal.os.Os_t_file.T_file {
     public var _pfd(get, set) : stdgo._internal.internal.poll.Poll_fd.FD;
     function get__pfd():stdgo._internal.internal.poll.Poll_fd.FD return this._pfd;
     function set__pfd(v:stdgo._internal.internal.poll.Poll_fd.FD):stdgo._internal.internal.poll.Poll_fd.FD {
@@ -381,7 +381,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_unixDirent_static_extension) @:dox(hide) abstract T_unixDirent(stdgo._internal.os.Os_t_unixdirent.T_unixDirent) from stdgo._internal.os.Os_t_unixdirent.T_unixDirent to stdgo._internal.os.Os_t_unixdirent.T_unixDirent {
+@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) @:dox(hide) abstract T_unixDirent(stdgo._internal.os.Os_t_unixdirent.T_unixDirent) from stdgo._internal.os.Os_t_unixdirent.T_unixDirent to stdgo._internal.os.Os_t_unixdirent.T_unixDirent {
     public var _parent(get, set) : String;
     function get__parent():String return this._parent;
     function set__parent(v:String):String {
@@ -410,7 +410,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_rawConn_static_extension) @:dox(hide) abstract T_rawConn(stdgo._internal.os.Os_t_rawconn.T_rawConn) from stdgo._internal.os.Os_t_rawconn.T_rawConn to stdgo._internal.os.Os_t_rawconn.T_rawConn {
+@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) @:dox(hide) abstract T_rawConn(stdgo._internal.os.Os_t_rawconn.T_rawConn) from stdgo._internal.os.Os_t_rawconn.T_rawConn to stdgo._internal.os.Os_t_rawconn.T_rawConn {
     public var _file(get, set) : File;
     function get__file():File return this._file;
     function set__file(v:File):File {
@@ -421,7 +421,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(File_static_extension) abstract File(stdgo._internal.os.Os_file.File) from stdgo._internal.os.Os_file.File to stdgo._internal.os.Os_file.File {
+@:structInit @:using(stdgo.os.Os.File_static_extension) abstract File(stdgo._internal.os.Os_file.File) from stdgo._internal.os.Os_file.File to stdgo._internal.os.Os_file.File {
     public var _file(get, set) : T_file;
     function get__file():T_file return this._file;
     function set__file(v:T_file):T_file {
@@ -432,7 +432,7 @@ class Signal_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_fileStat_static_extension) @:dox(hide) abstract T_fileStat(stdgo._internal.os.Os_t_filestat.T_fileStat) from stdgo._internal.os.Os_t_filestat.T_fileStat to stdgo._internal.os.Os_t_filestat.T_fileStat {
+@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) @:dox(hide) abstract T_fileStat(stdgo._internal.os.Os_t_filestat.T_fileStat) from stdgo._internal.os.Os_t_filestat.T_fileStat to stdgo._internal.os.Os_t_filestat.T_fileStat {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -495,7 +495,7 @@ typedef PathError = stdgo._internal.os.Os_patherror.PathError;
 @:dox(hide) typedef T_newFileKind = stdgo._internal.os.Os_t_newfilekind.T_newFileKind;
 typedef FileInfo = stdgo._internal.os.Os_fileinfo.FileInfo;
 typedef FileMode = stdgo._internal.os.Os_filemode.FileMode;
-@:using(JsOutput_static_extension) abstract JsOutput(stdgo._internal.os.Os_jsoutput.JsOutput) from stdgo._internal.os.Os_jsoutput.JsOutput to stdgo._internal.os.Os_jsoutput.JsOutput {
+@:using(stdgo.os.Os.JsOutput_static_extension) abstract JsOutput(stdgo._internal.os.Os_jsoutput.JsOutput) from stdgo._internal.os.Os_jsoutput.JsOutput to stdgo._internal.os.Os_jsoutput.JsOutput {
     public function new() this = new stdgo._internal.os.Os_jsoutput.JsOutput();
 }
 @:dox(hide) typedef T_dirInfoPointer = stdgo._internal.os.Os_t_dirinfopointer.T_dirInfoPointer;

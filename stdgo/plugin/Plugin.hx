@@ -1,5 +1,5 @@
 package stdgo.plugin;
-@:structInit @:using(Plugin_static_extension) abstract Plugin_(stdgo._internal.plugin.Plugin_plugin.Plugin) from stdgo._internal.plugin.Plugin_plugin.Plugin to stdgo._internal.plugin.Plugin_plugin.Plugin {
+@:structInit @:using(stdgo.plugin.Plugin.Plugin_static_extension) abstract Plugin_(stdgo._internal.plugin.Plugin_plugin.Plugin) from stdgo._internal.plugin.Plugin_plugin.Plugin to stdgo._internal.plugin.Plugin_plugin.Plugin {
     public var _pluginpath(get, set) : String;
     function get__pluginpath():String return this._pluginpath;
     function set__pluginpath(v:String):String {

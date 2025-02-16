@@ -1599,7 +1599,7 @@ private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTabl
         };
         return v;
     }
-@:structInit @:using(RangeTable_static_extension) abstract RangeTable(stdgo._internal.unicode.Unicode_rangetable.RangeTable) from stdgo._internal.unicode.Unicode_rangetable.RangeTable to stdgo._internal.unicode.Unicode_rangetable.RangeTable {
+@:structInit @:using(stdgo.unicode.Unicode.RangeTable_static_extension) abstract RangeTable(stdgo._internal.unicode.Unicode_rangetable.RangeTable) from stdgo._internal.unicode.Unicode_rangetable.RangeTable to stdgo._internal.unicode.Unicode_rangetable.RangeTable {
     public var r16(get, set) : Array<Range16>;
     function get_r16():Array<Range16> return [for (i in this.r16) i];
     function set_r16(v:Array<Range16>):Array<Range16> {
@@ -1622,7 +1622,7 @@ private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTabl
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Range16_static_extension) abstract Range16(stdgo._internal.unicode.Unicode_range16.Range16) from stdgo._internal.unicode.Unicode_range16.Range16 to stdgo._internal.unicode.Unicode_range16.Range16 {
+@:structInit @:using(stdgo.unicode.Unicode.Range16_static_extension) abstract Range16(stdgo._internal.unicode.Unicode_range16.Range16) from stdgo._internal.unicode.Unicode_range16.Range16 to stdgo._internal.unicode.Unicode_range16.Range16 {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1645,7 +1645,7 @@ private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTabl
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Range32_static_extension) abstract Range32(stdgo._internal.unicode.Unicode_range32.Range32) from stdgo._internal.unicode.Unicode_range32.Range32 to stdgo._internal.unicode.Unicode_range32.Range32 {
+@:structInit @:using(stdgo.unicode.Unicode.Range32_static_extension) abstract Range32(stdgo._internal.unicode.Unicode_range32.Range32) from stdgo._internal.unicode.Unicode_range32.Range32 to stdgo._internal.unicode.Unicode_range32.Range32 {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1668,7 +1668,7 @@ private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTabl
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(CaseRange_static_extension) abstract CaseRange(stdgo._internal.unicode.Unicode_caserange.CaseRange) from stdgo._internal.unicode.Unicode_caserange.CaseRange to stdgo._internal.unicode.Unicode_caserange.CaseRange {
+@:structInit @:using(stdgo.unicode.Unicode.CaseRange_static_extension) abstract CaseRange(stdgo._internal.unicode.Unicode_caserange.CaseRange) from stdgo._internal.unicode.Unicode_caserange.CaseRange to stdgo._internal.unicode.Unicode_caserange.CaseRange {
     public var lo(get, set) : std.UInt;
     function get_lo():std.UInt return this.lo;
     function set_lo(v:std.UInt):std.UInt {
@@ -1691,7 +1691,7 @@ private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTabl
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_foldPair_static_extension) @:dox(hide) abstract T_foldPair(stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair) from stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair to stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair {
+@:structInit @:using(stdgo.unicode.Unicode.T_foldPair_static_extension) @:dox(hide) abstract T_foldPair(stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair) from stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair to stdgo._internal.unicode.Unicode_t_foldpair.T_foldPair {
     public var from(get, set) : std.UInt;
     function get_from():std.UInt return this.from;
     function set_from(v:std.UInt):std.UInt {

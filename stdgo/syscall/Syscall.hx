@@ -259,7 +259,7 @@ class Conn_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_jsFile_static_extension) @:dox(hide) abstract T_jsFile(stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile) from stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile to stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile {
+@:structInit @:using(stdgo.syscall.Syscall.T_jsFile_static_extension) @:dox(hide) abstract T_jsFile(stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile) from stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile to stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile {
     public var _path(get, set) : String;
     function get__path():String return this._path;
     function set__path(v:String):String {
@@ -294,7 +294,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(SockaddrInet4_static_extension) abstract SockaddrInet4(stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4) from stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4 to stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4 {
+@:structInit @:using(stdgo.syscall.Syscall.SockaddrInet4_static_extension) abstract SockaddrInet4(stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4) from stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4 to stdgo._internal.syscall.Syscall_sockaddrinet4.SockaddrInet4 {
     public var port(get, set) : StdTypes.Int;
     function get_port():StdTypes.Int return this.port;
     function set_port(v:StdTypes.Int):StdTypes.Int {
@@ -311,7 +311,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(SockaddrInet6_static_extension) abstract SockaddrInet6(stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6) from stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6 to stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6 {
+@:structInit @:using(stdgo.syscall.Syscall.SockaddrInet6_static_extension) abstract SockaddrInet6(stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6) from stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6 to stdgo._internal.syscall.Syscall_sockaddrinet6.SockaddrInet6 {
     public var port(get, set) : StdTypes.Int;
     function get_port():StdTypes.Int return this.port;
     function set_port(v:StdTypes.Int):StdTypes.Int {
@@ -334,7 +334,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(SockaddrUnix_static_extension) abstract SockaddrUnix(stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix) from stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix to stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix {
+@:structInit @:using(stdgo.syscall.Syscall.SockaddrUnix_static_extension) abstract SockaddrUnix(stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix) from stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix to stdgo._internal.syscall.Syscall_sockaddrunix.SockaddrUnix {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -345,7 +345,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Dirent_static_extension) abstract Dirent(stdgo._internal.syscall.Syscall_dirent.Dirent) from stdgo._internal.syscall.Syscall_dirent.Dirent to stdgo._internal.syscall.Syscall_dirent.Dirent {
+@:structInit @:using(stdgo.syscall.Syscall.Dirent_static_extension) abstract Dirent(stdgo._internal.syscall.Syscall_dirent.Dirent) from stdgo._internal.syscall.Syscall_dirent.Dirent to stdgo._internal.syscall.Syscall_dirent.Dirent {
     public var reclen(get, set) : std.UInt;
     function get_reclen():std.UInt return this.reclen;
     function set_reclen(v:std.UInt):std.UInt {
@@ -362,7 +362,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Stat_t_static_extension) abstract Stat_t(stdgo._internal.syscall.Syscall_stat_t.Stat_t) from stdgo._internal.syscall.Syscall_stat_t.Stat_t to stdgo._internal.syscall.Syscall_stat_t.Stat_t {
+@:structInit @:using(stdgo.syscall.Syscall.Stat_t_static_extension) abstract Stat_t(stdgo._internal.syscall.Syscall_stat_t.Stat_t) from stdgo._internal.syscall.Syscall_stat_t.Stat_t to stdgo._internal.syscall.Syscall_stat_t.Stat_t {
     public var dev(get, set) : haxe.Int64;
     function get_dev():haxe.Int64 return this.dev;
     function set_dev(v:haxe.Int64):haxe.Int64 {
@@ -479,7 +479,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Rusage_static_extension) abstract Rusage(stdgo._internal.syscall.Syscall_rusage.Rusage) from stdgo._internal.syscall.Syscall_rusage.Rusage to stdgo._internal.syscall.Syscall_rusage.Rusage {
+@:structInit @:using(stdgo.syscall.Syscall.Rusage_static_extension) abstract Rusage(stdgo._internal.syscall.Syscall_rusage.Rusage) from stdgo._internal.syscall.Syscall_rusage.Rusage to stdgo._internal.syscall.Syscall_rusage.Rusage {
     public var utime(get, set) : Timeval;
     function get_utime():Timeval return this.utime;
     function set_utime(v:Timeval):Timeval {
@@ -496,7 +496,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ProcAttr_static_extension) abstract ProcAttr(stdgo._internal.syscall.Syscall_procattr.ProcAttr) from stdgo._internal.syscall.Syscall_procattr.ProcAttr to stdgo._internal.syscall.Syscall_procattr.ProcAttr {
+@:structInit @:using(stdgo.syscall.Syscall.ProcAttr_static_extension) abstract ProcAttr(stdgo._internal.syscall.Syscall_procattr.ProcAttr) from stdgo._internal.syscall.Syscall_procattr.ProcAttr to stdgo._internal.syscall.Syscall_procattr.ProcAttr {
     public var dir(get, set) : String;
     function get_dir():String return this.dir;
     function set_dir(v:String):String {
@@ -525,17 +525,17 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(SysProcAttr_static_extension) abstract SysProcAttr(stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr) from stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr to stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr {
+@:structInit @:using(stdgo.syscall.Syscall.SysProcAttr_static_extension) abstract SysProcAttr(stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr) from stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr to stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr {
     public function new() this = new stdgo._internal.syscall.Syscall_sysprocattr.SysProcAttr();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Iovec_static_extension) abstract Iovec(stdgo._internal.syscall.Syscall_iovec.Iovec) from stdgo._internal.syscall.Syscall_iovec.Iovec to stdgo._internal.syscall.Syscall_iovec.Iovec {
+@:structInit @:using(stdgo.syscall.Syscall.Iovec_static_extension) abstract Iovec(stdgo._internal.syscall.Syscall_iovec.Iovec) from stdgo._internal.syscall.Syscall_iovec.Iovec to stdgo._internal.syscall.Syscall_iovec.Iovec {
     public function new() this = new stdgo._internal.syscall.Syscall_iovec.Iovec();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Timespec_static_extension) abstract Timespec(stdgo._internal.syscall.Syscall_timespec.Timespec) from stdgo._internal.syscall.Syscall_timespec.Timespec to stdgo._internal.syscall.Syscall_timespec.Timespec {
+@:structInit @:using(stdgo.syscall.Syscall.Timespec_static_extension) abstract Timespec(stdgo._internal.syscall.Syscall_timespec.Timespec) from stdgo._internal.syscall.Syscall_timespec.Timespec to stdgo._internal.syscall.Syscall_timespec.Timespec {
     public var sec(get, set) : haxe.Int64;
     function get_sec():haxe.Int64 return this.sec;
     function set_sec(v:haxe.Int64):haxe.Int64 {
@@ -552,7 +552,7 @@ class Conn_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Timeval_static_extension) abstract Timeval(stdgo._internal.syscall.Syscall_timeval.Timeval) from stdgo._internal.syscall.Syscall_timeval.Timeval to stdgo._internal.syscall.Syscall_timeval.Timeval {
+@:structInit @:using(stdgo.syscall.Syscall.Timeval_static_extension) abstract Timeval(stdgo._internal.syscall.Syscall_timeval.Timeval) from stdgo._internal.syscall.Syscall_timeval.Timeval to stdgo._internal.syscall.Syscall_timeval.Timeval {
     public var sec(get, set) : haxe.Int64;
     function get_sec():haxe.Int64 return this.sec;
     function set_sec(v:haxe.Int64):haxe.Int64 {

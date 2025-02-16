@@ -7,7 +7,7 @@ private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
         stdgo._internal.mime.Mime_errinvalidmediaparameter.errInvalidMediaParameter = (v : stdgo.Error);
         return v;
     }
-@:structInit @:using(WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_worddecoder.WordDecoder) from stdgo._internal.mime.Mime_worddecoder.WordDecoder to stdgo._internal.mime.Mime_worddecoder.WordDecoder {
+@:structInit @:using(stdgo.mime.Mime.WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_worddecoder.WordDecoder) from stdgo._internal.mime.Mime_worddecoder.WordDecoder to stdgo._internal.mime.Mime_worddecoder.WordDecoder {
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
     function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {

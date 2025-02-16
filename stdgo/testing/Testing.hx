@@ -202,7 +202,7 @@ class TB_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_durationOrCountFlag_static_extension) @:dox(hide) abstract T_durationOrCountFlag(stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag) from stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag to stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag {
+@:structInit @:using(stdgo.testing.Testing.T_durationOrCountFlag_static_extension) @:dox(hide) abstract T_durationOrCountFlag(stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag) from stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag to stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag {
     public var _d(get, set) : stdgo._internal.time.Time_duration.Duration;
     function get__d():stdgo._internal.time.Time_duration.Duration return this._d;
     function set__d(v:stdgo._internal.time.Time_duration.Duration):stdgo._internal.time.Time_duration.Duration {
@@ -225,7 +225,7 @@ class TB_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(InternalBenchmark_static_extension) abstract InternalBenchmark(stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark) from stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark to stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark {
+@:structInit @:using(stdgo.testing.Testing.InternalBenchmark_static_extension) abstract InternalBenchmark(stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark) from stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark to stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -242,7 +242,7 @@ class TB_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(B_static_extension) abstract B(stdgo._internal.testing.Testing_b.B) from stdgo._internal.testing.Testing_b.B to stdgo._internal.testing.Testing_b.B {
+@:structInit @:using(stdgo.testing.Testing.B_static_extension) abstract B(stdgo._internal.testing.Testing_b.B) from stdgo._internal.testing.Testing_b.B to stdgo._internal.testing.Testing_b.B {
     public var _common(get, set) : T_common;
     function get__common():T_common return this._common;
     function set__common(v:T_common):T_common {
@@ -398,7 +398,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(BenchmarkResult_static_extension) abstract BenchmarkResult(stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult) from stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult to stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult {
+@:structInit @:using(stdgo.testing.Testing.BenchmarkResult_static_extension) abstract BenchmarkResult(stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult) from stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult to stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult {
     public var n(get, set) : StdTypes.Int;
     function get_n():StdTypes.Int return this.n;
     function set_n(v:StdTypes.Int):StdTypes.Int {
@@ -457,7 +457,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_benchContext_static_extension) @:dox(hide) abstract T_benchContext(stdgo._internal.testing.Testing_t_benchcontext.T_benchContext) from stdgo._internal.testing.Testing_t_benchcontext.T_benchContext to stdgo._internal.testing.Testing_t_benchcontext.T_benchContext {
+@:structInit @:using(stdgo.testing.Testing.T_benchContext_static_extension) @:dox(hide) abstract T_benchContext(stdgo._internal.testing.Testing_t_benchcontext.T_benchContext) from stdgo._internal.testing.Testing_t_benchcontext.T_benchContext to stdgo._internal.testing.Testing_t_benchcontext.T_benchContext {
     public var _match(get, set) : T_matcher;
     function get__match():T_matcher return this._match;
     function set__match(v:T_matcher):T_matcher {
@@ -480,7 +480,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(PB_static_extension) abstract PB(stdgo._internal.testing.Testing_pb.PB) from stdgo._internal.testing.Testing_pb.PB to stdgo._internal.testing.Testing_pb.PB {
+@:structInit @:using(stdgo.testing.Testing.PB_static_extension) abstract PB(stdgo._internal.testing.Testing_pb.PB) from stdgo._internal.testing.Testing_pb.PB to stdgo._internal.testing.Testing_pb.PB {
     public var _globalN(get, set) : stdgo.Pointer<haxe.UInt64>;
     function get__globalN():stdgo.Pointer<haxe.UInt64> return this._globalN;
     function set__globalN(v:stdgo.Pointer<haxe.UInt64>):stdgo.Pointer<haxe.UInt64> {
@@ -509,12 +509,12 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.testing.Testing_t_discard.T_discard) from stdgo._internal.testing.Testing_t_discard.T_discard to stdgo._internal.testing.Testing_t_discard.T_discard {
+@:structInit @:using(stdgo.testing.Testing.T_discard_static_extension) @:dox(hide) abstract T_discard(stdgo._internal.testing.Testing_t_discard.T_discard) from stdgo._internal.testing.Testing_t_discard.T_discard to stdgo._internal.testing.Testing_t_discard.T_discard {
     public function new() this = new stdgo._internal.testing.Testing_t_discard.T_discard();
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(CoverBlock_static_extension) abstract CoverBlock(stdgo._internal.testing.Testing_coverblock.CoverBlock) from stdgo._internal.testing.Testing_coverblock.CoverBlock to stdgo._internal.testing.Testing_coverblock.CoverBlock {
+@:structInit @:using(stdgo.testing.Testing.CoverBlock_static_extension) abstract CoverBlock(stdgo._internal.testing.Testing_coverblock.CoverBlock) from stdgo._internal.testing.Testing_coverblock.CoverBlock to stdgo._internal.testing.Testing_coverblock.CoverBlock {
     public var line0(get, set) : std.UInt;
     function get_line0():std.UInt return this.line0;
     function set_line0(v:std.UInt):std.UInt {
@@ -549,7 +549,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Cover_static_extension) abstract Cover(stdgo._internal.testing.Testing_cover.Cover) from stdgo._internal.testing.Testing_cover.Cover to stdgo._internal.testing.Testing_cover.Cover {
+@:structInit @:using(stdgo.testing.Testing.Cover_static_extension) abstract Cover(stdgo._internal.testing.Testing_cover.Cover) from stdgo._internal.testing.Testing_cover.Cover to stdgo._internal.testing.Testing_cover.Cover {
     public var mode(get, set) : String;
     function get_mode():String return this.mode;
     function set_mode(v:String):String {
@@ -614,7 +614,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(InternalExample_static_extension) abstract InternalExample(stdgo._internal.testing.Testing_internalexample.InternalExample) from stdgo._internal.testing.Testing_internalexample.InternalExample to stdgo._internal.testing.Testing_internalexample.InternalExample {
+@:structInit @:using(stdgo.testing.Testing.InternalExample_static_extension) abstract InternalExample(stdgo._internal.testing.Testing_internalexample.InternalExample) from stdgo._internal.testing.Testing_internalexample.InternalExample to stdgo._internal.testing.Testing_internalexample.InternalExample {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -643,7 +643,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(InternalFuzzTarget_static_extension) abstract InternalFuzzTarget(stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget) from stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget to stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget {
+@:structInit @:using(stdgo.testing.Testing.InternalFuzzTarget_static_extension) abstract InternalFuzzTarget(stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget) from stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget to stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -660,7 +660,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(F_static_extension) abstract F(stdgo._internal.testing.Testing_f.F) from stdgo._internal.testing.Testing_f.F to stdgo._internal.testing.Testing_f.F {
+@:structInit @:using(stdgo.testing.Testing.F_static_extension) abstract F(stdgo._internal.testing.Testing_f.F) from stdgo._internal.testing.Testing_f.F to stdgo._internal.testing.Testing_f.F {
     public var _common(get, set) : T_common;
     function get__common():T_common return this._common;
     function set__common(v:T_common):T_common {
@@ -717,7 +717,7 @@ _result,
     public function __copy__() return this.__copy__();
 }
 @:dox(hide) typedef T_corpusEntry = stdgo._internal.testing.Testing_t_corpusentry.T_corpusEntry;
-@:structInit @:using(T_fuzzResult_static_extension) @:dox(hide) abstract T_fuzzResult(stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult) from stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult to stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult {
+@:structInit @:using(stdgo.testing.Testing.T_fuzzResult_static_extension) @:dox(hide) abstract T_fuzzResult(stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult) from stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult to stdgo._internal.testing.Testing_t_fuzzresult.T_fuzzResult {
     public var n(get, set) : StdTypes.Int;
     function get_n():StdTypes.Int return this.n;
     function set_n(v:StdTypes.Int):StdTypes.Int {
@@ -740,7 +740,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_fuzzContext_static_extension) @:dox(hide) abstract T_fuzzContext(stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext) from stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext to stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext {
+@:structInit @:using(stdgo.testing.Testing.T_fuzzContext_static_extension) @:dox(hide) abstract T_fuzzContext(stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext) from stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext to stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext {
     public var _deps(get, set) : T_testDeps;
     function get__deps():T_testDeps return this._deps;
     function set__deps(v:T_testDeps):T_testDeps {
@@ -757,7 +757,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_matcher_static_extension) @:dox(hide) abstract T_matcher(stdgo._internal.testing.Testing_t_matcher.T_matcher) from stdgo._internal.testing.Testing_t_matcher.T_matcher to stdgo._internal.testing.Testing_t_matcher.T_matcher {
+@:structInit @:using(stdgo.testing.Testing.T_matcher_static_extension) @:dox(hide) abstract T_matcher(stdgo._internal.testing.Testing_t_matcher.T_matcher) from stdgo._internal.testing.Testing_t_matcher.T_matcher to stdgo._internal.testing.Testing_t_matcher.T_matcher {
     public var _filter(get, set) : T_filterMatch;
     function get__filter():T_filterMatch return this._filter;
     function set__filter(v:T_filterMatch):T_filterMatch {
@@ -810,7 +810,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_chattyFlag_static_extension) @:dox(hide) abstract T_chattyFlag(stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag) from stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag to stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag {
+@:structInit @:using(stdgo.testing.Testing.T_chattyFlag_static_extension) @:dox(hide) abstract T_chattyFlag(stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag) from stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag to stdgo._internal.testing.Testing_t_chattyflag.T_chattyFlag {
     public var _on(get, set) : Bool;
     function get__on():Bool return this._on;
     function set__on(v:Bool):Bool {
@@ -827,7 +827,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_chattyPrinter_static_extension) @:dox(hide) abstract T_chattyPrinter(stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter) from stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter to stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter {
+@:structInit @:using(stdgo.testing.Testing.T_chattyPrinter_static_extension) @:dox(hide) abstract T_chattyPrinter(stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter) from stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter to stdgo._internal.testing.Testing_t_chattyprinter.T_chattyPrinter {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -856,7 +856,7 @@ _result,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.testing.Testing_t_common.T_common) from stdgo._internal.testing.Testing_t_common.T_common to stdgo._internal.testing.Testing_t_common.T_common {
+@:structInit @:using(stdgo.testing.Testing.T_common_static_extension) @:dox(hide) abstract T_common(stdgo._internal.testing.Testing_t_common.T_common) from stdgo._internal.testing.Testing_t_common.T_common to stdgo._internal.testing.Testing_t_common.T_common {
     public var _mu(get, set) : stdgo._internal.sync.Sync_rwmutex.RWMutex;
     function get__mu():stdgo._internal.sync.Sync_rwmutex.RWMutex return this._mu;
     function set__mu(v:stdgo._internal.sync.Sync_rwmutex.RWMutex):stdgo._internal.sync.Sync_rwmutex.RWMutex {
@@ -1136,7 +1136,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_indenter_static_extension) @:dox(hide) abstract T_indenter(stdgo._internal.testing.Testing_t_indenter.T_indenter) from stdgo._internal.testing.Testing_t_indenter.T_indenter to stdgo._internal.testing.Testing_t_indenter.T_indenter {
+@:structInit @:using(stdgo.testing.Testing.T_indenter_static_extension) @:dox(hide) abstract T_indenter(stdgo._internal.testing.Testing_t_indenter.T_indenter) from stdgo._internal.testing.Testing_t_indenter.T_indenter to stdgo._internal.testing.Testing_t_indenter.T_indenter {
     public var _c(get, set) : T_common;
     function get__c():T_common return this._c;
     function set__c(v:T_common):T_common {
@@ -1147,7 +1147,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T__static_extension) @:dox(hide) abstract T_(stdgo._internal.testing.Testing_t_.T_) from stdgo._internal.testing.Testing_t_.T_ to stdgo._internal.testing.Testing_t_.T_ {
+@:structInit @:using(stdgo.testing.Testing.T__static_extension) @:dox(hide) abstract T_(stdgo._internal.testing.Testing_t_.T_) from stdgo._internal.testing.Testing_t_.T_ to stdgo._internal.testing.Testing_t_.T_ {
     public var _common(get, set) : T_common;
     function get__common():T_common return this._common;
     function set__common(v:T_common):T_common {
@@ -1170,7 +1170,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(InternalTest_static_extension) abstract InternalTest(stdgo._internal.testing.Testing_internaltest.InternalTest) from stdgo._internal.testing.Testing_internaltest.InternalTest to stdgo._internal.testing.Testing_internaltest.InternalTest {
+@:structInit @:using(stdgo.testing.Testing.InternalTest_static_extension) abstract InternalTest(stdgo._internal.testing.Testing_internaltest.InternalTest) from stdgo._internal.testing.Testing_internaltest.InternalTest to stdgo._internal.testing.Testing_internaltest.InternalTest {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {
@@ -1187,7 +1187,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_testContext_static_extension) @:dox(hide) abstract T_testContext(stdgo._internal.testing.Testing_t_testcontext.T_testContext) from stdgo._internal.testing.Testing_t_testcontext.T_testContext to stdgo._internal.testing.Testing_t_testcontext.T_testContext {
+@:structInit @:using(stdgo.testing.Testing.T_testContext_static_extension) @:dox(hide) abstract T_testContext(stdgo._internal.testing.Testing_t_testcontext.T_testContext) from stdgo._internal.testing.Testing_t_testcontext.T_testContext to stdgo._internal.testing.Testing_t_testcontext.T_testContext {
     public var _match(get, set) : T_matcher;
     function get__match():T_matcher return this._match;
     function set__match(v:T_matcher):T_matcher {
@@ -1240,7 +1240,7 @@ failCount);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(M_static_extension) abstract M(stdgo._internal.testing.Testing_m.M) from stdgo._internal.testing.Testing_m.M to stdgo._internal.testing.Testing_m.M {
+@:structInit @:using(stdgo.testing.Testing.M_static_extension) abstract M(stdgo._internal.testing.Testing_m.M) from stdgo._internal.testing.Testing_m.M to stdgo._internal.testing.Testing_m.M {
     public var _deps(get, set) : T_testDeps;
     function get__deps():T_testDeps return this._deps;
     function set__deps(v:T_testDeps):T_testDeps {

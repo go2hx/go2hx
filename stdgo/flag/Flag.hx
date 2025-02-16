@@ -72,7 +72,7 @@ class Getter_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_textValue_static_extension) @:dox(hide) abstract T_textValue(stdgo._internal.flag.Flag_t_textvalue.T_textValue) from stdgo._internal.flag.Flag_t_textvalue.T_textValue to stdgo._internal.flag.Flag_t_textvalue.T_textValue {
+@:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) @:dox(hide) abstract T_textValue(stdgo._internal.flag.Flag_t_textvalue.T_textValue) from stdgo._internal.flag.Flag_t_textvalue.T_textValue to stdgo._internal.flag.Flag_t_textvalue.T_textValue {
     public var _p(get, set) : stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler;
     function get__p():stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler return this._p;
     function set__p(v:stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler):stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler {
@@ -83,7 +83,7 @@ class Getter_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(FlagSet_static_extension) abstract FlagSet(stdgo._internal.flag.Flag_flagset.FlagSet) from stdgo._internal.flag.Flag_flagset.FlagSet to stdgo._internal.flag.Flag_flagset.FlagSet {
+@:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) abstract FlagSet(stdgo._internal.flag.Flag_flagset.FlagSet) from stdgo._internal.flag.Flag_flagset.FlagSet to stdgo._internal.flag.Flag_flagset.FlagSet {
     public var usage(get, set) : () -> Void;
     function get_usage():() -> Void return () -> this.usage();
     function set_usage(v:() -> Void):() -> Void {
@@ -196,7 +196,7 @@ class Getter_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Flag_static_extension) abstract Flag_(stdgo._internal.flag.Flag_flag.Flag) from stdgo._internal.flag.Flag_flag.Flag to stdgo._internal.flag.Flag_flag.Flag {
+@:structInit @:using(stdgo.flag.Flag.Flag_static_extension) abstract Flag_(stdgo._internal.flag.Flag_flag.Flag) from stdgo._internal.flag.Flag_flag.Flag to stdgo._internal.flag.Flag_flag.Flag {
     public var name(get, set) : String;
     function get_name():String return this.name;
     function set_name(v:String):String {

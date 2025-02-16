@@ -1,6 +1,6 @@
 package stdgo.slices;
 final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
-@:structInit @:using(T_myStruct_static_extension) @:dox(hide) abstract T_myStruct(stdgo._internal.slices.Slices_t_mystruct.T_myStruct) from stdgo._internal.slices.Slices_t_mystruct.T_myStruct to stdgo._internal.slices.Slices_t_mystruct.T_myStruct {
+@:structInit @:using(stdgo.slices.Slices.T_myStruct_static_extension) @:dox(hide) abstract T_myStruct(stdgo._internal.slices.Slices_t_mystruct.T_myStruct) from stdgo._internal.slices.Slices_t_mystruct.T_myStruct to stdgo._internal.slices.Slices_t_mystruct.T_myStruct {
     public var _a(get, set) : String;
     function get__a():String return this._a;
     function set__a(v:String):String {
@@ -35,7 +35,7 @@ final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_intPair_static_extension) @:dox(hide) abstract T_intPair(stdgo._internal.slices.Slices_t_intpair.T_intPair) from stdgo._internal.slices.Slices_t_intpair.T_intPair to stdgo._internal.slices.Slices_t_intpair.T_intPair {
+@:structInit @:using(stdgo.slices.Slices.T_intPair_static_extension) @:dox(hide) abstract T_intPair(stdgo._internal.slices.Slices_t_intpair.T_intPair) from stdgo._internal.slices.Slices_t_intpair.T_intPair to stdgo._internal.slices.Slices_t_intpair.T_intPair {
     public var _a(get, set) : StdTypes.Int;
     function get__a():StdTypes.Int return this._a;
     function set__a(v:StdTypes.Int):StdTypes.Int {
@@ -52,7 +52,7 @@ final n : haxe.UInt64 = stdgo._internal.slices.Slices_n.n;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(S_static_extension) abstract S(stdgo._internal.slices.Slices_s.S) from stdgo._internal.slices.Slices_s.S to stdgo._internal.slices.Slices_s.S {
+@:structInit @:using(stdgo.slices.Slices.S_static_extension) abstract S(stdgo._internal.slices.Slices_s.S) from stdgo._internal.slices.Slices_s.S to stdgo._internal.slices.Slices_s.S {
     public var _a(get, set) : StdTypes.Int;
     function get__a():StdTypes.Int return this._a;
     function set__a(v:StdTypes.Int):StdTypes.Int {

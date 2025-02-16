@@ -215,7 +215,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
         stdgo._internal.time.Time_notmononegativetime.notMonoNegativeTime = v;
         return v;
     }
-@:structInit @:using(Rule_static_extension) abstract Rule(stdgo._internal.time.Time_rule.Rule) from stdgo._internal.time.Time_rule.Rule to stdgo._internal.time.Time_rule.Rule {
+@:structInit @:using(stdgo.time.Time.Rule_static_extension) abstract Rule(stdgo._internal.time.Time_rule.Rule) from stdgo._internal.time.Time_rule.Rule to stdgo._internal.time.Time_rule.Rule {
     public var kind(get, set) : RuleKind;
     function get_kind():RuleKind return this.kind;
     function set_kind(v:RuleKind):RuleKind {
@@ -250,7 +250,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ParseError_static_extension) abstract ParseError(stdgo._internal.time.Time_parseerror.ParseError) from stdgo._internal.time.Time_parseerror.ParseError to stdgo._internal.time.Time_parseerror.ParseError {
+@:structInit @:using(stdgo.time.Time.ParseError_static_extension) abstract ParseError(stdgo._internal.time.Time_parseerror.ParseError) from stdgo._internal.time.Time_parseerror.ParseError to stdgo._internal.time.Time_parseerror.ParseError {
     public var layout(get, set) : String;
     function get_layout():String return this.layout;
     function set_layout(v:String):String {
@@ -285,7 +285,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_runtimeTimer_static_extension) @:dox(hide) abstract T_runtimeTimer(stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer) from stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer to stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer {
+@:structInit @:using(stdgo.time.Time.T_runtimeTimer_static_extension) @:dox(hide) abstract T_runtimeTimer(stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer) from stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer to stdgo._internal.time.Time_t_runtimetimer.T_runtimeTimer {
     public var _pp(get, set) : stdgo.GoUIntptr;
     function get__pp():stdgo.GoUIntptr return this._pp;
     function set__pp(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
@@ -338,7 +338,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Timer_static_extension) abstract Timer(stdgo._internal.time.Time_timer.Timer) from stdgo._internal.time.Time_timer.Timer to stdgo._internal.time.Time_timer.Timer {
+@:structInit @:using(stdgo.time.Time.Timer_static_extension) abstract Timer(stdgo._internal.time.Time_timer.Timer) from stdgo._internal.time.Time_timer.Timer to stdgo._internal.time.Time_timer.Timer {
     public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_time.Time>;
     function get_c():stdgo.Chan<stdgo._internal.time.Time_time.Time> return this.c;
     function set_c(v:stdgo.Chan<stdgo._internal.time.Time_time.Time>):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
@@ -355,7 +355,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Ticker_static_extension) abstract Ticker(stdgo._internal.time.Time_ticker.Ticker) from stdgo._internal.time.Time_ticker.Ticker to stdgo._internal.time.Time_ticker.Ticker {
+@:structInit @:using(stdgo.time.Time.Ticker_static_extension) abstract Ticker(stdgo._internal.time.Time_ticker.Ticker) from stdgo._internal.time.Time_ticker.Ticker to stdgo._internal.time.Time_ticker.Ticker {
     public var c(get, set) : stdgo.Chan<stdgo._internal.time.Time_time.Time>;
     function get_c():stdgo.Chan<stdgo._internal.time.Time_time.Time> return this.c;
     function set_c(v:stdgo.Chan<stdgo._internal.time.Time_time.Time>):stdgo.Chan<stdgo._internal.time.Time_time.Time> {
@@ -372,7 +372,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Time_static_extension) abstract Time_(stdgo._internal.time.Time_time.Time) from stdgo._internal.time.Time_time.Time to stdgo._internal.time.Time_time.Time {
+@:structInit @:using(stdgo.time.Time.Time_static_extension) abstract Time_(stdgo._internal.time.Time_time.Time) from stdgo._internal.time.Time_time.Time to stdgo._internal.time.Time_time.Time {
     public var _wall(get, set) : haxe.UInt64;
     function get__wall():haxe.UInt64 return this._wall;
     function set__wall(v:haxe.UInt64):haxe.UInt64 {
@@ -395,7 +395,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Location_static_extension) abstract Location(stdgo._internal.time.Time_location.Location) from stdgo._internal.time.Time_location.Location to stdgo._internal.time.Time_location.Location {
+@:structInit @:using(stdgo.time.Time.Location_static_extension) abstract Location(stdgo._internal.time.Time_location.Location) from stdgo._internal.time.Time_location.Location to stdgo._internal.time.Time_location.Location {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -442,7 +442,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_zone_static_extension) @:dox(hide) abstract T_zone(stdgo._internal.time.Time_t_zone.T_zone) from stdgo._internal.time.Time_t_zone.T_zone to stdgo._internal.time.Time_t_zone.T_zone {
+@:structInit @:using(stdgo.time.Time.T_zone_static_extension) @:dox(hide) abstract T_zone(stdgo._internal.time.Time_t_zone.T_zone) from stdgo._internal.time.Time_t_zone.T_zone to stdgo._internal.time.Time_t_zone.T_zone {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -465,7 +465,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_zoneTrans_static_extension) @:dox(hide) abstract T_zoneTrans(stdgo._internal.time.Time_t_zonetrans.T_zoneTrans) from stdgo._internal.time.Time_t_zonetrans.T_zoneTrans to stdgo._internal.time.Time_t_zonetrans.T_zoneTrans {
+@:structInit @:using(stdgo.time.Time.T_zoneTrans_static_extension) @:dox(hide) abstract T_zoneTrans(stdgo._internal.time.Time_t_zonetrans.T_zoneTrans) from stdgo._internal.time.Time_t_zonetrans.T_zoneTrans to stdgo._internal.time.Time_t_zonetrans.T_zoneTrans {
     public var _when(get, set) : haxe.Int64;
     function get__when():haxe.Int64 return this._when;
     function set__when(v:haxe.Int64):haxe.Int64 {
@@ -494,7 +494,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_rule_static_extension) @:dox(hide) abstract T_rule(stdgo._internal.time.Time_t_rule.T_rule) from stdgo._internal.time.Time_t_rule.T_rule to stdgo._internal.time.Time_t_rule.T_rule {
+@:structInit @:using(stdgo.time.Time.T_rule_static_extension) @:dox(hide) abstract T_rule(stdgo._internal.time.Time_t_rule.T_rule) from stdgo._internal.time.Time_t_rule.T_rule to stdgo._internal.time.Time_t_rule.T_rule {
     public var _kind(get, set) : T_ruleKind;
     function get__kind():T_ruleKind return this._kind;
     function set__kind(v:T_ruleKind):T_ruleKind {
@@ -529,7 +529,7 @@ private function set_notMonoNegativeTime(v:Time_):Time_ {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_dataIO_static_extension) @:dox(hide) abstract T_dataIO(stdgo._internal.time.Time_t_dataio.T_dataIO) from stdgo._internal.time.Time_t_dataio.T_dataIO to stdgo._internal.time.Time_t_dataio.T_dataIO {
+@:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) @:dox(hide) abstract T_dataIO(stdgo._internal.time.Time_t_dataio.T_dataIO) from stdgo._internal.time.Time_t_dataio.T_dataIO to stdgo._internal.time.Time_t_dataio.T_dataIO {
     public var _p(get, set) : Array<std.UInt>;
     function get__p():Array<std.UInt> return [for (i in this._p) i];
     function set__p(v:Array<std.UInt>):Array<std.UInt> {

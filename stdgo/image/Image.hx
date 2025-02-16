@@ -157,7 +157,7 @@ class PalettedImage_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_format_static_extension) @:dox(hide) abstract T_format(stdgo._internal.image.Image_t_format.T_format) from stdgo._internal.image.Image_t_format.T_format to stdgo._internal.image.Image_t_format.T_format {
+@:structInit @:using(stdgo.image.Image.T_format_static_extension) @:dox(hide) abstract T_format(stdgo._internal.image.Image_t_format.T_format) from stdgo._internal.image.Image_t_format.T_format to stdgo._internal.image.Image_t_format.T_format {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -186,7 +186,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Point_static_extension) abstract Point(stdgo._internal.image.Image_point.Point) from stdgo._internal.image.Image_point.Point to stdgo._internal.image.Image_point.Point {
+@:structInit @:using(stdgo.image.Image.Point_static_extension) abstract Point(stdgo._internal.image.Image_point.Point) from stdgo._internal.image.Image_point.Point to stdgo._internal.image.Image_point.Point {
     public var x(get, set) : StdTypes.Int;
     function get_x():StdTypes.Int return this.x;
     function set_x(v:StdTypes.Int):StdTypes.Int {
@@ -203,7 +203,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Rectangle_static_extension) abstract Rectangle(stdgo._internal.image.Image_rectangle.Rectangle) from stdgo._internal.image.Image_rectangle.Rectangle to stdgo._internal.image.Image_rectangle.Rectangle {
+@:structInit @:using(stdgo.image.Image.Rectangle_static_extension) abstract Rectangle(stdgo._internal.image.Image_rectangle.Rectangle) from stdgo._internal.image.Image_rectangle.Rectangle to stdgo._internal.image.Image_rectangle.Rectangle {
     public var min(get, set) : Point;
     function get_min():Point return this.min;
     function set_min(v:Point):Point {
@@ -220,7 +220,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Config_static_extension) abstract Config(stdgo._internal.image.Image_config.Config) from stdgo._internal.image.Image_config.Config to stdgo._internal.image.Image_config.Config {
+@:structInit @:using(stdgo.image.Image.Config_static_extension) abstract Config(stdgo._internal.image.Image_config.Config) from stdgo._internal.image.Image_config.Config to stdgo._internal.image.Image_config.Config {
     public var colorModel(get, set) : stdgo._internal.image.color.Color_model.Model;
     function get_colorModel():stdgo._internal.image.color.Color_model.Model return this.colorModel;
     function set_colorModel(v:stdgo._internal.image.color.Color_model.Model):stdgo._internal.image.color.Color_model.Model {
@@ -243,7 +243,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(RGBA_static_extension) abstract RGBA(stdgo._internal.image.Image_rgba.RGBA) from stdgo._internal.image.Image_rgba.RGBA to stdgo._internal.image.Image_rgba.RGBA {
+@:structInit @:using(stdgo.image.Image.RGBA_static_extension) abstract RGBA(stdgo._internal.image.Image_rgba.RGBA) from stdgo._internal.image.Image_rgba.RGBA to stdgo._internal.image.Image_rgba.RGBA {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -266,7 +266,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(RGBA64_static_extension) abstract RGBA64(stdgo._internal.image.Image_rgba64.RGBA64) from stdgo._internal.image.Image_rgba64.RGBA64 to stdgo._internal.image.Image_rgba64.RGBA64 {
+@:structInit @:using(stdgo.image.Image.RGBA64_static_extension) abstract RGBA64(stdgo._internal.image.Image_rgba64.RGBA64) from stdgo._internal.image.Image_rgba64.RGBA64 to stdgo._internal.image.Image_rgba64.RGBA64 {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -289,7 +289,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(NRGBA_static_extension) abstract NRGBA(stdgo._internal.image.Image_nrgba.NRGBA) from stdgo._internal.image.Image_nrgba.NRGBA to stdgo._internal.image.Image_nrgba.NRGBA {
+@:structInit @:using(stdgo.image.Image.NRGBA_static_extension) abstract NRGBA(stdgo._internal.image.Image_nrgba.NRGBA) from stdgo._internal.image.Image_nrgba.NRGBA to stdgo._internal.image.Image_nrgba.NRGBA {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -312,7 +312,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(NRGBA64_static_extension) abstract NRGBA64(stdgo._internal.image.Image_nrgba64.NRGBA64) from stdgo._internal.image.Image_nrgba64.NRGBA64 to stdgo._internal.image.Image_nrgba64.NRGBA64 {
+@:structInit @:using(stdgo.image.Image.NRGBA64_static_extension) abstract NRGBA64(stdgo._internal.image.Image_nrgba64.NRGBA64) from stdgo._internal.image.Image_nrgba64.NRGBA64 to stdgo._internal.image.Image_nrgba64.NRGBA64 {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -335,7 +335,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Alpha_static_extension) abstract Alpha(stdgo._internal.image.Image_alpha.Alpha) from stdgo._internal.image.Image_alpha.Alpha to stdgo._internal.image.Image_alpha.Alpha {
+@:structInit @:using(stdgo.image.Image.Alpha_static_extension) abstract Alpha(stdgo._internal.image.Image_alpha.Alpha) from stdgo._internal.image.Image_alpha.Alpha to stdgo._internal.image.Image_alpha.Alpha {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -358,7 +358,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Alpha16_static_extension) abstract Alpha16(stdgo._internal.image.Image_alpha16.Alpha16) from stdgo._internal.image.Image_alpha16.Alpha16 to stdgo._internal.image.Image_alpha16.Alpha16 {
+@:structInit @:using(stdgo.image.Image.Alpha16_static_extension) abstract Alpha16(stdgo._internal.image.Image_alpha16.Alpha16) from stdgo._internal.image.Image_alpha16.Alpha16 to stdgo._internal.image.Image_alpha16.Alpha16 {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -381,7 +381,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Gray_static_extension) abstract Gray(stdgo._internal.image.Image_gray.Gray) from stdgo._internal.image.Image_gray.Gray to stdgo._internal.image.Image_gray.Gray {
+@:structInit @:using(stdgo.image.Image.Gray_static_extension) abstract Gray(stdgo._internal.image.Image_gray.Gray) from stdgo._internal.image.Image_gray.Gray to stdgo._internal.image.Image_gray.Gray {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -404,7 +404,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Gray16_static_extension) abstract Gray16(stdgo._internal.image.Image_gray16.Gray16) from stdgo._internal.image.Image_gray16.Gray16 to stdgo._internal.image.Image_gray16.Gray16 {
+@:structInit @:using(stdgo.image.Image.Gray16_static_extension) abstract Gray16(stdgo._internal.image.Image_gray16.Gray16) from stdgo._internal.image.Image_gray16.Gray16 to stdgo._internal.image.Image_gray16.Gray16 {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -427,7 +427,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(CMYK_static_extension) abstract CMYK(stdgo._internal.image.Image_cmyk.CMYK) from stdgo._internal.image.Image_cmyk.CMYK to stdgo._internal.image.Image_cmyk.CMYK {
+@:structInit @:using(stdgo.image.Image.CMYK_static_extension) abstract CMYK(stdgo._internal.image.Image_cmyk.CMYK) from stdgo._internal.image.Image_cmyk.CMYK to stdgo._internal.image.Image_cmyk.CMYK {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -450,7 +450,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Paletted_static_extension) abstract Paletted(stdgo._internal.image.Image_paletted.Paletted) from stdgo._internal.image.Image_paletted.Paletted to stdgo._internal.image.Image_paletted.Paletted {
+@:structInit @:using(stdgo.image.Image.Paletted_static_extension) abstract Paletted(stdgo._internal.image.Image_paletted.Paletted) from stdgo._internal.image.Image_paletted.Paletted to stdgo._internal.image.Image_paletted.Paletted {
     public var pix(get, set) : Array<std.UInt>;
     function get_pix():Array<std.UInt> return [for (i in this.pix) i];
     function set_pix(v:Array<std.UInt>):Array<std.UInt> {
@@ -479,7 +479,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Uniform_static_extension) abstract Uniform(stdgo._internal.image.Image_uniform.Uniform) from stdgo._internal.image.Image_uniform.Uniform to stdgo._internal.image.Image_uniform.Uniform {
+@:structInit @:using(stdgo.image.Image.Uniform_static_extension) abstract Uniform(stdgo._internal.image.Image_uniform.Uniform) from stdgo._internal.image.Image_uniform.Uniform to stdgo._internal.image.Image_uniform.Uniform {
     public var c(get, set) : stdgo._internal.image.color.Color_color.Color;
     function get_c():stdgo._internal.image.color.Color_color.Color return this.c;
     function set_c(v:stdgo._internal.image.color.Color_color.Color):stdgo._internal.image.color.Color_color.Color {
@@ -490,7 +490,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(YCbCr_static_extension) abstract YCbCr(stdgo._internal.image.Image_ycbcr.YCbCr) from stdgo._internal.image.Image_ycbcr.YCbCr to stdgo._internal.image.Image_ycbcr.YCbCr {
+@:structInit @:using(stdgo.image.Image.YCbCr_static_extension) abstract YCbCr(stdgo._internal.image.Image_ycbcr.YCbCr) from stdgo._internal.image.Image_ycbcr.YCbCr to stdgo._internal.image.Image_ycbcr.YCbCr {
     public var y(get, set) : Array<std.UInt>;
     function get_y():Array<std.UInt> return [for (i in this.y) i];
     function set_y(v:Array<std.UInt>):Array<std.UInt> {
@@ -537,7 +537,7 @@ class PalettedImage_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(NYCbCrA_static_extension) abstract NYCbCrA(stdgo._internal.image.Image_nycbcra.NYCbCrA) from stdgo._internal.image.Image_nycbcra.NYCbCrA to stdgo._internal.image.Image_nycbcra.NYCbCrA {
+@:structInit @:using(stdgo.image.Image.NYCbCrA_static_extension) abstract NYCbCrA(stdgo._internal.image.Image_nycbcra.NYCbCrA) from stdgo._internal.image.Image_nycbcra.NYCbCrA to stdgo._internal.image.Image_nycbcra.NYCbCrA {
     public var yCbCr(get, set) : YCbCr;
     function get_yCbCr():YCbCr return this.yCbCr;
     function set_yCbCr(v:YCbCr):YCbCr {

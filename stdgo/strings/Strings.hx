@@ -21,7 +21,7 @@ package stdgo.strings;
         return y;
     }
 }
-@:structInit @:using(Builder_static_extension) abstract Builder(stdgo._internal.strings.Strings_builder.Builder) from stdgo._internal.strings.Strings_builder.Builder to stdgo._internal.strings.Strings_builder.Builder {
+@:structInit @:using(stdgo.strings.Strings.Builder_static_extension) abstract Builder(stdgo._internal.strings.Strings_builder.Builder) from stdgo._internal.strings.Strings_builder.Builder to stdgo._internal.strings.Strings_builder.Builder {
     public var _addr(get, set) : Builder;
     function get__addr():Builder return this._addr;
     function set__addr(v:Builder):Builder {
@@ -38,7 +38,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Reader_static_extension) abstract Reader(stdgo._internal.strings.Strings_reader.Reader) from stdgo._internal.strings.Strings_reader.Reader to stdgo._internal.strings.Strings_reader.Reader {
+@:structInit @:using(stdgo.strings.Strings.Reader_static_extension) abstract Reader(stdgo._internal.strings.Strings_reader.Reader) from stdgo._internal.strings.Strings_reader.Reader to stdgo._internal.strings.Strings_reader.Reader {
     public var _s(get, set) : String;
     function get__s():String return this._s;
     function set__s(v:String):String {
@@ -61,7 +61,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Replacer_static_extension) abstract Replacer(stdgo._internal.strings.Strings_replacer.Replacer) from stdgo._internal.strings.Strings_replacer.Replacer to stdgo._internal.strings.Strings_replacer.Replacer {
+@:structInit @:using(stdgo.strings.Strings.Replacer_static_extension) abstract Replacer(stdgo._internal.strings.Strings_replacer.Replacer) from stdgo._internal.strings.Strings_replacer.Replacer to stdgo._internal.strings.Strings_replacer.Replacer {
     public var _once(get, set) : stdgo._internal.sync.Sync_once.Once;
     function get__once():stdgo._internal.sync.Sync_once.Once return this._once;
     function set__once(v:stdgo._internal.sync.Sync_once.Once):stdgo._internal.sync.Sync_once.Once {
@@ -84,7 +84,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_trieNode_static_extension) @:dox(hide) abstract T_trieNode(stdgo._internal.strings.Strings_t_trienode.T_trieNode) from stdgo._internal.strings.Strings_t_trienode.T_trieNode to stdgo._internal.strings.Strings_t_trienode.T_trieNode {
+@:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) @:dox(hide) abstract T_trieNode(stdgo._internal.strings.Strings_t_trienode.T_trieNode) from stdgo._internal.strings.Strings_t_trienode.T_trieNode to stdgo._internal.strings.Strings_t_trienode.T_trieNode {
     public var _value(get, set) : String;
     function get__value():String return this._value;
     function set__value(v:String):String {
@@ -119,7 +119,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_genericReplacer_static_extension) @:dox(hide) abstract T_genericReplacer(stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer) from stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer to stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) @:dox(hide) abstract T_genericReplacer(stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer) from stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer to stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer {
     public var _root(get, set) : T_trieNode;
     function get__root():T_trieNode return this._root;
     function set__root(v:T_trieNode):T_trieNode {
@@ -142,7 +142,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_stringWriter_static_extension) @:dox(hide) abstract T_stringWriter(stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter) from stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter to stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter {
+@:structInit @:using(stdgo.strings.Strings.T_stringWriter_static_extension) @:dox(hide) abstract T_stringWriter(stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter) from stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter to stdgo._internal.strings.Strings_t_stringwriter.T_stringWriter {
     public var _w(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get__w():stdgo._internal.io.Io_writer.Writer return this._w;
     function set__w(v:stdgo._internal.io.Io_writer.Writer):stdgo._internal.io.Io_writer.Writer {
@@ -153,7 +153,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_singleStringReplacer_static_extension) @:dox(hide) abstract T_singleStringReplacer(stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer) from stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer to stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) @:dox(hide) abstract T_singleStringReplacer(stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer) from stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer to stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer {
     public var _finder(get, set) : T_stringFinder;
     function get__finder():T_stringFinder return this._finder;
     function set__finder(v:T_stringFinder):T_stringFinder {
@@ -170,7 +170,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_byteStringReplacer_static_extension) @:dox(hide) abstract T_byteStringReplacer(stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer) from stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer to stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) @:dox(hide) abstract T_byteStringReplacer(stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer) from stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer to stdgo._internal.strings.Strings_t_bytestringreplacer.T_byteStringReplacer {
     public var _replacements(get, set) : haxe.ds.Vector<Array<std.UInt>>;
     function get__replacements():haxe.ds.Vector<Array<std.UInt>> return haxe.ds.Vector.fromArrayCopy([for (i in this._replacements) [for (i in i) i]]);
     function set__replacements(v:haxe.ds.Vector<Array<std.UInt>>):haxe.ds.Vector<Array<std.UInt>> {
@@ -187,7 +187,7 @@ package stdgo.strings;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_stringFinder_static_extension) @:dox(hide) abstract T_stringFinder(stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder) from stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder to stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder {
+@:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) @:dox(hide) abstract T_stringFinder(stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder) from stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder to stdgo._internal.strings.Strings_t_stringfinder.T_stringFinder {
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
@@ -213,7 +213,7 @@ package stdgo.strings;
 @:dox(hide) typedef T_appendSliceWriter = stdgo._internal.strings.Strings_t_appendslicewriter.T_appendSliceWriter;
 @:dox(hide) typedef T_byteReplacer = stdgo._internal.strings.Strings_t_bytereplacer.T_byteReplacer;
 @:dox(hide) typedef T_asciiSet = stdgo._internal.strings.Strings_t_asciiset.T_asciiSet;
-@:structInit @:using(T_fieldsFunc___localname___span_9921_static_extension) @:dox(hide) abstract T_fieldsFunc___localname___span_9921(stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921) from stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921 to stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921 {
+@:structInit @:using(stdgo.strings.Strings.T_fieldsFunc___localname___span_9921_static_extension) @:dox(hide) abstract T_fieldsFunc___localname___span_9921(stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921) from stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921 to stdgo._internal.strings.Strings_t_fieldsfunc___localname___span_9921.T_fieldsFunc___localname___span_9921 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {

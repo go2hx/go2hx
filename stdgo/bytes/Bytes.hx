@@ -12,7 +12,7 @@ private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes
         stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = v;
         return v;
     }
-@:structInit @:using(Buffer_static_extension) abstract Buffer(stdgo._internal.bytes.Bytes_buffer.Buffer) from stdgo._internal.bytes.Bytes_buffer.Buffer to stdgo._internal.bytes.Bytes_buffer.Buffer {
+@:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) abstract Buffer(stdgo._internal.bytes.Bytes_buffer.Buffer) from stdgo._internal.bytes.Bytes_buffer.Buffer to stdgo._internal.bytes.Bytes_buffer.Buffer {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];
     function set__buf(v:Array<std.UInt>):Array<std.UInt> {
@@ -35,7 +35,7 @@ private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Reader_static_extension) abstract Reader(stdgo._internal.bytes.Bytes_reader.Reader) from stdgo._internal.bytes.Bytes_reader.Reader to stdgo._internal.bytes.Bytes_reader.Reader {
+@:structInit @:using(stdgo.bytes.Bytes.Reader_static_extension) abstract Reader(stdgo._internal.bytes.Bytes_reader.Reader) from stdgo._internal.bytes.Bytes_reader.Reader to stdgo._internal.bytes.Bytes_reader.Reader {
     public var _s(get, set) : Array<std.UInt>;
     function get__s():Array<std.UInt> return [for (i in this._s) i];
     function set__s(v:Array<std.UInt>):Array<std.UInt> {
@@ -60,7 +60,7 @@ private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes
 }
 @:dox(hide) typedef T_readOp = stdgo._internal.bytes.Bytes_t_readop.T_readOp;
 @:dox(hide) typedef T_asciiSet = stdgo._internal.bytes.Bytes_t_asciiset.T_asciiSet;
-@:structInit @:using(T_fieldsFunc___localname___span_11914_static_extension) @:dox(hide) abstract T_fieldsFunc___localname___span_11914(stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914) from stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 to stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 {
+@:structInit @:using(stdgo.bytes.Bytes.T_fieldsFunc___localname___span_11914_static_extension) @:dox(hide) abstract T_fieldsFunc___localname___span_11914(stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914) from stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 to stdgo._internal.bytes.Bytes_t_fieldsfunc___localname___span_11914.T_fieldsFunc___localname___span_11914 {
     public var _start(get, set) : StdTypes.Int;
     function get__start():StdTypes.Int return this._start;
     function set__start(v:StdTypes.Int):StdTypes.Int {

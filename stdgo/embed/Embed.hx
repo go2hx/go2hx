@@ -1,5 +1,5 @@
 package stdgo.embed;
-@:structInit @:using(FS_static_extension) abstract FS(stdgo._internal.embed.Embed_fs.FS) from stdgo._internal.embed.Embed_fs.FS to stdgo._internal.embed.Embed_fs.FS {
+@:structInit @:using(stdgo.embed.Embed.FS_static_extension) abstract FS(stdgo._internal.embed.Embed_fs.FS) from stdgo._internal.embed.Embed_fs.FS to stdgo._internal.embed.Embed_fs.FS {
     public var _files(get, set) : Array<T_file>;
     function get__files():Array<T_file> return this._files;
     function set__files(v:Array<T_file>):Array<T_file> {
@@ -10,7 +10,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.embed.Embed_t_file.T_file) from stdgo._internal.embed.Embed_t_file.T_file to stdgo._internal.embed.Embed_t_file.T_file {
+@:structInit @:using(stdgo.embed.Embed.T_file_static_extension) @:dox(hide) abstract T_file(stdgo._internal.embed.Embed_t_file.T_file) from stdgo._internal.embed.Embed_t_file.T_file to stdgo._internal.embed.Embed_t_file.T_file {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -33,7 +33,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_openFile_static_extension) @:dox(hide) abstract T_openFile(stdgo._internal.embed.Embed_t_openfile.T_openFile) from stdgo._internal.embed.Embed_t_openfile.T_openFile to stdgo._internal.embed.Embed_t_openfile.T_openFile {
+@:structInit @:using(stdgo.embed.Embed.T_openFile_static_extension) @:dox(hide) abstract T_openFile(stdgo._internal.embed.Embed_t_openfile.T_openFile) from stdgo._internal.embed.Embed_t_openfile.T_openFile to stdgo._internal.embed.Embed_t_openfile.T_openFile {
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {
@@ -50,7 +50,7 @@ package stdgo.embed;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_openDir_static_extension) @:dox(hide) abstract T_openDir(stdgo._internal.embed.Embed_t_opendir.T_openDir) from stdgo._internal.embed.Embed_t_opendir.T_openDir to stdgo._internal.embed.Embed_t_opendir.T_openDir {
+@:structInit @:using(stdgo.embed.Embed.T_openDir_static_extension) @:dox(hide) abstract T_openDir(stdgo._internal.embed.Embed_t_opendir.T_openDir) from stdgo._internal.embed.Embed_t_opendir.T_openDir to stdgo._internal.embed.Embed_t_opendir.T_openDir {
     public var _f(get, set) : T_file;
     function get__f():T_file return this._f;
     function set__f(v:T_file):T_file {

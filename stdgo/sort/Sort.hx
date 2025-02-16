@@ -23,7 +23,7 @@ class Interface_static_extension {
         return y;
     }
 }
-@:structInit @:using(T_lessSwap_static_extension) @:dox(hide) abstract T_lessSwap(stdgo._internal.sort.Sort_t_lessswap.T_lessSwap) from stdgo._internal.sort.Sort_t_lessswap.T_lessSwap to stdgo._internal.sort.Sort_t_lessswap.T_lessSwap {
+@:structInit @:using(stdgo.sort.Sort.T_lessSwap_static_extension) @:dox(hide) abstract T_lessSwap(stdgo._internal.sort.Sort_t_lessswap.T_lessSwap) from stdgo._internal.sort.Sort_t_lessswap.T_lessSwap to stdgo._internal.sort.Sort_t_lessswap.T_lessSwap {
     public var less(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
     function get_less():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.less(_0, _1);
     function set_less(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
@@ -40,7 +40,7 @@ class Interface_static_extension {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_reverse_static_extension) @:dox(hide) abstract T_reverse(stdgo._internal.sort.Sort_t_reverse.T_reverse) from stdgo._internal.sort.Sort_t_reverse.T_reverse to stdgo._internal.sort.Sort_t_reverse.T_reverse {
+@:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) @:dox(hide) abstract T_reverse(stdgo._internal.sort.Sort_t_reverse.T_reverse) from stdgo._internal.sort.Sort_t_reverse.T_reverse to stdgo._internal.sort.Sort_t_reverse.T_reverse {
     public var interface_(get, set) : Interface;
     function get_interface_():Interface return this.interface_;
     function set_interface_(v:Interface):Interface {

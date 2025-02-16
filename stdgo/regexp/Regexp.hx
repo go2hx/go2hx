@@ -33,7 +33,7 @@ package stdgo.regexp;
         return y;
     }
 }
-@:structInit @:using(T_stringError_static_extension) @:dox(hide) abstract T_stringError(stdgo._internal.regexp.Regexp_t_stringerror.T_stringError) from stdgo._internal.regexp.Regexp_t_stringerror.T_stringError to stdgo._internal.regexp.Regexp_t_stringerror.T_stringError {
+@:structInit @:using(stdgo.regexp.Regexp.T_stringError_static_extension) @:dox(hide) abstract T_stringError(stdgo._internal.regexp.Regexp_t_stringerror.T_stringError) from stdgo._internal.regexp.Regexp_t_stringerror.T_stringError to stdgo._internal.regexp.Regexp_t_stringerror.T_stringError {
     public var _re(get, set) : String;
     function get__re():String return this._re;
     function set__re(v:String):String {
@@ -50,7 +50,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ReplaceTest_static_extension) abstract ReplaceTest(stdgo._internal.regexp.Regexp_replacetest.ReplaceTest) from stdgo._internal.regexp.Regexp_replacetest.ReplaceTest to stdgo._internal.regexp.Regexp_replacetest.ReplaceTest {
+@:structInit @:using(stdgo.regexp.Regexp.ReplaceTest_static_extension) abstract ReplaceTest(stdgo._internal.regexp.Regexp_replacetest.ReplaceTest) from stdgo._internal.regexp.Regexp_replacetest.ReplaceTest to stdgo._internal.regexp.Regexp_replacetest.ReplaceTest {
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
@@ -79,7 +79,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(ReplaceFuncTest_static_extension) abstract ReplaceFuncTest(stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest) from stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest to stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest {
+@:structInit @:using(stdgo.regexp.Regexp.ReplaceFuncTest_static_extension) abstract ReplaceFuncTest(stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest) from stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest to stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest {
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
@@ -108,7 +108,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(MetaTest_static_extension) abstract MetaTest(stdgo._internal.regexp.Regexp_metatest.MetaTest) from stdgo._internal.regexp.Regexp_metatest.MetaTest to stdgo._internal.regexp.Regexp_metatest.MetaTest {
+@:structInit @:using(stdgo.regexp.Regexp.MetaTest_static_extension) abstract MetaTest(stdgo._internal.regexp.Regexp_metatest.MetaTest) from stdgo._internal.regexp.Regexp_metatest.MetaTest to stdgo._internal.regexp.Regexp_metatest.MetaTest {
     public var _pattern(get, set) : String;
     function get__pattern():String return this._pattern;
     function set__pattern(v:String):String {
@@ -137,7 +137,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_subexpIndex_static_extension) @:dox(hide) abstract T_subexpIndex(stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex) from stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex to stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex {
+@:structInit @:using(stdgo.regexp.Regexp.T_subexpIndex_static_extension) @:dox(hide) abstract T_subexpIndex(stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex) from stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex to stdgo._internal.regexp.Regexp_t_subexpindex.T_subexpIndex {
     public var _name(get, set) : String;
     function get__name():String return this._name;
     function set__name(v:String):String {
@@ -154,7 +154,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_subexpCase_static_extension) @:dox(hide) abstract T_subexpCase(stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase) from stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase to stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase {
+@:structInit @:using(stdgo.regexp.Regexp.T_subexpCase_static_extension) @:dox(hide) abstract T_subexpCase(stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase) from stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase to stdgo._internal.regexp.Regexp_t_subexpcase.T_subexpCase {
     public var _input(get, set) : String;
     function get__input():String return this._input;
     function set__input(v:String):String {
@@ -183,7 +183,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_job_static_extension) @:dox(hide) abstract T_job(stdgo._internal.regexp.Regexp_t_job.T_job) from stdgo._internal.regexp.Regexp_t_job.T_job to stdgo._internal.regexp.Regexp_t_job.T_job {
+@:structInit @:using(stdgo.regexp.Regexp.T_job_static_extension) @:dox(hide) abstract T_job(stdgo._internal.regexp.Regexp_t_job.T_job) from stdgo._internal.regexp.Regexp_t_job.T_job to stdgo._internal.regexp.Regexp_t_job.T_job {
     public var _pc(get, set) : std.UInt;
     function get__pc():std.UInt return this._pc;
     function set__pc(v:std.UInt):std.UInt {
@@ -206,7 +206,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_bitState_static_extension) @:dox(hide) abstract T_bitState(stdgo._internal.regexp.Regexp_t_bitstate.T_bitState) from stdgo._internal.regexp.Regexp_t_bitstate.T_bitState to stdgo._internal.regexp.Regexp_t_bitstate.T_bitState {
+@:structInit @:using(stdgo.regexp.Regexp.T_bitState_static_extension) @:dox(hide) abstract T_bitState(stdgo._internal.regexp.Regexp_t_bitstate.T_bitState) from stdgo._internal.regexp.Regexp_t_bitstate.T_bitState to stdgo._internal.regexp.Regexp_t_bitstate.T_bitState {
     public var _end(get, set) : StdTypes.Int;
     function get__end():StdTypes.Int return this._end;
     function set__end(v:StdTypes.Int):StdTypes.Int {
@@ -247,7 +247,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_queue_static_extension) @:dox(hide) abstract T_queue(stdgo._internal.regexp.Regexp_t_queue.T_queue) from stdgo._internal.regexp.Regexp_t_queue.T_queue to stdgo._internal.regexp.Regexp_t_queue.T_queue {
+@:structInit @:using(stdgo.regexp.Regexp.T_queue_static_extension) @:dox(hide) abstract T_queue(stdgo._internal.regexp.Regexp_t_queue.T_queue) from stdgo._internal.regexp.Regexp_t_queue.T_queue to stdgo._internal.regexp.Regexp_t_queue.T_queue {
     public var _sparse(get, set) : Array<std.UInt>;
     function get__sparse():Array<std.UInt> return [for (i in this._sparse) i];
     function set__sparse(v:Array<std.UInt>):Array<std.UInt> {
@@ -264,7 +264,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_entry_static_extension) @:dox(hide) abstract T_entry(stdgo._internal.regexp.Regexp_t_entry.T_entry) from stdgo._internal.regexp.Regexp_t_entry.T_entry to stdgo._internal.regexp.Regexp_t_entry.T_entry {
+@:structInit @:using(stdgo.regexp.Regexp.T_entry_static_extension) @:dox(hide) abstract T_entry(stdgo._internal.regexp.Regexp_t_entry.T_entry) from stdgo._internal.regexp.Regexp_t_entry.T_entry to stdgo._internal.regexp.Regexp_t_entry.T_entry {
     public var _pc(get, set) : std.UInt;
     function get__pc():std.UInt return this._pc;
     function set__pc(v:std.UInt):std.UInt {
@@ -281,7 +281,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_thread_static_extension) @:dox(hide) abstract T_thread(stdgo._internal.regexp.Regexp_t_thread.T_thread) from stdgo._internal.regexp.Regexp_t_thread.T_thread to stdgo._internal.regexp.Regexp_t_thread.T_thread {
+@:structInit @:using(stdgo.regexp.Regexp.T_thread_static_extension) @:dox(hide) abstract T_thread(stdgo._internal.regexp.Regexp_t_thread.T_thread) from stdgo._internal.regexp.Regexp_t_thread.T_thread to stdgo._internal.regexp.Regexp_t_thread.T_thread {
     public var _inst(get, set) : stdgo._internal.regexp.syntax.Syntax_inst.Inst;
     function get__inst():stdgo._internal.regexp.syntax.Syntax_inst.Inst return this._inst;
     function set__inst(v:stdgo._internal.regexp.syntax.Syntax_inst.Inst):stdgo._internal.regexp.syntax.Syntax_inst.Inst {
@@ -298,7 +298,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_machine_static_extension) @:dox(hide) abstract T_machine(stdgo._internal.regexp.Regexp_t_machine.T_machine) from stdgo._internal.regexp.Regexp_t_machine.T_machine to stdgo._internal.regexp.Regexp_t_machine.T_machine {
+@:structInit @:using(stdgo.regexp.Regexp.T_machine_static_extension) @:dox(hide) abstract T_machine(stdgo._internal.regexp.Regexp_t_machine.T_machine) from stdgo._internal.regexp.Regexp_t_machine.T_machine to stdgo._internal.regexp.Regexp_t_machine.T_machine {
     public var _re(get, set) : Regexp_;
     function get__re():Regexp_ return this._re;
     function set__re(v:Regexp_):Regexp_ {
@@ -351,7 +351,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_inputs_static_extension) @:dox(hide) abstract T_inputs(stdgo._internal.regexp.Regexp_t_inputs.T_inputs) from stdgo._internal.regexp.Regexp_t_inputs.T_inputs to stdgo._internal.regexp.Regexp_t_inputs.T_inputs {
+@:structInit @:using(stdgo.regexp.Regexp.T_inputs_static_extension) @:dox(hide) abstract T_inputs(stdgo._internal.regexp.Regexp_t_inputs.T_inputs) from stdgo._internal.regexp.Regexp_t_inputs.T_inputs to stdgo._internal.regexp.Regexp_t_inputs.T_inputs {
     public var _bytes(get, set) : T_inputBytes;
     function get__bytes():T_inputBytes return this._bytes;
     function set__bytes(v:T_inputBytes):T_inputBytes {
@@ -374,7 +374,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_onePassMachine_static_extension) @:dox(hide) abstract T_onePassMachine(stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine) from stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine to stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine {
+@:structInit @:using(stdgo.regexp.Regexp.T_onePassMachine_static_extension) @:dox(hide) abstract T_onePassMachine(stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine) from stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine to stdgo._internal.regexp.Regexp_t_onepassmachine.T_onePassMachine {
     public var _inputs(get, set) : T_inputs;
     function get__inputs():T_inputs return this._inputs;
     function set__inputs(v:T_inputs):T_inputs {
@@ -391,7 +391,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(FindTest_static_extension) abstract FindTest(stdgo._internal.regexp.Regexp_findtest.FindTest) from stdgo._internal.regexp.Regexp_findtest.FindTest to stdgo._internal.regexp.Regexp_findtest.FindTest {
+@:structInit @:using(stdgo.regexp.Regexp.FindTest_static_extension) abstract FindTest(stdgo._internal.regexp.Regexp_findtest.FindTest) from stdgo._internal.regexp.Regexp_findtest.FindTest to stdgo._internal.regexp.Regexp_findtest.FindTest {
     public var _pat(get, set) : String;
     function get__pat():String return this._pat;
     function set__pat(v:String):String {
@@ -414,7 +414,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_onePassProg_static_extension) @:dox(hide) abstract T_onePassProg(stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg) from stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg to stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg {
+@:structInit @:using(stdgo.regexp.Regexp.T_onePassProg_static_extension) @:dox(hide) abstract T_onePassProg(stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg) from stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg to stdgo._internal.regexp.Regexp_t_onepassprog.T_onePassProg {
     public var inst(get, set) : Array<T_onePassInst>;
     function get_inst():Array<T_onePassInst> return [for (i in this.inst) i];
     function set_inst(v:Array<T_onePassInst>):Array<T_onePassInst> {
@@ -437,7 +437,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_onePassInst_static_extension) @:dox(hide) abstract T_onePassInst(stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst) from stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst to stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst {
+@:structInit @:using(stdgo.regexp.Regexp.T_onePassInst_static_extension) @:dox(hide) abstract T_onePassInst(stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst) from stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst to stdgo._internal.regexp.Regexp_t_onepassinst.T_onePassInst {
     public var inst(get, set) : stdgo._internal.regexp.syntax.Syntax_inst.Inst;
     function get_inst():stdgo._internal.regexp.syntax.Syntax_inst.Inst return this.inst;
     function set_inst(v:stdgo._internal.regexp.syntax.Syntax_inst.Inst):stdgo._internal.regexp.syntax.Syntax_inst.Inst {
@@ -454,7 +454,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_queueOnePass_static_extension) @:dox(hide) abstract T_queueOnePass(stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass) from stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass to stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass {
+@:structInit @:using(stdgo.regexp.Regexp.T_queueOnePass_static_extension) @:dox(hide) abstract T_queueOnePass(stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass) from stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass to stdgo._internal.regexp.Regexp_t_queueonepass.T_queueOnePass {
     public var _sparse(get, set) : Array<std.UInt>;
     function get__sparse():Array<std.UInt> return [for (i in this._sparse) i];
     function set__sparse(v:Array<std.UInt>):Array<std.UInt> {
@@ -483,7 +483,7 @@ package stdgo.regexp;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(Regexp_static_extension) abstract Regexp_(stdgo._internal.regexp.Regexp_regexp.Regexp) from stdgo._internal.regexp.Regexp_regexp.Regexp to stdgo._internal.regexp.Regexp_regexp.Regexp {
+@:structInit @:using(stdgo.regexp.Regexp.Regexp_static_extension) abstract Regexp_(stdgo._internal.regexp.Regexp_regexp.Regexp) from stdgo._internal.regexp.Regexp_regexp.Regexp to stdgo._internal.regexp.Regexp_regexp.Regexp {
     public var _expr(get, set) : String;
     function get__expr():String return this._expr;
     function set__expr(v:String):String {
@@ -600,7 +600,7 @@ _longest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_inputString_static_extension) @:dox(hide) abstract T_inputString(stdgo._internal.regexp.Regexp_t_inputstring.T_inputString) from stdgo._internal.regexp.Regexp_t_inputstring.T_inputString to stdgo._internal.regexp.Regexp_t_inputstring.T_inputString {
+@:structInit @:using(stdgo.regexp.Regexp.T_inputString_static_extension) @:dox(hide) abstract T_inputString(stdgo._internal.regexp.Regexp_t_inputstring.T_inputString) from stdgo._internal.regexp.Regexp_t_inputstring.T_inputString to stdgo._internal.regexp.Regexp_t_inputstring.T_inputString {
     public var _str(get, set) : String;
     function get__str():String return this._str;
     function set__str(v:String):String {
@@ -611,7 +611,7 @@ _longest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_inputBytes_static_extension) @:dox(hide) abstract T_inputBytes(stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes) from stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes to stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes {
+@:structInit @:using(stdgo.regexp.Regexp.T_inputBytes_static_extension) @:dox(hide) abstract T_inputBytes(stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes) from stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes to stdgo._internal.regexp.Regexp_t_inputbytes.T_inputBytes {
     public var _str(get, set) : Array<std.UInt>;
     function get__str():Array<std.UInt> return [for (i in this._str) i];
     function set__str(v:Array<std.UInt>):Array<std.UInt> {
@@ -622,7 +622,7 @@ _longest);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(T_inputReader_static_extension) @:dox(hide) abstract T_inputReader(stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader) from stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader to stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader {
+@:structInit @:using(stdgo.regexp.Regexp.T_inputReader_static_extension) @:dox(hide) abstract T_inputReader(stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader) from stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader to stdgo._internal.regexp.Regexp_t_inputreader.T_inputReader {
     public var _r(get, set) : stdgo._internal.io.Io_runereader.RuneReader;
     function get__r():stdgo._internal.io.Io_runereader.RuneReader return this._r;
     function set__r(v:stdgo._internal.io.Io_runereader.RuneReader):stdgo._internal.io.Io_runereader.RuneReader {

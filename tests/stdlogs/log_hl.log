@@ -5,15 +5,26 @@
 === RUN  TestAll
 log output should match "^XXXhello 23 world$" is "hello 23 world"
 log output should match "^XXXhello 23 world$" is "hello 23 world"
-log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "09:56:32 hello 23 world"
-log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "09:56:32 hello 23 world"
-Exception: :runtime.caller is not yet implemented
-Called from stdgo._internal.log.$Logger_static_extension._output (stdgo/_internal/log/Log_logger_static_extension.hx line 285)
-Called from stdgo._internal.log._Log_println.$Log_println_Fields_.println (stdgo/_internal/log/Log_println.hx line 4)
-Called from stdgo._internal.log._Log__testprint.$Log__testprint_Fields_._testPrint (stdgo/_internal/log/Log__testprint.hx line 10)
-Called from stdgo._internal.log._Log_testall.$Log_testall_Fields_.testAll (stdgo/_internal/log/Log_testall.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.log_dot_test._Log_dot_test.$Log_dot_test_Fields_.main (_internal/log_dot_test/Log_dot_test.hx line 4)
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "12:56:31 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9] XXXhello 23 world$" is "12:56:31 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello 23 world$" is "12:56:31.1054508 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello 23 world$" is "12:56:31.1054508 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello 23 world$" is "12:56:31.1054508 hello 23 world"
+log output should match "^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] hello 23 world$" is "12:56:31.1054508 hello 23 world"
+log output should match "^.*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^.*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): hello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
+log output should match "^[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXXhello 23 world$" is "2157/03/16 12:56:31.1054508 ???:0: hello 23 world"
 
 -- FAIL: TestAll
 
@@ -37,7 +48,7 @@ message did not match pattern
 -- FAIL: TestFlagAndPrefixSetting
 
 === RUN  TestUTCFlag
-got "2025/02/16 09:56:32 hello\n"; want "Test:2025/02/16 09:56:33 hello\n"
+got "2157/03/16 12:56:31 hello\n"; want "Test:2157/03/16 12:56:33 hello\n"
 
 -- FAIL: TestUTCFlag
 

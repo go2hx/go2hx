@@ -210,7 +210,8 @@ final list = [
 		final data = stdgo._internal.io.Io_readall.readAll(_r);
 		if (data._1 != null)
 			return {_0: 0, _1: data._1};
-		return _f.write(data._0);
+		final obj = _f.write(data._0);
+		return {_0: obj._0, _1: obj._1};
 	},
 	"os:readFile" => macro {
 		return @:define("(sys || hxnodejs)") {

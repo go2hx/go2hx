@@ -1,6 +1,6 @@
 package;
 
-import tests.interop.Interop;
+import go4hx.tests.interop.Interop;
 
 function main() {
     // float32 arg and return

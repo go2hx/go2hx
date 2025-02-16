@@ -34,15 +34,8 @@ steps:
         ./stdgo/*
         ./go2hx.*.zip 
       key: ${{ github.sha }}-build-${{ env.cache-name }}
-  # run yaegi easy tests
-  - name: clone yaegi
-    run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-  - name: Sort tests
-    run: go run ./scripts/sortTests ci
-  - name: Run yaegi easy tests
-    run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
-  - name: Report results
-    run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D report -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
+  - name: Run lib tests
+    run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
   - name: Remove stdgo folder
     run: rm -r -d stdgo
   - name: Remove _internal folder

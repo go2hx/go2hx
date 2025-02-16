@@ -76,6 +76,7 @@ jobs:
       - run: go run . -goto
   interop:
     timeout-minutes: 15
+    needs: setup
     strategy:
       fail-fast: false
     runs-on: [ubuntu-latest]
@@ -231,10 +232,9 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: yaegi easy tests update hl
+            message: libs tests update hl
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
@@ -282,10 +282,9 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: yaegi easy tests update interp
+            message: libs tests update interp
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
@@ -335,10 +334,9 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: yaegi easy tests update js
+            message: libs tests update js
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true

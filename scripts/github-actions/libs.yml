@@ -40,10 +40,9 @@ steps:
     run: rm -r -d stdgo
   - name: Remove _internal folder
     run: rm -r -d _internal
-  # add yaegi_easy.json regression 
   - uses: EndBug/add-and-commit@v9
     with:
-        message: yaegi easy tests update ::target::
+        message: libs tests update ::target::
         add: ./tests
         pull: --rebase --autostash
     continue-on-error: true

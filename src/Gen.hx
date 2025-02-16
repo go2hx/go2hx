@@ -18,7 +18,8 @@ function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 		// get rid of github.com/org/repo prefix
-	var actualPathExtern = cutPrefix(paths).join("/");
+	var isStdgo = false;
+	var actualPathExtern = paths.join("/");
 	var externDefBool = !module.isMain;
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";
@@ -36,6 +37,7 @@ function create(outputPath:String, module:Module, root:String) {
 	}
 	// if stdgo
 	if (Typer.stdgoList.contains(Typer.toGoPath(stdFormatPath))) {
+		isStdgo = true;
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
 		if (actualPathExtern.length > 0) {
@@ -44,6 +46,8 @@ function create(outputPath:String, module:Module, root:String) {
 			actualPathExtern = "stdgo";
 		}
 	}
+	if (!isStdgo)
+		actualPathExtern = cutPrefix(actualPathExtern.split("/")).join("/");
 	if (root.length > 0)
 		root += ".";
 	var pkgPath = 'package ${actualPath.split("/").join(".")};\n';
@@ -219,19 +223,24 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 	return newContent;
 }
 
+var sizeMap:Map<String,Int> = [];
+
 private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String, splitFileBool:Bool=true) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
 	var didWrite = Cache.checkHashAndWrite(path, contentString);
 	if (splitFileBool) {
-
+		var sizePath = haxe.io.Path.directory(path);
+		if (!didWrite)
+			sizePath = "skipped";
+		sizeMap[sizePath] = (sizeMap[sizePath] ?? 0) + src.Util.kbCount(contentString);
 	}else{
 		if (!didWrite) {
 			Sys.println("Skipped: " + dir + name + extension + ".hx");
 			return;
 		}
-		Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
+		Sys.println("Generated:\nMAIN " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 	}
 }
 

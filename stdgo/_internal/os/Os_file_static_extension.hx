@@ -116,7 +116,13 @@ package stdgo._internal.os;
     }
     @:keep
     @:tdfield
-    static public function readFrom( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _r:stdgo._internal.io.Io_reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } throw "File:os.readFrom is not yet implemented";
+    static public function readFrom( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _r:stdgo._internal.io.Io_reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        final data = stdgo._internal.io.Io_readall.readAll(_r);
+        if (data._1 != null) return { _0 : 0, _1 : data._1 };
+        final obj = _f.write(data._0);
+        return { _0 : obj._0, _1 : obj._1 };
+    }
     @:keep
     @:tdfield
     static public function readAt( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.readAt is not yet implemented";

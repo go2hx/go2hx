@@ -78,17 +78,17 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2868232i32;
-                } else if (__value__ == (2868232i32)) {
+                    _gotoNext = 2878842i32;
+                } else if (__value__ == (2878842i32)) {
                     _f_1 = (@:check2r _r.float64() : stdgo.GoFloat32);
                     if (_f_1 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2868277i32;
+                        _gotoNext = 2878887i32;
                     } else {
-                        _gotoNext = 2868345i32;
+                        _gotoNext = 2878955i32;
                     };
-                } else if (__value__ == (2868277i32)) {
-                    _gotoNext = 2868232i32;
-                } else if (__value__ == (2868345i32)) {
+                } else if (__value__ == (2878887i32)) {
+                    _gotoNext = 2878842i32;
+                } else if (__value__ == (2878955i32)) {
                     return _f_1;
                     _gotoNext = -1i32;
                 };
@@ -107,17 +107,17 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2867764i32;
-                } else if (__value__ == (2867764i32)) {
+                    _gotoNext = 2878374i32;
+                } else if (__value__ == (2878374i32)) {
                     _f_0 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     if (_f_0 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2867819i32;
+                        _gotoNext = 2878429i32;
                     } else {
-                        _gotoNext = 2867881i32;
+                        _gotoNext = 2878491i32;
                     };
-                } else if (__value__ == (2867819i32)) {
-                    _gotoNext = 2867764i32;
-                } else if (__value__ == (2867881i32)) {
+                } else if (__value__ == (2878429i32)) {
+                    _gotoNext = 2878374i32;
+                } else if (__value__ == (2878491i32)) {
                     return _f_0;
                     _gotoNext = -1i32;
                 };

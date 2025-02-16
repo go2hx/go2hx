@@ -50,12 +50,11 @@ Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/
 Uncaught exception: Null access .value
 Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
 Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/thread/Thread.hx:152)
-Exception: Null access .value
-Called from _internal.math.rand_test._Rand_test_testconcurrent.$Rand_test_testconcurrent_Fields_.testConcurrent (_internal/math/rand_test/Rand_test_testconcurrent.hx line 155)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.math.rand_dot_test._Rand_dot_test.$Rand_dot_test_Fields_.main (_internal/math/rand_dot_test/Rand_dot_test.hx line 4)
+Uncaught exception: Null access .value
+Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
+Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/thread/Thread.hx:152)
 
--- FAIL: TestConcurrent
+-- PASS: TestConcurrent
 
 === RUN  TestStandardNormalValues
 

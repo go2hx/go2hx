@@ -1,6 +1,7 @@
 {
     "passes": [
         "TestDefaultRace",
+        "TestConcurrent",
         "TestStandardNormalValues",
         "TestNonStandardNormalValues",
         "TestFloat32",
@@ -13,7 +14,6 @@
     ],
     "fails": [
         "TestAuto",
-        "TestConcurrent",
         "TestStandardExponentialValues",
         "TestNonStandardExponentialValues",
         "TestNormTables",

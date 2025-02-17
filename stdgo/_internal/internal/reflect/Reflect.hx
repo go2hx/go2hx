@@ -943,6 +943,7 @@ class _Type {
 	}
 
 	@:local
+	@:keep
 	public function _common():GoType
 		return cast gt;
 }
@@ -1402,7 +1403,7 @@ private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_chandir.ChanDir
 class _Type_asInterface {
 	public dynamic function _uncommon():Dynamic
 		return cast __self__.value._uncommon();
-
+	@:keep
 	public dynamic function _common():Dynamic
 		return cast __self__.value._common();
 

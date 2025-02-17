@@ -97,6 +97,8 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-printgocode", "--printgocode"] => () -> instance.printGoCode = true,
 		@doc("disable all non main packages wrapped as a haxelib library\n\nTarget:")
 		["-nolibwrap", "--nolibwrap"] => () -> instance.libwrap = false,
+		@doc("all non main packages wrapped as a haxelib library\n\nTarget:")
+		["-libwrap", "--libwrap"] => () -> instance.libwrap = true,
 		@doc('generate C++ code into target directory')
 		["-cpp", "--cpp"] => out -> {
 			instance.target = "cpp";

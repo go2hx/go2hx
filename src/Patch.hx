@@ -1783,6 +1783,7 @@ final list = [
 ];
 
 final skipTests = [
+	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside
 	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)

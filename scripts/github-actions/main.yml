@@ -105,7 +105,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Build interop test
-        run: haxelib run go2hx ./tests/interop
+        run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop
         run: haxe tests/interop.hxml
   pointer:

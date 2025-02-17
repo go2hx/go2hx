@@ -522,37 +522,37 @@ class I_static_extension {
     public var binaryFunc(get, set) : (String, String) -> String;
     function get_binaryFunc():(String, String) -> String return (_0, _1) -> this.binaryFunc(_0, _1);
     function set_binaryFunc(v:(String, String) -> String):(String, String) -> String {
-        this.binaryFunc = v;
+        this.binaryFunc = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
         return v;
     }
     public var variadicFunc(get, set) : haxe.Rest<String> -> String;
     function get_variadicFunc():haxe.Rest<String> -> String return _0 -> this.variadicFunc(_0);
     function set_variadicFunc(v:haxe.Rest<String> -> String):haxe.Rest<String> -> String {
-        this.variadicFunc = v;
+        this.variadicFunc = _0 -> v(_0);
         return v;
     }
     public var variadicFuncInt(get, set) : (StdTypes.Int, haxe.Rest<String>) -> String;
     function get_variadicFuncInt():(StdTypes.Int, haxe.Rest<String>) -> String return (_0, _1) -> this.variadicFuncInt(_0, _1);
     function set_variadicFuncInt(v:(StdTypes.Int, haxe.Rest<String>) -> String):(StdTypes.Int, haxe.Rest<String>) -> String {
-        this.variadicFuncInt = v;
+        this.variadicFuncInt = (_0, _1) -> v((_0 : stdgo.GoInt), _1);
         return v;
     }
     public var nilOKFunc(get, set) : stdgo.Pointer<StdTypes.Int> -> Bool;
     function get_nilOKFunc():stdgo.Pointer<StdTypes.Int> -> Bool return _0 -> this.nilOKFunc(_0);
     function set_nilOKFunc(v:stdgo.Pointer<StdTypes.Int> -> Bool):stdgo.Pointer<StdTypes.Int> -> Bool {
-        this.nilOKFunc = v;
+        this.nilOKFunc = _0 -> v(_0);
         return v;
     }
     public var errFunc(get, set) : () -> stdgo.Tuple<String, stdgo.Error>;
     function get_errFunc():() -> stdgo.Tuple<String, stdgo.Error> return () -> this.errFunc();
     function set_errFunc(v:() -> stdgo.Tuple<String, stdgo.Error>):() -> stdgo.Tuple<String, stdgo.Error> {
-        this.errFunc = v;
+        this.errFunc = () -> v();
         return v;
     }
     public var panicFunc(get, set) : () -> String;
     function get_panicFunc():() -> String return () -> this.panicFunc();
     function set_panicFunc(v:() -> String):() -> String {
-        this.panicFunc = v;
+        this.panicFunc = () -> v();
         return v;
     }
     public var tmpl(get, set) : Template_;
@@ -686,12 +686,12 @@ pI,
 pS,
 (pSI : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>),
 nIL,
-binaryFunc,
-variadicFunc,
-variadicFuncInt,
-nilOKFunc,
-errFunc,
-panicFunc,
+(_0, _1) -> binaryFunc((_0 : stdgo.GoString), (_1 : stdgo.GoString)),
+_0 -> variadicFunc(_0),
+(_0, _1) -> variadicFuncInt((_0 : stdgo.GoInt), _1),
+_0 -> nilOKFunc(_0),
+() -> errFunc(),
+() -> panicFunc(),
 (tmpl : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>),
 (_unexported : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -1012,11 +1012,11 @@ panicFunc,
 @:dox(hide) typedef T__struct_7Pointer = stdgo._internal.text.template.Template_t__struct_7pointer.T__struct_7Pointer;
 @:dox(hide) class T__struct_7_static_extension {
     public static function _doSlow(__self__:stdgo._internal.text.template.Template_t__struct_7.T__struct_7, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.text.template.Template_t__struct_7_static_extension.T__struct_7_static_extension._doSlow(__self__, _0);
     }
     public static function do_(__self__:stdgo._internal.text.template.Template_t__struct_7.T__struct_7, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.text.template.Template_t__struct_7_static_extension.T__struct_7_static_extension.do_(__self__, _0);
     }
 }

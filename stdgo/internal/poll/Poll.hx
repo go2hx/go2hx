@@ -32,25 +32,25 @@ private function set_errNotPollable(v:stdgo.Error):stdgo.Error {
 var testHookDidWritev(get, set) : StdTypes.Int -> Void;
 private function get_testHookDidWritev():StdTypes.Int -> Void return _0 -> stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev(_0);
 private function set_testHookDidWritev(v:StdTypes.Int -> Void):StdTypes.Int -> Void {
-        stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev = v;
+        stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev = _0 -> v((_0 : stdgo.GoInt));
         return v;
     }
 var closeFunc(get, set) : StdTypes.Int -> stdgo.Error;
 private function get_closeFunc():StdTypes.Int -> stdgo.Error return _0 -> stdgo._internal.internal.poll.Poll_closefunc.closeFunc(_0);
 private function set_closeFunc(v:StdTypes.Int -> stdgo.Error):StdTypes.Int -> stdgo.Error {
-        stdgo._internal.internal.poll.Poll_closefunc.closeFunc = v;
+        stdgo._internal.internal.poll.Poll_closefunc.closeFunc = _0 -> v((_0 : stdgo.GoInt));
         return v;
     }
 var acceptFunc(get, set) : StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>;
 private function get_acceptFunc():StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> return _0 -> stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc(_0);
 private function set_acceptFunc(v:StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>):StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
-        stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc = v;
+        stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc = _0 -> v((_0 : stdgo.GoInt));
         return v;
     }
 var consume(get, set) : (Array<Array<std.UInt>>, haxe.Int64) -> Void;
 private function get_consume():(Array<Array<std.UInt>>, haxe.Int64) -> Void return (_0, _1) -> stdgo._internal.internal.poll.Poll_consume.consume(_0, _1);
 private function set_consume(v:(Array<Array<std.UInt>>, haxe.Int64) -> Void):(Array<Array<std.UInt>>, haxe.Int64) -> Void {
-        stdgo._internal.internal.poll.Poll_consume.consume = v;
+        stdgo._internal.internal.poll.Poll_consume.consume = (_0, _1) -> v((_0 : stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>), (_1 : stdgo.GoInt64));
         return v;
     }
 @:structInit @:using(stdgo.internal.poll.Poll.XFDMutex_static_extension) abstract XFDMutex(stdgo._internal.internal.poll.Poll_xfdmutex.XFDMutex) from stdgo._internal.internal.poll.Poll_xfdmutex.XFDMutex to stdgo._internal.internal.poll.Poll_xfdmutex.XFDMutex {
@@ -348,12 +348,12 @@ class FD_static_extension {
     }
     static public function rawWrite(_fd:FD, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.internal.poll.Poll_fd.FD>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
         return stdgo._internal.internal.poll.Poll_fd_static_extension.FD_static_extension.rawWrite(_fd, _f);
     }
     static public function rawRead(_fd:FD, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.internal.poll.Poll_fd.FD>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
         return stdgo._internal.internal.poll.Poll_fd_static_extension.FD_static_extension.rawRead(_fd, _f);
     }
     static public function writeOnce(_fd:FD, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
@@ -558,7 +558,7 @@ class FD_static_extension {
     }
     static public function rawControl(_fd:FD, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
         final _fd = (_fd : stdgo.Ref<stdgo._internal.internal.poll.Poll_fd.FD>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
         return stdgo._internal.internal.poll.Poll_fd_static_extension.FD_static_extension.rawControl(_fd, _f);
     }
     static public function ftruncate(_fd:FD, _size:haxe.Int64):stdgo.Error {

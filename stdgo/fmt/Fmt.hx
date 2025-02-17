@@ -2,13 +2,13 @@ package stdgo.fmt;
 var isSpace(get, set) : StdTypes.Int -> Bool;
 private function get_isSpace():StdTypes.Int -> Bool return _0 -> stdgo._internal.fmt.Fmt_isspace.isSpace(_0);
 private function set_isSpace(v:StdTypes.Int -> Bool):StdTypes.Int -> Bool {
-        stdgo._internal.fmt.Fmt_isspace.isSpace = v;
+        stdgo._internal.fmt.Fmt_isspace.isSpace = _0 -> v((_0 : stdgo.GoInt32));
         return v;
     }
 var parsenum(get, set) : (String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int>;
 private function get_parsenum():(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int> return (_0, _1, _2) -> stdgo._internal.fmt.Fmt_parsenum.parsenum(_0, _1, _2);
 private function set_parsenum(v:(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int>):(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int> {
-        stdgo._internal.fmt.Fmt_parsenum.parsenum = v;
+        stdgo._internal.fmt.Fmt_parsenum.parsenum = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoInt), (_2 : stdgo.GoInt));
         return v;
     }
 class State_static_extension {
@@ -103,7 +103,7 @@ class ScanState_static_extension {
         };
     }
     static public function token(t:stdgo._internal.fmt.Fmt_scanstate.ScanState, _skipSpace:Bool, _f:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoInt32));
         return {
             final obj = stdgo._internal.fmt.Fmt_scanstate_static_extension.ScanState_static_extension.token(t, _skipSpace, _f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -906,7 +906,7 @@ class Scanner_static_extension {
     }
     static public function _token(_s:T_ss, _skipSpace:Bool, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoInt32));
         return [for (i in stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension._token(_s, _skipSpace, _f)) i];
     }
     static public function skipSpace(_s:T_ss):Void {
@@ -919,7 +919,7 @@ class Scanner_static_extension {
     }
     static public function token(_s:T_ss, _skipSpace:Bool, _f:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _s = (_s : stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.GoInt32));
         return {
             final obj = stdgo._internal.fmt.Fmt_t_ss_static_extension.T_ss_static_extension.token(_s, _skipSpace, _f);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };

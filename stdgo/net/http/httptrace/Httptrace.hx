@@ -8,116 +8,116 @@ package stdgo.net.http.httptrace;
     public var getConn(get, set) : String -> Void;
     function get_getConn():String -> Void return _0 -> this.getConn(_0);
     function set_getConn(v:String -> Void):String -> Void {
-        this.getConn = v;
+        this.getConn = _0 -> v((_0 : stdgo.GoString));
         return v;
     }
     public var gotConn(get, set) : GotConnInfo -> Void;
     function get_gotConn():GotConnInfo -> Void return _0 -> this.gotConn(_0);
     function set_gotConn(v:GotConnInfo -> Void):GotConnInfo -> Void {
-        this.gotConn = v;
+        this.gotConn = _0 -> v(_0);
         return v;
     }
     public var putIdleConn(get, set) : stdgo.Error -> Void;
     function get_putIdleConn():stdgo.Error -> Void return _0 -> this.putIdleConn(_0);
     function set_putIdleConn(v:stdgo.Error -> Void):stdgo.Error -> Void {
-        this.putIdleConn = v;
+        this.putIdleConn = _0 -> v((_0 : stdgo.Error));
         return v;
     }
     public var gotFirstResponseByte(get, set) : () -> Void;
     function get_gotFirstResponseByte():() -> Void return () -> this.gotFirstResponseByte();
     function set_gotFirstResponseByte(v:() -> Void):() -> Void {
-        this.gotFirstResponseByte = v;
+        this.gotFirstResponseByte = () -> v();
         return v;
     }
     public var got100Continue(get, set) : () -> Void;
     function get_got100Continue():() -> Void return () -> this.got100Continue();
     function set_got100Continue(v:() -> Void):() -> Void {
-        this.got100Continue = v;
+        this.got100Continue = () -> v();
         return v;
     }
     public var got1xxResponse(get, set) : (StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error;
     function get_got1xxResponse():(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error return (_0, _1) -> this.got1xxResponse(_0, _1);
     function set_got1xxResponse(v:(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error):(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error {
-        this.got1xxResponse = v;
+        this.got1xxResponse = (_0, _1) -> v((_0 : stdgo.GoInt), _1);
         return v;
     }
     public var dNSStart(get, set) : DNSStartInfo -> Void;
     function get_dNSStart():DNSStartInfo -> Void return _0 -> this.dNSStart(_0);
     function set_dNSStart(v:DNSStartInfo -> Void):DNSStartInfo -> Void {
-        this.dNSStart = v;
+        this.dNSStart = _0 -> v(_0);
         return v;
     }
     public var dNSDone(get, set) : DNSDoneInfo -> Void;
     function get_dNSDone():DNSDoneInfo -> Void return _0 -> this.dNSDone(_0);
     function set_dNSDone(v:DNSDoneInfo -> Void):DNSDoneInfo -> Void {
-        this.dNSDone = v;
+        this.dNSDone = _0 -> v(_0);
         return v;
     }
     public var connectStart(get, set) : (String, String) -> Void;
     function get_connectStart():(String, String) -> Void return (_0, _1) -> this.connectStart(_0, _1);
     function set_connectStart(v:(String, String) -> Void):(String, String) -> Void {
-        this.connectStart = v;
+        this.connectStart = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
         return v;
     }
     public var connectDone(get, set) : (String, String, stdgo.Error) -> Void;
     function get_connectDone():(String, String, stdgo.Error) -> Void return (_0, _1, _2) -> this.connectDone(_0, _1, _2);
     function set_connectDone(v:(String, String, stdgo.Error) -> Void):(String, String, stdgo.Error) -> Void {
-        this.connectDone = v;
+        this.connectDone = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Error));
         return v;
     }
     public var tLSHandshakeStart(get, set) : () -> Void;
     function get_tLSHandshakeStart():() -> Void return () -> this.tLSHandshakeStart();
     function set_tLSHandshakeStart(v:() -> Void):() -> Void {
-        this.tLSHandshakeStart = v;
+        this.tLSHandshakeStart = () -> v();
         return v;
     }
     public var tLSHandshakeDone(get, set) : (stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Error) -> Void;
     function get_tLSHandshakeDone():(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Error) -> Void return (_0, _1) -> this.tLSHandshakeDone(_0, _1);
     function set_tLSHandshakeDone(v:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Error) -> Void):(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Error) -> Void {
-        this.tLSHandshakeDone = v;
+        this.tLSHandshakeDone = (_0, _1) -> v(_0, (_1 : stdgo.Error));
         return v;
     }
     public var wroteHeaderField(get, set) : (String, Array<String>) -> Void;
     function get_wroteHeaderField():(String, Array<String>) -> Void return (_0, _1) -> this.wroteHeaderField(_0, [for (i in _1) i]);
     function set_wroteHeaderField(v:(String, Array<String>) -> Void):(String, Array<String>) -> Void {
-        this.wroteHeaderField = v;
+        this.wroteHeaderField = (_0, _1) -> v((_0 : stdgo.GoString), ([for (i in _1) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
         return v;
     }
     public var wroteHeaders(get, set) : () -> Void;
     function get_wroteHeaders():() -> Void return () -> this.wroteHeaders();
     function set_wroteHeaders(v:() -> Void):() -> Void {
-        this.wroteHeaders = v;
+        this.wroteHeaders = () -> v();
         return v;
     }
     public var wait100Continue(get, set) : () -> Void;
     function get_wait100Continue():() -> Void return () -> this.wait100Continue();
     function set_wait100Continue(v:() -> Void):() -> Void {
-        this.wait100Continue = v;
+        this.wait100Continue = () -> v();
         return v;
     }
     public var wroteRequest(get, set) : WroteRequestInfo -> Void;
     function get_wroteRequest():WroteRequestInfo -> Void return _0 -> this.wroteRequest(_0);
     function set_wroteRequest(v:WroteRequestInfo -> Void):WroteRequestInfo -> Void {
-        this.wroteRequest = v;
+        this.wroteRequest = _0 -> v(_0);
         return v;
     }
     public function new(?getConn:String -> Void, ?gotConn:GotConnInfo -> Void, ?putIdleConn:stdgo.Error -> Void, ?gotFirstResponseByte:() -> Void, ?got100Continue:() -> Void, ?got1xxResponse:(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error, ?dNSStart:DNSStartInfo -> Void, ?dNSDone:DNSDoneInfo -> Void, ?connectStart:(String, String) -> Void, ?connectDone:(String, String, stdgo.Error) -> Void, ?tLSHandshakeStart:() -> Void, ?tLSHandshakeDone:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Error) -> Void, ?wroteHeaderField:(String, Array<String>) -> Void, ?wroteHeaders:() -> Void, ?wait100Continue:() -> Void, ?wroteRequest:WroteRequestInfo -> Void) this = new stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace(
-getConn,
-gotConn,
-putIdleConn,
-gotFirstResponseByte,
-got100Continue,
-got1xxResponse,
-dNSStart,
-dNSDone,
-connectStart,
-connectDone,
-tLSHandshakeStart,
-tLSHandshakeDone,
-wroteHeaderField,
-wroteHeaders,
-wait100Continue,
-wroteRequest);
+_0 -> getConn((_0 : stdgo.GoString)),
+_0 -> gotConn(_0),
+_0 -> putIdleConn((_0 : stdgo.Error)),
+() -> gotFirstResponseByte(),
+() -> got100Continue(),
+(_0, _1) -> got1xxResponse((_0 : stdgo.GoInt), _1),
+_0 -> dNSStart(_0),
+_0 -> dNSDone(_0),
+(_0, _1) -> connectStart((_0 : stdgo.GoString), (_1 : stdgo.GoString)),
+(_0, _1, _2) -> connectDone((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Error)),
+() -> tLSHandshakeStart(),
+(_0, _1) -> tLSHandshakeDone(_0, (_1 : stdgo.Error)),
+(_0, _1) -> wroteHeaderField((_0 : stdgo.GoString), ([for (i in _1) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)),
+() -> wroteHeaders(),
+() -> wait100Continue(),
+_0 -> wroteRequest(_0));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

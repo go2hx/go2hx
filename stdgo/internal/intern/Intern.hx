@@ -3,7 +3,7 @@ package stdgo.internal.intern;
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
-        this.__1 = ([for (i in v) i] : stdgo.GoArray<() -> Void>);
+        this.__1 = ([for (i in v) () -> i()] : stdgo.GoArray<() -> Void>);
         return v;
     }
     public var _cmpVal(get, set) : stdgo.AnyInterface;
@@ -18,7 +18,7 @@ package stdgo.internal.intern;
         this._resurrected = v;
         return v;
     }
-    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_value.Value(([for (i in __1) i] : stdgo.GoArray<() -> Void>), (_cmpVal : stdgo.AnyInterface), _resurrected);
+    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_cmpVal:stdgo.AnyInterface, ?_resurrected:Bool) this = new stdgo._internal.internal.intern.Intern_value.Value(([for (i in __1) () -> i()] : stdgo.GoArray<() -> Void>), (_cmpVal : stdgo.AnyInterface), _resurrected);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

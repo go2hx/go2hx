@@ -133,7 +133,7 @@ typedef Map_Pointer = stdgo._internal.expvar.Expvar_map_pointer.Map_Pointer;
 class Map__static_extension {
     static public function do_(_v:Map_, _f:KeyValue -> Void):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
-        final _f = _f;
+        final _f = _0 -> _f(_0);
         stdgo._internal.expvar.Expvar_map__static_extension.Map__static_extension.do_(_v, _f);
     }
     static public function delete(_v:Map_, _key:String):Void {
@@ -265,7 +265,7 @@ class Expvar {
         * but existing entries may be concurrently updated.
     **/
     static public inline function do_(_f:KeyValue -> Void):Void {
-        final _f = _f;
+        final _f = _0 -> _f(_0);
         stdgo._internal.expvar.Expvar_do_.do_(_f);
     }
     /**

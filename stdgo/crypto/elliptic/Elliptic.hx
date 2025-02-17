@@ -133,7 +133,7 @@ class Curve_static_extension {
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {
-        this._newPoint = v;
+        this._newPoint = () -> v();
         return v;
     }
     public var _params(get, set) : CurveParams;
@@ -142,7 +142,7 @@ class Curve_static_extension {
         this._params = (v : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>);
         return v;
     }
-    public function new(?_newPoint:() -> Dynamic, ?_params:CurveParams) this = new stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve(_newPoint, (_params : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>));
+    public function new(?_newPoint:() -> Dynamic, ?_params:CurveParams) this = new stdgo._internal.crypto.elliptic.Elliptic_t_nistcurve.T_nistCurve(() -> _newPoint(), (_params : stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_curveparams.CurveParams>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

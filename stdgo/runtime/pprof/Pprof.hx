@@ -176,13 +176,13 @@ package stdgo.runtime.pprof;
     public var _count(get, set) : () -> StdTypes.Int;
     function get__count():() -> StdTypes.Int return () -> this._count();
     function set__count(v:() -> StdTypes.Int):() -> StdTypes.Int {
-        this._count = v;
+        this._count = () -> v();
         return v;
     }
     public var _write(get, set) : (stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error;
     function get__write():(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error return (_0, _1) -> this._write(_0, _1);
     function set__write(v:(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error):(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error {
-        this._write = v;
+        this._write = (_0, _1) -> v(_0, (_1 : stdgo.GoInt));
         return v;
     }
     public function new(?_name:String, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:Map<stdgo.AnyInterface, Array<stdgo.GoUIntptr>>, ?_count:() -> StdTypes.Int, ?_write:(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error) this = new stdgo._internal.runtime.pprof.Pprof_profile.Profile((_name : stdgo.GoString), _mu, {
@@ -191,7 +191,7 @@ package stdgo.runtime.pprof;
             __obj__[(key : stdgo.AnyInterface)] = ([for (i in value) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         };
         __obj__;
-    }, _count, _write);
+    }, () -> _count(), (_0, _1) -> _write(_0, (_1 : stdgo.GoInt)));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -728,7 +728,7 @@ class Profile_static_extension {
         final _b = (_b : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profilebuilder.T_profileBuilder>);
         final _values = ([for (i in _values) (i : stdgo.GoInt64)] : stdgo.Slice<stdgo.GoInt64>);
         final _locs = ([for (i in _locs) (i : stdgo.GoUInt64)] : stdgo.Slice<stdgo.GoUInt64>);
-        final _labels = _labels;
+        final _labels = () -> _labels();
         stdgo._internal.runtime.pprof.Pprof_t_profilebuilder_static_extension.T_profileBuilder_static_extension._pbSample(_b, _values, _locs, _labels);
     }
     static public function _pbValueType(_b:T_profileBuilder, _tag:StdTypes.Int, _typ:String, _unit:String):Void {
@@ -1027,7 +1027,7 @@ class Pprof {
         * The function f should return true to continue iteration or false to stop iteration early.
     **/
     static public inline function forLabels(_ctx:stdgo._internal.context.Context_context.Context, _f:(String, String) -> Bool):Void {
-        final _f = _f;
+        final _f = (_0, _1) -> _f((_0 : stdgo.GoString), (_1 : stdgo.GoString));
         stdgo._internal.runtime.pprof.Pprof_forlabels.forLabels(_ctx, _f);
     }
     /**
@@ -1104,7 +1104,7 @@ class Pprof {
         * and restored once f returns.
     **/
     static public inline function do_(_ctx:stdgo._internal.context.Context_context.Context, _labels:LabelSet, _f:stdgo._internal.context.Context_context.Context -> Void):Void {
-        final _f = _f;
+        final _f = _0 -> _f(_0);
         stdgo._internal.runtime.pprof.Pprof_do_.do_(_ctx, _labels, _f);
     }
 }

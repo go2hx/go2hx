@@ -143,7 +143,7 @@ class Logger_static_extension {
         final _l = (_l : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>);
         final _pc = (_pc : stdgo.GoUIntptr);
         final _calldepth = (_calldepth : stdgo.GoInt);
-        final _appendOutput = _appendOutput;
+        final _appendOutput = _0 -> _appendOutput(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
         return stdgo._internal.log.Log_logger_static_extension.Logger_static_extension._output(_l, _pc, _calldepth, _appendOutput);
     }
     static public function output(_l:Logger, _calldepth:StdTypes.Int, _s:String):stdgo.Error {

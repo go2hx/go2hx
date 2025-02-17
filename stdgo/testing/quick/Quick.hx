@@ -37,10 +37,10 @@ class Generator_static_extension {
     public var values(get, set) : (Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void;
     function get_values():(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void return (_0, _1) -> this.values([for (i in _0) i], _1);
     function set_values(v:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void):(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void {
-        this.values = v;
+        this.values = (_0, _1) -> v(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>), (_1 : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>));
         return v;
     }
-    public function new(?maxCount:StdTypes.Int, ?maxCountScale:StdTypes.Float, ?rand:stdgo._internal.math.rand.Rand_rand.Rand, ?values:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void) this = new stdgo._internal.testing.quick.Quick_config.Config((maxCount : stdgo.GoInt), (maxCountScale : stdgo.GoFloat64), (rand : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>), values);
+    public function new(?maxCount:StdTypes.Int, ?maxCountScale:StdTypes.Float, ?rand:stdgo._internal.math.rand.Rand_rand.Rand, ?values:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void) this = new stdgo._internal.testing.quick.Quick_config.Config((maxCount : stdgo.GoInt), (maxCountScale : stdgo.GoFloat64), (rand : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>), (_0, _1) -> values(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>), (_1 : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>)));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

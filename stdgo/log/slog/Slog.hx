@@ -97,10 +97,10 @@ class LogValuer_static_extension {
     public var _output(get, set) : (stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error;
     function get__output():(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error return (_0, _1) -> this._output(_0, [for (i in _1) i]);
     function set__output(v:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error):(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error {
-        this._output = v;
+        this._output = (_0, _1) -> v((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
         return v;
     }
-    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), _output);
+    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), (_0, _1) -> _output((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -120,10 +120,10 @@ class LogValuer_static_extension {
     public var replaceAttr(get, set) : (Array<String>, Attr) -> Attr;
     function get_replaceAttr():(Array<String>, Attr) -> Attr return (_0, _1) -> this.replaceAttr([for (i in _0) i], _1);
     function set_replaceAttr(v:(Array<String>, Attr) -> Attr):(Array<String>, Attr) -> Attr {
-        this.replaceAttr = v;
+        this.replaceAttr = (_0, _1) -> v(([for (i in _0) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), _1);
         return v;
     }
-    public function new(?addSource:Bool, ?level:Leveler, ?replaceAttr:(Array<String>, Attr) -> Attr) this = new stdgo._internal.log.slog.Slog_handleroptions.HandlerOptions(addSource, level, replaceAttr);
+    public function new(?addSource:Bool, ?level:Leveler, ?replaceAttr:(Array<String>, Attr) -> Attr) this = new stdgo._internal.log.slog.Slog_handleroptions.HandlerOptions(addSource, level, (_0, _1) -> replaceAttr(([for (i in _0) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>), _1));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -362,7 +362,7 @@ class LogValuer_static_extension {
     public var __9(get, set) : haxe.ds.Vector<() -> Void>;
     function get___9():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__9) () -> i()]);
     function set___9(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
-        this.__9 = ([for (i in v) i] : stdgo.GoArray<() -> Void>);
+        this.__9 = ([for (i in v) () -> i()] : stdgo.GoArray<() -> Void>);
         return v;
     }
     public var _num(get, set) : haxe.UInt64;
@@ -377,7 +377,7 @@ class LogValuer_static_extension {
         this._any = (v : stdgo.AnyInterface);
         return v;
     }
-    public function new(?__9:haxe.ds.Vector<() -> Void>, ?_num:haxe.UInt64, ?_any:stdgo.AnyInterface) this = new stdgo._internal.log.slog.Slog_value.Value(([for (i in __9) i] : stdgo.GoArray<() -> Void>), (_num : stdgo.GoUInt64), (_any : stdgo.AnyInterface));
+    public function new(?__9:haxe.ds.Vector<() -> Void>, ?_num:haxe.UInt64, ?_any:stdgo.AnyInterface) this = new stdgo._internal.log.slog.Slog_value.Value(([for (i in __9) () -> i()] : stdgo.GoArray<() -> Void>), (_num : stdgo.GoUInt64), (_any : stdgo.AnyInterface));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -693,7 +693,7 @@ class Record_static_extension {
         stdgo._internal.log.slog.Slog_record_static_extension.Record_static_extension.addAttrs(_r, ...[for (i in _attrs) i]);
     }
     static public function attrs(_r:Record, _f:Attr -> Bool):Void {
-        final _f = _f;
+        final _f = _0 -> _f(_0);
         stdgo._internal.log.slog.Slog_record_static_extension.Record_static_extension.attrs(_r, _f);
     }
     static public function numAttrs(_r:Record):StdTypes.Int {

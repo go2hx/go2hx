@@ -26,7 +26,7 @@ typedef RingPointer = stdgo._internal.container.ring.Ring_ringpointer.RingPointe
 class Ring_static_extension {
     static public function do_(_r:Ring_, _f:stdgo.AnyInterface -> Void):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.container.ring.Ring_ring.Ring>);
-        final _f = _f;
+        final _f = _0 -> _f((_0 : stdgo.AnyInterface));
         stdgo._internal.container.ring.Ring_ring_static_extension.Ring_static_extension.do_(_r, _f);
     }
     static public function len(_r:Ring_):StdTypes.Int {

@@ -183,7 +183,7 @@ class Rand_static_extension {
     static public function shuffle(_r:Rand_, _n:StdTypes.Int, _swap:(StdTypes.Int, StdTypes.Int) -> Void):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
-        final _swap = _swap;
+        final _swap = (_0, _1) -> _swap((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
         stdgo._internal.math.rand.Rand_rand_static_extension.Rand_static_extension.shuffle(_r, _n, _swap);
     }
     static public function perm(_r:Rand_, _n:StdTypes.Int):Array<StdTypes.Int> {
@@ -506,7 +506,7 @@ class Rand {
     **/
     static public inline function shuffle(_n:StdTypes.Int, _swap:(StdTypes.Int, StdTypes.Int) -> Void):Void {
         final _n = (_n : stdgo.GoInt);
-        final _swap = _swap;
+        final _swap = (_0, _1) -> _swap((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
         stdgo._internal.math.rand.Rand_shuffle.shuffle(_n, _swap);
     }
     /**

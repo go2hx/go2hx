@@ -146,10 +146,10 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var _getCert(get, set) : () -> stdgo.Tuple<Certificate, stdgo.Error>;
     function get__getCert():() -> stdgo.Tuple<Certificate, stdgo.Error> return () -> this._getCert();
     function set__getCert(v:() -> stdgo.Tuple<Certificate, stdgo.Error>):() -> stdgo.Tuple<Certificate, stdgo.Error> {
-        this._getCert = v;
+        this._getCert = () -> v();
         return v;
     }
-    public function new(?_rawSubject:Array<std.UInt>, ?_getCert:() -> stdgo.Tuple<Certificate, stdgo.Error>) this = new stdgo._internal.crypto.x509.X509_t_lazycert.T_lazyCert(([for (i in _rawSubject) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _getCert);
+    public function new(?_rawSubject:Array<std.UInt>, ?_getCert:() -> stdgo.Tuple<Certificate, stdgo.Error>) this = new stdgo._internal.crypto.x509.X509_t_lazycert.T_lazyCert(([for (i in _rawSubject) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), () -> _getCert());
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -169,7 +169,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
     public var _cipherFunc(get, set) : Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error>;
     function get__cipherFunc():Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error> return _0 -> this._cipherFunc([for (i in _0) i]);
     function set__cipherFunc(v:Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error>):Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error> {
-        this._cipherFunc = v;
+        this._cipherFunc = _0 -> v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
         return v;
     }
     public var _keySize(get, set) : StdTypes.Int;
@@ -184,7 +184,7 @@ private function set_errUnsupportedAlgorithm(v:stdgo.Error):stdgo.Error {
         this._blockSize = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?_cipher:PEMCipher, ?_name:String, ?_cipherFunc:Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error>, ?_keySize:StdTypes.Int, ?_blockSize:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_t_rfc1423algo.T_rfc1423Algo(_cipher, (_name : stdgo.GoString), _cipherFunc, (_keySize : stdgo.GoInt), (_blockSize : stdgo.GoInt));
+    public function new(?_cipher:PEMCipher, ?_name:String, ?_cipherFunc:Array<std.UInt> -> stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_block.Block, stdgo.Error>, ?_keySize:StdTypes.Int, ?_blockSize:StdTypes.Int) this = new stdgo._internal.crypto.x509.X509_t_rfc1423algo.T_rfc1423Algo(_cipher, (_name : stdgo.GoString), _0 -> _cipherFunc(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)), (_keySize : stdgo.GoInt), (_blockSize : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1521,11 +1521,11 @@ nextUpdate,
 @:dox(hide) typedef T__struct_0Pointer = stdgo._internal.crypto.x509.X509_t__struct_0pointer.T__struct_0Pointer;
 @:dox(hide) class T__struct_0_static_extension {
     public static function _doSlow(__self__:stdgo._internal.crypto.x509.X509_t__struct_0.T__struct_0, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.crypto.x509.X509_t__struct_0_static_extension.T__struct_0_static_extension._doSlow(__self__, _0);
     }
     public static function do_(__self__:stdgo._internal.crypto.x509.X509_t__struct_0.T__struct_0, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.crypto.x509.X509_t__struct_0_static_extension.T__struct_0_static_extension.do_(__self__, _0);
     }
 }
@@ -1617,7 +1617,7 @@ class CertPool_static_extension {
     static public function _addCertFunc(_s:CertPool, _rawSum224:T_sum224, _rawSubject:String, _getCert:() -> stdgo.Tuple<Certificate, stdgo.Error>):Void {
         final _s = (_s : stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>);
         final _rawSubject = (_rawSubject : stdgo.GoString);
-        final _getCert = _getCert;
+        final _getCert = () -> _getCert();
         stdgo._internal.crypto.x509.X509_certpool_static_extension.CertPool_static_extension._addCertFunc(_s, _rawSum224, _rawSubject, _getCert);
     }
     static public function addCert(_s:CertPool, _cert:Certificate):Void {
@@ -1829,7 +1829,7 @@ class Certificate_static_extension {
         final _nameType = (_nameType : stdgo.GoString);
         final _name = (_name : stdgo.GoString);
         final _parsedName = (_parsedName : stdgo.AnyInterface);
-        final _match = _match;
+        final _match = (_0, _1) -> _match((_0 : stdgo.AnyInterface), (_1 : stdgo.AnyInterface));
         final _permitted = (_permitted : stdgo.AnyInterface);
         final _excluded = (_excluded : stdgo.AnyInterface);
         return stdgo._internal.crypto.x509.X509_certificate_static_extension.Certificate_static_extension._checkNameConstraints(_c, _count, _maxConstraintComparisons, _nameType, _name, _parsedName, _match, _permitted, _excluded);

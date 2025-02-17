@@ -11,10 +11,10 @@ private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
     function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this.charsetReader = v;
+        this.charsetReader = (_0, _1) -> v((_0 : stdgo.GoString), _1);
         return v;
     }
-    public function new(?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder(charsetReader);
+    public function new(?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder((_0, _1) -> charsetReader((_0 : stdgo.GoString), _1));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

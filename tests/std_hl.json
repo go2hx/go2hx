@@ -19,5 +19,6 @@
  "hl|unicode/utf8",
  "hl|internal/cpu",
  "hl|image/color",
- "hl|hash/crc64"
+ "hl|hash/crc64",
+ "hl|crypto"
 ]

@@ -6312,7 +6312,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				final t = typeof(expr, info, false);
 				if (t != null) {
 					switch t {
-						case signature(_, _, _, _.get() => recv, _):
+						case signature(_, _, _, _.get() => recv, _) if (recv != null):
 							var t = switch recv {
 								case _var(_, _.get() => t):
 									t;
@@ -6322,12 +6322,14 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							if (isPointer(t) || isRef(t))
 								t = getElem(t);
 							final ct = toComplexType(t, info);
-							switch ct {
-								case TPath(p):
-									p.pack.push(p.pack.pop() + "_static_extension");
-									p.name += "_static_extension";
-									x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
-								default:
+							if (ct != null) {
+								switch ct {
+									case TPath(p):
+										p.pack.push(p.pack.pop() + "_static_extension");
+										p.name += "_static_extension";
+										x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
+									default:
+								}
 							}
 						default:
 					}

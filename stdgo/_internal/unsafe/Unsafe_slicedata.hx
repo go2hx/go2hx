@@ -1,4 +1,4 @@
 package stdgo._internal.unsafe;
 
-function sliceData<T>(s:Slice<T>):Dynamic
+function sliceData<T>(s:stdgo.Slice<T>):Dynamic
 	return null;

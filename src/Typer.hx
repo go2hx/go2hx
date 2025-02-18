@@ -6310,25 +6310,27 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			case "Ident":
 				x = macro @:selectorExpr $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
 				final t = typeof(expr, info, false);
-				switch t {
-					case signature(_, _, _, _.get() => recv, _):
-						var t = switch recv {
-							case _var(_, _.get() => t):
-								t;
-							default:
-								recv;
-						}
-						if (isPointer(t) || isRef(t))
-							t = getElem(t);
-						final ct = toComplexType(t, info);
-						switch ct {
-							case TPath(p):
-								p.pack.push(p.pack.pop() + "_static_extension");
-								p.name += "_static_extension";
-								x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
-							default:
-						}
-					default:
+				if (t != null) {
+					switch t {
+						case signature(_, _, _, _.get() => recv, _):
+							var t = switch recv {
+								case _var(_, _.get() => t):
+									t;
+								default:
+									recv;
+							}
+							if (isPointer(t) || isRef(t))
+								t = getElem(t);
+							final ct = toComplexType(t, info);
+							switch ct {
+								case TPath(p):
+									p.pack.push(p.pack.pop() + "_static_extension");
+									p.name += "_static_extension";
+									x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
+								default:
+							}
+						default:
+					}
 				}
 			case "SelectorExpr":
 				final xType = typeExprType(expr.x, info);
@@ -6554,14 +6556,14 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 		if (expr.slice3) {
 			var max = typeExpr(expr.max, info);
 			max = assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
-			macro($x.__slice__($low, $high, $max) : $ct);
+			macro $x.__slice__($low, $high, $max);
 		} else {
-			macro($x.__slice__($low, $high) : $ct);
+			macro $x.__slice__($low, $high);
 		}
 	} else {
-		macro($x.__slice__($low) : $ct);
+		macro $x.__slice__($low);
 	}
-	return x.expr;
+	return (macro ($x : $ct)).expr;
 }
 
 private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { // a -> b conversion

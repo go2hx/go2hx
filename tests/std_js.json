@@ -15,5 +15,6 @@
  "js|hash/adler32",
  "js|strings",
  "js|image/color",
- "js|hash/crc64"
+ "js|hash/crc64",
+ "js|crypto"
 ]

@@ -6308,7 +6308,28 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
-				x = macro $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
+				x = macro @:selectorExpr $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
+				final t = typeof(expr, info, false);
+				switch t {
+					case signature(_, _, _, _.get() => recv, _):
+						var t = switch recv {
+							case _var(_, _.get() => t):
+								t;
+							default:
+								recv;
+						}
+						if (isPointer(t) || isRef(t))
+							t = getElem(t);
+						final ct = toComplexType(t, info);
+						switch ct {
+							case TPath(p):
+								p.pack.push(p.pack.pop() + "_static_extension");
+								p.name += "_static_extension";
+								x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
+							default:
+						}
+					default:
+				}
 			case "SelectorExpr":
 				final xType = typeExprType(expr.x, info);
 				switch xType {

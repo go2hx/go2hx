@@ -1,0 +1,52 @@
+=== RUN  TestInit0
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_testinit0.$Heap_testinit0_Fields_.testInit0 (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: TestInit0
+
+=== RUN  TestInit1
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_testinit1.$Heap_testinit1_Fields_.testInit1 (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: TestInit1
+
+=== RUN  Test
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_test.$Heap_test_Fields_.test (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: Test
+
+=== RUN  TestRemove0
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_testremove0.$Heap_testremove0_Fields_.testRemove0 (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: TestRemove0
+
+=== RUN  TestRemove1
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_testremove1.$Heap_testremove1_Fields_.testRemove1 (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: TestRemove1
+
+=== RUN  TestRemove2
+Exception: Null access .type
+Called from stdgo._internal.container.heap._Heap_testremove2.$Heap_testremove2_Fields_.testRemove2 (stdgo/Go.macro.hx line 723)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.container.heap_dot_test._Heap_dot_test.$Heap_dot_test_Fields_.main (_internal/container/heap_dot_test/Heap_dot_test.hx line 4)
+
+-- FAIL: TestRemove2
+
+=== RUN  TestFix
+
+-- PASS: TestFix
+

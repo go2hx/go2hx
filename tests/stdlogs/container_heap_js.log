@@ -1,0 +1,100 @@
+=== RUN  TestInit0
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$testinit0_testInit0 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:10729:86)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: TestInit0
+
+=== RUN  TestInit1
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$testinit1_testInit1 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:14446:86)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: TestInit1
+
+=== RUN  Test
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$test_test [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:14586:86)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: Test
+
+=== RUN  TestRemove0
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$testremove0_testRemove0 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:14725:86)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: TestRemove0
+
+=== RUN  TestRemove1
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$testremove1_testRemove1 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:14838:86)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: TestRemove1
+
+=== RUN  TestRemove2
+Exception: Cannot read properties of null (reading 'type')
+Called from module TypeError: Cannot read properties of null (reading 'type')
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_container_heap_Heap_$testremove2_testRemove2 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:14953:88)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 39181 column 9)
+Called from ._$internal_container_heap_$dot_$test_Heap_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_heap.js line 31797 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_heap.js:48275:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_heap.js:48276:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+Called from Function._load (node:internal/modules/cjs/loader line 1286 column 12)
+Called from TracingChannel.traceSync (node:diagnostics_channel line 322 column 14)
+
+-- FAIL: TestRemove2
+
+=== RUN  TestFix
+
+-- PASS: TestFix
+

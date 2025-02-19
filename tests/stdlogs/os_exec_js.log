@@ -70,59 +70,13 @@
      |                                                                             ^^^^^
      | () -> Void has no field close
 
-[ERROR] ./stdgo/_internal/net/http/Http_header_static_extension.hx:7: characters 19-31
+[ERROR] ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
 
-   7 |         return _h._writeSubset(_w, _exclude, null);
-     |                   ^^^^^^^^^^^^
-     | stdgo._internal.net.http.Header has no field _writeSubset
-
-[ERROR] ./stdgo/_internal/net/http/Http_header_static_extension.hx:42: characters 19-25
-
-  42 |         return _h._write(_w, null);
-     |                   ^^^^^^
-     | stdgo._internal.net.http.Header has no field _write
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:7: characters 81-129
-
-   7 |         if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartbyreader._multipartByReader)) {
-     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__multipartbyreader
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:61: characters 81-129
-
-  61 |         if ((@:checkr _r ?? throw "null pointer dereference").multipartForm == (stdgo._internal.net.http.Http__multipartbyreader._multipartByReader)) {
-     |                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__multipartbyreader
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:102: characters 35-79
-
- 102 |                     var __tmp__ = stdgo._internal.net.http.Http__parsepostform._parsePostForm(_r);
-     |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__parsepostform
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:124: characters 17-58
-
- 124 |                 stdgo._internal.net.http.Http__copyvalues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, (@:checkr _r ?? throw "null pointer dereference").postForm);
-     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__copyvalues
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:130: characters 35-69
-
- 130 |                     var __tmp__ = stdgo._internal.net.http.Http__url._url.parseQuery((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__());
-     |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__url
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:149: characters 17-58
-
- 149 |                 stdgo._internal.net.http.Http__copyvalues._copyValues((@:checkr _r ?? throw "null pointer dereference").form, _newValues);
-     |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__copyvalues
-
-[ERROR] ./stdgo/_internal/net/http/Http_request_static_extension.hx:71: characters 36-52
-
-  71 |         var __tmp__ = @:check2r _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                                    ^^^^^^^^^^^^^^^^
-     | stdgo.Ref<stdgo._internal.net.http.Request> has no field _multipartReader
+  22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
+     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
+     | have: { _0: stdgo.Ref<...> }
+     | want: { _0: stdgo._internal.mime.multipart.File }
 
 [ERROR] /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:329: characters 10-35
 
@@ -152,17 +106,12 @@
 
           | For function argument '_dst'
 
-[ERROR] ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
+[ERROR] (macro) ./stdgo/_internal/crypto/elliptic/Elliptic__matchesspecificcurve.hx:3: characters 129-181
 
-  22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
-     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
-     | have: { _0: stdgo.Ref<...> }
-     | want: { _0: stdgo._internal.mime.multipart.File }
+   3 |         for (__1 => _c in (new stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>(4, 4, ...[stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p224._p224), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p256._p256), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p384._p384), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p521._p521)]) : stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>)) {
+     |                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.Ref<stdgo._internal.crypto.elliptic.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>> should be stdgo._internal.crypto.elliptic.T_nistCurvePointer<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>
+     | For function argument '__self__'
 
-[ERROR] ./stdgo/_internal/net/http/Http_errmissingfile.hx:2: characters 36-73
-
-   2 | var errMissingFile : stdgo.Error = stdgo._internal.net.http.Http__errors._errors.new_(("http: no such file" : stdgo.GoString));
-     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.net.http.Http__errors
+          | For function argument 'args'
 

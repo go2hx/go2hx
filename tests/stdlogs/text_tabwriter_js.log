@@ -1,0 +1,1140 @@
+=== RUN  Test
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+--- test: <invalid reflect.Value>
+--- src:
+%!q(MISSING)
+--- found:
+%!q(MISSING)
+--- expected:
+%!q(MISSING)
+
+
+-- FAIL: Test
+
+=== RUN  TestPanicDuringFlush
+
+-- PASS: TestPanicDuringFlush
+
+=== RUN  TestPanicDuringWrite
+
+-- PASS: TestPanicDuringWrite
+

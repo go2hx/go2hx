@@ -363,7 +363,7 @@ function externGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):T
 		default:
 	}
 	final isNameUsed = td.name == clName;
-	var meta = [];
+	var meta:Metadata = [{name: ":interface", pos: null}];
 	if (StringTools.startsWith(td.name, "T_"))
 		meta.push({name: ":dox", params: [macro hide], pos: null});
 	meta.push({name: ":forward", params: [], pos: null});
@@ -982,33 +982,41 @@ function convertComplexType(ct:ComplexType, path:String):ComplexType {
 		case TAnonymous(fields):
 			// tuple
 			if (fields.length <= 6) {
-				final types = [];
-				for (field in fields) {
-					switch field.kind {
-						case FVar(type, _):
-							types.push(TPType(convertComplexType(type, path)));
-						default:
-							throw "Field kind not supported: " + field.kind;
+				var isTuple = true;
+				for (i in 0...fields.length) {
+					if (fields[i].name != "_" + i) {
+						isTuple = false;
+						break;
 					}
 				}
-				final is2 = fields.length == 2;
-				final name = "Tuple";
-				final sub = is2 ? null : "Tuple" + fields.length;
-				return TPath({name: name, sub: sub, pack: ["stdgo"], params: types});
-			}else{
-				return TAnonymous([for (field in fields) {
-					switch field.kind {
-						case FVar(type, _):
-							{
-								pos: null,
-								name: field.name,
-								kind: FVar(convertComplexType(type, path), null),
-							}
-						default:
-							throw "Field kind not supported: " + field.kind;
+				if (isTuple) {
+					final types = [];
+					for (field in fields) {
+						switch field.kind {
+							case FVar(type, _):
+								types.push(TPType(convertComplexType(type, path)));
+							default:
+								throw "Field kind not supported: " + field.kind;
+						}
 					}
-				}]);
+					final is2 = fields.length == 2;
+					final name = "Tuple";
+					final sub = is2 ? null : "Tuple" + fields.length;
+					return TPath({name: name, sub: sub, pack: ["stdgo"], params: types});
+				}
 			}
+			return TAnonymous([for (field in fields) {
+				switch field.kind {
+					case FVar(type, _):
+						{
+							pos: null,
+							name: field.name,
+							kind: FVar(convertComplexType(type, path), null),
+						}
+					default:
+						throw "Field kind not supported: " + field.kind;
+				}
+			}]);
 		case TPath({name: "Bool", pack: [], params: _}):
 			return ct;
 		case TPath(p) if (p.pack != null && p.pack.length > 0 && p.pack[0] == "stdgo"):
@@ -1048,7 +1056,21 @@ function convertComplexType(ct:ComplexType, path:String):ComplexType {
 				default:
 					throw "unreachable";
 			})});
+		case TIntersection(tl):
+			// skip over stdgo.StructType
+			return TIntersection([convertComplexType(tl[1],path)]);
+		case TExtend(p, fields):
+			return TExtend(p.map(p -> {
+				final ct = convertComplexType(TPath(p), path);
+				switch ct {
+					case TPath(p):
+						p;
+					default:
+						throw "unknown ct: " + ct;
+				}
+			}), fields); 
 		default:
+			throw "unknown: " + ct;
 	}
 	return ct;
 	//return TPath({name: "Dynamic", pack: [], params: [TPType(ct)]});

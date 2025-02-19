@@ -8274,15 +8274,31 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 
 			for (method in struct.methods.list) {
 				if (method.names.length == 0) {
-					final t = typeof(method.type, info, false);
-					switch getUnderlying(t) {
-						case interfaceType(_, _):
+					var t = typeof(method.type, info, false);
+					t = getUnderlying(t);
+					switch t {
+						case interfaceType(_, methods):
 							final ct = typeExprType(method.type, info);
 							final tp = getTypePath(ct, info);
 							if (tp == null) {
-								
 							}else{
-								implicits.push(tp);
+								//implicits.push(tp);
+								for (method in methods) {
+									final name = method.name;//formatHaxeFieldName(method.name, info);
+									switch toComplexType(method.type.get(), info) {
+										case TFunction(args, ret):
+											fields.push({
+												name: name,
+												pos: null,
+												access: [APublic],
+												kind: FFun({
+													args: [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)],
+													ret: ret,
+												}),
+											});
+										default:
+									}
+								}
 							}
 						default:
 					}

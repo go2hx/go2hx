@@ -4,5 +4,6 @@
     "internal/reflectlite",
     "reflect",
     "net",
-    "net/http"
+    "net/http",
+    "crypto/tls"
 ]

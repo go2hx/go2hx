@@ -1,0 +1,17 @@
+=== RUN  TestGolden
+Exception: crypto/rc4: invalid buffer overlap
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.crypto.rc4._Rc4_testgolden.Rc4_testgolden_Fields_.testGolden (./stdgo/_internal/crypto/rc4/Rc4_testgolden.hx line 26 column 25)
+Called from stdgo._internal.crypto.rc4._Rc4__testencrypt.Rc4__testencrypt_Fields_._testEncrypt (./stdgo/_internal/crypto/rc4/Rc4__testencrypt.hx line 4 column 19)
+Called from stdgo._internal.crypto.rc4.Cipher_static_extension.xORKeyStream (./stdgo/_internal/crypto/rc4/Rc4_cipher_static_extension.hx line 11 column 13)
+
+-- FAIL: TestGolden
+
+=== RUN  TestBlock
+Exception: crypto/rc4: invalid buffer overlap
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.crypto.rc4._Rc4_testblock.Rc4_testblock_Fields_.testBlock (./stdgo/_internal/crypto/rc4/Rc4_testblock.hx line 7 column 23)
+Called from stdgo._internal.crypto.rc4.Cipher_static_extension.xORKeyStream (./stdgo/_internal/crypto/rc4/Rc4_cipher_static_extension.hx line 11 column 13)
+
+-- FAIL: TestBlock
+

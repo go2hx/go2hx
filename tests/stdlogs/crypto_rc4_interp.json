@@ -1,0 +1,11 @@
+{
+    "passes": [],
+    "fails": [
+        "TestGolden",
+        "TestBlock"
+    ],
+    "runs": [
+        "TestGolden",
+        "TestBlock"
+    ]
+}

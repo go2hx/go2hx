@@ -9,7 +9,30 @@ var libs:Array<String> = [];
 final path = Sys.getCwd();
 var libCount = 0;
 
+function countFiles(dir:String, paths:Array<String>):Int {
+	dir = haxe.io.Path.addTrailingSlash(dir);
+	var count = 0;
+	for (path in paths) {
+		if (!FileSystem.isDirectory(dir + path))
+			count++;
+	}
+	return count;
+}
+var rootFilesCount:Int = 0;
+var stdgoFilesCount:Int = 0;
+function close() {
+	final rootFilesCount2 = FileSystem.readDirectory(".").length;
+	if (rootFilesCount < rootFilesCount2)
+		throw "not allowed to add extra files or folders to root: " + rootFilesCount + " -> " + rootFilesCount2;
+	final stdgoFilesCount2 = countFiles("stdgo", FileSystem.readDirectory("stdgo"));
+	if (stdgoFilesCount < stdgoFilesCount2)
+		throw "not allowed to add extra files to stdgo: " + stdgoFilesCount + " -> " + stdgoFilesCount2;
+	Main.close();
+}
+
 function main() {
+	rootFilesCount = FileSystem.readDirectory(".").length;
+	stdgoFilesCount = countFiles("stdgo", FileSystem.readDirectory("stdgo"));
 	var list:Array<String> = File.getContent("data/stdgo.list").split("\n");
 	final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
 	final testList:Array<String> = Json.parse(File.getContent("data/tests.json"));
@@ -55,7 +78,7 @@ function main() {
 
 private function complete(modules:Array<Typer.Module>, _) {
 	if (--libCount <= 0)
-		Main.close();
+		close();
 }
 
 var instance:Main.InstanceData = null;

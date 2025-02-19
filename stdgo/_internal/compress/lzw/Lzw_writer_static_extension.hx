@@ -7,9 +7,9 @@ package stdgo._internal.compress.lzw;
         {
             final __value__ = _order;
             if (__value__ == ((0 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _w ?? throw "null pointer dereference")._write = stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeLSB;
+                (@:checkr _w ?? throw "null pointer dereference")._write = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeLSB;
             } else if (__value__ == ((1 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _w ?? throw "null pointer dereference")._write = stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeMSB;
+                (@:checkr _w ?? throw "null pointer dereference")._write = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_writer_static_extension.Writer_static_extension._writeMSB;
             } else {
                 (@:checkr _w ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("lzw: unknown order" : stdgo.GoString));
                 return;
@@ -116,20 +116,20 @@ package stdgo._internal.compress.lzw;
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
+        var _key_13:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _maxLit_4:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _h_15:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _err1_17:stdgo.Error = (null : stdgo.Error);
         var _hash_14:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _x_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _i_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _key_13:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _literal_12:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err_9:stdgo.Error = (null : stdgo.Error);
         var _code_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _h_15:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _i_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _i_3646075_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _literal_12:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_9:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

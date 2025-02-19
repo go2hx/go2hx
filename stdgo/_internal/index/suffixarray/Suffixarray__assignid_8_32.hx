@@ -1,15 +1,15 @@
 package stdgo._internal.index.suffixarray;
 function _assignID_8_32(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.GoInt32>, _numLMS:stdgo.GoInt):stdgo.GoInt {
-        var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3315074_3:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastPos_2:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _lastLen_1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _id_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _last_8:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _this_7:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _n_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_5:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _j_4:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _i_3315074_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lastPos_2:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _id_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _last_8:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _this_7:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _lastLen_1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

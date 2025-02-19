@@ -1,15 +1,15 @@
 package stdgo._internal.index.suffixarray;
 function _assignID_8_64(_text:stdgo.Slice<stdgo.GoUInt8>, _sa:stdgo.Slice<stdgo.GoInt64>, _numLMS:stdgo.GoInt):stdgo.GoInt {
-        var _this_17:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _i_19:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _last_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _n_16:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_15:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _j_14:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _i_3361306_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastPos_12:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _lastLen_11:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _id_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _last_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _i_19:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _this_17:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _i_3361306_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lastPos_12:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

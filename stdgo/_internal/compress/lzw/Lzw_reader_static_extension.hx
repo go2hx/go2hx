@@ -7,9 +7,9 @@ package stdgo._internal.compress.lzw;
         {
             final __value__ = _order;
             if (__value__ == ((0 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _r ?? throw "null pointer dereference")._read = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readLSB;
+                (@:checkr _r ?? throw "null pointer dereference")._read = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readLSB;
             } else if (__value__ == ((1 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _r ?? throw "null pointer dereference")._read = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readMSB;
+                (@:checkr _r ?? throw "null pointer dereference")._read = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readMSB;
             } else {
                 (@:checkr _r ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("lzw: unknown order" : stdgo.GoString));
                 return;

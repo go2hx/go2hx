@@ -26,19 +26,19 @@ var _f = __2, _z = __1, _op = __0;
                             if (__value__ == ((0 : stdgo.GoInt))) {
                                 _op = ("+" : stdgo.GoString);
                                 _z = (_x + _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
                             } else if (__value__ == ((1 : stdgo.GoInt))) {
                                 _op = ("-" : stdgo.GoString);
                                 _z = (_x - _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
                             } else if (__value__ == ((2 : stdgo.GoInt))) {
                                 _op = ("*" : stdgo.GoString);
                                 _z = (_x * _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
                             } else if (__value__ == ((3 : stdgo.GoInt))) {
                                 _op = ("/" : stdgo.GoString);
                                 _z = (_x / _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
                             } else {
                                 throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
                             };

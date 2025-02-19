@@ -209,19 +209,19 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> = _d;
-        var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var loopBreak = false;
-        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _newOffset_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevLength_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _ok_8:Bool = false;
         var _newLength_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _index_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;

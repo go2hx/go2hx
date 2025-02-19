@@ -1,14 +1,14 @@
 package stdgo._internal.internal.cpu;
 function _processOptions(_env:stdgo.GoString):Void {
-        var _o_8:stdgo._internal.internal.cpu.Cpu_t_option.T_option = ({} : stdgo._internal.internal.cpu.Cpu_t_option.T_option);
+        var _i_6566_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _enable_4:Bool = false;
         var _value_3:stdgo.GoString = ("" : stdgo.GoString);
-        var _i_1:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_6566_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _key_2:stdgo.GoString = ("" : stdgo.GoString);
         var _field_0:stdgo.GoString = ("" : stdgo.GoString);
+        var _o_8:stdgo._internal.internal.cpu.Cpu_t_option.T_option = ({} : stdgo._internal.internal.cpu.Cpu_t_option.T_option);
+        var _i_6:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_1:stdgo.GoInt = (0 : stdgo.GoInt);
         var _fieldBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));

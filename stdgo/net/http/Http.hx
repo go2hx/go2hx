@@ -719,62 +719,6 @@ class CloseNotifier_static_extension {
         return y;
     }
 }
-@:dox(hide) class T__interface_0_static_extension {
-    static public function flushError(t:stdgo._internal.net.http.Http_t__interface_0.T__interface_0):stdgo.Error {
-        return stdgo._internal.net.http.Http_t__interface_0_static_extension.T__interface_0_static_extension.flushError(t);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.net.http.Http_t__interface_0.T__interface_0) from stdgo._internal.net.http.Http_t__interface_0.T__interface_0 to stdgo._internal.net.http.Http_t__interface_0.T__interface_0 {
-    @:from
-    static function fromHaxeInterface(x:{ function flushError():stdgo.Error; }):T__interface_0 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_0 = { flushError : () -> x.flushError(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_1_static_extension {
-    static public function setReadDeadline(t:stdgo._internal.net.http.Http_t__interface_1.T__interface_1, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.http.Http_t__interface_1_static_extension.T__interface_1_static_extension.setReadDeadline(t, _0);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_1(stdgo._internal.net.http.Http_t__interface_1.T__interface_1) from stdgo._internal.net.http.Http_t__interface_1.T__interface_1 to stdgo._internal.net.http.Http_t__interface_1.T__interface_1 {
-    @:from
-    static function fromHaxeInterface(x:{ function setReadDeadline(_0:stdgo._internal.time.Time_time.Time):stdgo.Error; }):T__interface_1 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_1 = { setReadDeadline : _0 -> x.setReadDeadline(_0), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_2_static_extension {
-    static public function setWriteDeadline(t:stdgo._internal.net.http.Http_t__interface_2.T__interface_2, _0:stdgo._internal.time.Time_time.Time):stdgo.Error {
-        return stdgo._internal.net.http.Http_t__interface_2_static_extension.T__interface_2_static_extension.setWriteDeadline(t, _0);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_2(stdgo._internal.net.http.Http_t__interface_2.T__interface_2) from stdgo._internal.net.http.Http_t__interface_2.T__interface_2 to stdgo._internal.net.http.Http_t__interface_2.T__interface_2 {
-    @:from
-    static function fromHaxeInterface(x:{ function setWriteDeadline(_0:stdgo._internal.time.Time_time.Time):stdgo.Error; }):T__interface_2 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_2 = { setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_3_static_extension {
-    static public function enableFullDuplex(t:stdgo._internal.net.http.Http_t__interface_3.T__interface_3):stdgo.Error {
-        return stdgo._internal.net.http.Http_t__interface_3_static_extension.T__interface_3_static_extension.enableFullDuplex(t);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_3(stdgo._internal.net.http.Http_t__interface_3.T__interface_3) from stdgo._internal.net.http.Http_t__interface_3.T__interface_3 to stdgo._internal.net.http.Http_t__interface_3.T__interface_3 {
-    @:from
-    static function fromHaxeInterface(x:{ function enableFullDuplex():stdgo.Error; }):T__interface_3 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_3 = { enableFullDuplex : () -> x.enableFullDuplex(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
 @:structInit @:using(stdgo.net.http.Http.Client_static_extension) abstract Client(stdgo._internal.net.http.Http_client.Client) from stdgo._internal.net.http.Http_client.Client to stdgo._internal.net.http.Http_client.Client {
     public var transport(get, set) : RoundTripper;
     function get_transport():RoundTripper return this.transport;
@@ -3079,20 +3023,6 @@ forceAttemptHTTP2);
 
 }
 @:dox(hide) typedef T__struct_0 = stdgo._internal.net.http.Http_t__struct_0.T__struct_0;
-@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.net.http.Http_t__struct_1pointer.T__struct_1Pointer;
-@:dox(hide) class T__struct_1_static_extension {
-    public static function read(__self__:stdgo._internal.net.http.Http_t__struct_1.T__struct_1, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return {
-            final obj = stdgo._internal.net.http.Http_t__struct_1_static_extension.T__struct_1_static_extension.read(__self__, _0);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-    public static function close(__self__:stdgo._internal.net.http.Http_t__struct_1.T__struct_1):stdgo.Error {
-        return stdgo._internal.net.http.Http_t__struct_1_static_extension.T__struct_1_static_extension.close(__self__);
-    }
-}
-@:dox(hide) typedef T__struct_1 = stdgo._internal.net.http.Http_t__struct_1.T__struct_1;
 typedef SameSite = stdgo._internal.net.http.Http_samesite.SameSite;
 typedef Dir = stdgo._internal.net.http.Http_dir.Dir;
 @:dox(hide) typedef T_fileInfoDirs = stdgo._internal.net.http.Http_t_fileinfodirs.T_fileInfoDirs;
@@ -3173,20 +3103,6 @@ class Client_static_extension {
             final obj = stdgo._internal.net.http.Http_client_static_extension.Client_static_extension.get(_c, _url);
             { _0 : obj._0, _1 : obj._1 };
         };
-    }
-}
-@:dox(hide) class T_closeIdleConnections___localname___closeIdler_31464_static_extension {
-    static public function closeIdleConnections(t:stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464):Void {
-        stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464_static_extension.T_closeIdleConnections___localname___closeIdler_31464_static_extension.closeIdleConnections(t);
-    }
-}
-@:dox(hide) @:forward abstract T_closeIdleConnections___localname___closeIdler_31464(stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464) from stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464 to stdgo._internal.net.http.Http_t_closeidleconnections___localname___closeidler_31464.T_closeIdleConnections___localname___closeIdler_31464 {
-    @:from
-    static function fromHaxeInterface(x:{ function closeIdleConnections():Void; }):T_closeIdleConnections___localname___closeIdler_31464 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_closeIdleConnections___localname___closeIdler_31464 = { closeIdleConnections : () -> x.closeIdleConnections(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
     }
 }
 @:dox(hide) typedef T_cancelTimerBodyPointer = stdgo._internal.net.http.Http_t_canceltimerbodypointer.T_cancelTimerBodyPointer;
@@ -4812,20 +4728,6 @@ class MaxBytesError_static_extension {
         };
     }
 }
-@:dox(hide) class T_read___localname___requestTooLarger_39156_static_extension {
-    static public function _requestTooLarge(t:stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156):Void {
-        stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156_static_extension.T_read___localname___requestTooLarger_39156_static_extension._requestTooLarge(t);
-    }
-}
-@:dox(hide) @:forward abstract T_read___localname___requestTooLarger_39156(stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156) from stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156 to stdgo._internal.net.http.Http_t_read___localname___requesttoolarger_39156.T_read___localname___requestTooLarger_39156 {
-    @:from
-    static function fromHaxeInterface(x:{ function _requestTooLarge():Void; }):T_read___localname___requestTooLarger_39156 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_read___localname___requestTooLarger_39156 = { _requestTooLarge : () -> x._requestTooLarge(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
 typedef ResponsePointer = stdgo._internal.net.http.Http_responsepointer.ResponsePointer;
 class Response_static_extension {
     static public function write(_r:Response, _w:stdgo._internal.io.Io_writer.Writer):stdgo.Error {
@@ -5761,10 +5663,6 @@ class Transport_static_extension {
 }
 @:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.net.http.Http_t__struct_0pointerpointer.T__struct_0PointerPointer;
 @:dox(hide) class T__struct_0Pointer_static_extension {
-
-}
-@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.net.http.Http_t__struct_1pointerpointer.T__struct_1PointerPointer;
-@:dox(hide) class T__struct_1Pointer_static_extension {
 
 }
 typedef SameSitePointer = stdgo._internal.net.http.Http_samesitepointer.SameSitePointer;

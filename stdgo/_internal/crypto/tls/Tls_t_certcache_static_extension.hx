@@ -1,47 +1,5 @@
 package stdgo._internal.crypto.tls;
 @:keep @:allow(stdgo._internal.crypto.tls.Tls.T_certCache_asInterface) class T_certCache_static_extension {
-    @:keep
-    @:tdfield
-    static public function _newCert( _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>, _der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>; var _1 : stdgo.Error; } {
-        @:recv var _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache> = _cc;
-        {
-            var __tmp__ = @:check2r _cc.load(stdgo.Go.toInterface((_der : stdgo.GoString))), _entry:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
-            if (_ok) {
-                return { _0 : @:check2r _cc._active((stdgo.Go.typeAssert((_entry : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>)), _1 : (null : stdgo.Error) };
-            };
-        };
-        var __tmp__ = stdgo._internal.crypto.x509.X509_parsecertificate.parseCertificate(_der), _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (_err != null) {
-            return { _0 : null, _1 : _err };
-        };
-        var _entry = (stdgo.Go.setRef(({ _cert : _cert } : stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>);
-        {
-            var __tmp__ = @:check2r _cc.loadOrStore(stdgo.Go.toInterface((_der : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.asInterface(_entry))), _entry:stdgo.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
-            if (_loaded) {
-                return { _0 : @:check2r _cc._active((stdgo.Go.typeAssert((_entry : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>)), _1 : (null : stdgo.Error) };
-            };
-        };
-        return { _0 : @:check2r _cc._active(_entry), _1 : (null : stdgo.Error) };
-    }
-    @:keep
-    @:tdfield
-    static public function _evict( _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>, _e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>):Void {
-        @:recv var _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache> = _cc;
-        @:check2r _cc.delete(stdgo.Go.toInterface(((@:checkr (@:checkr _e ?? throw "null pointer dereference")._cert ?? throw "null pointer dereference").raw : stdgo.GoString)));
-    }
-    @:keep
-    @:tdfield
-    static public function _active( _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache>, _e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert> {
-        @:recv var _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache> = _cc;
-        @:check2 (@:checkr _e ?? throw "null pointer dereference")._refs.add((1i64 : stdgo.GoInt64));
-        var _a = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert((@:checkr _e ?? throw "null pointer dereference")._cert) : stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>);
-        stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(function(__79:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>):Void {
-            if (@:check2 (@:checkr _e ?? throw "null pointer dereference")._refs.add((-1i64 : stdgo.GoInt64)) == ((0i64 : stdgo.GoInt64))) {
-                @:check2r _cc._evict(_e);
-            };
-        }));
-        return _a;
-    }
     @:embedded
     @:embeddededffieldsffun
     public static function _missLocked( __self__:stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache):Void return @:_5 __self__._missLocked();

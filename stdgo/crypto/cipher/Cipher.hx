@@ -1,4 +1,16 @@
 package stdgo.crypto.cipher;
+var newCBCGenericEncrypter(get, set) : (Block, Array<std.UInt>) -> BlockMode;
+private function get_newCBCGenericEncrypter():(Block, Array<std.UInt>) -> BlockMode return (_0, _1) -> stdgo._internal.crypto.cipher.Cipher_newcbcgenericencrypter.newCBCGenericEncrypter(_0, [for (i in _1) i]);
+private function set_newCBCGenericEncrypter(v:(Block, Array<std.UInt>) -> BlockMode):(Block, Array<std.UInt>) -> BlockMode {
+        stdgo._internal.crypto.cipher.Cipher_newcbcgenericencrypter.newCBCGenericEncrypter = (_0, _1) -> v(_0, ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        return v;
+    }
+var newCBCGenericDecrypter(get, set) : (Block, Array<std.UInt>) -> BlockMode;
+private function get_newCBCGenericDecrypter():(Block, Array<std.UInt>) -> BlockMode return (_0, _1) -> stdgo._internal.crypto.cipher.Cipher_newcbcgenericdecrypter.newCBCGenericDecrypter(_0, [for (i in _1) i]);
+private function set_newCBCGenericDecrypter(v:(Block, Array<std.UInt>) -> BlockMode):(Block, Array<std.UInt>) -> BlockMode {
+        stdgo._internal.crypto.cipher.Cipher_newcbcgenericdecrypter.newCBCGenericDecrypter = (_0, _1) -> v(_0, ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        return v;
+    }
 @:dox(hide) class T_cbcEncAble_static_extension {
     static public function newCBCEncrypter(t:stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble, _iv:Array<std.UInt>):BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);

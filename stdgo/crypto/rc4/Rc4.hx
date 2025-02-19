@@ -22,6 +22,23 @@ package stdgo.crypto.rc4;
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.crypto.rc4.Rc4.T_rc4Test_static_extension) @:dox(hide) abstract T_rc4Test(stdgo._internal.crypto.rc4.Rc4_t_rc4test.T_rc4Test) from stdgo._internal.crypto.rc4.Rc4_t_rc4test.T_rc4Test to stdgo._internal.crypto.rc4.Rc4_t_rc4test.T_rc4Test {
+    public var _key(get, set) : Array<std.UInt>;
+    function get__key():Array<std.UInt> return [for (i in this._key) i];
+    function set__key(v:Array<std.UInt>):Array<std.UInt> {
+        this._key = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _keystream(get, set) : Array<std.UInt>;
+    function get__keystream():Array<std.UInt> return [for (i in this._keystream) i];
+    function set__keystream(v:Array<std.UInt>):Array<std.UInt> {
+        this._keystream = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public function new(?_key:Array<std.UInt>, ?_keystream:Array<std.UInt>) this = new stdgo._internal.crypto.rc4.Rc4_t_rc4test.T_rc4Test(([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _keystream) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
 typedef KeySizeError = stdgo._internal.crypto.rc4.Rc4_keysizeerror.KeySizeError;
 typedef CipherPointer = stdgo._internal.crypto.rc4.Rc4_cipherpointer.CipherPointer;
 class Cipher_static_extension {
@@ -35,6 +52,10 @@ class Cipher_static_extension {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_cipher.Cipher>);
         stdgo._internal.crypto.rc4.Rc4_cipher_static_extension.Cipher_static_extension.reset(_c);
     }
+}
+@:dox(hide) typedef T_rc4TestPointer = stdgo._internal.crypto.rc4.Rc4_t_rc4testpointer.T_rc4TestPointer;
+@:dox(hide) class T_rc4Test_static_extension {
+
 }
 typedef KeySizeErrorPointer = stdgo._internal.crypto.rc4.Rc4_keysizeerrorpointer.KeySizeErrorPointer;
 class KeySizeError_static_extension {
@@ -60,5 +81,25 @@ class Rc4 {
             final obj = stdgo._internal.crypto.rc4.Rc4_newcipher.newCipher(_key);
             { _0 : obj._0, _1 : obj._1 };
         };
+    }
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.rc4.Rc4_testgolden.testGolden(_t);
+    }
+    static public inline function testBlock(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.rc4.Rc4_testblock.testBlock(_t);
+    }
+    static public inline function benchmarkRC4_128(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.rc4.Rc4_benchmarkrc4_128.benchmarkRC4_128(_b);
+    }
+    static public inline function benchmarkRC4_1K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.rc4.Rc4_benchmarkrc4_1k.benchmarkRC4_1K(_b);
+    }
+    static public inline function benchmarkRC4_8K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.rc4.Rc4_benchmarkrc4_8k.benchmarkRC4_8K(_b);
     }
 }

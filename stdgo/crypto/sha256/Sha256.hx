@@ -37,6 +37,68 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_blocksize.b
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.crypto.sha256.Sha256.T_sha256Test_static_extension) @:dox(hide) abstract T_sha256Test(stdgo._internal.crypto.sha256.Sha256_t_sha256test.T_sha256Test) from stdgo._internal.crypto.sha256.Sha256_t_sha256test.T_sha256Test to stdgo._internal.crypto.sha256.Sha256_t_sha256test.T_sha256Test {
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = (v : stdgo.GoString);
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfState(get, set) : String;
+    function get__halfState():String return this._halfState;
+    function set__halfState(v:String):String {
+        this._halfState = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_out:String, ?_in:String, ?_halfState:String) this = new stdgo._internal.crypto.sha256.Sha256_t_sha256test.T_sha256Test((_out : stdgo.GoString), (_in : stdgo.GoString), (_halfState : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:structInit @:using(stdgo.crypto.sha256.Sha256.T_unmarshalTest_static_extension) @:dox(hide) abstract T_unmarshalTest(stdgo._internal.crypto.sha256.Sha256_t_unmarshaltest.T_unmarshalTest) from stdgo._internal.crypto.sha256.Sha256_t_unmarshaltest.T_unmarshalTest to stdgo._internal.crypto.sha256.Sha256_t_unmarshaltest.T_unmarshalTest {
+    public var _state(get, set) : String;
+    function get__state():String return this._state;
+    function set__state(v:String):String {
+        this._state = (v : stdgo.GoString);
+        return v;
+    }
+    public var _sum(get, set) : String;
+    function get__sum():String return this._sum;
+    function set__sum(v:String):String {
+        this._sum = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_state:String, ?_sum:String) this = new stdgo._internal.crypto.sha256.Sha256_t_unmarshaltest.T_unmarshalTest((_state : stdgo.GoString), (_sum : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:structInit @:using(stdgo.crypto.sha256.Sha256.T_cgoData_static_extension) @:dox(hide) abstract T_cgoData(stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData) from stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData to stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData {
+    public var data(get, set) : haxe.ds.Vector<std.UInt>;
+    function get_data():haxe.ds.Vector<std.UInt> return haxe.ds.Vector.fromArrayCopy([for (i in this.data) i]);
+    function set_data(v:haxe.ds.Vector<std.UInt>):haxe.ds.Vector<std.UInt> {
+        this.data = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
+        return v;
+    }
+    public var ptr(get, set) : T_cgoData;
+    function get_ptr():T_cgoData return this.ptr;
+    function set_ptr(v:T_cgoData):T_cgoData {
+        this.ptr = (v : stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData>);
+        return v;
+    }
+    public function new(?data:haxe.ds.Vector<std.UInt>, ?ptr:T_cgoData) this = new stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData(([for (i in data) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (ptr : stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_cgodata.T_cgoData>));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.crypto.sha256.Sha256_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0 = stdgo._internal.crypto.sha256.Sha256_t__struct_0.T__struct_0;
 @:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.sha256.Sha256_t_digestpointer.T_digestPointer;
 @:dox(hide) class T_digest_static_extension {
     static public function _checkSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
@@ -81,6 +143,22 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha256.Sha256_blocksize.b
         };
     }
 }
+@:dox(hide) typedef T_sha256TestPointer = stdgo._internal.crypto.sha256.Sha256_t_sha256testpointer.T_sha256TestPointer;
+@:dox(hide) class T_sha256Test_static_extension {
+
+}
+@:dox(hide) typedef T_unmarshalTestPointer = stdgo._internal.crypto.sha256.Sha256_t_unmarshaltestpointer.T_unmarshalTestPointer;
+@:dox(hide) class T_unmarshalTest_static_extension {
+
+}
+@:dox(hide) typedef T_cgoDataPointer = stdgo._internal.crypto.sha256.Sha256_t_cgodatapointer.T_cgoDataPointer;
+@:dox(hide) class T_cgoData_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.crypto.sha256.Sha256_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
+
+}
 /**
     * Package sha256 implements the SHA224 and SHA256 hash algorithms as defined
     * in FIPS 180-4.
@@ -114,5 +192,56 @@ class Sha256 {
     static public inline function sum224(_data:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha256.Sha256_sum224.sum224(_data)) i]);
+    }
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testgolden.testGolden(_t);
+    }
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testgoldenmarshal.testGoldenMarshal(_t);
+    }
+    static public inline function testMarshalTypeMismatch(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testmarshaltypemismatch.testMarshalTypeMismatch(_t);
+    }
+    static public inline function testSize(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testsize.testSize(_t);
+    }
+    static public inline function testBlockSize(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testblocksize.testBlockSize(_t);
+    }
+    /**
+        * Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
+    **/
+    static public inline function testBlockGeneric(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testblockgeneric.testBlockGeneric(_t);
+    }
+    static public inline function testLargeHashes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testlargehashes.testLargeHashes(_t);
+    }
+    static public inline function testAllocations(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testallocations.testAllocations(_t);
+    }
+    static public inline function testCgo(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha256.Sha256_testcgo.testCgo(_t);
+    }
+    static public inline function benchmarkHash8Bytes(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha256.Sha256_benchmarkhash8bytes.benchmarkHash8Bytes(_b);
+    }
+    static public inline function benchmarkHash1K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha256.Sha256_benchmarkhash1k.benchmarkHash1K(_b);
+    }
+    static public inline function benchmarkHash8K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha256.Sha256_benchmarkhash8k.benchmarkHash8K(_b);
     }
 }

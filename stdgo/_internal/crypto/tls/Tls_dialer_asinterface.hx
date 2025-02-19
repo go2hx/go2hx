@@ -5,9 +5,6 @@ class Dialer_asInterface {
     public dynamic function dialContext(_ctx:stdgo._internal.context.Context_context.Context, _network:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return @:_0 __self__.value.dialContext(_ctx, _network, _addr);
     @:keep
     @:tdfield
-    public dynamic function _netDialer():stdgo.Ref<stdgo._internal.net.Net_dialer.Dialer> return @:_0 __self__.value._netDialer();
-    @:keep
-    @:tdfield
     public dynamic function dial(_network:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_conn.Conn; var _1 : stdgo.Error; } return @:_0 __self__.value.dial(_network, _addr);
     public function new(__self__, __type__) {
         this.__self__ = __self__;

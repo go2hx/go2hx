@@ -141,7 +141,101 @@ private function set_hexEncoding(v:Encoding):Encoding {
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.encoding.base32.Base32.T_testpair_static_extension) @:dox(hide) abstract T_testpair(stdgo._internal.encoding.base32.Base32_t_testpair.T_testpair) from stdgo._internal.encoding.base32.Base32_t_testpair.T_testpair to stdgo._internal.encoding.base32.Base32_t_testpair.T_testpair {
+    public var _decoded(get, set) : String;
+    function get__decoded():String return this._decoded;
+    function set__decoded(v:String):String {
+        this._decoded = (v : stdgo.GoString);
+        return v;
+    }
+    public var _encoded(get, set) : String;
+    function get__encoded():String return this._encoded;
+    function set__encoded(v:String):String {
+        this._encoded = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_decoded:String, ?_encoded:String) this = new stdgo._internal.encoding.base32.Base32_t_testpair.T_testpair((_decoded : stdgo.GoString), (_encoded : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:structInit @:using(stdgo.encoding.base32.Base32.T_badReader_static_extension) @:dox(hide) abstract T_badReader(stdgo._internal.encoding.base32.Base32_t_badreader.T_badReader) from stdgo._internal.encoding.base32.Base32_t_badreader.T_badReader to stdgo._internal.encoding.base32.Base32_t_badreader.T_badReader {
+    public var _data(get, set) : Array<std.UInt>;
+    function get__data():Array<std.UInt> return [for (i in this._data) i];
+    function set__data(v:Array<std.UInt>):Array<std.UInt> {
+        this._data = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _errs(get, set) : Array<stdgo.Error>;
+    function get__errs():Array<stdgo.Error> return [for (i in this._errs) i];
+    function set__errs(v:Array<stdgo.Error>):Array<stdgo.Error> {
+        this._errs = ([for (i in v) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>);
+        return v;
+    }
+    public var _called(get, set) : StdTypes.Int;
+    function get__called():StdTypes.Int return this._called;
+    function set__called(v:StdTypes.Int):StdTypes.Int {
+        this._called = (v : stdgo.GoInt);
+        return v;
+    }
+    public var _limit(get, set) : StdTypes.Int;
+    function get__limit():StdTypes.Int return this._limit;
+    function set__limit(v:StdTypes.Int):StdTypes.Int {
+        this._limit = (v : stdgo.GoInt);
+        return v;
+    }
+    public function new(?_data:Array<std.UInt>, ?_errs:Array<stdgo.Error>, ?_called:StdTypes.Int, ?_limit:StdTypes.Int) this = new stdgo._internal.encoding.base32.Base32_t_badreader.T_badReader(([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _errs) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>), (_called : stdgo.GoInt), (_limit : stdgo.GoInt));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.encoding.base32.Base32_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0 = stdgo._internal.encoding.base32.Base32_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.encoding.base32.Base32_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
+
+}
+@:dox(hide) typedef T__struct_1 = stdgo._internal.encoding.base32.Base32_t__struct_1.T__struct_1;
+@:dox(hide) typedef T__struct_2Pointer = stdgo._internal.encoding.base32.Base32_t__struct_2pointer.T__struct_2Pointer;
+@:dox(hide) class T__struct_2_static_extension {
+
+}
+@:dox(hide) typedef T__struct_2 = stdgo._internal.encoding.base32.Base32_t__struct_2.T__struct_2;
+@:dox(hide) typedef T__struct_3Pointer = stdgo._internal.encoding.base32.Base32_t__struct_3pointer.T__struct_3Pointer;
+@:dox(hide) class T__struct_3_static_extension {
+
+}
+@:dox(hide) typedef T__struct_3 = stdgo._internal.encoding.base32.Base32_t__struct_3.T__struct_3;
+@:dox(hide) typedef T__struct_4Pointer = stdgo._internal.encoding.base32.Base32_t__struct_4pointer.T__struct_4Pointer;
+@:dox(hide) class T__struct_4_static_extension {
+
+}
+@:dox(hide) typedef T__struct_4 = stdgo._internal.encoding.base32.Base32_t__struct_4.T__struct_4;
 typedef CorruptInputError = stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError;
+@:structInit @:using(stdgo.encoding.base32.Base32.T_testEncodedDecodedLen___localname___test_20307_static_extension) @:dox(hide) abstract T_testEncodedDecodedLen___localname___test_20307(stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307.T_testEncodedDecodedLen___localname___test_20307) from stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307.T_testEncodedDecodedLen___localname___test_20307 to stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307.T_testEncodedDecodedLen___localname___test_20307 {
+    public var _in(get, set) : StdTypes.Int;
+    function get__in():StdTypes.Int return this._in;
+    function set__in(v:StdTypes.Int):StdTypes.Int {
+        this._in = (v : stdgo.GoInt);
+        return v;
+    }
+    public var _wantEnc(get, set) : StdTypes.Int;
+    function get__wantEnc():StdTypes.Int return this._wantEnc;
+    function set__wantEnc(v:StdTypes.Int):StdTypes.Int {
+        this._wantEnc = (v : stdgo.GoInt);
+        return v;
+    }
+    public var _wantDec(get, set) : StdTypes.Int;
+    function get__wantDec():StdTypes.Int return this._wantDec;
+    function set__wantDec(v:StdTypes.Int):StdTypes.Int {
+        this._wantDec = (v : stdgo.GoInt);
+        return v;
+    }
+    public function new(?_in:StdTypes.Int, ?_wantEnc:StdTypes.Int, ?_wantDec:StdTypes.Int) this = new stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307.T_testEncodedDecodedLen___localname___test_20307((_in : stdgo.GoInt), (_wantEnc : stdgo.GoInt), (_wantDec : stdgo.GoInt));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
 typedef EncodingPointer = stdgo._internal.encoding.base32.Base32_encodingpointer.EncodingPointer;
 class Encoding_static_extension {
     static public function decodedLen(_enc:Encoding, _n:StdTypes.Int):StdTypes.Int {
@@ -233,11 +327,50 @@ class Encoding_static_extension {
         };
     }
 }
+@:dox(hide) typedef T_testpairPointer = stdgo._internal.encoding.base32.Base32_t_testpairpointer.T_testpairPointer;
+@:dox(hide) class T_testpair_static_extension {
+
+}
+@:dox(hide) typedef T_badReaderPointer = stdgo._internal.encoding.base32.Base32_t_badreaderpointer.T_badReaderPointer;
+@:dox(hide) class T_badReader_static_extension {
+    static public function read(_b:T_badReader, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = (_b : stdgo.Ref<stdgo._internal.encoding.base32.Base32_t_badreader.T_badReader>);
+        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return {
+            final obj = stdgo._internal.encoding.base32.Base32_t_badreader_static_extension.T_badReader_static_extension.read(_b, _p);
+            { _0 : obj._0, _1 : obj._1 };
+        };
+    }
+}
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.encoding.base32.Base32_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
+
+}
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.encoding.base32.Base32_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
+
+}
+@:dox(hide) typedef T__struct_2PointerPointer = stdgo._internal.encoding.base32.Base32_t__struct_2pointerpointer.T__struct_2PointerPointer;
+@:dox(hide) class T__struct_2Pointer_static_extension {
+
+}
+@:dox(hide) typedef T__struct_3PointerPointer = stdgo._internal.encoding.base32.Base32_t__struct_3pointerpointer.T__struct_3PointerPointer;
+@:dox(hide) class T__struct_3Pointer_static_extension {
+
+}
+@:dox(hide) typedef T__struct_4PointerPointer = stdgo._internal.encoding.base32.Base32_t__struct_4pointerpointer.T__struct_4PointerPointer;
+@:dox(hide) class T__struct_4Pointer_static_extension {
+
+}
 typedef CorruptInputErrorPointer = stdgo._internal.encoding.base32.Base32_corruptinputerrorpointer.CorruptInputErrorPointer;
 class CorruptInputError_static_extension {
     static public function error(_e:CorruptInputError):String {
         return stdgo._internal.encoding.base32.Base32_corruptinputerror_static_extension.CorruptInputError_static_extension.error(_e);
     }
+}
+@:dox(hide) typedef T_testEncodedDecodedLen___localname___test_20307Pointer = stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307pointer.T_testEncodedDecodedLen___localname___test_20307Pointer;
+@:dox(hide) class T_testEncodedDecodedLen___localname___test_20307_static_extension {
+
 }
 /**
     * Package base32 implements base32 encoding as specified by RFC 4648.
@@ -269,5 +402,125 @@ class Base32 {
     static public inline function newDecoder(_enc:Encoding, _r:stdgo._internal.io.Io_reader.Reader):stdgo._internal.io.Io_reader.Reader {
         final _enc = (_enc : stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding>);
         return stdgo._internal.encoding.base32.Base32_newdecoder.newDecoder(_enc, _r);
+    }
+    static public inline function testEncode(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testencode.testEncode(_t);
+    }
+    static public inline function testEncoder(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testencoder.testEncoder(_t);
+    }
+    static public inline function testEncoderBuffering(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testencoderbuffering.testEncoderBuffering(_t);
+    }
+    static public inline function testDecode(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecode.testDecode(_t);
+    }
+    static public inline function testDecoder(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecoder.testDecoder(_t);
+    }
+    /**
+        * TestIssue20044 tests that decoder.Read behaves correctly when the caller
+        * supplied reader returns an error.
+    **/
+    static public inline function testIssue20044(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testissue20044.testIssue20044(_t);
+    }
+    /**
+        * TestDecoderError verifies decode errors are propagated when there are no read
+        * errors.
+    **/
+    static public inline function testDecoderError(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodererror.testDecoderError(_t);
+    }
+    /**
+        * TestReaderEOF ensures decoder.Read behaves correctly when input data is
+        * exhausted.
+    **/
+    static public inline function testReaderEOF(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testreadereof.testReaderEOF(_t);
+    }
+    static public inline function testDecoderBuffering(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecoderbuffering.testDecoderBuffering(_t);
+    }
+    static public inline function testDecodeCorrupt(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodecorrupt.testDecodeCorrupt(_t);
+    }
+    static public inline function testBig(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testbig.testBig(_t);
+    }
+    static public inline function testNewLineCharacters(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testnewlinecharacters.testNewLineCharacters(_t);
+    }
+    static public inline function testDecoderIssue4779(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecoderissue4779.testDecoderIssue4779(_t);
+    }
+    static public inline function benchmarkEncode(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.encoding.base32.Base32_benchmarkencode.benchmarkEncode(_b);
+    }
+    static public inline function benchmarkEncodeToString(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.encoding.base32.Base32_benchmarkencodetostring.benchmarkEncodeToString(_b);
+    }
+    static public inline function benchmarkDecode(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.encoding.base32.Base32_benchmarkdecode.benchmarkDecode(_b);
+    }
+    static public inline function benchmarkDecodeString(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.encoding.base32.Base32_benchmarkdecodestring.benchmarkDecodeString(_b);
+    }
+    static public inline function testWithCustomPadding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testwithcustompadding.testWithCustomPadding(_t);
+    }
+    static public inline function testWithoutPadding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testwithoutpadding.testWithoutPadding(_t);
+    }
+    static public inline function testDecodeWithPadding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodewithpadding.testDecodeWithPadding(_t);
+    }
+    static public inline function testDecodeWithWrongPadding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodewithwrongpadding.testDecodeWithWrongPadding(_t);
+    }
+    static public inline function testBufferedDecodingSameError(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testbuffereddecodingsameerror.testBufferedDecodingSameError(_t);
+    }
+    static public inline function testBufferedDecodingPadding(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testbuffereddecodingpadding.testBufferedDecodingPadding(_t);
+    }
+    static public inline function testEncodedDecodedLen(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testencodeddecodedlen.testEncodedDecodedLen(_t);
+    }
+    static public inline function testWithoutPaddingClose(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testwithoutpaddingclose.testWithoutPaddingClose(_t);
+    }
+    static public inline function testDecodeReadAll(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodereadall.testDecodeReadAll(_t);
+    }
+    static public inline function testDecodeSmallBuffer(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.encoding.base32.Base32_testdecodesmallbuffer.testDecodeSmallBuffer(_t);
     }
 }

@@ -1,0 +1,3 @@
+-m _internal.container.heap_dot_test.Heap_dot_test
+-lib go2hx
+-cp .

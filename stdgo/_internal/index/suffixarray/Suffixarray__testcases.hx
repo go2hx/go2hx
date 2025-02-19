@@ -1,0 +1,20 @@
+package stdgo._internal.index.suffixarray;
+var _testCases : stdgo.Slice<stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase> = (new stdgo.Slice<stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase>(6, 6, ...[(new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("empty string" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (new stdgo.Slice<stdgo.GoString>(5, 5, ...[(stdgo.Go.str() : stdgo.GoString)?.__copy__(), ("foo" : stdgo.GoString), ("(foo)" : stdgo.GoString), (".*" : stdgo.GoString), ("a*" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase), (new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("all a\'s" : stdgo.GoString), ("aaaaaaaaaa" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(18, 18, ...[
+(stdgo.Go.str() : stdgo.GoString)?.__copy__(),
+("a" : stdgo.GoString),
+("aa" : stdgo.GoString),
+("aaa" : stdgo.GoString),
+("aaaa" : stdgo.GoString),
+("aaaaa" : stdgo.GoString),
+("aaaaaa" : stdgo.GoString),
+("aaaaaaa" : stdgo.GoString),
+("aaaaaaaa" : stdgo.GoString),
+("aaaaaaaaa" : stdgo.GoString),
+("aaaaaaaaaa" : stdgo.GoString),
+("aaaaaaaaaaa" : stdgo.GoString),
+("." : stdgo.GoString),
+(".*" : stdgo.GoString),
+("a+" : stdgo.GoString),
+("aa+" : stdgo.GoString),
+("aaaa[b]?" : stdgo.GoString),
+("aaa*" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase), (new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("abc" : stdgo.GoString), ("abc" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("a" : stdgo.GoString), ("b" : stdgo.GoString), ("c" : stdgo.GoString), ("ab" : stdgo.GoString), ("bc" : stdgo.GoString), ("abc" : stdgo.GoString), ("a.c" : stdgo.GoString), ("a(b|c)" : stdgo.GoString), ("abc?" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase), (new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("barbara*3" : stdgo.GoString), ("barbarabarbarabarbara" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(6, 6, ...[("a" : stdgo.GoString), ("bar" : stdgo.GoString), ("rab" : stdgo.GoString), ("arab" : stdgo.GoString), ("barbar" : stdgo.GoString), ("bara?bar" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase), (new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("typing drill" : stdgo.GoString), ("Now is the time for all good men to come to the aid of their country." : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(5, 5, ...[("Now" : stdgo.GoString), ("the time" : stdgo.GoString), ("to come the aid" : stdgo.GoString), ("is the time for all good men to come to the aid of their" : stdgo.GoString), ("to (come|the)?" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase), (new stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase(("godoc simulation" : stdgo.GoString), ("package main\n\nimport(\n    \"rand\"\n    " : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase)])) : stdgo.Slice<stdgo._internal.index.suffixarray.Suffixarray_t_testcase.T_testCase>);

@@ -3187,6 +3187,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
 				var op = typeOp(stmt.tok);
 				var exprs:Array<Expr> = [];
+				var destructExprs:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
@@ -3239,7 +3240,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									return (macro $b{exprs}).expr;
 								}
 							case sliceType(_), mapType(_, _), arrayType(_, _):
-									return (macro $x.__setData__($y)).expr;
+								exprs.push(macro $x.__setData__($y));
+								continue;
+								//return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -3268,13 +3271,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								throw info.panic() + "op is null";
 						}
 					}
+					destructExprs.push(expr);
 					exprs.push(expr);
 				}
 				if (exprs.length == 1)
 					return exprs[0].expr;
 				var tmpIndex = 0;
 				var inits:Array<Expr> = [];
-				for (expr in exprs) {
+				for (expr in destructExprs) {
 					switch expr.expr { // in case it's an array/slice/map get and has a null if check
 						case EIf(_, e, _):
 							expr = e;
@@ -3285,7 +3289,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							var tmpName = "__tmp__" + tmpIndex;
 							tmpIndex++;
 							inits.push(macro final $tmpName = ${e2});
-							expr.expr = EBinop(op, e1, macro $i{tmpName});
+							expr.expr = EBinop(op, e1, macro @:binopAssign $i{tmpName});
 						default:
 							inits.push(expr);
 					}

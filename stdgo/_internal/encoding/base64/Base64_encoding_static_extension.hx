@@ -228,9 +228,9 @@ break;
             final __tmp__6 = (1 : stdgo.GoInt);
             final __tmp__7 = _dbuf;
             final __tmp__8 = (0 : stdgo.GoInt);
-            __tmp__3[__tmp__4] = __tmp__0;
-            __tmp__5[__tmp__6] = __tmp__1;
-            __tmp__7[__tmp__8] = __tmp__2;
+            __tmp__3[__tmp__4] = @:binopAssign __tmp__0;
+            __tmp__5[__tmp__6] = @:binopAssign __tmp__1;
+            __tmp__7[__tmp__8] = @:binopAssign __tmp__2;
         };
         {
             var __switchIndex__ = -1;

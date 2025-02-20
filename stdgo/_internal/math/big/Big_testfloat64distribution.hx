@@ -7,8 +7,8 @@ var _einc = __1, _winc = __0;
             {
                 final __tmp__0 = (1i64 : stdgo.GoUInt64);
                 final __tmp__1 = (1 : stdgo.GoInt);
-                _winc = __tmp__0;
-                _einc = __tmp__1;
+                _winc = @:binopAssign __tmp__0;
+                _einc = @:binopAssign __tmp__1;
             };
         };
         for (__8 => _sign in ("+-" : stdgo.GoString)) {

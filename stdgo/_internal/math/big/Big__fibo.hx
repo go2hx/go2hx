@@ -19,9 +19,9 @@ function _fibo(_n:stdgo.GoInt):stdgo._internal.math.big.Big_t_nat.T_nat {
                     final __tmp__0 = _f1;
                     final __tmp__1 = _f2;
                     final __tmp__2 = _f0;
-                    _f0 = __tmp__0;
-                    _f1 = __tmp__1;
-                    _f2 = __tmp__2;
+                    _f0 = @:binopAssign __tmp__0;
+                    _f1 = @:binopAssign __tmp__1;
+                    _f2 = @:binopAssign __tmp__2;
                 };
                 _i++;
             };

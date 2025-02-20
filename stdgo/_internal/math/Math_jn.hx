@@ -16,8 +16,8 @@ function jn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
             {
                 final __tmp__0 = -_n;
                 final __tmp__1 = -_x;
-                _n = __tmp__0;
-                _x = __tmp__1;
+                _n = @:binopAssign __tmp__0;
+                _x = @:binopAssign __tmp__1;
             };
         };
         if (_n == ((1 : stdgo.GoInt))) {
@@ -59,8 +59,8 @@ var _a = __1, _i = __0;
                         {
                             final __tmp__0 = _b;
                             final __tmp__1 = ((_b * ((((_i + _i : stdgo.GoInt) : stdgo.GoFloat64) / _x : stdgo.GoFloat64)) : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
-                            _a = __tmp__0;
-                            _b = __tmp__1;
+                            _a = @:binopAssign __tmp__0;
+                            _b = @:binopAssign __tmp__1;
                         };
                         _i++;
                     };
@@ -97,8 +97,8 @@ _b = (_b * (_temp) : stdgo.GoFloat64);
                     {
                         final __tmp__0 = _q1;
                         final __tmp__1 = ((_z * _q1 : stdgo.GoFloat64) - _q0 : stdgo.GoFloat64);
-                        _q0 = __tmp__0;
-                        _q1 = __tmp__1;
+                        _q0 = @:binopAssign __tmp__0;
+                        _q1 = @:binopAssign __tmp__1;
                     };
                 };
                 var _m = (_n + _n : stdgo.GoInt);
@@ -123,8 +123,8 @@ _b = (_b * (_temp) : stdgo.GoFloat64);
 {
                                 final __tmp__0 = _b;
                                 final __tmp__1 = (((_b * _di : stdgo.GoFloat64) / _x : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
-                                _a = __tmp__0;
-                                _b = __tmp__1;
+                                _a = @:binopAssign __tmp__0;
+                                _b = @:binopAssign __tmp__1;
                             };
                             _i--;
                         };
@@ -137,8 +137,8 @@ _b = (_b * (_temp) : stdgo.GoFloat64);
 {
                                 final __tmp__0 = _b;
                                 final __tmp__1 = (((_b * _di : stdgo.GoFloat64) / _x : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
-                                _a = __tmp__0;
-                                _b = __tmp__1;
+                                _a = @:binopAssign __tmp__0;
+                                _b = @:binopAssign __tmp__1;
                             };
 if ((_b > (1e+100 : stdgo.GoFloat64) : Bool)) {
                                 _a = (_a / (_b) : stdgo.GoFloat64);

@@ -8,8 +8,8 @@ var _pc = __5, _pb = __4, _pa = __3, _c = __2, _b = __1, _a = __0;
                 {
                     final __tmp__0 = (0 : stdgo.GoInt);
                     final __tmp__1 = (0 : stdgo.GoInt);
-                    _a = __tmp__0;
-                    _c = __tmp__1;
+                    _a = @:binopAssign __tmp__0;
+                    _c = @:binopAssign __tmp__1;
                 };
 {
                     var _j = (_i : stdgo.GoInt);

@@ -15,95 +15,95 @@ function _parseRFC2821Mailbox(_in:stdgo.GoString):{ var _0 : stdgo._internal.cry
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     if ((_in.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5597333i32;
+                        _gotoNext = 5607831i32;
                     } else {
-                        _gotoNext = 5597364i32;
+                        _gotoNext = 5607862i32;
                     };
-                } else if (__value__ == (5597333i32)) {
+                } else if (__value__ == (5607831i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5597364i32;
-                } else if (__value__ == (5597364i32)) {
+                    _gotoNext = 5607862i32;
+                } else if (__value__ == (5607862i32)) {
                     _localPartBytes_0 = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((_in.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     if (_in[(0 : stdgo.GoInt)] == ((34 : stdgo.GoUInt8))) {
-                        _gotoNext = 5597427i32;
+                        _gotoNext = 5607925i32;
                     } else {
-                        _gotoNext = 5598931i32;
+                        _gotoNext = 5609429i32;
                     };
-                } else if (__value__ == (5597427i32)) {
+                } else if (__value__ == (5607925i32)) {
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                    _gotoNext = 5597916i32;
-                } else if (__value__ == (5597916i32)) {
+                    _gotoNext = 5608414i32;
+                } else if (__value__ == (5608414i32)) {
                     var __blank__ = 0i32;
                     quotedStringBreak = false;
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5597932i32)) {
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5608430i32)) {
                     if (!quotedStringBreak) {
-                        _gotoNext = 5597936i32;
+                        _gotoNext = 5608434i32;
                     } else {
-                        _gotoNext = 5600276i32;
+                        _gotoNext = 5610774i32;
                     };
-                } else if (__value__ == (5597936i32)) {
+                } else if (__value__ == (5608434i32)) {
                     if ((_in.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5597957i32;
+                        _gotoNext = 5608455i32;
                     } else {
-                        _gotoNext = 5597993i32;
+                        _gotoNext = 5608491i32;
                     };
-                } else if (__value__ == (5597957i32)) {
+                } else if (__value__ == (5608455i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5597993i32;
-                } else if (__value__ == (5597993i32)) {
+                    _gotoNext = 5608491i32;
+                } else if (__value__ == (5608491i32)) {
                     _c_1 = _in[(0 : stdgo.GoInt)];
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                    _gotoNext = 5598023i32;
-                } else if (__value__ == (5598023i32)) {
+                    _gotoNext = 5608521i32;
+                } else if (__value__ == (5608521i32)) {
                     if (_c_1 == ((34 : stdgo.GoUInt8))) {
-                        _gotoNext = 5598035i32;
+                        _gotoNext = 5608533i32;
                     } else if (_c_1 == ((92 : stdgo.GoUInt8))) {
-                        _gotoNext = 5598077i32;
+                        _gotoNext = 5608575i32;
                     } else if (((((((((_c_1 == ((11 : stdgo.GoUInt8)) || _c_1 == ((12 : stdgo.GoUInt8)) : Bool) || _c_1 == ((32 : stdgo.GoUInt8)) : Bool) || _c_1 == ((33 : stdgo.GoUInt8)) : Bool) || _c_1 == ((127 : stdgo.GoUInt8)) : Bool) || ((((1 : stdgo.GoUInt8) <= _c_1 : Bool) && (_c_1 <= (8 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || ((((14 : stdgo.GoUInt8) <= _c_1 : Bool) && (_c_1 <= (31 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || ((((35 : stdgo.GoUInt8) <= _c_1 : Bool) && (_c_1 <= (91 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || ((((93 : stdgo.GoUInt8) <= _c_1 : Bool) && (_c_1 <= (126 : stdgo.GoUInt8) : Bool) : Bool)) : Bool)) {
-                        _gotoNext = 5598400i32;
+                        _gotoNext = 5608898i32;
                     } else {
-                        _gotoNext = 5598879i32;
+                        _gotoNext = 5609377i32;
                     };
-                } else if (__value__ == (5598035i32)) {
+                } else if (__value__ == (5608533i32)) {
                     quotedStringBreak = true;
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5598077i32)) {
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5608575i32)) {
                     if ((_in.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5598132i32;
+                        _gotoNext = 5608630i32;
                     } else {
-                        _gotoNext = 5598171i32;
+                        _gotoNext = 5608669i32;
                     };
-                } else if (__value__ == (5598132i32)) {
+                } else if (__value__ == (5608630i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5598171i32;
-                } else if (__value__ == (5598171i32)) {
+                    _gotoNext = 5608669i32;
+                } else if (__value__ == (5608669i32)) {
                     if ((((_in[(0 : stdgo.GoInt)] == ((11 : stdgo.GoUInt8)) || _in[(0 : stdgo.GoInt)] == ((12 : stdgo.GoUInt8)) : Bool) || ((((1 : stdgo.GoUInt8) <= _in[(0 : stdgo.GoInt)] : Bool) && (_in[(0 : stdgo.GoInt)] <= (9 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || ((((14 : stdgo.GoUInt8) <= _in[(0 : stdgo.GoInt)] : Bool) && (_in[(0 : stdgo.GoInt)] <= (127 : stdgo.GoUInt8) : Bool) : Bool)) : Bool)) {
-                        _gotoNext = 5598279i32;
+                        _gotoNext = 5608777i32;
                     } else {
-                        _gotoNext = 5598361i32;
+                        _gotoNext = 5608859i32;
                     };
-                } else if (__value__ == (5598279i32)) {
+                } else if (__value__ == (5608777i32)) {
                     _localPartBytes_0 = (_localPartBytes_0.__append__(_in[(0 : stdgo.GoInt)]));
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5598361i32)) {
-                    _gotoNext = 5598361i32;
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5608859i32)) {
+                    _gotoNext = 5608859i32;
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
@@ -111,110 +111,110 @@ function _parseRFC2821Mailbox(_in:stdgo.GoString):{ var _0 : stdgo._internal.cry
                         __tmp__;
                     };
                     var __blank__ = 0i32;
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5598400i32)) {
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5608898i32)) {
                     _localPartBytes_0 = (_localPartBytes_0.__append__(_c_1));
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5598879i32)) {
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5609377i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5597932i32;
-                } else if (__value__ == (5598931i32)) {
-                    _gotoNext = 5598931i32;
-                    _gotoNext = 5598956i32;
-                } else if (__value__ == (5598956i32)) {
+                    _gotoNext = 5608430i32;
+                } else if (__value__ == (5609429i32)) {
+                    _gotoNext = 5609429i32;
+                    _gotoNext = 5609454i32;
+                } else if (__value__ == (5609454i32)) {
                     var __blank__ = 0i32;
                     nextCharBreak = false;
-                    _gotoNext = 5598968i32;
-                } else if (__value__ == (5598968i32)) {
+                    _gotoNext = 5609466i32;
+                } else if (__value__ == (5609466i32)) {
                     if (!nextCharBreak && (((_in.length) > (0 : stdgo.GoInt) : Bool))) {
-                        _gotoNext = 5598984i32;
+                        _gotoNext = 5609482i32;
                     } else {
-                        _gotoNext = 5599841i32;
+                        _gotoNext = 5610339i32;
                     };
-                } else if (__value__ == (5598984i32)) {
+                } else if (__value__ == (5609482i32)) {
                     _c_2 = _in[(0 : stdgo.GoInt)];
-                    _gotoNext = 5599045i32;
-                } else if (__value__ == (5599045i32)) {
+                    _gotoNext = 5609543i32;
+                } else if (__value__ == (5609543i32)) {
                     if (_c_2 == ((92 : stdgo.GoUInt8))) {
-                        _gotoNext = 5599057i32;
+                        _gotoNext = 5609555i32;
                     } else if (((((((((((((((((((((((((((48 : stdgo.GoUInt8) <= _c_2 : Bool) && (_c_2 <= (57 : stdgo.GoUInt8) : Bool) : Bool)) || ((((97 : stdgo.GoUInt8) <= _c_2 : Bool) && (_c_2 <= (122 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || ((((65 : stdgo.GoUInt8) <= _c_2 : Bool) && (_c_2 <= (90 : stdgo.GoUInt8) : Bool) : Bool)) : Bool) || _c_2 == ((33 : stdgo.GoUInt8)) : Bool) || _c_2 == ((35 : stdgo.GoUInt8)) : Bool) || _c_2 == ((36 : stdgo.GoUInt8)) : Bool) || _c_2 == ((37 : stdgo.GoUInt8)) : Bool) || _c_2 == ((38 : stdgo.GoUInt8)) : Bool) || _c_2 == ((39 : stdgo.GoUInt8)) : Bool) || _c_2 == ((42 : stdgo.GoUInt8)) : Bool) || _c_2 == ((43 : stdgo.GoUInt8)) : Bool) || _c_2 == ((45 : stdgo.GoUInt8)) : Bool) || _c_2 == ((47 : stdgo.GoUInt8)) : Bool) || _c_2 == ((61 : stdgo.GoUInt8)) : Bool) || _c_2 == ((63 : stdgo.GoUInt8)) : Bool) || _c_2 == ((94 : stdgo.GoUInt8)) : Bool) || _c_2 == ((95 : stdgo.GoUInt8)) : Bool) || _c_2 == ((96 : stdgo.GoUInt8)) : Bool) || _c_2 == ((123 : stdgo.GoUInt8)) : Bool) || _c_2 == ((124 : stdgo.GoUInt8)) : Bool) || _c_2 == ((125 : stdgo.GoUInt8)) : Bool) || _c_2 == ((126 : stdgo.GoUInt8)) : Bool) || (_c_2 == (46 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 5599380i32;
+                        _gotoNext = 5609878i32;
                     } else {
-                        _gotoNext = 5599801i32;
+                        _gotoNext = 5610299i32;
                     };
-                } else if (__value__ == (5599057i32)) {
+                } else if (__value__ == (5609555i32)) {
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     if ((_in.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5599325i32;
+                        _gotoNext = 5609823i32;
                     } else {
-                        _gotoNext = 5599364i32;
+                        _gotoNext = 5609862i32;
                     };
-                } else if (__value__ == (5599325i32)) {
+                } else if (__value__ == (5609823i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5599364i32;
-                } else if (__value__ == (5599364i32)) {
-                    _gotoNext = 5599380i32;
-                } else if (__value__ == (5599380i32)) {
+                    _gotoNext = 5609862i32;
+                } else if (__value__ == (5609862i32)) {
+                    _gotoNext = 5609878i32;
+                } else if (__value__ == (5609878i32)) {
                     _localPartBytes_0 = (_localPartBytes_0.__append__(_in[(0 : stdgo.GoInt)]));
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                    _gotoNext = 5598968i32;
-                } else if (__value__ == (5599801i32)) {
+                    _gotoNext = 5609466i32;
+                } else if (__value__ == (5610299i32)) {
                     nextCharBreak = true;
-                    _gotoNext = 5598968i32;
-                } else if (__value__ == (5599841i32)) {
+                    _gotoNext = 5609466i32;
+                } else if (__value__ == (5610339i32)) {
                     if ((_localPartBytes_0.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5599869i32;
+                        _gotoNext = 5610367i32;
                     } else {
-                        _gotoNext = 5600085i32;
+                        _gotoNext = 5610583i32;
                     };
-                } else if (__value__ == (5599869i32)) {
+                } else if (__value__ == (5610367i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5600085i32;
-                } else if (__value__ == (5600085i32)) {
+                    _gotoNext = 5610583i32;
+                } else if (__value__ == (5610583i32)) {
                     _twoDots_3 = (new stdgo.Slice<stdgo.GoUInt8>(2, 2, ...[(46 : stdgo.GoUInt8), (46 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     if (((_localPartBytes_0[(0 : stdgo.GoInt)] == ((46 : stdgo.GoUInt8)) || _localPartBytes_0[((_localPartBytes_0.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] == ((46 : stdgo.GoUInt8)) : Bool) || stdgo._internal.bytes.Bytes_contains.contains(_localPartBytes_0, _twoDots_3) : Bool)) {
-                        _gotoNext = 5600240i32;
+                        _gotoNext = 5610738i32;
                     } else {
-                        _gotoNext = 5600276i32;
+                        _gotoNext = 5610774i32;
                     };
-                } else if (__value__ == (5600240i32)) {
+                } else if (__value__ == (5610738i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5600276i32;
-                } else if (__value__ == (5600276i32)) {
+                    _gotoNext = 5610774i32;
+                } else if (__value__ == (5610774i32)) {
                     if (((_in.length == (0 : stdgo.GoInt)) || (_in[(0 : stdgo.GoInt)] != (64 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 5600308i32;
+                        _gotoNext = 5610806i32;
                     } else {
-                        _gotoNext = 5600338i32;
+                        _gotoNext = 5610836i32;
                     };
-                } else if (__value__ == (5600308i32)) {
+                } else if (__value__ == (5610806i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5600338i32;
-                } else if (__value__ == (5600338i32)) {
+                    _gotoNext = 5610836i32;
+                } else if (__value__ == (5610836i32)) {
                     _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     {
                         {
@@ -222,20 +222,20 @@ function _parseRFC2821Mailbox(_in:stdgo.GoString):{ var _0 : stdgo._internal.cry
                             _ok_4 = @:tmpset0 __tmp__._1;
                         };
                         if (!_ok_4) {
-                            _gotoNext = 5600549i32;
+                            _gotoNext = 5611047i32;
                         } else {
-                            _gotoNext = 5600580i32;
+                            _gotoNext = 5611078i32;
                         };
                     };
-                } else if (__value__ == (5600549i32)) {
+                } else if (__value__ == (5611047i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox; var _1 : Bool; } = { _0 : _mailbox?.__copy__(), _1 : false };
                         _mailbox = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 5600580i32;
-                } else if (__value__ == (5600580i32)) {
+                    _gotoNext = 5611078i32;
+                } else if (__value__ == (5611078i32)) {
                     _mailbox._local = (_localPartBytes_0 : stdgo.GoString)?.__copy__();
                     _mailbox._domain = _in?.__copy__();
                     return {

@@ -36,8 +36,8 @@ var _inCharset = __1, _k = __0;
                         {
                             final __tmp__0 = (10 : stdgo._internal.html.template.Template_t_state.T_state);
                             final __tmp__1 = (1 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
-                            _c._state = __tmp__0;
-                            _c._jsCtx = __tmp__1;
+                            _c._state = @:binopAssign __tmp__0;
+                            _c._jsCtx = @:binopAssign __tmp__1;
                         };
                         return { _0 : _c?.__copy__(), _1 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     };
@@ -46,8 +46,8 @@ var _inCharset = __1, _k = __0;
                         {
                             final __tmp__0 = (10 : stdgo._internal.html.template.Template_t_state.T_state);
                             final __tmp__1 = (1 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
-                            _c._state = __tmp__0;
-                            _c._jsCtx = __tmp__1;
+                            _c._state = @:binopAssign __tmp__0;
+                            _c._jsCtx = @:binopAssign __tmp__1;
                         };
                         return { _0 : _c?.__copy__(), _1 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     };

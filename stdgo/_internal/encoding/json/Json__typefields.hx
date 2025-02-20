@@ -17,8 +17,8 @@ var _nextCount = __1, _count = __0;
             {
                 final __tmp__0 = _next;
                 final __tmp__1 = (_current.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
-                _current = __tmp__0;
-                _next = __tmp__1;
+                _current = @:binopAssign __tmp__0;
+                _next = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _nextCount;
@@ -29,8 +29,8 @@ var _nextCount = __1, _count = __0;
                     {};
                     cast x;
                 } : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>);
-                _count = __tmp__0;
-                _nextCount = __tmp__1;
+                _count = @:binopAssign __tmp__0;
+                _nextCount = @:binopAssign __tmp__1;
             };
             for (__4 => _f in _current) {
                 if ((_visited[_f._typ] ?? false)) {

@@ -19,8 +19,8 @@ var _dotdot = __1, _r = __0;
             {
                 final __tmp__0 = (1 : stdgo.GoInt);
                 final __tmp__1 = (1 : stdgo.GoInt);
-                _r = __tmp__0;
-                _dotdot = __tmp__1;
+                _r = @:binopAssign __tmp__0;
+                _dotdot = @:binopAssign __tmp__1;
             };
         };
         while ((_r < _n : Bool)) {

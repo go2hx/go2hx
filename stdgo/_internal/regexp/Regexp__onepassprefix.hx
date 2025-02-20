@@ -32,8 +32,8 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.P
             {
                 final __tmp__0 = (@:checkr _i ?? throw "null pointer dereference").out;
                 final __tmp__1 = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[((@:checkr _i ?? throw "null pointer dereference").out : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
-                _pc = __tmp__0;
-                _i = __tmp__1;
+                _pc = @:binopAssign __tmp__0;
+                _i = @:binopAssign __tmp__1;
             };
         };
         if ((((@:checkr _i ?? throw "null pointer dereference").op == ((3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) && (((@:checkr _i ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) & (8 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) != ((0 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) : Bool) && ((@:checkr _p ?? throw "null pointer dereference").inst[((@:checkr _i ?? throw "null pointer dereference").out : stdgo.GoInt)].op == (4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) : Bool)) {

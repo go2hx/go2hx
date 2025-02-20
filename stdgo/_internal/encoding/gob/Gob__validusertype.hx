@@ -30,8 +30,8 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_type_.Type_):{ var _
                 {
                     final __tmp__0 = (1 : stdgo.GoInt);
                     final __tmp__1 = _indir;
-                    (@:checkr _ut ?? throw "null pointer dereference")._externalEnc = __tmp__0;
-                    (@:checkr _ut ?? throw "null pointer dereference")._encIndir = __tmp__1;
+                    (@:checkr _ut ?? throw "null pointer dereference")._externalEnc = @:binopAssign __tmp__0;
+                    (@:checkr _ut ?? throw "null pointer dereference")._encIndir = @:binopAssign __tmp__1;
                 };
             } else {
                 var __tmp__ = stdgo._internal.encoding.gob.Gob__implementsinterface._implementsInterface((@:checkr _ut ?? throw "null pointer dereference")._user, stdgo._internal.encoding.gob.Gob__binarymarshalerinterfacetype._binaryMarshalerInterfaceType), _ok:Bool = __tmp__._0, _indir:stdgo.GoInt8 = __tmp__._1;
@@ -39,8 +39,8 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_type_.Type_):{ var _
                     {
                         final __tmp__0 = (2 : stdgo.GoInt);
                         final __tmp__1 = _indir;
-                        (@:checkr _ut ?? throw "null pointer dereference")._externalEnc = __tmp__0;
-                        (@:checkr _ut ?? throw "null pointer dereference")._encIndir = __tmp__1;
+                        (@:checkr _ut ?? throw "null pointer dereference")._externalEnc = @:binopAssign __tmp__0;
+                        (@:checkr _ut ?? throw "null pointer dereference")._encIndir = @:binopAssign __tmp__1;
                     };
                 };
             };
@@ -51,8 +51,8 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_type_.Type_):{ var _
                 {
                     final __tmp__0 = (1 : stdgo.GoInt);
                     final __tmp__1 = _indir;
-                    (@:checkr _ut ?? throw "null pointer dereference")._externalDec = __tmp__0;
-                    (@:checkr _ut ?? throw "null pointer dereference")._decIndir = __tmp__1;
+                    (@:checkr _ut ?? throw "null pointer dereference")._externalDec = @:binopAssign __tmp__0;
+                    (@:checkr _ut ?? throw "null pointer dereference")._decIndir = @:binopAssign __tmp__1;
                 };
             } else {
                 var __tmp__ = stdgo._internal.encoding.gob.Gob__implementsinterface._implementsInterface((@:checkr _ut ?? throw "null pointer dereference")._user, stdgo._internal.encoding.gob.Gob__binaryunmarshalerinterfacetype._binaryUnmarshalerInterfaceType), _ok:Bool = __tmp__._0, _indir:stdgo.GoInt8 = __tmp__._1;
@@ -60,8 +60,8 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_type_.Type_):{ var _
                     {
                         final __tmp__0 = (2 : stdgo.GoInt);
                         final __tmp__1 = _indir;
-                        (@:checkr _ut ?? throw "null pointer dereference")._externalDec = __tmp__0;
-                        (@:checkr _ut ?? throw "null pointer dereference")._decIndir = __tmp__1;
+                        (@:checkr _ut ?? throw "null pointer dereference")._externalDec = @:binopAssign __tmp__0;
+                        (@:checkr _ut ?? throw "null pointer dereference")._decIndir = @:binopAssign __tmp__1;
                     };
                 };
             };

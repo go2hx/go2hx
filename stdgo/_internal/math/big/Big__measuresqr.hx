@@ -10,8 +10,8 @@ var _initKaratsubaSqr = __1, _initBasicSqr = __0;
                 {
                     final __tmp__0 = (_words - (1 : stdgo.GoInt) : stdgo.GoInt);
                     final __tmp__1 = (_words + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold = __tmp__0;
-                    stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = __tmp__1;
+                    stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold = @:binopAssign __tmp__0;
+                    stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == (("karatsubaSqr(x)" : stdgo.GoString))) {
                 stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = (_words - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -32,8 +32,8 @@ _testval = (_testval + (_res.nsPerOp()) : stdgo.GoInt64);
         {
             final __tmp__0 = _initBasicSqr;
             final __tmp__1 = _initKaratsubaSqr;
-            stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold = __tmp__0;
-            stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = __tmp__1;
+            stdgo._internal.math.big.Big__basicsqrthreshold._basicSqrThreshold = @:binopAssign __tmp__0;
+            stdgo._internal.math.big.Big__karatsubasqrthreshold._karatsubaSqrThreshold = @:binopAssign __tmp__1;
         };
         return (_testval : stdgo._internal.time.Time_duration.Duration);
     }

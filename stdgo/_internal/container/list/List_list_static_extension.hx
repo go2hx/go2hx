@@ -13,8 +13,8 @@ var _e = __1, _i = __0;
                 {
                     final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
                     final __tmp__1 = @:check2r _e.prev();
-                    _i = __tmp__0;
-                    _e = __tmp__1;
+                    _i = @:binopAssign __tmp__0;
+                    _e = @:binopAssign __tmp__1;
                 };
             };
         };
@@ -32,8 +32,8 @@ var _e = __1, _i = __0;
                 {
                     final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
                     final __tmp__1 = @:check2r _e.next();
-                    _i = __tmp__0;
-                    _e = __tmp__1;
+                    _i = @:binopAssign __tmp__0;
+                    _e = @:binopAssign __tmp__1;
                 };
             };
         };

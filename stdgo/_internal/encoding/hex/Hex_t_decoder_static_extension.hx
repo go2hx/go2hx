@@ -285,8 +285,8 @@ var _numRead = __1, _numCopy = __0;
             {
                 final __tmp__0 = (null : stdgo.Slice<stdgo.GoUInt8>);
                 final __tmp__1 = _err;
-                (@:checkr _d ?? throw "null pointer dereference")._in = __tmp__0;
-                (@:checkr _d ?? throw "null pointer dereference")._err = __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._in = @:binopAssign __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._err = @:binopAssign __tmp__1;
             };
         };
         if ((((@:checkr _d ?? throw "null pointer dereference")._in.length) < (2 : stdgo.GoInt) : Bool)) {

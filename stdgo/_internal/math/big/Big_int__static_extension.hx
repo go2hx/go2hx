@@ -341,8 +341,8 @@ var _rB = __1, _rA = __0;
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
-                _x = __tmp__0;
-                _y = __tmp__1;
+                _x = @:binopAssign __tmp__0;
+                _y = @:binopAssign __tmp__1;
             };
         };
         var _y1 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._sub((@:checkr _y ?? throw "null pointer dereference")._abs, stdgo._internal.math.big.Big__natone._natOne) : stdgo._internal.math.big.Big_t_nat.T_nat);
@@ -370,8 +370,8 @@ var _rB = __1, _rA = __0;
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
-                _x = __tmp__0;
-                _y = __tmp__1;
+                _x = @:binopAssign __tmp__0;
+                _y = @:binopAssign __tmp__1;
             };
         };
         var _y1 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._sub((@:checkr _y ?? throw "null pointer dereference")._abs, stdgo._internal.math.big.Big__natone._natOne) : stdgo._internal.math.big.Big_t_nat.T_nat);
@@ -426,8 +426,8 @@ var _rB = __1, _rA = __0;
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
-                _x = __tmp__0;
-                _y = __tmp__1;
+                _x = @:binopAssign __tmp__0;
+                _y = @:binopAssign __tmp__1;
             };
         };
         var _y1 = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._sub((@:checkr _y ?? throw "null pointer dereference")._abs, stdgo._internal.math.big.Big__natone._natOne) : stdgo._internal.math.big.Big_t_nat.T_nat);
@@ -655,14 +655,14 @@ var ub = __3, ua = __2, b = __1, a = __0;
             {
                 final __tmp__0 = b;
                 final __tmp__1 = a;
-                a = __tmp__0;
-                b = __tmp__1;
+                a = @:binopAssign __tmp__0;
+                b = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = ua;
                 final __tmp__1 = ub;
-                ub = __tmp__0;
-                ua = __tmp__1;
+                ub = @:binopAssign __tmp__0;
+                ua = @:binopAssign __tmp__1;
             };
         };
         while ((((@:checkr b ?? throw "null pointer dereference")._abs.length) > (1 : stdgo.GoInt) : Bool)) {
@@ -709,14 +709,14 @@ var _vb = __3, _va = __2, _ub = __1, _ua = __0;
                     {
                         final __tmp__0 = (1u32 : stdgo._internal.math.big.Big_word.Word);
                         final __tmp__1 = (0u32 : stdgo._internal.math.big.Big_word.Word);
-                        _ua = __tmp__0;
-                        _ub = __tmp__1;
+                        _ua = @:binopAssign __tmp__0;
+                        _ub = @:binopAssign __tmp__1;
                     };
                     {
                         final __tmp__0 = (0u32 : stdgo._internal.math.big.Big_word.Word);
                         final __tmp__1 = (1u32 : stdgo._internal.math.big.Big_word.Word);
-                        _va = __tmp__0;
-                        _vb = __tmp__1;
+                        _va = @:binopAssign __tmp__0;
+                        _vb = @:binopAssign __tmp__1;
                     };
                     var _even = (true : Bool);
                     while (_bWord != ((0u32 : stdgo._internal.math.big.Big_word.Word))) {
@@ -725,20 +725,20 @@ var _r = __1, _q = __0;
                         {
                             final __tmp__0 = _bWord;
                             final __tmp__1 = _r;
-                            _aWord = __tmp__0;
-                            _bWord = __tmp__1;
+                            _aWord = @:binopAssign __tmp__0;
+                            _bWord = @:binopAssign __tmp__1;
                         };
                         {
                             final __tmp__0 = _ub;
                             final __tmp__1 = (_ua + (_q * _ub : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
-                            _ua = __tmp__0;
-                            _ub = __tmp__1;
+                            _ua = @:binopAssign __tmp__0;
+                            _ub = @:binopAssign __tmp__1;
                         };
                         {
                             final __tmp__0 = _vb;
                             final __tmp__1 = (_va + (_q * _vb : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
-                            _va = __tmp__0;
-                            _vb = __tmp__1;
+                            _va = @:binopAssign __tmp__0;
+                            _vb = @:binopAssign __tmp__1;
                         };
                         _even = !_even;
                     };
@@ -754,8 +754,8 @@ var _r = __1, _q = __0;
                         {
                             final __tmp__0 = _bWord;
                             final __tmp__1 = (_aWord % _bWord : stdgo._internal.math.big.Big_word.Word);
-                            _aWord = __tmp__0;
-                            _bWord = __tmp__1;
+                            _aWord = @:binopAssign __tmp__0;
+                            _bWord = @:binopAssign __tmp__1;
                         };
                     };
                 };
@@ -1071,8 +1071,8 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         {
             final __tmp__0 = ((((@:checkr _z ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool) && ((@:checkr _x ?? throw "null pointer dereference")._neg != (@:checkr _y ?? throw "null pointer dereference")._neg) : Bool);
             final __tmp__1 = ((((@:checkr _r ?? throw "null pointer dereference")._abs.length) > (0 : stdgo.GoInt) : Bool) && (@:checkr _x ?? throw "null pointer dereference")._neg : Bool);
-            (@:checkr _z ?? throw "null pointer dereference")._neg = __tmp__0;
-            (@:checkr _r ?? throw "null pointer dereference")._neg = __tmp__1;
+            (@:checkr _z ?? throw "null pointer dereference")._neg = @:binopAssign __tmp__0;
+            (@:checkr _r ?? throw "null pointer dereference")._neg = @:binopAssign __tmp__1;
         };
         return { _0 : _z, _1 : _r };
     }
@@ -1135,8 +1135,8 @@ var _t = __3, _i = __2, k = __1, n = __0;
             {
                 final __tmp__0 = -_b;
                 final __tmp__1 = -_a;
-                _a = __tmp__0;
-                _b = __tmp__1;
+                _a = @:binopAssign __tmp__0;
+                _b = @:binopAssign __tmp__1;
             };
         };
         (@:checkr _z ?? throw "null pointer dereference")._abs = (@:checkr _z ?? throw "null pointer dereference")._abs._mulRange((_a : stdgo.GoUInt64), (_b : stdgo.GoUInt64));

@@ -252,8 +252,8 @@ var _realSize = __1, _realName = __0;
                 {
                     final __tmp__0 = _prefix?.__copy__();
                     final __tmp__1 = _suffix?.__copy__();
-                    _namePrefix = __tmp__0;
-                    (@:checkr _hdr ?? throw "null pointer dereference").name = __tmp__1;
+                    _namePrefix = @:binopAssign __tmp__0;
+                    (@:checkr _hdr ?? throw "null pointer dereference").name = @:binopAssign __tmp__1;
                 };
             };
         };

@@ -11,8 +11,8 @@ var _m = __1, _out = __0;
                 {
                     final __tmp__0 = null;
                     final __tmp__1 = true;
-                    _out = __tmp__0;
-                    _ok3 = __tmp__1;
+                    _out = @:binopAssign __tmp__0;
+                    _ok3 = @:binopAssign __tmp__1;
                 };
             } else {
                 {
@@ -25,8 +25,8 @@ var _m = __1, _out = __0;
                 {
                     final __tmp__0 = null;
                     final __tmp__1 = true;
-                    _m = __tmp__0;
-                    _ok4 = __tmp__1;
+                    _m = @:binopAssign __tmp__0;
+                    _ok4 = @:binopAssign __tmp__1;
                 };
             } else {
                 {

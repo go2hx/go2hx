@@ -47,8 +47,8 @@ var _z = __1, _y = __0;
             {
                 final __tmp__0 = !_sinSign;
                 final __tmp__1 = !_cosSign;
-                _sinSign = __tmp__0;
-                _cosSign = __tmp__1;
+                _sinSign = @:binopAssign __tmp__0;
+                _cosSign = @:binopAssign __tmp__1;
             };
         };
         if ((_j > (1i64 : stdgo.GoUInt64) : Bool)) {
@@ -61,8 +61,8 @@ var _z = __1, _y = __0;
             {
                 final __tmp__0 = _cos;
                 final __tmp__1 = _sin;
-                _sin = __tmp__0;
-                _cos = __tmp__1;
+                _sin = @:binopAssign __tmp__0;
+                _cos = @:binopAssign __tmp__1;
             };
         };
         if (_cosSign) {

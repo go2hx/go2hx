@@ -15,8 +15,8 @@ function _onePassCopy(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.
                         {
                             final __tmp__0 = _p_A_Other;
                             final __tmp__1 = _p_A_Alt;
-                            _p_A_Alt = __tmp__0;
-                            _p_A_Other = __tmp__1;
+                            _p_A_Alt = @:binopAssign __tmp__0;
+                            _p_A_Other = @:binopAssign __tmp__1;
                         };
                         _instAlt = (@:checkr _p ?? throw "null pointer dereference").inst[(_p_A_Alt.value : stdgo.GoInt)];
                         if (!(((_instAlt.inst.op == (0 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || (_instAlt.inst.op == (1 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) : Bool))) {
@@ -37,8 +37,8 @@ function _onePassCopy(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.
                         {
                             final __tmp__0 = _p_B_Other;
                             final __tmp__1 = _p_B_Alt;
-                            _p_B_Alt = __tmp__0;
-                            _p_B_Other = __tmp__1;
+                            _p_B_Alt = @:binopAssign __tmp__0;
+                            _p_B_Other = @:binopAssign __tmp__1;
                         };
                     };
                     if (_patch) {

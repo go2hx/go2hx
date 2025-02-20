@@ -40,22 +40,22 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         {
                             final __tmp__0 = ("v2" : stdgo.GoString);
                             final __tmp__1 = _period;
-                            _sampling = __tmp__0;
-                            (@:checkr _p ?? throw "null pointer dereference").period = __tmp__1;
+                            _sampling = @:binopAssign __tmp__0;
+                            (@:checkr _p ?? throw "null pointer dereference").period = @:binopAssign __tmp__1;
                         };
                     } else if (__value__ == (("heapprofile" : stdgo.GoString))) {
                         {
                             final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                             final __tmp__1 = (1i64 : stdgo.GoInt64);
-                            _sampling = __tmp__0;
-                            (@:checkr _p ?? throw "null pointer dereference").period = __tmp__1;
+                            _sampling = @:binopAssign __tmp__0;
+                            (@:checkr _p ?? throw "null pointer dereference").period = @:binopAssign __tmp__1;
                         };
                     } else if (__value__ == (("heap" : stdgo.GoString))) {
                         {
                             final __tmp__0 = ("v2" : stdgo.GoString);
                             final __tmp__1 = (_period / (2i64 : stdgo.GoInt64) : stdgo.GoInt64);
-                            _sampling = __tmp__0;
-                            (@:checkr _p ?? throw "null pointer dereference").period = __tmp__1;
+                            _sampling = @:binopAssign __tmp__0;
+                            (@:checkr _p ?? throw "null pointer dereference").period = @:binopAssign __tmp__1;
                         };
                     } else {
                         return {

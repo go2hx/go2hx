@@ -17,8 +17,8 @@ package stdgo._internal.database.sql;
             {
                 final __tmp__0 = (0 : stdgo.GoFloat64);
                 final __tmp__1 = false;
-                (@:checkr _n ?? throw "null pointer dereference").float64 = __tmp__0;
-                (@:checkr _n ?? throw "null pointer dereference").valid = __tmp__1;
+                (@:checkr _n ?? throw "null pointer dereference").float64 = @:binopAssign __tmp__0;
+                (@:checkr _n ?? throw "null pointer dereference").valid = @:binopAssign __tmp__1;
             };
             return (null : stdgo.Error);
         };

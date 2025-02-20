@@ -34,7 +34,11 @@ package stdgo._internal.container.heap;
     static public function pop( _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>):stdgo.AnyInterface {
         @:recv var _h:stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap> = _h;
         var _v = (null : stdgo.AnyInterface);
-        (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__((((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap)).__slice__(0, (@:check2r _h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
+        {
+            final __tmp__0 = stdgo.Go.toInterface(((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap))[(@:check2r _h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)]);
+            (_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap).__setData__((((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap)).__slice__(0, (@:check2r _h.len() - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
+            _v = @:binopAssign __tmp__0;
+        };
         return _v;
     }
     @:keep
@@ -54,8 +58,8 @@ package stdgo._internal.container.heap;
             final __tmp__3 = (_i : stdgo.GoInt);
             final __tmp__4 = ((_h : stdgo._internal.container.heap.Heap_t_myheap.T_myHeap));
             final __tmp__5 = (_j : stdgo.GoInt);
-            __tmp__2[__tmp__3] = __tmp__0;
-            __tmp__4[__tmp__5] = __tmp__1;
+            __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+            __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
         };
     }
     @:keep

@@ -13,7 +13,7 @@ function _poolCleanup():Void {
         {
             final __tmp__0 = stdgo._internal.sync.Sync__allpools._allPools;
             final __tmp__1 = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.sync.Sync_pool.Pool>>);
-            stdgo._internal.sync.Sync__oldpools._oldPools = __tmp__0;
-            stdgo._internal.sync.Sync__allpools._allPools = __tmp__1;
+            stdgo._internal.sync.Sync__oldpools._oldPools = @:binopAssign __tmp__0;
+            stdgo._internal.sync.Sync__allpools._allPools = @:binopAssign __tmp__1;
         };
     }

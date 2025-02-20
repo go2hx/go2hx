@@ -156,9 +156,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (1 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_alpha16.Alpha16>))) {
@@ -168,9 +168,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (2 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray.Gray>))) {
@@ -180,9 +180,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (1 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_gray16.Gray16>))) {
@@ -192,9 +192,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (2 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
@@ -204,9 +204,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (4 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba64.NRGBA64>))) {
@@ -216,9 +216,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (8 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>))) {
@@ -229,9 +229,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (1 : stdgo.GoInt);
                 if ((((@:checkr _target ?? throw "null pointer dereference").palette.length) < ((@:checkr _source ?? throw "null pointer dereference").palette.length) : Bool)) {
@@ -244,9 +244,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (4 : stdgo.GoInt);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_rgba64.RGBA64>))) {
@@ -256,9 +256,9 @@ var _bytesPerPixel = __4, _rect = __3, _stride = __2, _dstPix = __1, _srcPix = _
                     final __tmp__0 = (@:checkr _target ?? throw "null pointer dereference").pix;
                     final __tmp__1 = (@:checkr _target ?? throw "null pointer dereference").stride;
                     final __tmp__2 = (@:checkr _target ?? throw "null pointer dereference").rect?.__copy__();
-                    _dstPix = __tmp__0;
-                    _stride = __tmp__1;
-                    _rect = __tmp__2;
+                    _dstPix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
+                    _rect = @:binopAssign __tmp__2;
                 };
                 _bytesPerPixel = (8 : stdgo.GoInt);
             };
@@ -770,8 +770,8 @@ var _acol = (((_cdat[(((8 : stdgo.GoInt) * _x : stdgo.GoInt) + (6 : stdgo.GoInt)
 {
                     final __tmp__0 = _cr;
                     final __tmp__1 = _pr;
-                    _pr = __tmp__0;
-                    _cr = __tmp__1;
+                    _pr = @:binopAssign __tmp__0;
+                    _cr = @:binopAssign __tmp__1;
                 };
                 _y++;
             };
@@ -1198,8 +1198,8 @@ if (_imagePass != null) {
         {
             final __tmp__0 = (_w : stdgo.GoInt);
             final __tmp__1 = (_h : stdgo.GoInt);
-            (@:checkr _d ?? throw "null pointer dereference")._width = __tmp__0;
-            (@:checkr _d ?? throw "null pointer dereference")._height = __tmp__1;
+            (@:checkr _d ?? throw "null pointer dereference")._width = @:binopAssign __tmp__0;
+            (@:checkr _d ?? throw "null pointer dereference")._height = @:binopAssign __tmp__1;
         };
         return @:check2r _d._verifyChecksum();
     }

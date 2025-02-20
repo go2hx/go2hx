@@ -4,8 +4,8 @@ function _yCbCrSize(_r:stdgo._internal.image.Image_rectangle.Rectangle, _subsamp
         {
             final __tmp__0 = _r.dx();
             final __tmp__1 = _r.dy();
-            _w = __tmp__0;
-            _h = __tmp__1;
+            _w = @:binopAssign __tmp__0;
+            _h = @:binopAssign __tmp__1;
         };
         {
             final __value__ = _subsampleRatio;

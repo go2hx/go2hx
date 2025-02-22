@@ -8287,15 +8287,24 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									final name = method.name;//formatHaxeFieldName(method.name, info);
 									switch toComplexType(method.type.get(), info) {
 										case TFunction(args, ret):
-											fields.push({
-												name: name,
-												pos: null,
-												access: [APublic],
-												kind: FFun({
-													args: [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)],
-													ret: ret,
-												}),
-											});
+											hasFieldName = false;
+											for (field in fields) {
+												if (field.name == name) {
+													hasFieldName = true;
+													break;
+												}
+											}
+											if (hasFieldName) {
+												fields.push({
+													name: name,
+													pos: null,
+													access: [APublic],
+													kind: FFun({
+														args: [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)],
+														ret: ret,
+													}),
+												});
+											}
 										default:
 									}
 								}

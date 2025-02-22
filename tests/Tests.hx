@@ -201,6 +201,7 @@ function update() {
 		trace("tests left:",tests.length);
 		close();
 	}
+	final removeTest = [];
 	for (i in 0...tests.length) {
 		final test = tests[i];
 		final hxmlName = sanatize(Path.withoutExtension(test));
@@ -222,6 +223,9 @@ function update() {
 		if (!compiled) {
 			break;
 		}
+		removeTests.push(test);
+	}
+	for (test in removeTests) {
 		tests.remove(test);
 	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {

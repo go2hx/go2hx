@@ -7861,6 +7861,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			sets.push(macro return this);
 			final localEmbeddedFields:Array<Field> = [];
+			var prevRenameIdents = info.renameIdents.copy();
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
 				if (structAddFieldsIndex > -1 && structAddFieldsIndex <= method.index[0])
@@ -7870,6 +7871,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				if (field == null)
 					continue;
 				final name = field.name;
+				// can conflict with imports, without prevRenameIdents
 				info.renameIdents[name] = name;
 				info.restricted = [];
 				final type = typeof(method.type, info, false);
@@ -8038,6 +8040,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 				info.restricted = [];
 			}
+			info.renameIdents = prevRenameIdents;
 			if (local) { // local type created from analysis/local
 				final def:TypeDefinition = {
 					name: name,

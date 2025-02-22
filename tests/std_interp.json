@@ -24,5 +24,6 @@
  "interp|container/ring",
  "interp|encoding/ascii85",
  "interp|encoding/csv",
- "interp|hash/fnv"
+ "interp|hash/fnv",
+ "interp|container/heap"
 ]

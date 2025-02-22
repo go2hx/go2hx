@@ -91,7 +91,7 @@ function main() {
 	if (!dryRun) {
 		Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
-		Main.onClose = close;
+		Main.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
 		timer.run = update;
 	}

@@ -18,7 +18,7 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
-var onClose:Void->Void = null;
+var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
@@ -233,8 +233,6 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 	for (process in processes)
 		process.close();
 	#end
-	if (onClose != null)
-		onClose();
 	server.close();
 	Sys.exit(code);
 }
@@ -268,7 +266,8 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			Sys.println(child.stderr.read());
 			if (resetCount++ > 8) {
 				child.kill();
-				close(10, instance);
+				if (onUnknownExit != null)
+					onUnknownExit();
 			}else{
 				child.kill();
 				jsProcess();

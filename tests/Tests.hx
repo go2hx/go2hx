@@ -201,7 +201,7 @@ function update() {
 		trace("tests left:",tests.length);
 		close();
 	}
-	final removeTest = [];
+	final removeTests = [];
 	for (i in 0...tests.length) {
 		final test = tests[i];
 		final hxmlName = sanatize(Path.withoutExtension(test));
@@ -305,6 +305,10 @@ function update() {
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}
 			}else{
+				#if js
+				if (code == null)
+					code = 2;
+				#end
 				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error

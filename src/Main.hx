@@ -18,6 +18,7 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
@@ -95,6 +96,8 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-hxml", "--hxml"] => out -> instance.hxmlPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
 		["-printgocode", "--printgocode"] => () -> instance.printGoCode = true,
+		@doc("disable all non main packages wrapped as a haxelib library\n\nTarget:")
+		["-nolibwrap", "--nolibwrap"] => () -> instance.libwrap = false,
 		@doc("all non main packages wrapped as a haxelib library\n\nTarget:")
 		["-libwrap", "--libwrap"] => () -> instance.libwrap = true,
 		@doc('generate C++ code into target directory')
@@ -205,9 +208,14 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
+
+var closing = false;
 function close(code:Int=0, instance: Null<InstanceData> = null) {
+	if (closing)
+		Sys.exit(code);
+	closing = true;
 	if (instance != null) {
-		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 	}
 	
 	#if (debug && !nodejs)
@@ -231,7 +239,7 @@ function close(code:Int=0, instance: Null<InstanceData> = null) {
 
 function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Void = null) {
 	Cache.setUseCache(instance.useCache);
-	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], 'golibs', '.go2hx_cache']));
+	if (!instance.cleanCache) Cache.loadCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath , '.go2hx_cache']));
 	
 	var port = instance.port;
 	if (port == 0)
@@ -256,9 +264,10 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			// print out output
 			Sys.println(child.stdout.read());
 			Sys.println(child.stderr.read());
-			if (resetCount++ > 4) {
+			if (resetCount++ > 8) {
 				child.kill();
-				Sys.exit(code);
+				if (onUnknownExit != null)
+					onUnknownExit();
 			}else{
 				child.kill();
 				jsProcess();
@@ -357,7 +366,6 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 				modules = Typer.main(exportData, instance);
 				instance.log("compile complete");
 				exportData = null;
-				var libs:Array<String> = [];
 
 				// reset
 				// trace("CLIENT RESET");
@@ -371,20 +379,35 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 				Sys.setCwd(instance.localPath);
 				if (instance.noDeps)
 					createBasePkgs(Path.addTrailingSlash(instance.outputPath), modules, cwd);
+				var isStdgo = false;
+				var alreadyWrapped = false;
+				var isMain = false;
 				for (module in modules) {
-					if (instance.libwrap && !module.isMain) {
+					if (module.isMain) {
+						isMain = true;
+						break;
+					}
+				}
+				Gen.sizeMap = [];
+				for (module in modules) {
+					if (!isStdgo)
+						isStdgo = Typer.stdgoList.contains(StringTools.replace(module.path, ".", "/"));
+					if (instance.libwrap && !isMain && !isStdgo && !alreadyWrapped) {
+						alreadyWrapped = true;
 						final name = module.name;
-						final libPath = "libs/" + name + "/";
-						Gen.create(libPath, module, instance.root);
-						final cmd = 'haxelib dev $name $libPath';
+						final libPath = name + "/";
+						instance.outputPath = Path.addTrailingSlash(instance.outputPath) + libPath;
+						//sys.io.File.saveContent(Path.addTrailingSlash(instance.outputPath) + "haxelib.json");
+						Gen.create(instance.outputPath, module, instance.root);
+						final cmd = 'haxelib dev $name ${instance.outputPath}';
 						Sys.println(cmd);
 						Sys.command(cmd);
-						if (libs.indexOf(name) == -1)
-							libs.push(name);
+						Sys.println('Include lib: -lib $name');
 					} else {
 						Gen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
 					}
 				}
+				logGenSizes();
 				runBuildTools(modules, instance, programArgs);
 				Sys.setCwd(cwd);
 				onComplete(modules, instance.data);
@@ -407,6 +430,19 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 		Sys.println("nodejs server started");
 	});
 	#end
+}
+
+private function logGenSizes() {
+	final sizeMap = Gen.sizeMap;
+	// log size maps
+	var lSize = 0;
+	for (path => size in sizeMap) {
+		if (path.length > lSize)
+			lSize = path.length;
+	}
+	for (path => size in sizeMap) {
+		Sys.println('    ${StringTools.rpad(path, " ", lSize)} - ${size}kb'); 
+	}
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
@@ -577,7 +613,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			content = content.substr(0, content.length - 1);
 			File.saveContent(hxmlPath, content);
-			Sys.println('Generated: ' + hxmlPath + ' - ' + src.Util.kbCount(content) + "kb");
+			Sys.println('Generated:\n' + hxmlPath + ' - ' + src.Util.kbCount(content) + "kb");
 		}
 	}
 }
@@ -603,14 +639,18 @@ function libTarget(target:String):String {
 	}
 }
 
-function buildTarget(target:String, out:String):String {
+function buildTarget(target:String, out:String, ?main:String, ?args:Array<String>):String {
 	return switch target {
 		case "hl":
 			'--hl $out';
 		case "jvm", "cpp", "cs", "js", "lua", "python", "php", "neko":
 			'--$target $out';
 		case "interp":
-			"--interp";
+			if (main != null && args != null) {
+				'--run $main ' + args.join(" ");
+			}else{
+				"--interp";
+			}
 		default:
 			throw "unknown target: " + target;
 	}

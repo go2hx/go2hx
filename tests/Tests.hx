@@ -17,6 +17,7 @@ var globalPath = "";
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
+var excludeFuncs:Array<Array<String>> = [];
 var ranTests:Array<String> = [];
 var outputMap:Map<String,String> = [];
 var tasks:Array<TaskData> = [];
@@ -38,6 +39,7 @@ var stdBool = false;
 var goBool = false;
 var yaegiBool = false;
 var tinygoBool = false;
+var libsBool = false;
 var noLogs = false;
 
 function main() {
@@ -53,6 +55,7 @@ function main() {
 	hxbBool = Compiler.getDefine("hxb") != null;
 	unitBool = Compiler.getDefine("unit") != null;
 	stdBool = Compiler.getDefine("std") != null;
+	libsBool = Compiler.getDefine("libs") != null;
 	goBool = Compiler.getDefine("go") != null;
 	globalPath = Compiler.getDefine("path") ?? "";
 	yaegiBool = Compiler.getDefine("yaegi") != null;
@@ -72,7 +75,7 @@ function main() {
 		createTestLists();
 		Sys.exit(0);
 	}
-	if (!unitBool && !stdBool && !goBool && !yaegiBool) {
+	if (!unitBool && !stdBool && !goBool && !yaegiBool && !libsBool) {
 		trace("no tests specified");
 		close();
 		return;
@@ -88,6 +91,7 @@ function main() {
 	if (!dryRun) {
 		Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
+		Main.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
 		timer.run = update;
 	}
@@ -149,6 +153,8 @@ private function runTests() {
 		testYaegi();
 	if (tinygoBool)
 		testTinyGo();
+	if (libsBool)
+		testLibs();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
 	if (run != "") {
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
@@ -195,7 +201,9 @@ function update() {
 		trace("tests left:",tests.length);
 		close();
 	}
-	for (test in tests) {
+	final removeTests = [];
+	for (i in 0...tests.length) {
+		final test = tests[i];
 		final hxmlName = sanatize(Path.withoutExtension(test));
 		final hxml = "golibs/" + type + "_" + hxmlName;
 		final args = [test, '--norun', '--hxml', hxml];
@@ -209,12 +217,15 @@ function update() {
 			args.push(globalPath);
 		}
 		instance = Main.compileArgs(args);
-
+		instance.data = {excludes: excludeFuncs[i]};
 		final compiled = Main.compile(instance);
 		timeout = 0;
 		if (!compiled) {
 			break;
 		}
+		removeTests.push(test);
+	}
+	for (test in removeTests) {
 		tests.remove(test);
 	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
@@ -223,6 +234,7 @@ function update() {
 			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
 		}
 		if (hxbBool) {
+			Sys.println("Enable hxb");
 			task.args.push("--hxb-lib");
 			task.args.push("go2hx.zip");
 		}
@@ -289,10 +301,14 @@ function update() {
 						suite.success(task);
 					}
 				}else {
-					final cmd = Main.runTarget(task.target,"golibs/" + task.out,[],task.main).split(" ");
+					final cmd = Main.runTarget(task.target,"golibs/" + task.out, task.excludeArgs,task.main).split(" ");
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}
 			}else{
+				#if js
+				if (code == null)
+					code = 2;
+				#end
 				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
@@ -367,7 +383,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<Typer.Module>, _) {
+private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>}) {
 	timeout = 0;
 	completeBool = true;
 	// spawn targets
@@ -470,6 +486,8 @@ private function close() {
 			return "0 0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
+	if (type == "")
+		return;
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
 	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
@@ -558,6 +576,17 @@ private function close() {
 private function testTinyGo() {
 	type = "tinygo";
 	sortDataToTests(Json.parse(File.getContent("tests/sort_tinygo.json")));
+}
+
+private function testLibs() {
+	type = "libs";
+	testBool = true;
+	final libs:Array<{module:String, excludes:Array<String>}> = Json.parse(File.getContent("data/testLibs.json"));
+	for (lib in libs) {
+		tests.push(lib.module);
+		trace(lib.module);
+		excludeFuncs.push(lib.excludes);
+	}
 }
 
 private function sortDataToTests(sortData:SortData) {
@@ -743,6 +772,7 @@ class TaskData {
 	public var runtime:Bool;
 	public var out:String;
 	public var main:String;
+	public var excludeArgs:Array<String> = [];
 	public var output:String = "";
 	var _stamp:Float = 0;
 	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String) {

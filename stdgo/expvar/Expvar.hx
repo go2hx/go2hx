@@ -4,7 +4,7 @@ class Var_static_extension {
         return stdgo._internal.expvar.Expvar_var_static_extension.Var_static_extension.string(t);
     }
 }
-@:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
+@:interface @:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
     @:from
     static function fromHaxeInterface(x:{ function string():String; }):Var {
         var __f__:Void -> stdgo.AnyInterface = null;

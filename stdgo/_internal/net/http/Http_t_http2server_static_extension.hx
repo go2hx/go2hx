@@ -50,7 +50,7 @@ package stdgo._internal.net.http;
                     { _0 : (null : stdgo._internal.net.http.Http_t_http2connectionstater.T_http2connectionStater), _1 : false };
                 }, _tc = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
-                    (@:checkr _sc ?? throw "null pointer dereference")._tlsState = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http__tls._tls.connectionState);
+                    (@:checkr _sc ?? throw "null pointer dereference")._tlsState = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState>);
                     {
                         var __tmp__ = _tc.connectionState()?.__copy__();
                         var x = ((@:checkr _sc ?? throw "null pointer dereference")._tlsState : stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState);

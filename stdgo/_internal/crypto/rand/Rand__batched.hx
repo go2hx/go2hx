@@ -7,12 +7,12 @@ function _batched(_f:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error, _readMax:stdgo.G
                     _read = _readMax;
                 };
                 {
-                    var _err = (_f((cast _out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
+                    var _err = (_f((_out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
                 };
-                _out = (cast _out.__slice__(_read) : stdgo.Slice<stdgo.GoUInt8>);
+                _out = (_out.__slice__(_read) : stdgo.Slice<stdgo.GoUInt8>);
             };
             return (null : stdgo.Error);
         };

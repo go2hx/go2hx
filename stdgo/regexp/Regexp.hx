@@ -24,7 +24,7 @@ package stdgo.regexp;
         };
     }
 }
-@:dox(hide) @:forward abstract T_input(stdgo._internal.regexp.Regexp_t_input.T_input) from stdgo._internal.regexp.Regexp_t_input.T_input to stdgo._internal.regexp.Regexp_t_input.T_input {
+@:interface @:dox(hide) @:forward abstract T_input(stdgo._internal.regexp.Regexp_t_input.T_input) from stdgo._internal.regexp.Regexp_t_input.T_input to stdgo._internal.regexp.Regexp_t_input.T_input {
     @:from
     static function fromHaxeInterface(x:{ function _step(_pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int>; function _canCheckPrefix():Bool; function _hasPrefix(_re:Regexp_):Bool; function _index(_re:Regexp_, _pos:StdTypes.Int):StdTypes.Int; function _context(_pos:StdTypes.Int):T_lazyFlag; }):T_input {
         var __f__:Void -> stdgo.AnyInterface = null;

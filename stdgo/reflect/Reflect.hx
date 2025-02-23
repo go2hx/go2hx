@@ -54,7 +54,7 @@ private function set_methodValueCallCodePtr(v:() -> stdgo.GoUIntptr):() -> stdgo
 @:dox(hide) class T_pinUnexpMeth_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_pinUnexpMeth(stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth) from stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth to stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth {
+@:interface @:dox(hide) @:forward abstract T_pinUnexpMeth(stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth) from stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth to stdgo._internal.reflect.Reflect_t_pinunexpmeth.T_pinUnexpMeth {
     @:from
     static function fromHaxeInterface(x:{ }):T_pinUnexpMeth {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -169,7 +169,7 @@ class Type__static_extension {
         return stdgo._internal.reflect.Reflect_type__static_extension.Type__static_extension.align(t);
     }
 }
-@:forward abstract Type_(stdgo._internal.reflect.Reflect_type_.Type_) from stdgo._internal.reflect.Reflect_type_.Type_ to stdgo._internal.reflect.Reflect_type_.Type_ {
+@:interface @:forward abstract Type_(stdgo._internal.reflect.Reflect_type_.Type_) from stdgo._internal.reflect.Reflect_type_.Type_ to stdgo._internal.reflect.Reflect_type_.Type_ {
     @:from
     static function fromHaxeInterface(x:{ function align():StdTypes.Int; function fieldAlign():StdTypes.Int; function method(_0:StdTypes.Int):Method; function methodByName(_0:String):stdgo.Tuple<Method, Bool>; function numMethod():StdTypes.Int; function name():String; function pkgPath():String; function size():stdgo.GoUIntptr; function string():String; function kind():Kind; function implements_(_u:Type_):Bool; function assignableTo(_u:Type_):Bool; function convertibleTo(_u:Type_):Bool; function comparable_():Bool; function bits():StdTypes.Int; function chanDir():ChanDir; function isVariadic():Bool; function elem():Type_; function field(_i:StdTypes.Int):StructField; function fieldByIndex(_index:Array<StdTypes.Int>):StructField; function fieldByName(_name:String):stdgo.Tuple<StructField, Bool>; function fieldByNameFunc(_match:String -> Bool):stdgo.Tuple<StructField, Bool>; function in_(_i:StdTypes.Int):Type_; function key():Type_; function len():StdTypes.Int; function numField():StdTypes.Int; function numIn():StdTypes.Int; function numOut():StdTypes.Int; function out(_i:StdTypes.Int):Type_; }):Type_ {
         var __f__:Void -> stdgo.AnyInterface = null;

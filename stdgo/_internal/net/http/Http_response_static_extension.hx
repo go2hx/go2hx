@@ -19,7 +19,7 @@ package stdgo._internal.net.http;
                 return _err;
             };
         };
-        var _r1 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_response_static_extension.response_static_extension.stdgo._internal.net.http.Http_response_static_extension.Response_static_extension);
+        var _r1 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_response.Response)) : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>);
         {
             var __tmp__ = (_r : stdgo._internal.net.http.Http_response.Response)?.__copy__();
             var x = (_r1 : stdgo._internal.net.http.Http_response.Response);

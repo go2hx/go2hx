@@ -41,7 +41,7 @@ class PoolDequeue_static_extension {
         return stdgo._internal.sync.Sync_pooldequeue_static_extension.PoolDequeue_static_extension.pushHead(t, _val);
     }
 }
-@:forward abstract PoolDequeue(stdgo._internal.sync.Sync_pooldequeue.PoolDequeue) from stdgo._internal.sync.Sync_pooldequeue.PoolDequeue to stdgo._internal.sync.Sync_pooldequeue.PoolDequeue {
+@:interface @:forward abstract PoolDequeue(stdgo._internal.sync.Sync_pooldequeue.PoolDequeue) from stdgo._internal.sync.Sync_pooldequeue.PoolDequeue to stdgo._internal.sync.Sync_pooldequeue.PoolDequeue {
     @:from
     static function fromHaxeInterface(x:{ function pushHead(_val:stdgo.AnyInterface):Bool; function popHead():stdgo.Tuple<stdgo.AnyInterface, Bool>; function popTail():stdgo.Tuple<stdgo.AnyInterface, Bool>; }):PoolDequeue {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -58,7 +58,7 @@ class Locker_static_extension {
         stdgo._internal.sync.Sync_locker_static_extension.Locker_static_extension.lock(t);
     }
 }
-@:forward abstract Locker(stdgo._internal.sync.Sync_locker.Locker) from stdgo._internal.sync.Sync_locker.Locker to stdgo._internal.sync.Sync_locker.Locker {
+@:interface @:forward abstract Locker(stdgo._internal.sync.Sync_locker.Locker) from stdgo._internal.sync.Sync_locker.Locker to stdgo._internal.sync.Sync_locker.Locker {
     @:from
     static function fromHaxeInterface(x:{ function lock():Void; function unlock():Void; }):Locker {
         var __f__:Void -> stdgo.AnyInterface = null;

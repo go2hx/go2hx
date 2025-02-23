@@ -14,7 +14,7 @@ class Interface_static_extension {
         return stdgo._internal.sort.Sort_interface_static_extension.Interface_static_extension.len(t);
     }
 }
-@:forward abstract Interface(stdgo._internal.sort.Sort_interface.Interface) from stdgo._internal.sort.Sort_interface.Interface to stdgo._internal.sort.Sort_interface.Interface {
+@:interface @:forward abstract Interface(stdgo._internal.sort.Sort_interface.Interface) from stdgo._internal.sort.Sort_interface.Interface to stdgo._internal.sort.Sort_interface.Interface {
     @:from
     static function fromHaxeInterface(x:{ function len():StdTypes.Int; function less(_i:StdTypes.Int, _j:StdTypes.Int):Bool; function swap(_i:StdTypes.Int, _j:StdTypes.Int):Void; }):Interface {
         var __f__:Void -> stdgo.AnyInterface = null;

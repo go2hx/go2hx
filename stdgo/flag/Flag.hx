@@ -31,11 +31,11 @@ private function set_defaultUsage(v:() -> Void):() -> Void {
         return stdgo._internal.flag.Flag_t_boolflag_static_extension.T_boolFlag_static_extension.isBoolFlag(t);
     }
 }
-@:dox(hide) @:forward abstract T_boolFlag(stdgo._internal.flag.Flag_t_boolflag.T_boolFlag) from stdgo._internal.flag.Flag_t_boolflag.T_boolFlag to stdgo._internal.flag.Flag_t_boolflag.T_boolFlag {
+@:interface @:dox(hide) @:forward abstract T_boolFlag(stdgo._internal.flag.Flag_t_boolflag.T_boolFlag) from stdgo._internal.flag.Flag_t_boolflag.T_boolFlag to stdgo._internal.flag.Flag_t_boolflag.T_boolFlag {
     @:from
-    static function fromHaxeInterface(x:{ function isBoolFlag():Bool; }):T_boolFlag {
+    static function fromHaxeInterface(x:{ function isBoolFlag():Bool; function set(_0:String):stdgo.Error; function string():String; }):T_boolFlag {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_boolFlag = { isBoolFlag : () -> x.isBoolFlag(), __underlying__ : () -> __f__() };
+        final y:T_boolFlag = { isBoolFlag : () -> x.isBoolFlag(), set : _0 -> x.set(_0), string : () -> x.string(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -49,7 +49,7 @@ class Value_static_extension {
         return stdgo._internal.flag.Flag_value_static_extension.Value_static_extension.string(t);
     }
 }
-@:forward abstract Value(stdgo._internal.flag.Flag_value.Value) from stdgo._internal.flag.Flag_value.Value to stdgo._internal.flag.Flag_value.Value {
+@:interface @:forward abstract Value(stdgo._internal.flag.Flag_value.Value) from stdgo._internal.flag.Flag_value.Value to stdgo._internal.flag.Flag_value.Value {
     @:from
     static function fromHaxeInterface(x:{ function string():String; function set(_0:String):stdgo.Error; }):Value {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -63,11 +63,11 @@ class Getter_static_extension {
         return stdgo._internal.flag.Flag_getter_static_extension.Getter_static_extension.get(t);
     }
 }
-@:forward abstract Getter(stdgo._internal.flag.Flag_getter.Getter) from stdgo._internal.flag.Flag_getter.Getter to stdgo._internal.flag.Flag_getter.Getter {
+@:interface @:forward abstract Getter(stdgo._internal.flag.Flag_getter.Getter) from stdgo._internal.flag.Flag_getter.Getter to stdgo._internal.flag.Flag_getter.Getter {
     @:from
-    static function fromHaxeInterface(x:{ function get():stdgo.AnyInterface; }):Getter {
+    static function fromHaxeInterface(x:{ function get():stdgo.AnyInterface; function set(_0:String):stdgo.Error; function string():String; }):Getter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Getter = { get : () -> x.get(), __underlying__ : () -> __f__() };
+        final y:Getter = { get : () -> x.get(), set : _0 -> x.set(_0), string : () -> x.string(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

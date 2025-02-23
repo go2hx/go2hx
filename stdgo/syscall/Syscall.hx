@@ -233,7 +233,7 @@ class RawConn_static_extension {
         return stdgo._internal.syscall.Syscall_rawconn_static_extension.RawConn_static_extension.control(t, _f);
     }
 }
-@:forward abstract RawConn(stdgo._internal.syscall.Syscall_rawconn.RawConn) from stdgo._internal.syscall.Syscall_rawconn.RawConn to stdgo._internal.syscall.Syscall_rawconn.RawConn {
+@:interface @:forward abstract RawConn(stdgo._internal.syscall.Syscall_rawconn.RawConn) from stdgo._internal.syscall.Syscall_rawconn.RawConn to stdgo._internal.syscall.Syscall_rawconn.RawConn {
     @:from
     static function fromHaxeInterface(x:{ function control(_f:stdgo.GoUIntptr -> Void):stdgo.Error; function read(_f:stdgo.GoUIntptr -> Bool):stdgo.Error; function write(_f:stdgo.GoUIntptr -> Bool):stdgo.Error; }):RawConn {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -250,7 +250,7 @@ class Conn_static_extension {
         };
     }
 }
-@:forward abstract Conn(stdgo._internal.syscall.Syscall_conn.Conn) from stdgo._internal.syscall.Syscall_conn.Conn to stdgo._internal.syscall.Syscall_conn.Conn {
+@:interface @:forward abstract Conn(stdgo._internal.syscall.Syscall_conn.Conn) from stdgo._internal.syscall.Syscall_conn.Conn to stdgo._internal.syscall.Syscall_conn.Conn {
     @:from
     static function fromHaxeInterface(x:{ function syscallConn():stdgo.Tuple<RawConn, stdgo.Error>; }):Conn {
         var __f__:Void -> stdgo.AnyInterface = null;

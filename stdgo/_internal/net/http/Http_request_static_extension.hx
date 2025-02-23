@@ -262,7 +262,7 @@ package stdgo._internal.net.http;
         if (_ctx == null) {
             throw stdgo.Go.toInterface(("nil context" : stdgo.GoString));
         };
-        var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_request_static_extension.request_static_extension.stdgo._internal.net.http.Http_request_static_extension.Request_static_extension);
+        var _r2 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         {
             var __tmp__ = (_r : stdgo._internal.net.http.Http_request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_request.Request);
@@ -317,7 +317,7 @@ package stdgo._internal.net.http;
         if (_ctx == null) {
             throw stdgo.Go.toInterface(("nil context" : stdgo.GoString));
         };
-        var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_request_static_extension.request_static_extension.stdgo._internal.net.http.Http_request_static_extension.Request_static_extension);
+        var _r2 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
         {
             var __tmp__ = (_r : stdgo._internal.net.http.Http_request.Request)?.__copy__();
             var x = (_r2 : stdgo._internal.net.http.Http_request.Request);

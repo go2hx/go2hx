@@ -153,7 +153,7 @@ private function set_splitPath(v:String -> stdgo.Tuple<String, String>):String -
         return stdgo._internal.os.Os_t_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
-@:dox(hide) @:forward abstract T_timeout(stdgo._internal.os.Os_t_timeout.T_timeout) from stdgo._internal.os.Os_t_timeout.T_timeout to stdgo._internal.os.Os_t_timeout.T_timeout {
+@:interface @:dox(hide) @:forward abstract T_timeout(stdgo._internal.os.Os_t_timeout.T_timeout) from stdgo._internal.os.Os_t_timeout.T_timeout to stdgo._internal.os.Os_t_timeout.T_timeout {
     @:from
     static function fromHaxeInterface(x:{ function timeout():Bool; }):T_timeout {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -170,7 +170,7 @@ class Signal_static_extension {
         return stdgo._internal.os.Os_signal_static_extension.Signal_static_extension.string(t);
     }
 }
-@:forward abstract Signal(stdgo._internal.os.Os_signal.Signal) from stdgo._internal.os.Os_signal.Signal to stdgo._internal.os.Os_signal.Signal {
+@:interface @:forward abstract Signal(stdgo._internal.os.Os_signal.Signal) from stdgo._internal.os.Os_signal.Signal to stdgo._internal.os.Os_signal.Signal {
     @:from
     static function fromHaxeInterface(x:{ function string():String; function signal():Void; }):Signal {
         var __f__:Void -> stdgo.AnyInterface = null;

@@ -71,7 +71,7 @@ class Reader_static_extension {
         };
     }
 }
-@:forward abstract Reader(stdgo._internal.io.Io_reader.Reader) from stdgo._internal.io.Io_reader.Reader to stdgo._internal.io.Io_reader.Reader {
+@:interface @:forward abstract Reader(stdgo._internal.io.Io_reader.Reader) from stdgo._internal.io.Io_reader.Reader to stdgo._internal.io.Io_reader.Reader {
     @:from
     static function fromHaxeInterface(x:{ function read(_p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Reader {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -89,7 +89,7 @@ class Writer_static_extension {
         };
     }
 }
-@:forward abstract Writer(stdgo._internal.io.Io_writer.Writer) from stdgo._internal.io.Io_writer.Writer to stdgo._internal.io.Io_writer.Writer {
+@:interface @:forward abstract Writer(stdgo._internal.io.Io_writer.Writer) from stdgo._internal.io.Io_writer.Writer to stdgo._internal.io.Io_writer.Writer {
     @:from
     static function fromHaxeInterface(x:{ function write(_p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Writer {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -103,7 +103,7 @@ class Closer_static_extension {
         return stdgo._internal.io.Io_closer_static_extension.Closer_static_extension.close(t);
     }
 }
-@:forward abstract Closer(stdgo._internal.io.Io_closer.Closer) from stdgo._internal.io.Io_closer.Closer to stdgo._internal.io.Io_closer.Closer {
+@:interface @:forward abstract Closer(stdgo._internal.io.Io_closer.Closer) from stdgo._internal.io.Io_closer.Closer to stdgo._internal.io.Io_closer.Closer {
     @:from
     static function fromHaxeInterface(x:{ function close():stdgo.Error; }):Closer {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -122,7 +122,7 @@ class Seeker_static_extension {
         };
     }
 }
-@:forward abstract Seeker(stdgo._internal.io.Io_seeker.Seeker) from stdgo._internal.io.Io_seeker.Seeker to stdgo._internal.io.Io_seeker.Seeker {
+@:interface @:forward abstract Seeker(stdgo._internal.io.Io_seeker.Seeker) from stdgo._internal.io.Io_seeker.Seeker to stdgo._internal.io.Io_seeker.Seeker {
     @:from
     static function fromHaxeInterface(x:{ function seek(_offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):Seeker {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -134,11 +134,11 @@ class Seeker_static_extension {
 class ReadWriter_static_extension {
 
 }
-@:forward abstract ReadWriter(stdgo._internal.io.Io_readwriter.ReadWriter) from stdgo._internal.io.Io_readwriter.ReadWriter to stdgo._internal.io.Io_readwriter.ReadWriter {
+@:interface @:forward abstract ReadWriter(stdgo._internal.io.Io_readwriter.ReadWriter) from stdgo._internal.io.Io_readwriter.ReadWriter to stdgo._internal.io.Io_readwriter.ReadWriter {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadWriter {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):ReadWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadWriter = { __underlying__ : () -> __f__() };
+        final y:ReadWriter = { read : _0 -> x.read([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -146,11 +146,11 @@ class ReadWriter_static_extension {
 class ReadCloser_static_extension {
 
 }
-@:forward abstract ReadCloser(stdgo._internal.io.Io_readcloser.ReadCloser) from stdgo._internal.io.Io_readcloser.ReadCloser to stdgo._internal.io.Io_readcloser.ReadCloser {
+@:interface @:forward abstract ReadCloser(stdgo._internal.io.Io_readcloser.ReadCloser) from stdgo._internal.io.Io_readcloser.ReadCloser to stdgo._internal.io.Io_readcloser.ReadCloser {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadCloser {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; }):ReadCloser {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadCloser = { __underlying__ : () -> __f__() };
+        final y:ReadCloser = { read : _0 -> x.read([for (i in _0) i]), close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -158,11 +158,11 @@ class ReadCloser_static_extension {
 class WriteCloser_static_extension {
 
 }
-@:forward abstract WriteCloser(stdgo._internal.io.Io_writecloser.WriteCloser) from stdgo._internal.io.Io_writecloser.WriteCloser to stdgo._internal.io.Io_writecloser.WriteCloser {
+@:interface @:forward abstract WriteCloser(stdgo._internal.io.Io_writecloser.WriteCloser) from stdgo._internal.io.Io_writecloser.WriteCloser to stdgo._internal.io.Io_writecloser.WriteCloser {
     @:from
-    static function fromHaxeInterface(x:{ }):WriteCloser {
+    static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; }):WriteCloser {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:WriteCloser = { __underlying__ : () -> __f__() };
+        final y:WriteCloser = { write : _0 -> x.write([for (i in _0) i]), close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -170,11 +170,11 @@ class WriteCloser_static_extension {
 class ReadWriteCloser_static_extension {
 
 }
-@:forward abstract ReadWriteCloser(stdgo._internal.io.Io_readwritecloser.ReadWriteCloser) from stdgo._internal.io.Io_readwritecloser.ReadWriteCloser to stdgo._internal.io.Io_readwritecloser.ReadWriteCloser {
+@:interface @:forward abstract ReadWriteCloser(stdgo._internal.io.Io_readwritecloser.ReadWriteCloser) from stdgo._internal.io.Io_readwritecloser.ReadWriteCloser to stdgo._internal.io.Io_readwritecloser.ReadWriteCloser {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadWriteCloser {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; }):ReadWriteCloser {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadWriteCloser = { __underlying__ : () -> __f__() };
+        final y:ReadWriteCloser = { read : _0 -> x.read([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -182,11 +182,11 @@ class ReadWriteCloser_static_extension {
 class ReadSeeker_static_extension {
 
 }
-@:forward abstract ReadSeeker(stdgo._internal.io.Io_readseeker.ReadSeeker) from stdgo._internal.io.Io_readseeker.ReadSeeker to stdgo._internal.io.Io_readseeker.ReadSeeker {
+@:interface @:forward abstract ReadSeeker(stdgo._internal.io.Io_readseeker.ReadSeeker) from stdgo._internal.io.Io_readseeker.ReadSeeker to stdgo._internal.io.Io_readseeker.ReadSeeker {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadSeeker {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):ReadSeeker {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadSeeker = { __underlying__ : () -> __f__() };
+        final y:ReadSeeker = { read : _0 -> x.read([for (i in _0) i]), seek : (_0, _1) -> x.seek(_0, _1), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -194,11 +194,11 @@ class ReadSeeker_static_extension {
 class ReadSeekCloser_static_extension {
 
 }
-@:forward abstract ReadSeekCloser(stdgo._internal.io.Io_readseekcloser.ReadSeekCloser) from stdgo._internal.io.Io_readseekcloser.ReadSeekCloser to stdgo._internal.io.Io_readseekcloser.ReadSeekCloser {
+@:interface @:forward abstract ReadSeekCloser(stdgo._internal.io.Io_readseekcloser.ReadSeekCloser) from stdgo._internal.io.Io_readseekcloser.ReadSeekCloser to stdgo._internal.io.Io_readseekcloser.ReadSeekCloser {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadSeekCloser {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; function close():stdgo.Error; }):ReadSeekCloser {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadSeekCloser = { __underlying__ : () -> __f__() };
+        final y:ReadSeekCloser = { read : _0 -> x.read([for (i in _0) i]), seek : (_0, _1) -> x.seek(_0, _1), close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -206,11 +206,11 @@ class ReadSeekCloser_static_extension {
 class WriteSeeker_static_extension {
 
 }
-@:forward abstract WriteSeeker(stdgo._internal.io.Io_writeseeker.WriteSeeker) from stdgo._internal.io.Io_writeseeker.WriteSeeker to stdgo._internal.io.Io_writeseeker.WriteSeeker {
+@:interface @:forward abstract WriteSeeker(stdgo._internal.io.Io_writeseeker.WriteSeeker) from stdgo._internal.io.Io_writeseeker.WriteSeeker to stdgo._internal.io.Io_writeseeker.WriteSeeker {
     @:from
-    static function fromHaxeInterface(x:{ }):WriteSeeker {
+    static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):WriteSeeker {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:WriteSeeker = { __underlying__ : () -> __f__() };
+        final y:WriteSeeker = { write : _0 -> x.write([for (i in _0) i]), seek : (_0, _1) -> x.seek(_0, _1), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -218,11 +218,11 @@ class WriteSeeker_static_extension {
 class ReadWriteSeeker_static_extension {
 
 }
-@:forward abstract ReadWriteSeeker(stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker) from stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker to stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker {
+@:interface @:forward abstract ReadWriteSeeker(stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker) from stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker to stdgo._internal.io.Io_readwriteseeker.ReadWriteSeeker {
     @:from
-    static function fromHaxeInterface(x:{ }):ReadWriteSeeker {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):ReadWriteSeeker {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadWriteSeeker = { __underlying__ : () -> __f__() };
+        final y:ReadWriteSeeker = { read : _0 -> x.read([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), seek : (_0, _1) -> x.seek(_0, _1), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -235,7 +235,7 @@ class ReaderFrom_static_extension {
         };
     }
 }
-@:forward abstract ReaderFrom(stdgo._internal.io.Io_readerfrom.ReaderFrom) from stdgo._internal.io.Io_readerfrom.ReaderFrom to stdgo._internal.io.Io_readerfrom.ReaderFrom {
+@:interface @:forward abstract ReaderFrom(stdgo._internal.io.Io_readerfrom.ReaderFrom) from stdgo._internal.io.Io_readerfrom.ReaderFrom to stdgo._internal.io.Io_readerfrom.ReaderFrom {
     @:from
     static function fromHaxeInterface(x:{ function readFrom(_r:Reader):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):ReaderFrom {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -252,7 +252,7 @@ class WriterTo_static_extension {
         };
     }
 }
-@:forward abstract WriterTo(stdgo._internal.io.Io_writerto.WriterTo) from stdgo._internal.io.Io_writerto.WriterTo to stdgo._internal.io.Io_writerto.WriterTo {
+@:interface @:forward abstract WriterTo(stdgo._internal.io.Io_writerto.WriterTo) from stdgo._internal.io.Io_writerto.WriterTo to stdgo._internal.io.Io_writerto.WriterTo {
     @:from
     static function fromHaxeInterface(x:{ function writeTo(_w:Writer):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):WriterTo {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -271,7 +271,7 @@ class ReaderAt_static_extension {
         };
     }
 }
-@:forward abstract ReaderAt(stdgo._internal.io.Io_readerat.ReaderAt) from stdgo._internal.io.Io_readerat.ReaderAt to stdgo._internal.io.Io_readerat.ReaderAt {
+@:interface @:forward abstract ReaderAt(stdgo._internal.io.Io_readerat.ReaderAt) from stdgo._internal.io.Io_readerat.ReaderAt to stdgo._internal.io.Io_readerat.ReaderAt {
     @:from
     static function fromHaxeInterface(x:{ function readAt(_p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):ReaderAt {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -290,7 +290,7 @@ class WriterAt_static_extension {
         };
     }
 }
-@:forward abstract WriterAt(stdgo._internal.io.Io_writerat.WriterAt) from stdgo._internal.io.Io_writerat.WriterAt to stdgo._internal.io.Io_writerat.WriterAt {
+@:interface @:forward abstract WriterAt(stdgo._internal.io.Io_writerat.WriterAt) from stdgo._internal.io.Io_writerat.WriterAt to stdgo._internal.io.Io_writerat.WriterAt {
     @:from
     static function fromHaxeInterface(x:{ function writeAt(_p:Array<std.UInt>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):WriterAt {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -307,7 +307,7 @@ class ByteReader_static_extension {
         };
     }
 }
-@:forward abstract ByteReader(stdgo._internal.io.Io_bytereader.ByteReader) from stdgo._internal.io.Io_bytereader.ByteReader to stdgo._internal.io.Io_bytereader.ByteReader {
+@:interface @:forward abstract ByteReader(stdgo._internal.io.Io_bytereader.ByteReader) from stdgo._internal.io.Io_bytereader.ByteReader to stdgo._internal.io.Io_bytereader.ByteReader {
     @:from
     static function fromHaxeInterface(x:{ function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; }):ByteReader {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -321,11 +321,11 @@ class ByteScanner_static_extension {
         return stdgo._internal.io.Io_bytescanner_static_extension.ByteScanner_static_extension.unreadByte(t);
     }
 }
-@:forward abstract ByteScanner(stdgo._internal.io.Io_bytescanner.ByteScanner) from stdgo._internal.io.Io_bytescanner.ByteScanner to stdgo._internal.io.Io_bytescanner.ByteScanner {
+@:interface @:forward abstract ByteScanner(stdgo._internal.io.Io_bytescanner.ByteScanner) from stdgo._internal.io.Io_bytescanner.ByteScanner to stdgo._internal.io.Io_bytescanner.ByteScanner {
     @:from
-    static function fromHaxeInterface(x:{ function unreadByte():stdgo.Error; }):ByteScanner {
+    static function fromHaxeInterface(x:{ function unreadByte():stdgo.Error; function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; }):ByteScanner {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ByteScanner = { unreadByte : () -> x.unreadByte(), __underlying__ : () -> __f__() };
+        final y:ByteScanner = { unreadByte : () -> x.unreadByte(), readByte : () -> x.readByte(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -336,7 +336,7 @@ class ByteWriter_static_extension {
         return stdgo._internal.io.Io_bytewriter_static_extension.ByteWriter_static_extension.writeByte(t, _c);
     }
 }
-@:forward abstract ByteWriter(stdgo._internal.io.Io_bytewriter.ByteWriter) from stdgo._internal.io.Io_bytewriter.ByteWriter to stdgo._internal.io.Io_bytewriter.ByteWriter {
+@:interface @:forward abstract ByteWriter(stdgo._internal.io.Io_bytewriter.ByteWriter) from stdgo._internal.io.Io_bytewriter.ByteWriter to stdgo._internal.io.Io_bytewriter.ByteWriter {
     @:from
     static function fromHaxeInterface(x:{ function writeByte(_c:std.UInt):stdgo.Error; }):ByteWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -353,7 +353,7 @@ class RuneReader_static_extension {
         };
     }
 }
-@:forward abstract RuneReader(stdgo._internal.io.Io_runereader.RuneReader) from stdgo._internal.io.Io_runereader.RuneReader to stdgo._internal.io.Io_runereader.RuneReader {
+@:interface @:forward abstract RuneReader(stdgo._internal.io.Io_runereader.RuneReader) from stdgo._internal.io.Io_runereader.RuneReader to stdgo._internal.io.Io_runereader.RuneReader {
     @:from
     static function fromHaxeInterface(x:{ function readRune():stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error>; }):RuneReader {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -367,11 +367,11 @@ class RuneScanner_static_extension {
         return stdgo._internal.io.Io_runescanner_static_extension.RuneScanner_static_extension.unreadRune(t);
     }
 }
-@:forward abstract RuneScanner(stdgo._internal.io.Io_runescanner.RuneScanner) from stdgo._internal.io.Io_runescanner.RuneScanner to stdgo._internal.io.Io_runescanner.RuneScanner {
+@:interface @:forward abstract RuneScanner(stdgo._internal.io.Io_runescanner.RuneScanner) from stdgo._internal.io.Io_runescanner.RuneScanner to stdgo._internal.io.Io_runescanner.RuneScanner {
     @:from
-    static function fromHaxeInterface(x:{ function unreadRune():stdgo.Error; }):RuneScanner {
+    static function fromHaxeInterface(x:{ function unreadRune():stdgo.Error; function readRune():stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error>; }):RuneScanner {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RuneScanner = { unreadRune : () -> x.unreadRune(), __underlying__ : () -> __f__() };
+        final y:RuneScanner = { unreadRune : () -> x.unreadRune(), readRune : () -> x.readRune(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -385,7 +385,7 @@ class StringWriter_static_extension {
         };
     }
 }
-@:forward abstract StringWriter(stdgo._internal.io.Io_stringwriter.StringWriter) from stdgo._internal.io.Io_stringwriter.StringWriter to stdgo._internal.io.Io_stringwriter.StringWriter {
+@:interface @:forward abstract StringWriter(stdgo._internal.io.Io_stringwriter.StringWriter) from stdgo._internal.io.Io_stringwriter.StringWriter to stdgo._internal.io.Io_stringwriter.StringWriter {
     @:from
     static function fromHaxeInterface(x:{ function writeString(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):StringWriter {
         var __f__:Void -> stdgo.AnyInterface = null;

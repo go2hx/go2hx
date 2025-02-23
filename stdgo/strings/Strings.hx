@@ -12,7 +12,7 @@ package stdgo.strings;
         return stdgo._internal.strings.Strings_t_replacer_static_extension.T_replacer_static_extension.replace(t, _s);
     }
 }
-@:dox(hide) @:forward abstract T_replacer(stdgo._internal.strings.Strings_t_replacer.T_replacer) from stdgo._internal.strings.Strings_t_replacer.T_replacer to stdgo._internal.strings.Strings_t_replacer.T_replacer {
+@:interface @:dox(hide) @:forward abstract T_replacer(stdgo._internal.strings.Strings_t_replacer.T_replacer) from stdgo._internal.strings.Strings_t_replacer.T_replacer to stdgo._internal.strings.Strings_t_replacer.T_replacer {
     @:from
     static function fromHaxeInterface(x:{ function replace(_s:String):String; function writeString(_w:stdgo._internal.io.Io_writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_replacer {
         var __f__:Void -> stdgo.AnyInterface = null;

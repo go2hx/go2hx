@@ -93,7 +93,7 @@ class Addr_static_extension {
         return stdgo._internal.net.Net_addr_static_extension.Addr_static_extension.network(t);
     }
 }
-@:forward abstract Addr(stdgo._internal.net.Net_addr.Addr) from stdgo._internal.net.Net_addr.Addr to stdgo._internal.net.Net_addr.Addr {
+@:interface @:forward abstract Addr(stdgo._internal.net.Net_addr.Addr) from stdgo._internal.net.Net_addr.Addr to stdgo._internal.net.Net_addr.Addr {
     @:from
     static function fromHaxeInterface(x:{ function network():String; function string():String; }):Addr {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -136,7 +136,7 @@ class Conn_static_extension {
         };
     }
 }
-@:forward abstract Conn(stdgo._internal.net.Net_conn.Conn) from stdgo._internal.net.Net_conn.Conn to stdgo._internal.net.Net_conn.Conn {
+@:interface @:forward abstract Conn(stdgo._internal.net.Net_conn.Conn) from stdgo._internal.net.Net_conn.Conn to stdgo._internal.net.Net_conn.Conn {
     @:from
     static function fromHaxeInterface(x:{ function read(_b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function write(_b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; function localAddr():Addr; function remoteAddr():Addr; function setDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setReadDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setWriteDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; }):Conn {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -176,7 +176,7 @@ class PacketConn_static_extension {
         };
     }
 }
-@:forward abstract PacketConn(stdgo._internal.net.Net_packetconn.PacketConn) from stdgo._internal.net.Net_packetconn.PacketConn to stdgo._internal.net.Net_packetconn.PacketConn {
+@:interface @:forward abstract PacketConn(stdgo._internal.net.Net_packetconn.PacketConn) from stdgo._internal.net.Net_packetconn.PacketConn to stdgo._internal.net.Net_packetconn.PacketConn {
     @:from
     static function fromHaxeInterface(x:{ function readFrom(_p:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, Addr, stdgo.Error>; function writeTo(_p:Array<std.UInt>, _addr:Addr):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; function localAddr():Addr; function setDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setReadDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setWriteDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; }):PacketConn {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -199,7 +199,7 @@ class Listener_static_extension {
         };
     }
 }
-@:forward abstract Listener(stdgo._internal.net.Net_listener.Listener) from stdgo._internal.net.Net_listener.Listener to stdgo._internal.net.Net_listener.Listener {
+@:interface @:forward abstract Listener(stdgo._internal.net.Net_listener.Listener) from stdgo._internal.net.Net_listener.Listener to stdgo._internal.net.Net_listener.Listener {
     @:from
     static function fromHaxeInterface(x:{ function accept():stdgo.Tuple<Conn, stdgo.Error>; function close():stdgo.Error; function addr():Addr; }):Listener {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -216,7 +216,7 @@ class Error_static_extension {
         return stdgo._internal.net.Net_error_static_extension.Error_static_extension.timeout(t);
     }
 }
-@:forward abstract Error(stdgo._internal.net.Net_error.Error) from stdgo._internal.net.Net_error.Error to stdgo._internal.net.Net_error.Error {
+@:interface @:forward abstract Error(stdgo._internal.net.Net_error.Error) from stdgo._internal.net.Net_error.Error to stdgo._internal.net.Net_error.Error {
     @:from
     static function fromHaxeInterface(x:{ function timeout():Bool; function temporary():Bool; }):Error {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -230,7 +230,7 @@ class Error_static_extension {
         return stdgo._internal.net.Net_t_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
-@:dox(hide) @:forward abstract T_timeout(stdgo._internal.net.Net_t_timeout.T_timeout) from stdgo._internal.net.Net_t_timeout.T_timeout to stdgo._internal.net.Net_t_timeout.T_timeout {
+@:interface @:dox(hide) @:forward abstract T_timeout(stdgo._internal.net.Net_t_timeout.T_timeout) from stdgo._internal.net.Net_t_timeout.T_timeout to stdgo._internal.net.Net_t_timeout.T_timeout {
     @:from
     static function fromHaxeInterface(x:{ function timeout():Bool; }):T_timeout {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -244,7 +244,7 @@ class Error_static_extension {
         return stdgo._internal.net.Net_t_temporary_static_extension.T_temporary_static_extension.temporary(t);
     }
 }
-@:dox(hide) @:forward abstract T_temporary(stdgo._internal.net.Net_t_temporary.T_temporary) from stdgo._internal.net.Net_t_temporary.T_temporary to stdgo._internal.net.Net_t_temporary.T_temporary {
+@:interface @:dox(hide) @:forward abstract T_temporary(stdgo._internal.net.Net_t_temporary.T_temporary) from stdgo._internal.net.Net_t_temporary.T_temporary to stdgo._internal.net.Net_t_temporary.T_temporary {
     @:from
     static function fromHaxeInterface(x:{ function temporary():Bool; }):T_temporary {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -256,7 +256,7 @@ class Error_static_extension {
 @:dox(hide) class T_buffersWriter_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_buffersWriter(stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter) from stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter to stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter {
+@:interface @:dox(hide) @:forward abstract T_buffersWriter(stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter) from stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter to stdgo._internal.net.Net_t_bufferswriter.T_buffersWriter {
     @:from
     static function fromHaxeInterface(x:{ }):T_buffersWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -268,11 +268,11 @@ class Error_static_extension {
 @:dox(hide) class T_sockaddr_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_sockaddr(stdgo._internal.net.Net_t_sockaddr.T_sockaddr) from stdgo._internal.net.Net_t_sockaddr.T_sockaddr to stdgo._internal.net.Net_t_sockaddr.T_sockaddr {
+@:interface @:dox(hide) @:forward abstract T_sockaddr(stdgo._internal.net.Net_t_sockaddr.T_sockaddr) from stdgo._internal.net.Net_t_sockaddr.T_sockaddr to stdgo._internal.net.Net_t_sockaddr.T_sockaddr {
     @:from
-    static function fromHaxeInterface(x:{ }):T_sockaddr {
+    static function fromHaxeInterface(x:{ function network():String; function string():String; }):T_sockaddr {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_sockaddr = { __underlying__ : () -> __f__() };
+        final y:T_sockaddr = { network : () -> x.network(), string : () -> x.string(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

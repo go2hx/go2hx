@@ -7,7 +7,7 @@ function stripPrefix(_prefix:stdgo.GoString, _h:stdgo._internal.net.http.Http_ha
             var _p = (stdgo._internal.net.http.Http__strings._strings.trimPrefix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path?.__copy__(), _prefix?.__copy__())?.__copy__() : stdgo.GoString);
             var _rp = (stdgo._internal.net.http.Http__strings._strings.trimPrefix((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath?.__copy__(), _prefix?.__copy__())?.__copy__() : stdgo.GoString);
             if ((((_p.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").path.length) : Bool) && ((((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath == (stdgo.Go.str() : stdgo.GoString)) || ((_rp.length) < ((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawPath.length) : Bool) : Bool)) : Bool)) {
-                var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_request_static_extension.request_static_extension.stdgo._internal.net.http.Http_request_static_extension.Request_static_extension);
+                var _r2 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
                 {
                     var __tmp__ = (_r : stdgo._internal.net.http.Http_request.Request)?.__copy__();
                     var x = (_r2 : stdgo._internal.net.http.Http_request.Request);
@@ -34,7 +34,7 @@ function stripPrefix(_prefix:stdgo.GoString, _h:stdgo._internal.net.http.Http_ha
                     x.response = __tmp__?.response;
                     x._ctx = __tmp__?._ctx;
                 };
-                (@:checkr _r2 ?? throw "null pointer dereference").uRL = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http__url._url.uRL);
+                (@:checkr _r2 ?? throw "null pointer dereference").uRL = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_url.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
                 {
                     var __tmp__ = ((@:checkr _r ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_url.URL)?.__copy__();
                     var x = ((@:checkr _r2 ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_url.URL);

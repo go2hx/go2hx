@@ -11,7 +11,7 @@ package stdgo._internal.net.http;
             return stdgo._internal.net.http.Http__http2errrecursivepush._http2ErrRecursivePush;
         };
         if ((_opts == null || (_opts : Dynamic).__nil__)) {
-            _opts = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_pushoptions_static_extension.pushoptions_static_extension.stdgo._internal.net.http.Http_pushoptions_static_extension.PushOptions_static_extension);
+            _opts = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_pushoptions.PushOptions)) : stdgo.Ref<stdgo._internal.net.http.Http_pushoptions.PushOptions>);
         };
         if ((@:checkr _opts ?? throw "null pointer dereference").method == ((stdgo.Go.str() : stdgo.GoString))) {
             (@:checkr _opts ?? throw "null pointer dereference").method = ("GET" : stdgo.GoString);

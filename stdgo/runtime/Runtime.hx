@@ -407,7 +407,7 @@ class Error_static_extension {
         stdgo._internal.runtime.Runtime_error_static_extension.Error_static_extension.runtimeError(t);
     }
 }
-@:forward abstract Error(stdgo._internal.runtime.Runtime_error.Error) from stdgo._internal.runtime.Runtime_error.Error to stdgo._internal.runtime.Runtime_error.Error {
+@:interface @:forward abstract Error(stdgo._internal.runtime.Runtime_error.Error) from stdgo._internal.runtime.Runtime_error.Error to stdgo._internal.runtime.Runtime_error.Error {
     @:from
     static function fromHaxeInterface(x:{ function runtimeError():Void; }):Error {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -421,7 +421,7 @@ class Error_static_extension {
         return stdgo._internal.runtime.Runtime_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) @:forward abstract T_stringer(stdgo._internal.runtime.Runtime_t_stringer.T_stringer) from stdgo._internal.runtime.Runtime_t_stringer.T_stringer to stdgo._internal.runtime.Runtime_t_stringer.T_stringer {
+@:interface @:dox(hide) @:forward abstract T_stringer(stdgo._internal.runtime.Runtime_t_stringer.T_stringer) from stdgo._internal.runtime.Runtime_t_stringer.T_stringer to stdgo._internal.runtime.Runtime_t_stringer.T_stringer {
     @:from
     static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -493,7 +493,7 @@ class TestingT_static_extension {
         stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.cleanup(t, _0);
     }
 }
-@:forward abstract TestingT(stdgo._internal.runtime.Runtime_testingt.TestingT) from stdgo._internal.runtime.Runtime_testingt.TestingT to stdgo._internal.runtime.Runtime_testingt.TestingT {
+@:interface @:forward abstract TestingT(stdgo._internal.runtime.Runtime_testingt.TestingT) from stdgo._internal.runtime.Runtime_testingt.TestingT to stdgo._internal.runtime.Runtime_testingt.TestingT {
     @:from
     static function fromHaxeInterface(x:{ function cleanup(_0:() -> Void):Void; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function setenv(_key:String, _value:String):Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; function tempDir():String; }):TestingT {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -505,7 +505,7 @@ class TestingT_static_extension {
 @:dox(hide) class T_floaty_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_floaty(stdgo._internal.runtime.Runtime_t_floaty.T_floaty) from stdgo._internal.runtime.Runtime_t_floaty.T_floaty to stdgo._internal.runtime.Runtime_t_floaty.T_floaty {
+@:interface @:dox(hide) @:forward abstract T_floaty(stdgo._internal.runtime.Runtime_t_floaty.T_floaty) from stdgo._internal.runtime.Runtime_t_floaty.T_floaty to stdgo._internal.runtime.Runtime_t_floaty.T_floaty {
     @:from
     static function fromHaxeInterface(x:{ }):T_floaty {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -1528,19 +1528,19 @@ class TestingT_static_extension {
         this.debugGC = v;
         return v;
     }
-    public var bySize(get, set) : haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>;
-    function get_bySize():haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> return haxe.ds.Vector.fromArrayCopy([for (i in this.bySize) {
+    public var bySize(get, set) : haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>;
+    function get_bySize():haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }> return haxe.ds.Vector.fromArrayCopy([for (i in this.bySize) {
         final obj = i;
         { size : obj.size, mallocs : obj.mallocs, frees : obj.frees };
     }]);
-    function set_bySize(v:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>):haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> {
+    function set_bySize(v:haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>):haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }> {
         this.bySize = ([for (i in v) {
             final obj = i;
             { size : (obj.size : stdgo.GoUInt32), mallocs : (obj.mallocs : stdgo.GoUInt64), frees : (obj.frees : stdgo.GoUInt64) };
         }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>);
         return v;
     }
-    public function new(?alloc:haxe.UInt64, ?totalAlloc:haxe.UInt64, ?sys:haxe.UInt64, ?lookups:haxe.UInt64, ?mallocs:haxe.UInt64, ?frees:haxe.UInt64, ?heapAlloc:haxe.UInt64, ?heapSys:haxe.UInt64, ?heapIdle:haxe.UInt64, ?heapInuse:haxe.UInt64, ?heapReleased:haxe.UInt64, ?heapObjects:haxe.UInt64, ?stackInuse:haxe.UInt64, ?stackSys:haxe.UInt64, ?mSpanInuse:haxe.UInt64, ?mSpanSys:haxe.UInt64, ?mCacheInuse:haxe.UInt64, ?mCacheSys:haxe.UInt64, ?buckHashSys:haxe.UInt64, ?gCSys:haxe.UInt64, ?otherSys:haxe.UInt64, ?nextGC:haxe.UInt64, ?lastGC:haxe.UInt64, ?pauseTotalNs:haxe.UInt64, ?pauseNs:haxe.ds.Vector<haxe.UInt64>, ?pauseEnd:haxe.ds.Vector<haxe.UInt64>, ?numGC:std.UInt, ?numForcedGC:std.UInt, ?gCCPUFraction:StdTypes.Float, ?enableGC:Bool, ?debugGC:Bool, ?bySize:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>) this = new stdgo._internal.runtime.Runtime_memstats.MemStats(
+    public function new(?alloc:haxe.UInt64, ?totalAlloc:haxe.UInt64, ?sys:haxe.UInt64, ?lookups:haxe.UInt64, ?mallocs:haxe.UInt64, ?frees:haxe.UInt64, ?heapAlloc:haxe.UInt64, ?heapSys:haxe.UInt64, ?heapIdle:haxe.UInt64, ?heapInuse:haxe.UInt64, ?heapReleased:haxe.UInt64, ?heapObjects:haxe.UInt64, ?stackInuse:haxe.UInt64, ?stackSys:haxe.UInt64, ?mSpanInuse:haxe.UInt64, ?mSpanSys:haxe.UInt64, ?mCacheInuse:haxe.UInt64, ?mCacheSys:haxe.UInt64, ?buckHashSys:haxe.UInt64, ?gCSys:haxe.UInt64, ?otherSys:haxe.UInt64, ?nextGC:haxe.UInt64, ?lastGC:haxe.UInt64, ?pauseTotalNs:haxe.UInt64, ?pauseNs:haxe.ds.Vector<haxe.UInt64>, ?pauseEnd:haxe.ds.Vector<haxe.UInt64>, ?numGC:std.UInt, ?numForcedGC:std.UInt, ?gCCPUFraction:StdTypes.Float, ?enableGC:Bool, ?debugGC:Bool, ?bySize:haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>) this = new stdgo._internal.runtime.Runtime_memstats.MemStats(
 (alloc : stdgo.GoUInt64),
 (totalAlloc : stdgo.GoUInt64),
 (sys : stdgo.GoUInt64),

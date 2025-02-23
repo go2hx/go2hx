@@ -3,15 +3,15 @@ final intSize : haxe.UInt64 = stdgo._internal.strconv.Strconv_intsize.intSize;
 var errRange(get, set) : stdgo.Error;
 private function get_errRange():stdgo.Error return stdgo._internal.strconv.Strconv_errrange.errRange;
 private function set_errRange(v:stdgo.Error):stdgo.Error {
-    stdgo._internal.strconv.Strconv_errrange.errRange = (v : stdgo.Error);
-    return v;
-}
+        stdgo._internal.strconv.Strconv_errrange.errRange = (v : stdgo.Error);
+        return v;
+    }
 var errSyntax(get, set) : stdgo.Error;
 private function get_errSyntax():stdgo.Error return stdgo._internal.strconv.Strconv_errsyntax.errSyntax;
 private function set_errSyntax(v:stdgo.Error):stdgo.Error {
-    stdgo._internal.strconv.Strconv_errsyntax.errSyntax = (v : stdgo.Error);
-    return v;
-}
+        stdgo._internal.strconv.Strconv_errsyntax.errSyntax = (v : stdgo.Error);
+        return v;
+    }
 var bitSizeError(get, set) : (String, String, StdTypes.Int) -> NumError;
 private function get_bitSizeError():(String, String, StdTypes.Int) -> NumError return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError(_0, _1, _2);
 private function set_bitSizeError(v:(String, String, StdTypes.Int) -> NumError):(String, String, StdTypes.Int) -> NumError {

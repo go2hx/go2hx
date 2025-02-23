@@ -158,5 +158,7 @@
  "interp|return0",
  "interp|namedmap0",
  "interp|var1",
- "interp|vars0"
+ "interp|vars0",
+ "interp|pointerAssign0",
+ "interp|vars2"
 ]

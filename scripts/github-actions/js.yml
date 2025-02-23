@@ -1,3 +1,4 @@
 - uses: actions/setup-node@v4
   with:
     node-version: 23
+- run: npm install sync 0.2.5

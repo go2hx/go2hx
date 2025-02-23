@@ -260,10 +260,10 @@ Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/
 Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 24089 column 15)
 Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 23940 column 57)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlonglines_testScanLongLines [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:46446:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58704 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58687 column 9)
 Called from ._$internal_bufio_$dot_$test_Bufio_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50111 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67909:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67910:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67892:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67893:3)
 
 -- FAIL: TestScanLongLines
 
@@ -287,10 +287,10 @@ Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/
 Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 24089 column 15)
 Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 23940 column 57)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlinetoolong_testScanLineTooLong [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:46555:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58704 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58687 column 9)
 Called from ._$internal_bufio_$dot_$test_Bufio_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50111 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67909:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67910:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67892:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67893:3)
 
 -- FAIL: TestScanLineTooLong
 

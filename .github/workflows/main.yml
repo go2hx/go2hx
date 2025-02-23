@@ -1318,7 +1318,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   build-hl:
     
-    timeout-minutes: 26
+    timeout-minutes: 45
     needs: setup
     strategy:
       fail-fast: false
@@ -1382,7 +1382,7 @@ jobs:
         continue-on-error: true
   build-interp:
     
-    timeout-minutes: 26
+    timeout-minutes: 45
     needs: setup
     strategy:
       fail-fast: false
@@ -1446,7 +1446,7 @@ jobs:
         continue-on-error: true
   build-js:
     
-    timeout-minutes: 26
+    timeout-minutes: 45
     needs: setup
     strategy:
       fail-fast: false

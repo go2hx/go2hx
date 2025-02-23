@@ -4,7 +4,7 @@ function main() {
         Sys.println("No args specified");
         return;
     }
-    args = args.map(arg -> arg.toLowerCase());
+    //args = args.map(arg -> arg.toLowerCase());
     switch args {
         case ["hxb"]:
             Sys.command("haxelib run go2hx hxb .");
@@ -15,6 +15,11 @@ function main() {
             Sys.command("haxelib run go2hx setup");
         case _ if (args[0] == "std" || args[0] == "stdgo"):
             final cmd = "haxe scripts/stdgo.hxml -D libs=" + args.slice(1).join(",");
+            Sys.command(cmd);
+        case _ if (args[0] == "report"):
+            // -D go -D mode=easy -D targets=hl
+            final cmd = "haxe tests/tests.hxml -D runnerCount=4 -D nologs -D report " + args.slice(1).join(" ");
+            Sys.println(cmd);
             Sys.command(cmd); 
         case ["sorttests"]:
             Sys.command("go run ./scripts/sortTests");

@@ -1,5 +1,21 @@
 {
     "passes": [],
-    "fails": [],
-    "runs": []
+    "fails": [
+        "TestCustomContextAfterFuncCancel",
+        "TestCustomContextAfterFuncTimeout",
+        "TestCustomContextAfterFuncAfterFunc",
+        "TestCustomContextAfterFuncUnregisterCancel",
+        "TestCustomContextAfterFuncUnregisterTimeout",
+        "TestCustomContextAfterFuncUnregisterAfterFunc",
+        "TestDeadlineExceededIsNetError"
+    ],
+    "runs": [
+        "TestCustomContextAfterFuncCancel",
+        "TestCustomContextAfterFuncTimeout",
+        "TestCustomContextAfterFuncAfterFunc",
+        "TestCustomContextAfterFuncUnregisterCancel",
+        "TestCustomContextAfterFuncUnregisterTimeout",
+        "TestCustomContextAfterFuncUnregisterAfterFunc",
+        "TestDeadlineExceededIsNetError"
+    ]
 }

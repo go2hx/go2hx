@@ -1,184 +1,55 @@
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:6: characters 27-70
+=== RUN  TestCustomContextAfterFuncCancel
+Exception: :context.withCancel is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfunccancel.Context_test_testcustomcontextafterfunccancel_Fields_.testCustomContextAfterFuncCancel (./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx line 61 column 21)
 
-   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncCancel
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx:11: characters 37-80
+=== RUN  TestCustomContextAfterFuncTimeout
+Exception: :context.withTimeout is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfunctimeout.Context_test_testcustomcontextafterfunctimeout_Fields_.testCustomContextAfterFuncTimeout (./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx line 61 column 21)
 
-  11 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
-     |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncTimeout
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:6: characters 27-70
+=== RUN  TestCustomContextAfterFuncAfterFunc
+Exception: :context.afterFunc is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncafterfunc.Context_test_testcustomcontextafterfuncafterfunc_Fields_.testCustomContextAfterFuncAfterFunc (./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx line 64 column 21)
 
-   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncAfterFunc
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx:11: characters 37-80
+=== RUN  TestCustomContextAfterFuncUnregisterCancel
+Exception: :context.withCancel is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistercancel.Context_test_testcustomcontextafterfuncunregistercancel_Fields_.testCustomContextAfterFuncUnregisterCancel (./_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx line 4 column 23)
+Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (./stdgo/_internal/context/Context_withcancel.hx line 2 column 204)
 
-  11 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
-     |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncUnregisterCancel
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:7: characters 26-69
+=== RUN  TestCustomContextAfterFuncUnregisterTimeout
+Exception: :context.withTimeout is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistertimeout.Context_test_testcustomcontextafterfuncunregistertimeout_Fields_.testCustomContextAfterFuncUnregisterTimeout (./_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx line 4 column 23)
+Called from stdgo._internal.context._Context_withtimeout.Context_withtimeout_Fields_.withTimeout (./stdgo/_internal/context/Context_withtimeout.hx line 2 column 259)
 
-   7 |             var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {
-     |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncUnregisterTimeout
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx:14: characters 37-80
+=== RUN  TestCustomContextAfterFuncUnregisterAfterFunc
+Exception: :context.afterFunc is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregisterafterfunc.Context_test_testcustomcontextafterfuncunregisterafterfunc_Fields_.testCustomContextAfterFuncUnregisterAfterFunc (./_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx line 4 column 21)
+Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (./stdgo/_internal/context/Context_afterfunc.hx line 2 column 100)
 
-  14 |             @:check2r _ctx0._cancel(_internal.context_test.Context_test_context.context.canceled);
-     |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
+-- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
 
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx:4: characters 23-66
+=== RUN  TestDeadlineExceededIsNetError
+DeadlineExceeded does not implement net.Error
+Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.context_test._Context_test_testdeadlineexceededisneterror.Context_test_testdeadlineexceededisneterror_Fields_.testDeadlineExceededIsNetError (./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx line 9 column 32)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
+Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
-   4 |         var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(stdgo.Go.asInterface(_ctx0)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx:4: characters 23-66
-
-   4 |         var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(stdgo.Go.asInterface(_ctx0), (3600000000000000i64 : stdgo._internal.time.Time_duration.Duration)), __0:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx:4: characters 22-65
-
-   4 |         var _stop = (_internal.context_test.Context_test_context.context.afterFunc(stdgo.Go.asInterface(_ctx0), function():Void {}) : () -> Bool);
-     |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:4: characters 63-106
-
-   4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
-     |                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  stdgo/Go.macro.hx:653: characters 11-31
-
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  ./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx:4: characters 42-132
-
-        4 |             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.deadlineExceeded) : stdgo._internal.net.Net_error.Error)) : stdgo._internal.net.Net_error.Error), _1 : true };
-          |                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:41: characters 27-70
-
-  41 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancel(_internal.context_test.Context_test_context.context.background()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_examplewithdeadline.hx:6: characters 27-70
-
-   6 |             var __tmp__ = _internal.context_test.Context_test_context.context.withDeadline(_internal.context_test.Context_test_context.context.background(), _d?.__copy__()), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_examplewithtimeout.hx:5: characters 27-70
-
-   5 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_examplewithvalue.hx:15: characters 21-64
-
-  15 |         var _ctx = (_internal.context_test.Context_test_context.context.withValue(_internal.context_test.Context_test_context.context.background(), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(("Go" : stdgo.GoString))) : stdgo._internal.context.Context_context.Context);
-     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:6: characters 31-74
-
-   6 |                 var _stopf = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
-     |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_cond.hx:164: characters 43-86
-
- 164 |                             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-          | For function argument 'func'
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:8: characters 30-73
-
-   8 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_ctx, function():Void {
-     |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_connection.hx:59: characters 27-70
-
-  59 |             var __tmp__ = _internal.context_test.Context_test_context.context.withTimeout(_internal.context_test.Context_test_context.context.background(), (1000000i64 : stdgo._internal.time.Time_duration.Duration)), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:6: characters 31-74
-
-   6 |                 var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_ctx), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
-     |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:7: characters 30-73
-
-   7 |                 var _stop = (_internal.context_test.Context_test_context.context.afterFunc(_cancelCtx, function():Void {
-     |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:12: characters 29-72
-
-  12 |                     _cancel(_internal.context_test.Context_test_context.context.canceled);
-     |                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:15: characters 27-70
-
-  15 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx1:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel1:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:21: characters 27-70
-
-  21 |             var __tmp__ = _internal.context_test.Context_test_context.context.withCancelCause(_internal.context_test.Context_test_context.context.background()), _ctx2:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel2:stdgo._internal.context.Context_cancelcausefunc.CancelCauseFunc = __tmp__._1;
-     |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-[ERROR] ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:29: characters 74-117
-
-  29 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
-     |                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : _internal.context_test.Context_test_context
-
-      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-      504 |   return load("typeof", 1)(e);
-          |          ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  stdgo/Go.macro.hx:653: characters 11-31
-
-      653 |   var t = Context.typeof(expr);
-          |           ^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-      ->  ./_internal/context_test/Context_test_exampleafterfunc_merge.hx:29: characters 53-144
-
-       29 |             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(_internal.context_test.Context_test_context.context.cause(_mergedCtx)));
-          |                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from here
-
-          | For function argument '_a'
-
+-- FAIL: TestDeadlineExceededIsNetError

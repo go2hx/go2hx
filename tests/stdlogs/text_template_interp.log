@@ -1,116 +1,24 @@
-[ERROR] ./stdgo/_internal/text/template/Template_template_static_extension.hx:25: characters 23-68
+[ERROR] ./stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx:5: characters 133-138
 
-  25 |         var __tmp__ = stdgo._internal.text.template.Template__parse._parse.parse((@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__parse
+ 5 |     static public function add( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _delta:stdgo.GoInt32):stdgo.GoInt32 throw "Int32:sync.atomic_.add is not yet implemented";
+   |                                                                                                                                     ^^^^^
+   | Uncaught exception Int32:sync.atomic_.add is not yet implemented
 
-[ERROR] ./stdgo/_internal/text/template/Template_template_static_extension.hx:12: characters 104-149
+    ->  ./stdgo/_internal/sync/Sync_rwmutex_static_extension.hx:149: characters 23-111
 
-  12 |             if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && stdgo._internal.text.template.Template__parse._parse.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {
-     |                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__parse
+    149 |         if ((@:check2 (@:checkr _rw ?? throw "null pointer dereference")._readerCount.add((1 : stdgo.GoInt32)) < (0 : stdgo.GoInt32) : Bool)) {
+        |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:3: characters 19-66
+    ->  ./stdgo/_internal/text/template/Template_template_static_extension.hx:24: characters 18-92
 
-   3 |         var _e = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-     |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__recover
+     24 |         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
+        |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:8: characters 159-173
+    ->  ./stdgo/_internal/text/template/Template__tval.hx:88: characters 33-147
 
-   8 |                     var _err:stdgo._internal.runtime.Runtime_error.Error = __type__ == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__.__underlying__() == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__ == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__.__underlying__().value;
-     |                                                                                                                                                               ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:8: characters 324-338
-
-   8 |                     var _err:stdgo._internal.runtime.Runtime_error.Error = __type__ == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__.__underlying__() == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__ == null ? (null : stdgo._internal.runtime.Runtime_error.Error) : __type__.__underlying__().value;
-     |                                                                                                                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:11: characters 199-213
-
-  11 |                     var _err:stdgo._internal.text.template.Template_t_writeerror.T_writeError = __type__ == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__.__underlying__().value;
-     |                                                                                                                                                                                                       ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:11: characters 402-416
-
-  11 |                     var _err:stdgo._internal.text.template.Template_t_writeerror.T_writeError = __type__ == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_t_writeerror.T_writeError) : __type__.__underlying__().value;
-     |                                                                                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:18: characters 187-201
-
-  18 |                     var _err:stdgo._internal.text.template.Template_execerror.ExecError = __type__ == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__.__underlying__().value;
-     |                                                                                                                                                                                           ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:18: characters 378-392
-
-  18 |                     var _err:stdgo._internal.text.template.Template_execerror.ExecError = __type__ == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__.__underlying__() == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__ == null ? ({} : stdgo._internal.text.template.Template_execerror.ExecError) : __type__.__underlying__().value;
-     |                                                                                                                                                                                                                                                                                                                                                                                          ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__errrecover.hx:25: characters 61-75
-
-  25 |                     var _err:stdgo.AnyInterface = __type__?.__underlying__();
-     |                                                             ^^^^^^^^^^^^^^
-     | Any has no field __underlying__
-
-[ERROR] ./stdgo/_internal/text/template/Template__safecall.hx:10: characters 39-86
-
-  10 |                             var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__recover
-
-          | For function argument 'x'
-
-      ->  ./stdgo/_internal/text/template/Template_t_state_static_extension.hx:305: characters 23-160
-
-      305 |                 _v = (stdgo.Go.typeAssert((@:check2r _s._evalArg(_dot?.__copy__(), _argType, _arg).interface_() : stdgo._internal.reflect.Reflect_value.Value)) : stdgo._internal.reflect.Reflect_value.Value)?.__copy__();
-          |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          | Called from macro here
-
-[ERROR] ./stdgo/_internal/text/template/Template_t_state_static_extension.hx:629: characters 39-86
-
- 629 |                             var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__recover
-
-          | For function argument 'x'
-
-[ERROR] ./stdgo/_internal/text/template/Template_t_state_static_extension.hx:675: characters 47-94
-
- 675 |                                     var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-     |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__recover
-
-          | For function argument 'x'
-
-[ERROR] ./stdgo/_internal/text/template/Template__testbadfuncname.hx:9: characters 25-72
-
-   9 |                         stdgo._internal.text.template.Template__recover._recover();
-     |                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__recover
-
-          | For function argument 'x'
-
-[ERROR] ./stdgo/_internal/text/template/Template_testaddparsetree.hx:14: characters 23-68
-
-  14 |         var __tmp__ = stdgo._internal.text.template.Template__parse._parse.parse(("cloneText3" : stdgo.GoString), ("{{define \"c\"}}root{{end}}" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), stdgo._internal.text.template.Template__builtins._builtins()), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__parse
-
-[ERROR] ./stdgo/_internal/text/template/Template_testaddparsetreetounparsedtemplate.hx:5: characters 23-68
-
-   5 |         var __tmp__ = stdgo._internal.text.template.Template__parse._parse.parse(("master" : stdgo.GoString), _master?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__parse
-
-[ERROR] ./stdgo/_internal/text/template/Template_testaddtozerotemplate.hx:3: characters 23-68
-
-   3 |         var __tmp__ = stdgo._internal.text.template.Template__parse._parse.parse(("c" : stdgo.GoString), ("{{define \"c\"}}root{{end}}" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), stdgo._internal.text.template.Template__builtins._builtins()), _tree:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.text.template.Template__parse
+     88 |         var __tmp__ = @:check2r stdgo._internal.text.template.Template_new_.new_(("x" : stdgo.GoString)).parse(("test template" : stdgo.GoString));
+        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        | Called from here
 

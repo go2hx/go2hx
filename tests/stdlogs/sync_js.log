@@ -4,9 +4,9 @@
     |                                                                                           ^^^^^
     | Unknown identifier : _new_
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -24,9 +24,9 @@
          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -50,9 +50,9 @@
     |                                                                                           ^^^^^
     | Unknown identifier : _new_
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -70,9 +70,9 @@
          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -96,9 +96,9 @@
     |                                                                                           ^^^^^
     | Unknown identifier : _new_
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -116,9 +116,9 @@
          |                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -178,7 +178,7 @@
     |                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | invalid type run asInterface: TDynamic(null)
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:51: characters 10-43
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:51: characters 10-43
 
       51 |   return load("error", 2)(msg, pos, depth);
          |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -196,9 +196,9 @@
 
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -229,9 +229,9 @@
     | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
     | For function argument '_addr'
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -300,9 +300,9 @@
          |           ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
@@ -320,9 +320,9 @@
          |
          | Called from here
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
 
-     504 |   return load("typeof", 1)(e);
+     513 |   return load("typeof", 1)(e);
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 

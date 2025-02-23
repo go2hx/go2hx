@@ -3,10 +3,10 @@ Exception: crypto/rc4: invalid buffer overlap
 Called from stdgo__$internal_crypto_rc4_Cipher_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 29319 column 24)
 Called from .stdgo__$internal_crypto_rc4_Rc4_$_$testencrypt__testEncrypt (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 29295 column 56)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_rc4_Rc4_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:11182:5)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 38038 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 38021 column 9)
 Called from ._$internal_crypto_rc4_$dot_$test_Rc4_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 30691 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47147:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47148:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestGolden
@@ -15,10 +15,10 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 Exception: crypto/rc4: invalid buffer overlap
 Called from stdgo__$internal_crypto_rc4_Cipher_$static_$extension.xORKeyStream (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 29319 column 24)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_rc4_Rc4_$testblock_testBlock [as f] (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:30325:57)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 38038 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 38021 column 9)
 Called from ._$internal_crypto_rc4_$dot_$test_Rc4_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js line 30691 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47147:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47148:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_rc4.js:47131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

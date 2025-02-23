@@ -1,6 +1,6 @@
-[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:183: character 46
+[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:176: character 46
 
- 183 |         var _keys_6614903 = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+ 176 |         var _keys_6561408 = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
      |                                              ^
      | Invalid character '#'
 

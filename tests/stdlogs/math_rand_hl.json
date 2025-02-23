@@ -1,6 +1,7 @@
 {
     "passes": [
         "TestDefaultRace",
+        "TestConcurrent",
         "TestStandardNormalValues",
         "TestNonStandardNormalValues",
         "TestFloat32",

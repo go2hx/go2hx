@@ -1,95 +1,523 @@
-[ERROR] ./stdgo/_internal/slices/Slices_testclone.hx:22: characters 194-198
+=== RUN  TestEqual
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$equal_equal (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 12154 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testequal_testEqual [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:11512:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
- 22 |                 @:check2r _t.errorf(("Clone(%v) = %#v, want %#v" : stdgo.GoString), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface((_s1.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>)));
-    |                                                                                                                                                                                                  ^^^^
-    | Any should be { length : stdgo.GoInt }
-    | For function argument 'value'
+-- FAIL: TestEqual
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:9: characters 18-26
+=== RUN  TestEqualFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$equalfunc_equalFunc (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 12303 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testequalfunc_testEqualFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:12229:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-  9 |         if ((_s2.capacity < ((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt) : Bool)) {
-    |                  ^^^^^^^^
-    | Any has no field capacity
+-- FAIL: TestEqualFunc
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 143-151
+=== RUN  TestCompare
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$compare_compare (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 13467 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompare_testCompare [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:13414:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
- 10 |             @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2.capacity), stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));
-    |                                                                                                                                               ^^^^^^^^
-    | Any has no field capacity
+-- FAIL: TestCompare
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+=== RUN  TestCompareFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$_$equaltocmp__equalToCmp (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 13591 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcomparefunc_testCompareFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:13481:90)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-     504 |   return load("typeof", 1)(e);
-         |          ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+-- FAIL: TestCompareFunc
 
-     ->  stdgo/Go.macro.hx:653: characters 11-31
+=== RUN  TestIndex
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$index_index (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14518 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testindex_testIndex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14509:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-     653 |   var t = Context.typeof(expr);
-         |           ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+-- FAIL: TestIndex
 
-     ->  ./stdgo/_internal/slices/Slices_testgrow.hx:10: characters 118-152
+=== RUN  TestIndexFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$_$equaltoindex__equalToIndex (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14555 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testindexfunc_testIndexFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14526:75)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-      10 |             @:check2r _t.errorf(("after Grow(%v) cap = %d, want >= %d" : stdgo.GoString), stdgo.Go.toInterface(_s1), stdgo.Go.toInterface(_s2.capacity), stdgo.Go.toInterface(((1000 : stdgo.GoInt) + (_s1.length) : stdgo.GoInt)));
-         |                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+-- FAIL: TestIndexFunc
 
-         | For function argument ''
+=== RUN  TestContains
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$contains_contains (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14572 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcontains_testContains [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14563:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 67-75
+-- FAIL: TestContains
 
- 23 |                 stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.capacity - (_s2.length) : stdgo.GoInt));
-    |                                                                   ^^^^^^^^
-    | Any has no field capacity
+=== RUN  TestContainsFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$_$equaltoindex__equalToIndex (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14555 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcontainsfunc_testContainsFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14580:81)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:23: characters 83-89
+-- FAIL: TestContainsFunc
 
- 23 |                 stdgo._internal.slices.Slices_grow.grow(_s2, (_s2.capacity - (_s2.length) : stdgo.GoInt));
-    |                                                                                   ^^^^^^
-    | Any has no field length
+=== RUN  TestInsert
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14661 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsert_testInsert [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14618:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 68-76
+-- FAIL: TestInsert
 
- 31 |                 stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.capacity - (_s2.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));
-    |                                                                    ^^^^^^^^
-    | Any has no field capacity
+=== RUN  TestInsertOverlap
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14661 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsertoverlap_testInsertOverlap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14839:63)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testgrow.hx:31: characters 84-90
+-- FAIL: TestInsertOverlap
 
- 31 |                 stdgo._internal.slices.Slices_grow.grow(_s2, ((_s2.capacity - (_s2.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt));
-    |                                                                                    ^^^^^^
-    | Any has no field length
+=== RUN  TestDelete
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testdelete_testDelete [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14860:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testclip.hx:15: characters 17-25
+-- FAIL: TestDelete
 
- 15 |         if (_s2.capacity != ((3 : stdgo.GoInt))) {
-    |                 ^^^^^^^^
-    | Any has no field capacity
+=== RUN  TestDeleteFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testdeletefunc_testDeleteFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14880:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-[ERROR] ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 136-144
+-- FAIL: TestDeleteFunc
 
- 16 |             @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_s2.capacity));
-    |                                                                                                                                        ^^^^^^^^
-    | Any has no field capacity
+=== RUN  TestDeletePanics
 
-     ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+-- PASS: TestDeletePanics
 
-     504 |   return load("typeof", 1)(e);
-         |          ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+=== RUN  TestClone
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testclone_testClone [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15155:12)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-     ->  stdgo/Go.macro.hx:653: characters 11-31
+-- FAIL: TestClone
 
-     653 |   var t = Context.typeof(expr);
-         |           ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+=== RUN  TestCompact
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompact_testCompact [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15206:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-     ->  ./stdgo/_internal/slices/Slices_testclip.hx:16: characters 111-145
+-- FAIL: TestCompact
 
-      16 |             @:check2r _t.errorf(("cap(Clip(%v)) = %d, want 3" : stdgo.GoString), stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_s2.capacity));
-         |                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from here
+=== RUN  TestCompactFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompactfunc_testCompactFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15226:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
-         | For function argument ''
+-- FAIL: TestCompactFunc
+
+=== RUN  TestGrow
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testgrow_testGrow [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15255:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestGrow
+
+=== RUN  TestClip
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testclip_testClip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15384:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestClip
+
+=== RUN  TestReverse
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$reverse_reverse (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 15452 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreverse_testReverse [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15410:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestReverse
+
+=== RUN  TestReplace
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplace_testReplace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16013:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestReplace
+
+=== RUN  TestReplacePanics
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplacepanics_testReplacePanics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16054:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestReplacePanics
+
+=== RUN  TestReplaceOverlap
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$replace_replace (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16038 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplaceoverlap_testReplaceOverlap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16107:66)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestReplaceOverlap
+
+=== RUN  TestRotate
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$_$rotateleft__rotateLeft (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16156 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testrotate_testRotate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16142:4)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestRotate
+
+=== RUN  TestInsertGrowthRate
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14661 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsertgrowthrate_testInsertGrowthRate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16164:8)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestInsertGrowthRate
+
+=== RUN  TestReplaceGrowthRate
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$replace_replace (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16038 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplacegrowthrate_testReplaceGrowthRate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16798:8)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestReplaceGrowthRate
+
+=== RUN  TestInference
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$_$apply__apply (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16831 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinference_testInference [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16812:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestInference
+
+=== RUN  TestIntSorts
+Exception: Cannot read properties of null (reading 'value')
+Called from module TypeError: Cannot read properties of null (reading 'value')
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14062 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16984 column 47)
+Called from .stdgo__$internal_math_rand_Rand_$seed_seed (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16859 column 74)
+Called from .stdgo__$internal_slices_Slices_$_$makerandomints__makeRandomInts (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16849 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testintsorts_testIntSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16834:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+
+-- FAIL: TestIntSorts
+
+=== RUN  TestStringSorts
+Exception: Cannot read properties of null (reading 'value')
+Called from module TypeError: Cannot read properties of null (reading 'value')
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14062 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16984 column 47)
+Called from .stdgo__$internal_math_rand_Rand_$seed_seed (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16859 column 74)
+Called from .stdgo__$internal_slices_Slices_$_$makerandomstrings__makeRandomStrings (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 22452 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststringsorts_testStringSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22437:12)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+
+-- FAIL: TestStringSorts
+
+=== RUN  TestStructSorts
+Exception: Cannot read properties of null (reading 'value')
+Called from module TypeError: Cannot read properties of null (reading 'value')
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14062 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16984 column 47)
+Called from .stdgo__$internal_math_rand_Rand_$seed_seed (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 16859 column 74)
+Called from .stdgo__$internal_slices_Slices_$_$makerandomstructs__makeRandomStructs (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 22664 column 2)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststructsorts_testStructSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22571:12)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+
+-- FAIL: TestStructSorts
+
+=== RUN  TestSortIntSlice
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortintslice_testSortIntSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22777:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortIntSlice
+
+=== RUN  TestSortFuncIntSlice
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfuncintslice_testSortFuncIntSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22828:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortFuncIntSlice
+
+=== RUN  TestSortFloat64Slice
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfloat64slice_testSortFloat64Slice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22878:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortFloat64Slice
+
+=== RUN  TestSortFloat64SliceWithNaNs
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfloat64slicewithnans_testSortFloat64SliceWithNaNs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:22933:15)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortFloat64SliceWithNaNs
+
+=== RUN  TestSortStringSlice
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 14664 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortstringslice_testSortStringSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23020:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortStringSlice
+
+=== RUN  TestSortLarge_Random
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$issorted_isSorted (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 22791 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortlarge_$random_testSortLarge_Random [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23048:5)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestSortLarge_Random
+
+=== RUN  TestStability
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$issortedfunc_isSortedFunc (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 23139 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststability_testStability [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23083:5)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestStability
+
+=== RUN  TestMinMax
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$minfunc_minFunc (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 36344 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testminmax_testMinMax [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23235:12)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestMinMax
+
+=== RUN  TestMinMaxNaNs
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$min_min (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 36341 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testminmaxnans_testMinMaxNaNs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36390:27)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestMinMaxNaNs
+
+=== RUN  TestMinMaxPanics
+
+-- PASS: TestMinMaxPanics
+
+=== RUN  TestBinarySearch
+
+-- PASS: TestBinarySearch
+
+=== RUN  TestBinarySearchInts
+
+-- PASS: TestBinarySearchInts
+
+=== RUN  TestBinarySearchFloats
+
+-- PASS: TestBinarySearchFloats
+
+=== RUN  TestBinarySearchFunc
+Exception: generic function is not supported
+Called from .stdgo__$internal_slices_Slices_$binarysearchfunc_binarySearchFunc (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 36522 column 23)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testbinarysearchfunc_testBinarySearchFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36640:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46441 column 9)
+Called from ._$internal_slices_$dot_$test_Slices_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39172 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56237:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56238:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestBinarySearchFunc
 

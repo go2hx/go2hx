@@ -691,8 +691,8 @@ var _n = __1, _i = __0;
                 {
                     final __tmp__0 = (@:checkr _xmlname ?? throw "null pointer dereference")._xmlns?.__copy__();
                     final __tmp__1 = (@:checkr _xmlname ?? throw "null pointer dereference")._name?.__copy__();
-                    _start.name.space = __tmp__0;
-                    _start.name.local = __tmp__1;
+                    _start.name.space = @:binopAssign __tmp__0;
+                    _start.name.local = @:binopAssign __tmp__1;
                 };
             } else {
                 var _fv = (@:check2r _xmlname._value(_val?.__copy__(), false)?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
@@ -712,8 +712,8 @@ var _n = __1, _i = __0;
             {
                 final __tmp__0 = (@:checkr _finfo ?? throw "null pointer dereference")._xmlns?.__copy__();
                 final __tmp__1 = (@:checkr _finfo ?? throw "null pointer dereference")._name?.__copy__();
-                _start.name.space = __tmp__0;
-                _start.name.local = __tmp__1;
+                _start.name.space = @:binopAssign __tmp__0;
+                _start.name.local = @:binopAssign __tmp__1;
             };
         };
         if (_start.name.local == ((stdgo.Go.str() : stdgo.GoString))) {

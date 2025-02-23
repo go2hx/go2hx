@@ -19,17 +19,17 @@ var _v2 = __3, _u2 = __2, _a2 = __1, _a1 = __0;
             final __tmp__0 = (0u32 : stdgo._internal.math.big.Big_word.Word);
             final __tmp__1 = (1u32 : stdgo._internal.math.big.Big_word.Word);
             final __tmp__2 = (0u32 : stdgo._internal.math.big.Big_word.Word);
-            _u0 = __tmp__0;
-            _u1 = __tmp__1;
-            _u2 = __tmp__2;
+            _u0 = @:binopAssign __tmp__0;
+            _u1 = @:binopAssign __tmp__1;
+            _u2 = @:binopAssign __tmp__2;
         };
         {
             final __tmp__0 = (0u32 : stdgo._internal.math.big.Big_word.Word);
             final __tmp__1 = (0u32 : stdgo._internal.math.big.Big_word.Word);
             final __tmp__2 = (1u32 : stdgo._internal.math.big.Big_word.Word);
-            _v0 = __tmp__0;
-            _v1 = __tmp__1;
-            _v2 = __tmp__2;
+            _v0 = @:binopAssign __tmp__0;
+            _v1 = @:binopAssign __tmp__1;
+            _v2 = @:binopAssign __tmp__2;
         };
         while (((_a2 >= _v2 : Bool) && ((_a1 - _a2 : stdgo._internal.math.big.Big_word.Word) >= (_v1 + _v2 : stdgo._internal.math.big.Big_word.Word) : Bool) : Bool)) {
             var __0 = (_a1 / _a2 : stdgo._internal.math.big.Big_word.Word), __1 = (_a1 % _a2 : stdgo._internal.math.big.Big_word.Word);
@@ -37,24 +37,24 @@ var _r = __1, _q = __0;
             {
                 final __tmp__0 = _a2;
                 final __tmp__1 = _r;
-                _a1 = __tmp__0;
-                _a2 = __tmp__1;
+                _a1 = @:binopAssign __tmp__0;
+                _a2 = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _u1;
                 final __tmp__1 = _u2;
                 final __tmp__2 = (_u1 + (_q * _u2 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
-                _u0 = __tmp__0;
-                _u1 = __tmp__1;
-                _u2 = __tmp__2;
+                _u0 = @:binopAssign __tmp__0;
+                _u1 = @:binopAssign __tmp__1;
+                _u2 = @:binopAssign __tmp__2;
             };
             {
                 final __tmp__0 = _v1;
                 final __tmp__1 = _v2;
                 final __tmp__2 = (_v1 + (_q * _v2 : stdgo._internal.math.big.Big_word.Word) : stdgo._internal.math.big.Big_word.Word);
-                _v0 = __tmp__0;
-                _v1 = __tmp__1;
-                _v2 = __tmp__2;
+                _v0 = @:binopAssign __tmp__0;
+                _v1 = @:binopAssign __tmp__1;
+                _v2 = @:binopAssign __tmp__2;
             };
             _even = !_even;
         };

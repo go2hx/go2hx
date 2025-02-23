@@ -19,5 +19,11 @@
  "interp|internal/cpu",
  "interp|image/color",
  "interp|hash/crc64",
- "interp|crypto"
+ "interp|crypto",
+ "interp|container/list",
+ "interp|container/ring",
+ "interp|encoding/ascii85",
+ "interp|encoding/csv",
+ "interp|hash/fnv",
+ "interp|container/heap"
 ]

@@ -24,8 +24,8 @@ function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._
                     final __tmp__3 = (_i : stdgo.GoInt);
                     final __tmp__4 = _c._s;
                     final __tmp__5 = (_j : stdgo.GoInt);
-                    __tmp__2[__tmp__3] = __tmp__0;
-                    __tmp__4[__tmp__5] = __tmp__1;
+                    __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+                    __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
                 };
                 _i++;
             };

@@ -872,57 +872,57 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian);
                     final __tmp__1 = (2 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_beMagic == ((-5u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigendian.bigEndian);
                     final __tmp__1 = (2 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_leMagic == ((-6u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian);
                     final __tmp__1 = (3 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_beMagic == ((-6u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigendian.bigEndian);
                     final __tmp__1 = (3 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_leMagic == ((-16u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian);
                     final __tmp__1 = (4 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_beMagic == ((-16u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigendian.bigEndian);
                     final __tmp__1 = (4 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_leMagic == ((-15u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian);
                     final __tmp__1 = (5 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else if (_beMagic == ((-15u32 : stdgo.GoUInt32))) {
                 {
                     final __tmp__0 = stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigendian.bigEndian);
                     final __tmp__1 = (5 : stdgo._internal.debug.gosym.Gosym_t_version.T_version);
-                    (@:checkr _t ?? throw "null pointer dereference")._binary = __tmp__0;
-                    _possibleVersion = __tmp__1;
+                    (@:checkr _t ?? throw "null pointer dereference")._binary = @:binopAssign __tmp__0;
+                    _possibleVersion = @:binopAssign __tmp__1;
                 };
             } else {
                 {
@@ -1093,9 +1093,9 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             final __tmp__0 = (@:checkr _t ?? throw "null pointer dereference").data;
             final __tmp__1 = (@:checkr _t ?? throw "null pointer dereference").pC;
             final __tmp__2 = (@:checkr _t ?? throw "null pointer dereference").line;
-            _b = __tmp__0;
-            _pc = __tmp__1;
-            _line = __tmp__2;
+            _b = @:binopAssign __tmp__0;
+            _pc = @:binopAssign __tmp__1;
+            _line = @:binopAssign __tmp__2;
         };
         while ((((_pc <= _targetPC : Bool) && _line != (_targetLine) : Bool) && ((_b.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _code = (_b[(0 : stdgo.GoInt)] : stdgo.GoUInt8);

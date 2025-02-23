@@ -11,8 +11,8 @@ package stdgo._internal.encoding.json;
         {
             final __tmp__0 = ((_b.__slice__(0, _pos) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
             final __tmp__1 = ((_b.__slice__((_pos + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
-            (@:checkr _u ?? throw "null pointer dereference").a = __tmp__0;
-            (@:checkr _u ?? throw "null pointer dereference").b = __tmp__1;
+            (@:checkr _u ?? throw "null pointer dereference").a = @:binopAssign __tmp__0;
+            (@:checkr _u ?? throw "null pointer dereference").b = @:binopAssign __tmp__1;
         };
         return (null : stdgo.Error);
     }

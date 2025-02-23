@@ -4,8 +4,8 @@ function _ryuFtoaShortest(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (0 : stdgo.GoInt);
-                (@:checkr _d ?? throw "null pointer dereference")._nd = __tmp__0;
-                (@:checkr _d ?? throw "null pointer dereference")._dp = __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._nd = @:binopAssign __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._dp = @:binopAssign __tmp__1;
             };
             return;
         };
@@ -47,9 +47,9 @@ var _du32 = __2, _dc32 = __1, _dl32 = __0;
                 final __tmp__0 = (_dl32 : stdgo.GoUInt64);
                 final __tmp__1 = (_dc32 : stdgo.GoUInt64);
                 final __tmp__2 = (_du32 : stdgo.GoUInt64);
-                _dl = __tmp__0;
-                _dc = __tmp__1;
-                _du = __tmp__2;
+                _dl = @:binopAssign __tmp__0;
+                _dc = @:binopAssign __tmp__1;
+                _du = @:binopAssign __tmp__2;
             };
         } else {
             {
@@ -77,9 +77,9 @@ var _du32 = __2, _dc32 = __1, _dl32 = __0;
                 final __tmp__0 = false;
                 final __tmp__1 = false;
                 final __tmp__2 = false;
-                _dl0 = __tmp__0;
-                _dc0 = __tmp__1;
-                _du0 = __tmp__2;
+                _dl0 = @:binopAssign __tmp__0;
+                _dc0 = @:binopAssign __tmp__1;
+                _du0 = @:binopAssign __tmp__2;
             };
         };
         if (((_q < (0 : stdgo.GoInt) : Bool) && (_q >= (-24 : stdgo.GoInt) : Bool) : Bool)) {

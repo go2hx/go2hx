@@ -134,8 +134,8 @@ var _s = __1, _i = __0;
         {
             final __tmp__0 = (_dst + _i : stdgo.GoInt);
             final __tmp__1 = (_src + _i : stdgo.GoInt);
-            _dst1 = __tmp__0;
-            _src1 = __tmp__1;
+            _dst1 = @:binopAssign __tmp__0;
+            _src1 = @:binopAssign __tmp__1;
         };
         (_b.__slice__(_dst, _dst1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_src, _src1) : stdgo.Slice<stdgo.GoUInt8>));
         return {

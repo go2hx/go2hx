@@ -30,18 +30,18 @@ package stdgo._internal.fmt;
     @:tdfield
     static public function _doPrintf( _p:stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp>, _format:stdgo.GoString, _a:stdgo.Slice<stdgo.AnyInterface>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.fmt.Fmt_t_pp.T_pp> = _p;
-        var _afterIndex_2:Bool = false;
-        var _argNum_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_9:stdgo.AnyInterface = (null : stdgo.AnyInterface);
         var _size_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _verb_6:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _c_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _lasti_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _formatLoopBreak = false;
-        var _end_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _arg_9:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _i_8:stdgo.GoInt = (0 : stdgo.GoInt);
         var _simpleFormatBreak = false;
+        var _lasti_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _formatLoopBreak = false;
+        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _afterIndex_2:Bool = false;
+        var _argNum_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -342,8 +342,8 @@ package stdgo._internal.fmt;
                     {
                         final __tmp__0 = (_format[(_i_3 : stdgo.GoInt)] : stdgo.GoInt32);
                         final __tmp__1 = (1 : stdgo.GoInt);
-                        _verb_6 = __tmp__0;
-                        _size_7 = __tmp__1;
+                        _verb_6 = @:binopAssign __tmp__0;
+                        _size_7 = @:binopAssign __tmp__1;
                     };
                     if ((_verb_6 >= (128 : stdgo.GoInt32) : Bool)) {
                         _gotoNext = 4104510i32;
@@ -443,8 +443,8 @@ package stdgo._internal.fmt;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = stdgo.Go.toInterface((_a.__slice__(_argNum_1) : stdgo.Slice<stdgo.AnyInterface>)[(0i32 : stdgo.GoInt)]);
-                        _i_8 = __tmp__0;
-                        _arg_9 = __tmp__1;
+                        _i_8 = @:binopAssign __tmp__0;
+                        _arg_9 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 4105729i32;
                 } else if (__value__ == (4105729i32)) {

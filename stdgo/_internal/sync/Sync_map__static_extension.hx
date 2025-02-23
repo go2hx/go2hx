@@ -345,8 +345,8 @@ package stdgo._internal.sync;
                     {
                         final __tmp__0 = _value;
                         final __tmp__1 = false;
-                        _actual = __tmp__0;
-                        _loaded = __tmp__1;
+                        _actual = @:binopAssign __tmp__0;
+                        _loaded = @:binopAssign __tmp__1;
                     };
                 };
             };

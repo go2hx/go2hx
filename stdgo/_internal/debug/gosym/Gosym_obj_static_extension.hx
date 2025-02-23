@@ -4,13 +4,13 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
+        var _val_38:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_37:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_3648328_36:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_35:stdgo.GoInt = (0 : stdgo.GoInt);
         var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_32:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _val_38:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_37:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -100,8 +100,8 @@ package stdgo._internal.debug.gosym;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = ((@:checkr _o ?? throw "null pointer dereference").paths.__slice__(_i_32) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_sym.Sym>)[(0i32 : stdgo.GoInt)];
-                        _i_3648328_36 = __tmp__0;
-                        _s_37 = __tmp__1;
+                        _i_3648328_36 = @:binopAssign __tmp__0;
+                        _s_37 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 3648657i32;
                 } else if (__value__ == (3648657i32)) {
@@ -118,8 +118,8 @@ package stdgo._internal.debug.gosym;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i32 : stdgo.GoInt)];
-                        _i_32 = __tmp__0;
-                        _s_33 = __tmp__1;
+                        _i_32 = @:binopAssign __tmp__0;
+                        _s_33 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 3648702i32;
                 } else if (__value__ == (3648702i32)) {
@@ -140,11 +140,11 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
+        var _noPath_27:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _val_31:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_30:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_3647500_29:stdgo.GoInt = (0 : stdgo.GoInt);
         var _tos_28:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
-        var _noPath_27:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -204,8 +204,8 @@ package stdgo._internal.debug.gosym;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr _o ?? throw "null pointer dereference").paths[(0i32 : stdgo.GoInt)];
-                        _i_3647500_29 = __tmp__0;
-                        _s_30 = __tmp__1;
+                        _i_3647500_29 = @:binopAssign __tmp__0;
+                        _s_30 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 3647896i32;
                 } else if (__value__ == (3647896i32)) {

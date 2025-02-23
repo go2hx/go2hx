@@ -13,8 +13,8 @@ var _domain = __1, _local = __0;
             {
                 final __tmp__0 = ((@:checkr _a ?? throw "null pointer dereference").address.__slice__(0, _at) : stdgo.GoString)?.__copy__();
                 final __tmp__1 = ((@:checkr _a ?? throw "null pointer dereference").address.__slice__((_at + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                _local = __tmp__0;
-                _domain = __tmp__1;
+                _local = @:binopAssign __tmp__0;
+                _domain = @:binopAssign __tmp__1;
             };
         };
         var _quoteLocal = (false : Bool);

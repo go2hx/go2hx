@@ -26,16 +26,16 @@ var _j = __1, _i = __0;
                 final __tmp__3 = (_i : stdgo.GoInt);
                 final __tmp__4 = (@:checkr _c ?? throw "null pointer dereference")._s;
                 final __tmp__5 = (_j : stdgo.GoInt);
-                __tmp__2[__tmp__3] = __tmp__0;
-                __tmp__4[__tmp__5] = __tmp__1;
+                __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+                __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
             };
             _dst[(_k : stdgo.GoInt)] = (_v ^ ((@:checkr _c ?? throw "null pointer dereference")._s[(((_x + _y : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoInt)] : stdgo.GoUInt8) : stdgo.GoUInt8);
         };
         {
             final __tmp__0 = _i;
             final __tmp__1 = _j;
-            (@:checkr _c ?? throw "null pointer dereference")._i = __tmp__0;
-            (@:checkr _c ?? throw "null pointer dereference")._j = __tmp__1;
+            (@:checkr _c ?? throw "null pointer dereference")._i = @:binopAssign __tmp__0;
+            (@:checkr _c ?? throw "null pointer dereference")._j = @:binopAssign __tmp__1;
         };
     }
     @:keep
@@ -48,8 +48,8 @@ var _j = __1, _i = __0;
         {
             final __tmp__0 = (0 : stdgo.GoUInt8);
             final __tmp__1 = (0 : stdgo.GoUInt8);
-            (@:checkr _c ?? throw "null pointer dereference")._i = __tmp__0;
-            (@:checkr _c ?? throw "null pointer dereference")._j = __tmp__1;
+            (@:checkr _c ?? throw "null pointer dereference")._i = @:binopAssign __tmp__0;
+            (@:checkr _c ?? throw "null pointer dereference")._j = @:binopAssign __tmp__1;
         };
     }
 }

@@ -31,8 +31,8 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
             {
                 final __tmp__0 = _roots;
                 final __tmp__1 = (null : stdgo.Error);
-                stdgo._internal.crypto.x509.X509__systemroots._systemRoots = __tmp__0;
-                stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr = __tmp__1;
+                stdgo._internal.crypto.x509.X509__systemroots._systemRoots = @:binopAssign __tmp__0;
+                stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr = @:binopAssign __tmp__1;
             };
             {
                 for (defer in __deferstack__) {

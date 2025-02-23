@@ -11,23 +11,23 @@ function _tBeforeValue(_c:stdgo._internal.html.template.Template_t_context.T_con
                 {
                     final __tmp__0 = (2 : stdgo._internal.html.template.Template_t_delim.T_delim);
                     final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _delim = __tmp__0;
-                    _i = __tmp__1;
+                    _delim = @:binopAssign __tmp__0;
+                    _i = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == ((34 : stdgo.GoUInt8))) {
                 {
                     final __tmp__0 = (1 : stdgo._internal.html.template.Template_t_delim.T_delim);
                     final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _delim = __tmp__0;
-                    _i = __tmp__1;
+                    _delim = @:binopAssign __tmp__0;
+                    _i = @:binopAssign __tmp__1;
                 };
             };
         };
         {
             final __tmp__0 = stdgo._internal.html.template.Template__attrstartstates._attrStartStates[(_c._attr : stdgo.GoInt)];
             final __tmp__1 = _delim;
-            _c._state = __tmp__0;
-            _c._delim = __tmp__1;
+            _c._state = @:binopAssign __tmp__0;
+            _c._delim = @:binopAssign __tmp__1;
         };
         return { _0 : _c?.__copy__(), _1 : _i };
     }

@@ -1,13 +1,13 @@
 === RUN  TestNode
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 133535 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 133439 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:132767:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 133518 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 133422 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:132750:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_format_Format_$testnode_testNode [as f] (/home/runner/work/go2hx/go2hx/golibs/std_format.js:45421:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132580 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 132563 column 9)
 Called from ._$internal_go_format_$dot_$test_Format_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_format.js line 118768 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:139390:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:139391:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_format.js:139373:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_format.js:139374:3)
 
 -- FAIL: TestNode

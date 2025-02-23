@@ -301,7 +301,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -496,7 +495,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -670,7 +668,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -804,7 +801,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -978,7 +974,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1177,7 +1172,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 23
-      - run: npm install sync 0.2.5
       - name: Install lix
         run: npm i lix -g
       - name: Run lix

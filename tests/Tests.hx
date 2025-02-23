@@ -103,8 +103,20 @@ private function runReport() {
 	final output:Array<String> = exists ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	if (!exists)
 		throw testName + " not set";
-	final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
-	var paths:Array<String> = Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
+
+	var paths:Array<String> = if (type != "unit") {
+		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
+		Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
+	}else{
+		final dir = "./tests/unit/";
+		for (path in FileSystem.readDirectory(dir)) {
+			path = dir + path;
+			if (FileSystem.isDirectory(path) || path.extension() != "go")
+				continue;
+			tests.push(path);
+		}
+		tests;
+	}
 	var tests:Array<String> = paths.map(s -> toName(s));
 	tests = tests.map(s -> sanatize(s));
 	for (i in 0...output.length) {
@@ -138,8 +150,9 @@ private function runReport() {
 		mdContent.add(File.getContent(paths[i]));
 		mdContent.add('\n```\n');
 	}
-
-	File.saveContent('tests/$testName.md', mdContent.toString());
+	final path = 'tests/$testName.md';
+	Sys.println(path);
+	File.saveContent(path, mdContent.toString());
 }
 
 private function runTests() {

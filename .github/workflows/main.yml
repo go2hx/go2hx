@@ -1512,7 +1512,7 @@ jobs:
         continue-on-error: true
   build-cpp:
     
-    timeout-minutes: 26
+    timeout-minutes: 45
     needs: setup
     strategy:
       fail-fast: false

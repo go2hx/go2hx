@@ -158,5 +158,7 @@
  "hl|return0",
  "hl|namedmap0",
  "hl|var1",
- "hl|vars0"
+ "hl|vars0",
+ "hl|pointerAssign0",
+ "hl|vars2"
 ]

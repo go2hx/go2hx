@@ -8315,14 +8315,14 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									final name = method.name;//formatHaxeFieldName(method.name, info);
 									switch toComplexType(method.type.get(), info) {
 										case TFunction(args, ret):
-											hasFieldName = false;
+											var hasFieldName = false;
 											for (field in fields) {
 												if (field.name == name) {
 													hasFieldName = true;
 													break;
 												}
 											}
-											if (hasFieldName) {
+											if (!hasFieldName) {
 												fields.push({
 													name: name,
 													pos: null,

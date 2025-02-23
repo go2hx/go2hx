@@ -1,0 +1,6 @@
+[ERROR] (macro) ./stdgo/_internal/net/http/Http_transport_static_extension.hx:7: characters 22-36
+
+ 7 |         @:check2r _t._cancelRequest((new stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey(_req) : stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey), stdgo._internal.net.http.Http__errrequestcanceled._errRequestCanceled);
+   |                      ^^^^^^^^^^^^^^
+   | stdgo.Ref<stdgo._internal.net.http.Transport> has no field _cancelRequest
+

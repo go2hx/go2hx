@@ -1,0 +1,8 @@
+[ERROR] ./stdgo/_internal/go/printer/Printer__idents.hx:6: characters 75-77
+
+ 6 |                 stdgo._internal.go.ast.Ast_walk.walk(stdgo.Go.asInterface(_v), stdgo.Go.asInterface(_f));
+   |                                                                           ^^
+   | Unknown identifier : _v
+
+      | For function argument 'dir'
+

@@ -61,8 +61,10 @@
 -- FAIL: TestMulDiv32
 
 === RUN  TestMulDiv64
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
+<invalid reflect.Value>: got q:r = %!x(MISSING):%!x(MISSING); want %!x(MISSING):%!x(MISSING)
 
--- PASS: TestMulDiv64
+-- FAIL: TestMulDiv64
 
 === RUN  TestDivPanicOverflow
 
@@ -101,6 +103,7 @@
 -- PASS: TestRem64
 
 === RUN  TestRem64Overflow
+Rem64(<invalid reflect.Value>, %!v(MISSING), %!v(MISSING)) returned %!v(MISSING), wanted %!v(MISSING)
 
--- PASS: TestRem64Overflow
+-- FAIL: TestRem64Overflow
 

@@ -32,14 +32,14 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                                 {
                                     final __tmp__0 = (@:checkr _inst ?? throw "null pointer dereference").inst.arg;
                                     final __tmp__1 = (@:checkr _inst ?? throw "null pointer dereference").inst.out;
-                                    (@:checkr _inst ?? throw "null pointer dereference").inst.out = @:binopAssign __tmp__0;
-                                    (@:checkr _inst ?? throw "null pointer dereference").inst.arg = @:binopAssign __tmp__1;
+                                    (@:checkr _inst ?? throw "null pointer dereference").inst.out = __tmp__0;
+                                    (@:checkr _inst ?? throw "null pointer dereference").inst.arg = __tmp__1;
                                 };
                                 {
                                     final __tmp__0 = _matchArg;
                                     final __tmp__1 = _matchOut;
-                                    _matchOut = @:binopAssign __tmp__0;
-                                    _matchArg = @:binopAssign __tmp__1;
+                                    _matchOut = __tmp__0;
+                                    _matchArg = __tmp__1;
                                 };
                             };
                             if (_matchOut) {

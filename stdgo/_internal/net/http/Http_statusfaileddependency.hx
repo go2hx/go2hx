@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusFailedDependency : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusFailedDependency : stdgo.GoUInt64 = (424i64 : stdgo.GoUInt64);

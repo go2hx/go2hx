@@ -1,3 +1,0 @@
--m _internal.crypto.des_dot_test.Des_dot_test
--lib go2hx
--cp .

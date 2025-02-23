@@ -2,7 +2,11 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2GoAwayFrame_asInterface) class T_http2GoAwayFrame_static_extension {
     @:keep
     @:tdfield
-    static public function debugData( _f:stdgo.Ref<stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame>):stdgo.Slice<stdgo.GoUInt8> throw "T_http2GoAwayFrame:net.http.debugData is not yet implemented";
+    static public function debugData( _f:stdgo.Ref<stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame>):stdgo.Slice<stdgo.GoUInt8> {
+        @:recv var _f:stdgo.Ref<stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame> = _f;
+        @:check2r _f._checkValid();
+        return (@:checkr _f ?? throw "null pointer dereference")._debugData;
+    }
     @:embedded
     @:embeddededffieldsffun
     public static function _writeDebug( __self__:stdgo._internal.net.http.Http_t_http2goawayframe.T_http2GoAwayFrame, _0:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>):Void return @:_5 __self__._writeDebug(_0);

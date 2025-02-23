@@ -193,8 +193,8 @@ var _b = __1, _a = __0;
             {
                 final __tmp__0 = -_value;
                 final __tmp__1 = (_value - (1 : stdgo.GoInt32) : stdgo.GoInt32);
-                _a = @:binopAssign __tmp__0;
-                _b = @:binopAssign __tmp__1;
+                _a = __tmp__0;
+                _b = __tmp__1;
             };
         };
         var _nBits:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
@@ -234,8 +234,8 @@ var _b = __1, _a = __0;
         {
             final __tmp__0 = _bits;
             final __tmp__1 = _nBits;
-            (@:checkr _e ?? throw "null pointer dereference")._bits = @:binopAssign __tmp__0;
-            (@:checkr _e ?? throw "null pointer dereference")._nBits = @:binopAssign __tmp__1;
+            (@:checkr _e ?? throw "null pointer dereference")._bits = __tmp__0;
+            (@:checkr _e ?? throw "null pointer dereference")._nBits = __tmp__1;
         };
     }
     @:keep

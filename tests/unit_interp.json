@@ -158,6 +158,5 @@
  "interp|return0",
  "interp|namedmap0",
  "interp|var1",
- "interp|vars0",
- "interp|heappop"
+ "interp|vars0"
 ]

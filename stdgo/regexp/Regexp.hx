@@ -89,7 +89,7 @@ package stdgo.regexp;
     public var _replacement(get, set) : String -> String;
     function get__replacement():String -> String return _0 -> this._replacement(_0);
     function set__replacement(v:String -> String):String -> String {
-        this._replacement = _0 -> v((_0 : stdgo.GoString));
+        this._replacement = v;
         return v;
     }
     public var _input(get, set) : String;
@@ -104,7 +104,7 @@ package stdgo.regexp;
         this._output = (v : stdgo.GoString);
         return v;
     }
-    public function new(?_pattern:String, ?_replacement:String -> String, ?_input:String, ?_output:String) this = new stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest((_pattern : stdgo.GoString), _0 -> _replacement((_0 : stdgo.GoString)), (_input : stdgo.GoString), (_output : stdgo.GoString));
+    public function new(?_pattern:String, ?_replacement:String -> String, ?_input:String, ?_output:String) this = new stdgo._internal.regexp.Regexp_replacefunctest.ReplaceFuncTest((_pattern : stdgo.GoString), _replacement, (_input : stdgo.GoString), (_output : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1033,7 +1033,7 @@ class Regexp_static_extension {
         final _s = (_s : stdgo.GoString);
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _n = (_n : stdgo.GoInt);
-        final _deliver = _0 -> _deliver(([for (i in _0) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
+        final _deliver = _deliver;
         stdgo._internal.regexp.Regexp_regexp_static_extension.Regexp_static_extension._allMatches(_re, _s, _b, _n, _deliver);
     }
     static public function _pad(_re:Regexp_, _a:Array<StdTypes.Int>):Array<StdTypes.Int> {
@@ -1044,7 +1044,7 @@ class Regexp_static_extension {
     static public function replaceAllFunc(_re:Regexp_, _src:Array<std.UInt>, _repl:Array<std.UInt> -> Array<std.UInt>):Array<std.UInt> {
         final _re = (_re : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
         final _src = ([for (i in _src) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _repl = _0 -> _repl(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        final _repl = _repl;
         return [for (i in stdgo._internal.regexp.Regexp_regexp_static_extension.Regexp_static_extension.replaceAllFunc(_re, _src, _repl)) i];
     }
     static public function replaceAllLiteral(_re:Regexp_, _src:Array<std.UInt>, _repl:Array<std.UInt>):Array<std.UInt> {
@@ -1064,13 +1064,13 @@ class Regexp_static_extension {
         final _bsrc = ([for (i in _bsrc) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _src = (_src : stdgo.GoString);
         final _nmatch = (_nmatch : stdgo.GoInt);
-        final _repl = (_0, _1) -> _repl(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _1) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
+        final _repl = _repl;
         return [for (i in stdgo._internal.regexp.Regexp_regexp_static_extension.Regexp_static_extension._replaceAll(_re, _bsrc, _src, _nmatch, _repl)) i];
     }
     static public function replaceAllStringFunc(_re:Regexp_, _src:String, _repl:String -> String):String {
         final _re = (_re : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
         final _src = (_src : stdgo.GoString);
-        final _repl = _0 -> _repl((_0 : stdgo.GoString));
+        final _repl = _repl;
         return stdgo._internal.regexp.Regexp_regexp_static_extension.Regexp_static_extension.replaceAllStringFunc(_re, _src, _repl);
     }
     static public function replaceAllLiteralString(_re:Regexp_, _src:String, _repl:String):String {

@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.tls;
-final qUICSetWriteSecret = ((0 : stdgo.GoInt) : stdgo._internal.crypto.tls.Tls_quiceventkind.QUICEventKind);
+final qUICSetWriteSecret = (7 : stdgo._internal.crypto.tls.Tls_quiceventkind.QUICEventKind);

@@ -43,8 +43,8 @@ function parseTracebacks(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<std
                         {
                             final __tmp__0 = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
                             final __tmp__1 = (null : stdgo.Slice<stdgo.GoString>);
-                            _sloc = @:binopAssign __tmp__0;
-                            _sources = @:binopAssign __tmp__1;
+                            _sloc = __tmp__0;
+                            _sources = __tmp__1;
                         };
                     };
                 };

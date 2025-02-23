@@ -17,13 +17,13 @@ private function set_commandLine(v:FlagSet):FlagSet {
 var usage(get, set) : () -> Void;
 private function get_usage():() -> Void return () -> stdgo._internal.flag.Flag_usage.usage();
 private function set_usage(v:() -> Void):() -> Void {
-        stdgo._internal.flag.Flag_usage.usage = () -> v();
+        stdgo._internal.flag.Flag_usage.usage = v;
         return v;
     }
 var defaultUsage(get, set) : () -> Void;
 private function get_defaultUsage():() -> Void return () -> stdgo._internal.flag.Flag_defaultusage.defaultUsage();
 private function set_defaultUsage(v:() -> Void):() -> Void {
-        stdgo._internal.flag.Flag_defaultusage.defaultUsage = () -> v();
+        stdgo._internal.flag.Flag_defaultusage.defaultUsage = v;
         return v;
     }
 @:dox(hide) class T_boolFlag_static_extension {
@@ -87,7 +87,7 @@ class Getter_static_extension {
     public var usage(get, set) : () -> Void;
     function get_usage():() -> Void return () -> this.usage();
     function set_usage(v:() -> Void):() -> Void {
-        this.usage = () -> v();
+        this.usage = v;
         return v;
     }
     public var _name(get, set) : String;
@@ -174,7 +174,7 @@ class Getter_static_extension {
         };
         return v;
     }
-    public function new(?usage:() -> Void, ?_name:String, ?_parsed:Bool, ?_actual:Map<String, Flag_>, ?_formal:Map<String, Flag_>, ?_args:Array<String>, ?_errorHandling:ErrorHandling, ?_output:stdgo._internal.io.Io_writer.Writer, ?_undef:Map<String, String>) this = new stdgo._internal.flag.Flag_flagset.FlagSet(() -> usage(), (_name : stdgo.GoString), _parsed, {
+    public function new(?usage:() -> Void, ?_name:String, ?_parsed:Bool, ?_actual:Map<String, Flag_>, ?_formal:Map<String, Flag_>, ?_args:Array<String>, ?_errorHandling:ErrorHandling, ?_output:stdgo._internal.io.Io_writer.Writer, ?_undef:Map<String, String>) this = new stdgo._internal.flag.Flag_flagset.FlagSet(usage, (_name : stdgo.GoString), _parsed, {
         final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>>();
         for (key => value in _actual) {
             __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>);
@@ -296,14 +296,14 @@ class FlagSet_static_extension {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.boolFunc(_f, _name, _usage, _fn);
     }
     static public function func(_f:FlagSet, _name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.func(_f, _name, _usage, _fn);
     }
     static public function textVar(_f:FlagSet, _p:stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler, _name:String, _value:stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler, _usage:String):Void {
@@ -464,12 +464,12 @@ class FlagSet_static_extension {
     }
     static public function visit(_f:FlagSet, _fn:Flag_ -> Void):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
-        final _fn = _0 -> _fn((_0 : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.visit(_f, _fn);
     }
     static public function visitAll(_f:FlagSet, _fn:Flag_ -> Void):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
-        final _fn = _0 -> _fn((_0 : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.visitAll(_f, _fn);
     }
     static public function setOutput(_f:FlagSet, _output:stdgo._internal.io.Io_writer.Writer):Void {
@@ -714,7 +714,7 @@ class Flag {
         * exit the program.
     **/
     static public inline function resetForTesting(_usage:() -> Void):Void {
-        final _usage = () -> _usage();
+        final _usage = _usage;
         stdgo._internal.flag.Flag_resetfortesting.resetForTesting(_usage);
     }
     /**
@@ -722,7 +722,7 @@ class Flag {
         * fn for each. It visits all flags, even those not set.
     **/
     static public inline function visitAll(_fn:Flag_ -> Void):Void {
-        final _fn = _0 -> _fn((_0 : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_visitall.visitAll(_fn);
     }
     /**
@@ -730,7 +730,7 @@ class Flag {
         * for each. It visits only those flags that have been set.
     **/
     static public inline function visit(_fn:Flag_ -> Void):Void {
-        final _fn = _0 -> _fn((_0 : stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_visit.visit(_fn);
     }
     /**
@@ -999,7 +999,7 @@ class Flag {
     static public inline function func(_name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_func.func(_name, _usage, _fn);
     }
     /**
@@ -1010,7 +1010,7 @@ class Flag {
     static public inline function boolFunc(_name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _fn;
         stdgo._internal.flag.Flag_boolfunc.boolFunc(_name, _usage, _fn);
     }
     /**

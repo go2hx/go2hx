@@ -32,8 +32,8 @@ var _allText = __3, _i = __2, _c = __1, _s = __0;
                 {
                     final __tmp__0 = _d?.__copy__();
                     final __tmp__1 = _i1;
-                    _c = @:binopAssign __tmp__0;
-                    _i = @:binopAssign __tmp__1;
+                    _c = __tmp__0;
+                    _i = __tmp__1;
                 };
                 continue;
             };
@@ -47,8 +47,8 @@ var _allText = __3, _i = __2, _c = __1, _s = __0;
             {
                 final __tmp__0 = ({ _state : (1 : stdgo._internal.html.template.Template_t_state.T_state), _element : _c._element } : stdgo._internal.html.template.Template_t_context.T_context);
                 final __tmp__1 = _i1;
-                _c = @:binopAssign __tmp__0;
-                _i = @:binopAssign __tmp__1;
+                _c = __tmp__0;
+                _i = __tmp__1;
             };
         };
         if (_allText) {

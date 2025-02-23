@@ -1,5 +1,8 @@
 package stdgo._internal.crypto.tls;
 class Certificate_asInterface {
+    @:keep
+    @:tdfield
+    public dynamic function _leaf():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>; var _1 : stdgo.Error; } return @:_0 __self__.value._leaf();
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

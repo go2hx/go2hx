@@ -1,5 +1,5 @@
 
-timeout-minutes: 45
+timeout-minutes: 26
 needs: setup
 strategy:
   fail-fast: false

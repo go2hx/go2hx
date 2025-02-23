@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusNotFound : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusNotFound : stdgo.GoUInt64 = (404i64 : stdgo.GoUInt64);

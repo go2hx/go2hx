@@ -58,8 +58,8 @@ var _cmddat:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
 {
                     final __tmp__0 = (_dat.__slice__((0 : stdgo.GoInt), _siz) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_dat.__slice__(_siz) : stdgo.Slice<stdgo.GoUInt8>);
-                    _cmddat = @:binopAssign __tmp__0;
-                    _dat = @:binopAssign __tmp__1;
+                    _cmddat = __tmp__0;
+                    _dat = __tmp__1;
                 };
 _offset = (_offset + ((_siz : stdgo.GoInt64)) : stdgo.GoInt64);
 var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment>);

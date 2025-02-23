@@ -43,8 +43,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             {
                                 final __tmp__0 = (_value.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 final __tmp__1 = (_value.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                _p = @:binopAssign __tmp__0;
-                                _value = @:binopAssign __tmp__1;
+                                _p = __tmp__0;
+                                _value = __tmp__1;
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__atoi._atoi(_p?.__copy__());
@@ -68,8 +68,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             {
                                 final __tmp__0 = (_value.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 final __tmp__1 = (_value.__slice__((4 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                _p = @:binopAssign __tmp__0;
-                                _value = @:binopAssign __tmp__1;
+                                _p = __tmp__0;
+                                _value = __tmp__1;
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__atoi._atoi(_p?.__copy__());
@@ -226,8 +226,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             {
                                 final __tmp__0 = (_value.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 final __tmp__1 = (_value.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                _p = @:binopAssign __tmp__0;
-                                _value = @:binopAssign __tmp__1;
+                                _p = __tmp__0;
+                                _value = __tmp__1;
                             };
                             {
                                 final __value__ = _p;
@@ -248,8 +248,8 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                             {
                                 final __tmp__0 = (_value.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 final __tmp__1 = (_value.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                _p = @:binopAssign __tmp__0;
-                                _value = @:binopAssign __tmp__1;
+                                _p = __tmp__0;
+                                _value = __tmp__1;
                             };
                             {
                                 final __value__ = _p;
@@ -285,11 +285,11 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     final __tmp__2 = (_value.__slice__((4 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__3 = ("00" : stdgo.GoString);
                                     final __tmp__4 = (_value.__slice__((6 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                    _sign = @:binopAssign __tmp__0;
-                                    _hour = @:binopAssign __tmp__1;
-                                    _min = @:binopAssign __tmp__2;
-                                    _seconds = @:binopAssign __tmp__3;
-                                    _value = @:binopAssign __tmp__4;
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
                                 };
                             } else if (((_std == (31 : stdgo.GoInt)) || (_std == (26 : stdgo.GoInt)) : Bool)) {
                                 if (((_value.length) < (3 : stdgo.GoInt) : Bool)) {
@@ -302,11 +302,11 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     final __tmp__2 = ("00" : stdgo.GoString);
                                     final __tmp__3 = ("00" : stdgo.GoString);
                                     final __tmp__4 = (_value.__slice__((3 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                    _sign = @:binopAssign __tmp__0;
-                                    _hour = @:binopAssign __tmp__1;
-                                    _min = @:binopAssign __tmp__2;
-                                    _seconds = @:binopAssign __tmp__3;
-                                    _value = @:binopAssign __tmp__4;
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
                                 };
                             } else if (((_std == (28 : stdgo.GoInt)) || (_std == (33 : stdgo.GoInt)) : Bool)) {
                                 if (((_value.length) < (9 : stdgo.GoInt) : Bool)) {
@@ -323,11 +323,11 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     final __tmp__2 = (_value.__slice__((4 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__3 = (_value.__slice__((7 : stdgo.GoInt), (9 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__4 = (_value.__slice__((9 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                    _sign = @:binopAssign __tmp__0;
-                                    _hour = @:binopAssign __tmp__1;
-                                    _min = @:binopAssign __tmp__2;
-                                    _seconds = @:binopAssign __tmp__3;
-                                    _value = @:binopAssign __tmp__4;
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
                                 };
                             } else if (((_std == (25 : stdgo.GoInt)) || (_std == (30 : stdgo.GoInt)) : Bool)) {
                                 if (((_value.length) < (7 : stdgo.GoInt) : Bool)) {
@@ -340,11 +340,11 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     final __tmp__2 = (_value.__slice__((3 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__3 = (_value.__slice__((5 : stdgo.GoInt), (7 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__4 = (_value.__slice__((7 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                    _sign = @:binopAssign __tmp__0;
-                                    _hour = @:binopAssign __tmp__1;
-                                    _min = @:binopAssign __tmp__2;
-                                    _seconds = @:binopAssign __tmp__3;
-                                    _value = @:binopAssign __tmp__4;
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
                                 };
                             } else {
                                 if (((_value.length) < (5 : stdgo.GoInt) : Bool)) {
@@ -357,11 +357,11 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     final __tmp__2 = (_value.__slice__((3 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     final __tmp__3 = ("00" : stdgo.GoString);
                                     final __tmp__4 = (_value.__slice__((5 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                                    _sign = @:binopAssign __tmp__0;
-                                    _hour = @:binopAssign __tmp__1;
-                                    _min = @:binopAssign __tmp__2;
-                                    _seconds = @:binopAssign __tmp__3;
-                                    _value = @:binopAssign __tmp__4;
+                                    _sign = __tmp__0;
+                                    _hour = __tmp__1;
+                                    _min = __tmp__2;
+                                    _seconds = __tmp__3;
+                                    _value = __tmp__4;
                                 };
                             };
                             var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -409,8 +409,8 @@ var _ss = __2, _mm = __1, _hr = __0;
                             {
                                 final __tmp__0 = (_value.__slice__(0, _n) : stdgo.GoString)?.__copy__();
                                 final __tmp__1 = (_value.__slice__(_n) : stdgo.GoString)?.__copy__();
-                                _zoneName = @:binopAssign __tmp__0;
-                                _value = @:binopAssign __tmp__1;
+                                _zoneName = __tmp__0;
+                                _value = __tmp__1;
                             };
                             break;
                         } else if (__value__ == ((34 : stdgo.GoInt))) {

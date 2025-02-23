@@ -15,8 +15,8 @@ function _byteSliceSwapByte(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mu
             final __tmp__3 = (_src : stdgo.GoInt);
             final __tmp__4 = _b;
             final __tmp__5 = (_dst : stdgo.GoInt);
-            __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
-            __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
+            __tmp__2[__tmp__3] = __tmp__0;
+            __tmp__4[__tmp__5] = __tmp__1;
         };
         return _b;
     }

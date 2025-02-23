@@ -88,7 +88,7 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 
 === RUN  TestWalk
 unexpected errors: [Exception: SysError(Can't open testdata for writing)
-Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 70)
+Called from sys.io.$File.write (/home/runner/haxe/versions/c4868e5/std/hl/_std/sys/io/File.hx line 70)
 Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
 Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
 Called from stdgo._internal.path.filepath._Filepath__readdirnames.$Filepath__readdirnames_Fields_._readDirNames (stdgo/_internal/path/filepath/Filepath__readdirnames.hx line 3)

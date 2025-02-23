@@ -17,8 +17,8 @@ package stdgo._internal.database.sql;
             {
                 final __tmp__0 = (0 : stdgo.GoUInt8);
                 final __tmp__1 = false;
-                (@:checkr _n ?? throw "null pointer dereference").byte = @:binopAssign __tmp__0;
-                (@:checkr _n ?? throw "null pointer dereference").valid = @:binopAssign __tmp__1;
+                (@:checkr _n ?? throw "null pointer dereference").byte = __tmp__0;
+                (@:checkr _n ?? throw "null pointer dereference").valid = __tmp__1;
             };
             return (null : stdgo.Error);
         };

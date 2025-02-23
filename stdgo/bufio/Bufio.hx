@@ -4,63 +4,63 @@ final maxScanTokenSize : haxe.UInt64 = stdgo._internal.bufio.Bufio_maxscantokens
 var errInvalidUnreadByte(get, set) : stdgo.Error;
 private function get_errInvalidUnreadByte():stdgo.Error return stdgo._internal.bufio.Bufio_errinvalidunreadbyte.errInvalidUnreadByte;
 private function set_errInvalidUnreadByte(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errinvalidunreadbyte.errInvalidUnreadByte = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errinvalidunreadbyte.errInvalidUnreadByte = (v : stdgo.Error);
+    return v;
+}
 var errInvalidUnreadRune(get, set) : stdgo.Error;
 private function get_errInvalidUnreadRune():stdgo.Error return stdgo._internal.bufio.Bufio_errinvalidunreadrune.errInvalidUnreadRune;
 private function set_errInvalidUnreadRune(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errinvalidunreadrune.errInvalidUnreadRune = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errinvalidunreadrune.errInvalidUnreadRune = (v : stdgo.Error);
+    return v;
+}
 var errBufferFull(get, set) : stdgo.Error;
 private function get_errBufferFull():stdgo.Error return stdgo._internal.bufio.Bufio_errbufferfull.errBufferFull;
 private function set_errBufferFull(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errbufferfull.errBufferFull = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errbufferfull.errBufferFull = (v : stdgo.Error);
+    return v;
+}
 var errNegativeCount(get, set) : stdgo.Error;
 private function get_errNegativeCount():stdgo.Error return stdgo._internal.bufio.Bufio_errnegativecount.errNegativeCount;
 private function set_errNegativeCount(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errnegativecount.errNegativeCount = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errnegativecount.errNegativeCount = (v : stdgo.Error);
+    return v;
+}
 var errTooLong(get, set) : stdgo.Error;
 private function get_errTooLong():stdgo.Error return stdgo._internal.bufio.Bufio_errtoolong.errTooLong;
 private function set_errTooLong(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errtoolong.errTooLong = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errtoolong.errTooLong = (v : stdgo.Error);
+    return v;
+}
 var errNegativeAdvance(get, set) : stdgo.Error;
 private function get_errNegativeAdvance():stdgo.Error return stdgo._internal.bufio.Bufio_errnegativeadvance.errNegativeAdvance;
 private function set_errNegativeAdvance(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errnegativeadvance.errNegativeAdvance = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errnegativeadvance.errNegativeAdvance = (v : stdgo.Error);
+    return v;
+}
 var errAdvanceTooFar(get, set) : stdgo.Error;
 private function get_errAdvanceTooFar():stdgo.Error return stdgo._internal.bufio.Bufio_erradvancetoofar.errAdvanceTooFar;
 private function set_errAdvanceTooFar(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_erradvancetoofar.errAdvanceTooFar = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_erradvancetoofar.errAdvanceTooFar = (v : stdgo.Error);
+    return v;
+}
 var errBadReadCount(get, set) : stdgo.Error;
 private function get_errBadReadCount():stdgo.Error return stdgo._internal.bufio.Bufio_errbadreadcount.errBadReadCount;
 private function set_errBadReadCount(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errbadreadcount.errBadReadCount = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errbadreadcount.errBadReadCount = (v : stdgo.Error);
+    return v;
+}
 var errFinalToken(get, set) : stdgo.Error;
 private function get_errFinalToken():stdgo.Error return stdgo._internal.bufio.Bufio_errfinaltoken.errFinalToken;
 private function set_errFinalToken(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.bufio.Bufio_errfinaltoken.errFinalToken = (v : stdgo.Error);
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_errfinaltoken.errFinalToken = (v : stdgo.Error);
+    return v;
+}
 var isSpace(get, set) : StdTypes.Int -> Bool;
 private function get_isSpace():StdTypes.Int -> Bool return _0 -> stdgo._internal.bufio.Bufio_isspace.isSpace(_0);
 private function set_isSpace(v:StdTypes.Int -> Bool):StdTypes.Int -> Bool {
-        stdgo._internal.bufio.Bufio_isspace.isSpace = _0 -> v((_0 : stdgo.GoInt32));
-        return v;
-    }
+    stdgo._internal.bufio.Bufio_isspace.isSpace = _0 -> v((_0 : stdgo.GoInt32));
+    return v;
+}
 @:structInit @:using(stdgo.bufio.Bufio.Reader_static_extension) abstract Reader(stdgo._internal.bufio.Bufio_reader.Reader) from stdgo._internal.bufio.Bufio_reader.Reader to stdgo._internal.bufio.Bufio_reader.Reader {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return [for (i in this._buf) i];

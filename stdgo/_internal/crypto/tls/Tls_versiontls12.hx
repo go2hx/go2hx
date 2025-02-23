@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.tls;
-final versionTLS12 : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final versionTLS12 : stdgo.GoUInt64 = (771i64 : stdgo.GoUInt64);

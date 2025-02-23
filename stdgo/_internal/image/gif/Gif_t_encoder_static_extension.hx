@@ -118,8 +118,8 @@ if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
                         {
                             final __tmp__0 = (_i + (@:checkr _pm ?? throw "null pointer dereference").stride : stdgo.GoInt);
                             final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                            _i = @:binopAssign __tmp__0;
-                            _y = @:binopAssign __tmp__1;
+                            _i = __tmp__0;
+                            _y = __tmp__1;
                         };
                     };
                 };

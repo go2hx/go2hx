@@ -598,8 +598,8 @@ if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_file.__copy__(), ("[" :
                     final __tmp__3 = (_i : stdgo.GoInt);
                     final __tmp__4 = (@:checkr _p ?? throw "null pointer dereference").mapping;
                     final __tmp__5 = (0 : stdgo.GoInt);
-                    __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
-                    __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
+                    __tmp__2[__tmp__3] = __tmp__0;
+                    __tmp__4[__tmp__5] = __tmp__1;
                 };
 break;
                 _i++;
@@ -664,22 +664,22 @@ break;
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__allocrxstr._allocRxStr?.__copy__();
                 final __tmp__1 = stdgo._internal.internal.profile.Profile__allocskiprxstr._allocSkipRxStr?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
             };
         } else if (stdgo._internal.internal.profile.Profile__isprofiletype._isProfileType(_p, stdgo._internal.internal.profile.Profile__contentionzsampletypes._contentionzSampleTypes)) {
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__lockrxstr._lockRxStr?.__copy__();
                 final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
             };
         } else {
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__cpuprofilerrxstr._cpuProfilerRxStr?.__copy__();
                 final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
             };
         };
     }

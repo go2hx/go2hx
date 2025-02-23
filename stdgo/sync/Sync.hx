@@ -2,25 +2,25 @@ package stdgo.sync;
 var runtime_Semacquire(get, set) : stdgo.Pointer<std.UInt> -> Void;
 private function get_runtime_Semacquire():stdgo.Pointer<std.UInt> -> Void return _0 -> stdgo._internal.sync.Sync_runtime_semacquire.runtime_Semacquire(_0);
 private function set_runtime_Semacquire(v:stdgo.Pointer<std.UInt> -> Void):stdgo.Pointer<std.UInt> -> Void {
-        stdgo._internal.sync.Sync_runtime_semacquire.runtime_Semacquire = _0 -> v(_0);
+        stdgo._internal.sync.Sync_runtime_semacquire.runtime_Semacquire = v;
         return v;
     }
 var runtime_Semrelease(get, set) : (stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void;
 private function get_runtime_Semrelease():(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void return (_0, _1, _2) -> stdgo._internal.sync.Sync_runtime_semrelease.runtime_Semrelease(_0, _1, _2);
 private function set_runtime_Semrelease(v:(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void):(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void {
-        stdgo._internal.sync.Sync_runtime_semrelease.runtime_Semrelease = (_0, _1, _2) -> v(_0, _1, (_2 : stdgo.GoInt));
+        stdgo._internal.sync.Sync_runtime_semrelease.runtime_Semrelease = v;
         return v;
     }
 var runtime_procPin(get, set) : () -> StdTypes.Int;
 private function get_runtime_procPin():() -> StdTypes.Int return () -> stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin();
 private function set_runtime_procPin(v:() -> StdTypes.Int):() -> StdTypes.Int {
-        stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin = () -> v();
+        stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin = v;
         return v;
     }
 var runtime_procUnpin(get, set) : () -> Void;
 private function get_runtime_procUnpin():() -> Void return () -> stdgo._internal.sync.Sync_runtime_procunpin.runtime_procUnpin();
 private function set_runtime_procUnpin(v:() -> Void):() -> Void {
-        stdgo._internal.sync.Sync_runtime_procunpin.runtime_procUnpin = () -> v();
+        stdgo._internal.sync.Sync_runtime_procunpin.runtime_procUnpin = v;
         return v;
     }
 class PoolDequeue_static_extension {
@@ -262,10 +262,10 @@ class Locker_static_extension {
     public var new_(get, set) : () -> stdgo.AnyInterface;
     function get_new_():() -> stdgo.AnyInterface return () -> this.new_();
     function set_new_(v:() -> stdgo.AnyInterface):() -> stdgo.AnyInterface {
-        this.new_ = () -> v();
+        this.new_ = v;
         return v;
     }
-    public function new(?_noCopy:T_noCopy, ?_local:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_localSize:stdgo.GoUIntptr, ?_victim:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_victimSize:stdgo.GoUIntptr, ?new_:() -> stdgo.AnyInterface, ?pool) this = new stdgo._internal.sync.Sync_pool.Pool(_noCopy, _local, (_localSize : stdgo.GoUIntptr), _victim, (_victimSize : stdgo.GoUIntptr), () -> new_(), pool);
+    public function new(?_noCopy:T_noCopy, ?_local:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_localSize:stdgo.GoUIntptr, ?_victim:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_victimSize:stdgo.GoUIntptr, ?new_:() -> stdgo.AnyInterface, ?pool) this = new stdgo._internal.sync.Sync_pool.Pool(_noCopy, _local, (_localSize : stdgo.GoUIntptr), _victim, (_victimSize : stdgo.GoUIntptr), new_, pool);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -516,7 +516,7 @@ class Map__static_extension {
     }
     static public function range(_m:Map_, _f:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void {
         final _m = (_m : stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>);
-        final _f = (_0, _1) -> _f((_0 : stdgo.AnyInterface), (_1 : stdgo.AnyInterface));
+        final _f = _f;
         stdgo._internal.sync.Sync_map__static_extension.Map__static_extension.range(_m, _f);
     }
     static public function compareAndDelete(_m:Map_, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface):Bool {
@@ -666,12 +666,12 @@ typedef OncePointer = stdgo._internal.sync.Sync_oncepointer.OncePointer;
 class Once_static_extension {
     static public function _doSlow(_o:Once, _f:() -> Void):Void {
         final _o = (_o : stdgo.Ref<stdgo._internal.sync.Sync_once.Once>);
-        final _f = () -> _f();
+        final _f = _f;
         stdgo._internal.sync.Sync_once_static_extension.Once_static_extension._doSlow(_o, _f);
     }
     static public function do_(_o:Once, _f:() -> Void):Void {
         final _o = (_o : stdgo.Ref<stdgo._internal.sync.Sync_once.Once>);
-        final _f = () -> _f();
+        final _f = _f;
         stdgo._internal.sync.Sync_once_static_extension.Once_static_extension.do_(_o, _f);
     }
 }
@@ -971,7 +971,7 @@ class Sync {
         * If f panics, the returned function will panic with the same value on every call.
     **/
     static public inline function onceFunc(_f:() -> Void):() -> Void {
-        final _f = () -> _f();
+        final _f = _f;
         return () -> stdgo._internal.sync.Sync_oncefunc.onceFunc(_f)();
     }
     /**
@@ -981,7 +981,7 @@ class Sync {
         * If f panics, the returned function will panic with the same value on every call.
     **/
     static public inline function onceValue(_f:() -> Dynamic):() -> Dynamic {
-        final _f = () -> _f();
+        final _f = _f;
         return () -> stdgo._internal.sync.Sync_oncevalue.onceValue(_f)();
     }
     /**
@@ -991,7 +991,7 @@ class Sync {
         * If f panics, the returned function will panic with the same value on every call.
     **/
     static public inline function onceValues(_f:() -> stdgo.Tuple<Dynamic, Dynamic>):() -> stdgo.Tuple<Dynamic, Dynamic> {
-        final _f = () -> _f();
+        final _f = _f;
         return () -> stdgo._internal.sync.Sync_oncevalues.onceValues(_f)();
     }
 }

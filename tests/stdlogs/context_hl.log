@@ -58,9 +58,9 @@
      |                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      513 |   return load("typeof", 1)(e);
+      504 |   return load("typeof", 1)(e);
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 
@@ -162,9 +162,9 @@
      |                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : _internal.context_test.Context_test_context
 
-      ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+      ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
 
-      513 |   return load("typeof", 1)(e);
+      504 |   return load("typeof", 1)(e);
           |          ^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

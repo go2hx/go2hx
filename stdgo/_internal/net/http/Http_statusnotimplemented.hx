@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusNotImplemented : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusNotImplemented : stdgo.GoUInt64 = (501i64 : stdgo.GoUInt64);

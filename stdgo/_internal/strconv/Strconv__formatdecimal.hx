@@ -35,15 +35,15 @@ var _v2 = __1, _v1 = __0;
                 {
                     final __tmp__0 = (((_v : stdgo.GoUInt32) / (100u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt64);
                     final __tmp__1 = (((_v : stdgo.GoUInt32) % (100u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt64);
-                    _v1 = @:binopAssign __tmp__0;
-                    _v2 = @:binopAssign __tmp__1;
+                    _v1 = __tmp__0;
+                    _v2 = __tmp__1;
                 };
             } else {
                 {
                     final __tmp__0 = (_v / (100i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                     final __tmp__1 = (_v % (100i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                    _v1 = @:binopAssign __tmp__0;
-                    _v2 = @:binopAssign __tmp__1;
+                    _v1 = __tmp__0;
+                    _v2 = __tmp__1;
                 };
             };
             _n = (_n - ((2u32 : stdgo.GoUInt)) : stdgo.GoUInt);

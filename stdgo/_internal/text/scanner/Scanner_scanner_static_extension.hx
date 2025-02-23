@@ -367,31 +367,31 @@ package stdgo._internal.text.scanner;
                         {
                             final __tmp__0 = (16 : stdgo.GoInt);
                             final __tmp__1 = (120 : stdgo.GoInt32);
-                            _base = @:binopAssign __tmp__0;
-                            _prefix = @:binopAssign __tmp__1;
+                            _base = __tmp__0;
+                            _prefix = __tmp__1;
                         };
                     } else if (__value__ == ((111 : stdgo.GoInt32))) {
                         _ch = @:check2r _s._next();
                         {
                             final __tmp__0 = (8 : stdgo.GoInt);
                             final __tmp__1 = (111 : stdgo.GoInt32);
-                            _base = @:binopAssign __tmp__0;
-                            _prefix = @:binopAssign __tmp__1;
+                            _base = __tmp__0;
+                            _prefix = __tmp__1;
                         };
                     } else if (__value__ == ((98 : stdgo.GoInt32))) {
                         _ch = @:check2r _s._next();
                         {
                             final __tmp__0 = (2 : stdgo.GoInt);
                             final __tmp__1 = (98 : stdgo.GoInt32);
-                            _base = @:binopAssign __tmp__0;
-                            _prefix = @:binopAssign __tmp__1;
+                            _base = __tmp__0;
+                            _prefix = __tmp__1;
                         };
                     } else {
                         {
                             final __tmp__0 = (8 : stdgo.GoInt);
                             final __tmp__1 = (48 : stdgo.GoInt32);
-                            _base = @:binopAssign __tmp__0;
-                            _prefix = @:binopAssign __tmp__1;
+                            _base = __tmp__0;
+                            _prefix = __tmp__1;
                         };
                         _digsep = (1 : stdgo.GoInt);
                     };

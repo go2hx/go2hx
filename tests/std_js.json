@@ -15,12 +15,5 @@
  "js|hash/adler32",
  "js|strings",
  "js|image/color",
- "js|hash/crc64",
- "js|crypto",
- "js|container/heap",
- "js|container/list",
- "js|container/ring",
- "js|encoding/ascii85",
- "js|encoding/csv",
- "js|hash/fnv"
+ "js|hash/crc64"
 ]

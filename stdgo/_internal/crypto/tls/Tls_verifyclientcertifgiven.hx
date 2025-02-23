@@ -1,2 +1,2 @@
 package stdgo._internal.crypto.tls;
-final verifyClientCertIfGiven = ((0 : stdgo.GoInt) : stdgo._internal.crypto.tls.Tls_clientauthtype.ClientAuthType);
+final verifyClientCertIfGiven = (4 : stdgo._internal.crypto.tls.Tls_clientauthtype.ClientAuthType);

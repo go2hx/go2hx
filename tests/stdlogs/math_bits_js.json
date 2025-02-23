@@ -14,7 +14,6 @@
         "TestAdd64OverflowPanic",
         "TestSub64OverflowPanic",
         "TestMulDiv",
-        "TestMulDiv64",
         "TestDivPanicOverflow",
         "TestDiv32PanicOverflow",
         "TestDiv64PanicOverflow",
@@ -23,11 +22,12 @@
         "TestDiv64PanicZero",
         "TestRem32",
         "TestRem32Overflow",
-        "TestRem64",
-        "TestRem64Overflow"
+        "TestRem64"
     ],
     "fails": [
-        "TestMulDiv32"
+        "TestMulDiv32",
+        "TestMulDiv64",
+        "TestRem64Overflow"
     ],
     "runs": [
         "TestUintSize",

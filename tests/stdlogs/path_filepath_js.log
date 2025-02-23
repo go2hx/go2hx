@@ -27,10 +27,10 @@ Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 22372 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testglobsymlink_testGlobSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:22082:10)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54677 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54694 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44998 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65089:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65090:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65106:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65107:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -39,10 +39,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestWindowsGlob
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testwindowsglob_testWindowsGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:36067:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54677 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54694 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44998 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65089:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65090:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65106:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65107:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -76,10 +76,10 @@ Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_file
 Called from stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 16357 column 24)
 Called from .stdgo__$internal_reflect_Reflect_$deepequal_deepEqual (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 36896 column 29)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testnonwindowsglobescape_testNonWindowsGlobEscape [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:36882:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54677 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54694 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44998 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65089:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65090:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65106:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65107:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestNonWindowsGlobEscape
@@ -87,14 +87,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestClean
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 55281 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 55311 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:54912:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 55298 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 55328 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:54929:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testclean_testClean [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:36956:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54677 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54694 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44998 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65089:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65090:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65106:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65107:3)
 
 -- SKIP: TestClean
 
@@ -126,10 +126,10 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 unexpected errors: <invalid reflect.Value>Exception: __fail__
 Called from ._$internal_path_filepath_$test_Filepath_$test_$_$testwalk__testWalk (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 37797 column 25)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testwalk_testWalk [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:37273:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54677 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54694 column 9)
 Called from ._$internal_path_filepath_$dot_$test_Filepath_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44998 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65089:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65090:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65106:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:65107:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

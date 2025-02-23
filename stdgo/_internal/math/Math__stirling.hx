@@ -13,8 +13,8 @@ function _stirling(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdg
             {
                 final __tmp__0 = _v;
                 final __tmp__1 = (_v / _y1 : stdgo.GoFloat64);
-                _y1 = @:binopAssign __tmp__0;
-                _y2 = @:binopAssign __tmp__1;
+                _y1 = __tmp__0;
+                _y2 = __tmp__1;
             };
         } else {
             _y1 = (stdgo._internal.math.Math_pow.pow(_x, (_x - (0.5 : stdgo.GoFloat64) : stdgo.GoFloat64)) / _y1 : stdgo.GoFloat64);

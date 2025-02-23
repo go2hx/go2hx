@@ -40,8 +40,8 @@ function _parseCppContention(_r:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buf
             {
                 final __tmp__0 = stdgo._internal.strings.Strings_trimspace.trimSpace(_key?.__copy__())?.__copy__();
                 final __tmp__1 = stdgo._internal.strings.Strings_trimspace.trimSpace(_val?.__copy__())?.__copy__();
-                _key = @:binopAssign __tmp__0;
-                _val = @:binopAssign __tmp__1;
+                _key = __tmp__0;
+                _val = __tmp__1;
             };
             var _err:stdgo.Error = (null : stdgo.Error);
             {

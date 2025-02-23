@@ -39,13 +39,13 @@ final gOARCH : String = stdgo._internal.runtime.Runtime_goarch.gOARCH;
 var fmtSprintf(get, set) : (String, haxe.Rest<stdgo.AnyInterface>) -> String;
 private function get_fmtSprintf():(String, haxe.Rest<stdgo.AnyInterface>) -> String return (_0, _1) -> stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf(_0, _1);
 private function set_fmtSprintf(v:(String, haxe.Rest<stdgo.AnyInterface>) -> String):(String, haxe.Rest<stdgo.AnyInterface>) -> String {
-        stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf = (_0, _1) -> v((_0 : stdgo.GoString), _1);
+        stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf = v;
         return v;
     }
 var testenvOptimizationOff(get, set) : () -> Bool;
 private function get_testenvOptimizationOff():() -> Bool return () -> stdgo._internal.runtime.Runtime_testenvoptimizationoff.testenvOptimizationOff();
 private function set_testenvOptimizationOff(v:() -> Bool):() -> Bool {
-        stdgo._internal.runtime.Runtime_testenvoptimizationoff.testenvOptimizationOff = () -> v();
+        stdgo._internal.runtime.Runtime_testenvoptimizationoff.testenvOptimizationOff = v;
         return v;
     }
 var memProfileRate(get, set) : StdTypes.Int;
@@ -69,127 +69,127 @@ private function set_atomicVariables(v:Array<stdgo._internal.unsafe.Unsafe.Unsaf
 var dlog(get, set) : () -> T_dlogger;
 private function get_dlog():() -> T_dlogger return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
 private function set_dlog(v:() -> T_dlogger):() -> T_dlogger {
-        stdgo._internal.runtime.Runtime_dlog.dlog = () -> v();
+        stdgo._internal.runtime.Runtime_dlog.dlog = v;
         return v;
     }
 var fadd64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
 private function get_fadd64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fadd64.fadd64(_0, _1);
 private function set_fadd64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_fadd64.fadd64 = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_fadd64.fadd64 = v;
         return v;
     }
 var fsub64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
 private function get_fsub64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fsub64.fsub64(_0, _1);
 private function set_fsub64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_fsub64.fsub64 = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_fsub64.fsub64 = v;
         return v;
     }
 var fmul64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
 private function get_fmul64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fmul64.fmul64(_0, _1);
 private function set_fmul64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_fmul64.fmul64 = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_fmul64.fmul64 = v;
         return v;
     }
 var fdiv64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
 private function get_fdiv64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fdiv64.fdiv64(_0, _1);
 private function set_fdiv64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_fdiv64.fdiv64 = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_fdiv64.fdiv64 = v;
         return v;
     }
 var f64to32(get, set) : haxe.UInt64 -> std.UInt;
 private function get_f64to32():haxe.UInt64 -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_f64to32.f64to32(_0);
 private function set_f64to32(v:haxe.UInt64 -> std.UInt):haxe.UInt64 -> std.UInt {
-        stdgo._internal.runtime.Runtime_f64to32.f64to32 = _0 -> v((_0 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_f64to32.f64to32 = v;
         return v;
     }
 var f32to64(get, set) : std.UInt -> haxe.UInt64;
 private function get_f32to64():std.UInt -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_f32to64.f32to64(_0);
 private function set_f32to64(v:std.UInt -> haxe.UInt64):std.UInt -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_f32to64.f32to64 = _0 -> v((_0 : stdgo.GoUInt32));
+        stdgo._internal.runtime.Runtime_f32to64.f32to64 = v;
         return v;
     }
 var fcmp64(get, set) : (haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>;
 private function get_fcmp64():(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> return (_0, _1) -> stdgo._internal.runtime.Runtime_fcmp64.fcmp64(_0, _1);
 private function set_fcmp64(v:(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>):(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> {
-        stdgo._internal.runtime.Runtime_fcmp64.fcmp64 = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_fcmp64.fcmp64 = v;
         return v;
     }
 var fintto64(get, set) : haxe.Int64 -> haxe.UInt64;
 private function get_fintto64():haxe.Int64 -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_fintto64.fintto64(_0);
 private function set_fintto64(v:haxe.Int64 -> haxe.UInt64):haxe.Int64 -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_fintto64.fintto64 = _0 -> v((_0 : stdgo.GoInt64));
+        stdgo._internal.runtime.Runtime_fintto64.fintto64 = v;
         return v;
     }
 var f64toint(get, set) : haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>;
 private function get_f64toint():haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_f64toint.f64toint(_0);
 private function set_f64toint(v:haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>):haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> {
-        stdgo._internal.runtime.Runtime_f64toint.f64toint = _0 -> v((_0 : stdgo.GoUInt64));
+        stdgo._internal.runtime.Runtime_f64toint.f64toint = v;
         return v;
     }
 var entersyscall(get, set) : () -> Void;
 private function get_entersyscall():() -> Void return () -> stdgo._internal.runtime.Runtime_entersyscall.entersyscall();
 private function set_entersyscall(v:() -> Void):() -> Void {
-        stdgo._internal.runtime.Runtime_entersyscall.entersyscall = () -> v();
+        stdgo._internal.runtime.Runtime_entersyscall.entersyscall = v;
         return v;
     }
 var exitsyscall(get, set) : () -> Void;
 private function get_exitsyscall():() -> Void return () -> stdgo._internal.runtime.Runtime_exitsyscall.exitsyscall();
 private function set_exitsyscall(v:() -> Void):() -> Void {
-        stdgo._internal.runtime.Runtime_exitsyscall.exitsyscall = () -> v();
+        stdgo._internal.runtime.Runtime_exitsyscall.exitsyscall = v;
         return v;
     }
 var lockedOSThread(get, set) : () -> Bool;
 private function get_lockedOSThread():() -> Bool return () -> stdgo._internal.runtime.Runtime_lockedosthread.lockedOSThread();
 private function set_lockedOSThread(v:() -> Bool):() -> Bool {
-        stdgo._internal.runtime.Runtime_lockedosthread.lockedOSThread = () -> v();
+        stdgo._internal.runtime.Runtime_lockedosthread.lockedOSThread = v;
         return v;
     }
 var xadduintptr(get, set) : (stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_xadduintptr():(stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_xadduintptr.xadduintptr(_0, _1);
 private function set_xadduintptr(v:(stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_xadduintptr.xadduintptr = (_0, _1) -> v(_0, (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_xadduintptr.xadduintptr = v;
         return v;
     }
 var fastlog2(get, set) : StdTypes.Float -> StdTypes.Float;
 private function get_fastlog2():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.runtime.Runtime_fastlog2.fastlog2(_0);
 private function set_fastlog2(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
-        stdgo._internal.runtime.Runtime_fastlog2.fastlog2 = _0 -> v((_0 : stdgo.GoFloat64));
+        stdgo._internal.runtime.Runtime_fastlog2.fastlog2 = v;
         return v;
     }
 var atoi(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
 private function get_atoi():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi.atoi(_0);
 private function set_atoi(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
-        stdgo._internal.runtime.Runtime_atoi.atoi = _0 -> v((_0 : stdgo.GoString));
+        stdgo._internal.runtime.Runtime_atoi.atoi = v;
         return v;
     }
 var atoi32(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
 private function get_atoi32():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi32.atoi32(_0);
 private function set_atoi32(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
-        stdgo._internal.runtime.Runtime_atoi32.atoi32 = _0 -> v((_0 : stdgo.GoString));
+        stdgo._internal.runtime.Runtime_atoi32.atoi32 = v;
         return v;
     }
 var parseByteCount(get, set) : String -> stdgo.Tuple<haxe.Int64, Bool>;
 private function get_parseByteCount():String -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount(_0);
 private function set_parseByteCount(v:String -> stdgo.Tuple<haxe.Int64, Bool>):String -> stdgo.Tuple<haxe.Int64, Bool> {
-        stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount = _0 -> v((_0 : stdgo.GoString));
+        stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount = v;
         return v;
     }
 var nanotime(get, set) : () -> haxe.Int64;
 private function get_nanotime():() -> haxe.Int64 return () -> stdgo._internal.runtime.Runtime_nanotime.nanotime();
 private function set_nanotime(v:() -> haxe.Int64):() -> haxe.Int64 {
-        stdgo._internal.runtime.Runtime_nanotime.nanotime = () -> v();
+        stdgo._internal.runtime.Runtime_nanotime.nanotime = v;
         return v;
     }
 var netpollBreak(get, set) : () -> Void;
 private function get_netpollBreak():() -> Void return () -> stdgo._internal.runtime.Runtime_netpollbreak.netpollBreak();
 private function set_netpollBreak(v:() -> Void):() -> Void {
-        stdgo._internal.runtime.Runtime_netpollbreak.netpollBreak = () -> v();
+        stdgo._internal.runtime.Runtime_netpollbreak.netpollBreak = v;
         return v;
     }
 var usleep(get, set) : std.UInt -> Void;
 private function get_usleep():std.UInt -> Void return _0 -> stdgo._internal.runtime.Runtime_usleep.usleep(_0);
 private function set_usleep(v:std.UInt -> Void):std.UInt -> Void {
-        stdgo._internal.runtime.Runtime_usleep.usleep = _0 -> v((_0 : stdgo.GoUInt32));
+        stdgo._internal.runtime.Runtime_usleep.usleep = v;
         return v;
     }
 var physPageSize(get, set) : stdgo.GoUIntptr;
@@ -207,25 +207,25 @@ private function set_physHugePageSize(v:stdgo.GoUIntptr):stdgo.GoUIntptr {
 var netpollGenericInit(get, set) : () -> Void;
 private function get_netpollGenericInit():() -> Void return () -> stdgo._internal.runtime.Runtime_netpollgenericinit.netpollGenericInit();
 private function set_netpollGenericInit(v:() -> Void):() -> Void {
-        stdgo._internal.runtime.Runtime_netpollgenericinit.netpollGenericInit = () -> v();
+        stdgo._internal.runtime.Runtime_netpollgenericinit.netpollGenericInit = v;
         return v;
     }
 var memmove(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void;
 private function get_memmove():(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_memmove.memmove(_0, _1, _2);
 private function set_memmove(v:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void):(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void {
-        stdgo._internal.runtime.Runtime_memmove.memmove = (_0, _1, _2) -> v(_0, _1, (_2 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_memmove.memmove = v;
         return v;
     }
 var memclrNoHeapPointers(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void;
 private function get_memclrNoHeapPointers():(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void return (_0, _1) -> stdgo._internal.runtime.Runtime_memclrnoheappointers.memclrNoHeapPointers(_0, _1);
 private function set_memclrNoHeapPointers(v:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void):(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> Void {
-        stdgo._internal.runtime.Runtime_memclrnoheappointers.memclrNoHeapPointers = (_0, _1) -> v(_0, (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_memclrnoheappointers.memclrNoHeapPointers = v;
         return v;
     }
 var cgoCheckPointer(get, set) : (stdgo.AnyInterface, stdgo.AnyInterface) -> Void;
 private function get_cgoCheckPointer():(stdgo.AnyInterface, stdgo.AnyInterface) -> Void return (_0, _1) -> stdgo._internal.runtime.Runtime_cgocheckpointer.cgoCheckPointer(_0, _1);
 private function set_cgoCheckPointer(v:(stdgo.AnyInterface, stdgo.AnyInterface) -> Void):(stdgo.AnyInterface, stdgo.AnyInterface) -> Void {
-        stdgo._internal.runtime.Runtime_cgocheckpointer.cgoCheckPointer = (_0, _1) -> v((_0 : stdgo.AnyInterface), (_1 : stdgo.AnyInterface));
+        stdgo._internal.runtime.Runtime_cgocheckpointer.cgoCheckPointer = v;
         return v;
     }
 var lockPartialOrder(get, set) : Array<Array<T_lockRank>>;
@@ -237,55 +237,55 @@ private function set_lockPartialOrder(v:Array<Array<T_lockRank>>):Array<Array<T_
 var stringHash(get, set) : (String, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_stringHash():(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_stringhash.stringHash(_0, _1);
 private function set_stringHash(v:(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_stringhash.stringHash = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_stringhash.stringHash = v;
         return v;
     }
 var bytesHash(get, set) : (Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_bytesHash():(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_byteshash.bytesHash([for (i in _0) i], _1);
 private function set_bytesHash(v:(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_byteshash.bytesHash = (_0, _1) -> v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_byteshash.bytesHash = v;
         return v;
     }
 var int32Hash(get, set) : (std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_int32Hash():(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int32hash.int32Hash(_0, _1);
 private function set_int32Hash(v:(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_int32hash.int32Hash = (_0, _1) -> v((_0 : stdgo.GoUInt32), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_int32hash.int32Hash = v;
         return v;
     }
 var int64Hash(get, set) : (haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_int64Hash():(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int64hash.int64Hash(_0, _1);
 private function set_int64Hash(v:(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_int64hash.int64Hash = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_int64hash.int64Hash = v;
         return v;
     }
 var memHash(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_memHash():(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_memhash.memHash(_0, _1, _2);
 private function set_memHash(v:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_memhash.memHash = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoUIntptr), (_2 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_memhash.memHash = v;
         return v;
     }
 var memHash32(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_memHash32():(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_memhash32.memHash32(_0, _1);
 private function set_memHash32(v:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_memhash32.memHash32 = (_0, _1) -> v(_0, (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_memhash32.memHash32 = v;
         return v;
     }
 var memHash64(get, set) : (stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_memHash64():(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_memhash64.memHash64(_0, _1);
 private function set_memHash64(v:(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_memhash64.memHash64 = (_0, _1) -> v(_0, (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_memhash64.memHash64 = v;
         return v;
     }
 var efaceHash(get, set) : (stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_efaceHash():(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_efacehash.efaceHash(_0, _1);
 private function set_efaceHash(v:(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_efacehash.efaceHash = (_0, _1) -> v((_0 : stdgo.AnyInterface), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_efacehash.efaceHash = v;
         return v;
     }
 var ifaceHash(get, set) : (stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_ifaceHash():(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_ifacehash.ifaceHash(_0, _1);
 private function set_ifaceHash(v:(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.AnyInterface, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_ifacehash.ifaceHash = (_0, _1) -> v((_0 : stdgo.AnyInterface), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_ifacehash.ifaceHash = v;
         return v;
     }
 var useAeshash(get, set) : stdgo.Pointer<Bool>;
@@ -297,25 +297,25 @@ private function set_useAeshash(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
 var open(get, set) : (stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int;
 private function get_open():(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_open.open(_0, _1, _2);
 private function set_open(v:(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int):(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int {
-        stdgo._internal.runtime.Runtime_open.open = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoInt32), (_2 : stdgo.GoInt32));
+        stdgo._internal.runtime.Runtime_open.open = v;
         return v;
     }
 var close(get, set) : StdTypes.Int -> StdTypes.Int;
 private function get_close():StdTypes.Int -> StdTypes.Int return _0 -> stdgo._internal.runtime.Runtime_close.close(_0);
 private function set_close(v:StdTypes.Int -> StdTypes.Int):StdTypes.Int -> StdTypes.Int {
-        stdgo._internal.runtime.Runtime_close.close = _0 -> v((_0 : stdgo.GoInt32));
+        stdgo._internal.runtime.Runtime_close.close = v;
         return v;
     }
 var read(get, set) : (StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
 private function get_read():(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_read.read(_0, _1, _2);
 private function set_read(v:(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
-        stdgo._internal.runtime.Runtime_read.read = (_0, _1, _2) -> v((_0 : stdgo.GoInt32), _1, (_2 : stdgo.GoInt32));
+        stdgo._internal.runtime.Runtime_read.read = v;
         return v;
     }
 var write(get, set) : (stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
 private function get_write():(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_write.write(_0, _1, _2);
 private function set_write(v:(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
-        stdgo._internal.runtime.Runtime_write.write = (_0, _1, _2) -> v((_0 : stdgo.GoUIntptr), _1, (_2 : stdgo.GoInt32));
+        stdgo._internal.runtime.Runtime_write.write = v;
         return v;
     }
 var forceGCPeriod(get, set) : stdgo.Pointer<haxe.Int64>;
@@ -327,13 +327,13 @@ private function set_forceGCPeriod(v:stdgo.Pointer<haxe.Int64>):stdgo.Pointer<ha
 var readUnaligned32(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt;
 private function get_readUnaligned32():stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32(_0);
 private function set_readUnaligned32(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt):stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt {
-        stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32 = _0 -> v(_0);
+        stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32 = v;
         return v;
     }
 var readUnaligned64(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64;
 private function get_readUnaligned64():stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64(_0);
 private function set_readUnaligned64(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64):stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 {
-        stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64 = _0 -> v(_0);
+        stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64 = v;
         return v;
     }
 var casGStatusAlwaysTrack(get, set) : stdgo.Pointer<Bool>;
@@ -351,31 +351,31 @@ private function set_baseChunkIdx(v:ChunkIdx):ChunkIdx {
 var semacquire(get, set) : stdgo.Pointer<std.UInt> -> Void;
 private function get_semacquire():stdgo.Pointer<std.UInt> -> Void return _0 -> stdgo._internal.runtime.Runtime_semacquire.semacquire(_0);
 private function set_semacquire(v:stdgo.Pointer<std.UInt> -> Void):stdgo.Pointer<std.UInt> -> Void {
-        stdgo._internal.runtime.Runtime_semacquire.semacquire = _0 -> v(_0);
+        stdgo._internal.runtime.Runtime_semacquire.semacquire = v;
         return v;
     }
 var semrelease1(get, set) : (stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void;
 private function get_semrelease1():(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_semrelease1.semrelease1(_0, _1, _2);
 private function set_semrelease1(v:(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void):(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void {
-        stdgo._internal.runtime.Runtime_semrelease1.semrelease1 = (_0, _1, _2) -> v(_0, _1, (_2 : stdgo.GoInt));
+        stdgo._internal.runtime.Runtime_semrelease1.semrelease1 = v;
         return v;
     }
 var timeHistogramMetricsBuckets(get, set) : () -> Array<StdTypes.Float>;
 private function get_timeHistogramMetricsBuckets():() -> Array<StdTypes.Float> return () -> stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets();
 private function set_timeHistogramMetricsBuckets(v:() -> Array<StdTypes.Float>):() -> Array<StdTypes.Float> {
-        stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets = () -> v();
+        stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets = v;
         return v;
     }
 var gCTestMoveStackOnNextCall(get, set) : () -> Void;
 private function get_gCTestMoveStackOnNextCall():() -> Void return () -> stdgo._internal.runtime.Runtime_gctestmovestackonnextcall.gCTestMoveStackOnNextCall();
 private function set_gCTestMoveStackOnNextCall(v:() -> Void):() -> Void {
-        stdgo._internal.runtime.Runtime_gctestmovestackonnextcall.gCTestMoveStackOnNextCall = () -> v();
+        stdgo._internal.runtime.Runtime_gctestmovestackonnextcall.gCTestMoveStackOnNextCall = v;
         return v;
     }
 var timediv(get, set) : (haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int;
 private function get_timediv():(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_timediv.timediv(_0, _1, _2);
 private function set_timediv(v:(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int):(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int {
-        stdgo._internal.runtime.Runtime_timediv.timediv = (_0, _1, _2) -> v((_0 : stdgo.GoInt64), (_1 : stdgo.GoInt32), _2);
+        stdgo._internal.runtime.Runtime_timediv.timediv = v;
         return v;
     }
 var zeroBase(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer;
@@ -387,19 +387,19 @@ private function set_zeroBase(v:stdgo._internal.unsafe.Unsafe.UnsafePointer):std
 var alignUp(get, set) : (stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
 private function get_alignUp():(stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_alignup.alignUp(_0, _1);
 private function set_alignUp(v:(stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoUIntptr, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
-        stdgo._internal.runtime.Runtime_alignup.alignUp = (_0, _1) -> v((_0 : stdgo.GoUIntptr), (_1 : stdgo.GoUIntptr));
+        stdgo._internal.runtime.Runtime_alignup.alignUp = v;
         return v;
     }
 var isPinned(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> Bool;
 private function get_isPinned():stdgo._internal.unsafe.Unsafe.UnsafePointer -> Bool return _0 -> stdgo._internal.runtime.Runtime_ispinned.isPinned(_0);
 private function set_isPinned(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> Bool):stdgo._internal.unsafe.Unsafe.UnsafePointer -> Bool {
-        stdgo._internal.runtime.Runtime_ispinned.isPinned = _0 -> v(_0);
+        stdgo._internal.runtime.Runtime_ispinned.isPinned = v;
         return v;
     }
 var getPinCounter(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.Pointer<stdgo.GoUIntptr>;
 private function get_getPinCounter():stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.Pointer<stdgo.GoUIntptr> return _0 -> stdgo._internal.runtime.Runtime_getpincounter.getPinCounter(_0);
 private function set_getPinCounter(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.Pointer<stdgo.GoUIntptr>):stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.Pointer<stdgo.GoUIntptr> {
-        stdgo._internal.runtime.Runtime_getpincounter.getPinCounter = _0 -> v(_0);
+        stdgo._internal.runtime.Runtime_getpincounter.getPinCounter = v;
         return v;
     }
 class Error_static_extension {
@@ -489,7 +489,7 @@ class TestingT_static_extension {
         stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.error(t, ...[for (i in _args) i]);
     }
     static public function cleanup(t:stdgo._internal.runtime.Runtime_testingt.TestingT, _0:() -> Void):Void {
-        final _0 = () -> _0();
+        final _0 = _0;
         stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.cleanup(t, _0);
     }
 }
@@ -735,28 +735,28 @@ class TestingT_static_extension {
     public var sleep(get, set) : haxe.Int64 -> haxe.Int64;
     function get_sleep():haxe.Int64 -> haxe.Int64 return _0 -> this.sleep(_0);
     function set_sleep(v:haxe.Int64 -> haxe.Int64):haxe.Int64 -> haxe.Int64 {
-        this.sleep = _0 -> v((_0 : stdgo.GoInt64));
+        this.sleep = v;
         return v;
     }
     public var scavenge(get, set) : stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>;
     function get_scavenge():stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> return _0 -> this.scavenge(_0);
     function set_scavenge(v:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>):stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> {
-        this.scavenge = _0 -> v((_0 : stdgo.GoUIntptr));
+        this.scavenge = v;
         return v;
     }
     public var shouldStop(get, set) : () -> Bool;
     function get_shouldStop():() -> Bool return () -> this.shouldStop();
     function set_shouldStop(v:() -> Bool):() -> Bool {
-        this.shouldStop = () -> v();
+        this.shouldStop = v;
         return v;
     }
     public var goMaxProcs(get, set) : () -> StdTypes.Int;
     function get_goMaxProcs():() -> StdTypes.Int return () -> this.goMaxProcs();
     function set_goMaxProcs(v:() -> StdTypes.Int):() -> StdTypes.Int {
-        this.goMaxProcs = () -> v();
+        this.goMaxProcs = v;
         return v;
     }
-    public function new(?sleep:haxe.Int64 -> haxe.Int64, ?scavenge:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>, ?shouldStop:() -> Bool, ?goMaxProcs:() -> StdTypes.Int) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(_0 -> sleep((_0 : stdgo.GoInt64)), _0 -> scavenge((_0 : stdgo.GoUIntptr)), () -> shouldStop(), () -> goMaxProcs());
+    public function new(?sleep:haxe.Int64 -> haxe.Int64, ?scavenge:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>, ?shouldStop:() -> Bool, ?goMaxProcs:() -> StdTypes.Int) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(sleep, scavenge, shouldStop, goMaxProcs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -4999,12 +4999,12 @@ class Runtime {
     }
     static public inline function benchSetType(_n:StdTypes.Int, _resetTimer:() -> Void):Void {
         final _n = (_n : stdgo.GoInt);
-        final _resetTimer = () -> _resetTimer();
+        final _resetTimer = _resetTimer;
         stdgo._internal.runtime.Runtime_benchsettype.benchSetType(_n, _resetTimer);
     }
     static public inline function benchSetTypeSlice(_n:StdTypes.Int, _resetTimer:() -> Void, _len:StdTypes.Int):Void {
         final _n = (_n : stdgo.GoInt);
-        final _resetTimer = () -> _resetTimer();
+        final _resetTimer = _resetTimer;
         final _len = (_len : stdgo.GoInt);
         stdgo._internal.runtime.Runtime_benchsettypeslice.benchSetTypeSlice(_n, _resetTimer, _len);
     }
@@ -5431,7 +5431,7 @@ class Runtime {
         return stdgo._internal.runtime.Runtime_fpcallers.fPCallers(_pcBuf);
     }
     static public inline function setPinnerLeakPanic(_f:() -> Void):Void {
-        final _f = () -> _f();
+        final _f = _f;
         stdgo._internal.runtime.Runtime_setpinnerleakpanic.setPinnerLeakPanic(_f);
     }
     static public inline function getPinnerLeakPanic():() -> Void {

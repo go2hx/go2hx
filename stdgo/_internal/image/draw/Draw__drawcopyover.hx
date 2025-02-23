@@ -13,9 +13,9 @@ var _idelta = __4, _i1 = __3, _i0 = __2, _sdelta = __1, _ddelta = __0;
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (_dx * (4 : stdgo.GoInt) : stdgo.GoInt);
                 final __tmp__2 = (4 : stdgo.GoInt);
-                _i0 = @:binopAssign __tmp__0;
-                _i1 = @:binopAssign __tmp__1;
-                _idelta = @:binopAssign __tmp__2;
+                _i0 = __tmp__0;
+                _i1 = __tmp__1;
+                _idelta = __tmp__2;
             };
         } else {
             _d0 = (_d0 + ((((_dy - (1 : stdgo.GoInt) : stdgo.GoInt)) * (@:checkr _dst ?? throw "null pointer dereference").stride : stdgo.GoInt)) : stdgo.GoInt);
@@ -26,9 +26,9 @@ var _idelta = __4, _i1 = __3, _i0 = __2, _sdelta = __1, _ddelta = __0;
                 final __tmp__0 = (((_dx - (1 : stdgo.GoInt) : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt);
                 final __tmp__1 = (-4 : stdgo.GoInt);
                 final __tmp__2 = (-4 : stdgo.GoInt);
-                _i0 = @:binopAssign __tmp__0;
-                _i1 = @:binopAssign __tmp__1;
-                _idelta = @:binopAssign __tmp__2;
+                _i0 = __tmp__0;
+                _i1 = __tmp__1;
+                _idelta = __tmp__2;
             };
         };
         while ((_dy > (0 : stdgo.GoInt) : Bool)) {

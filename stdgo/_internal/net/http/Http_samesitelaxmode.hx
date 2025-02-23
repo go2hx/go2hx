@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final sameSiteLaxMode = ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_samesite.SameSite);
+final sameSiteLaxMode = (4 : stdgo._internal.net.http.Http_samesite.SameSite);

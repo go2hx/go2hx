@@ -9,9 +9,9 @@ function _xorBytes(_dstb:stdgo.Pointer<stdgo.GoUInt8>, _xb:stdgo.Pointer<stdgo.G
                 return;
             };
             var _done = (_n & ((((new stdgo.GoUIntptr(3) : stdgo.GoUIntptr) : stdgo.GoInt) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt)) : stdgo.GoInt);
-            _dst = (_dst.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
-            _x = (_x.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
-            _y = (_y.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+            _dst = (cast _dst.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+            _x = (cast _x.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+            _y = (cast _y.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
         };
         stdgo._internal.crypto.subtle.Subtle__xorloop._xorLoop(_dst, _x, _y);
     }

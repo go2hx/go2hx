@@ -8,8 +8,8 @@ function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var 
         {
             final __tmp__0 = ((_z / (_y : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
             final __tmp__1 = ((_z % (_y : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
-            _quo = @:binopAssign __tmp__0;
-            _rem = @:binopAssign __tmp__1;
+            _quo = __tmp__0;
+            _rem = __tmp__1;
         };
         return { _0 : _quo, _1 : _rem };
     }

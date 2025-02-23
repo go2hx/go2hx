@@ -106,7 +106,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Build interop test
-        run: haxelib run go2hx ./tests/interop
+        run: haxelib run go2hx ./tests/interop --nolibwrap
       - name: Test interop
         run: haxe tests/interop.hxml
   pointer:
@@ -1022,7 +1022,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   build-hl:
     
-    timeout-minutes: 45
+    timeout-minutes: 26
     needs: setup
     strategy:
       fail-fast: false
@@ -1086,7 +1086,7 @@ jobs:
         continue-on-error: true
   build-interp:
     
-    timeout-minutes: 45
+    timeout-minutes: 26
     needs: setup
     strategy:
       fail-fast: false
@@ -1150,7 +1150,7 @@ jobs:
         continue-on-error: true
   build-js:
     
-    timeout-minutes: 45
+    timeout-minutes: 26
     needs: setup
     strategy:
       fail-fast: false

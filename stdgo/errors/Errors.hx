@@ -1,242 +1,167 @@
 package stdgo.errors;
-var errUnsupported(get, set) : stdgo.Error;
-private function get_errUnsupported():stdgo.Error return stdgo._internal.errors.Errors_errunsupported.errUnsupported;
-private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
-        stdgo._internal.errors.Errors_errunsupported.errUnsupported = (v : stdgo.Error);
-        return v;
-    }
-@:dox(hide) class T__interface_0_static_extension {
-    static public function unwrap(t:stdgo._internal.errors.Errors_t__interface_0.T__interface_0):stdgo.Error {
-        return stdgo._internal.errors.Errors_t__interface_0_static_extension.T__interface_0_static_extension.unwrap(t);
+final invalidSyntaxTree : Code = stdgo._internal.internal.types.errors.Errors_invalidsyntaxtree.invalidSyntaxTree;
+final test = stdgo._internal.internal.types.errors.Errors_test.test;
+final blankPkgName = stdgo._internal.internal.types.errors.Errors_blankpkgname.blankPkgName;
+final mismatchedPkgName = stdgo._internal.internal.types.errors.Errors_mismatchedpkgname.mismatchedPkgName;
+final invalidPkgUse = stdgo._internal.internal.types.errors.Errors_invalidpkguse.invalidPkgUse;
+final badImportPath = stdgo._internal.internal.types.errors.Errors_badimportpath.badImportPath;
+final brokenImport = stdgo._internal.internal.types.errors.Errors_brokenimport.brokenImport;
+final importCRenamed = stdgo._internal.internal.types.errors.Errors_importcrenamed.importCRenamed;
+final unusedImport = stdgo._internal.internal.types.errors.Errors_unusedimport.unusedImport;
+final invalidInitCycle = stdgo._internal.internal.types.errors.Errors_invalidinitcycle.invalidInitCycle;
+final duplicateDecl = stdgo._internal.internal.types.errors.Errors_duplicatedecl.duplicateDecl;
+final invalidDeclCycle = stdgo._internal.internal.types.errors.Errors_invaliddeclcycle.invalidDeclCycle;
+final invalidTypeCycle = stdgo._internal.internal.types.errors.Errors_invalidtypecycle.invalidTypeCycle;
+final invalidConstInit = stdgo._internal.internal.types.errors.Errors_invalidconstinit.invalidConstInit;
+final invalidConstVal = stdgo._internal.internal.types.errors.Errors_invalidconstval.invalidConstVal;
+final invalidConstType = stdgo._internal.internal.types.errors.Errors_invalidconsttype.invalidConstType;
+final untypedNilUse = stdgo._internal.internal.types.errors.Errors_untypedniluse.untypedNilUse;
+final wrongAssignCount = stdgo._internal.internal.types.errors.Errors_wrongassigncount.wrongAssignCount;
+final unassignableOperand = stdgo._internal.internal.types.errors.Errors_unassignableoperand.unassignableOperand;
+final noNewVar = stdgo._internal.internal.types.errors.Errors_nonewvar.noNewVar;
+final multiValAssignOp = stdgo._internal.internal.types.errors.Errors_multivalassignop.multiValAssignOp;
+final invalidIfaceAssign = stdgo._internal.internal.types.errors.Errors_invalidifaceassign.invalidIfaceAssign;
+final invalidChanAssign = stdgo._internal.internal.types.errors.Errors_invalidchanassign.invalidChanAssign;
+final incompatibleAssign = stdgo._internal.internal.types.errors.Errors_incompatibleassign.incompatibleAssign;
+final unaddressableFieldAssign = stdgo._internal.internal.types.errors.Errors_unaddressablefieldassign.unaddressableFieldAssign;
+final notAType = stdgo._internal.internal.types.errors.Errors_notatype.notAType;
+final invalidArrayLen = stdgo._internal.internal.types.errors.Errors_invalidarraylen.invalidArrayLen;
+final blankIfaceMethod = stdgo._internal.internal.types.errors.Errors_blankifacemethod.blankIfaceMethod;
+final incomparableMapKey = stdgo._internal.internal.types.errors.Errors_incomparablemapkey.incomparableMapKey;
+final invalidPtrEmbed = stdgo._internal.internal.types.errors.Errors_invalidptrembed.invalidPtrEmbed;
+final badRecv = stdgo._internal.internal.types.errors.Errors_badrecv.badRecv;
+final invalidRecv = stdgo._internal.internal.types.errors.Errors_invalidrecv.invalidRecv;
+final duplicateFieldAndMethod = stdgo._internal.internal.types.errors.Errors_duplicatefieldandmethod.duplicateFieldAndMethod;
+final duplicateMethod = stdgo._internal.internal.types.errors.Errors_duplicatemethod.duplicateMethod;
+final invalidBlank = stdgo._internal.internal.types.errors.Errors_invalidblank.invalidBlank;
+final invalidIota = stdgo._internal.internal.types.errors.Errors_invalidiota.invalidIota;
+final missingInitBody = stdgo._internal.internal.types.errors.Errors_missinginitbody.missingInitBody;
+final invalidInitSig = stdgo._internal.internal.types.errors.Errors_invalidinitsig.invalidInitSig;
+final invalidInitDecl = stdgo._internal.internal.types.errors.Errors_invalidinitdecl.invalidInitDecl;
+final invalidMainDecl = stdgo._internal.internal.types.errors.Errors_invalidmaindecl.invalidMainDecl;
+final tooManyValues = stdgo._internal.internal.types.errors.Errors_toomanyvalues.tooManyValues;
+final notAnExpr = stdgo._internal.internal.types.errors.Errors_notanexpr.notAnExpr;
+final truncatedFloat = stdgo._internal.internal.types.errors.Errors_truncatedfloat.truncatedFloat;
+final numericOverflow = stdgo._internal.internal.types.errors.Errors_numericoverflow.numericOverflow;
+final undefinedOp = stdgo._internal.internal.types.errors.Errors_undefinedop.undefinedOp;
+final mismatchedTypes = stdgo._internal.internal.types.errors.Errors_mismatchedtypes.mismatchedTypes;
+final divByZero = stdgo._internal.internal.types.errors.Errors_divbyzero.divByZero;
+final nonNumericIncDec = stdgo._internal.internal.types.errors.Errors_nonnumericincdec.nonNumericIncDec;
+final unaddressableOperand = stdgo._internal.internal.types.errors.Errors_unaddressableoperand.unaddressableOperand;
+final invalidIndirection = stdgo._internal.internal.types.errors.Errors_invalidindirection.invalidIndirection;
+final nonIndexableOperand = stdgo._internal.internal.types.errors.Errors_nonindexableoperand.nonIndexableOperand;
+final invalidIndex = stdgo._internal.internal.types.errors.Errors_invalidindex.invalidIndex;
+final swappedSliceIndices = stdgo._internal.internal.types.errors.Errors_swappedsliceindices.swappedSliceIndices;
+final nonSliceableOperand = stdgo._internal.internal.types.errors.Errors_nonsliceableoperand.nonSliceableOperand;
+final invalidSliceExpr = stdgo._internal.internal.types.errors.Errors_invalidsliceexpr.invalidSliceExpr;
+final invalidShiftCount = stdgo._internal.internal.types.errors.Errors_invalidshiftcount.invalidShiftCount;
+final invalidShiftOperand = stdgo._internal.internal.types.errors.Errors_invalidshiftoperand.invalidShiftOperand;
+final invalidReceive = stdgo._internal.internal.types.errors.Errors_invalidreceive.invalidReceive;
+final invalidSend = stdgo._internal.internal.types.errors.Errors_invalidsend.invalidSend;
+final duplicateLitKey = stdgo._internal.internal.types.errors.Errors_duplicatelitkey.duplicateLitKey;
+final missingLitKey = stdgo._internal.internal.types.errors.Errors_missinglitkey.missingLitKey;
+final invalidLitIndex = stdgo._internal.internal.types.errors.Errors_invalidlitindex.invalidLitIndex;
+final oversizeArrayLit = stdgo._internal.internal.types.errors.Errors_oversizearraylit.oversizeArrayLit;
+final mixedStructLit = stdgo._internal.internal.types.errors.Errors_mixedstructlit.mixedStructLit;
+final invalidStructLit = stdgo._internal.internal.types.errors.Errors_invalidstructlit.invalidStructLit;
+final missingLitField = stdgo._internal.internal.types.errors.Errors_missinglitfield.missingLitField;
+final duplicateLitField = stdgo._internal.internal.types.errors.Errors_duplicatelitfield.duplicateLitField;
+final unexportedLitField = stdgo._internal.internal.types.errors.Errors_unexportedlitfield.unexportedLitField;
+final invalidLitField = stdgo._internal.internal.types.errors.Errors_invalidlitfield.invalidLitField;
+final untypedLit = stdgo._internal.internal.types.errors.Errors_untypedlit.untypedLit;
+final invalidLit = stdgo._internal.internal.types.errors.Errors_invalidlit.invalidLit;
+final ambiguousSelector = stdgo._internal.internal.types.errors.Errors_ambiguousselector.ambiguousSelector;
+final undeclaredImportedName = stdgo._internal.internal.types.errors.Errors_undeclaredimportedname.undeclaredImportedName;
+final unexportedName = stdgo._internal.internal.types.errors.Errors_unexportedname.unexportedName;
+final undeclaredName = stdgo._internal.internal.types.errors.Errors_undeclaredname.undeclaredName;
+final missingFieldOrMethod = stdgo._internal.internal.types.errors.Errors_missingfieldormethod.missingFieldOrMethod;
+final badDotDotDotSyntax = stdgo._internal.internal.types.errors.Errors_baddotdotdotsyntax.badDotDotDotSyntax;
+final nonVariadicDotDotDot = stdgo._internal.internal.types.errors.Errors_nonvariadicdotdotdot.nonVariadicDotDotDot;
+final misplacedDotDotDot = stdgo._internal.internal.types.errors.Errors_misplaceddotdotdot.misplacedDotDotDot;
+final invalidDotDotDot = stdgo._internal.internal.types.errors.Errors_invaliddotdotdot.invalidDotDotDot;
+final uncalledBuiltin = stdgo._internal.internal.types.errors.Errors_uncalledbuiltin.uncalledBuiltin;
+final invalidAppend = stdgo._internal.internal.types.errors.Errors_invalidappend.invalidAppend;
+final invalidCap = stdgo._internal.internal.types.errors.Errors_invalidcap.invalidCap;
+final invalidClose = stdgo._internal.internal.types.errors.Errors_invalidclose.invalidClose;
+final invalidCopy = stdgo._internal.internal.types.errors.Errors_invalidcopy.invalidCopy;
+final invalidComplex = stdgo._internal.internal.types.errors.Errors_invalidcomplex.invalidComplex;
+final invalidDelete = stdgo._internal.internal.types.errors.Errors_invaliddelete.invalidDelete;
+final invalidImag = stdgo._internal.internal.types.errors.Errors_invalidimag.invalidImag;
+final invalidLen = stdgo._internal.internal.types.errors.Errors_invalidlen.invalidLen;
+final swappedMakeArgs = stdgo._internal.internal.types.errors.Errors_swappedmakeargs.swappedMakeArgs;
+final invalidMake = stdgo._internal.internal.types.errors.Errors_invalidmake.invalidMake;
+final invalidReal = stdgo._internal.internal.types.errors.Errors_invalidreal.invalidReal;
+final invalidAssert = stdgo._internal.internal.types.errors.Errors_invalidassert.invalidAssert;
+final impossibleAssert = stdgo._internal.internal.types.errors.Errors_impossibleassert.impossibleAssert;
+final invalidConversion = stdgo._internal.internal.types.errors.Errors_invalidconversion.invalidConversion;
+final invalidUntypedConversion = stdgo._internal.internal.types.errors.Errors_invaliduntypedconversion.invalidUntypedConversion;
+final badOffsetofSyntax = stdgo._internal.internal.types.errors.Errors_badoffsetofsyntax.badOffsetofSyntax;
+final invalidOffsetof = stdgo._internal.internal.types.errors.Errors_invalidoffsetof.invalidOffsetof;
+final unusedExpr = stdgo._internal.internal.types.errors.Errors_unusedexpr.unusedExpr;
+final unusedVar = stdgo._internal.internal.types.errors.Errors_unusedvar.unusedVar;
+final missingReturn = stdgo._internal.internal.types.errors.Errors_missingreturn.missingReturn;
+final wrongResultCount = stdgo._internal.internal.types.errors.Errors_wrongresultcount.wrongResultCount;
+final outOfScopeResult = stdgo._internal.internal.types.errors.Errors_outofscoperesult.outOfScopeResult;
+final invalidCond = stdgo._internal.internal.types.errors.Errors_invalidcond.invalidCond;
+final invalidPostDecl = stdgo._internal.internal.types.errors.Errors_invalidpostdecl.invalidPostDecl;
+final invalidIterVar = stdgo._internal.internal.types.errors.Errors_invaliditervar.invalidIterVar;
+final invalidRangeExpr = stdgo._internal.internal.types.errors.Errors_invalidrangeexpr.invalidRangeExpr;
+final misplacedBreak = stdgo._internal.internal.types.errors.Errors_misplacedbreak.misplacedBreak;
+final misplacedContinue = stdgo._internal.internal.types.errors.Errors_misplacedcontinue.misplacedContinue;
+final misplacedFallthrough = stdgo._internal.internal.types.errors.Errors_misplacedfallthrough.misplacedFallthrough;
+final duplicateCase = stdgo._internal.internal.types.errors.Errors_duplicatecase.duplicateCase;
+final duplicateDefault = stdgo._internal.internal.types.errors.Errors_duplicatedefault.duplicateDefault;
+final badTypeKeyword = stdgo._internal.internal.types.errors.Errors_badtypekeyword.badTypeKeyword;
+final invalidTypeSwitch = stdgo._internal.internal.types.errors.Errors_invalidtypeswitch.invalidTypeSwitch;
+final invalidExprSwitch = stdgo._internal.internal.types.errors.Errors_invalidexprswitch.invalidExprSwitch;
+final invalidSelectCase = stdgo._internal.internal.types.errors.Errors_invalidselectcase.invalidSelectCase;
+final undeclaredLabel = stdgo._internal.internal.types.errors.Errors_undeclaredlabel.undeclaredLabel;
+final duplicateLabel = stdgo._internal.internal.types.errors.Errors_duplicatelabel.duplicateLabel;
+final misplacedLabel = stdgo._internal.internal.types.errors.Errors_misplacedlabel.misplacedLabel;
+final unusedLabel = stdgo._internal.internal.types.errors.Errors_unusedlabel.unusedLabel;
+final jumpOverDecl = stdgo._internal.internal.types.errors.Errors_jumpoverdecl.jumpOverDecl;
+final jumpIntoBlock = stdgo._internal.internal.types.errors.Errors_jumpintoblock.jumpIntoBlock;
+final invalidMethodExpr = stdgo._internal.internal.types.errors.Errors_invalidmethodexpr.invalidMethodExpr;
+final wrongArgCount = stdgo._internal.internal.types.errors.Errors_wrongargcount.wrongArgCount;
+final invalidCall = stdgo._internal.internal.types.errors.Errors_invalidcall.invalidCall;
+final unusedResults = stdgo._internal.internal.types.errors.Errors_unusedresults.unusedResults;
+final invalidDefer = stdgo._internal.internal.types.errors.Errors_invaliddefer.invalidDefer;
+final invalidGo = stdgo._internal.internal.types.errors.Errors_invalidgo.invalidGo;
+final badDecl = stdgo._internal.internal.types.errors.Errors_baddecl.badDecl;
+final repeatedDecl = stdgo._internal.internal.types.errors.Errors_repeateddecl.repeatedDecl;
+final invalidUnsafeAdd = stdgo._internal.internal.types.errors.Errors_invalidunsafeadd.invalidUnsafeAdd;
+final invalidUnsafeSlice = stdgo._internal.internal.types.errors.Errors_invalidunsafeslice.invalidUnsafeSlice;
+final unsupportedFeature = stdgo._internal.internal.types.errors.Errors_unsupportedfeature.unsupportedFeature;
+final notAGenericType = stdgo._internal.internal.types.errors.Errors_notagenerictype.notAGenericType;
+final wrongTypeArgCount = stdgo._internal.internal.types.errors.Errors_wrongtypeargcount.wrongTypeArgCount;
+final cannotInferTypeArgs = stdgo._internal.internal.types.errors.Errors_cannotinfertypeargs.cannotInferTypeArgs;
+final invalidTypeArg = stdgo._internal.internal.types.errors.Errors_invalidtypearg.invalidTypeArg;
+final invalidInstanceCycle = stdgo._internal.internal.types.errors.Errors_invalidinstancecycle.invalidInstanceCycle;
+final invalidUnion = stdgo._internal.internal.types.errors.Errors_invalidunion.invalidUnion;
+final misplacedConstraintIface = stdgo._internal.internal.types.errors.Errors_misplacedconstraintiface.misplacedConstraintIface;
+final invalidMethodTypeParams = stdgo._internal.internal.types.errors.Errors_invalidmethodtypeparams.invalidMethodTypeParams;
+final misplacedTypeParam = stdgo._internal.internal.types.errors.Errors_misplacedtypeparam.misplacedTypeParam;
+final invalidUnsafeSliceData = stdgo._internal.internal.types.errors.Errors_invalidunsafeslicedata.invalidUnsafeSliceData;
+final invalidUnsafeString = stdgo._internal.internal.types.errors.Errors_invalidunsafestring.invalidUnsafeString;
+final invalidClear = stdgo._internal.internal.types.errors.Errors_invalidclear.invalidClear;
+final typeTooLarge = stdgo._internal.internal.types.errors.Errors_typetoolarge.typeTooLarge;
+final invalidMinMaxOperand = stdgo._internal.internal.types.errors.Errors_invalidminmaxoperand.invalidMinMaxOperand;
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.internal.types.errors.Errors_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0 = stdgo._internal.internal.types.errors.Errors_t__struct_0.T__struct_0;
+typedef Code = stdgo._internal.internal.types.errors.Errors_code.Code;
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.internal.types.errors.Errors_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
+
+}
+typedef CodePointer = stdgo._internal.internal.types.errors.Errors_codepointer.CodePointer;
+class Code_static_extension {
+    static public function string(_i:Code):String {
+        return stdgo._internal.internal.types.errors.Errors_code_static_extension.Code_static_extension.string(_i);
     }
 }
-@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.errors.Errors_t__interface_0.T__interface_0) from stdgo._internal.errors.Errors_t__interface_0.T__interface_0 to stdgo._internal.errors.Errors_t__interface_0.T__interface_0 {
-    @:from
-    static function fromHaxeInterface(x:{ function unwrap():stdgo.Error; }):T__interface_0 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_0 = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_1_static_extension {
-    static public function is_(t:stdgo._internal.errors.Errors_t__interface_1.T__interface_1, _0:stdgo.Error):Bool {
-        final _0 = (_0 : stdgo.Error);
-        return stdgo._internal.errors.Errors_t__interface_1_static_extension.T__interface_1_static_extension.is_(t, _0);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_1(stdgo._internal.errors.Errors_t__interface_1.T__interface_1) from stdgo._internal.errors.Errors_t__interface_1.T__interface_1 to stdgo._internal.errors.Errors_t__interface_1.T__interface_1 {
-    @:from
-    static function fromHaxeInterface(x:{ function is_(_0:stdgo.Error):Bool; }):T__interface_1 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_1 = { is_ : _0 -> x.is_(_0), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_2_static_extension {
-    static public function unwrap(t:stdgo._internal.errors.Errors_t__interface_2.T__interface_2):Array<stdgo.Error> {
-        return [for (i in stdgo._internal.errors.Errors_t__interface_2_static_extension.T__interface_2_static_extension.unwrap(t)) i];
-    }
-}
-@:dox(hide) @:forward abstract T__interface_2(stdgo._internal.errors.Errors_t__interface_2.T__interface_2) from stdgo._internal.errors.Errors_t__interface_2.T__interface_2 to stdgo._internal.errors.Errors_t__interface_2.T__interface_2 {
-    @:from
-    static function fromHaxeInterface(x:{ function unwrap():Array<stdgo.Error>; }):T__interface_2 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_2 = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:dox(hide) class T__interface_3_static_extension {
-    static public function as(t:stdgo._internal.errors.Errors_t__interface_3.T__interface_3, _0:stdgo.AnyInterface):Bool {
-        final _0 = (_0 : stdgo.AnyInterface);
-        return stdgo._internal.errors.Errors_t__interface_3_static_extension.T__interface_3_static_extension.as(t, _0);
-    }
-}
-@:dox(hide) @:forward abstract T__interface_3(stdgo._internal.errors.Errors_t__interface_3.T__interface_3) from stdgo._internal.errors.Errors_t__interface_3.T__interface_3 to stdgo._internal.errors.Errors_t__interface_3.T__interface_3 {
-    @:from
-    static function fromHaxeInterface(x:{ function as(_0:stdgo.AnyInterface):Bool; }):T__interface_3 {
-        var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_3 = { as : _0 -> x.as(_0), __underlying__ : () -> __f__() };
-        __f__ = () -> stdgo.Go.toInterface(y);
-        return y;
-    }
-}
-@:structInit @:using(stdgo.errors.Errors.T_errorString_static_extension) @:dox(hide) abstract T_errorString(stdgo._internal.errors.Errors_t_errorstring.T_errorString) from stdgo._internal.errors.Errors_t_errorstring.T_errorString to stdgo._internal.errors.Errors_t_errorstring.T_errorString {
-    public var _s(get, set) : String;
-    function get__s():String return this._s;
-    function set__s(v:String):String {
-        this._s = (v : stdgo.GoString);
-        return v;
-    }
-    public function new(?_s:String) this = new stdgo._internal.errors.Errors_t_errorstring.T_errorString((_s : stdgo.GoString));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.errors.Errors.T_joinError_static_extension) @:dox(hide) abstract T_joinError(stdgo._internal.errors.Errors_t_joinerror.T_joinError) from stdgo._internal.errors.Errors_t_joinerror.T_joinError to stdgo._internal.errors.Errors_t_joinerror.T_joinError {
-    public var _errs(get, set) : Array<stdgo.Error>;
-    function get__errs():Array<stdgo.Error> return [for (i in this._errs) i];
-    function set__errs(v:Array<stdgo.Error>):Array<stdgo.Error> {
-        this._errs = ([for (i in v) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>);
-        return v;
-    }
-    public function new(?_errs:Array<stdgo.Error>) this = new stdgo._internal.errors.Errors_t_joinerror.T_joinError(([for (i in _errs) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:dox(hide) typedef T_errorStringPointer = stdgo._internal.errors.Errors_t_errorstringpointer.T_errorStringPointer;
-@:dox(hide) class T_errorString_static_extension {
-    static public function error(_e:T_errorString):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_t_errorstring.T_errorString>);
-        return stdgo._internal.errors.Errors_t_errorstring_static_extension.T_errorString_static_extension.error(_e);
-    }
-}
-@:dox(hide) typedef T_joinErrorPointer = stdgo._internal.errors.Errors_t_joinerrorpointer.T_joinErrorPointer;
-@:dox(hide) class T_joinError_static_extension {
-    static public function unwrap(_e:T_joinError):Array<stdgo.Error> {
-        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_t_joinerror.T_joinError>);
-        return [for (i in stdgo._internal.errors.Errors_t_joinerror_static_extension.T_joinError_static_extension.unwrap(_e)) i];
-    }
-    static public function error(_e:T_joinError):String {
-        final _e = (_e : stdgo.Ref<stdgo._internal.errors.Errors_t_joinerror.T_joinError>);
-        return stdgo._internal.errors.Errors_t_joinerror_static_extension.T_joinError_static_extension.error(_e);
-    }
-}
-/**
-    * Package errors implements functions to manipulate errors.
-    * 
-    * The [New] function creates errors whose only content is a text message.
-    * 
-    * An error e wraps another error if e's type has one of the methods
-    * 
-    * 	Unwrap() error
-    * 	Unwrap() []error
-    * 
-    * If e.Unwrap() returns a non-nil error w or a slice containing w,
-    * then we say that e wraps w. A nil error returned from e.Unwrap()
-    * indicates that e does not wrap any error. It is invalid for an
-    * Unwrap method to return an []error containing a nil error value.
-    * 
-    * An easy way to create wrapped errors is to call [fmt.Errorf] and apply
-    * the %w verb to the error argument:
-    * 
-    * 	wrapsErr := fmt.Errorf("... %w ...", ..., err, ...)
-    * 
-    * Successive unwrapping of an error creates a tree. The [Is] and [As]
-    * functions inspect an error's tree by examining first the error
-    * itself followed by the tree of each of its children in turn
-    * (pre-order, depth-first traversal).
-    * 
-    * Is examines the tree of its first argument looking for an error that
-    * matches the second. It reports whether it finds a match. It should be
-    * used in preference to simple equality checks:
-    * 
-    * 	if errors.Is(err, fs.ErrExist)
-    * 
-    * is preferable to
-    * 
-    * 	if err == fs.ErrExist
-    * 
-    * because the former will succeed if err wraps [io/fs.ErrExist].
-    * 
-    * As examines the tree of its first argument looking for an error that can be
-    * assigned to its second argument, which must be a pointer. If it succeeds, it
-    * performs the assignment and returns true. Otherwise, it returns false. The form
-    * 
-    * 	var perr *fs.PathError
-    * 	if errors.As(err, &perr) {
-    * 		fmt.Println(perr.Path)
-    * 	}
-    * 
-    * is preferable to
-    * 
-    * 	if perr, ok := err.(*fs.PathError); ok {
-    * 		fmt.Println(perr.Path)
-    * 	}
-    * 
-    * because the former will succeed if err wraps an [*io/fs.PathError].
-**/
 class Errors {
-    /**
-        * New returns an error that formats as the given text.
-        * Each call to New returns a distinct error value even if the text is identical.
-    **/
-    static public inline function new_(_text:String):stdgo.Error {
-        final _text = (_text : stdgo.GoString);
-        return stdgo._internal.errors.Errors_new_.new_(_text);
-    }
-    /**
-        * Join returns an error that wraps the given errors.
-        * Any nil error values are discarded.
-        * Join returns nil if every value in errs is nil.
-        * The error formats as the concatenation of the strings obtained
-        * by calling the Error method of each element of errs, with a newline
-        * between each string.
-        * 
-        * A non-nil error returned by Join implements the Unwrap() []error method.
-    **/
-    static public inline function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
-        return stdgo._internal.errors.Errors_join.join(...[for (i in _errs) i]);
-    }
-    /**
-        * Unwrap returns the result of calling the Unwrap method on err, if err's
-        * type contains an Unwrap method returning error.
-        * Otherwise, Unwrap returns nil.
-        * 
-        * Unwrap only calls a method of the form "Unwrap() error".
-        * In particular Unwrap does not unwrap errors returned by [Join].
-    **/
-    static public inline function unwrap(_err:stdgo.Error):stdgo.Error {
-        final _err = (_err : stdgo.Error);
-        return stdgo._internal.errors.Errors_unwrap.unwrap(_err);
-    }
-    /**
-        * Is reports whether any error in err's tree matches target.
-        * 
-        * The tree consists of err itself, followed by the errors obtained by repeatedly
-        * calling Unwrap. When err wraps multiple errors, Is examines err followed by a
-        * depth-first traversal of its children.
-        * 
-        * An error is considered to match a target if it is equal to that target or if
-        * it implements a method Is(error) bool such that Is(target) returns true.
-        * 
-        * An error type might provide an Is method so it can be treated as equivalent
-        * to an existing error. For example, if MyError defines
-        * 
-        * 	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
-        * 
-        * then Is(MyError{}, fs.ErrExist) returns true. See [syscall.Errno.Is] for
-        * an example in the standard library. An Is method should only shallowly
-        * compare err and the target and not call Unwrap on either.
-    **/
-    static public inline function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
-        final _err = (_err : stdgo.Error);
-        final _target = (_target : stdgo.Error);
-        return stdgo._internal.errors.Errors_is_.is_(_err, _target);
-    }
-    /**
-        * As finds the first error in err's tree that matches target, and if one is found, sets
-        * target to that error value and returns true. Otherwise, it returns false.
-        * 
-        * The tree consists of err itself, followed by the errors obtained by repeatedly
-        * calling Unwrap. When err wraps multiple errors, As examines err followed by a
-        * depth-first traversal of its children.
-        * 
-        * An error matches target if the error's concrete value is assignable to the value
-        * pointed to by target, or if the error has a method As(interface{}) bool such that
-        * As(target) returns true. In the latter case, the As method is responsible for
-        * setting target.
-        * 
-        * An error type might provide an As method so it can be treated as if it were a
-        * different error type.
-        * 
-        * As panics if target is not a non-nil pointer to either a type that implements
-        * error, or to any interface type.
-    **/
-    static public inline function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
-        final _err = (_err : stdgo.Error);
-        final _target = (_target : stdgo.AnyInterface);
-        return stdgo._internal.errors.Errors_as.as(_err, _target);
-    }
+
 }

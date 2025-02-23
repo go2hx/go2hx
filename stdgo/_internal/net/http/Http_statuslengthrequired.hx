@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusLengthRequired : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusLengthRequired : stdgo.GoUInt64 = (411i64 : stdgo.GoUInt64);

@@ -20,10 +20,10 @@ package stdgo._internal.regexp.syntax;
             final __tmp__9 = (_j : stdgo.GoInt);
             final __tmp__10 = _p;
             final __tmp__11 = (_j + (1 : stdgo.GoInt) : stdgo.GoInt);
-            __tmp__4[__tmp__5] = @:binopAssign __tmp__0;
-            __tmp__6[__tmp__7] = @:binopAssign __tmp__1;
-            __tmp__8[__tmp__9] = @:binopAssign __tmp__2;
-            __tmp__10[__tmp__11] = @:binopAssign __tmp__3;
+            __tmp__4[__tmp__5] = __tmp__0;
+            __tmp__6[__tmp__7] = __tmp__1;
+            __tmp__8[__tmp__9] = __tmp__2;
+            __tmp__10[__tmp__11] = __tmp__3;
         };
     }
     @:keep

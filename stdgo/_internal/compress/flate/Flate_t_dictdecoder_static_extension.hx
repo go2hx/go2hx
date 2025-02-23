@@ -10,8 +10,8 @@ package stdgo._internal.compress.flate;
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (0 : stdgo.GoInt);
-                (@:checkr _dd ?? throw "null pointer dereference")._wrPos = @:binopAssign __tmp__0;
-                (@:checkr _dd ?? throw "null pointer dereference")._rdPos = @:binopAssign __tmp__1;
+                (@:checkr _dd ?? throw "null pointer dereference")._wrPos = __tmp__0;
+                (@:checkr _dd ?? throw "null pointer dereference")._rdPos = __tmp__1;
             };
             (@:checkr _dd ?? throw "null pointer dereference")._full = true;
         };

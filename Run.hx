@@ -37,7 +37,7 @@ function main() {
 	var process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
 		var message = process.stderr.readAll().toString();
-		trace("Cannot execute `git rev-arse HEAD`. " + message);
+		trace("Cannot execute `git rev-arse HEAD` " + message);
 		return;
 	}
 	final version = process.stdout.readLine();
@@ -60,6 +60,11 @@ function main() {
 
 	if (args.length <= 1) {
 		Sys.command("haxe scripts/build-interp.hxml --help");
+		return;
+	}
+	if ((index = args.indexOf("-compiler_cpp")) != -1 || (index = args.indexOf("--compiler_cpp")) != -1) {
+		args.remove(args[index]);
+		setupCPP(rebuild, args);
 		return;
 	}
 	if ((index = args.indexOf("-compiler_hl")) != -1 || (index = args.indexOf("--compiler_hl")) != -1) {
@@ -175,6 +180,21 @@ function setupNodeJS(rebuild:Bool,args:Array<String>) {
 	// args.unshift("--max-old-space-size=4096");
 	//args.unshift("--expose-gc");
 	Sys.command("node", args);
+}
+
+function setupCPP(rebuild:Bool,args:Array<String>) {
+	Sys.println("C++ compiler version");
+	if (!FileSystem.exists("export/cpp") || rebuild) {
+		var cmd = "haxe scripts/build-cpp.hxml";
+		Sys.command(cmd);
+	}
+	final name = if (Sys.systemName() != "Windows") {
+		"./export/cpp/Main-debug";
+	}else{
+		"export/cpp/Main-debug.exe";
+	}
+	trace(name,args);
+	new sys.io.Process(name, args);
 }
 
 function setupHashlink(rebuild:Bool,args:Array<String>) {

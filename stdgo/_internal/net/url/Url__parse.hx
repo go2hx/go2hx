@@ -55,8 +55,8 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
             {
                 final __tmp__0 = (_rest.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                _authority = @:binopAssign __tmp__0;
-                _rest = @:binopAssign __tmp__1;
+                _authority = __tmp__0;
+                _rest = __tmp__1;
             };
             {
                 var _i = (stdgo._internal.strings.Strings_index.index(_authority?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
@@ -64,8 +64,8 @@ function _parse(_rawURL:stdgo.GoString, _viaRequest:Bool):{ var _0 : stdgo.Ref<s
                     {
                         final __tmp__0 = (_authority.__slice__(0, _i) : stdgo.GoString)?.__copy__();
                         final __tmp__1 = (_authority.__slice__(_i) : stdgo.GoString)?.__copy__();
-                        _authority = @:binopAssign __tmp__0;
-                        _rest = @:binopAssign __tmp__1;
+                        _authority = __tmp__0;
+                        _rest = __tmp__1;
                     };
                 };
             };

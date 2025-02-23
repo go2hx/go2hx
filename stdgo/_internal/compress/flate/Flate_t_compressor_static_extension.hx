@@ -55,14 +55,14 @@ package stdgo._internal.compress.flate;
                 {
                     final __tmp__0 = (0 : stdgo.GoInt);
                     final __tmp__1 = (0 : stdgo.GoInt);
-                    (@:checkr _d ?? throw "null pointer dereference")._index = @:binopAssign __tmp__0;
-                    (@:checkr _d ?? throw "null pointer dereference")._windowEnd = @:binopAssign __tmp__1;
+                    (@:checkr _d ?? throw "null pointer dereference")._index = __tmp__0;
+                    (@:checkr _d ?? throw "null pointer dereference")._windowEnd = __tmp__1;
                 };
                 {
                     final __tmp__0 = (0 : stdgo.GoInt);
                     final __tmp__1 = false;
-                    (@:checkr _d ?? throw "null pointer dereference")._blockStart = @:binopAssign __tmp__0;
-                    (@:checkr _d ?? throw "null pointer dereference")._byteAvailable = @:binopAssign __tmp__1;
+                    (@:checkr _d ?? throw "null pointer dereference")._blockStart = __tmp__0;
+                    (@:checkr _d ?? throw "null pointer dereference")._byteAvailable = __tmp__1;
                 };
                 (@:checkr _d ?? throw "null pointer dereference")._tokens = ((@:checkr _d ?? throw "null pointer dereference")._tokens.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
                 (@:checkr _d ?? throw "null pointer dereference")._length = (3 : stdgo.GoInt);
@@ -84,21 +84,21 @@ package stdgo._internal.compress.flate;
                 __run__ = false;
                 if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_level == (0 : stdgo.GoInt)))) {
                     (@:checkr _d ?? throw "null pointer dereference")._window = (new stdgo.Slice<stdgo.GoUInt8>((65535 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                    (@:checkr _d ?? throw "null pointer dereference")._fill = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
-                    (@:checkr _d ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._store;
+                    (@:checkr _d ?? throw "null pointer dereference")._fill = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
+                    (@:checkr _d ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._store;
                     break;
                     break;
                 } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_level == (-2 : stdgo.GoInt)))) {
                     (@:checkr _d ?? throw "null pointer dereference")._window = (new stdgo.Slice<stdgo.GoUInt8>((65535 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                    (@:checkr _d ?? throw "null pointer dereference")._fill = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
-                    (@:checkr _d ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._storeHuff;
+                    (@:checkr _d ?? throw "null pointer dereference")._fill = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
+                    (@:checkr _d ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._storeHuff;
                     break;
                     break;
                 } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_level == (1 : stdgo.GoInt)))) {
                     (@:checkr _d ?? throw "null pointer dereference")._compressionLevel = stdgo._internal.compress.flate.Flate__levels._levels[(_level : stdgo.GoInt)];
                     (@:checkr _d ?? throw "null pointer dereference")._window = (new stdgo.Slice<stdgo.GoUInt8>((65535 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                    (@:checkr _d ?? throw "null pointer dereference")._fill = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
-                    (@:checkr _d ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._encSpeed;
+                    (@:checkr _d ?? throw "null pointer dereference")._fill = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillStore;
+                    (@:checkr _d ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._encSpeed;
                     (@:checkr _d ?? throw "null pointer dereference")._bestSpeed = stdgo._internal.compress.flate.Flate__newdeflatefast._newDeflateFast();
                     (@:checkr _d ?? throw "null pointer dereference")._tokens = (new stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>((65535 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.compress.flate.Flate_t_token.T_token>);
                     break;
@@ -114,8 +114,8 @@ package stdgo._internal.compress.flate;
                 } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && (((2 : stdgo.GoInt) <= _level : Bool) && (_level <= (9 : stdgo.GoInt) : Bool) : Bool))) {
                     (@:checkr _d ?? throw "null pointer dereference")._compressionLevel = stdgo._internal.compress.flate.Flate__levels._levels[(_level : stdgo.GoInt)];
                     @:check2r _d._initDeflate();
-                    (@:checkr _d ?? throw "null pointer dereference")._fill = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillDeflate;
-                    (@:checkr _d ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._deflate;
+                    (@:checkr _d ?? throw "null pointer dereference")._fill = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._fillDeflate;
+                    (@:checkr _d ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_compressor_static_extension.T_compressor_static_extension._deflate;
                     break;
                     break;
                 } else {
@@ -209,20 +209,20 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> = _d;
-        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _index_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ok_8:Bool = false;
-        var _newLength_6:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _index_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newOffset_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newLength_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevLength_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_8:Bool = false;
+        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));

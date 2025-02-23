@@ -21,6 +21,16 @@ log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
 
 -- FAIL: TestAll
 

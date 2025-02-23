@@ -713,7 +713,7 @@ class Go {
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final toType = gtDecode(t2, null, []);
 				// trace(new haxe.macro.Printer().printExpr(e));
-				final e = @:pos(Context.currentPos()) macro({
+				final e = macro @:pos(Context.currentPos()) ({
 					var t = new stdgo._internal.internal.reflect.Reflect._Type($toType);
 					// trace($e.type._common());
 					// trace(t._common());

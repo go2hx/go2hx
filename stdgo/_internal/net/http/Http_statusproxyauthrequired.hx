@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusProxyAuthRequired : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusProxyAuthRequired : stdgo.GoUInt64 = (407i64 : stdgo.GoUInt64);

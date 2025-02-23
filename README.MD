@@ -76,7 +76,7 @@ flowchart LR
 
 ## Installation
 
-* [Download Go 1.21.3](https://golang.org/dl/)
+* [Download Go 1.20+](https://golang.org/dl/)
 * [Download Haxe 4.3.2+](https://build.haxe.org/builds/haxe/)
 
 

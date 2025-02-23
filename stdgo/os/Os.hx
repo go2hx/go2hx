@@ -115,7 +115,7 @@ private function set_stderr(v:File):File {
 var atime(get, set) : stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time;
 private function get_atime():stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time return _0 -> stdgo._internal.os.Os_atime.atime(_0);
 private function set_atime(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time):stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo._internal.time.Time_time.Time {
-        stdgo._internal.os.Os_atime.atime = _0 -> v(_0);
+        stdgo._internal.os.Os_atime.atime = v;
         return v;
     }
 var lstatP(get, set) : stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>;
@@ -145,7 +145,7 @@ private function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error {
 var splitPath(get, set) : String -> stdgo.Tuple<String, String>;
 private function get_splitPath():String -> stdgo.Tuple<String, String> return _0 -> stdgo._internal.os.Os_splitpath.splitPath(_0);
 private function set_splitPath(v:String -> stdgo.Tuple<String, String>):String -> stdgo.Tuple<String, String> {
-        stdgo._internal.os.Os_splitpath.splitPath = _0 -> v((_0 : stdgo.GoString));
+        stdgo._internal.os.Os_splitpath.splitPath = v;
         return v;
     }
 @:dox(hide) class T_timeout_static_extension {
@@ -886,17 +886,17 @@ class LinkError_static_extension {
 @:dox(hide) class T_rawConn_static_extension {
     static public function write(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
-        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
+        final _f = _f;
         return stdgo._internal.os.Os_t_rawconn_static_extension.T_rawConn_static_extension.write(_c, _f);
     }
     static public function read(_c:T_rawConn, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
-        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
+        final _f = _f;
         return stdgo._internal.os.Os_t_rawconn_static_extension.T_rawConn_static_extension.read(_c, _f);
     }
     static public function control(_c:T_rawConn, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.os.Os_t_rawconn.T_rawConn>);
-        final _f = _0 -> _f((_0 : stdgo.GoUIntptr));
+        final _f = _f;
         return stdgo._internal.os.Os_t_rawconn_static_extension.T_rawConn_static_extension.control(_c, _f);
     }
 }
@@ -1293,7 +1293,7 @@ class Os {
     **/
     static public inline function expand(_s:String, _mapping:String -> String):String {
         final _s = (_s : stdgo.GoString);
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoString));
+        final _mapping = _mapping;
         return stdgo._internal.os.Os_expand.expand(_s, _mapping);
     }
     /**

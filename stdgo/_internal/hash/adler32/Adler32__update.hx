@@ -8,8 +8,8 @@ var _s2 = __1, _s1 = __0;
                 {
                     final __tmp__0 = (_p.__slice__(0, (5552 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_p.__slice__((5552 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                    _p = @:binopAssign __tmp__0;
-                    _q = @:binopAssign __tmp__1;
+                    _p = __tmp__0;
+                    _q = __tmp__1;
                 };
             };
             while (((_p.length) >= (4 : stdgo.GoInt) : Bool)) {

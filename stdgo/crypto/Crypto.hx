@@ -118,7 +118,7 @@ class Crypto {
         * packages that implement hash functions.
     **/
     static public inline function registerHash(_h:Hash, _f:() -> stdgo._internal.hash.Hash_hash.Hash):Void {
-        final _f = () -> _f();
+        final _f = _f;
         stdgo._internal.crypto.Crypto_registerhash.registerHash(_h, _f);
     }
 }

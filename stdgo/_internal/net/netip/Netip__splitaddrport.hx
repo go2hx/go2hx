@@ -15,8 +15,8 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         {
             final __tmp__0 = (_s.__slice__(0, _i) : stdgo.GoString)?.__copy__();
             final __tmp__1 = (_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-            _ip = @:binopAssign __tmp__0;
-            _port = @:binopAssign __tmp__1;
+            _ip = __tmp__0;
+            _port = __tmp__1;
         };
         if ((_ip.length) == ((0 : stdgo.GoInt))) {
             return {

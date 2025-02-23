@@ -5,7 +5,7 @@ package stdgo._internal.compress.flate;
     static public function reset( _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>, _r:stdgo._internal.io.Io_reader.Reader, _dict:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> = _f;
         {
-            var __tmp__ = ({ _rBuf : (@:checkr _f ?? throw "null pointer dereference")._rBuf, _bits : (@:checkr _f ?? throw "null pointer dereference")._bits, _codebits : (@:checkr _f ?? throw "null pointer dereference")._codebits, _dict : (@:checkr _f ?? throw "null pointer dereference")._dict?.__copy__(), _step : @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._nextBlock } : stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor);
+            var __tmp__ = ({ _rBuf : (@:checkr _f ?? throw "null pointer dereference")._rBuf, _bits : (@:checkr _f ?? throw "null pointer dereference")._bits, _codebits : (@:checkr _f ?? throw "null pointer dereference")._codebits, _dict : (@:checkr _f ?? throw "null pointer dereference")._dict?.__copy__(), _step : stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._nextBlock } : stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor);
             var x = (_f : stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor);
             x._r = __tmp__?._r;
             x._rBuf = __tmp__?._rBuf;
@@ -116,7 +116,7 @@ var _b = __1, _nb = __0;
             };
             (@:checkr _f ?? throw "null pointer dereference")._err = stdgo._internal.io.Io_eof.eOF;
         };
-        (@:checkr _f ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._nextBlock;
+        (@:checkr _f ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._nextBlock;
     }
     @:keep
     @:tdfield
@@ -136,7 +136,7 @@ var _b = __1, _nb = __0;
         };
         if (((@:check2 (@:checkr _f ?? throw "null pointer dereference")._dict._availWrite() == (0 : stdgo.GoInt)) || ((@:checkr _f ?? throw "null pointer dereference")._copyLen > (0 : stdgo.GoInt) : Bool) : Bool)) {
             (@:checkr _f ?? throw "null pointer dereference")._toRead = @:check2 (@:checkr _f ?? throw "null pointer dereference")._dict._readFlush();
-            (@:checkr _f ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._copyData;
+            (@:checkr _f ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._copyData;
             return;
         };
         @:check2r _f._finishBlock();
@@ -171,16 +171,16 @@ var _b = __1, _nb = __0;
     @:tdfield
     static public function _huffmanBlock( _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor> = _f;
-        var _dist_37:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _length_36:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_35:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _err_34:stdgo.Error = (null : stdgo.Error);
         var _stateDict_32;
+        var _stateInit_31;
         var _cnt_40:stdgo.GoInt = (0 : stdgo.GoInt);
         var _extra_39:stdgo.GoInt = (0 : stdgo.GoInt);
         var _nb_38:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _n_35:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _err_34:stdgo.Error = (null : stdgo.Error);
+        var _length_36:stdgo.GoInt = (0 : stdgo.GoInt);
         var _v_33:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _stateInit_31;
+        var _dist_37:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -257,7 +257,7 @@ var _b = __1, _nb = __0;
                     };
                 } else if (__value__ == (3724577i32)) {
                     (@:checkr _f ?? throw "null pointer dereference")._toRead = @:check2 (@:checkr _f ?? throw "null pointer dereference")._dict._readFlush();
-                    (@:checkr _f ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._huffmanBlock;
+                    (@:checkr _f ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._huffmanBlock;
                     (@:checkr _f ?? throw "null pointer dereference")._stepState = (0 : stdgo.GoInt);
                     return;
                     _gotoNext = 3724702i32;
@@ -443,8 +443,8 @@ var _b = __1, _nb = __0;
                     {
                         final __tmp__0 = _length_36;
                         final __tmp__1 = _dist_37;
-                        (@:checkr _f ?? throw "null pointer dereference")._copyLen = @:binopAssign __tmp__0;
-                        (@:checkr _f ?? throw "null pointer dereference")._copyDist = @:binopAssign __tmp__1;
+                        (@:checkr _f ?? throw "null pointer dereference")._copyLen = __tmp__0;
+                        (@:checkr _f ?? throw "null pointer dereference")._copyDist = __tmp__1;
                     };
                     _gotoNext = 3726376i32;
                 } else if (__value__ == (3726376i32)) {
@@ -471,7 +471,7 @@ var _b = __1, _nb = __0;
                     };
                 } else if (__value__ == (3726641i32)) {
                     (@:checkr _f ?? throw "null pointer dereference")._toRead = @:check2 (@:checkr _f ?? throw "null pointer dereference")._dict._readFlush();
-                    (@:checkr _f ?? throw "null pointer dereference")._step = @:selectorExprRecv stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._huffmanBlock;
+                    (@:checkr _f ?? throw "null pointer dereference")._step = stdgo._internal.compress.flate.Flate_t_decompressor_static_extension.T_decompressor_static_extension._huffmanBlock;
                     (@:checkr _f ?? throw "null pointer dereference")._stepState = (1 : stdgo.GoInt);
                     return;
                     _gotoNext = 3726793i32;

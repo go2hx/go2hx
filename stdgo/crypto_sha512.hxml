@@ -1,3 +1,0 @@
--m _internal.crypto.sha512_dot_test.Sha512_dot_test
--lib go2hx
--cp .

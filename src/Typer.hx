@@ -3239,7 +3239,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									return (macro $b{exprs}).expr;
 								}
 							case sliceType(_), mapType(_, _), arrayType(_, _):
-									return (macro $x.__setData__($y)).expr;
+								exprs.push(macro $x.__setData__($y));
+								continue;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -3359,9 +3360,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
-								exprs.push(macro $x.__setData__($y));
-								continue;
-								//return (macro $x.__setData__($y)).expr;
+								return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {

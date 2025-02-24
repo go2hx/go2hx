@@ -161,5 +161,8 @@
  "hl|vars0",
  "hl|pointerAssign0",
  "hl|vars2",
- "hl|argMethods"
+ "hl|argMethods",
+ "hl|append1",
+ "hl|appendnil",
+ "hl|bytesBuffer"
 ]

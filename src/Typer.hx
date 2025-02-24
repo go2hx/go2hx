@@ -6254,7 +6254,7 @@ private function typeOp(token:Ast.Token):Binop {
 	}
 }
 
-function getStructFields(type:GoType, restrictedFields:Array<String>):Array<FieldType> {
+function getStructFields(type:GoType, restrictedFields:Array<String>, onlyEmbeds:Bool=false):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
@@ -6262,11 +6262,15 @@ function getStructFields(type:GoType, restrictedFields:Array<String>):Array<Fiel
 			for (method in methods) {
 				restrictedFields.push(method.name);
 			}
-			getStructFields(elem, restrictedFields);
+			getStructFields(elem, restrictedFields, onlyEmbeds);
 		case pointerType(_.get() => elem), refType(_.get() => elem):
-			getStructFields(elem, restrictedFields);
+			getStructFields(elem, restrictedFields, onlyEmbeds);
 		case structType(fields):
-			fields;
+			if (onlyEmbeds) {
+				fields.filter(field -> field.embedded);
+			}else{
+				fields;
+			}
 		default:
 			[];
 	}
@@ -6453,7 +6457,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		}
 	}
 	final restrictedFields:Array<String> = [];
-	final fields = getStructFields(typeX, restrictedFields);
+	final fields = getStructFields(typeX, restrictedFields, true);
 	if (fields.length > 0) {
 		var chains:Array<String> = []; // chains together a field selectors
 		function recursion(path:String, fields:Array<FieldType>,depth:Int) {

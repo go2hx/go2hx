@@ -1,0 +1,18 @@
+[ERROR] ./stdgo/_internal/crypto/subtle/Subtle__xorbytes.hx:12: characters 26-35
+
+ 12 |             _dst = (_dst.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+    |                          ^^^^^^^^^
+    | Array<Dynamic> has no field __slice__
+
+[ERROR] ./stdgo/_internal/crypto/subtle/Subtle__xorbytes.hx:13: characters 22-31
+
+ 13 |             _x = (_x.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+    |                      ^^^^^^^^^
+    | Array<Dynamic> has no field __slice__
+
+[ERROR] ./stdgo/_internal/crypto/subtle/Subtle__xorbytes.hx:14: characters 22-31
+
+ 14 |             _y = (_y.__slice__(_done) : stdgo.Slice<stdgo.GoUInt8>);
+    |                      ^^^^^^^^^
+    | Array<Dynamic> has no field __slice__
+

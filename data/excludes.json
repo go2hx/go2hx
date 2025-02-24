@@ -11,6 +11,7 @@
     "internal/syscall/windows/sysdll",
     "internal/itoa",
     "testing",
+    "testing/quick",
     "internal/syscall/execenv",
     "internal/syscall/windows",
     "golang.org/x/tools/internal/gocommand",
@@ -40,5 +41,6 @@
     "internal/goexperiment",
     "internal/coverage/rtcov",
     "internal/goarch",
-    "internal/goos"
+    "internal/goos",
+    "encoding"
 ]

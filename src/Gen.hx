@@ -819,7 +819,21 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 		case TPath({name: name, pack: ["stdgo"], params: _}):
 			return macro ($e : $ct);
 		case TFunction(_, _):
-			return e;
+			final ret = ret;
+			final callArgs = [for (i in 0...args.length) "_" + i];
+			final exprArgs = [for (i in 0...args.length)
+				reverseConvertCast(macro $i{callArgs[i]}, args[i]) ?? macro $i{"_" + i}
+			];
+			final expr = macro $e($a{exprArgs});
+			return toExpr(
+				EFunction(FArrow, {
+					args: callArgs.map(arg -> ({
+						name: arg,
+					} : FunctionArg)),
+					expr: expr,
+					//ret: ret,
+				}),
+			);
 		default:
 			// trace("unknown reverse convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}

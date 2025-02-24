@@ -7,7 +7,7 @@ import js.node.net.Socket;
 import sys.net.Socket;
 #end
 
-#if (hl && !no_uv)
+#if (sys && !no_uv)
 typedef Loop = hl.uv.Loop;
 typedef Tcp = hl.uv.Tcp;
 typedef Stream = hl.uv.Stream;

@@ -18,6 +18,7 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
@@ -258,9 +259,10 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			// print out output
 			Sys.println(child.stdout.read());
 			Sys.println(child.stderr.read());
-			if (resetCount++ > 4) {
+			if (resetCount++ > 8) {
 				child.kill();
-				Sys.exit(code);
+				if (onUnknownExit != null)
+					onUnknownExit();
 			}else{
 				child.kill();
 				jsProcess();

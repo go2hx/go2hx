@@ -164,5 +164,6 @@
  "hl|argMethods",
  "hl|append1",
  "hl|appendnil",
- "hl|bytesBuffer"
+ "hl|bytesBuffer",
+ "hl|vars1"
 ]

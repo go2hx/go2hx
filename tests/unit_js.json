@@ -164,5 +164,6 @@
  "js|vars2",
  "js|argMethods",
  "js|append1",
- "js|appendnil"
+ "js|appendnil",
+ "js|vars1"
 ]

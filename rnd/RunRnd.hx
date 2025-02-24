@@ -22,7 +22,7 @@ function main() {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js runrnd.js'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);
-			final command = "NODE_OPTIONS=--enable-source-maps node runrnd.js";
+			final command = "NODE_OPTIONS=--enable-source-maps node --stack-size=65500 runrnd.js";
 			Sys.println(command);
 			Sys.command(command);
 		}else if (Compiler.getDefine("rnd_jvm") != null || Compiler.getDefine("jvm_") != null) {

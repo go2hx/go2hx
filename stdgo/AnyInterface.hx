@@ -184,7 +184,11 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				true;
 			case pointerType(_):
 				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
-			case mapType(_, _), signature(_, _, _, _, _), sliceType(_):
+			case sliceType(_):
+				if (aValue == null || bValue == null)
+					return aValue == null && bValue == null;
+				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
+			case mapType(_, _), signature(_, _, _, _, _):
 				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
 				throw "unknown type equals: " + gt;

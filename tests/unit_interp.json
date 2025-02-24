@@ -161,5 +161,8 @@
  "interp|vars0",
  "interp|pointerAssign0",
  "interp|vars2",
- "interp|argMethods"
+ "interp|argMethods",
+ "interp|append1",
+ "interp|appendnil",
+ "interp|bytesBuffer"
 ]

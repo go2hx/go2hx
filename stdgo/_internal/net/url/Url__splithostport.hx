@@ -7,8 +7,8 @@ function _splitHostPort(_hostPort:stdgo.GoString):{ var _0 : stdgo.GoString; var
             {
                 final __tmp__0 = (_host.__slice__(0, _colon) : stdgo.GoString)?.__copy__();
                 final __tmp__1 = (_host.__slice__((_colon + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                _host = @:binopAssign __tmp__0;
-                _port = @:binopAssign __tmp__1;
+                _host = __tmp__0;
+                _port = __tmp__1;
             };
         };
         if ((stdgo._internal.strings.Strings_hasprefix.hasPrefix(_host?.__copy__(), ("[" : stdgo.GoString)) && stdgo._internal.strings.Strings_hassuffix.hasSuffix(_host?.__copy__(), ("]" : stdgo.GoString)) : Bool)) {

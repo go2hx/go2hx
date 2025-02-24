@@ -26,7 +26,7 @@ typedef RingPointer = stdgo._internal.container.ring.Ring_ringpointer.RingPointe
 class Ring_static_extension {
     static public function do_(_r:Ring_, _f:stdgo.AnyInterface -> Void):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.container.ring.Ring_ring.Ring>);
-        final _f = _0 -> _f((_0 : stdgo.AnyInterface));
+        final _f = _f;
         stdgo._internal.container.ring.Ring_ring_static_extension.Ring_static_extension.do_(_r, _f);
     }
     static public function len(_r:Ring_):StdTypes.Int {
@@ -71,40 +71,5 @@ class Ring {
     static public inline function new_(_n:StdTypes.Int):Ring_ {
         final _n = (_n : stdgo.GoInt);
         return stdgo._internal.container.ring.Ring_new_.new_(_n);
-    }
-    static public inline function testCornerCases(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testcornercases.testCornerCases(_t);
-    }
-    static public inline function testNew(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testnew.testNew(_t);
-    }
-    static public inline function testLink1(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testlink1.testLink1(_t);
-    }
-    static public inline function testLink2(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testlink2.testLink2(_t);
-    }
-    static public inline function testLink3(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testlink3.testLink3(_t);
-    }
-    static public inline function testUnlink(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testunlink.testUnlink(_t);
-    }
-    static public inline function testLinkUnlink(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testlinkunlink.testLinkUnlink(_t);
-    }
-    /**
-        * Test that calling Move() on an empty Ring initializes it.
-    **/
-    static public inline function testMoveEmptyRing(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.ring.Ring_testmoveemptyring.testMoveEmptyRing(_t);
     }
 }

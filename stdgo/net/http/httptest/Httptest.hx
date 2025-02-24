@@ -5,7 +5,7 @@ final defaultRemoteAddr : String = stdgo._internal.net.http.httptest.Httptest_de
         stdgo._internal.net.http.httptest.Httptest_t_closeidletransport_static_extension.T_closeIdleTransport_static_extension.closeIdleConnections(t);
     }
 }
-@:dox(hide) @:forward abstract T_closeIdleTransport(stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport) from stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport to stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport {
+@:interface @:dox(hide) @:forward abstract T_closeIdleTransport(stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport) from stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport to stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport {
     @:from
     static function fromHaxeInterface(x:{ function closeIdleConnections():Void; }):T_closeIdleTransport {
         var __f__:Void -> stdgo.AnyInterface = null;

@@ -17,8 +17,8 @@ package stdgo._internal.database.sql;
             {
                 final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
                 final __tmp__1 = false;
-                (@:checkr _ns ?? throw "null pointer dereference").string = @:binopAssign __tmp__0;
-                (@:checkr _ns ?? throw "null pointer dereference").valid = @:binopAssign __tmp__1;
+                (@:checkr _ns ?? throw "null pointer dereference").string = __tmp__0;
+                (@:checkr _ns ?? throw "null pointer dereference").valid = __tmp__1;
             };
             return (null : stdgo.Error);
         };

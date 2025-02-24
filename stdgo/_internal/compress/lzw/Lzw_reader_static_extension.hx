@@ -7,9 +7,9 @@ package stdgo._internal.compress.lzw;
         {
             final __value__ = _order;
             if (__value__ == ((0 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _r ?? throw "null pointer dereference")._read = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readLSB;
+                (@:checkr _r ?? throw "null pointer dereference")._read = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readLSB;
             } else if (__value__ == ((1 : stdgo._internal.compress.lzw.Lzw_order.Order))) {
-                (@:checkr _r ?? throw "null pointer dereference")._read = @:selectorExprRecv stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readMSB;
+                (@:checkr _r ?? throw "null pointer dereference")._read = stdgo._internal.compress.lzw.Lzw_reader_static_extension.Reader_static_extension._readMSB;
             } else {
                 (@:checkr _r ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("lzw: unknown order" : stdgo.GoString));
                 return;
@@ -34,8 +34,8 @@ package stdgo._internal.compress.lzw;
         {
             final __tmp__0 = ((@:checkr _r ?? throw "null pointer dereference")._clear + (1 : stdgo.GoUInt16) : stdgo.GoUInt16);
             final __tmp__1 = ((@:checkr _r ?? throw "null pointer dereference")._clear + (1 : stdgo.GoUInt16) : stdgo.GoUInt16);
-            (@:checkr _r ?? throw "null pointer dereference")._eof = @:binopAssign __tmp__0;
-            (@:checkr _r ?? throw "null pointer dereference")._hi = @:binopAssign __tmp__1;
+            (@:checkr _r ?? throw "null pointer dereference")._eof = __tmp__0;
+            (@:checkr _r ?? throw "null pointer dereference")._hi = __tmp__1;
         };
         (@:checkr _r ?? throw "null pointer dereference")._overflow = ((1 : stdgo.GoUInt16) << (@:checkr _r ?? throw "null pointer dereference")._width : stdgo.GoUInt16);
         (@:checkr _r ?? throw "null pointer dereference")._last = (65535 : stdgo.GoUInt16);
@@ -78,11 +78,11 @@ package stdgo._internal.compress.lzw;
     @:tdfield
     static public function _decode( _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader> = _r;
+        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c_2:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_1:stdgo.Error = (null : stdgo.Error);
         var _code_0:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _loopBreak = false;
-        var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -163,8 +163,8 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = _code_0;
                         final __tmp__1 = (8191 : stdgo.GoInt);
-                        _c_2 = @:binopAssign __tmp__0;
-                        _i_3 = @:binopAssign __tmp__1;
+                        _c_2 = __tmp__0;
+                        _i_3 = __tmp__1;
                     };
                     if (((_code_0 == (@:checkr _r ?? throw "null pointer dereference")._hi) && ((@:checkr _r ?? throw "null pointer dereference")._last != (65535 : stdgo.GoUInt16)) : Bool)) {
                         _gotoNext = 3655353i32;
@@ -222,8 +222,8 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = _code_0;
                         final __tmp__1 = ((@:checkr _r ?? throw "null pointer dereference")._hi + (1 : stdgo.GoUInt16) : stdgo.GoUInt16);
-                        (@:checkr _r ?? throw "null pointer dereference")._last = @:binopAssign __tmp__0;
-                        (@:checkr _r ?? throw "null pointer dereference")._hi = @:binopAssign __tmp__1;
+                        (@:checkr _r ?? throw "null pointer dereference")._last = __tmp__0;
+                        (@:checkr _r ?? throw "null pointer dereference")._hi = __tmp__1;
                     };
                     if (((@:checkr _r ?? throw "null pointer dereference")._hi >= (@:checkr _r ?? throw "null pointer dereference")._overflow : Bool)) {
                         _gotoNext = 3656167i32;

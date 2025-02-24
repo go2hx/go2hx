@@ -28,11 +28,11 @@ using haxe.UInt64;
 
 /**
 	Helper for parsing to `Int64` instances.
-**/
+*/
 class UInt64Helper {
 	/**
 		Create `Int64` from given string.
-	**/
+	*/
 	public static function parseString(sParam:String):UInt64 {
 		var base = UInt64.ofInt(10);
 		var current = UInt64.ofInt(0);

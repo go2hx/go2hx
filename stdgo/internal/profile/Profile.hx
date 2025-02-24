@@ -14,7 +14,7 @@ private function set_legacyHeapAllocated(v:Bool):Bool {
         return [for (i in stdgo._internal.internal.profile.Profile_t_message_static_extension.T_message_static_extension._decoder(t)) i];
     }
 }
-@:dox(hide) @:forward abstract T_message(stdgo._internal.internal.profile.Profile_t_message.T_message) from stdgo._internal.internal.profile.Profile_t_message.T_message to stdgo._internal.internal.profile.Profile_t_message.T_message {
+@:interface @:dox(hide) @:forward abstract T_message(stdgo._internal.internal.profile.Profile_t_message.T_message) from stdgo._internal.internal.profile.Profile_t_message.T_message to stdgo._internal.internal.profile.Profile_t_message.T_message {
     @:from
     static function fromHaxeInterface(x:{ function _decoder():Array<T_decoder>; function _encode(_0:T_buffer):Void; }):T_message {
         var __f__:Void -> stdgo.AnyInterface = null;

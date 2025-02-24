@@ -30,7 +30,7 @@ class Marshaler_static_extension {
         return stdgo._internal.encoding.xml.Xml_marshaler_static_extension.Marshaler_static_extension.marshalXML(t, _e, _start);
     }
 }
-@:forward abstract Marshaler(stdgo._internal.encoding.xml.Xml_marshaler.Marshaler) from stdgo._internal.encoding.xml.Xml_marshaler.Marshaler to stdgo._internal.encoding.xml.Xml_marshaler.Marshaler {
+@:interface @:forward abstract Marshaler(stdgo._internal.encoding.xml.Xml_marshaler.Marshaler) from stdgo._internal.encoding.xml.Xml_marshaler.Marshaler to stdgo._internal.encoding.xml.Xml_marshaler.Marshaler {
     @:from
     static function fromHaxeInterface(x:{ function marshalXML(_e:Encoder, _start:StartElement):stdgo.Error; }):Marshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -47,7 +47,7 @@ class MarshalerAttr_static_extension {
         };
     }
 }
-@:forward abstract MarshalerAttr(stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr) from stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr to stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr {
+@:interface @:forward abstract MarshalerAttr(stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr) from stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr to stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr {
     @:from
     static function fromHaxeInterface(x:{ function marshalXMLAttr(_name:Name):stdgo.Tuple<Attr, stdgo.Error>; }):MarshalerAttr {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -62,7 +62,7 @@ class Unmarshaler_static_extension {
         return stdgo._internal.encoding.xml.Xml_unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalXML(t, _d, _start);
     }
 }
-@:forward abstract Unmarshaler(stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler) from stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler to stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler {
+@:interface @:forward abstract Unmarshaler(stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler) from stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler to stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler {
     @:from
     static function fromHaxeInterface(x:{ function unmarshalXML(_d:Decoder, _start:StartElement):stdgo.Error; }):Unmarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -76,7 +76,7 @@ class UnmarshalerAttr_static_extension {
         return stdgo._internal.encoding.xml.Xml_unmarshalerattr_static_extension.UnmarshalerAttr_static_extension.unmarshalXMLAttr(t, _attr);
     }
 }
-@:forward abstract UnmarshalerAttr(stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr) from stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr to stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr {
+@:interface @:forward abstract UnmarshalerAttr(stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr) from stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr to stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr {
     @:from
     static function fromHaxeInterface(x:{ function unmarshalXMLAttr(_attr:Attr):stdgo.Error; }):UnmarshalerAttr {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -93,7 +93,7 @@ class TokenReader_static_extension {
         };
     }
 }
-@:forward abstract TokenReader(stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader) from stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader to stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader {
+@:interface @:forward abstract TokenReader(stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader) from stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader to stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader {
     @:from
     static function fromHaxeInterface(x:{ function token():stdgo.Tuple<Token, stdgo.Error>; }):TokenReader {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -497,7 +497,7 @@ _closed,
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
     function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this.charsetReader = (_0, _1) -> v((_0 : stdgo.GoString), _1);
+        this.charsetReader = v;
         return v;
     }
     public var defaultSpace(get, set) : String;
@@ -624,7 +624,7 @@ strict,
         };
         __obj__;
     },
-(_0, _1) -> charsetReader((_0 : stdgo.GoString), _1),
+charsetReader,
 (defaultSpace : stdgo.GoString),
 _r,
 _t,

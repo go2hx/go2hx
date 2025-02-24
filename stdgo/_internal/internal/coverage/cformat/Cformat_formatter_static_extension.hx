@@ -216,8 +216,8 @@ var _coveredStmts = __1, _totalStmts = __0;
                 {
                     final __tmp__0 = (0i64 : stdgo.GoUInt64);
                     final __tmp__1 = (0i64 : stdgo.GoUInt64);
-                    _totalStmts = @:binopAssign __tmp__0;
-                    _coveredStmts = @:binopAssign __tmp__1;
+                    _totalStmts = __tmp__0;
+                    _coveredStmts = __tmp__1;
                 };
             };
             for (_unit => _count in (@:checkr _p ?? throw "null pointer dereference")._unitTable) {

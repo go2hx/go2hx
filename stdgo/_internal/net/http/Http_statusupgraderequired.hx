@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusUpgradeRequired : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusUpgradeRequired : stdgo.GoUInt64 = (426i64 : stdgo.GoUInt64);

@@ -53,8 +53,8 @@ function _signingParamsForPublicKey(_pub:stdgo.AnyInterface, _requestedSigAlgo:s
                 {
                     final __tmp__0 = _details._oid;
                     final __tmp__1 = _details._hash;
-                    _sigAlgo.algorithm = @:binopAssign __tmp__0;
-                    _hashFunc = @:binopAssign __tmp__1;
+                    _sigAlgo.algorithm = __tmp__0;
+                    _hashFunc = __tmp__1;
                 };
                 if (((_hashFunc == (0u32 : stdgo._internal.crypto.Crypto_hash.Hash)) && (_pubType != (4 : stdgo._internal.crypto.x509.X509_publickeyalgorithm.PublicKeyAlgorithm)) : Bool)) {
                     _err = stdgo._internal.errors.Errors_new_.new_(("x509: cannot sign with hash function requested" : stdgo.GoString));

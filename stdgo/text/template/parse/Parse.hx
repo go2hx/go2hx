@@ -43,7 +43,7 @@ class Node_static_extension {
         return stdgo._internal.text.template.parse.Parse_node_static_extension.Node_static_extension.type(t);
     }
 }
-@:forward abstract Node(stdgo._internal.text.template.parse.Parse_node.Node) from stdgo._internal.text.template.parse.Parse_node.Node to stdgo._internal.text.template.parse.Parse_node.Node {
+@:interface @:forward abstract Node(stdgo._internal.text.template.parse.Parse_node.Node) from stdgo._internal.text.template.parse.Parse_node.Node to stdgo._internal.text.template.parse.Parse_node.Node {
     @:from
     static function fromHaxeInterface(x:{ function type():NodeType; function string():String; function copy():Node; function position():Pos; function _tree():Tree; function _writeTo(_0:stdgo._internal.strings.Strings_builder.Builder):Void; }):Node {
         var __f__:Void -> stdgo.AnyInterface = null;

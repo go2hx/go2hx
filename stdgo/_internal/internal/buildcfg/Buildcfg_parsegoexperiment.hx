@@ -45,8 +45,8 @@ _names[stdgo._internal.strings.Strings_tolower.toLower(_rt.field(_i).name.__copy
                     {
                         final __tmp__0 = (_f.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         final __tmp__1 = false;
-                        _f = @:binopAssign __tmp__0;
-                        _val = @:binopAssign __tmp__1;
+                        _f = __tmp__0;
+                        _val = __tmp__1;
                     };
                 };
                 var __tmp__ = (_names != null && _names.__exists__(_f?.__copy__()) ? { _0 : _names[_f?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _set:Bool -> Void = __tmp__._0, _ok:Bool = __tmp__._1;

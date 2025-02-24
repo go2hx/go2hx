@@ -7,8 +7,8 @@ function _ryuFtoaFixed64(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimals
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = (0 : stdgo.GoInt);
-                (@:checkr _d ?? throw "null pointer dereference")._nd = @:binopAssign __tmp__0;
-                (@:checkr _d ?? throw "null pointer dereference")._dp = @:binopAssign __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._nd = __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._dp = __tmp__1;
             };
             return;
         };

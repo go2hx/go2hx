@@ -531,22 +531,22 @@ var _uc = __1, _tc = __0;
             {
                 final __tmp__0 = _t._ext;
                 final __tmp__1 = _u._ext;
-                _tc = @:binopAssign __tmp__0;
-                _uc = @:binopAssign __tmp__1;
+                _tc = __tmp__0;
+                _uc = __tmp__1;
             };
         } else {
             {
                 final __tmp__0 = @:check2 _t._sec();
                 final __tmp__1 = @:check2 _u._sec();
-                _tc = @:binopAssign __tmp__0;
-                _uc = @:binopAssign __tmp__1;
+                _tc = __tmp__0;
+                _uc = __tmp__1;
             };
             if (_tc == (_uc)) {
                 {
                     final __tmp__0 = (@:check2 _t._nsec() : stdgo.GoInt64);
                     final __tmp__1 = (@:check2 _u._nsec() : stdgo.GoInt64);
-                    _tc = @:binopAssign __tmp__0;
-                    _uc = @:binopAssign __tmp__1;
+                    _tc = __tmp__0;
+                    _uc = __tmp__1;
                 };
             };
         };

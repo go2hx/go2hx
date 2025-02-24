@@ -186,10 +186,10 @@ private function set_rawURLEncoding(v:Encoding):Encoding {
     public var _conv(get, set) : String -> String;
     function get__conv():String -> String return _0 -> this._conv(_0);
     function set__conv(v:String -> String):String -> String {
-        this._conv = _0 -> v((_0 : stdgo.GoString));
+        this._conv = v;
         return v;
     }
-    public function new(?_enc:Encoding, ?_conv:String -> String) this = new stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest((_enc : stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>), _0 -> _conv((_0 : stdgo.GoString)));
+    public function new(?_enc:Encoding, ?_conv:String -> String) this = new stdgo._internal.encoding.base64.Base64_t_encodingtest.T_encodingTest((_enc : stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>), _conv);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -56,8 +56,8 @@ function yn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
                     {
                         final __tmp__0 = _b;
                         final __tmp__1 = ((((((_i + _i : stdgo.GoInt) : stdgo.GoFloat64) / _x : stdgo.GoFloat64)) * _b : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
-                        _a = @:binopAssign __tmp__0;
-                        _b = @:binopAssign __tmp__1;
+                        _a = __tmp__0;
+                        _b = __tmp__1;
                     };
                     _i++;
                 };

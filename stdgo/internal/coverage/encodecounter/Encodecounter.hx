@@ -4,7 +4,7 @@ class CounterVisitor_static_extension {
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor_static_extension.CounterVisitor_static_extension.visitFuncs(t, _f);
     }
 }
-@:forward abstract CounterVisitor(stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor) from stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor to stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor {
+@:interface @:forward abstract CounterVisitor(stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor) from stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor to stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor {
     @:from
     static function fromHaxeInterface(x:{ function visitFuncs(_f:CounterVisitorFn):stdgo.Error; }):CounterVisitor {
         var __f__:Void -> stdgo.AnyInterface = null;

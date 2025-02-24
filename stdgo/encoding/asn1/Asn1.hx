@@ -42,7 +42,7 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
         return stdgo._internal.encoding.asn1.Asn1_t_encoder_static_extension.T_encoder_static_extension.len(t);
     }
 }
-@:dox(hide) @:forward abstract T_encoder(stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder) from stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder to stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder {
+@:interface @:dox(hide) @:forward abstract T_encoder(stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder) from stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder to stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder {
     @:from
     static function fromHaxeInterface(x:{ function len():StdTypes.Int; function encode(_dst:Array<std.UInt>):Void; }):T_encoder {
         var __f__:Void -> stdgo.AnyInterface = null;

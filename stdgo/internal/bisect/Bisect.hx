@@ -8,7 +8,7 @@ class Writer_static_extension {
         };
     }
 }
-@:forward abstract Writer(stdgo._internal.internal.bisect.Bisect_writer.Writer) from stdgo._internal.internal.bisect.Bisect_writer.Writer to stdgo._internal.internal.bisect.Bisect_writer.Writer {
+@:interface @:forward abstract Writer(stdgo._internal.internal.bisect.Bisect_writer.Writer) from stdgo._internal.internal.bisect.Bisect_writer.Writer to stdgo._internal.internal.bisect.Bisect_writer.Writer {
     @:from
     static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Writer {
         var __f__:Void -> stdgo.AnyInterface = null;

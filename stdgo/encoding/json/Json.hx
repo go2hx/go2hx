@@ -5,7 +5,7 @@ class Unmarshaler_static_extension {
         return stdgo._internal.encoding.json.Json_unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalJSON(t, _0);
     }
 }
-@:forward abstract Unmarshaler(stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler) from stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler to stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler {
+@:interface @:forward abstract Unmarshaler(stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler) from stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler to stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler {
     @:from
     static function fromHaxeInterface(x:{ function unmarshalJSON(_0:Array<std.UInt>):stdgo.Error; }):Unmarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -22,7 +22,7 @@ class Marshaler_static_extension {
         };
     }
 }
-@:forward abstract Marshaler(stdgo._internal.encoding.json.Json_marshaler.Marshaler) from stdgo._internal.encoding.json.Json_marshaler.Marshaler to stdgo._internal.encoding.json.Json_marshaler.Marshaler {
+@:interface @:forward abstract Marshaler(stdgo._internal.encoding.json.Json_marshaler.Marshaler) from stdgo._internal.encoding.json.Json_marshaler.Marshaler to stdgo._internal.encoding.json.Json_marshaler.Marshaler {
     @:from
     static function fromHaxeInterface(x:{ function marshalJSON():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Marshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -2417,7 +2417,7 @@ sto);
     public var _step(get, set) : (T_scanner, std.UInt) -> StdTypes.Int;
     function get__step():(T_scanner, std.UInt) -> StdTypes.Int return (_0, _1) -> this._step(_0, _1);
     function set__step(v:(T_scanner, std.UInt) -> StdTypes.Int):(T_scanner, std.UInt) -> StdTypes.Int {
-        this._step = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>), (_1 : stdgo.GoUInt8));
+        this._step = v;
         return v;
     }
     public var _endTop(get, set) : Bool;
@@ -2444,7 +2444,7 @@ sto);
         this._bytes = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_step:(T_scanner, std.UInt) -> StdTypes.Int, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_t_scanner.T_scanner((_0, _1) -> _step((_0 : stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>), (_1 : stdgo.GoUInt8)), _endTop, ([for (i in _parseState) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_err : stdgo.Error), (_bytes : stdgo.GoInt64));
+    public function new(?_step:(T_scanner, std.UInt) -> StdTypes.Int, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_t_scanner.T_scanner(_step, _endTop, ([for (i in _parseState) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_err : stdgo.Error), (_bytes : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

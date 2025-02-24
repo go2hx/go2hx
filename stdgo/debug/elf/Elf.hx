@@ -2596,7 +2596,7 @@ flags,
     public var _reset(get, set) : () -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
     function get__reset():() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return () -> this._reset();
     function set__reset(v:() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this._reset = () -> v();
+        this._reset = v;
         return v;
     }
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
@@ -2617,7 +2617,7 @@ flags,
         this._offset = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_reset:() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader(() -> _reset(), _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
+    public function new(?_reset:() -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_size:haxe.Int64, ?_offset:haxe.Int64) this = new stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader(_reset, _r, (_size : stdgo.GoInt64), (_offset : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

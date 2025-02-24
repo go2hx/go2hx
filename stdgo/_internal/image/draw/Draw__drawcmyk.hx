@@ -25,16 +25,16 @@ _d[(3 : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
                     {
                         final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
                         final __tmp__1 = (_si + (4 : stdgo.GoInt) : stdgo.GoInt);
-                        _i = @:binopAssign __tmp__0;
-                        _si = @:binopAssign __tmp__1;
+                        _i = __tmp__0;
+                        _si = __tmp__1;
                     };
                 };
             };
             {
                 final __tmp__0 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
                 final __tmp__1 = (_sy + (1 : stdgo.GoInt) : stdgo.GoInt);
-                _y = @:binopAssign __tmp__0;
-                _sy = @:binopAssign __tmp__1;
+                _y = __tmp__0;
+                _sy = __tmp__1;
             };
         };
     }

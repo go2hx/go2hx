@@ -128,7 +128,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
     public var error(get, set) : (Scanner_, String) -> Void;
     function get_error():(Scanner_, String) -> Void return (_0, _1) -> this.error(_0, _1);
     function set_error(v:(Scanner_, String) -> Void):(Scanner_, String) -> Void {
-        this.error = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>), (_1 : stdgo.GoString));
+        this.error = v;
         return v;
     }
     public var errorCount(get, set) : StdTypes.Int;
@@ -152,7 +152,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
     public var isIdentRune(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
     function get_isIdentRune():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.isIdentRune(_0, _1);
     function set_isIdentRune(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
-        this.isIdentRune = (_0, _1) -> v((_0 : stdgo.GoInt32), (_1 : stdgo.GoInt));
+        this.isIdentRune = v;
         return v;
     }
     public var position(get, set) : Position;
@@ -175,11 +175,11 @@ _tokBuf,
 (_tokPos : stdgo.GoInt),
 (_tokEnd : stdgo.GoInt),
 (_ch : stdgo.GoInt32),
-(_0, _1) -> error((_0 : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>), (_1 : stdgo.GoString)),
+error,
 (errorCount : stdgo.GoInt),
 (mode : stdgo.GoUInt),
 (whitespace : stdgo.GoUInt64),
-(_0, _1) -> isIdentRune((_0 : stdgo.GoInt32), (_1 : stdgo.GoInt)),
+isIdentRune,
 position);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();

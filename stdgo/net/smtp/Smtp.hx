@@ -15,7 +15,7 @@ class Auth_static_extension {
         };
     }
 }
-@:forward abstract Auth(stdgo._internal.net.smtp.Smtp_auth.Auth) from stdgo._internal.net.smtp.Smtp_auth.Auth to stdgo._internal.net.smtp.Smtp_auth.Auth {
+@:interface @:forward abstract Auth(stdgo._internal.net.smtp.Smtp_auth.Auth) from stdgo._internal.net.smtp.Smtp_auth.Auth to stdgo._internal.net.smtp.Smtp_auth.Auth {
     @:from
     static function fromHaxeInterface(x:{ function start(_server:ServerInfo):stdgo.Tuple.Tuple3<String, Array<std.UInt>, stdgo.Error>; function next(_fromServer:Array<std.UInt>, _more:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Auth {
         var __f__:Void -> stdgo.AnyInterface = null;

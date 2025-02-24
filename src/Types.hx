@@ -63,7 +63,9 @@ private typedef Ref<T> = {
 // modular functions
 
 function isTitle(string:String):Bool {
-	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
+	if (string.charAt(0) == "_")
+		return false;
+	return string.charAt(0) == string.charAt(0).toUpperCase();
 }
 
 function removeTypeParam(t:GoType) {

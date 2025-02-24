@@ -52,7 +52,7 @@ class ByteOrder_static_extension {
         return stdgo._internal.encoding.binary.Binary_byteorder_static_extension.ByteOrder_static_extension.uint16(t, _0);
     }
 }
-@:forward abstract ByteOrder(stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder) from stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder to stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder {
+@:interface @:forward abstract ByteOrder(stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder) from stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder to stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder {
     @:from
     static function fromHaxeInterface(x:{ function uint16(_0:Array<std.UInt>):std.UInt; function uint32(_0:Array<std.UInt>):std.UInt; function uint64(_0:Array<std.UInt>):haxe.UInt64; function putUint16(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint32(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Void; function string():String; }):ByteOrder {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -81,7 +81,7 @@ class AppendByteOrder_static_extension {
         return [for (i in stdgo._internal.encoding.binary.Binary_appendbyteorder_static_extension.AppendByteOrder_static_extension.appendUint16(t, _0, _1)) i];
     }
 }
-@:forward abstract AppendByteOrder(stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder) from stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder to stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder {
+@:interface @:forward abstract AppendByteOrder(stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder) from stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder to stdgo._internal.encoding.binary.Binary_appendbyteorder.AppendByteOrder {
     @:from
     static function fromHaxeInterface(x:{ function appendUint16(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint32(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt>; function string():String; }):AppendByteOrder {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -299,19 +299,19 @@ bool_,
         this.__6 = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public var __7(get, set) : stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>;
-    function get___7():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> return {
+    public var __7(get, set) : { var _f : haxe.ds.Vector<StdTypes.Float>; };
+    function get___7():{ var _f : haxe.ds.Vector<StdTypes.Float>; } return {
         final obj = this.__7;
         { _f : haxe.ds.Vector.fromArrayCopy([for (i in obj._f) i]) };
     };
-    function set___7(v:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>):stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> {
+    function set___7(v:{ var _f : haxe.ds.Vector<StdTypes.Float>; }):{ var _f : haxe.ds.Vector<StdTypes.Float>; } {
         this.__7 = {
             final obj = v;
             { _f : ([for (i in obj._f) (i : stdgo.GoFloat32)] : stdgo.GoArray<stdgo.GoFloat32>) };
         };
         return v;
     }
-    public function new(?a:std.UInt, ?__4:StdTypes.Int, ?b:StdTypes.Float, ?__5:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?__6:haxe.ds.Vector<std.UInt>, ?__7:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>) this = new stdgo._internal.encoding.binary.Binary_blankfields.BlankFields((a : stdgo.GoUInt32), (__4 : stdgo.GoInt32), (b : stdgo.GoFloat64), ([for (i in __5) (i : stdgo.GoInt16)] : stdgo.GoArray<stdgo.GoInt16>), (c : stdgo.GoUInt8), ([for (i in __6) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), {
+    public function new(?a:std.UInt, ?__4:StdTypes.Int, ?b:StdTypes.Float, ?__5:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?__6:haxe.ds.Vector<std.UInt>, ?__7:{ var _f : haxe.ds.Vector<StdTypes.Float>; }) this = new stdgo._internal.encoding.binary.Binary_blankfields.BlankFields((a : stdgo.GoUInt32), (__4 : stdgo.GoInt32), (b : stdgo.GoFloat64), ([for (i in __5) (i : stdgo.GoInt16)] : stdgo.GoArray<stdgo.GoInt16>), (c : stdgo.GoUInt8), ([for (i in __6) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), {
         final obj = __7;
         { _f : ([for (i in obj._f) (i : stdgo.GoFloat32)] : stdgo.GoArray<stdgo.GoFloat32>) };
     });
@@ -355,19 +355,19 @@ bool_,
         this.p2 = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public var p3(get, set) : stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>;
-    function get_p3():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> return {
+    public var p3(get, set) : { var f : haxe.ds.Vector<StdTypes.Float>; };
+    function get_p3():{ var f : haxe.ds.Vector<StdTypes.Float>; } return {
         final obj = this.p3;
         { f : haxe.ds.Vector.fromArrayCopy([for (i in obj.f) i]) };
     };
-    function set_p3(v:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>):stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> {
+    function set_p3(v:{ var f : haxe.ds.Vector<StdTypes.Float>; }):{ var f : haxe.ds.Vector<StdTypes.Float>; } {
         this.p3 = {
             final obj = v;
             { f : ([for (i in obj.f) (i : stdgo.GoFloat32)] : stdgo.GoArray<stdgo.GoFloat32>) };
         };
         return v;
     }
-    public function new(?a:std.UInt, ?p0:StdTypes.Int, ?b:StdTypes.Float, ?p1:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?p2:haxe.ds.Vector<std.UInt>, ?p3:stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>>) this = new stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe((a : stdgo.GoUInt32), (p0 : stdgo.GoInt32), (b : stdgo.GoFloat64), ([for (i in p1) (i : stdgo.GoInt16)] : stdgo.GoArray<stdgo.GoInt16>), (c : stdgo.GoUInt8), ([for (i in p2) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), {
+    public function new(?a:std.UInt, ?p0:StdTypes.Int, ?b:StdTypes.Float, ?p1:haxe.ds.Vector<StdTypes.Int>, ?c:std.UInt, ?p2:haxe.ds.Vector<std.UInt>, ?p3:{ var f : haxe.ds.Vector<StdTypes.Float>; }) this = new stdgo._internal.encoding.binary.Binary_blankfieldsprobe.BlankFieldsProbe((a : stdgo.GoUInt32), (p0 : stdgo.GoInt32), (b : stdgo.GoFloat64), ([for (i in p1) (i : stdgo.GoInt16)] : stdgo.GoArray<stdgo.GoInt16>), (c : stdgo.GoUInt8), ([for (i in p2) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), {
         final obj = p3;
         { f : ([for (i in obj.f) (i : stdgo.GoFloat32)] : stdgo.GoArray<stdgo.GoFloat32>) };
     });
@@ -481,11 +481,11 @@ bool_,
 @:dox(hide) class T_testByteOrder___localname___byteOrder_10108_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_testByteOrder___localname___byteOrder_10108(stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108) from stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 to stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 {
+@:interface @:dox(hide) @:forward abstract T_testByteOrder___localname___byteOrder_10108(stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108) from stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 to stdgo._internal.encoding.binary.Binary_t_testbyteorder___localname___byteorder_10108.T_testByteOrder___localname___byteOrder_10108 {
     @:from
-    static function fromHaxeInterface(x:{ }):T_testByteOrder___localname___byteOrder_10108 {
+    static function fromHaxeInterface(x:{ function putUint16(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint32(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Void; function string():String; function uint16(_0:Array<std.UInt>):std.UInt; function uint32(_0:Array<std.UInt>):std.UInt; function uint64(_0:Array<std.UInt>):haxe.UInt64; function appendUint16(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint32(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt>; }):T_testByteOrder___localname___byteOrder_10108 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_testByteOrder___localname___byteOrder_10108 = { __underlying__ : () -> __f__() };
+        final y:T_testByteOrder___localname___byteOrder_10108 = { putUint16 : (_0, _1) -> x.putUint16([for (i in _0) i], _1), putUint32 : (_0, _1) -> x.putUint32([for (i in _0) i], _1), putUint64 : (_0, _1) -> x.putUint64([for (i in _0) i], _1), string : () -> x.string(), uint16 : _0 -> x.uint16([for (i in _0) i]), uint32 : _0 -> x.uint32([for (i in _0) i]), uint64 : _0 -> x.uint64([for (i in _0) i]), appendUint16 : (_0, _1) -> x.appendUint16([for (i in _0) i], _1), appendUint32 : (_0, _1) -> x.appendUint32([for (i in _0) i], _1), appendUint64 : (_0, _1) -> x.appendUint64([for (i in _0) i], _1), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

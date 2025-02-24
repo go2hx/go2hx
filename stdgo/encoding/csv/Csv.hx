@@ -179,118 +179,6 @@ trailingComma,
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.T_readTest_static_extension) @:dox(hide) abstract T_readTest(stdgo._internal.encoding.csv.Csv_t_readtest.T_readTest) from stdgo._internal.encoding.csv.Csv_t_readtest.T_readTest to stdgo._internal.encoding.csv.Csv_t_readtest.T_readTest {
-    public var name(get, set) : String;
-    function get_name():String return this.name;
-    function set_name(v:String):String {
-        this.name = (v : stdgo.GoString);
-        return v;
-    }
-    public var input(get, set) : String;
-    function get_input():String return this.input;
-    function set_input(v:String):String {
-        this.input = (v : stdgo.GoString);
-        return v;
-    }
-    public var output(get, set) : Array<Array<String>>;
-    function get_output():Array<Array<String>> return [for (i in this.output) [for (i in i) i]];
-    function set_output(v:Array<Array<String>>):Array<Array<String>> {
-        this.output = ([for (i in v) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.Slice<stdgo.Slice<stdgo.GoString>>);
-        return v;
-    }
-    public var positions(get, set) : Array<Array<haxe.ds.Vector<StdTypes.Int>>>;
-    function get_positions():Array<Array<haxe.ds.Vector<StdTypes.Int>>> return [for (i in this.positions) [for (i in i) haxe.ds.Vector.fromArrayCopy([for (i in i) i])]];
-    function set_positions(v:Array<Array<haxe.ds.Vector<StdTypes.Int>>>):Array<Array<haxe.ds.Vector<StdTypes.Int>>> {
-        this.positions = ([for (i in v) ([for (i in i) ([for (i in i) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>)] : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)] : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>);
-        return v;
-    }
-    public var errors(get, set) : Array<stdgo.Error>;
-    function get_errors():Array<stdgo.Error> return [for (i in this.errors) i];
-    function set_errors(v:Array<stdgo.Error>):Array<stdgo.Error> {
-        this.errors = ([for (i in v) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>);
-        return v;
-    }
-    public var comma(get, set) : StdTypes.Int;
-    function get_comma():StdTypes.Int return this.comma;
-    function set_comma(v:StdTypes.Int):StdTypes.Int {
-        this.comma = (v : stdgo.GoInt32);
-        return v;
-    }
-    public var comment(get, set) : StdTypes.Int;
-    function get_comment():StdTypes.Int return this.comment;
-    function set_comment(v:StdTypes.Int):StdTypes.Int {
-        this.comment = (v : stdgo.GoInt32);
-        return v;
-    }
-    public var useFieldsPerRecord(get, set) : Bool;
-    function get_useFieldsPerRecord():Bool return this.useFieldsPerRecord;
-    function set_useFieldsPerRecord(v:Bool):Bool {
-        this.useFieldsPerRecord = v;
-        return v;
-    }
-    public var fieldsPerRecord(get, set) : StdTypes.Int;
-    function get_fieldsPerRecord():StdTypes.Int return this.fieldsPerRecord;
-    function set_fieldsPerRecord(v:StdTypes.Int):StdTypes.Int {
-        this.fieldsPerRecord = (v : stdgo.GoInt);
-        return v;
-    }
-    public var lazyQuotes(get, set) : Bool;
-    function get_lazyQuotes():Bool return this.lazyQuotes;
-    function set_lazyQuotes(v:Bool):Bool {
-        this.lazyQuotes = v;
-        return v;
-    }
-    public var trimLeadingSpace(get, set) : Bool;
-    function get_trimLeadingSpace():Bool return this.trimLeadingSpace;
-    function set_trimLeadingSpace(v:Bool):Bool {
-        this.trimLeadingSpace = v;
-        return v;
-    }
-    public var reuseRecord(get, set) : Bool;
-    function get_reuseRecord():Bool return this.reuseRecord;
-    function set_reuseRecord(v:Bool):Bool {
-        this.reuseRecord = v;
-        return v;
-    }
-    public function new(?name:String, ?input:String, ?output:Array<Array<String>>, ?positions:Array<Array<haxe.ds.Vector<StdTypes.Int>>>, ?errors:Array<stdgo.Error>, ?comma:StdTypes.Int, ?comment:StdTypes.Int, ?useFieldsPerRecord:Bool, ?fieldsPerRecord:StdTypes.Int, ?lazyQuotes:Bool, ?trimLeadingSpace:Bool, ?reuseRecord:Bool) this = new stdgo._internal.encoding.csv.Csv_t_readtest.T_readTest(
-(name : stdgo.GoString),
-(input : stdgo.GoString),
-([for (i in output) ([for (i in i) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>)] : stdgo.Slice<stdgo.Slice<stdgo.GoString>>),
-([for (i in positions) ([for (i in i) ([for (i in i) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>)] : stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>)] : stdgo.Slice<stdgo.Slice<stdgo.GoArray<stdgo.GoInt>>>),
-([for (i in errors) (i : stdgo.Error)] : stdgo.Slice<stdgo.Error>),
-(comma : stdgo.GoInt32),
-(comment : stdgo.GoInt32),
-useFieldsPerRecord,
-(fieldsPerRecord : stdgo.GoInt),
-lazyQuotes,
-trimLeadingSpace,
-reuseRecord);
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:structInit @:using(stdgo.encoding.csv.Csv.T_nTimes_static_extension) @:dox(hide) abstract T_nTimes(stdgo._internal.encoding.csv.Csv_t_ntimes.T_nTimes) from stdgo._internal.encoding.csv.Csv_t_ntimes.T_nTimes to stdgo._internal.encoding.csv.Csv_t_ntimes.T_nTimes {
-    public var _s(get, set) : String;
-    function get__s():String return this._s;
-    function set__s(v:String):String {
-        this._s = (v : stdgo.GoString);
-        return v;
-    }
-    public var _n(get, set) : StdTypes.Int;
-    function get__n():StdTypes.Int return this._n;
-    function set__n(v:StdTypes.Int):StdTypes.Int {
-        this._n = (v : stdgo.GoInt);
-        return v;
-    }
-    public var _off(get, set) : StdTypes.Int;
-    function get__off():StdTypes.Int return this._off;
-    function set__off(v:StdTypes.Int):StdTypes.Int {
-        this._off = (v : stdgo.GoInt);
-        return v;
-    }
-    public function new(?_s:String, ?_n:StdTypes.Int, ?_off:StdTypes.Int) this = new stdgo._internal.encoding.csv.Csv_t_ntimes.T_nTimes((_s : stdgo.GoString), (_n : stdgo.GoInt), (_off : stdgo.GoInt));
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
 @:structInit @:using(stdgo.encoding.csv.Csv.Writer_static_extension) abstract Writer(stdgo._internal.encoding.csv.Csv_writer.Writer) from stdgo._internal.encoding.csv.Csv_writer.Writer to stdgo._internal.encoding.csv.Csv_writer.Writer {
     public var comma(get, set) : StdTypes.Int;
     function get_comma():StdTypes.Int return this.comma;
@@ -314,16 +202,6 @@ reuseRecord);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
-@:structInit @:using(stdgo.encoding.csv.Csv.T_errorWriter_static_extension) @:dox(hide) abstract T_errorWriter(stdgo._internal.encoding.csv.Csv_t_errorwriter.T_errorWriter) from stdgo._internal.encoding.csv.Csv_t_errorwriter.T_errorWriter to stdgo._internal.encoding.csv.Csv_t_errorwriter.T_errorWriter {
-    public function new() this = new stdgo._internal.encoding.csv.Csv_t_errorwriter.T_errorWriter();
-    public function __underlying__() return stdgo.Go.toInterface(this);
-    public function __copy__() return this.__copy__();
-}
-@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.encoding.csv.Csv_t__struct_0pointer.T__struct_0Pointer;
-@:dox(hide) class T__struct_0_static_extension {
-
-}
-@:dox(hide) typedef T__struct_0 = stdgo._internal.encoding.csv.Csv_t__struct_0.T__struct_0;
 typedef ParseErrorPointer = stdgo._internal.encoding.csv.Csv_parseerrorpointer.ParseErrorPointer;
 class ParseError_static_extension {
     static public function unwrap(_e:ParseError):stdgo.Error {
@@ -383,21 +261,6 @@ class Reader_static_extension {
 @:dox(hide) class T_position_static_extension {
 
 }
-@:dox(hide) typedef T_readTestPointer = stdgo._internal.encoding.csv.Csv_t_readtestpointer.T_readTestPointer;
-@:dox(hide) class T_readTest_static_extension {
-
-}
-@:dox(hide) typedef T_nTimesPointer = stdgo._internal.encoding.csv.Csv_t_ntimespointer.T_nTimesPointer;
-@:dox(hide) class T_nTimes_static_extension {
-    static public function read(_r:T_nTimes, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _r = (_r : stdgo.Ref<stdgo._internal.encoding.csv.Csv_t_ntimes.T_nTimes>);
-        final _p = ([for (i in _p) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return {
-            final obj = stdgo._internal.encoding.csv.Csv_t_ntimes_static_extension.T_nTimes_static_extension.read(_r, _p);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-}
 typedef WriterPointer = stdgo._internal.encoding.csv.Csv_writerpointer.WriterPointer;
 class Writer_static_extension {
     static public function _fieldNeedsQuotes(_w:Writer, _field:String):Bool {
@@ -423,20 +286,6 @@ class Writer_static_extension {
         final _record = ([for (i in _record) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return stdgo._internal.encoding.csv.Csv_writer_static_extension.Writer_static_extension.write(_w, _record);
     }
-}
-@:dox(hide) typedef T_errorWriterPointer = stdgo._internal.encoding.csv.Csv_t_errorwriterpointer.T_errorWriterPointer;
-@:dox(hide) class T_errorWriter_static_extension {
-    static public function write(_e:T_errorWriter, _b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        return {
-            final obj = stdgo._internal.encoding.csv.Csv_t_errorwriter_static_extension.T_errorWriter_static_extension.write(_e, _b);
-            { _0 : obj._0, _1 : obj._1 };
-        };
-    }
-}
-@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.encoding.csv.Csv_t__struct_0pointerpointer.T__struct_0PointerPointer;
-@:dox(hide) class T__struct_0Pointer_static_extension {
-
 }
 /**
     * Package csv reads and writes comma-separated values (CSV) files.
@@ -494,58 +343,10 @@ class Csv {
     static public inline function newReader(_r:stdgo._internal.io.Io_reader.Reader):Reader {
         return stdgo._internal.encoding.csv.Csv_newreader.newReader(_r);
     }
-    static public inline function testRead(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.encoding.csv.Csv_testread.testRead(_t);
-    }
-    static public inline function benchmarkRead(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkread.benchmarkRead(_b);
-    }
-    static public inline function benchmarkReadWithFieldsPerRecord(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadwithfieldsperrecord.benchmarkReadWithFieldsPerRecord(_b);
-    }
-    static public inline function benchmarkReadWithoutFieldsPerRecord(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadwithoutfieldsperrecord.benchmarkReadWithoutFieldsPerRecord(_b);
-    }
-    static public inline function benchmarkReadLargeFields(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadlargefields.benchmarkReadLargeFields(_b);
-    }
-    static public inline function benchmarkReadReuseRecord(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadreuserecord.benchmarkReadReuseRecord(_b);
-    }
-    static public inline function benchmarkReadReuseRecordWithFieldsPerRecord(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadreuserecordwithfieldsperrecord.benchmarkReadReuseRecordWithFieldsPerRecord(_b);
-    }
-    static public inline function benchmarkReadReuseRecordWithoutFieldsPerRecord(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadreuserecordwithoutfieldsperrecord.benchmarkReadReuseRecordWithoutFieldsPerRecord(_b);
-    }
-    static public inline function benchmarkReadReuseRecordLargeFields(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkreadreuserecordlargefields.benchmarkReadReuseRecordLargeFields(_b);
-    }
     /**
         * NewWriter returns a new Writer that writes to w.
     **/
     static public inline function newWriter(_w:stdgo._internal.io.Io_writer.Writer):Writer {
         return stdgo._internal.encoding.csv.Csv_newwriter.newWriter(_w);
-    }
-    static public inline function testWrite(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.encoding.csv.Csv_testwrite.testWrite(_t);
-    }
-    static public inline function testError(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.encoding.csv.Csv_testerror.testError(_t);
-    }
-    static public inline function benchmarkWrite(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.encoding.csv.Csv_benchmarkwrite.benchmarkWrite(_b);
     }
 }

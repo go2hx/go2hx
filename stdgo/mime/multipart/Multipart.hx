@@ -8,11 +8,11 @@ private function set_errMessageTooLarge(v:stdgo.Error):stdgo.Error {
 class File_static_extension {
 
 }
-@:forward abstract File(stdgo._internal.mime.multipart.Multipart_file.File) from stdgo._internal.mime.multipart.Multipart_file.File to stdgo._internal.mime.multipart.Multipart_file.File {
+@:interface @:forward abstract File(stdgo._internal.mime.multipart.Multipart_file.File) from stdgo._internal.mime.multipart.Multipart_file.File to stdgo._internal.mime.multipart.Multipart_file.File {
     @:from
-    static function fromHaxeInterface(x:{ }):File {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readAt(_0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; function close():stdgo.Error; }):File {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:File = { __underlying__ : () -> __f__() };
+        final y:File = { read : _0 -> x.read([for (i in _0) i]), readAt : (_0, _1) -> x.readAt([for (i in _0) i], _1), seek : (_0, _1) -> x.seek(_0, _1), close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -626,7 +626,11 @@ package stdgo._internal.text.template;
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
-                            var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                            var _r = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
                             if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkbreak._walkBreak)) : Bool)) {
                                 throw stdgo.Go.toInterface(_r);
                             };
@@ -672,7 +676,11 @@ package stdgo._internal.text.template;
                         __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
                                 {
-                                    var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                                    var _r = ({
+                                        final r = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        r;
+                                    } : stdgo.AnyInterface);
                                     if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkcontinue._walkContinue)) : Bool)) {
                                         throw stdgo.Go.toInterface(_r);
                                     };

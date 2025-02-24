@@ -8,47 +8,13 @@ class Interface_static_extension {
         stdgo._internal.container.heap.Heap_interface_static_extension.Interface_static_extension.push(t, _x);
     }
 }
-@:forward abstract Interface(stdgo._internal.container.heap.Heap_interface.Interface) from stdgo._internal.container.heap.Heap_interface.Interface to stdgo._internal.container.heap.Heap_interface.Interface {
+@:interface @:forward abstract Interface(stdgo._internal.container.heap.Heap_interface.Interface) from stdgo._internal.container.heap.Heap_interface.Interface to stdgo._internal.container.heap.Heap_interface.Interface {
     @:from
-    static function fromHaxeInterface(x:{ function push(_x:stdgo.AnyInterface):Void; function pop():stdgo.AnyInterface; }):Interface {
+    static function fromHaxeInterface(x:{ function push(_x:stdgo.AnyInterface):Void; function pop():stdgo.AnyInterface; function len():StdTypes.Int; function less(_0:StdTypes.Int, _1:StdTypes.Int):Bool; function swap(_0:StdTypes.Int, _1:StdTypes.Int):Void; }):Interface {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Interface = { push : _0 -> x.push(_0), pop : () -> x.pop(), __underlying__ : () -> __f__() };
+        final y:Interface = { push : _0 -> x.push(_0), pop : () -> x.pop(), len : () -> x.len(), less : (_0, _1) -> x.less(_0, _1), swap : (_0, _1) -> x.swap(_0, _1), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
-    }
-}
-@:dox(hide) typedef T_myHeap = stdgo._internal.container.heap.Heap_t_myheap.T_myHeap;
-@:dox(hide) typedef T_myHeapPointer = stdgo._internal.container.heap.Heap_t_myheappointer.T_myHeapPointer;
-@:dox(hide) class T_myHeap_static_extension {
-    static public function _verify(_h:T_myHeap, _t:stdgo._internal.testing.Testing_t_.T_, _i:StdTypes.Int):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        final _i = (_i : stdgo.GoInt);
-        stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension._verify(_h, _t, _i);
-    }
-    static public function push(_h:T_myHeap, _v:stdgo.AnyInterface):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>);
-        final _v = (_v : stdgo.AnyInterface);
-        stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension.push(_h, _v);
-    }
-    static public function pop(_h:T_myHeap):stdgo.AnyInterface {
-        final _h = (_h : stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>);
-        return stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension.pop(_h);
-    }
-    static public function len(_h:T_myHeap):StdTypes.Int {
-        final _h = (_h : stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>);
-        return stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension.len(_h);
-    }
-    static public function swap(_h:T_myHeap, _i:StdTypes.Int, _j:StdTypes.Int):Void {
-        final _h = (_h : stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>);
-        final _i = (_i : stdgo.GoInt);
-        final _j = (_j : stdgo.GoInt);
-        stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension.swap(_h, _i, _j);
-    }
-    static public function less(_h:T_myHeap, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
-        final _h = (_h : stdgo.Ref<stdgo._internal.container.heap.Heap_t_myheap.T_myHeap>);
-        final _i = (_i : stdgo.GoInt);
-        final _j = (_j : stdgo.GoInt);
-        return stdgo._internal.container.heap.Heap_t_myheap_static_extension.T_myHeap_static_extension.less(_h, _i, _j);
     }
 }
 /**
@@ -107,37 +73,5 @@ class Heap {
     static public inline function fix(_h:Interface, _i:StdTypes.Int):Void {
         final _i = (_i : stdgo.GoInt);
         stdgo._internal.container.heap.Heap_fix.fix(_h, _i);
-    }
-    static public inline function testInit0(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testinit0.testInit0(_t);
-    }
-    static public inline function testInit1(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testinit1.testInit1(_t);
-    }
-    static public inline function test(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_test.test(_t);
-    }
-    static public inline function testRemove0(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testremove0.testRemove0(_t);
-    }
-    static public inline function testRemove1(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testremove1.testRemove1(_t);
-    }
-    static public inline function testRemove2(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testremove2.testRemove2(_t);
-    }
-    static public inline function benchmarkDup(_b:stdgo._internal.testing.Testing_b.B):Void {
-        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
-        stdgo._internal.container.heap.Heap_benchmarkdup.benchmarkDup(_b);
-    }
-    static public inline function testFix(_t:stdgo._internal.testing.Testing_t_.T_):Void {
-        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
-        stdgo._internal.container.heap.Heap_testfix.testFix(_t);
     }
 }

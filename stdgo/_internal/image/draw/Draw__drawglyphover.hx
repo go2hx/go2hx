@@ -18,8 +18,8 @@ if (_ma == ((0u32 : stdgo.GoUInt32))) {
                                 {
                                     final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
                                     final __tmp__1 = (_mi + (1 : stdgo.GoInt) : stdgo.GoInt);
-                                    _i = @:binopAssign __tmp__0;
-                                    _mi = @:binopAssign __tmp__1;
+                                    _i = __tmp__0;
+                                    _mi = __tmp__1;
                                 };
                                 continue;
                             };
@@ -34,8 +34,8 @@ _d[(3 : stdgo.GoInt)] = (((((((_d[(3 : stdgo.GoInt)] : stdgo.GoUInt32) * _a : st
                         {
                             final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
                             final __tmp__1 = (_mi + (1 : stdgo.GoInt) : stdgo.GoInt);
-                            _i = @:binopAssign __tmp__0;
-                            _mi = @:binopAssign __tmp__1;
+                            _i = __tmp__0;
+                            _mi = __tmp__1;
                         };
                     };
                 };
@@ -45,8 +45,8 @@ _mi0 = (_mi0 + ((@:checkr _mask ?? throw "null pointer dereference").stride) : s
                 {
                     final __tmp__0 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
                     final __tmp__1 = (_my + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _y = @:binopAssign __tmp__0;
-                    _my = @:binopAssign __tmp__1;
+                    _y = __tmp__0;
+                    _my = __tmp__1;
                 };
             };
         };

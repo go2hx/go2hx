@@ -4,7 +4,7 @@ package stdgo.os.signal;
         return stdgo._internal.os.signal.Signal_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) @:forward abstract T_stringer(stdgo._internal.os.signal.Signal_t_stringer.T_stringer) from stdgo._internal.os.signal.Signal_t_stringer.T_stringer to stdgo._internal.os.signal.Signal_t_stringer.T_stringer {
+@:interface @:dox(hide) @:forward abstract T_stringer(stdgo._internal.os.signal.Signal_t_stringer.T_stringer) from stdgo._internal.os.signal.Signal_t_stringer.T_stringer to stdgo._internal.os.signal.Signal_t_stringer.T_stringer {
     @:from
     static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
         var __f__:Void -> stdgo.AnyInterface = null;

@@ -15,7 +15,7 @@ class Maps {
         * Keys are still compared with ==.
     **/
     static public inline function equalFunc(_m1:Dynamic, _m2:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Bool {
-        final _eq = (_0, _1) -> _eq(_0, _1);
+        final _eq = _eq;
         return stdgo._internal.maps.Maps_equalfunc.equalFunc(_m1, _m2, _eq);
     }
     /**
@@ -38,7 +38,7 @@ class Maps {
         * DeleteFunc deletes any key/value pairs from m for which del returns true.
     **/
     static public inline function deleteFunc(_m:Dynamic, _del:(Dynamic, Dynamic) -> Bool):Void {
-        final _del = (_0, _1) -> _del(_0, _1);
+        final _del = _del;
         stdgo._internal.maps.Maps_deletefunc.deleteFunc(_m, _del);
     }
 }

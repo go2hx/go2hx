@@ -31,7 +31,7 @@ class ClientCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_clientcodec_static_extension.ClientCodec_static_extension.writeRequest(t, _0, _1);
     }
 }
-@:forward abstract ClientCodec(stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec) from stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec to stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec {
+@:interface @:forward abstract ClientCodec(stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec) from stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec to stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec {
     @:from
     static function fromHaxeInterface(x:{ function writeRequest(_0:Request, _1:stdgo.AnyInterface):stdgo.Error; function readResponseHeader(_0:Response):stdgo.Error; function readResponseBody(_0:stdgo.AnyInterface):stdgo.Error; function close():stdgo.Error; }):ClientCodec {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -58,7 +58,7 @@ class ServerCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_servercodec_static_extension.ServerCodec_static_extension.readRequestHeader(t, _0);
     }
 }
-@:forward abstract ServerCodec(stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec) from stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec to stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec {
+@:interface @:forward abstract ServerCodec(stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec) from stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec to stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec {
     @:from
     static function fromHaxeInterface(x:{ function readRequestHeader(_0:Request):stdgo.Error; function readRequestBody(_0:stdgo.AnyInterface):stdgo.Error; function writeResponse(_0:Response, _1:stdgo.AnyInterface):stdgo.Error; function close():stdgo.Error; }):ServerCodec {
         var __f__:Void -> stdgo.AnyInterface = null;

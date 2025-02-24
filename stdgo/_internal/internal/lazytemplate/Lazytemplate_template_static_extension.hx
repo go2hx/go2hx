@@ -18,8 +18,8 @@ package stdgo._internal.internal.lazytemplate;
         {
             final __tmp__0 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-            (@:checkr _r ?? throw "null pointer dereference")._name = @:binopAssign __tmp__0;
-            (@:checkr _r ?? throw "null pointer dereference")._text = @:binopAssign __tmp__1;
+            (@:checkr _r ?? throw "null pointer dereference")._name = __tmp__0;
+            (@:checkr _r ?? throw "null pointer dereference")._text = __tmp__1;
         };
     }
     @:keep

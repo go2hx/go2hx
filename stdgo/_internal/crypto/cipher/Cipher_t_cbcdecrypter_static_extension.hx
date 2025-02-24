@@ -41,8 +41,8 @@ package stdgo._internal.crypto.cipher;
         {
             final __tmp__0 = (@:checkr _x ?? throw "null pointer dereference")._tmp;
             final __tmp__1 = (@:checkr _x ?? throw "null pointer dereference")._iv;
-            (@:checkr _x ?? throw "null pointer dereference")._iv = @:binopAssign __tmp__0;
-            (@:checkr _x ?? throw "null pointer dereference")._tmp = @:binopAssign __tmp__1;
+            (@:checkr _x ?? throw "null pointer dereference")._iv = __tmp__0;
+            (@:checkr _x ?? throw "null pointer dereference")._tmp = __tmp__1;
         };
     }
     @:keep

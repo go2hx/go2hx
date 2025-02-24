@@ -10,7 +10,7 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.errors.Errors_t__interface_0_static_extension.T__interface_0_static_extension.unwrap(t);
     }
 }
-@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.errors.Errors_t__interface_0.T__interface_0) from stdgo._internal.errors.Errors_t__interface_0.T__interface_0 to stdgo._internal.errors.Errors_t__interface_0.T__interface_0 {
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.errors.Errors_t__interface_0.T__interface_0) from stdgo._internal.errors.Errors_t__interface_0.T__interface_0 to stdgo._internal.errors.Errors_t__interface_0.T__interface_0 {
     @:from
     static function fromHaxeInterface(x:{ function unwrap():stdgo.Error; }):T__interface_0 {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -25,7 +25,7 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.errors.Errors_t__interface_1_static_extension.T__interface_1_static_extension.is_(t, _0);
     }
 }
-@:dox(hide) @:forward abstract T__interface_1(stdgo._internal.errors.Errors_t__interface_1.T__interface_1) from stdgo._internal.errors.Errors_t__interface_1.T__interface_1 to stdgo._internal.errors.Errors_t__interface_1.T__interface_1 {
+@:interface @:dox(hide) @:forward abstract T__interface_1(stdgo._internal.errors.Errors_t__interface_1.T__interface_1) from stdgo._internal.errors.Errors_t__interface_1.T__interface_1 to stdgo._internal.errors.Errors_t__interface_1.T__interface_1 {
     @:from
     static function fromHaxeInterface(x:{ function is_(_0:stdgo.Error):Bool; }):T__interface_1 {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -39,7 +39,7 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
         return [for (i in stdgo._internal.errors.Errors_t__interface_2_static_extension.T__interface_2_static_extension.unwrap(t)) i];
     }
 }
-@:dox(hide) @:forward abstract T__interface_2(stdgo._internal.errors.Errors_t__interface_2.T__interface_2) from stdgo._internal.errors.Errors_t__interface_2.T__interface_2 to stdgo._internal.errors.Errors_t__interface_2.T__interface_2 {
+@:interface @:dox(hide) @:forward abstract T__interface_2(stdgo._internal.errors.Errors_t__interface_2.T__interface_2) from stdgo._internal.errors.Errors_t__interface_2.T__interface_2 to stdgo._internal.errors.Errors_t__interface_2.T__interface_2 {
     @:from
     static function fromHaxeInterface(x:{ function unwrap():Array<stdgo.Error>; }):T__interface_2 {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -54,7 +54,7 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.errors.Errors_t__interface_3_static_extension.T__interface_3_static_extension.as(t, _0);
     }
 }
-@:dox(hide) @:forward abstract T__interface_3(stdgo._internal.errors.Errors_t__interface_3.T__interface_3) from stdgo._internal.errors.Errors_t__interface_3.T__interface_3 to stdgo._internal.errors.Errors_t__interface_3.T__interface_3 {
+@:interface @:dox(hide) @:forward abstract T__interface_3(stdgo._internal.errors.Errors_t__interface_3.T__interface_3) from stdgo._internal.errors.Errors_t__interface_3.T__interface_3 to stdgo._internal.errors.Errors_t__interface_3.T__interface_3 {
     @:from
     static function fromHaxeInterface(x:{ function as(_0:stdgo.AnyInterface):Bool; }):T__interface_3 {
         var __f__:Void -> stdgo.AnyInterface = null;

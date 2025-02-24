@@ -95,7 +95,7 @@ class Load_static_extension {
         return [for (i in stdgo._internal.debug.macho.Macho_load_static_extension.Load_static_extension.raw(t)) i];
     }
 }
-@:forward abstract Load(stdgo._internal.debug.macho.Macho_load.Load) from stdgo._internal.debug.macho.Macho_load.Load to stdgo._internal.debug.macho.Macho_load.Load {
+@:interface @:forward abstract Load(stdgo._internal.debug.macho.Macho_load.Load) from stdgo._internal.debug.macho.Macho_load.Load to stdgo._internal.debug.macho.Macho_load.Load {
     @:from
     static function fromHaxeInterface(x:{ function raw():Array<std.UInt>; }):Load {
         var __f__:Void -> stdgo.AnyInterface = null;

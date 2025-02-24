@@ -16,15 +16,15 @@ function _tCSS(_c:stdgo._internal.html.template.Template_t_context.T_context, _s
                             {
                                 final __tmp__0 = (22 : stdgo._internal.html.template.Template_t_state.T_state);
                                 final __tmp__1 = (_j + (1 : stdgo.GoInt) : stdgo.GoInt);
-                                _c._state = @:binopAssign __tmp__0;
-                                _j = @:binopAssign __tmp__1;
+                                _c._state = __tmp__0;
+                                _j = __tmp__1;
                             };
                         } else if (((_j != (_s.length)) && (_s[(_j : stdgo.GoInt)] == (39 : stdgo.GoUInt8)) : Bool)) {
                             {
                                 final __tmp__0 = (23 : stdgo._internal.html.template.Template_t_state.T_state);
                                 final __tmp__1 = (_j + (1 : stdgo.GoInt) : stdgo.GoInt);
-                                _c._state = @:binopAssign __tmp__0;
-                                _j = @:binopAssign __tmp__1;
+                                _c._state = __tmp__0;
+                                _j = __tmp__1;
                             };
                         } else {
                             _c._state = (24 : stdgo._internal.html.template.Template_t_state.T_state);

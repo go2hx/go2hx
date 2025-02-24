@@ -107,19 +107,19 @@ class Group_static_extension {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_group.Group>);
         final _c = (_c : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>);
         final _key = (_key : stdgo.GoString);
-        final _fn = () -> _fn();
+        final _fn = _fn;
         stdgo._internal.internal.singleflight.Singleflight_group_static_extension.Group_static_extension._doCall(_g, _c, _key, _fn);
     }
     static public function doChan(_g:Group, _key:String, _fn:() -> stdgo.Tuple<stdgo.AnyInterface, stdgo.Error>):stdgo.Chan<stdgo._internal.internal.singleflight.Singleflight_result.Result> {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_group.Group>);
         final _key = (_key : stdgo.GoString);
-        final _fn = () -> _fn();
+        final _fn = _fn;
         return stdgo._internal.internal.singleflight.Singleflight_group_static_extension.Group_static_extension.doChan(_g, _key, _fn);
     }
     static public function do_(_g:Group, _key:String, _fn:() -> stdgo.Tuple<stdgo.AnyInterface, stdgo.Error>):stdgo.Tuple.Tuple3<stdgo.AnyInterface, stdgo.Error, Bool> {
         final _g = (_g : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_group.Group>);
         final _key = (_key : stdgo.GoString);
-        final _fn = () -> _fn();
+        final _fn = _fn;
         return {
             final obj = stdgo._internal.internal.singleflight.Singleflight_group_static_extension.Group_static_extension.do_(_g, _key, _fn);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };

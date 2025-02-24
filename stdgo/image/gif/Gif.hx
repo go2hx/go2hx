@@ -5,11 +5,11 @@ final disposalPrevious : haxe.UInt64 = stdgo._internal.image.gif.Gif_disposalpre
 @:dox(hide) class T_reader_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_reader(stdgo._internal.image.gif.Gif_t_reader.T_reader) from stdgo._internal.image.gif.Gif_t_reader.T_reader to stdgo._internal.image.gif.Gif_t_reader.T_reader {
+@:interface @:dox(hide) @:forward abstract T_reader(stdgo._internal.image.gif.Gif_t_reader.T_reader) from stdgo._internal.image.gif.Gif_t_reader.T_reader to stdgo._internal.image.gif.Gif_t_reader.T_reader {
     @:from
-    static function fromHaxeInterface(x:{ }):T_reader {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; }):T_reader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_reader = { __underlying__ : () -> __f__() };
+        final y:T_reader = { read : _0 -> x.read([for (i in _0) i]), readByte : () -> x.readByte(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -19,11 +19,11 @@ final disposalPrevious : haxe.UInt64 = stdgo._internal.image.gif.Gif_disposalpre
         return stdgo._internal.image.gif.Gif_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-@:dox(hide) @:forward abstract T_writer(stdgo._internal.image.gif.Gif_t_writer.T_writer) from stdgo._internal.image.gif.Gif_t_writer.T_writer to stdgo._internal.image.gif.Gif_t_writer.T_writer {
+@:interface @:dox(hide) @:forward abstract T_writer(stdgo._internal.image.gif.Gif_t_writer.T_writer) from stdgo._internal.image.gif.Gif_t_writer.T_writer to stdgo._internal.image.gif.Gif_t_writer.T_writer {
     @:from
-    static function fromHaxeInterface(x:{ function flush():stdgo.Error; }):T_writer {
+    static function fromHaxeInterface(x:{ function flush():stdgo.Error; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function writeByte(_0:std.UInt):stdgo.Error; }):T_writer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_writer = { flush : () -> x.flush(), __underlying__ : () -> __f__() };
+        final y:T_writer = { flush : () -> x.flush(), write : _0 -> x.write([for (i in _0) i]), writeByte : _0 -> x.writeByte(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -13,8 +13,8 @@ var _b = __1, _a = __0;
             {
                 final __tmp__0 = (0 : stdgo.GoInt);
                 final __tmp__1 = ((2 : stdgo.GoInt) * _blockSize : stdgo.GoInt);
-                _a = @:binopAssign __tmp__0;
-                _b = @:binopAssign __tmp__1;
+                _a = __tmp__0;
+                _b = __tmp__1;
             };
             while ((_b <= _n : Bool)) {
                 stdgo._internal.sort.Sort__symmerge_func._symMerge_func(_data?.__copy__(), _a, (_a + _blockSize : stdgo.GoInt), _b);

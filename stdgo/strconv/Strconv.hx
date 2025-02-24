@@ -15,13 +15,13 @@ private function set_errSyntax(v:stdgo.Error):stdgo.Error {
 var bitSizeError(get, set) : (String, String, StdTypes.Int) -> NumError;
 private function get_bitSizeError():(String, String, StdTypes.Int) -> NumError return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError(_0, _1, _2);
 private function set_bitSizeError(v:(String, String, StdTypes.Int) -> NumError):(String, String, StdTypes.Int) -> NumError {
-        stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.GoInt));
+        stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError = v;
         return v;
     }
 var baseError(get, set) : (String, String, StdTypes.Int) -> NumError;
 private function get_baseError():(String, String, StdTypes.Int) -> NumError return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_baseerror.baseError(_0, _1, _2);
 private function set_baseError(v:(String, String, StdTypes.Int) -> NumError):(String, String, StdTypes.Int) -> NumError {
-        stdgo._internal.strconv.Strconv_baseerror.baseError = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.GoInt));
+        stdgo._internal.strconv.Strconv_baseerror.baseError = v;
         return v;
     }
 @:structInit @:using(stdgo.strconv.Strconv.NumError_static_extension) abstract NumError(stdgo._internal.strconv.Strconv_numerror.NumError) from stdgo._internal.strconv.Strconv_numerror.NumError to stdgo._internal.strconv.Strconv_numerror.NumError {

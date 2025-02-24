@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusNotModified : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusNotModified : stdgo.GoUInt64 = (304i64 : stdgo.GoUInt64);

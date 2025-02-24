@@ -15,8 +15,8 @@ function _isMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoString; 
                 {
                     final __tmp__0 = (_data.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_data.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                    _data = @:binopAssign __tmp__0;
-                    _after = @:binopAssign __tmp__1;
+                    _data = __tmp__0;
+                    _after = __tmp__1;
                 };
             };
         };

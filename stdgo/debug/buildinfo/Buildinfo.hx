@@ -12,7 +12,7 @@ package stdgo.debug.buildinfo;
         };
     }
 }
-@:dox(hide) @:forward abstract T_exe(stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe) from stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe to stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe {
+@:interface @:dox(hide) @:forward abstract T_exe(stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe) from stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe to stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe {
     @:from
     static function fromHaxeInterface(x:{ function readData(_addr:haxe.UInt64, _size:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function dataStart():haxe.UInt64; }):T_exe {
         var __f__:Void -> stdgo.AnyInterface = null;

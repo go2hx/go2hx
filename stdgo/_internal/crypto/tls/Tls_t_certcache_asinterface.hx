@@ -1,5 +1,14 @@
 package stdgo._internal.crypto.tls;
 class T_certCache_asInterface {
+    @:keep
+    @:tdfield
+    public dynamic function _newCert(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>; var _1 : stdgo.Error; } return @:_0 __self__.value._newCert(_der);
+    @:keep
+    @:tdfield
+    public dynamic function _evict(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>):Void @:_0 __self__.value._evict(_e);
+    @:keep
+    @:tdfield
+    public dynamic function _active(_e:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert> return @:_0 __self__.value._active(_e);
     @:embedded
     @:embeddededffieldsffun
     public dynamic function _missLocked():Void @:_0 __self__.value._missLocked();

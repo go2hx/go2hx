@@ -11,7 +11,7 @@ package stdgo.crypto.hmac;
         };
     }
 }
-@:dox(hide) @:forward abstract T_marshalable(stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable) from stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable to stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable {
+@:interface @:dox(hide) @:forward abstract T_marshalable(stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable) from stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable to stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable {
     @:from
     static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function unmarshalBinary(_0:Array<std.UInt>):stdgo.Error; }):T_marshalable {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -112,7 +112,7 @@ class Hmac {
         * or encoding.BinaryUnmarshaler.
     **/
     static public inline function new_(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_hash.Hash {
-        final _h = () -> _h();
+        final _h = _h;
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.hmac.Hmac_new_.new_(_h, _key);
     }

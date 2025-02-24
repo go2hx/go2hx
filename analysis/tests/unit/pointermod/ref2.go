@@ -9,7 +9,8 @@ func main() {
     switch z := any(i).(type) {
     case *inter:
         j := imp(10)
-        *z = &j
+        j__pointer__ := &j
+        *z = j__pointer__
     default:
     }
     if i == nil || (*i).Test() != "Test" || (*i).Work() != 1 {

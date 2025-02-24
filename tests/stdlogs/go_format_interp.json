@@ -1,9 +1,0 @@
-{
-    "passes": [],
-    "fails": [
-        "TestNode"
-    ],
-    "runs": [
-        "TestNode"
-    ]
-}

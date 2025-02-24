@@ -27,8 +27,8 @@ function _contextAfterText(_c:stdgo._internal.html.template.Template_t_context.T
                     {
                         final __tmp__0 = _c1?.__copy__();
                         final __tmp__1 = (_u.__slice__(_i1) : stdgo.Slice<stdgo.GoUInt8>);
-                        _c = @:binopAssign __tmp__0;
-                        _u = @:binopAssign __tmp__1;
+                        _c = __tmp__0;
+                        _u = __tmp__1;
                     };
                 };
             };

@@ -8,7 +8,7 @@ class Source_static_extension {
         return stdgo._internal.math.rand.Rand_source_static_extension.Source_static_extension.int63(t);
     }
 }
-@:forward abstract Source(stdgo._internal.math.rand.Rand_source.Source) from stdgo._internal.math.rand.Rand_source.Source to stdgo._internal.math.rand.Rand_source.Source {
+@:interface @:forward abstract Source(stdgo._internal.math.rand.Rand_source.Source) from stdgo._internal.math.rand.Rand_source.Source to stdgo._internal.math.rand.Rand_source.Source {
     @:from
     static function fromHaxeInterface(x:{ function int63():haxe.Int64; function seed(_seed:haxe.Int64):Void; }):Source {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -22,11 +22,11 @@ class Source64_static_extension {
         return stdgo._internal.math.rand.Rand_source64_static_extension.Source64_static_extension.uint64(t);
     }
 }
-@:forward abstract Source64(stdgo._internal.math.rand.Rand_source64.Source64) from stdgo._internal.math.rand.Rand_source64.Source64 to stdgo._internal.math.rand.Rand_source64.Source64 {
+@:interface @:forward abstract Source64(stdgo._internal.math.rand.Rand_source64.Source64) from stdgo._internal.math.rand.Rand_source64.Source64 to stdgo._internal.math.rand.Rand_source64.Source64 {
     @:from
-    static function fromHaxeInterface(x:{ function uint64():haxe.UInt64; }):Source64 {
+    static function fromHaxeInterface(x:{ function uint64():haxe.UInt64; function int63():haxe.Int64; function seed(_0:haxe.Int64):Void; }):Source64 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Source64 = { uint64 : () -> x.uint64(), __underlying__ : () -> __f__() };
+        final y:Source64 = { uint64 : () -> x.uint64(), int63 : () -> x.int63(), seed : _0 -> x.seed(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -183,7 +183,7 @@ class Rand_static_extension {
     static public function shuffle(_r:Rand_, _n:StdTypes.Int, _swap:(StdTypes.Int, StdTypes.Int) -> Void):Void {
         final _r = (_r : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>);
         final _n = (_n : stdgo.GoInt);
-        final _swap = (_0, _1) -> _swap((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        final _swap = _swap;
         stdgo._internal.math.rand.Rand_rand_static_extension.Rand_static_extension.shuffle(_r, _n, _swap);
     }
     static public function perm(_r:Rand_, _n:StdTypes.Int):Array<StdTypes.Int> {
@@ -506,7 +506,7 @@ class Rand {
     **/
     static public inline function shuffle(_n:StdTypes.Int, _swap:(StdTypes.Int, StdTypes.Int) -> Void):Void {
         final _n = (_n : stdgo.GoInt);
-        final _swap = (_0, _1) -> _swap((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        final _swap = _swap;
         stdgo._internal.math.rand.Rand_shuffle.shuffle(_n, _swap);
     }
     /**

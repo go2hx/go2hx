@@ -33,7 +33,7 @@ class Curve_static_extension {
         };
     }
 }
-@:forward abstract Curve(stdgo._internal.crypto.ecdh.Ecdh_curve.Curve) from stdgo._internal.crypto.ecdh.Ecdh_curve.Curve to stdgo._internal.crypto.ecdh.Ecdh_curve.Curve {
+@:interface @:forward abstract Curve(stdgo._internal.crypto.ecdh.Ecdh_curve.Curve) from stdgo._internal.crypto.ecdh.Ecdh_curve.Curve to stdgo._internal.crypto.ecdh.Ecdh_curve.Curve {
     @:from
     static function fromHaxeInterface(x:{ function generateKey(_rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error>; function newPrivateKey(_key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error>; function newPublicKey(_key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error>; function _ecdh(_local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function _privateKeyToPublicKey(_0:PrivateKey):PublicKey; }):Curve {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -74,7 +74,7 @@ class Curve_static_extension {
         return [for (i in stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-@:dox(hide) @:forward abstract T_nistPoint(stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint) from stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint to stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint {
+@:interface @:dox(hide) @:forward abstract T_nistPoint(stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint) from stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint to stdgo._internal.crypto.ecdh.Ecdh_t_nistpoint.T_nistPoint {
     @:from
     static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function bytesX():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -151,7 +151,7 @@ class Curve_static_extension {
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {
-        this._newPoint = () -> v();
+        this._newPoint = v;
         return v;
     }
     public var _scalarOrder(get, set) : Array<std.UInt>;
@@ -160,7 +160,7 @@ class Curve_static_extension {
         this._scalarOrder = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_name:String, ?_newPoint:() -> Dynamic, ?_scalarOrder:Array<std.UInt>) this = new stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve((_name : stdgo.GoString), () -> _newPoint(), ([for (i in _scalarOrder) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_name:String, ?_newPoint:() -> Dynamic, ?_scalarOrder:Array<std.UInt>) this = new stdgo._internal.crypto.ecdh.Ecdh_t_nistcurve.T_nistCurve((_name : stdgo.GoString), _newPoint, ([for (i in _scalarOrder) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

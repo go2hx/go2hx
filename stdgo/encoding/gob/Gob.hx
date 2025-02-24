@@ -4,7 +4,7 @@ class Squarer_static_extension {
         return stdgo._internal.encoding.gob.Gob_squarer_static_extension.Squarer_static_extension.square(t);
     }
 }
-@:forward abstract Squarer(stdgo._internal.encoding.gob.Gob_squarer.Squarer) from stdgo._internal.encoding.gob.Gob_squarer.Squarer to stdgo._internal.encoding.gob.Gob_squarer.Squarer {
+@:interface @:forward abstract Squarer(stdgo._internal.encoding.gob.Gob_squarer.Squarer) from stdgo._internal.encoding.gob.Gob_squarer.Squarer to stdgo._internal.encoding.gob.Gob_squarer.Squarer {
     @:from
     static function fromHaxeInterface(x:{ function square():StdTypes.Int; }):Squarer {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -18,7 +18,7 @@ class Squarer_static_extension {
         return stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti_static_extension.T_interfaceIndirectTestI_static_extension.f(t);
     }
 }
-@:dox(hide) @:forward abstract T_interfaceIndirectTestI(stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI) from stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI to stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI {
+@:interface @:dox(hide) @:forward abstract T_interfaceIndirectTestI(stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI) from stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI to stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI {
     @:from
     static function fromHaxeInterface(x:{ function f():Bool; }):T_interfaceIndirectTestI {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -51,7 +51,7 @@ class Squarer_static_extension {
         return stdgo._internal.encoding.gob.Gob_t_gobtype_static_extension.T_gobType_static_extension._id(t);
     }
 }
-@:dox(hide) @:forward abstract T_gobType(stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType) from stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType to stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType {
+@:interface @:dox(hide) @:forward abstract T_gobType(stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType) from stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType to stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType {
     @:from
     static function fromHaxeInterface(x:{ function _id():T_typeId; function _setId(_id:T_typeId):Void; function _name():String; function _string():String; function _safeString(_seen:Map<T_typeId, Bool>):String; }):T_gobType {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -74,7 +74,7 @@ class GobEncoder_static_extension {
         };
     }
 }
-@:forward abstract GobEncoder(stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder) from stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder to stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder {
+@:interface @:forward abstract GobEncoder(stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder) from stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder to stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder {
     @:from
     static function fromHaxeInterface(x:{ function gobEncode():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):GobEncoder {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -89,7 +89,7 @@ class GobDecoder_static_extension {
         return stdgo._internal.encoding.gob.Gob_gobdecoder_static_extension.GobDecoder_static_extension.gobDecode(t, _0);
     }
 }
-@:forward abstract GobDecoder(stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder) from stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder to stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder {
+@:interface @:forward abstract GobDecoder(stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder) from stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder to stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder {
     @:from
     static function fromHaxeInterface(x:{ function gobDecode(_0:Array<std.UInt>):stdgo.Error; }):GobDecoder {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -1411,7 +1411,7 @@ class GobDecoder_static_extension {
     public var f(get, set) : () -> Void;
     function get_f():() -> Void return () -> this.f();
     function set_f(v:() -> Void):() -> Void {
-        this.f = () -> v();
+        this.f = v;
         return v;
     }
     public var fPP(get, set) : stdgo.Pointer<stdgo.Pointer<() -> Void>>;
@@ -1420,7 +1420,7 @@ class GobDecoder_static_extension {
         this.fPP = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cP:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fPP:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_bug2.Bug2((a : stdgo.GoInt), (c : stdgo.Chan<stdgo.GoInt>), (cP : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), () -> f(), fPP);
+    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cP:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fPP:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_bug2.Bug2((a : stdgo.GoInt), (c : stdgo.Chan<stdgo.GoInt>), (cP : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), f, fPP);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

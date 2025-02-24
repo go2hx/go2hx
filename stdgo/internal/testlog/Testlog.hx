@@ -17,7 +17,7 @@ class Interface_static_extension {
         stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.getenv(t, _key);
     }
 }
-@:forward abstract Interface(stdgo._internal.internal.testlog.Testlog_interface.Interface) from stdgo._internal.internal.testlog.Testlog_interface.Interface to stdgo._internal.internal.testlog.Testlog_interface.Interface {
+@:interface @:forward abstract Interface(stdgo._internal.internal.testlog.Testlog_interface.Interface) from stdgo._internal.internal.testlog.Testlog_interface.Interface to stdgo._internal.internal.testlog.Testlog_interface.Interface {
     @:from
     static function fromHaxeInterface(x:{ function getenv(_key:String):Void; function stat(_file:String):Void; function open(_file:String):Void; function chdir(_dir:String):Void; }):Interface {
         var __f__:Void -> stdgo.AnyInterface = null;

@@ -7,7 +7,7 @@ class BinaryMarshaler_static_extension {
         };
     }
 }
-@:forward abstract BinaryMarshaler(stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler) from stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler to stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler {
+@:interface @:forward abstract BinaryMarshaler(stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler) from stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler to stdgo._internal.encoding.Encoding_binarymarshaler.BinaryMarshaler {
     @:from
     static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):BinaryMarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -22,7 +22,7 @@ class BinaryUnmarshaler_static_extension {
         return stdgo._internal.encoding.Encoding_binaryunmarshaler_static_extension.BinaryUnmarshaler_static_extension.unmarshalBinary(t, _data);
     }
 }
-@:forward abstract BinaryUnmarshaler(stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler) from stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler to stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler {
+@:interface @:forward abstract BinaryUnmarshaler(stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler) from stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler to stdgo._internal.encoding.Encoding_binaryunmarshaler.BinaryUnmarshaler {
     @:from
     static function fromHaxeInterface(x:{ function unmarshalBinary(_data:Array<std.UInt>):stdgo.Error; }):BinaryUnmarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -39,7 +39,7 @@ class TextMarshaler_static_extension {
         };
     }
 }
-@:forward abstract TextMarshaler(stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler) from stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler to stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler {
+@:interface @:forward abstract TextMarshaler(stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler) from stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler to stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler {
     @:from
     static function fromHaxeInterface(x:{ function marshalText():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):TextMarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -54,7 +54,7 @@ class TextUnmarshaler_static_extension {
         return stdgo._internal.encoding.Encoding_textunmarshaler_static_extension.TextUnmarshaler_static_extension.unmarshalText(t, _text);
     }
 }
-@:forward abstract TextUnmarshaler(stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler) from stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler to stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler {
+@:interface @:forward abstract TextUnmarshaler(stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler) from stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler to stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler {
     @:from
     static function fromHaxeInterface(x:{ function unmarshalText(_text:Array<std.UInt>):stdgo.Error; }):TextUnmarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;

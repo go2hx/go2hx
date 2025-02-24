@@ -1,23 +1,11 @@
 package stdgo.crypto.cipher;
-var newCBCGenericEncrypter(get, set) : (Block, Array<std.UInt>) -> BlockMode;
-private function get_newCBCGenericEncrypter():(Block, Array<std.UInt>) -> BlockMode return (_0, _1) -> stdgo._internal.crypto.cipher.Cipher_newcbcgenericencrypter.newCBCGenericEncrypter(_0, [for (i in _1) i]);
-private function set_newCBCGenericEncrypter(v:(Block, Array<std.UInt>) -> BlockMode):(Block, Array<std.UInt>) -> BlockMode {
-        stdgo._internal.crypto.cipher.Cipher_newcbcgenericencrypter.newCBCGenericEncrypter = (_0, _1) -> v(_0, ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
-        return v;
-    }
-var newCBCGenericDecrypter(get, set) : (Block, Array<std.UInt>) -> BlockMode;
-private function get_newCBCGenericDecrypter():(Block, Array<std.UInt>) -> BlockMode return (_0, _1) -> stdgo._internal.crypto.cipher.Cipher_newcbcgenericdecrypter.newCBCGenericDecrypter(_0, [for (i in _1) i]);
-private function set_newCBCGenericDecrypter(v:(Block, Array<std.UInt>) -> BlockMode):(Block, Array<std.UInt>) -> BlockMode {
-        stdgo._internal.crypto.cipher.Cipher_newcbcgenericdecrypter.newCBCGenericDecrypter = (_0, _1) -> v(_0, ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
-        return v;
-    }
 @:dox(hide) class T_cbcEncAble_static_extension {
     static public function newCBCEncrypter(t:stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble, _iv:Array<std.UInt>):BlockMode {
         final _iv = ([for (i in _iv) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.cipher.Cipher_t_cbcencable_static_extension.T_cbcEncAble_static_extension.newCBCEncrypter(t, _iv);
     }
 }
-@:dox(hide) @:forward abstract T_cbcEncAble(stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble to stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble {
+@:interface @:dox(hide) @:forward abstract T_cbcEncAble(stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble to stdgo._internal.crypto.cipher.Cipher_t_cbcencable.T_cbcEncAble {
     @:from
     static function fromHaxeInterface(x:{ function newCBCEncrypter(_iv:Array<std.UInt>):BlockMode; }):T_cbcEncAble {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -32,7 +20,7 @@ private function set_newCBCGenericDecrypter(v:(Block, Array<std.UInt>) -> BlockM
         return stdgo._internal.crypto.cipher.Cipher_t_cbcdecable_static_extension.T_cbcDecAble_static_extension.newCBCDecrypter(t, _iv);
     }
 }
-@:dox(hide) @:forward abstract T_cbcDecAble(stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble to stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble {
+@:interface @:dox(hide) @:forward abstract T_cbcDecAble(stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble) from stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble to stdgo._internal.crypto.cipher.Cipher_t_cbcdecable.T_cbcDecAble {
     @:from
     static function fromHaxeInterface(x:{ function newCBCDecrypter(_iv:Array<std.UInt>):BlockMode; }):T_cbcDecAble {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -56,7 +44,7 @@ class Block_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_block_static_extension.Block_static_extension.blockSize(t);
     }
 }
-@:forward abstract Block(stdgo._internal.crypto.cipher.Cipher_block.Block) from stdgo._internal.crypto.cipher.Cipher_block.Block to stdgo._internal.crypto.cipher.Cipher_block.Block {
+@:interface @:forward abstract Block(stdgo._internal.crypto.cipher.Cipher_block.Block) from stdgo._internal.crypto.cipher.Cipher_block.Block to stdgo._internal.crypto.cipher.Cipher_block.Block {
     @:from
     static function fromHaxeInterface(x:{ function blockSize():StdTypes.Int; function encrypt(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; function decrypt(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):Block {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -72,7 +60,7 @@ class Stream_static_extension {
         stdgo._internal.crypto.cipher.Cipher_stream_static_extension.Stream_static_extension.xORKeyStream(t, _dst, _src);
     }
 }
-@:forward abstract Stream(stdgo._internal.crypto.cipher.Cipher_stream.Stream) from stdgo._internal.crypto.cipher.Cipher_stream.Stream to stdgo._internal.crypto.cipher.Cipher_stream.Stream {
+@:interface @:forward abstract Stream(stdgo._internal.crypto.cipher.Cipher_stream.Stream) from stdgo._internal.crypto.cipher.Cipher_stream.Stream to stdgo._internal.crypto.cipher.Cipher_stream.Stream {
     @:from
     static function fromHaxeInterface(x:{ function xORKeyStream(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):Stream {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -91,7 +79,7 @@ class BlockMode_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_blockmode_static_extension.BlockMode_static_extension.blockSize(t);
     }
 }
-@:forward abstract BlockMode(stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode) from stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode to stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode {
+@:interface @:forward abstract BlockMode(stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode) from stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode to stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode {
     @:from
     static function fromHaxeInterface(x:{ function blockSize():StdTypes.Int; function cryptBlocks(_dst:Array<std.UInt>, _src:Array<std.UInt>):Void; }):BlockMode {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -106,7 +94,7 @@ class BlockMode_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_t_ctrable_static_extension.T_ctrAble_static_extension.newCTR(t, _iv);
     }
 }
-@:dox(hide) @:forward abstract T_ctrAble(stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble) from stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble to stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble {
+@:interface @:dox(hide) @:forward abstract T_ctrAble(stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble) from stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble to stdgo._internal.crypto.cipher.Cipher_t_ctrable.T_ctrAble {
     @:from
     static function fromHaxeInterface(x:{ function newCTR(_iv:Array<std.UInt>):Stream; }):T_ctrAble {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -140,7 +128,7 @@ class AEAD_static_extension {
         return stdgo._internal.crypto.cipher.Cipher_aead_static_extension.AEAD_static_extension.nonceSize(t);
     }
 }
-@:forward abstract AEAD(stdgo._internal.crypto.cipher.Cipher_aead.AEAD) from stdgo._internal.crypto.cipher.Cipher_aead.AEAD to stdgo._internal.crypto.cipher.Cipher_aead.AEAD {
+@:interface @:forward abstract AEAD(stdgo._internal.crypto.cipher.Cipher_aead.AEAD) from stdgo._internal.crypto.cipher.Cipher_aead.AEAD to stdgo._internal.crypto.cipher.Cipher_aead.AEAD {
     @:from
     static function fromHaxeInterface(x:{ function nonceSize():StdTypes.Int; function overhead():StdTypes.Int; function seal(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _additionalData:Array<std.UInt>):Array<std.UInt>; function open(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):AEAD {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -159,7 +147,7 @@ class AEAD_static_extension {
         };
     }
 }
-@:dox(hide) @:forward abstract T_gcmAble(stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble) from stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble to stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble {
+@:interface @:dox(hide) @:forward abstract T_gcmAble(stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble) from stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble to stdgo._internal.crypto.cipher.Cipher_t_gcmable.T_gcmAble {
     @:from
     static function fromHaxeInterface(x:{ function newGCM(_nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error>; }):T_gcmAble {
         var __f__:Void -> stdgo.AnyInterface = null;

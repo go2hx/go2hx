@@ -523,8 +523,8 @@ var _b = __1, _a = __0;
         {
             final __tmp__0 = (@:checkr _z ?? throw "null pointer dereference")._b._abs;
             final __tmp__1 = (@:checkr _z ?? throw "null pointer dereference")._a._abs;
-            (@:checkr _z ?? throw "null pointer dereference")._a._abs = @:binopAssign __tmp__0;
-            (@:checkr _z ?? throw "null pointer dereference")._b._abs = @:binopAssign __tmp__1;
+            (@:checkr _z ?? throw "null pointer dereference")._a._abs = __tmp__0;
+            (@:checkr _z ?? throw "null pointer dereference")._b._abs = __tmp__1;
         };
         return _z;
     }

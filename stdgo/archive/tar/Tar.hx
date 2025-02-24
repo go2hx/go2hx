@@ -55,7 +55,7 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.archive.tar.Tar_t_filestate_static_extension.T_fileState_static_extension._logicalRemaining(t);
     }
 }
-@:dox(hide) @:forward abstract T_fileState(stdgo._internal.archive.tar.Tar_t_filestate.T_fileState) from stdgo._internal.archive.tar.Tar_t_filestate.T_fileState to stdgo._internal.archive.tar.Tar_t_filestate.T_fileState {
+@:interface @:dox(hide) @:forward abstract T_fileState(stdgo._internal.archive.tar.Tar_t_filestate.T_fileState) from stdgo._internal.archive.tar.Tar_t_filestate.T_fileState to stdgo._internal.archive.tar.Tar_t_filestate.T_fileState {
     @:from
     static function fromHaxeInterface(x:{ function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileState {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -72,11 +72,11 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         };
     }
 }
-@:dox(hide) @:forward abstract T_fileReader(stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader) from stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader to stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader {
+@:interface @:dox(hide) @:forward abstract T_fileReader(stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader) from stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader to stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader {
     @:from
-    static function fromHaxeInterface(x:{ function writeTo(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):T_fileReader {
+    static function fromHaxeInterface(x:{ function writeTo(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileReader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileReader = { writeTo : _0 -> x.writeTo(_0), __underlying__ : () -> __f__() };
+        final y:T_fileReader = { writeTo : _0 -> x.writeTo(_0), read : _0 -> x.read([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -89,11 +89,11 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         };
     }
 }
-@:dox(hide) @:forward abstract T_fileWriter(stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter) from stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter to stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter {
+@:interface @:dox(hide) @:forward abstract T_fileWriter(stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter) from stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter to stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter {
     @:from
-    static function fromHaxeInterface(x:{ function readFrom(_0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):T_fileWriter {
+    static function fromHaxeInterface(x:{ function readFrom(_0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileWriter = { readFrom : _0 -> x.readFrom(_0), __underlying__ : () -> __f__() };
+        final y:T_fileWriter = { readFrom : _0 -> x.readFrom(_0), write : _0 -> x.write([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -61,8 +61,8 @@ package stdgo._internal.compress.gzip;
             {
                 final __tmp__0 = (0u32 : stdgo.GoUInt32);
                 final __tmp__1 = (0u32 : stdgo.GoUInt32);
-                (@:checkr _z ?? throw "null pointer dereference")._digest = @:binopAssign __tmp__0;
-                (@:checkr _z ?? throw "null pointer dereference")._size = @:binopAssign __tmp__1;
+                (@:checkr _z ?? throw "null pointer dereference")._digest = __tmp__0;
+                (@:checkr _z ?? throw "null pointer dereference")._size = __tmp__1;
             };
             if (!(@:checkr _z ?? throw "null pointer dereference")._multistream) {
                 return {

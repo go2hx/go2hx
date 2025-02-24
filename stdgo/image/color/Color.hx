@@ -97,7 +97,7 @@ class Color_static_extension {
         };
     }
 }
-@:forward abstract Color_(stdgo._internal.image.color.Color_color.Color) from stdgo._internal.image.color.Color_color.Color to stdgo._internal.image.color.Color_color.Color {
+@:interface @:forward abstract Color_(stdgo._internal.image.color.Color_color.Color) from stdgo._internal.image.color.Color_color.Color to stdgo._internal.image.color.Color_color.Color {
     @:from
     static function fromHaxeInterface(x:{ function rGBA():stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt>; }):Color_ {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -111,7 +111,7 @@ class Model_static_extension {
         return stdgo._internal.image.color.Color_model_static_extension.Model_static_extension.convert(t, _c);
     }
 }
-@:forward abstract Model(stdgo._internal.image.color.Color_model.Model) from stdgo._internal.image.color.Color_model.Model to stdgo._internal.image.color.Color_model.Model {
+@:interface @:forward abstract Model(stdgo._internal.image.color.Color_model.Model) from stdgo._internal.image.color.Color_model.Model to stdgo._internal.image.color.Color_model.Model {
     @:from
     static function fromHaxeInterface(x:{ function convert(_c:Color_):Color_; }):Model {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -284,10 +284,10 @@ class Model_static_extension {
     public var _f(get, set) : Color_ -> Color_;
     function get__f():Color_ -> Color_ return _0 -> this._f(_0);
     function set__f(v:Color_ -> Color_):Color_ -> Color_ {
-        this._f = _0 -> v(_0);
+        this._f = v;
         return v;
     }
-    public function new(?_f:Color_ -> Color_) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_0 -> _f(_0));
+    public function new(?_f:Color_ -> Color_) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -484,7 +484,7 @@ class Color {
         * ModelFunc returns a Model that invokes f to implement the conversion.
     **/
     static public inline function modelFunc(_f:Color_ -> Color_):Model {
-        final _f = _0 -> _f(_0);
+        final _f = _f;
         return stdgo._internal.image.color.Color_modelfunc.modelFunc(_f);
     }
     static public inline function testSqDiff(_t:stdgo._internal.testing.Testing_t_.T_):Void {

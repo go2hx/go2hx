@@ -9,7 +9,7 @@ private function set_errTooLarge(v:stdgo.Error):stdgo.Error {
 var indexBytePortable(get, set) : (Array<std.UInt>, std.UInt) -> StdTypes.Int;
 private function get_indexBytePortable():(Array<std.UInt>, std.UInt) -> StdTypes.Int return (_0, _1) -> stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable([for (i in _0) i], _1);
 private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes.Int):(Array<std.UInt>, std.UInt) -> StdTypes.Int {
-        stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = (_0, _1) -> v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_1 : stdgo.GoUInt8));
+        stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = v;
         return v;
     }
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) abstract Buffer(stdgo._internal.bytes.Bytes_buffer.Buffer) from stdgo._internal.bytes.Bytes_buffer.Buffer to stdgo._internal.bytes.Bytes_buffer.Buffer {
@@ -414,7 +414,7 @@ class Bytes {
     **/
     static public inline function containsFunc(_b:Array<std.UInt>, _f:StdTypes.Int -> Bool):Bool {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.bytes.Bytes_containsfunc.containsFunc(_b, _f);
     }
     /**
@@ -554,7 +554,7 @@ class Bytes {
     **/
     static public inline function fieldsFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<Array<std.UInt>> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_fieldsfunc.fieldsFunc(_s, _f)) [for (i in i) i]];
     }
     /**
@@ -589,7 +589,7 @@ class Bytes {
         * output are interpreted as UTF-8-encoded code points.
     **/
     static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:Array<std.UInt>):Array<std.UInt> {
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoInt32));
+        final _mapping = _mapping;
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_map_.map_(_mapping, _s)) i];
     }
@@ -677,7 +677,7 @@ class Bytes {
     **/
     static public inline function trimLeftFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimleftfunc.trimLeftFunc(_s, _f)) i];
     }
     /**
@@ -686,7 +686,7 @@ class Bytes {
     **/
     static public inline function trimRightFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimrightfunc.trimRightFunc(_s, _f)) i];
     }
     /**
@@ -695,7 +695,7 @@ class Bytes {
     **/
     static public inline function trimFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimfunc.trimFunc(_s, _f)) i];
     }
     /**
@@ -723,7 +723,7 @@ class Bytes {
     **/
     static public inline function indexFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.bytes.Bytes_indexfunc.indexFunc(_s, _f);
     }
     /**
@@ -733,7 +733,7 @@ class Bytes {
     **/
     static public inline function lastIndexFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.bytes.Bytes_lastindexfunc.lastIndexFunc(_s, _f);
     }
     /**

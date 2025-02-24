@@ -394,7 +394,7 @@ class MapFile_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester>);
         final _file = (_file : stdgo.GoString);
         final _desc = (_desc : stdgo.GoString);
-        final _open = _0 -> _open((_0 : stdgo.GoString));
+        final _open = _open;
         stdgo._internal.testing.fstest.Fstest_t_fstester_static_extension.T_fsTester_static_extension._checkBadPath(_t, _file, _desc, _open);
     }
     static public function _checkOpen(_t:T_fsTester, _file:String):Void {

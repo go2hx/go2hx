@@ -20,9 +20,9 @@ function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _b:
                 final __tmp__0 = b;
                 final __tmp__1 = _r;
                 final __tmp__2 = a;
-                a = @:binopAssign __tmp__0;
-                b = @:binopAssign __tmp__1;
-                _r = @:binopAssign __tmp__2;
+                a = __tmp__0;
+                b = __tmp__1;
+                _r = __tmp__2;
             };
             @:check2r _temp.set(ub);
             @:check2r ub.mul(ub, _q);

@@ -167,7 +167,7 @@ _v = _v.logValuer().logValue().__copy__();
             } else if (__value__ == ((0 : stdgo._internal.log.slog.Slog_kind.Kind)) || __value__ == ((9 : stdgo._internal.log.slog.Slog_kind.Kind))) {
                 return _v._any == (_w._any);
             } else if (__value__ == ((8 : stdgo._internal.log.slog.Slog_kind.Kind))) {
-                return stdgo._internal.slices.Slices_equalfunc.equalFunc(_v._group(), _w._group(), @:selectorExprRecv stdgo._internal.log.slog.Slog_attr_static_extension.Attr_static_extension.equal);
+                return stdgo._internal.slices.Slices_equalfunc.equalFunc(_v._group(), _w._group(), stdgo._internal.log.slog.Slog_attr_static_extension.Attr_static_extension.equal);
             } else {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("bad kind: %s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_k1))));
             };

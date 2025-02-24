@@ -17,8 +17,8 @@ function _tText(_c:stdgo._internal.html.template.Template_t_context.T_context, _
                 {
                     final __tmp__0 = true;
                     final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _end = @:binopAssign __tmp__0;
-                    _i = @:binopAssign __tmp__1;
+                    _end = __tmp__0;
+                    _i = __tmp__1;
                 };
             };
             var __tmp__ = stdgo._internal.html.template.Template__eattagname._eatTagName(_s, _i), _j:stdgo.GoInt = __tmp__._0, _e:stdgo._internal.html.template.Template_t_element.T_element = __tmp__._1;

@@ -7,8 +7,8 @@ function _benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>, _aSize
             {
                 final __tmp__0 = _bb;
                 final __tmp__1 = _aa;
-                _aa = @:binopAssign __tmp__0;
-                _bb = @:binopAssign __tmp__1;
+                _aa = __tmp__0;
+                _bb = __tmp__1;
             };
         };
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);

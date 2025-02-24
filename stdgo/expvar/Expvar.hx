@@ -4,7 +4,7 @@ class Var_static_extension {
         return stdgo._internal.expvar.Expvar_var_static_extension.Var_static_extension.string(t);
     }
 }
-@:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
+@:interface @:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
     @:from
     static function fromHaxeInterface(x:{ function string():String; }):Var {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -133,7 +133,7 @@ typedef Map_Pointer = stdgo._internal.expvar.Expvar_map_pointer.Map_Pointer;
 class Map__static_extension {
     static public function do_(_v:Map_, _f:KeyValue -> Void):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
-        final _f = _0 -> _f(_0);
+        final _f = _f;
         stdgo._internal.expvar.Expvar_map__static_extension.Map__static_extension.do_(_v, _f);
     }
     static public function delete(_v:Map_, _key:String):Void {
@@ -265,7 +265,7 @@ class Expvar {
         * but existing entries may be concurrently updated.
     **/
     static public inline function do_(_f:KeyValue -> Void):Void {
-        final _f = _0 -> _f(_0);
+        final _f = _f;
         stdgo._internal.expvar.Expvar_do_.do_(_f);
     }
     /**

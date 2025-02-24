@@ -112,7 +112,7 @@ class Code_static_extension {
         return stdgo._internal.internal.pkgbits.Pkgbits_code_static_extension.Code_static_extension.marker(t);
     }
 }
-@:forward abstract Code(stdgo._internal.internal.pkgbits.Pkgbits_code.Code) from stdgo._internal.internal.pkgbits.Pkgbits_code.Code to stdgo._internal.internal.pkgbits.Pkgbits_code.Code {
+@:interface @:forward abstract Code(stdgo._internal.internal.pkgbits.Pkgbits_code.Code) from stdgo._internal.internal.pkgbits.Pkgbits_code.Code to stdgo._internal.internal.pkgbits.Pkgbits_code.Code {
     @:from
     static function fromHaxeInterface(x:{ function marker():SyncMarker; function value():StdTypes.Int; }):Code {
         var __f__:Void -> stdgo.AnyInterface = null;

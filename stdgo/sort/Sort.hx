@@ -14,7 +14,7 @@ class Interface_static_extension {
         return stdgo._internal.sort.Sort_interface_static_extension.Interface_static_extension.len(t);
     }
 }
-@:forward abstract Interface(stdgo._internal.sort.Sort_interface.Interface) from stdgo._internal.sort.Sort_interface.Interface to stdgo._internal.sort.Sort_interface.Interface {
+@:interface @:forward abstract Interface(stdgo._internal.sort.Sort_interface.Interface) from stdgo._internal.sort.Sort_interface.Interface to stdgo._internal.sort.Sort_interface.Interface {
     @:from
     static function fromHaxeInterface(x:{ function len():StdTypes.Int; function less(_i:StdTypes.Int, _j:StdTypes.Int):Bool; function swap(_i:StdTypes.Int, _j:StdTypes.Int):Void; }):Interface {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -27,16 +27,16 @@ class Interface_static_extension {
     public var less(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
     function get_less():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.less(_0, _1);
     function set_less(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
-        this.less = (_0, _1) -> v((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        this.less = v;
         return v;
     }
     public var swap(get, set) : (StdTypes.Int, StdTypes.Int) -> Void;
     function get_swap():(StdTypes.Int, StdTypes.Int) -> Void return (_0, _1) -> this.swap(_0, _1);
     function set_swap(v:(StdTypes.Int, StdTypes.Int) -> Void):(StdTypes.Int, StdTypes.Int) -> Void {
-        this.swap = (_0, _1) -> v((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        this.swap = v;
         return v;
     }
-    public function new(?less:(StdTypes.Int, StdTypes.Int) -> Bool, ?swap:(StdTypes.Int, StdTypes.Int) -> Void) this = new stdgo._internal.sort.Sort_t_lessswap.T_lessSwap((_0, _1) -> less((_0 : stdgo.GoInt), (_1 : stdgo.GoInt)), (_0, _1) -> swap((_0 : stdgo.GoInt), (_1 : stdgo.GoInt)));
+    public function new(?less:(StdTypes.Int, StdTypes.Int) -> Bool, ?swap:(StdTypes.Int, StdTypes.Int) -> Void) this = new stdgo._internal.sort.Sort_t_lessswap.T_lessSwap(less, swap);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -220,7 +220,7 @@ class Sort {
     **/
     static public inline function search(_n:StdTypes.Int, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _n = (_n : stdgo.GoInt);
-        final _f = _0 -> _f((_0 : stdgo.GoInt));
+        final _f = _f;
         return stdgo._internal.sort.Sort_search.search(_n, _f);
     }
     /**
@@ -251,7 +251,7 @@ class Sort {
     **/
     static public inline function find(_n:StdTypes.Int, _cmp:StdTypes.Int -> StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
         final _n = (_n : stdgo.GoInt);
-        final _cmp = _0 -> _cmp((_0 : stdgo.GoInt));
+        final _cmp = _cmp;
         return {
             final obj = stdgo._internal.sort.Sort_find.find(_n, _cmp);
             { _0 : obj._0, _1 : obj._1 };
@@ -303,7 +303,7 @@ class Sort {
     **/
     static public inline function slice(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Void {
         final _x = (_x : stdgo.AnyInterface);
-        final _less = (_0, _1) -> _less((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        final _less = _less;
         stdgo._internal.sort.Sort_slice.slice(_x, _less);
     }
     /**
@@ -316,7 +316,7 @@ class Sort {
     **/
     static public inline function sliceStable(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Void {
         final _x = (_x : stdgo.AnyInterface);
-        final _less = (_0, _1) -> _less((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        final _less = _less;
         stdgo._internal.sort.Sort_slicestable.sliceStable(_x, _less);
     }
     /**
@@ -325,7 +325,7 @@ class Sort {
     **/
     static public inline function sliceIsSorted(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Bool {
         final _x = (_x : stdgo.AnyInterface);
-        final _less = (_0, _1) -> _less((_0 : stdgo.GoInt), (_1 : stdgo.GoInt));
+        final _less = _less;
         return stdgo._internal.sort.Sort_sliceissorted.sliceIsSorted(_x, _less);
     }
     /**

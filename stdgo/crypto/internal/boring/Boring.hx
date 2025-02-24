@@ -160,7 +160,7 @@ class Boring {
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.internal.boring.Boring_sha512.sHA512(_0)) i]);
     }
     static public inline function newHMAC(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_hash.Hash {
-        final _h = () -> _h();
+        final _h = _h;
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.internal.boring.Boring_newhmac.newHMAC(_h, _key);
     }

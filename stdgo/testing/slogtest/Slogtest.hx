@@ -9,13 +9,13 @@ package stdgo.testing.slogtest;
     public var _f(get, set) : stdgo._internal.log.slog.Slog_logger.Logger -> Void;
     function get__f():stdgo._internal.log.slog.Slog_logger.Logger -> Void return _0 -> this._f(_0);
     function set__f(v:stdgo._internal.log.slog.Slog_logger.Logger -> Void):stdgo._internal.log.slog.Slog_logger.Logger -> Void {
-        this._f = _0 -> v((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger>));
+        this._f = v;
         return v;
     }
     public var _mod(get, set) : stdgo._internal.log.slog.Slog_record.Record -> Void;
     function get__mod():stdgo._internal.log.slog.Slog_record.Record -> Void return _0 -> this._mod(_0);
     function set__mod(v:stdgo._internal.log.slog.Slog_record.Record -> Void):stdgo._internal.log.slog.Slog_record.Record -> Void {
-        this._mod = _0 -> v((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>));
+        this._mod = v;
         return v;
     }
     public var _checks(get, set) : Array<T_check>;
@@ -24,7 +24,7 @@ package stdgo.testing.slogtest;
         this._checks = ([for (i in v) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_t_check.T_check>);
         return v;
     }
-    public function new(?_explanation:String, ?_f:stdgo._internal.log.slog.Slog_logger.Logger -> Void, ?_mod:stdgo._internal.log.slog.Slog_record.Record -> Void, ?_checks:Array<T_check>) this = new stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase((_explanation : stdgo.GoString), _0 -> _f((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_logger.Logger>)), _0 -> _mod((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>)), ([for (i in _checks) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_t_check.T_check>));
+    public function new(?_explanation:String, ?_f:stdgo._internal.log.slog.Slog_logger.Logger -> Void, ?_mod:stdgo._internal.log.slog.Slog_record.Record -> Void, ?_checks:Array<T_check>) this = new stdgo._internal.testing.slogtest.Slogtest_t_testcase.T_testCase((_explanation : stdgo.GoString), _f, _mod, ([for (i in _checks) i] : stdgo.Slice<stdgo._internal.testing.slogtest.Slogtest_t_check.T_check>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -38,10 +38,10 @@ package stdgo.testing.slogtest;
     public var _mod(get, set) : stdgo._internal.log.slog.Slog_record.Record -> Void;
     function get__mod():stdgo._internal.log.slog.Slog_record.Record -> Void return _0 -> this._mod(_0);
     function set__mod(v:stdgo._internal.log.slog.Slog_record.Record -> Void):stdgo._internal.log.slog.Slog_record.Record -> Void {
-        this._mod = _0 -> v((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>));
+        this._mod = v;
         return v;
     }
-    public function new(?handler:stdgo._internal.log.slog.Slog_handler.Handler, ?_mod:stdgo._internal.log.slog.Slog_record.Record -> Void) this = new stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper(handler, _0 -> _mod((_0 : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>)));
+    public function new(?handler:stdgo._internal.log.slog.Slog_handler.Handler, ?_mod:stdgo._internal.log.slog.Slog_record.Record -> Void) this = new stdgo._internal.testing.slogtest.Slogtest_t_wrapper.T_wrapper(handler, _mod);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -119,7 +119,7 @@ class Slogtest {
         * then the results function should check for its absence and add it to the map it returns.
     **/
     static public inline function testHandler(_h:stdgo._internal.log.slog.Slog_handler.Handler, _results:() -> Array<Map<String, stdgo.AnyInterface>>):stdgo.Error {
-        final _results = () -> _results();
+        final _results = _results;
         return stdgo._internal.testing.slogtest.Slogtest_testhandler.testHandler(_h, _results);
     }
 }

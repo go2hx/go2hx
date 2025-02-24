@@ -6,7 +6,7 @@ class Generator_static_extension {
         return stdgo._internal.testing.quick.Quick_generator_static_extension.Generator_static_extension.generate(t, _rand, _size);
     }
 }
-@:forward abstract Generator(stdgo._internal.testing.quick.Quick_generator.Generator) from stdgo._internal.testing.quick.Quick_generator.Generator to stdgo._internal.testing.quick.Quick_generator.Generator {
+@:interface @:forward abstract Generator(stdgo._internal.testing.quick.Quick_generator.Generator) from stdgo._internal.testing.quick.Quick_generator.Generator to stdgo._internal.testing.quick.Quick_generator.Generator {
     @:from
     static function fromHaxeInterface(x:{ function generate(_rand:stdgo._internal.math.rand.Rand_rand.Rand, _size:StdTypes.Int):stdgo._internal.reflect.Reflect_value.Value; }):Generator {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -37,10 +37,10 @@ class Generator_static_extension {
     public var values(get, set) : (Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void;
     function get_values():(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void return (_0, _1) -> this.values([for (i in _0) i], _1);
     function set_values(v:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void):(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void {
-        this.values = (_0, _1) -> v(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>), (_1 : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>));
+        this.values = v;
         return v;
     }
-    public function new(?maxCount:StdTypes.Int, ?maxCountScale:StdTypes.Float, ?rand:stdgo._internal.math.rand.Rand_rand.Rand, ?values:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void) this = new stdgo._internal.testing.quick.Quick_config.Config((maxCount : stdgo.GoInt), (maxCountScale : stdgo.GoFloat64), (rand : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>), (_0, _1) -> values(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>), (_1 : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>)));
+    public function new(?maxCount:StdTypes.Int, ?maxCountScale:StdTypes.Float, ?rand:stdgo._internal.math.rand.Rand_rand.Rand, ?values:(Array<stdgo._internal.reflect.Reflect_value.Value>, stdgo._internal.math.rand.Rand_rand.Rand) -> Void) this = new stdgo._internal.testing.quick.Quick_config.Config((maxCount : stdgo.GoInt), (maxCountScale : stdgo.GoFloat64), (rand : stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>), values);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

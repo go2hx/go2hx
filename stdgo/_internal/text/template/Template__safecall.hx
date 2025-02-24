@@ -7,7 +7,11 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         {
-                            var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                            var _r = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
                             if (_r != null) {
                                 {
                                     var __tmp__ = try {

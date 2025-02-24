@@ -12,7 +12,7 @@ package stdgo.strings;
         return stdgo._internal.strings.Strings_t_replacer_static_extension.T_replacer_static_extension.replace(t, _s);
     }
 }
-@:dox(hide) @:forward abstract T_replacer(stdgo._internal.strings.Strings_t_replacer.T_replacer) from stdgo._internal.strings.Strings_t_replacer.T_replacer to stdgo._internal.strings.Strings_t_replacer.T_replacer {
+@:interface @:dox(hide) @:forward abstract T_replacer(stdgo._internal.strings.Strings_t_replacer.T_replacer) from stdgo._internal.strings.Strings_t_replacer.T_replacer to stdgo._internal.strings.Strings_t_replacer.T_replacer {
     @:from
     static function fromHaxeInterface(x:{ function replace(_s:String):String; function writeString(_w:stdgo._internal.io.Io_writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_replacer {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -637,7 +637,7 @@ class Strings {
     **/
     static public inline function containsFunc(_s:String, _f:StdTypes.Int -> Bool):Bool {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_containsfunc.containsFunc(_s, _f);
     }
     /**
@@ -789,7 +789,7 @@ class Strings {
     **/
     static public inline function fieldsFunc(_s:String, _f:StdTypes.Int -> Bool):Array<String> {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return [for (i in stdgo._internal.strings.Strings_fieldsfunc.fieldsFunc(_s, _f)) i];
     }
     /**
@@ -823,7 +823,7 @@ class Strings {
         * dropped from the string with no replacement.
     **/
     static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:String):String {
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoInt32));
+        final _mapping = _mapping;
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_map_.map_(_mapping, _s);
     }
@@ -910,7 +910,7 @@ class Strings {
     **/
     static public inline function trimLeftFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_trimleftfunc.trimLeftFunc(_s, _f);
     }
     /**
@@ -919,7 +919,7 @@ class Strings {
     **/
     static public inline function trimRightFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_trimrightfunc.trimRightFunc(_s, _f);
     }
     /**
@@ -928,7 +928,7 @@ class Strings {
     **/
     static public inline function trimFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_trimfunc.trimFunc(_s, _f);
     }
     /**
@@ -937,7 +937,7 @@ class Strings {
     **/
     static public inline function indexFunc(_s:String, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_indexfunc.indexFunc(_s, _f);
     }
     /**
@@ -946,7 +946,7 @@ class Strings {
     **/
     static public inline function lastIndexFunc(_s:String, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = (_s : stdgo.GoString);
-        final _f = _0 -> _f((_0 : stdgo.GoInt32));
+        final _f = _f;
         return stdgo._internal.strings.Strings_lastindexfunc.lastIndexFunc(_s, _f);
     }
     /**

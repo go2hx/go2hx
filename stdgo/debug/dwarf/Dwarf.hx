@@ -229,7 +229,7 @@ private function set_errUnknownPC(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.debug.dwarf.Dwarf_t_dataformat_static_extension.T_dataFormat_static_extension._version(t);
     }
 }
-@:dox(hide) @:forward abstract T_dataFormat(stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat) from stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat to stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat {
+@:interface @:dox(hide) @:forward abstract T_dataFormat(stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat) from stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat to stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat {
     @:from
     static function fromHaxeInterface(x:{ function _version():StdTypes.Int; function _dwarf64():stdgo.Tuple<Bool, Bool>; function _addrsize():StdTypes.Int; }):T_dataFormat {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -249,7 +249,7 @@ class Type__static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.common(t);
     }
 }
-@:forward abstract Type_(stdgo._internal.debug.dwarf.Dwarf_type_.Type_) from stdgo._internal.debug.dwarf.Dwarf_type_.Type_ to stdgo._internal.debug.dwarf.Dwarf_type_.Type_ {
+@:interface @:forward abstract Type_(stdgo._internal.debug.dwarf.Dwarf_type_.Type_) from stdgo._internal.debug.dwarf.Dwarf_type_.Type_ to stdgo._internal.debug.dwarf.Dwarf_type_.Type_ {
     @:from
     static function fromHaxeInterface(x:{ function common():CommonType; function string():String; function size():haxe.Int64; }):Type_ {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -278,7 +278,7 @@ class Type__static_extension {
         stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.seek(t, _0);
     }
 }
-@:dox(hide) @:forward abstract T_typeReader(stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader) from stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader to stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader {
+@:interface @:dox(hide) @:forward abstract T_typeReader(stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader) from stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader to stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader {
     @:from
     static function fromHaxeInterface(x:{ function seek(_0:Offset):Void; function next():stdgo.Tuple<Entry, stdgo.Error>; function _clone():T_typeReader; function _offset():Offset; function addressSize():StdTypes.Int; }):T_typeReader {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -292,7 +292,7 @@ class Type__static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_t__interface_0_static_extension.T__interface_0_static_extension.basic(t);
     }
 }
-@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0) from stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 to stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 {
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0) from stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 to stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 {
     @:from
     static function fromHaxeInterface(x:{ function basic():BasicType; }):T__interface_0 {
         var __f__:Void -> stdgo.AnyInterface = null;

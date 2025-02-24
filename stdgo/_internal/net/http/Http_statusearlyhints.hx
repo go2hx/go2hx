@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusEarlyHints : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusEarlyHints : stdgo.GoUInt64 = (103i64 : stdgo.GoUInt64);

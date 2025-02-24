@@ -18,7 +18,6 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
-var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
@@ -208,12 +207,7 @@ function update() {
 	Sys.sleep(0.5); // wait
 }
 
-
-var closing = false;
 function close(code:Int=0, instance: Null<InstanceData> = null) {
-	if (closing)
-		Sys.exit(code);
-	closing = true;
 	if (instance != null) {
 		Cache.saveCache(Path.join([instance.args[instance.args.length - 1], instance.outputPath, '.go2hx_cache']));
 	}
@@ -264,10 +258,9 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			// print out output
 			Sys.println(child.stdout.read());
 			Sys.println(child.stderr.read());
-			if (resetCount++ > 8) {
+			if (resetCount++ > 4) {
 				child.kill();
-				if (onUnknownExit != null)
-					onUnknownExit();
+				Sys.exit(code);
 			}else{
 				child.kill();
 				jsProcess();

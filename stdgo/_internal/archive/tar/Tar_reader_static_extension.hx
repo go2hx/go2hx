@@ -155,8 +155,8 @@ _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._intern
                     {
                         final __tmp__0 = (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
                         final __tmp__1 = (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
-                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = @:binopAssign __tmp__0;
-                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = @:binopAssign __tmp__1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = __tmp__0;
+                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = __tmp__1;
                     };
                     var _ustar = @:check2 (@:checkr _tr ?? throw "null pointer dereference")._blk._toUSTAR();
                     {

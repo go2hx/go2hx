@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusPreconditionRequired : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final statusPreconditionRequired : stdgo.GoUInt64 = (428i64 : stdgo.GoUInt64);

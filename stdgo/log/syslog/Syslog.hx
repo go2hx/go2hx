@@ -39,7 +39,7 @@ final lOG_LOCAL7 = stdgo._internal.log.syslog.Syslog_log_local7.lOG_LOCAL7;
         return stdgo._internal.log.syslog.Syslog_t_serverconn_static_extension.T_serverConn_static_extension._writeString(t, _p, _hostname, _tag, _s, _nl);
     }
 }
-@:dox(hide) @:forward abstract T_serverConn(stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn) from stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn to stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn {
+@:interface @:dox(hide) @:forward abstract T_serverConn(stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn) from stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn to stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn {
     @:from
     static function fromHaxeInterface(x:{ function _writeString(_p:Priority, _hostname:String, _tag:String, _s:String, _nl:String):stdgo.Error; function _close():stdgo.Error; }):T_serverConn {
         var __f__:Void -> stdgo.AnyInterface = null;

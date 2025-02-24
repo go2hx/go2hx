@@ -17,8 +17,8 @@ var _bestSum = __1, _ret = __0;
                 {
                     final __tmp__0 = _i;
                     final __tmp__1 = _sum;
-                    _ret = @:binopAssign __tmp__0;
-                    _bestSum = @:binopAssign __tmp__1;
+                    _ret = __tmp__0;
+                    _bestSum = __tmp__1;
                 };
             };
         };

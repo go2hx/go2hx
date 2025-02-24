@@ -12,7 +12,8 @@ package stdgo._internal.crypto.tls;
     public var signedCertificateTimestamps : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>> = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
     public var oCSPResponse : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var tLSUnique : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public function new(?version:stdgo.GoUInt16, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:stdgo.GoUInt16, ?negotiatedProtocol:stdgo.GoString, ?negotiatedProtocolIsMutual:Bool, ?serverName:stdgo.GoString, ?peerCertificates:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?verifiedChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>, ?signedCertificateTimestamps:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, ?oCSPResponse:stdgo.Slice<stdgo.GoUInt8>, ?tLSUnique:stdgo.Slice<stdgo.GoUInt8>) {
+    public var _ekm : (stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = null;
+    public function new(?version:stdgo.GoUInt16, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:stdgo.GoUInt16, ?negotiatedProtocol:stdgo.GoString, ?negotiatedProtocolIsMutual:Bool, ?serverName:stdgo.GoString, ?peerCertificates:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?verifiedChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>, ?signedCertificateTimestamps:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, ?oCSPResponse:stdgo.Slice<stdgo.GoUInt8>, ?tLSUnique:stdgo.Slice<stdgo.GoUInt8>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) {
         if (version != null) this.version = version;
         if (handshakeComplete != null) this.handshakeComplete = handshakeComplete;
         if (didResume != null) this.didResume = didResume;
@@ -25,6 +26,7 @@ package stdgo._internal.crypto.tls;
         if (signedCertificateTimestamps != null) this.signedCertificateTimestamps = signedCertificateTimestamps;
         if (oCSPResponse != null) this.oCSPResponse = oCSPResponse;
         if (tLSUnique != null) this.tLSUnique = tLSUnique;
+        if (_ekm != null) this._ekm = _ekm;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
@@ -40,6 +42,7 @@ peerCertificates,
 verifiedChains,
 signedCertificateTimestamps,
 oCSPResponse,
-tLSUnique);
+tLSUnique,
+_ekm);
     }
 }

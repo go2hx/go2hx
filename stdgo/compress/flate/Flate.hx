@@ -10,7 +10,7 @@ class Resetter_static_extension {
         return stdgo._internal.compress.flate.Flate_resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
 }
-@:forward abstract Resetter(stdgo._internal.compress.flate.Flate_resetter.Resetter) from stdgo._internal.compress.flate.Flate_resetter.Resetter to stdgo._internal.compress.flate.Flate_resetter.Resetter {
+@:interface @:forward abstract Resetter(stdgo._internal.compress.flate.Flate_resetter.Resetter) from stdgo._internal.compress.flate.Flate_resetter.Resetter to stdgo._internal.compress.flate.Flate_resetter.Resetter {
     @:from
     static function fromHaxeInterface(x:{ function reset(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error; }):Resetter {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -22,11 +22,11 @@ class Resetter_static_extension {
 class Reader_static_extension {
 
 }
-@:forward abstract Reader(stdgo._internal.compress.flate.Flate_reader.Reader) from stdgo._internal.compress.flate.Flate_reader.Reader to stdgo._internal.compress.flate.Flate_reader.Reader {
+@:interface @:forward abstract Reader(stdgo._internal.compress.flate.Flate_reader.Reader) from stdgo._internal.compress.flate.Flate_reader.Reader to stdgo._internal.compress.flate.Flate_reader.Reader {
     @:from
-    static function fromHaxeInterface(x:{ }):Reader {
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; }):Reader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Reader = { __underlying__ : () -> __f__() };
+        final y:Reader = { read : _0 -> x.read([for (i in _0) i]), readByte : () -> x.readByte(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -88,19 +88,19 @@ class Reader_static_extension {
     public var _bulkHasher(get, set) : (Array<std.UInt>, Array<std.UInt>) -> Void;
     function get__bulkHasher():(Array<std.UInt>, Array<std.UInt>) -> Void return (_0, _1) -> this._bulkHasher([for (i in _0) i], [for (i in _1) i]);
     function set__bulkHasher(v:(Array<std.UInt>, Array<std.UInt>) -> Void):(Array<std.UInt>, Array<std.UInt>) -> Void {
-        this._bulkHasher = (_0, _1) -> v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _1) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>));
+        this._bulkHasher = v;
         return v;
     }
     public var _fill(get, set) : (T_compressor, Array<std.UInt>) -> StdTypes.Int;
     function get__fill():(T_compressor, Array<std.UInt>) -> StdTypes.Int return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
     function set__fill(v:(T_compressor, Array<std.UInt>) -> StdTypes.Int):(T_compressor, Array<std.UInt>) -> StdTypes.Int {
-        this._fill = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        this._fill = v;
         return v;
     }
     public var _step(get, set) : T_compressor -> Void;
     function get__step():T_compressor -> Void return _0 -> this._step(_0);
     function set__step(v:T_compressor -> Void):T_compressor -> Void {
-        this._step = _0 -> v((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>));
+        this._step = v;
         return v;
     }
     public var _sync(get, set) : Bool;
@@ -208,9 +208,9 @@ class Reader_static_extension {
     public function new(?_compressionLevel:T_compressionLevel, ?_w:T_huffmanBitWriter, ?_bulkHasher:(Array<std.UInt>, Array<std.UInt>) -> Void, ?_fill:(T_compressor, Array<std.UInt>) -> StdTypes.Int, ?_step:T_compressor -> Void, ?_sync:Bool, ?_bestSpeed:T_deflateFast, ?_chainHead:StdTypes.Int, ?_hashHead:haxe.ds.Vector<std.UInt>, ?_hashPrev:haxe.ds.Vector<std.UInt>, ?_hashOffset:StdTypes.Int, ?_index:StdTypes.Int, ?_window:Array<std.UInt>, ?_windowEnd:StdTypes.Int, ?_blockStart:StdTypes.Int, ?_byteAvailable:Bool, ?_tokens:Array<T_token>, ?_length:StdTypes.Int, ?_offset:StdTypes.Int, ?_maxInsertIndex:StdTypes.Int, ?_err:stdgo.Error, ?_hashMatch:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.flate.Flate_t_compressor.T_compressor(
 _compressionLevel,
 (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>),
-(_0, _1) -> _bulkHasher(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _1) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>)),
-(_0, _1) -> _fill((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)),
-_0 -> _step((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>)),
+_bulkHasher,
+_fill,
+_step,
 _sync,
 (_bestSpeed : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>),
 (_chainHead : stdgo.GoInt),
@@ -661,7 +661,7 @@ _writer,
     public var _step(get, set) : T_decompressor -> Void;
     function get__step():T_decompressor -> Void return _0 -> this._step(_0);
     function set__step(v:T_decompressor -> Void):T_decompressor -> Void {
-        this._step = _0 -> v((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>));
+        this._step = v;
         return v;
     }
     public var _stepState(get, set) : StdTypes.Int;
@@ -724,7 +724,7 @@ _h2,
 (_codebits : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>),
 _dict,
 ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
-_0 -> _step((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_decompressor.T_decompressor>)),
+_step,
 (_stepState : stdgo.GoInt),
 _final,
 (_err : stdgo.Error),

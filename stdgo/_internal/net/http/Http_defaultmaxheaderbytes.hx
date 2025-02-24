@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final defaultMaxHeaderBytes : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+final defaultMaxHeaderBytes : stdgo.GoUInt64 = (1048576i64 : stdgo.GoUInt64);

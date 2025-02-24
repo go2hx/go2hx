@@ -28,11 +28,11 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
 @:dox(hide) class T_fileInfoDirEntry_static_extension {
 
 }
-@:dox(hide) @:forward abstract T_fileInfoDirEntry(stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry) from stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry to stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry {
+@:interface @:dox(hide) @:forward abstract T_fileInfoDirEntry(stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry) from stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry to stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry {
     @:from
-    static function fromHaxeInterface(x:{ }):T_fileInfoDirEntry {
+    static function fromHaxeInterface(x:{ function isDir():Bool; function modTime():stdgo._internal.time.Time_time.Time; function mode():stdgo._internal.io.fs.Fs_filemode.FileMode; function name():String; function size():haxe.Int64; function sys():stdgo.AnyInterface; function info():stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>; function type():stdgo._internal.io.fs.Fs_filemode.FileMode; }):T_fileInfoDirEntry {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileInfoDirEntry = { __underlying__ : () -> __f__() };
+        final y:T_fileInfoDirEntry = { isDir : () -> x.isDir(), modTime : () -> x.modTime(), mode : () -> x.mode(), name : () -> x.name(), size : () -> x.size(), sys : () -> x.sys(), info : () -> x.info(), type : () -> x.type(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -532,7 +532,7 @@ modified,
     public var _testHookCloseSizeOffset(get, set) : (haxe.UInt64, haxe.UInt64) -> Void;
     function get__testHookCloseSizeOffset():(haxe.UInt64, haxe.UInt64) -> Void return (_0, _1) -> this._testHookCloseSizeOffset(_0, _1);
     function set__testHookCloseSizeOffset(v:(haxe.UInt64, haxe.UInt64) -> Void):(haxe.UInt64, haxe.UInt64) -> Void {
-        this._testHookCloseSizeOffset = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
+        this._testHookCloseSizeOffset = v;
         return v;
     }
     public function new(?_cw:T_countWriter, ?_dir:Array<T_header>, ?_last:T_fileWriter, ?_closed:Bool, ?_compressors:Map<std.UInt, Compressor>, ?_comment:String, ?_testHookCloseSizeOffset:(haxe.UInt64, haxe.UInt64) -> Void) this = new stdgo._internal.archive.zip.Zip_writer.Writer((_cw : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_countwriter.T_countWriter>), ([for (i in _dir) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>>), (_last : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>), _closed, {
@@ -541,7 +541,7 @@ modified,
             __obj__[(key : stdgo.GoUInt16)] = value;
         };
         __obj__;
-    }, (_comment : stdgo.GoString), (_0, _1) -> _testHookCloseSizeOffset((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64)));
+    }, (_comment : stdgo.GoString), _testHookCloseSizeOffset);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

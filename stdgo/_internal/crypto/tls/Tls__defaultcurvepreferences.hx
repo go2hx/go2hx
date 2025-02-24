@@ -1,0 +1,2 @@
+package stdgo._internal.crypto.tls;
+var _defaultCurvePreferences : stdgo.Slice<stdgo._internal.crypto.tls.Tls_curveid.CurveID> = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_curveid.CurveID>(4, 4, ...[(29 : stdgo._internal.crypto.tls.Tls_curveid.CurveID), (23 : stdgo._internal.crypto.tls.Tls_curveid.CurveID), (24 : stdgo._internal.crypto.tls.Tls_curveid.CurveID), (25 : stdgo._internal.crypto.tls.Tls_curveid.CurveID)]).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.tls.Tls_curveid.CurveID>);

@@ -16,16 +16,16 @@ var _bucket = __1, _freq = __0;
             {
                 final __tmp__0 = (_tmp.__slice__(0, _textMax) : stdgo.Slice<stdgo.GoInt64>);
                 final __tmp__1 = (_tmp.__slice__(_textMax, ((2 : stdgo.GoInt) * _textMax : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt64>);
-                _freq = @:binopAssign __tmp__0;
-                _bucket = @:binopAssign __tmp__1;
+                _freq = __tmp__0;
+                _bucket = __tmp__1;
             };
             _freq[(0 : stdgo.GoInt)] = (-1i64 : stdgo.GoInt64);
         } else {
             {
                 final __tmp__0 = (null : stdgo.Slice<stdgo.GoInt64>);
                 final __tmp__1 = (_tmp.__slice__(0, _textMax) : stdgo.Slice<stdgo.GoInt64>);
-                _freq = @:binopAssign __tmp__0;
-                _bucket = @:binopAssign __tmp__1;
+                _freq = __tmp__0;
+                _bucket = __tmp__1;
             };
         };
         var _numLMS = (stdgo._internal.index.suffixarray.Suffixarray__placelms_64._placeLMS_64(_text, _sa, _freq, _bucket) : stdgo.GoInt);

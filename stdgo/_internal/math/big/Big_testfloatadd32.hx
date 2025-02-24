@@ -11,8 +11,8 @@ var _y0 = __1, _x0 = __0;
                         {
                             final __tmp__0 = _y0;
                             final __tmp__1 = _x0;
-                            _x0 = @:binopAssign __tmp__0;
-                            _y0 = @:binopAssign __tmp__1;
+                            _x0 = __tmp__0;
+                            _y0 = __tmp__1;
                         };
                     };
                     var _x = stdgo._internal.math.big.Big_newfloat.newFloat(_x0);

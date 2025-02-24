@@ -8,7 +8,7 @@ class PublicSuffixList_static_extension {
         return stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist_static_extension.PublicSuffixList_static_extension.publicSuffix(t, _domain);
     }
 }
-@:forward abstract PublicSuffixList(stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList) from stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList to stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList {
+@:interface @:forward abstract PublicSuffixList(stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList) from stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList to stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList {
     @:from
     static function fromHaxeInterface(x:{ function publicSuffix(_domain:String):String; function string():String; }):PublicSuffixList {
         var __f__:Void -> stdgo.AnyInterface = null;

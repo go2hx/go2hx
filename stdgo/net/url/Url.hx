@@ -4,7 +4,7 @@ package stdgo.net.url;
         return stdgo._internal.net.url.Url_t__interface_0_static_extension.T__interface_0_static_extension.timeout(t);
     }
 }
-@:dox(hide) @:forward abstract T__interface_0(stdgo._internal.net.url.Url_t__interface_0.T__interface_0) from stdgo._internal.net.url.Url_t__interface_0.T__interface_0 to stdgo._internal.net.url.Url_t__interface_0.T__interface_0 {
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.net.url.Url_t__interface_0.T__interface_0) from stdgo._internal.net.url.Url_t__interface_0.T__interface_0 to stdgo._internal.net.url.Url_t__interface_0.T__interface_0 {
     @:from
     static function fromHaxeInterface(x:{ function timeout():Bool; }):T__interface_0 {
         var __f__:Void -> stdgo.AnyInterface = null;
@@ -18,7 +18,7 @@ package stdgo.net.url;
         return stdgo._internal.net.url.Url_t__interface_1_static_extension.T__interface_1_static_extension.temporary(t);
     }
 }
-@:dox(hide) @:forward abstract T__interface_1(stdgo._internal.net.url.Url_t__interface_1.T__interface_1) from stdgo._internal.net.url.Url_t__interface_1.T__interface_1 to stdgo._internal.net.url.Url_t__interface_1.T__interface_1 {
+@:interface @:dox(hide) @:forward abstract T__interface_1(stdgo._internal.net.url.Url_t__interface_1.T__interface_1) from stdgo._internal.net.url.Url_t__interface_1.T__interface_1 to stdgo._internal.net.url.Url_t__interface_1.T__interface_1 {
     @:from
     static function fromHaxeInterface(x:{ function temporary():Bool; }):T__interface_1 {
         var __f__:Void -> stdgo.AnyInterface = null;

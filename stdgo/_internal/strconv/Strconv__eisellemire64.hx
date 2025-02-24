@@ -43,8 +43,8 @@ var _mergedLo = __1, _mergedHi = __0;
             {
                 final __tmp__0 = _mergedHi;
                 final __tmp__1 = _mergedLo;
-                _xHi = @:binopAssign __tmp__0;
-                _xLo = @:binopAssign __tmp__1;
+                _xHi = __tmp__0;
+                _xLo = __tmp__1;
             };
         };
         var _msb = (_xHi >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

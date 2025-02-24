@@ -34,7 +34,7 @@ private function set_jSGo(v:Value):Value {
     public var __32(get, set) : haxe.ds.Vector<() -> Void>;
     function get___32():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__32) () -> i()]);
     function set___32(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
-        this.__32 = ([for (i in v) () -> i()] : stdgo.GoArray<() -> Void>);
+        this.__32 = ([for (i in v) i] : stdgo.GoArray<() -> Void>);
         return v;
     }
     public var _ref(get, set) : T_ref;
@@ -49,7 +49,7 @@ private function set_jSGo(v:Value):Value {
         this._gcPtr = v;
         return v;
     }
-    public function new(?__32:haxe.ds.Vector<() -> Void>, ?_ref:T_ref, ?_gcPtr:stdgo.Pointer<T_ref>, ?value) this = new stdgo._internal.syscall.js.Js_value.Value(([for (i in __32) () -> i()] : stdgo.GoArray<() -> Void>), _ref, _gcPtr, value);
+    public function new(?__32:haxe.ds.Vector<() -> Void>, ?_ref:T_ref, ?_gcPtr:stdgo.Pointer<T_ref>, ?value) this = new stdgo._internal.syscall.js.Js_value.Value(([for (i in __32) i] : stdgo.GoArray<() -> Void>), _ref, _gcPtr, value);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -372,7 +372,7 @@ class Js {
         * Func.Release must be called to free up resources when the function will not be invoked any more.
     **/
     static public inline function funcOf(_fn:(Value, Array<Value>) -> stdgo.AnyInterface):Func {
-        final _fn = (_0, _1) -> _fn(_0, ([for (i in _1) i] : stdgo.Slice<stdgo._internal.syscall.js.Js_value.Value>));
+        final _fn = _fn;
         return stdgo._internal.syscall.js.Js_funcof.funcOf(_fn);
     }
     /**

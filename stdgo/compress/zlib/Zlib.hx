@@ -28,7 +28,7 @@ class Resetter_static_extension {
         return stdgo._internal.compress.zlib.Zlib_resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
 }
-@:forward abstract Resetter(stdgo._internal.compress.zlib.Zlib_resetter.Resetter) from stdgo._internal.compress.zlib.Zlib_resetter.Resetter to stdgo._internal.compress.zlib.Zlib_resetter.Resetter {
+@:interface @:forward abstract Resetter(stdgo._internal.compress.zlib.Zlib_resetter.Resetter) from stdgo._internal.compress.zlib.Zlib_resetter.Resetter to stdgo._internal.compress.zlib.Zlib_resetter.Resetter {
     @:from
     static function fromHaxeInterface(x:{ function reset(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error; }):Resetter {
         var __f__:Void -> stdgo.AnyInterface = null;

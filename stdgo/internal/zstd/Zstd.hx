@@ -103,10 +103,10 @@ package stdgo.internal.zstd;
     public var _toBaseline(get, set) : (Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error;
     function get__toBaseline():(Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error return (_0, _1, _2, _3) -> this._toBaseline(_0, _1, [for (i in _2) i], [for (i in _3) i]);
     function set__toBaseline(v:(Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error):(Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error {
-        this._toBaseline = (_0, _1, _2, _3) -> v((_0 : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>), (_1 : stdgo.GoInt), ([for (i in _2) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry>), ([for (i in _3) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry>));
+        this._toBaseline = v;
         return v;
     }
-    public function new(?_predefTable:Array<T_fseBaselineEntry>, ?_predefTableBits:StdTypes.Int, ?_maxSym:StdTypes.Int, ?_maxBits:StdTypes.Int, ?_toBaseline:(Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error) this = new stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData(([for (i in _predefTable) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry>), (_predefTableBits : stdgo.GoInt), (_maxSym : stdgo.GoInt), (_maxBits : stdgo.GoInt), (_0, _1, _2, _3) -> _toBaseline((_0 : stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>), (_1 : stdgo.GoInt), ([for (i in _2) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fseentry.T_fseEntry>), ([for (i in _3) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry>)));
+    public function new(?_predefTable:Array<T_fseBaselineEntry>, ?_predefTableBits:StdTypes.Int, ?_maxSym:StdTypes.Int, ?_maxBits:StdTypes.Int, ?_toBaseline:(Reader, StdTypes.Int, Array<T_fseEntry>, Array<T_fseBaselineEntry>) -> stdgo.Error) this = new stdgo._internal.internal.zstd.Zstd_t_seqcodeinfodata.T_seqCodeInfoData(([for (i in _predefTable) i] : stdgo.Slice<stdgo._internal.internal.zstd.Zstd_t_fsebaselineentry.T_fseBaselineEntry>), (_predefTableBits : stdgo.GoInt), (_maxSym : stdgo.GoInt), (_maxBits : stdgo.GoInt), _toBaseline);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

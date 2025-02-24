@@ -160,5 +160,6 @@
  "interp|var1",
  "interp|vars0",
  "interp|pointerAssign0",
- "interp|vars2"
+ "interp|vars2",
+ "interp|argMethods"
 ]

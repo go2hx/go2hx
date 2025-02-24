@@ -280,7 +280,7 @@ package stdgo._internal.crypto.tls;
             var _lenWithoutBinders = (_helloBytes.length : stdgo.GoInt);
             var _b = _internal.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_newfixedbuilder.newFixedBuilder(((@:checkr _m ?? throw "null pointer dereference")._raw.__slice__(0, _lenWithoutBinders) : stdgo.Slice<stdgo.GoUInt8>));
             @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                for (__65 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
+                for (__29 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
                     @:check2r _b.addUint8LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addBytes(_binder);
                     });
@@ -300,7 +300,7 @@ package stdgo._internal.crypto.tls;
     static public function _marshalWithoutBinders( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg> = _m;
         var _bindersLen = (2 : stdgo.GoInt);
-        for (__65 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
+        for (__29 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
             _bindersLen = (_bindersLen + ((1 : stdgo.GoInt)) : stdgo.GoInt);
             _bindersLen = (_bindersLen + ((_binder.length)) : stdgo.GoInt);
         };
@@ -341,7 +341,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((10 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _curve in (@:checkr _m ?? throw "null pointer dereference")._supportedCurves) {
+                    for (__29 => _curve in (@:checkr _m ?? throw "null pointer dereference")._supportedCurves) {
                         @:check2r _exts.addUint16((_curve : stdgo.GoUInt16));
                     };
                 });
@@ -365,7 +365,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((13 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
+                    for (__29 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
                         @:check2r _exts.addUint16((_sigAlgo : stdgo.GoUInt16));
                     };
                 });
@@ -375,7 +375,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((50 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert) {
+                    for (__29 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert) {
                         @:check2r _exts.addUint16((_sigAlgo : stdgo.GoUInt16));
                     };
                 });
@@ -397,7 +397,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((16 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _proto in (@:checkr _m ?? throw "null pointer dereference")._alpnProtocols) {
+                    for (__29 => _proto in (@:checkr _m ?? throw "null pointer dereference")._alpnProtocols) {
                         @:check2r _exts.addUint8LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _exts.addBytes((_proto : stdgo.Slice<stdgo.GoUInt8>));
                         });
@@ -413,7 +413,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((43 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint8LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _vers in (@:checkr _m ?? throw "null pointer dereference")._supportedVersions) {
+                    for (__29 => _vers in (@:checkr _m ?? throw "null pointer dereference")._supportedVersions) {
                         @:check2r _exts.addUint16(_vers);
                     };
                 });
@@ -431,7 +431,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((51 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _ks in (@:checkr _m ?? throw "null pointer dereference")._keyShares) {
+                    for (__29 => _ks in (@:checkr _m ?? throw "null pointer dereference")._keyShares) {
                         @:check2r _exts.addUint16((_ks._group : stdgo.GoUInt16));
                         @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _exts.addBytes(_ks._data);
@@ -462,7 +462,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((41 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _psk in (@:checkr _m ?? throw "null pointer dereference")._pskIdentities) {
+                    for (__29 => _psk in (@:checkr _m ?? throw "null pointer dereference")._pskIdentities) {
                         @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _exts.addBytes(_psk._label);
                         });
@@ -470,7 +470,7 @@ package stdgo._internal.crypto.tls;
                     };
                 });
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
+                    for (__29 => _binder in (@:checkr _m ?? throw "null pointer dereference")._pskBinders) {
                         @:check2r _exts.addUint8LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _exts.addBytes(_binder);
                         });
@@ -491,7 +491,7 @@ package stdgo._internal.crypto.tls;
                 @:check2r _b.addBytes((@:checkr _m ?? throw "null pointer dereference")._sessionId);
             });
             @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                for (__65 => _suite in (@:checkr _m ?? throw "null pointer dereference")._cipherSuites) {
+                for (__29 => _suite in (@:checkr _m ?? throw "null pointer dereference")._cipherSuites) {
                     @:check2r _b.addUint16(_suite);
                 };
             });

@@ -17,7 +17,7 @@ package stdgo._internal.crypto.tls;
             @:check2r _b.addBytes((@:checkr _s ?? throw "null pointer dereference")._secret);
         });
         @:check2 _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-            for (__65 => _extra in (@:checkr _s ?? throw "null pointer dereference").extra) {
+            for (__29 => _extra in (@:checkr _s ?? throw "null pointer dereference").extra) {
                 @:check2r _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                     @:check2r _b.addBytes(_extra);
                 });
@@ -35,13 +35,13 @@ package stdgo._internal.crypto.tls;
         };
         stdgo._internal.crypto.tls.Tls__marshalcertificate._marshalCertificate((stdgo.Go.setRef(_b) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>), ({ certificate : stdgo._internal.crypto.tls.Tls__certificatestobytesslice._certificatesToBytesSlice((@:checkr _s ?? throw "null pointer dereference")._peerCertificates), oCSPStaple : (@:checkr _s ?? throw "null pointer dereference")._ocspResponse, signedCertificateTimestamps : (@:checkr _s ?? throw "null pointer dereference")._scts } : stdgo._internal.crypto.tls.Tls_certificate.Certificate));
         @:check2 _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-            for (__65 => _chain in (@:checkr _s ?? throw "null pointer dereference")._verifiedChains) {
+            for (__29 => _chain in (@:checkr _s ?? throw "null pointer dereference")._verifiedChains) {
                 @:check2r _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                     if ((_chain.length) == ((0 : stdgo.GoInt))) {
                         @:check2r _b.setError(stdgo._internal.errors.Errors_new_.new_(("tls: internal error: empty verified chain" : stdgo.GoString)));
                         return;
                     };
-                    for (__66 => _cert in (_chain.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
+                    for (__30 => _cert in (_chain.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
                         @:check2r _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addBytes((@:checkr _cert ?? throw "null pointer dereference").raw);
                         });

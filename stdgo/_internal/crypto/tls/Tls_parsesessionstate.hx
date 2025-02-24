@@ -39,7 +39,7 @@ var _earlyData = __2, _extMasterSecret = __1, _typ = __0;
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: invalid session encoding" : stdgo.GoString)) };
             };
         };
-        for (__65 => _cert in _cert.certificate) {
+        for (__29 => _cert in _cert.certificate) {
             var __tmp__ = @:check2r stdgo._internal.crypto.tls.Tls__globalcertcache._globalCertCache._newCert(_cert), _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };

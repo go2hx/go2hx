@@ -40,7 +40,7 @@ package stdgo._internal.crypto.tls;
                             { _0 : (stdgo.Go.typeAssert((_priv.public_() : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>)) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>), _1 : false };
-                        }, __81 = __tmp__._0, _ok = __tmp__._1;
+                        }, __29 = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok) {
                             return _unsupported;
                         };
@@ -65,7 +65,7 @@ package stdgo._internal.crypto.tls;
         } : stdgo.Error -> stdgo.Error);
         if ((((@:checkr _chi ?? throw "null pointer dereference").signatureSchemes.length) > (0 : stdgo.GoInt) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.crypto.tls.Tls__selectsignaturescheme._selectSignatureScheme(_vers, _c, (@:checkr _chi ?? throw "null pointer dereference").signatureSchemes), __89:stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.crypto.tls.Tls__selectsignaturescheme._selectSignatureScheme(_vers, _c, (@:checkr _chi ?? throw "null pointer dereference").signatureSchemes), __29:stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _supportsRSAFallback(_err);
                 };
@@ -107,7 +107,7 @@ package stdgo._internal.crypto.tls;
                                     };
                                 };
                                 var _curveOk:Bool = false;
-                                for (__97 => _c in (@:checkr _chi ?? throw "null pointer dereference").supportedCurves) {
+                                for (__29 => _c in (@:checkr _chi ?? throw "null pointer dereference").supportedCurves) {
                                     if (((_c == _curve) && @:check2r _config._supportsCurve(_c) : Bool)) {
                                         _curveOk = true;
                                         break;

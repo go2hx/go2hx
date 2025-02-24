@@ -26,7 +26,7 @@ package stdgo._internal.sync;
             while ((_i < (_size : stdgo.GoInt) : Bool)) {
                 var _l = stdgo._internal.sync.Sync__indexlocal._indexLocal(_locals, ((((_pid + _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
 {
-                    var __tmp__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __20:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };
@@ -52,7 +52,7 @@ package stdgo._internal.sync;
             while ((_i < (_size : stdgo.GoInt) : Bool)) {
                 var _l = stdgo._internal.sync.Sync__indexlocal._indexLocal(_locals, (((_pid + _i : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
 {
-                    var __tmp__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __20:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };

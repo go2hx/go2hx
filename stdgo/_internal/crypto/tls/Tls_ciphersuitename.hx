@@ -1,11 +1,11 @@
 package stdgo._internal.crypto.tls;
 function cipherSuiteName(_id:stdgo.GoUInt16):stdgo.GoString {
-        for (__65 => _c in stdgo._internal.crypto.tls.Tls_ciphersuites.cipherSuites()) {
+        for (__29 => _c in stdgo._internal.crypto.tls.Tls_ciphersuites.cipherSuites()) {
             if ((@:checkr _c ?? throw "null pointer dereference").iD == (_id)) {
                 return (@:checkr _c ?? throw "null pointer dereference").name?.__copy__();
             };
         };
-        for (__66 => _c in stdgo._internal.crypto.tls.Tls_insecureciphersuites.insecureCipherSuites()) {
+        for (__30 => _c in stdgo._internal.crypto.tls.Tls_insecureciphersuites.insecureCipherSuites()) {
             if ((@:checkr _c ?? throw "null pointer dereference").iD == (_id)) {
                 return (@:checkr _c ?? throw "null pointer dereference").name?.__copy__();
             };

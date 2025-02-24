@@ -17,7 +17,7 @@ package stdgo._internal.net.rpc;
             stdgo._internal.io.Io_writestring.writeString(_w, ("405 must CONNECT\n" : stdgo.GoString));
             return;
         };
-        var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.net.http.Http_hijacker.Hijacker)) : stdgo._internal.net.http.Http_hijacker.Hijacker).hijack(), _conn:stdgo._internal.net.Net_conn.Conn = __tmp__._0, __8:stdgo.Ref<stdgo._internal.bufio.Bufio_readwriter.ReadWriter> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.net.http.Http_hijacker.Hijacker)) : stdgo._internal.net.http.Http_hijacker.Hijacker).hijack(), _conn:stdgo._internal.net.Net_conn.Conn = __tmp__._0, __0:stdgo.Ref<stdgo._internal.bufio.Bufio_readwriter.ReadWriter> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             stdgo._internal.log.Log_print.print(stdgo.Go.toInterface(("rpc hijacking " : stdgo.GoString)), stdgo.Go.toInterface((@:checkr _req ?? throw "null pointer dereference").remoteAddr), stdgo.Go.toInterface((": " : stdgo.GoString)), stdgo.Go.toInterface(_err.error()));
             return;
@@ -289,7 +289,7 @@ package stdgo._internal.net.rpc;
             return stdgo._internal.errors.Errors_new_.new_(_str?.__copy__());
         };
         {
-            var __tmp__ = @:check2 (@:checkr _server ?? throw "null pointer dereference")._serviceMap.loadOrStore(stdgo.Go.toInterface(_sname), stdgo.Go.toInterface(stdgo.Go.asInterface(_s))), __16:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
+            var __tmp__ = @:check2 (@:checkr _server ?? throw "null pointer dereference")._serviceMap.loadOrStore(stdgo.Go.toInterface(_sname), stdgo.Go.toInterface(stdgo.Go.asInterface(_s))), __0:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
             if (_dup) {
                 return stdgo._internal.errors.Errors_new_.new_((("rpc: service already defined: " : stdgo.GoString) + _sname?.__copy__() : stdgo.GoString)?.__copy__());
             };

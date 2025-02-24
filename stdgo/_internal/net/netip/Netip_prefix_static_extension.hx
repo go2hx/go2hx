@@ -174,7 +174,7 @@ var _f2 = __1, _f1 = __0;
     @:tdfield
     static public function masked( _p:stdgo._internal.net.netip.Netip_prefix.Prefix):stdgo._internal.net.netip.Netip_prefix.Prefix {
         @:recv var _p:stdgo._internal.net.netip.Netip_prefix.Prefix = _p?.__copy__();
-        var __tmp__ = _p._ip.prefix(_p.bits()), _m:stdgo._internal.net.netip.Netip_prefix.Prefix = __tmp__._0, __24:stdgo.Error = __tmp__._1;
+        var __tmp__ = _p._ip.prefix(_p.bits()), _m:stdgo._internal.net.netip.Netip_prefix.Prefix = __tmp__._0, __18:stdgo.Error = __tmp__._1;
         return _m?.__copy__();
     }
     @:keep

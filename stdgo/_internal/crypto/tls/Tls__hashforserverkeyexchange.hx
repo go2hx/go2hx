@@ -3,14 +3,14 @@ function _hashForServerKeyExchange(_sigType:stdgo.GoUInt8, _hashFunc:stdgo._inte
         var _slices = new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(_slices.length, 0, ..._slices);
         if (_sigType == ((228 : stdgo.GoUInt8))) {
             var _signed:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-            for (__65 => _slice in _slices) {
+            for (__29 => _slice in _slices) {
                 _signed = (_signed.__append__(...(_slice : Array<stdgo.GoUInt8>)));
             };
             return _signed;
         };
         if ((_version >= (771 : stdgo.GoUInt16) : Bool)) {
             var _h = (_hashFunc.new_() : stdgo._internal.hash.Hash_hash.Hash);
-            for (__65 => _slice in _slices) {
+            for (__29 => _slice in _slices) {
                 _h.write(_slice);
             };
             var _digest = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>));

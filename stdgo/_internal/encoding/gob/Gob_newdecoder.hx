@@ -6,7 +6,7 @@ function newDecoder(_r:stdgo._internal.io.Io_reader.Reader):stdgo.Ref<stdgo._int
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r) : stdgo._internal.io.Io_bytereader.ByteReader)) : stdgo._internal.io.Io_bytereader.ByteReader), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.io.Io_bytereader.ByteReader), _1 : false };
-            }, __8 = __tmp__._0, _ok = __tmp__._1;
+            }, __4 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _r = stdgo.Go.asInterface(stdgo._internal.bufio.Bufio_newreader.newReader(_r));
             };

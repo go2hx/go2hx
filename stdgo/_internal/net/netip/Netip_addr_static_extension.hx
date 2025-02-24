@@ -582,7 +582,7 @@ var _zb = __1, _za = __0;
             { _0 : (stdgo.Go.typeAssert((@:check2r _ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {
             { _0 : ("" : stdgo.GoString), _1 : false };
-        }, _zone = __tmp__._0, __26 = __tmp__._1;
+        }, _zone = __tmp__._0, __22 = __tmp__._1;
         return _zone?.__copy__();
     }
     @:keep

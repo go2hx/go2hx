@@ -37,7 +37,7 @@ function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Re
                         var _pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_publickey.PublicKey>) : __type__.__underlying__().value;
                         var _size = (@:check2r _pub.size() : stdgo.GoInt);
                         _sigAlgs = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.crypto.tls.Tls__rsasignatureschemes._rsaSignatureSchemes.length)).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>);
-                        for (__65 => _candidate in stdgo._internal.crypto.tls.Tls__rsasignatureschemes._rsaSignatureSchemes) {
+                        for (__29 => _candidate in stdgo._internal.crypto.tls.Tls__rsasignatureschemes._rsaSignatureSchemes) {
                             if (((_size >= _candidate._minModulusBytes : Bool) && (_version <= _candidate._maxVersion : Bool) : Bool)) {
                                 _sigAlgs = (_sigAlgs.__append__(_candidate._scheme));
                             };
@@ -55,7 +55,7 @@ function _signatureSchemesForCertificate(_version:stdgo.GoUInt16, _cert:stdgo.Re
         };
         if ((@:checkr _cert ?? throw "null pointer dereference").supportedSignatureAlgorithms != null) {
             var _filteredSigAlgs:stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme> = (null : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>);
-            for (__65 => _sigAlg in _sigAlgs) {
+            for (__29 => _sigAlg in _sigAlgs) {
                 if (stdgo._internal.crypto.tls.Tls__issupportedsignaturealgorithm._isSupportedSignatureAlgorithm(_sigAlg, (@:checkr _cert ?? throw "null pointer dereference").supportedSignatureAlgorithms)) {
                     _filteredSigAlgs = (_filteredSigAlgs.__append__(_sigAlg));
                 };

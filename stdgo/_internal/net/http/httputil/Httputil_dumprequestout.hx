@@ -120,7 +120,7 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
                 };
                 a();
             }));
-            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __8:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _t.roundTrip(_reqSend), __0:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             (@:checkr _req ?? throw "null pointer dereference").body = _save;
             if (_err != null) {
                 @:check2r _pw.close();

@@ -35,7 +35,7 @@ package stdgo._internal.crypto.tls;
         @:recv var _cc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_certcache.T_certCache> = _cc;
         @:check2 (@:checkr _e ?? throw "null pointer dereference")._refs.add((1i64 : stdgo.GoInt64));
         var _a = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert((@:checkr _e ?? throw "null pointer dereference")._cert) : stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>);
-        stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(function(__79:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>):Void {
+        stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(function(__35:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_activecert.T_activeCert>):Void {
             if (@:check2 (@:checkr _e ?? throw "null pointer dereference")._refs.add((-1i64 : stdgo.GoInt64)) == ((0i64 : stdgo.GoInt64))) {
                 @:check2r _cc._evict(_e);
             };

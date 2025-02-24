@@ -9,7 +9,7 @@ function _checkALPN(_clientProtos:stdgo.Slice<stdgo.GoString>, _serverProto:stdg
         if ((_clientProtos.length) == ((0 : stdgo.GoInt))) {
             return stdgo._internal.errors.Errors_new_.new_(("tls: server advertised unrequested ALPN extension" : stdgo.GoString));
         };
-        for (__65 => _proto in _clientProtos) {
+        for (__29 => _proto in _clientProtos) {
             if (_proto == (_serverProto)) {
                 return (null : stdgo.Error);
             };

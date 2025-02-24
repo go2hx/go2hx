@@ -3,7 +3,7 @@ function testSizeStructCache(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
         stdgo._internal.encoding.binary.Binary__structsize._structSize = (new stdgo._internal.sync.Sync_map_.Map_() : stdgo._internal.sync.Sync_map_.Map_);
         var _count = (function():stdgo.GoInt {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-            @:check2 stdgo._internal.encoding.binary.Binary__structsize._structSize.range(function(__12:stdgo.AnyInterface, __13:stdgo.AnyInterface):Bool {
+            @:check2 stdgo._internal.encoding.binary.Binary__structsize._structSize.range(function(__8:stdgo.AnyInterface, __9:stdgo.AnyInterface):Bool {
                 _i++;
                 return true;
             });

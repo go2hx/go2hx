@@ -7,7 +7,7 @@ package stdgo._internal.crypto.tls;
         var _c = (@:checkr _hs ?? throw "null pointer dereference")._c;
         var _finished = (stdgo.Go.setRef(({ _verifyData : @:check2r (@:checkr _hs ?? throw "null pointer dereference")._suite._finishedHash((@:checkr _c ?? throw "null pointer dereference")._out._trafficSecret, (@:checkr _hs ?? throw "null pointer dereference")._transcript) } : stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg>);
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_finished), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_finished), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -41,7 +41,7 @@ package stdgo._internal.crypto.tls;
         (@:checkr _certMsg ?? throw "null pointer dereference")._scts = ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._certReq ?? throw "null pointer dereference")._scts && (((@:checkr _cert ?? throw "null pointer dereference").signedCertificateTimestamps.length) > (0 : stdgo.GoInt) : Bool) : Bool);
         (@:checkr _certMsg ?? throw "null pointer dereference")._ocspStapling = ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._certReq ?? throw "null pointer dereference")._ocspStapling && (((@:checkr _cert ?? throw "null pointer dereference").oCSPStaple.length) > (0 : stdgo.GoInt) : Bool) : Bool);
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __161:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -76,7 +76,7 @@ package stdgo._internal.crypto.tls;
         };
         (@:checkr _certVerifyMsg ?? throw "null pointer dereference")._signature = _sig;
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certVerifyMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __222:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certVerifyMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __30:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -354,7 +354,7 @@ package stdgo._internal.crypto.tls;
             return stdgo._internal.errors.Errors_new_.new_(("tls: server did not send a key share" : stdgo.GoString));
         };
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveidforcurve._curveIDForCurve(@:check2r (@:checkr _hs ?? throw "null pointer dereference")._ecdheKey.curve()), _sentID:stdgo._internal.crypto.tls.Tls_curveid.CurveID = __tmp__._0, __113:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveidforcurve._curveIDForCurve(@:check2r (@:checkr _hs ?? throw "null pointer dereference")._ecdheKey.curve()), _sentID:stdgo._internal.crypto.tls.Tls_curveid.CurveID = __tmp__._0, __29:Bool = __tmp__._1;
             if ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._serverHello ?? throw "null pointer dereference")._serverShare._group != (_sentID)) {
                 @:check2r _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server selected unsupported group" : stdgo.GoString));
@@ -417,7 +417,7 @@ package stdgo._internal.crypto.tls;
             var _curveID = ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._serverHello ?? throw "null pointer dereference")._selectedGroup : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
             if (_curveID != ((0 : stdgo._internal.crypto.tls.Tls_curveid.CurveID))) {
                 var _curveOK = (false : Bool);
-                for (__169 => _id in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._supportedCurves) {
+                for (__29 => _id in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._supportedCurves) {
                     if (_id == (_curveID)) {
                         _curveOK = true;
                         break;
@@ -428,14 +428,14 @@ package stdgo._internal.crypto.tls;
                     return stdgo._internal.errors.Errors_new_.new_(("tls: server selected unsupported group" : stdgo.GoString));
                 };
                 {
-                    var __tmp__ = stdgo._internal.crypto.tls.Tls__curveidforcurve._curveIDForCurve(@:check2r (@:checkr _hs ?? throw "null pointer dereference")._ecdheKey.curve()), _sentID:stdgo._internal.crypto.tls.Tls_curveid.CurveID = __tmp__._0, __178:Bool = __tmp__._1;
+                    var __tmp__ = stdgo._internal.crypto.tls.Tls__curveidforcurve._curveIDForCurve(@:check2r (@:checkr _hs ?? throw "null pointer dereference")._ecdheKey.curve()), _sentID:stdgo._internal.crypto.tls.Tls_curveid.CurveID = __tmp__._0, __30:Bool = __tmp__._1;
                     if (_sentID == (_curveID)) {
                         @:check2r _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                         return stdgo._internal.errors.Errors_new_.new_(("tls: server sent an unnecessary HelloRetryRequest key_share" : stdgo.GoString));
                     };
                 };
                 {
-                    var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __179:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __31:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         @:check2r _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                         return stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString));
@@ -490,7 +490,7 @@ package stdgo._internal.crypto.tls;
             @:check2r _c._quicRejectedEarlyData();
         };
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface((@:checkr _hs ?? throw "null pointer dereference")._hello), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __217:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface((@:checkr _hs ?? throw "null pointer dereference")._hello), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -670,7 +670,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         {
-            var __tmp__ = @:check2r _c._flush(), __241:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _c._flush(), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

@@ -66,6 +66,6 @@ function _validUserType(_rt:stdgo._internal.reflect.Reflect_type_.Type_):{ var _
                 };
             };
         };
-        var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__usertypecache._userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(stdgo.Go.asInterface(_ut))), _ui:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
+        var __tmp__ = @:check2 stdgo._internal.encoding.gob.Gob__usertypecache._userTypeCache.loadOrStore(stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(stdgo.Go.asInterface(_ut))), _ui:stdgo.AnyInterface = __tmp__._0, __4:Bool = __tmp__._1;
         return { _0 : (stdgo.Go.typeAssert((_ui : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>), _1 : (null : stdgo.Error) };
     }

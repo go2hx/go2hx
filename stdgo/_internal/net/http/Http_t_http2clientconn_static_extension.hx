@@ -15,7 +15,7 @@ package stdgo._internal.net.http;
             };
             @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.lock();
             {
-                var __tmp__ = ((@:checkr _cc ?? throw "null pointer dereference")._pings != null && (@:checkr _cc ?? throw "null pointer dereference")._pings.__exists__(_p?.__copy__()) ? { _0 : (@:checkr _cc ?? throw "null pointer dereference")._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError>), _1 : false }), __2674:stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _cc ?? throw "null pointer dereference")._pings != null && (@:checkr _cc ?? throw "null pointer dereference")._pings.__exists__(_p?.__copy__()) ? { _0 : (@:checkr _cc ?? throw "null pointer dereference")._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError>), _1 : false }), __2644:stdgo.Chan<stdgo._internal.net.http.Http_t_http2goawayflowerror.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
                 if (!_found) {
                     (@:checkr _cc ?? throw "null pointer dereference")._pings[_p] = _c;
                     @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();

@@ -7,8 +7,8 @@ function _negotiateALPN(_serverProtos:stdgo.Slice<stdgo.GoString>, _clientProtos
             return { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
         };
         var _http11fallback:Bool = false;
-        for (__65 => _s in _serverProtos) {
-            for (__66 => _c in _clientProtos) {
+        for (__29 => _s in _serverProtos) {
+            for (__30 => _c in _clientProtos) {
                 if (_s == (_c)) {
                     return { _0 : _s?.__copy__(), _1 : (null : stdgo.Error) };
                 };

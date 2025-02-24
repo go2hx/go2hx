@@ -29,7 +29,7 @@ package stdgo._internal.html.template;
         var _tmpl = @:check2r _e._arbitraryTemplate();
         for (__6 => _t in (@:checkr _e ?? throw "null pointer dereference")._derived) {
             {
-                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __39:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __31:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     throw stdgo.Go.toInterface(("error adding derived template" : stdgo.GoString));
                 };

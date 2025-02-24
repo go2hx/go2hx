@@ -152,7 +152,7 @@ package stdgo._internal.crypto.tls;
         if (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._c ?? throw "null pointer dereference")._quic != null && (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._c ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._c ?? throw "null pointer dereference")._quic : Dynamic).__nil__))) {
             return false;
         };
-        for (__109 => _pskMode in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._pskModes) {
+        for (__29 => _pskMode in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._pskModes) {
             if (_pskMode == ((1 : stdgo.GoUInt8))) {
                 return true;
             };
@@ -166,7 +166,7 @@ package stdgo._internal.crypto.tls;
         var _c = (@:checkr _hs ?? throw "null pointer dereference")._c;
         var _finished = (stdgo.Go.setRef(({ _verifyData : @:check2r (@:checkr _hs ?? throw "null pointer dereference")._suite._finishedHash((@:checkr _c ?? throw "null pointer dereference")._out._trafficSecret, (@:checkr _hs ?? throw "null pointer dereference")._transcript) } : stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_finishedmsg.T_finishedMsg>);
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_finished), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_finished), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -219,7 +219,7 @@ package stdgo._internal.crypto.tls;
                 (@:checkr _certReq ?? throw "null pointer dereference")._certificateAuthorities = @:check2r (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").clientCAs.subjects();
             };
             {
-                var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certReq), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __125:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certReq), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
@@ -230,7 +230,7 @@ package stdgo._internal.crypto.tls;
         (@:checkr _certMsg ?? throw "null pointer dereference")._scts = ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._scts && (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._cert ?? throw "null pointer dereference").signedCertificateTimestamps.length) > (0 : stdgo.GoInt) : Bool) : Bool);
         (@:checkr _certMsg ?? throw "null pointer dereference")._ocspStapling = ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._ocspStapling && (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._cert ?? throw "null pointer dereference").oCSPStaple.length) > (0 : stdgo.GoInt) : Bool) : Bool);
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __153:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -266,7 +266,7 @@ package stdgo._internal.crypto.tls;
         };
         (@:checkr _certVerifyMsg ?? throw "null pointer dereference")._signature = _sig;
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certVerifyMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __222:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_certVerifyMsg), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __30:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -291,7 +291,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface((@:checkr _hs ?? throw "null pointer dereference")._hello), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface((@:checkr _hs ?? throw "null pointer dereference")._hello), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -339,7 +339,7 @@ package stdgo._internal.crypto.tls;
             (@:checkr _encryptedExtensions ?? throw "null pointer dereference")._earlyData = (@:checkr _hs ?? throw "null pointer dereference")._earlyData;
         };
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_encryptedExtensions), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __338:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_encryptedExtensions), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __30:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -363,7 +363,7 @@ package stdgo._internal.crypto.tls;
         (@:checkr _hs ?? throw "null pointer dereference")._transcript.write(_chHash);
         var _helloRetryRequest = (stdgo.Go.setRef(({ _vers : (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._vers, _random : stdgo._internal.crypto.tls.Tls__helloretryrequestrandom._helloRetryRequestRandom, _sessionId : (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._sessionId, _cipherSuite : (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._cipherSuite, _compressionMethod : (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._compressionMethod, _supportedVersion : (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._supportedVersion, _selectedGroup : _selectedGroup } : stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>);
         {
-            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_helloRetryRequest), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __185:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _hs ?? throw "null pointer dereference")._c._writeHandshakeRecord(stdgo.Go.asInterface(_helloRetryRequest), (@:checkr _hs ?? throw "null pointer dereference")._transcript), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -456,7 +456,7 @@ package stdgo._internal.crypto.tls;
             return (null : stdgo.Error);
         };
         var _modeOK = (false : Bool);
-        for (__93 => _mode in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._pskModes) {
+        for (__29 => _mode in (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._pskModes) {
             if (_mode == ((1 : stdgo.GoUInt8))) {
                 _modeOK = true;
                 break;
@@ -576,27 +576,27 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _processClientHello( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13>):stdgo.Error {
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhandshakestatetls13.T_serverHandshakeStateTLS13> = _hs;
-        var _key_17:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
-        var _ks_12:stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare = ({} : stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare);
-        var _c_0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
-        var _err_15:stdgo.Error = (null : stdgo.Error);
+        var _selectedProto_20:stdgo.GoString = ("" : stdgo.GoString);
+        var _peerKey_19:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> = (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
+        var _preferredGroup_10:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
         var _suiteID_6:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _i_5854708_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_18:stdgo.Error = (null : stdgo.Error);
+        var _group_14:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
+        var _err_3:stdgo.Error = (null : stdgo.Error);
         var _id_2:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _i_5852670_1:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5855599_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5855332_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_0:stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_conn.Conn>);
+        var _i_5730673_11:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5730622_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _clientKeyShare_8:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare>);
         var _selectedGroup_7:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
+        var _i_5729998_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _preferenceList_4:stdgo.Slice<stdgo.GoUInt16> = (null : stdgo.Slice<stdgo.GoUInt16>);
-        var _selectedProto_20:stdgo.GoString = ("" : stdgo.GoString);
-        var _err_18:stdgo.Error = (null : stdgo.Error);
+        var _key_17:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey> = (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>);
+        var _ks_12:stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare = ({} : stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare);
         var _ok_16:Bool = false;
-        var _group_14:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
-        var _i_5855383_11:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _preferredGroup_10:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
-        var _err_3:stdgo.Error = (null : stdgo.Error);
-        var _peerKey_19:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> = (null : stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>);
+        var _err_15:stdgo.Error = (null : stdgo.Error);
+        var _i_5730889_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5727960_1:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -608,67 +608,67 @@ package stdgo._internal.crypto.tls;
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._vers = (771 : stdgo.GoUInt16);
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._supportedVersion = (@:checkr _c_0 ?? throw "null pointer dereference")._vers;
                     if (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedVersions.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5851864i32;
+                        _gotoNext = 5727154i32;
                     } else {
-                        _gotoNext = 5852657i32;
+                        _gotoNext = 5727947i32;
                     };
-                } else if (__value__ == (5851864i32)) {
+                } else if (__value__ == (5727154i32)) {
                     @:check2r _c_0._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client used the legacy version field to negotiate TLS 1.3" : stdgo.GoString));
-                    _gotoNext = 5852657i32;
-                } else if (__value__ == (5852657i32)) {
+                    _gotoNext = 5727947i32;
+                } else if (__value__ == (5727947i32)) {
                     if ((0i32 : stdgo.GoInt) < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites.length)) {
-                        _gotoNext = 5853075i32;
+                        _gotoNext = 5728365i32;
                     } else {
-                        _gotoNext = 5853080i32;
+                        _gotoNext = 5728370i32;
                     };
-                } else if (__value__ == (5852661i32)) {
-                    _i_5852670_1++;
-                    _gotoNext = 5853076i32;
-                } else if (__value__ == (5852704i32)) {
-                    _id_2 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites[(_i_5852670_1 : stdgo.GoInt)];
+                } else if (__value__ == (5727951i32)) {
+                    _i_5727960_1++;
+                    _gotoNext = 5728366i32;
+                } else if (__value__ == (5727994i32)) {
+                    _id_2 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites[(_i_5727960_1 : stdgo.GoInt)];
                     if (_id_2 == ((22016 : stdgo.GoUInt16))) {
-                        _gotoNext = 5852735i32;
+                        _gotoNext = 5728025i32;
                     } else {
-                        _gotoNext = 5852661i32;
+                        _gotoNext = 5727951i32;
                     };
-                } else if (__value__ == (5852735i32)) {
+                } else if (__value__ == (5728025i32)) {
                     if (((@:checkr _c_0 ?? throw "null pointer dereference")._vers < @:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._maxSupportedVersion(false) : Bool)) {
-                        _gotoNext = 5852936i32;
+                        _gotoNext = 5728226i32;
                     } else {
-                        _gotoNext = 5853065i32;
+                        _gotoNext = 5728355i32;
                     };
-                } else if (__value__ == (5852936i32)) {
+                } else if (__value__ == (5728226i32)) {
                     @:check2r _c_0._sendAlert((86 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client using inappropriate protocol fallback" : stdgo.GoString));
-                    _gotoNext = 5853065i32;
-                } else if (__value__ == (5853065i32)) {
-                    _gotoNext = 5853080i32;
-                } else if (__value__ == (5853075i32)) {
+                    _gotoNext = 5728355i32;
+                } else if (__value__ == (5728355i32)) {
+                    _gotoNext = 5728370i32;
+                } else if (__value__ == (5728365i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites[(0i32 : stdgo.GoInt)];
-                        _i_5852670_1 = __tmp__0;
+                        _i_5727960_1 = __tmp__0;
                         _id_2 = __tmp__1;
                     };
-                    _gotoNext = 5853076i32;
-                } else if (__value__ == (5853076i32)) {
-                    if (_i_5852670_1 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites.length)) {
-                        _gotoNext = 5852704i32;
+                    _gotoNext = 5728366i32;
+                } else if (__value__ == (5728366i32)) {
+                    if (_i_5727960_1 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites.length)) {
+                        _gotoNext = 5727994i32;
                     } else {
-                        _gotoNext = 5853080i32;
+                        _gotoNext = 5728370i32;
                     };
-                } else if (__value__ == (5853080i32)) {
+                } else if (__value__ == (5728370i32)) {
                     if ((((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._compressionMethods.length != (1 : stdgo.GoInt)) || ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._compressionMethods[(0 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 5853188i32;
+                        _gotoNext = 5728478i32;
                     } else {
-                        _gotoNext = 5853312i32;
+                        _gotoNext = 5728602i32;
                     };
-                } else if (__value__ == (5853188i32)) {
+                } else if (__value__ == (5728478i32)) {
                     @:check2r _c_0._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: TLS 1.3 client supports illegal compression methods" : stdgo.GoString));
-                    _gotoNext = 5853312i32;
-                } else if (__value__ == (5853312i32)) {
+                    _gotoNext = 5728602i32;
+                } else if (__value__ == (5728602i32)) {
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._random = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         {
@@ -676,271 +676,271 @@ package stdgo._internal.crypto.tls;
                             _err_3 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_3 != null) {
-                            _gotoNext = 5853419i32;
+                            _gotoNext = 5728709i32;
                         } else {
-                            _gotoNext = 5853473i32;
+                            _gotoNext = 5728763i32;
                         };
                     };
-                } else if (__value__ == (5853419i32)) {
+                } else if (__value__ == (5728709i32)) {
                     @:check2r _c_0._sendAlert((80 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return _err_3;
-                    _gotoNext = 5853473i32;
-                } else if (__value__ == (5853473i32)) {
+                    _gotoNext = 5728763i32;
+                } else if (__value__ == (5728763i32)) {
                     if (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._secureRenegotiation.length) != ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5853521i32;
+                        _gotoNext = 5728811i32;
                     } else {
-                        _gotoNext = 5853649i32;
+                        _gotoNext = 5728939i32;
                     };
-                } else if (__value__ == (5853521i32)) {
+                } else if (__value__ == (5728811i32)) {
                     @:check2r _c_0._sendAlert((40 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: initial handshake had non-empty renegotiation extension" : stdgo.GoString));
-                    _gotoNext = 5853649i32;
-                } else if (__value__ == (5853649i32)) {
+                    _gotoNext = 5728939i32;
+                } else if (__value__ == (5728939i32)) {
                     if (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._earlyData && ((@:checkr _c_0 ?? throw "null pointer dereference")._quic != null && (((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__)) : Bool)) {
-                        _gotoNext = 5853694i32;
+                        _gotoNext = 5728984i32;
                     } else if ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._earlyData) {
-                        _gotoNext = 5853883i32;
+                        _gotoNext = 5729173i32;
                     } else {
-                        _gotoNext = 5854419i32;
+                        _gotoNext = 5729709i32;
                     };
-                } else if (__value__ == (5853694i32)) {
+                } else if (__value__ == (5728984i32)) {
                     if (((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._pskIdentities.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5853740i32;
+                        _gotoNext = 5729030i32;
                     } else {
-                        _gotoNext = 5854419i32;
+                        _gotoNext = 5729709i32;
                     };
-                } else if (__value__ == (5853740i32)) {
+                } else if (__value__ == (5729030i32)) {
                     @:check2r _c_0._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: early_data without pre_shared_key" : stdgo.GoString));
-                    _gotoNext = 5854419i32;
-                } else if (__value__ == (5853883i32)) {
+                    _gotoNext = 5729709i32;
+                } else if (__value__ == (5729173i32)) {
                     @:check2r _c_0._sendAlert((110 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client sent unexpected early data" : stdgo.GoString));
-                    _gotoNext = 5854419i32;
-                } else if (__value__ == (5854419i32)) {
+                    _gotoNext = 5729709i32;
+                } else if (__value__ == (5729709i32)) {
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._sessionId = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._sessionId;
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._compressionMethod = (0 : stdgo.GoUInt8);
                     _preferenceList_4 = stdgo._internal.crypto.tls.Tls__defaultciphersuitestls13._defaultCipherSuitesTLS13;
                     if ((!stdgo._internal.crypto.tls.Tls__hasaesgcmhardwaresupport._hasAESGCMHardwareSupport || !stdgo._internal.crypto.tls.Tls__aesgcmpreferred._aesgcmPreferred((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites) : Bool)) {
-                        _gotoNext = 5854635i32;
+                        _gotoNext = 5729925i32;
                     } else {
-                        _gotoNext = 5854690i32;
+                        _gotoNext = 5729980i32;
                     };
-                } else if (__value__ == (5854635i32)) {
+                } else if (__value__ == (5729925i32)) {
                     _preferenceList_4 = stdgo._internal.crypto.tls.Tls__defaultciphersuitestls13noaes._defaultCipherSuitesTLS13NoAES;
-                    _gotoNext = 5854690i32;
-                } else if (__value__ == (5854690i32)) {
+                    _gotoNext = 5729980i32;
+                } else if (__value__ == (5729980i32)) {
                     if ((0i32 : stdgo.GoInt) < (_preferenceList_4.length)) {
-                        _gotoNext = 5854841i32;
+                        _gotoNext = 5730131i32;
                     } else {
-                        _gotoNext = 5854845i32;
+                        _gotoNext = 5730135i32;
                     };
-                } else if (__value__ == (5854694i32)) {
-                    _i_5854708_5++;
-                    _gotoNext = 5854842i32;
-                } else if (__value__ == (5854729i32)) {
-                    _suiteID_6 = _preferenceList_4[(_i_5854708_5 : stdgo.GoInt)];
+                } else if (__value__ == (5729984i32)) {
+                    _i_5729998_5++;
+                    _gotoNext = 5730132i32;
+                } else if (__value__ == (5730019i32)) {
+                    _suiteID_6 = _preferenceList_4[(_i_5729998_5 : stdgo.GoInt)];
                     (@:checkr _hs ?? throw "null pointer dereference")._suite = stdgo._internal.crypto.tls.Tls__mutualciphersuitetls13._mutualCipherSuiteTLS13((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._cipherSuites, _suiteID_6);
                     if (((@:checkr _hs ?? throw "null pointer dereference")._suite != null && (((@:checkr _hs ?? throw "null pointer dereference")._suite : Dynamic).__nil__ == null || !((@:checkr _hs ?? throw "null pointer dereference")._suite : Dynamic).__nil__))) {
-                        _gotoNext = 5854826i32;
+                        _gotoNext = 5730116i32;
                     } else {
-                        _gotoNext = 5854694i32;
+                        _gotoNext = 5729984i32;
                     };
-                } else if (__value__ == (5854826i32)) {
-                    _gotoNext = 5854845i32;
-                } else if (__value__ == (5854841i32)) {
+                } else if (__value__ == (5730116i32)) {
+                    _gotoNext = 5730135i32;
+                } else if (__value__ == (5730131i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _preferenceList_4[(0i32 : stdgo.GoInt)];
-                        _i_5854708_5 = __tmp__0;
+                        _i_5729998_5 = __tmp__0;
                         _suiteID_6 = __tmp__1;
                     };
-                    _gotoNext = 5854842i32;
-                } else if (__value__ == (5854842i32)) {
-                    if (_i_5854708_5 < (_preferenceList_4.length)) {
-                        _gotoNext = 5854729i32;
+                    _gotoNext = 5730132i32;
+                } else if (__value__ == (5730132i32)) {
+                    if (_i_5729998_5 < (_preferenceList_4.length)) {
+                        _gotoNext = 5730019i32;
                     } else {
-                        _gotoNext = 5854845i32;
+                        _gotoNext = 5730135i32;
                     };
-                } else if (__value__ == (5854845i32)) {
+                } else if (__value__ == (5730135i32)) {
                     if (((@:checkr _hs ?? throw "null pointer dereference")._suite == null || ((@:checkr _hs ?? throw "null pointer dereference")._suite : Dynamic).__nil__)) {
-                        _gotoNext = 5854864i32;
+                        _gotoNext = 5730154i32;
                     } else {
-                        _gotoNext = 5854987i32;
+                        _gotoNext = 5730277i32;
                     };
-                } else if (__value__ == (5854864i32)) {
+                } else if (__value__ == (5730154i32)) {
                     @:check2r _c_0._sendAlert((40 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: no cipher suite supported by both client and server" : stdgo.GoString));
-                    _gotoNext = 5854987i32;
-                } else if (__value__ == (5854987i32)) {
+                    _gotoNext = 5730277i32;
+                } else if (__value__ == (5730277i32)) {
                     (@:checkr _c_0 ?? throw "null pointer dereference")._cipherSuite = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._suite ?? throw "null pointer dereference")._id;
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._cipherSuite = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._suite ?? throw "null pointer dereference")._id;
                     (@:checkr _hs ?? throw "null pointer dereference")._transcript = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._suite ?? throw "null pointer dereference")._hash.new_();
-                    _gotoNext = 5855290i32;
-                } else if (__value__ == (5855290i32)) {
+                    _gotoNext = 5730580i32;
+                } else if (__value__ == (5730580i32)) {
                     if ((0i32 : stdgo.GoInt) < (@:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences().length)) {
-                        _gotoNext = 5855715i32;
+                        _gotoNext = 5731005i32;
                     } else {
-                        _gotoNext = 5855719i32;
+                        _gotoNext = 5731009i32;
                     };
-                } else if (__value__ == (5855311i32)) {
-                    _i_5855332_9++;
-                    _gotoNext = 5855716i32;
-                } else if (__value__ == (5855366i32)) {
-                    _preferredGroup_10 = @:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences()[(_i_5855332_9 : stdgo.GoInt)];
+                } else if (__value__ == (5730601i32)) {
+                    _i_5730622_9++;
+                    _gotoNext = 5731006i32;
+                } else if (__value__ == (5730656i32)) {
+                    _preferredGroup_10 = @:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences()[(_i_5730622_9 : stdgo.GoInt)];
                     if ((0i32 : stdgo.GoInt) < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares.length)) {
-                        _gotoNext = 5855536i32;
+                        _gotoNext = 5730826i32;
                     } else {
-                        _gotoNext = 5855541i32;
+                        _gotoNext = 5730831i32;
                     };
-                } else if (__value__ == (5855374i32)) {
-                    _i_5855383_11++;
-                    _gotoNext = 5855537i32;
-                } else if (__value__ == (5855414i32)) {
-                    _ks_12 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares[(_i_5855383_11 : stdgo.GoInt)];
+                } else if (__value__ == (5730664i32)) {
+                    _i_5730673_11++;
+                    _gotoNext = 5730827i32;
+                } else if (__value__ == (5730704i32)) {
+                    _ks_12 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares[(_i_5730673_11 : stdgo.GoInt)];
                     if (_ks_12._group == (_preferredGroup_10)) {
-                        _gotoNext = 5855449i32;
+                        _gotoNext = 5730739i32;
                     } else {
-                        _gotoNext = 5855374i32;
+                        _gotoNext = 5730664i32;
                     };
-                } else if (__value__ == (5855449i32)) {
+                } else if (__value__ == (5730739i32)) {
                     _selectedGroup_7 = _ks_12._group;
                     _clientKeyShare_8 = (stdgo.Go.setRef(_ks_12) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare>);
                     stdgo._internal.crypto.tls.Tls_groupselectionbreak.groupSelectionBreak = true;
-                    _gotoNext = 5855716i32;
-                } else if (__value__ == (5855536i32)) {
+                    _gotoNext = 5731006i32;
+                } else if (__value__ == (5730826i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares[(0i32 : stdgo.GoInt)];
-                        _i_5855383_11 = __tmp__0;
+                        _i_5730673_11 = __tmp__0;
                         _ks_12 = __tmp__1;
                     };
-                    _gotoNext = 5855537i32;
-                } else if (__value__ == (5855537i32)) {
-                    if (_i_5855383_11 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares.length)) {
-                        _gotoNext = 5855414i32;
+                    _gotoNext = 5730827i32;
+                } else if (__value__ == (5730827i32)) {
+                    if (_i_5730673_11 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares.length)) {
+                        _gotoNext = 5730704i32;
                     } else {
-                        _gotoNext = 5855541i32;
+                        _gotoNext = 5730831i32;
                     };
-                } else if (__value__ == (5855541i32)) {
+                } else if (__value__ == (5730831i32)) {
                     if (_selectedGroup_7 != ((0 : stdgo._internal.crypto.tls.Tls_curveid.CurveID))) {
-                        _gotoNext = 5855563i32;
+                        _gotoNext = 5730853i32;
                     } else {
-                        _gotoNext = 5855583i32;
+                        _gotoNext = 5730873i32;
                     };
-                } else if (__value__ == (5855563i32)) {
-                    _i_5855332_9++;
-                    _gotoNext = 5855716i32;
-                } else if (__value__ == (5855583i32)) {
+                } else if (__value__ == (5730853i32)) {
+                    _i_5730622_9++;
+                    _gotoNext = 5731006i32;
+                } else if (__value__ == (5730873i32)) {
                     if ((0i32 : stdgo.GoInt) < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves.length)) {
-                        _gotoNext = 5855712i32;
+                        _gotoNext = 5731002i32;
                     } else {
-                        _gotoNext = 5855311i32;
+                        _gotoNext = 5730601i32;
                     };
-                } else if (__value__ == (5855587i32)) {
-                    _i_5855599_13++;
-                    _gotoNext = 5855713i32;
-                } else if (__value__ == (5855636i32)) {
-                    _group_14 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves[(_i_5855599_13 : stdgo.GoInt)];
+                } else if (__value__ == (5730877i32)) {
+                    _i_5730889_13++;
+                    _gotoNext = 5731003i32;
+                } else if (__value__ == (5730926i32)) {
+                    _group_14 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves[(_i_5730889_13 : stdgo.GoInt)];
                     if (_group_14 == (_preferredGroup_10)) {
-                        _gotoNext = 5855668i32;
+                        _gotoNext = 5730958i32;
                     } else {
-                        _gotoNext = 5855587i32;
+                        _gotoNext = 5730877i32;
                     };
-                } else if (__value__ == (5855668i32)) {
+                } else if (__value__ == (5730958i32)) {
                     _selectedGroup_7 = _group_14;
-                    _gotoNext = 5855311i32;
-                } else if (__value__ == (5855712i32)) {
+                    _gotoNext = 5730601i32;
+                } else if (__value__ == (5731002i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves[(0i32 : stdgo.GoInt)];
-                        _i_5855599_13 = __tmp__0;
+                        _i_5730889_13 = __tmp__0;
                         _group_14 = __tmp__1;
                     };
-                    _gotoNext = 5855713i32;
-                } else if (__value__ == (5855713i32)) {
-                    if (_i_5855599_13 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves.length)) {
-                        _gotoNext = 5855636i32;
+                    _gotoNext = 5731003i32;
+                } else if (__value__ == (5731003i32)) {
+                    if (_i_5730889_13 < ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._supportedCurves.length)) {
+                        _gotoNext = 5730926i32;
                     } else {
-                        _gotoNext = 5855311i32;
+                        _gotoNext = 5730601i32;
                     };
-                } else if (__value__ == (5855715i32)) {
+                } else if (__value__ == (5731005i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = @:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences()[(0i32 : stdgo.GoInt)];
-                        _i_5855332_9 = __tmp__0;
+                        _i_5730622_9 = __tmp__0;
                         _preferredGroup_10 = __tmp__1;
                     };
-                    _gotoNext = 5855716i32;
-                } else if (__value__ == (5855716i32)) {
-                    if (_i_5855332_9 < (@:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences().length)) {
-                        _gotoNext = 5855366i32;
+                    _gotoNext = 5731006i32;
+                } else if (__value__ == (5731006i32)) {
+                    if (_i_5730622_9 < (@:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._curvePreferences().length)) {
+                        _gotoNext = 5730656i32;
                     } else {
-                        _gotoNext = 5855719i32;
+                        _gotoNext = 5731009i32;
                     };
-                } else if (__value__ == (5855719i32)) {
+                } else if (__value__ == (5731009i32)) {
                     if (_selectedGroup_7 == ((0 : stdgo._internal.crypto.tls.Tls_curveid.CurveID))) {
-                        _gotoNext = 5855741i32;
+                        _gotoNext = 5731031i32;
                     } else {
-                        _gotoNext = 5855863i32;
+                        _gotoNext = 5731153i32;
                     };
-                } else if (__value__ == (5855741i32)) {
+                } else if (__value__ == (5731031i32)) {
                     @:check2r _c_0._sendAlert((40 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: no ECDHE curve supported by both client and server" : stdgo.GoString));
-                    _gotoNext = 5855863i32;
-                } else if (__value__ == (5855863i32)) {
+                    _gotoNext = 5731153i32;
+                } else if (__value__ == (5731153i32)) {
                     if ((_clientKeyShare_8 == null || (_clientKeyShare_8 : Dynamic).__nil__)) {
-                        _gotoNext = 5855888i32;
+                        _gotoNext = 5731178i32;
                     } else {
-                        _gotoNext = 5856025i32;
+                        _gotoNext = 5731315i32;
                     };
-                } else if (__value__ == (5855888i32)) {
+                } else if (__value__ == (5731178i32)) {
                     {
                         _err_15 = @:check2r _hs._doHelloRetryRequest(_selectedGroup_7);
                         if (_err_15 != null) {
-                            _gotoNext = 5855952i32;
+                            _gotoNext = 5731242i32;
                         } else {
-                            _gotoNext = 5855974i32;
+                            _gotoNext = 5731264i32;
                         };
                     };
-                } else if (__value__ == (5855952i32)) {
+                } else if (__value__ == (5731242i32)) {
                     return _err_15;
-                    _gotoNext = 5855974i32;
-                } else if (__value__ == (5855974i32)) {
+                    _gotoNext = 5731264i32;
+                } else if (__value__ == (5731264i32)) {
                     _clientKeyShare_8 = (stdgo.Go.setRef((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._keyShares[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare>);
-                    _gotoNext = 5856025i32;
-                } else if (__value__ == (5856025i32)) {
+                    _gotoNext = 5731315i32;
+                } else if (__value__ == (5731315i32)) {
                     {
                         {
                             var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_selectedGroup_7);
                             _ok_16 = @:tmpset0 __tmp__._1;
                         };
                         if (!_ok_16) {
-                            _gotoNext = 5856073i32;
+                            _gotoNext = 5731363i32;
                         } else {
-                            _gotoNext = 5856185i32;
+                            _gotoNext = 5731475i32;
                         };
                     };
-                } else if (__value__ == (5856073i32)) {
+                } else if (__value__ == (5731363i32)) {
                     @:check2r _c_0._sendAlert((80 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString));
-                    _gotoNext = 5856185i32;
-                } else if (__value__ == (5856185i32)) {
+                    _gotoNext = 5731475i32;
+                } else if (__value__ == (5731475i32)) {
                     {
                         var __tmp__ = stdgo._internal.crypto.tls.Tls__generateecdhekey._generateECDHEKey(@:check2r (@:checkr _c_0 ?? throw "null pointer dereference")._config._rand(), _selectedGroup_7);
                         _key_17 = @:tmpset0 __tmp__._0;
                         _err_18 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_18 != null) {
-                        _gotoNext = 5856261i32;
+                        _gotoNext = 5731551i32;
                     } else {
-                        _gotoNext = 5856314i32;
+                        _gotoNext = 5731604i32;
                     };
-                } else if (__value__ == (5856261i32)) {
+                } else if (__value__ == (5731551i32)) {
                     @:check2r _c_0._sendAlert((80 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return _err_18;
-                    _gotoNext = 5856314i32;
-                } else if (__value__ == (5856314i32)) {
+                    _gotoNext = 5731604i32;
+                } else if (__value__ == (5731604i32)) {
                     (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._hello ?? throw "null pointer dereference")._serverShare = ({ _group : _selectedGroup_7, _data : @:check2r @:check2r _key_17.publicKey().bytes() } : stdgo._internal.crypto.tls.Tls_t_keyshare.T_keyShare);
                     {
                         var __tmp__ = @:check2r _key_17.curve().newPublicKey((@:checkr _clientKeyShare_8 ?? throw "null pointer dereference")._data);
@@ -948,76 +948,76 @@ package stdgo._internal.crypto.tls;
                         _err_18 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_18 != null) {
-                        _gotoNext = 5856477i32;
+                        _gotoNext = 5731767i32;
                     } else {
-                        _gotoNext = 5856573i32;
+                        _gotoNext = 5731863i32;
                     };
-                } else if (__value__ == (5856477i32)) {
+                } else if (__value__ == (5731767i32)) {
                     @:check2r _c_0._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: invalid client key share" : stdgo.GoString));
-                    _gotoNext = 5856573i32;
-                } else if (__value__ == (5856573i32)) {
+                    _gotoNext = 5731863i32;
+                } else if (__value__ == (5731863i32)) {
                     {
                         var __tmp__ = @:check2r _key_17.eCDH(_peerKey_19);
                         (@:checkr _hs ?? throw "null pointer dereference")._sharedKey = @:tmpset0 __tmp__._0;
                         _err_18 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_18 != null) {
-                        _gotoNext = 5856626i32;
+                        _gotoNext = 5731916i32;
                     } else {
-                        _gotoNext = 5856723i32;
+                        _gotoNext = 5732013i32;
                     };
-                } else if (__value__ == (5856626i32)) {
+                } else if (__value__ == (5731916i32)) {
                     @:check2r _c_0._sendAlert((47 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: invalid client key share" : stdgo.GoString));
-                    _gotoNext = 5856723i32;
-                } else if (__value__ == (5856723i32)) {
+                    _gotoNext = 5732013i32;
+                } else if (__value__ == (5732013i32)) {
                     {
                         var __tmp__ = stdgo._internal.crypto.tls.Tls__negotiatealpn._negotiateALPN((@:checkr (@:checkr _c_0 ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").nextProtos, (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._alpnProtocols, ((@:checkr _c_0 ?? throw "null pointer dereference")._quic != null && (((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__)));
                         _selectedProto_20 = @:tmpset0 __tmp__._0?.__copy__();
                         _err_18 = @:tmpset0 __tmp__._1;
                     };
                     if (_err_18 != null) {
-                        _gotoNext = 5856840i32;
+                        _gotoNext = 5732130i32;
                     } else {
-                        _gotoNext = 5856901i32;
+                        _gotoNext = 5732191i32;
                     };
-                } else if (__value__ == (5856840i32)) {
+                } else if (__value__ == (5732130i32)) {
                     @:check2r _c_0._sendAlert((120 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return _err_18;
-                    _gotoNext = 5856901i32;
-                } else if (__value__ == (5856901i32)) {
+                    _gotoNext = 5732191i32;
+                } else if (__value__ == (5732191i32)) {
                     (@:checkr _c_0 ?? throw "null pointer dereference")._clientProtocol = _selectedProto_20?.__copy__();
                     if (((@:checkr _c_0 ?? throw "null pointer dereference")._quic != null && (((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c_0 ?? throw "null pointer dereference")._quic : Dynamic).__nil__))) {
-                        _gotoNext = 5856953i32;
+                        _gotoNext = 5732243i32;
                     } else {
-                        _gotoNext = 5857244i32;
+                        _gotoNext = 5732534i32;
                     };
-                } else if (__value__ == (5856953i32)) {
+                } else if (__value__ == (5732243i32)) {
                     if ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._quicTransportParameters == null) {
-                        _gotoNext = 5857006i32;
+                        _gotoNext = 5732296i32;
                     } else {
-                        _gotoNext = 5857167i32;
+                        _gotoNext = 5732457i32;
                     };
-                } else if (__value__ == (5857006i32)) {
+                } else if (__value__ == (5732296i32)) {
                     @:check2r _c_0._sendAlert((109 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client did not send a quic_transport_parameters extension" : stdgo.GoString));
-                    _gotoNext = 5857167i32;
-                } else if (__value__ == (5857167i32)) {
+                    _gotoNext = 5732457i32;
+                } else if (__value__ == (5732457i32)) {
                     @:check2r _c_0._quicSetTransportParameters((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._quicTransportParameters);
-                    _gotoNext = 5857441i32;
-                } else if (__value__ == (5857244i32)) {
-                    _gotoNext = 5857244i32;
+                    _gotoNext = 5732731i32;
+                } else if (__value__ == (5732534i32)) {
+                    _gotoNext = 5732534i32;
                     if ((@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._quicTransportParameters != null) {
-                        _gotoNext = 5857297i32;
+                        _gotoNext = 5732587i32;
                     } else {
-                        _gotoNext = 5857441i32;
+                        _gotoNext = 5732731i32;
                     };
-                } else if (__value__ == (5857297i32)) {
+                } else if (__value__ == (5732587i32)) {
                     @:check2r _c_0._sendAlert((110 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client sent an unexpected quic_transport_parameters extension" : stdgo.GoString));
-                    _gotoNext = 5857441i32;
-                } else if (__value__ == (5857441i32)) {
+                    _gotoNext = 5732731i32;
+                } else if (__value__ == (5732731i32)) {
                     (@:checkr _c_0 ?? throw "null pointer dereference")._serverName = (@:checkr (@:checkr _hs ?? throw "null pointer dereference")._clientHello ?? throw "null pointer dereference")._serverName?.__copy__();
                     return (null : stdgo.Error);
                     _gotoNext = -1i32;
@@ -1072,7 +1072,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         {
-            var __tmp__ = @:check2r _c._flush(), __137:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _c._flush(), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

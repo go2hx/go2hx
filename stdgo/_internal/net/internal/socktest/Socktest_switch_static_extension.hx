@@ -785,7 +785,7 @@ package stdgo._internal.net.internal.socktest;
         @:recv var _sw:stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch> = _sw;
         var _st:stdgo.Slice<stdgo._internal.net.internal.socktest.Socktest_stat.Stat> = (null : stdgo.Slice<stdgo._internal.net.internal.socktest.Socktest_stat.Stat>);
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.rLock();
-        for (__20 => _s in (@:checkr _sw ?? throw "null pointer dereference")._stats) {
+        for (__0 => _s in (@:checkr _sw ?? throw "null pointer dereference")._stats) {
             var _ns = ((_s : stdgo._internal.net.internal.socktest.Socktest_stat.Stat)?.__copy__() : stdgo._internal.net.internal.socktest.Socktest_stat.Stat);
             _st = (_st.__append__(_ns?.__copy__()));
         };

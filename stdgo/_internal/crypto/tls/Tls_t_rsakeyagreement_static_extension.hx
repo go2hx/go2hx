@@ -7,7 +7,7 @@ package stdgo._internal.crypto.tls;
         var _preMasterSecret = (new stdgo.Slice<stdgo.GoUInt8>((48 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _preMasterSecret[(0 : stdgo.GoInt)] = (((@:checkr _clientHello ?? throw "null pointer dereference")._vers >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _preMasterSecret[(1 : stdgo.GoInt)] = ((@:checkr _clientHello ?? throw "null pointer dereference")._vers : stdgo.GoUInt8);
-        var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (_preMasterSecret.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __69:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (_preMasterSecret.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : null, _2 : _err };
         };

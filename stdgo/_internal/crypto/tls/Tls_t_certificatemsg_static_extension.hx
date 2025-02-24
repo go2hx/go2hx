@@ -47,7 +47,7 @@ _d = (_d.__slice__(((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdg
             return { _0 : (@:checkr _m ?? throw "null pointer dereference")._raw, _1 : (null : stdgo.Error) };
         };
         var _i:stdgo.GoInt = (0 : stdgo.GoInt);
-        for (__65 => _slice in (@:checkr _m ?? throw "null pointer dereference")._certificates) {
+        for (__29 => _slice in (@:checkr _m ?? throw "null pointer dereference")._certificates) {
             _i = (_i + ((_slice.length)) : stdgo.GoInt);
         };
         var _length = (((3 : stdgo.GoInt) + ((3 : stdgo.GoInt) * ((@:checkr _m ?? throw "null pointer dereference")._certificates.length) : stdgo.GoInt) : stdgo.GoInt) + _i : stdgo.GoInt);
@@ -61,7 +61,7 @@ _d = (_d.__slice__(((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdg
         _x[(5 : stdgo.GoInt)] = ((_certificateOctets >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(6 : stdgo.GoInt)] = (_certificateOctets : stdgo.GoUInt8);
         var _y = (_x.__slice__((7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        for (__66 => _slice in (@:checkr _m ?? throw "null pointer dereference")._certificates) {
+        for (__30 => _slice in (@:checkr _m ?? throw "null pointer dereference")._certificates) {
             _y[(0 : stdgo.GoInt)] = (((_slice.length) >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(1 : stdgo.GoInt)] = (((_slice.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(2 : stdgo.GoInt)] = (_slice.length : stdgo.GoUInt8);

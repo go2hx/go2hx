@@ -21,12 +21,12 @@ package stdgo._internal.crypto.tls;
                         { _0 : (stdgo.Go.typeAssert(((@:checkr _hc ?? throw "null pointer dereference")._cipher : stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode)) : stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode), _1 : true };
                     } catch(_) {
                         { _0 : (null : stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode), _1 : false };
-                    }, __65 = __tmp__._0, _isCBC = __tmp__._1;
+                    }, __29 = __tmp__._0, _isCBC = __tmp__._1;
                     if ((!_isCBC && (_explicitNonceLen < (16 : stdgo.GoInt) : Bool) : Bool)) {
                         _explicitNonce.__copyTo__(((@:checkr _hc ?? throw "null pointer dereference")._seq.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                     } else {
                         {
-                            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_rand, _explicitNonce), __66:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_rand, _explicitNonce), __30:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                             };

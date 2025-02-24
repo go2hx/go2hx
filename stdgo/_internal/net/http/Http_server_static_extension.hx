@@ -329,7 +329,7 @@ package stdgo._internal.net.http;
             @:check2 (@:checkr _srv ?? throw "null pointer dereference")._inShutdown.store(true);
             @:check2 (@:checkr _srv ?? throw "null pointer dereference")._mu.lock();
             var _lnerr = (@:check2r _srv._closeListenersLocked() : stdgo.Error);
-            for (__3532 => _f in (@:checkr _srv ?? throw "null pointer dereference")._onShutdown) {
+            for (__3452 => _f in (@:checkr _srv ?? throw "null pointer dereference")._onShutdown) {
                 stdgo.Go.routine(() -> _f());
             };
             @:check2 (@:checkr _srv ?? throw "null pointer dereference")._mu.unlock();

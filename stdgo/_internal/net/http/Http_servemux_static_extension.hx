@@ -27,7 +27,7 @@ package stdgo._internal.net.http;
                 throw stdgo.Go.toInterface(("http: nil handler" : stdgo.GoString));
             };
             {
-                var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.__exists__(_pattern?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[_pattern?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_t_muxentry.T_muxEntry), _1 : false }), __3447:stdgo._internal.net.http.Http_t_muxentry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _mux ?? throw "null pointer dereference")._m != null && (@:checkr _mux ?? throw "null pointer dereference")._m.__exists__(_pattern?.__copy__()) ? { _0 : (@:checkr _mux ?? throw "null pointer dereference")._m[_pattern?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_t_muxentry.T_muxEntry), _1 : false }), __3423:stdgo._internal.net.http.Http_t_muxentry.T_muxEntry = __tmp__._0, _exist:Bool = __tmp__._1;
                 if (_exist) {
                     throw stdgo.Go.toInterface((("http: multiple registrations for " : stdgo.GoString) + _pattern?.__copy__() : stdgo.GoString));
                 };
@@ -113,7 +113,7 @@ package stdgo._internal.net.http;
             _w.writeHeader((400 : stdgo.GoInt));
             return;
         };
-        var __tmp__ = @:check2r _mux.handler(_r), _h:stdgo._internal.net.http.Http_handler.Handler = __tmp__._0, __3427:stdgo.GoString = __tmp__._1;
+        var __tmp__ = @:check2r _mux.handler(_r), _h:stdgo._internal.net.http.Http_handler.Handler = __tmp__._0, __3423:stdgo.GoString = __tmp__._1;
         _h.serveHTTP(_w, _r);
     }
     @:keep

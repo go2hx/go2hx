@@ -11,7 +11,7 @@ package stdgo._internal.crypto.tls;
         var _ciphertext = (_encrypted.__slice__((16 : stdgo.GoInt), ((_encrypted.length) - (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _authenticated = (_encrypted.__slice__(0, ((_encrypted.length) - (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _macBytes = (_encrypted.__slice__(((_encrypted.length) - (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        for (__65 => _key in _ticketKeys) {
+        for (__29 => _key in _ticketKeys) {
             var _mac = (stdgo._internal.crypto.hmac.Hmac_new_.new_(stdgo._internal.crypto.sha256.Sha256_new_.new_, (_key._hmacKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.hash.Hash_hash.Hash);
             _mac.write(_authenticated);
             var _expected = _mac.sum((null : stdgo.Slice<stdgo.GoUInt8>));
@@ -56,7 +56,7 @@ package stdgo._internal.crypto.tls;
         var _authenticated = (_encrypted.__slice__(0, ((_encrypted.length) - (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _macBytes = (_encrypted.__slice__(((_encrypted.length) - (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), _iv), __69:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), _iv), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
@@ -92,7 +92,7 @@ package stdgo._internal.crypto.tls;
         };
         var _logLine = stdgo._internal.fmt.Fmt_appendf.appendf((null : stdgo.Slice<stdgo.GoUInt8>), ("%s %x %x\n" : stdgo.GoString), stdgo.Go.toInterface(_label), stdgo.Go.toInterface(_clientRandom), stdgo.Go.toInterface(_secret));
         @:check2 stdgo._internal.crypto.tls.Tls__writermutex._writerMutex.lock();
-        var __tmp__ = (@:checkr _c ?? throw "null pointer dereference").keyLogWriter.write(_logLine), __73:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = (@:checkr _c ?? throw "null pointer dereference").keyLogWriter.write(_logLine), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         @:check2 stdgo._internal.crypto.tls.Tls__writermutex._writerMutex.unlock();
         return _err;
     }
@@ -115,7 +115,7 @@ package stdgo._internal.crypto.tls;
             if ((((@:checkr _x509Cert ?? throw "null pointer dereference").subject.commonName != (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames.length == (0 : stdgo.GoInt)) : Bool)) {
                 (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[(@:checkr _x509Cert ?? throw "null pointer dereference").subject.commonName] = _cert;
             };
-            for (__77 => _san in (@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames) {
+            for (__29 => _san in (@:checkr _x509Cert ?? throw "null pointer dereference").dNSNames) {
                 (@:checkr _c ?? throw "null pointer dereference").nameToCertificate[_san] = _cert;
             };
         };
@@ -156,7 +156,7 @@ package stdgo._internal.crypto.tls;
                 };
             };
         };
-        for (__93 => _cert in (@:checkr _c ?? throw "null pointer dereference").certificates) {
+        for (__29 => _cert in (@:checkr _c ?? throw "null pointer dereference").certificates) {
             {
                 var _err = (@:check2r _clientHello.supportsCertificate((stdgo.Go.setRef(_cert) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>)) : stdgo.Error);
                 if (_err == null) {
@@ -171,8 +171,8 @@ package stdgo._internal.crypto.tls;
     static public function _mutualVersion( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _isClient:Bool, _peerVersions:stdgo.Slice<stdgo.GoUInt16>):{ var _0 : stdgo.GoUInt16; var _1 : Bool; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config> = _c;
         var _supportedVersions = @:check2r _c._supportedVersions(_isClient);
-        for (__69 => _peerVersion in _peerVersions) {
-            for (__70 => _v in _supportedVersions) {
+        for (__29 => _peerVersion in _peerVersions) {
+            for (__30 => _v in _supportedVersions) {
                 if (_v == (_peerVersion)) {
                     return { _0 : _v, _1 : true };
                 };
@@ -184,7 +184,7 @@ package stdgo._internal.crypto.tls;
     @:tdfield
     static public function _supportsCurve( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _curve:stdgo._internal.crypto.tls.Tls_curveid.CurveID):Bool {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config> = _c;
-        for (__69 => _cc in @:check2r _c._curvePreferences()) {
+        for (__29 => _cc in @:check2r _c._curvePreferences()) {
             if (_cc == (_curve)) {
                 return true;
             };
@@ -218,7 +218,7 @@ package stdgo._internal.crypto.tls;
     static public function _supportedVersions( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _isClient:Bool):stdgo.Slice<stdgo.GoUInt16> {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config> = _c;
         var _versions = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.crypto.tls.Tls__supportedversions._supportedVersions.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
-        for (__65 => _v in stdgo._internal.crypto.tls.Tls__supportedversions._supportedVersions) {
+        for (__29 => _v in stdgo._internal.crypto.tls.Tls__supportedversions._supportedVersions) {
             if ((stdgo._internal.crypto.tls.Tls__needfips._needFIPS() && (((_v < stdgo._internal.crypto.tls.Tls__fipsminversion._fipsMinVersion(_c) : Bool) || (_v > stdgo._internal.crypto.tls.Tls__fipsmaxversion._fipsMaxVersion(_c) : Bool) : Bool)) : Bool)) {
                 continue;
             };
@@ -353,14 +353,14 @@ package stdgo._internal.crypto.tls;
             if ((((@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys.length == (0 : stdgo.GoInt)) || (@:check2r _c._time().sub((@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys[(0 : stdgo.GoInt)]._created?.__copy__()) >= (86400000000000i64 : stdgo._internal.time.Time_duration.Duration) : Bool) : Bool)) {
                 var _newKey:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
                 {
-                    var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), (_newKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __153:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), (_newKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("unable to generate random session ticket key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                     };
                 };
                 var _valid = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>((0 : stdgo.GoInt).toBasic(), (((@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys.length) + (1 : stdgo.GoInt) : stdgo.GoInt), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (((@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys.length) + (1 : stdgo.GoInt) : stdgo.GoInt) ? (0 : stdgo.GoInt).toBasic() : (((@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey)]) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>);
                 _valid = (_valid.__append__(@:check2r _c._ticketKeyFromBytes(_newKey?.__copy__())?.__copy__()));
-                for (__166 => _k in (@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys) {
+                for (__30 => _k in (@:checkr _c ?? throw "null pointer dereference")._autoSessionTicketKeys) {
                     if ((@:check2r _c._time().sub(_k._created?.__copy__()) < (604800000000000i64 : stdgo._internal.time.Time_duration.Duration) : Bool)) {
                         _valid = (_valid.__append__(_k?.__copy__()));
                     };
@@ -451,7 +451,7 @@ package stdgo._internal.crypto.tls;
             };
             if (stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference").sessionTicketKey) == stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))) {
                 {
-                    var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), ((@:checkr _c ?? throw "null pointer dereference").sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _c._rand(), ((@:checkr _c ?? throw "null pointer dereference").sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("tls: unable to generate random session ticket key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                     };

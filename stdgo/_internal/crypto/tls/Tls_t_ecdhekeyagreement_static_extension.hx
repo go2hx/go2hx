@@ -31,7 +31,7 @@ package stdgo._internal.crypto.tls;
             return stdgo._internal.crypto.tls.Tls__errserverkeyexchange._errServerKeyExchange;
         };
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __65:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __29:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server selected unsupported curve" : stdgo.GoString));
             };
@@ -128,7 +128,7 @@ package stdgo._internal.crypto.tls;
     static public function _generateServerKeyExchange( _ka:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement>, _config:stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>, _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>, _clientHello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_clienthellomsg.T_clientHelloMsg>, _hello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverhellomsg.T_serverHelloMsg>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_serverkeyexchangemsg.T_serverKeyExchangeMsg>; var _1 : stdgo.Error; } {
         @:recv var _ka:stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ecdhekeyagreement.T_ecdheKeyAgreement> = _ka;
         var _curveID:stdgo._internal.crypto.tls.Tls_curveid.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
-        for (__65 => _c in (@:checkr _clientHello ?? throw "null pointer dereference")._supportedCurves) {
+        for (__29 => _c in (@:checkr _clientHello ?? throw "null pointer dereference")._supportedCurves) {
             if (@:check2r _config._supportsCurve(_c)) {
                 _curveID = _c;
                 break;
@@ -138,7 +138,7 @@ package stdgo._internal.crypto.tls;
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: no supported elliptic curves offered" : stdgo.GoString)) };
         };
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __66:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __30:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString)) };
             };

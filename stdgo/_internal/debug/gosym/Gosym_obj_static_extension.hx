@@ -4,13 +4,13 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
+        var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
+        var _i_32:stdgo.GoInt = (0 : stdgo.GoInt);
         var _val_38:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_37:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_3648328_36:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_35:stdgo.GoInt = (0 : stdgo.GoInt);
         var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
-        var _i_32:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

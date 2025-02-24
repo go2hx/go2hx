@@ -201,7 +201,7 @@ package stdgo._internal.log;
                     };
                 } else {
                     var _fs = stdgo._internal.runtime.Runtime_callersframes.callersFrames((new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[_pc]) : stdgo.Slice<stdgo.GoUIntptr>));
-                    var __tmp__ = @:check2r _fs.next(), _f:stdgo._internal.runtime.Runtime_frame.Frame = __tmp__._0, __35:Bool = __tmp__._1;
+                    var __tmp__ = @:check2r _fs.next(), _f:stdgo._internal.runtime.Runtime_frame.Frame = __tmp__._0, __11:Bool = __tmp__._1;
                     _file = _f.file?.__copy__();
                     if (_file == ((stdgo.Go.str() : stdgo.GoString))) {
                         _file = ("???" : stdgo.GoString);
@@ -225,7 +225,7 @@ package stdgo._internal.log;
                 final __f__ = @:check2 (@:checkr _l ?? throw "null pointer dereference")._outMu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write((_buf : stdgo.Slice<stdgo.GoUInt8>)), __59:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _l ?? throw "null pointer dereference")._out.write((_buf : stdgo.Slice<stdgo.GoUInt8>)), __11:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;

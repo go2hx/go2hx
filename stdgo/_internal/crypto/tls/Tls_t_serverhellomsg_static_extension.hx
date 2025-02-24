@@ -170,7 +170,7 @@ package stdgo._internal.crypto.tls;
             @:check2 _exts.addUint16((18 : stdgo.GoUInt16));
             @:check2 _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                    for (__65 => _sct in (@:checkr _m ?? throw "null pointer dereference")._scts) {
+                    for (__29 => _sct in (@:checkr _m ?? throw "null pointer dereference")._scts) {
                         @:check2r _exts.addUint16LengthPrefixed(function(_exts:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _exts.addBytes(_sct);
                         });

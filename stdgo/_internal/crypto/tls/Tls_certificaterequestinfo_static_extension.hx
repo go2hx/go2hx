@@ -5,7 +5,7 @@ package stdgo._internal.crypto.tls;
     static public function supportsCertificate( _cri:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo>, _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>):stdgo.Error {
         @:recv var _cri:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> = _cri;
         {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__selectsignaturescheme._selectSignatureScheme((@:checkr _cri ?? throw "null pointer dereference").version, _c, (@:checkr _cri ?? throw "null pointer dereference").signatureSchemes), __65:stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__selectsignaturescheme._selectSignatureScheme((@:checkr _cri ?? throw "null pointer dereference").version, _c, (@:checkr _cri ?? throw "null pointer dereference").signatureSchemes), __29:stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -28,7 +28,7 @@ package stdgo._internal.crypto.tls;
                     };
                 };
             };
-            for (__66 => _ca in (@:checkr _cri ?? throw "null pointer dereference").acceptableCAs) {
+            for (__30 => _ca in (@:checkr _cri ?? throw "null pointer dereference").acceptableCAs) {
                 if (stdgo._internal.bytes.Bytes_equal.equal((@:checkr _x509Cert ?? throw "null pointer dereference").rawIssuer, _ca)) {
                     return (null : stdgo.Error);
                 };

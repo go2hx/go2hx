@@ -22,7 +22,7 @@ function _marshalCertificate(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.cryp
                         @:check2r _b.addUint16((18 : stdgo.GoUInt16));
                         @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                                for (__65 => _sct in _certificate.signedCertificateTimestamps) {
+                                for (__29 => _sct in _certificate.signedCertificateTimestamps) {
                                     @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                                         @:check2r _b.addBytes(_sct);
                                     });

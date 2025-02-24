@@ -8,7 +8,7 @@ function _encFloat64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_en
         if (!_ok) {
             return false;
         };
-        for (__8 => _x in _slice) {
+        for (__4 => _x in _slice) {
             if (((_x != (0 : stdgo.GoFloat64)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 var _bits = (stdgo._internal.encoding.gob.Gob__floatbits._floatBits(_x) : stdgo.GoUInt64);
                 @:check2r _state._encodeUint(_bits);

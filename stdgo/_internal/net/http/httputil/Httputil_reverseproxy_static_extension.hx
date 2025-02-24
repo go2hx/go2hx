@@ -236,7 +236,7 @@ package stdgo._internal.net.http.httputil;
                     __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
                 };
             };
-            var __tmp__ = @:check2r _p._copyBuffer(_w, _src, _buf), __16:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _p._copyBuffer(_w, _src, _buf), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -440,7 +440,7 @@ package stdgo._internal.net.http.httputil;
                 _outreq = (@:checkr _pr ?? throw "null pointer dereference").out;
             } else {
                 {
-                    var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__()), _clientIP:stdgo.GoString = __tmp__._0, __40:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                    var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").remoteAddr?.__copy__()), _clientIP:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err == null) {
                         var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.__exists__(("X-Forwarded-For" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("X-Forwarded-For" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _prior:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                         var _omit = (_ok && (_prior == null) : Bool);
@@ -454,7 +454,7 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             {
-                var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.__exists__(("User-Agent" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("User-Agent" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __40:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = ((@:checkr _outreq ?? throw "null pointer dereference").header != null && (@:checkr _outreq ?? throw "null pointer dereference").header.__exists__(("User-Agent" : stdgo.GoString)) ? { _0 : (@:checkr _outreq ?? throw "null pointer dereference").header[("User-Agent" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     (@:checkr _outreq ?? throw "null pointer dereference").header.set(("User-Agent" : stdgo.GoString), (stdgo.Go.str() : stdgo.GoString)?.__copy__());
                 };
@@ -559,7 +559,7 @@ package stdgo._internal.net.http.httputil;
             };
             for (_k => _vv in (@:checkr _res ?? throw "null pointer dereference").trailer) {
                 _k = (("Trailer:" : stdgo.GoString) + _k?.__copy__() : stdgo.GoString)?.__copy__();
-                for (__65 => _v in _vv) {
+                for (__1 => _v in _vv) {
                     _rw.header().add(_k?.__copy__(), _v?.__copy__());
                 };
             };

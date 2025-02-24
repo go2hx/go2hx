@@ -20,8 +20,8 @@ package stdgo._internal.net.http;
         (@:checkr _t ?? throw "null pointer dereference")._closeIdle = true;
         (@:checkr _t ?? throw "null pointer dereference")._idleLRU = (new stdgo._internal.net.http.Http_t_connlru.T_connLRU() : stdgo._internal.net.http.Http_t_connlru.T_connLRU);
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._idleMu.unlock();
-        for (__3819 => _conns in _m) {
-            for (__3820 => _pconn in _conns) {
+        for (__3787 => _conns in _m) {
+            for (__3788 => _pconn in _conns) {
                 @:check2r _pconn._close(stdgo._internal.net.http.Http__errcloseidleconns._errCloseIdleConns);
             };
         };
@@ -47,9 +47,9 @@ package stdgo._internal.net.http;
                 { _0 : (stdgo.Go.typeAssert((@:check2 (@:checkr _t ?? throw "null pointer dereference")._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_roundtripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_roundtripper.RoundTripper>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_roundtripper.RoundTripper>), _1 : false };
-            }, _oldMap = __tmp__._0, __3799 = __tmp__._1;
+            }, _oldMap = __tmp__._0, __3787 = __tmp__._1;
             {
-                var __tmp__ = (_oldMap != null && _oldMap.__exists__(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_roundtripper.RoundTripper), _1 : false }), __3800:stdgo._internal.net.http.Http_roundtripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
+                var __tmp__ = (_oldMap != null && _oldMap.__exists__(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_roundtripper.RoundTripper), _1 : false }), __3788:stdgo._internal.net.http.Http_roundtripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
                 if (_exists) {
                     throw stdgo.Go.toInterface(((("protocol " : stdgo.GoString) + _scheme?.__copy__() : stdgo.GoString) + (" already registered" : stdgo.GoString)?.__copy__() : stdgo.GoString));
                 };
@@ -182,7 +182,7 @@ package stdgo._internal.net.http;
         };
         var _headers = (stdgo._internal.net.http.Http__js._js.global().get(("Headers" : stdgo.GoString)).new_()?.__copy__() : stdgo._internal.syscall.js.Js_value.Value);
         for (_key => _values in (@:checkr _req ?? throw "null pointer dereference").header) {
-            for (__3841 => _value in _values) {
+            for (__3825 => _value in _values) {
                 _headers.call(("append" : stdgo.GoString), stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_value));
             };
         };

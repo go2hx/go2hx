@@ -105,7 +105,7 @@ var _extensions = __1, _context = __0;
                     @:check2r _b.addUint16((13 : stdgo.GoUInt16));
                     @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                            for (__65 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
+                            for (__29 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
                                 @:check2r _b.addUint16((_sigAlgo : stdgo.GoUInt16));
                             };
                         });
@@ -115,7 +115,7 @@ var _extensions = __1, _context = __0;
                     @:check2r _b.addUint16((50 : stdgo.GoUInt16));
                     @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                            for (__65 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert) {
+                            for (__29 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithmsCert) {
                                 @:check2r _b.addUint16((_sigAlgo : stdgo.GoUInt16));
                             };
                         });
@@ -125,7 +125,7 @@ var _extensions = __1, _context = __0;
                     @:check2r _b.addUint16((47 : stdgo.GoUInt16));
                     @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                            for (__65 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
+                            for (__29 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
                                 @:check2r _b.addUint16LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                                     @:check2r _b.addBytes(_ca);
                                 });

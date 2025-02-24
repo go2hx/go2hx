@@ -76,7 +76,7 @@ package stdgo._internal.crypto.tls;
         };
         var _length = (((1 : stdgo.GoInt) + ((@:checkr _m ?? throw "null pointer dereference")._certificateTypes.length) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt);
         var _casLength = (0 : stdgo.GoInt);
-        for (__65 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
+        for (__29 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
             _casLength = (_casLength + (((2 : stdgo.GoInt) + (_ca.length) : stdgo.GoInt)) : stdgo.GoInt);
         };
         _length = (_length + (_casLength) : stdgo.GoInt);
@@ -96,7 +96,7 @@ package stdgo._internal.crypto.tls;
             _y[(0 : stdgo.GoInt)] = ((_n >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(1 : stdgo.GoInt)] = (_n : stdgo.GoUInt8);
             _y = (_y.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            for (__66 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
+            for (__30 => _sigAlgo in (@:checkr _m ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
                 _y[(0 : stdgo.GoInt)] = ((_sigAlgo >> (8i64 : stdgo.GoUInt64) : stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme) : stdgo.GoUInt8);
                 _y[(1 : stdgo.GoInt)] = (_sigAlgo : stdgo.GoUInt8);
                 _y = (_y.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -105,7 +105,7 @@ package stdgo._internal.crypto.tls;
         _y[(0 : stdgo.GoInt)] = ((_casLength >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _y[(1 : stdgo.GoInt)] = (_casLength : stdgo.GoUInt8);
         _y = (_y.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        for (__66 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
+        for (__30 => _ca in (@:checkr _m ?? throw "null pointer dereference")._certificateAuthorities) {
             _y[(0 : stdgo.GoInt)] = (((_ca.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(1 : stdgo.GoInt)] = (_ca.length : stdgo.GoUInt8);
             _y = (_y.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

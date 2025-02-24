@@ -21,13 +21,13 @@ package stdgo._internal.internal.coverage.decodemeta;
         };
         _payload = (_payload.__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_len : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         {
-            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._f.seek((_off : stdgo.GoInt64), (0 : stdgo.GoInt)), __19:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._f.seek((_off : stdgo.GoInt64), (0 : stdgo.GoInt)), __7:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
         {
-            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._f), _payload), __22:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readfull.readFull(stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference")._f), _payload), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };

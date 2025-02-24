@@ -24,7 +24,7 @@ function newCounterDataReader(_fn:stdgo.GoString, _rs:stdgo._internal.io.Io_read
         };
         var _hsz = (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((@:checkr _cdr ?? throw "null pointer dereference")._hdr)) : stdgo.GoInt64);
         {
-            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_hsz, (0 : stdgo.GoInt)), __54:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_hsz, (0 : stdgo.GoInt)), __12:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };

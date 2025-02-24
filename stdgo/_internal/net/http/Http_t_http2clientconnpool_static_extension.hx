@@ -17,7 +17,7 @@ package stdgo._internal.net.http;
                 final __f__ = @:check2 (@:checkr _p ?? throw "null pointer dereference")._mu.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__2030 => _key in ((@:checkr _p ?? throw "null pointer dereference")._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+            for (__2006 => _key in ((@:checkr _p ?? throw "null pointer dereference")._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
                 var __tmp__ = ((@:checkr _p ?? throw "null pointer dereference")._conns != null && (@:checkr _p ?? throw "null pointer dereference")._conns.__exists__(_key?.__copy__()) ? { _0 : (@:checkr _p ?? throw "null pointer dereference")._conns[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>>), _1 : false }), _vv:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     continue;

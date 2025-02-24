@@ -15,7 +15,7 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing_tb.TB, _dstPath:stdgo
             if (_err != null) {
                 _t.fatalf(("%v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((@:checkr _cmd ?? throw "null pointer dereference").stderr));
             };
-            for (__24 => _line in stdgo._internal.strings.Strings_split.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
+            for (__0 => _line in stdgo._internal.strings.Strings_split.split((_out : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString))) {
                 if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                     continue;
                 };

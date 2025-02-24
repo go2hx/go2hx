@@ -48,7 +48,7 @@ package stdgo._internal.crypto.tls;
             };
             (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._readbuf = _data;
             (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._signalc.__get__();
-            var __tmp__ = (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._blockedc.__smartGet__(), __113 = __tmp__._0, _ok = __tmp__._1;
+            var __tmp__ = (@:checkr (@:checkr _c ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._blockedc.__smartGet__(), __29 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return (null : stdgo.Error);
             };
@@ -203,7 +203,7 @@ package stdgo._internal.crypto.tls;
         };
         stdgo.Go.routine(() -> @:check2r (@:checkr _q ?? throw "null pointer dereference")._conn.handshakeContext(_ctx));
         {
-            var __tmp__ = (@:checkr (@:checkr (@:checkr _q ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._blockedc.__smartGet__(), __165 = __tmp__._0, _ok = __tmp__._1;
+            var __tmp__ = (@:checkr (@:checkr (@:checkr _q ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._quic ?? throw "null pointer dereference")._blockedc.__smartGet__(), __29 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 return (@:checkr (@:checkr _q ?? throw "null pointer dereference")._conn ?? throw "null pointer dereference")._handshakeErr;
             };

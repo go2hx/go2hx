@@ -272,7 +272,7 @@ package stdgo._internal.crypto.tls;
             (@:checkr _m ?? throw "null pointer dereference")._maxEarlyData = (-1u32 : stdgo.GoUInt32);
         };
         {
-            var __tmp__ = @:check2r _c._writeHandshakeRecord(stdgo.Go.asInterface(_m), (null : stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash)), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _c._writeHandshakeRecord(stdgo.Go.asInterface(_m), (null : stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -319,7 +319,7 @@ package stdgo._internal.crypto.tls;
         };
         if ((((@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").clientAuth >= (3 : stdgo._internal.crypto.tls.Tls_clientauthtype.ClientAuthType) : Bool) && ((_certs.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _opts = ({ roots : (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").clientCAs, currentTime : @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._time()?.__copy__(), intermediates : stdgo._internal.crypto.x509.X509_newcertpool.newCertPool(), keyUsages : (new stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>(1, 1, ...[(2 : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage)]).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>) } : stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions);
-            for (__113 => _cert in (_certs.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
+            for (__29 => _cert in (_certs.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
                 @:check2r _opts.intermediates.addCert(_cert);
             };
             var __tmp__ = @:check2r _certs[(0 : stdgo.GoInt)].verify(_opts?.__copy__()), _chains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -493,7 +493,7 @@ package stdgo._internal.crypto.tls;
         if ((@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").getClientCertificate != null) {
             return (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").getClientCertificate(_cri);
         };
-        for (__89 => _chain in (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").certificates) {
+        for (__29 => _chain in (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").certificates) {
             {
                 var _err = (@:check2r _cri.supportsCertificate((stdgo.Go.setRef(_chain) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>)) : stdgo.Error);
                 if (_err != null) {
@@ -531,7 +531,7 @@ package stdgo._internal.crypto.tls;
         };
         if (!(@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").insecureSkipVerify) {
             var _opts = ({ roots : (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").rootCAs, currentTime : @:check2r (@:checkr _c ?? throw "null pointer dereference")._config._time()?.__copy__(), dNSName : (@:checkr (@:checkr _c ?? throw "null pointer dereference")._config ?? throw "null pointer dereference").serverName?.__copy__(), intermediates : stdgo._internal.crypto.x509.X509_newcertpool.newCertPool() } : stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions);
-            for (__113 => _cert in (_certs.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
+            for (__29 => _cert in (_certs.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>)) {
                 @:check2r _opts.intermediates.addCert(_cert);
             };
             var _err:stdgo.Error = (null : stdgo.Error);
@@ -655,7 +655,7 @@ package stdgo._internal.crypto.tls;
         };
         _session = (@:checkr _cs ?? throw "null pointer dereference")._session;
         var _versOk = (false : Bool);
-        for (__117 => _v in (@:checkr _hello ?? throw "null pointer dereference")._supportedVersions) {
+        for (__29 => _v in (@:checkr _hello ?? throw "null pointer dereference")._supportedVersions) {
             if (_v == ((@:checkr _session ?? throw "null pointer dereference")._version)) {
                 _versOk = true;
                 break;
@@ -744,7 +744,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         var _cipherSuiteOk = (false : Bool);
-        for (__154 => _offeredID in (@:checkr _hello ?? throw "null pointer dereference")._cipherSuites) {
+        for (__30 => _offeredID in (@:checkr _hello ?? throw "null pointer dereference")._cipherSuites) {
             var _offeredSuite = stdgo._internal.crypto.tls.Tls__ciphersuitetls13byid._cipherSuiteTLS13ByID(_offeredID);
             if (((_offeredSuite != null && ((_offeredSuite : Dynamic).__nil__ == null || !(_offeredSuite : Dynamic).__nil__)) && ((@:checkr _offeredSuite ?? throw "null pointer dereference")._hash == (@:checkr _cipherSuite ?? throw "null pointer dereference")._hash) : Bool)) {
                 _cipherSuiteOk = true;
@@ -763,7 +763,7 @@ package stdgo._internal.crypto.tls;
         };
         if ((((@:checkr _c ?? throw "null pointer dereference")._quic != null && (((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__)) && (@:checkr _session ?? throw "null pointer dereference").earlyData : Bool)) {
             if ((stdgo._internal.crypto.tls.Tls__mutualciphersuitetls13._mutualCipherSuiteTLS13((@:checkr _hello ?? throw "null pointer dereference")._cipherSuites, (@:checkr _session ?? throw "null pointer dereference")._cipherSuite) != null && ((stdgo._internal.crypto.tls.Tls__mutualciphersuitetls13._mutualCipherSuiteTLS13((@:checkr _hello ?? throw "null pointer dereference")._cipherSuites, (@:checkr _session ?? throw "null pointer dereference")._cipherSuite) : Dynamic).__nil__ == null || !(stdgo._internal.crypto.tls.Tls__mutualciphersuitetls13._mutualCipherSuiteTLS13((@:checkr _hello ?? throw "null pointer dereference")._cipherSuites, (@:checkr _session ?? throw "null pointer dereference")._cipherSuite) : Dynamic).__nil__))) {
-                for (__163 => _alpn in (@:checkr _hello ?? throw "null pointer dereference")._alpnProtocols) {
+                for (__31 => _alpn in (@:checkr _hello ?? throw "null pointer dereference")._alpnProtocols) {
                     if (_alpn == ((@:checkr _session ?? throw "null pointer dereference")._alpnProtocol)) {
                         (@:checkr _hello ?? throw "null pointer dereference")._earlyData = true;
                         break;
@@ -844,7 +844,7 @@ package stdgo._internal.crypto.tls;
                 };
             };
             {
-                var __tmp__ = @:check2r _c._writeHandshakeRecord(stdgo.Go.asInterface(_hello), (null : stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash)), __113:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r _c._writeHandshakeRecord(stdgo.Go.asInterface(_hello), (null : stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     {
                         for (defer in __deferstack__) {
@@ -1029,7 +1029,7 @@ package stdgo._internal.crypto.tls;
             return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("tls: either ServerName or InsecureSkipVerify must be specified in the tls.Config" : stdgo.GoString)) };
         };
         var _nextProtosLength = (0 : stdgo.GoInt);
-        for (__85 => _proto in (@:checkr _config ?? throw "null pointer dereference").nextProtos) {
+        for (__29 => _proto in (@:checkr _config ?? throw "null pointer dereference").nextProtos) {
             {
                 var _l = (_proto.length : stdgo.GoInt);
                 if (((_l == (0 : stdgo.GoInt)) || (_l > (255 : stdgo.GoInt) : Bool) : Bool)) {
@@ -1060,7 +1060,7 @@ package stdgo._internal.crypto.tls;
         };
         var _configCipherSuites = @:check2r _config._cipherSuites();
         (@:checkr _hello ?? throw "null pointer dereference")._cipherSuites = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), (_configCipherSuites.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
-        for (__118 => _suiteId in _preferenceOrder) {
+        for (__30 => _suiteId in _preferenceOrder) {
             var _suite = stdgo._internal.crypto.tls.Tls__mutualciphersuite._mutualCipherSuite(_configCipherSuites, _suiteId);
             if ((_suite == null || (_suite : Dynamic).__nil__)) {
                 continue;
@@ -1070,14 +1070,14 @@ package stdgo._internal.crypto.tls;
             };
             (@:checkr _hello ?? throw "null pointer dereference")._cipherSuites = ((@:checkr _hello ?? throw "null pointer dereference")._cipherSuites.__append__(_suiteId));
         };
-        var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (@:checkr _hello ?? throw "null pointer dereference")._random), __123:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (@:checkr _hello ?? throw "null pointer dereference")._random), __31:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_((("tls: short read from Rand: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         if (((@:checkr _c ?? throw "null pointer dereference")._quic == null || ((@:checkr _c ?? throw "null pointer dereference")._quic : Dynamic).__nil__)) {
             (@:checkr _hello ?? throw "null pointer dereference")._sessionId = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
-                var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (@:checkr _hello ?? throw "null pointer dereference")._sessionId), __136:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_readfull.readFull(@:check2r _config._rand(), (@:checkr _hello ?? throw "null pointer dereference")._sessionId), __32:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_((("tls: short read from Rand: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
                 };
@@ -1101,7 +1101,7 @@ package stdgo._internal.crypto.tls;
             };
             var _curveID = (@:check2r _config._curvePreferences()[(0 : stdgo.GoInt)] : stdgo._internal.crypto.tls.Tls_curveid.CurveID);
             {
-                var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __136:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = stdgo._internal.crypto.tls.Tls__curveforcurveid._curveForCurveID(_curveID), __32:stdgo._internal.crypto.ecdh.Ecdh_curve.Curve = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString)) };
                 };
@@ -1793,7 +1793,7 @@ package stdgo._internal.crypto.tls;
                     };
                 };
             };
-            var __tmp__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._input.read(_b), _n:stdgo.GoInt = __tmp__._0, __105:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._input.read(_b), _n:stdgo.GoInt = __tmp__._0, __29:stdgo.Error = __tmp__._1;
             if ((((_n != ((0 : stdgo.GoInt)) && @:check2 (@:checkr _c ?? throw "null pointer dereference")._input.len() == ((0 : stdgo.GoInt)) : Bool) && (@:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.len() > (0 : stdgo.GoInt) : Bool) : Bool) && ((@:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.bytes()[(0 : stdgo.GoInt)] : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType) == (21 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType)) : Bool)) {
                 {
                     var _err = (@:check2r _c._readRecord() : stdgo.Error);
@@ -2213,7 +2213,7 @@ package stdgo._internal.crypto.tls;
                         { _0 : (stdgo.Go.typeAssert(((@:checkr _c ?? throw "null pointer dereference")._out._cipher : stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode)) : stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode), _1 : true };
                     } catch(_) {
                         { _0 : (null : stdgo._internal.crypto.cipher.Cipher_blockmode.BlockMode), _1 : false };
-                    }, __143 = __tmp__._0, _ok = __tmp__._1;
+                    }, __35 = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         var __tmp__ = @:check2r _c._writeRecordLocked((23 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType), (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
@@ -2415,7 +2415,7 @@ package stdgo._internal.crypto.tls;
                 final __f__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._out.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            var __tmp__ = @:check2r _c._writeRecordLocked((20 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __89:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = @:check2r _c._writeRecordLocked((20 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
@@ -2580,7 +2580,7 @@ package stdgo._internal.crypto.tls;
                 @:check2r _c._quicWriteCryptoData((@:checkr _c ?? throw "null pointer dereference")._out._level, _data);
                 if (!(@:checkr _c ?? throw "null pointer dereference")._buffering) {
                     {
-                        var __tmp__ = @:check2r _c._flush(), __105:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = @:check2r _c._flush(), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             return { _0 : (0 : stdgo.GoInt), _1 : _err };
                         };
@@ -2641,7 +2641,7 @@ package stdgo._internal.crypto.tls;
                     };
                 };
                 {
-                    var __tmp__ = @:check2r _c._write(_outBuf), __117:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r _c._write(_outBuf), __29:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         {
                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
@@ -2896,7 +2896,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         (@:checkr _c ?? throw "null pointer dereference")._tmp[(1 : stdgo.GoInt)] = (_err : stdgo.GoUInt8);
-        var __tmp__ = @:check2r _c._writeRecordLocked((21 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType), ((@:checkr _c ?? throw "null pointer dereference")._tmp.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __97:stdgo.GoInt = __tmp__._0, _writeErr:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2r _c._writeRecordLocked((21 : stdgo._internal.crypto.tls.Tls_t_recordtype.T_recordType), ((@:checkr _c ?? throw "null pointer dereference")._tmp.__slice__((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __29:stdgo.GoInt = __tmp__._0, _writeErr:stdgo.Error = __tmp__._1;
         if (_err == ((0 : stdgo._internal.crypto.tls.Tls_t_alert.T_alert))) {
             return _writeErr;
         };
@@ -2911,7 +2911,7 @@ package stdgo._internal.crypto.tls;
         };
         var _needs = (_n - @:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.len() : stdgo.GoInt);
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.grow((_needs + (512 : stdgo.GoInt) : stdgo.GoInt));
-        var __tmp__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.readFrom(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader(_r, (_needs : stdgo.GoInt64)) : stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader>))), __97:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = @:check2 (@:checkr _c ?? throw "null pointer dereference")._rawInput.readFrom(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader(_r, (_needs : stdgo.GoInt64)) : stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_atleastreader.T_atLeastReader>))), __29:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
     }
     @:keep

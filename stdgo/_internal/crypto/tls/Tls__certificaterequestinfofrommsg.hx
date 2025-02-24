@@ -3,7 +3,7 @@ function _certificateRequestInfoFromMsg(_ctx:stdgo._internal.context.Context_con
         var _cri = (stdgo.Go.setRef(({ acceptableCAs : (@:checkr _certReq ?? throw "null pointer dereference")._certificateAuthorities, version : _vers, _ctx : _ctx } : stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo>);
         var __0:Bool = false, __1:Bool = false;
 var _ecAvail = __1, _rsaAvail = __0;
-        for (__65 => _certType in (@:checkr _certReq ?? throw "null pointer dereference")._certificateTypes) {
+        for (__29 => _certType in (@:checkr _certReq ?? throw "null pointer dereference")._certificateTypes) {
             {
                 final __value__ = _certType;
                 if (__value__ == ((1 : stdgo.GoUInt8))) {
@@ -24,8 +24,8 @@ var _ecAvail = __1, _rsaAvail = __0;
             return _cri;
         };
         (@:checkr _cri ?? throw "null pointer dereference").signatureSchemes = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>((0 : stdgo.GoInt).toBasic(), ((@:checkr _certReq ?? throw "null pointer dereference")._supportedSignatureAlgorithms.length)).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.tls.Tls_signaturescheme.SignatureScheme>);
-        for (__66 => _sigScheme in (@:checkr _certReq ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
-            var __tmp__ = stdgo._internal.crypto.tls.Tls__typeandhashfromsignaturescheme._typeAndHashFromSignatureScheme(_sigScheme), _sigType:stdgo.GoUInt8 = __tmp__._0, __67:stdgo._internal.crypto.Crypto_hash.Hash = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        for (__30 => _sigScheme in (@:checkr _certReq ?? throw "null pointer dereference")._supportedSignatureAlgorithms) {
+            var __tmp__ = stdgo._internal.crypto.tls.Tls__typeandhashfromsignaturescheme._typeAndHashFromSignatureScheme(_sigScheme), _sigType:stdgo.GoUInt8 = __tmp__._0, __31:stdgo._internal.crypto.Crypto_hash.Hash = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 continue;
             };

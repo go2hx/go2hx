@@ -198,7 +198,7 @@ var _fw = __1, _ow = __0;
             @:check2 _b._uint16((@:checkr _h ?? throw "null pointer dereference").fileHeader.modifiedTime);
             @:check2 _b._uint16((@:checkr _h ?? throw "null pointer dereference").fileHeader.modifiedDate);
             @:check2 _b._uint32((@:checkr _h ?? throw "null pointer dereference").fileHeader.cRC32);
-            if ((@:check2r _h._isZip64() || ((@:checkr _h ?? throw "null pointer dereference")._offset >= (4294967295i64 : stdgo.GoUInt64) : Bool) : Bool)) {
+            if ((@:check2r _h._isZip64() || ((@:checkr _h ?? throw "null pointer dereference").fileHeader.modified._loc._cacheZone._offset >= (4294967295i64 : stdgo.GoUInt64) : Bool) : Bool)) {
                 @:check2 _b._uint32((-1u32 : stdgo.GoUInt32));
                 @:check2 _b._uint32((-1u32 : stdgo.GoUInt32));
                 var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(28, 28).__setNumber32__();
@@ -207,7 +207,7 @@ var _fw = __1, _ow = __0;
                 @:check2 _eb._uint16((24 : stdgo.GoUInt16));
                 @:check2 _eb._uint64((@:checkr _h ?? throw "null pointer dereference").fileHeader.uncompressedSize64);
                 @:check2 _eb._uint64((@:checkr _h ?? throw "null pointer dereference").fileHeader.compressedSize64);
-                @:check2 _eb._uint64((@:checkr _h ?? throw "null pointer dereference")._offset);
+                @:check2 _eb._uint64((@:checkr _h ?? throw "null pointer dereference").fileHeader.modified._loc._cacheZone._offset);
                 (@:checkr _h ?? throw "null pointer dereference").fileHeader.extra = ((@:checkr _h ?? throw "null pointer dereference").fileHeader.extra.__append__(...((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
             } else {
                 @:check2 _b._uint32((@:checkr _h ?? throw "null pointer dereference").fileHeader.compressedSize);
@@ -218,10 +218,10 @@ var _fw = __1, _ow = __0;
             @:check2 _b._uint16(((@:checkr _h ?? throw "null pointer dereference").fileHeader.comment.length : stdgo.GoUInt16));
             _b = (_b.__slice__((4 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_t_writebuf.T_writeBuf);
             @:check2 _b._uint32((@:checkr _h ?? throw "null pointer dereference").fileHeader.externalAttrs);
-            if (((@:checkr _h ?? throw "null pointer dereference")._offset > (4294967295i64 : stdgo.GoUInt64) : Bool)) {
+            if (((@:checkr _h ?? throw "null pointer dereference").fileHeader.modified._loc._cacheZone._offset > (4294967295i64 : stdgo.GoUInt64) : Bool)) {
                 @:check2 _b._uint32((-1u32 : stdgo.GoUInt32));
             } else {
-                @:check2 _b._uint32(((@:checkr _h ?? throw "null pointer dereference")._offset : stdgo.GoUInt32));
+                @:check2 _b._uint32(((@:checkr _h ?? throw "null pointer dereference").fileHeader.modified._loc._cacheZone._offset : stdgo.GoUInt32));
             };
             {
                 var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._cw.write((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;

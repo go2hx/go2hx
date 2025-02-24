@@ -12,7 +12,7 @@ package stdgo._internal.database.sql;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             if ((@:checkr _s ?? throw "null pointer dereference")._css != null) {
-                for (__67 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
+                for (__19 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
                     @:check2r (@:checkr _s ?? throw "null pointer dereference")._db._noteUnusedDriverStatement(_v._dc, _v._ds);
                     @:check2r _v._dc._removeOpenStmt(_v._ds);
                 };
@@ -403,7 +403,7 @@ package stdgo._internal.database.sql;
             };
         };
         @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.lock();
-        for (__135 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
+        for (__19 => _v in (@:checkr _s ?? throw "null pointer dereference")._css) {
             if (_v._dc == (_dc)) {
                 @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
                 return {

@@ -136,7 +136,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _nextUint( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):stdgo.GoUInt64 {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
         };
@@ -146,7 +146,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _nextInt( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):stdgo.GoInt64 {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
         };
@@ -174,7 +174,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _recvMessage( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):Bool {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader((@:checkr _dec ?? throw "null pointer dereference")._r, (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _nbytes:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader((@:checkr _dec ?? throw "null pointer dereference")._r, (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _nbytes:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
             return false;

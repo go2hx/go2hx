@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.tls;
 function _aesgcmPreferred(_ciphers:stdgo.Slice<stdgo.GoUInt16>):Bool {
-        for (__65 => _cID in _ciphers) {
+        for (__29 => _cID in _ciphers) {
             {
                 var _c = stdgo._internal.crypto.tls.Tls__ciphersuitebyid._cipherSuiteByID(_cID);
                 if ((_c != null && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__))) {

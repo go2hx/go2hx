@@ -27,6 +27,18 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 ./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
 ./stdgo/Go.hx:24: characters 5-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 
 -- PASS: TestConcurrent
 
@@ -36,19 +48,7 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 ./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
 ./stdgo/Go.hx:24: characters 5-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
-./stdgo/Go.hx:24: characters 5-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
-./stdgo/Go.hx:24: characters 5-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
-./stdgo/Go.hx:24: characters 5-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
-./stdgo/Go.hx:24: characters 5-10 : Called from here
-/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
 ./stdgo/Go.hx:24: characters 5-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 ./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null

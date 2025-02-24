@@ -1,6 +1,7 @@
 {
     "passes": [
         "TestDefaultRace",
+        "testConcurrent",
         "TestConcurrent",
         "TestStandardNormalValues",
         "TestNonStandardNormalValues",

@@ -1,0 +1,14 @@
+{
+    "passes": [
+        "TestPanicDuringFlush",
+        "TestPanicDuringWrite"
+    ],
+    "fails": [
+        "Test"
+    ],
+    "runs": [
+        "Test",
+        "TestPanicDuringFlush",
+        "TestPanicDuringWrite"
+    ]
+}

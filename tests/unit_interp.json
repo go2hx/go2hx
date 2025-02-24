@@ -164,5 +164,6 @@
  "interp|argMethods",
  "interp|append1",
  "interp|appendnil",
- "interp|bytesBuffer"
+ "interp|bytesBuffer",
+ "interp|vars1"
 ]

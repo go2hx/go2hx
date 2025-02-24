@@ -95,7 +95,7 @@ class Tcp {
 		return new Stream(s, loop);
 	}
 }
-#elseif (interp || no_uv)
+#elseif (sys || no_uv)
 class Stream {
 	var s:Socket = null;
 	var loop:Loop;

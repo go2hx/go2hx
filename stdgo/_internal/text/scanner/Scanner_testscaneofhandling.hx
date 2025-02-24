@@ -1,10 +1,7 @@
 package stdgo._internal.text.scanner;
 function testScanEOFHandling(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _r:stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader = ((0 : stdgo.GoInt) : stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader);
-        var _r__pointer__ = stdgo.Go.pointer(_r);
-        var _r__pointer__ = stdgo.Go.pointer(_r);
-        var _r__pointer__ = stdgo.Go.pointer(_r);
-        var _r__pointer__ = stdgo.Go.pointer(_r);
+        var __0:stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader = ((0 : stdgo.GoInt) : stdgo._internal.text.scanner.Scanner_t_countreader.T_countReader), __1 = stdgo.Go.pointer(__0);
+var _r__pointer__ = __1, _r = __0;
         var _s = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.text.scanner.Scanner_scanner.Scanner)) : stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>).init(stdgo.Go.asInterface(_r__pointer__));
         var _tok = (@:check2r _s.scan() : stdgo.GoInt32);
         if (_tok != ((-1 : stdgo.GoInt32))) {

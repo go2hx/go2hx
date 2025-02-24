@@ -1783,6 +1783,7 @@ final list = [
 ];
 
 final skipTests = [
+	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside
 	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
@@ -1792,6 +1793,7 @@ final skipTests = [
 	"math_test:testFloatMinima" => ["interp", "js"],
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
+	"bufio_test:TestReadStringAllocs" => [], // checks runtime allocations num
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync
@@ -1813,6 +1815,7 @@ final skipTests = [
 	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
+	"encoding.json:TestHTTPDecoding" => [], // uses net/http
 	"encoding.binary_test:testNativeEndian" => [], // uses unsafe pointer conversions
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter

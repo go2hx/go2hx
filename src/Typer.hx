@@ -1657,6 +1657,28 @@ private function isInvalidTitle(name:String):Bool {
 	return false;
 }
 
+private function isInvalidComplexType(ct:ComplexType):Bool {
+	if (ct == null)
+		return true;
+	return switch ct {
+		case TPath(p):
+			if (p.params != null) {
+				for (param in p.params) {
+					switch param {
+						case TPType(t):
+							if (isInvalidComplexType(t))
+								return true;
+						default:
+					}
+				}
+			}
+			false;
+		default:
+			false;
+	}
+}
+
+
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (stmt.decl.decls == null)
 		return (macro {}).expr; // blank
@@ -3164,6 +3186,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
 				var op = typeOp(stmt.tok);
 				var exprs:Array<Expr> = [];
+				var destructExprs:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
@@ -3216,7 +3239,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									return (macro $b{exprs}).expr;
 								}
 							case sliceType(_), mapType(_, _), arrayType(_, _):
-									return (macro $x.__setData__($y)).expr;
+								exprs.push(macro $x.__setData__($y));
+								continue;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -3245,13 +3269,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								throw info.panic() + "op is null";
 						}
 					}
+					destructExprs.push(expr);
 					exprs.push(expr);
 				}
 				if (exprs.length == 1)
 					return exprs[0].expr;
 				var tmpIndex = 0;
 				var inits:Array<Expr> = [];
-				for (expr in exprs) {
+				for (expr in destructExprs) {
 					switch expr.expr { // in case it's an array/slice/map get and has a null if check
 						case EIf(_, e, _):
 							expr = e;
@@ -3262,7 +3287,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							var tmpName = "__tmp__" + tmpIndex;
 							tmpIndex++;
 							inits.push(macro final $tmpName = ${e2});
-							expr.expr = EBinop(op, e1, macro $i{tmpName});
+							expr.expr = EBinop(op, e1, macro @:binopAssign $i{tmpName});
 						default:
 							inits.push(expr);
 					}
@@ -3335,7 +3360,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									assigns = assigns.concat(exprs);
 								}
 							case sliceType(_), mapType(_, _):
-									assigns.push(macro $x.__setData__($y));
+								return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -5682,7 +5707,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 	var type = typeof(expr.type, info, false);
-	if (setToSliceType) {
+	if (setToSliceType || type == null) {
 		type = GoType.sliceType({get: () -> sliceType}); 
 	}
 	//var ct = typeExprType(expr.type, info);
@@ -6312,7 +6337,32 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
-				x = macro $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
+				x = macro @:selectorExpr $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
+				final t = typeof(expr, info, false);
+				if (t != null) {
+					switch t {
+						case signature(_, _, _, _.get() => recv, _) if (recv != null):
+							var t = switch recv {
+								case _var(_, _.get() => t):
+									t;
+								default:
+									recv;
+							}
+							if (isPointer(t) || isRef(t))
+								t = getElem(t);
+							final ct = toComplexType(t, info);
+							if (ct != null) {
+								switch ct {
+									case TPath(p):
+										p.pack.push(p.pack.pop() + "_static_extension");
+										p.name += "_static_extension";
+										x = macro @:selectorExprRecv $p{p.pack.concat([p.name])}; 
+									default:
+								}
+							}
+						default:
+					}
+				}
 			case "SelectorExpr":
 				final xType = typeExprType(expr.x, info);
 				switch xType {
@@ -6537,14 +6587,14 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 		if (expr.slice3) {
 			var max = typeExpr(expr.max, info);
 			max = assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
-			macro($x.__slice__($low, $high, $max) : $ct);
+			macro $x.__slice__($low, $high, $max);
 		} else {
-			macro($x.__slice__($low, $high) : $ct);
+					macro $x.__slice__($low, $high);
 		}
 	} else {
-		macro($x.__slice__($low) : $ct);
+			macro $x.__slice__($low);
 	}
-	return x.expr;
+	return (macro ($x : $ct)).expr;
 }
 
 private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { // a -> b conversion

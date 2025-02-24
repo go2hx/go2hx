@@ -6,8 +6,8 @@ function _escapeTemplate(_tmpl:stdgo.Ref<stdgo._internal.html.template.Template_
             {
                 final __tmp__0 = stdgo.Go.asInterface(_c._err);
                 final __tmp__1 = _name?.__copy__();
-                _err = __tmp__0;
-                (@:checkr _c._err ?? throw "null pointer dereference").name = __tmp__1;
+                _err = @:binopAssign __tmp__0;
+                (@:checkr _c._err ?? throw "null pointer dereference").name = @:binopAssign __tmp__1;
             };
         } else if (_c._state != ((0 : stdgo._internal.html.template.Template_t_state.T_state))) {
             _err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.html.template.Template_error.Error((4 : stdgo._internal.html.template.Template_errorcode.ErrorCode), (null : stdgo._internal.text.template.parse.Parse_node.Node), _name?.__copy__(), (0 : stdgo.GoInt), stdgo._internal.fmt.Fmt_sprintf.sprintf(("ends in a non-text context: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)))?.__copy__()) : stdgo._internal.html.template.Template_error.Error)) : stdgo.Ref<stdgo._internal.html.template.Template_error.Error>));

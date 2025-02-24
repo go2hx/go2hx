@@ -59,8 +59,8 @@ package stdgo._internal.encoding.base32;
                         {
                             final __tmp__0 = _j;
                             final __tmp__1 = true;
-                            _dlen = __tmp__0;
-                            _end = __tmp__1;
+                            _dlen = @:binopAssign __tmp__0;
+                            _end = @:binopAssign __tmp__1;
                         };
                         break;
                     };
@@ -94,8 +94,8 @@ package stdgo._internal.encoding.base32;
                         {
                             final __tmp__0 = _j;
                             final __tmp__1 = true;
-                            _dlen = __tmp__0;
-                            _end = __tmp__1;
+                            _dlen = @:binopAssign __tmp__0;
+                            _end = @:binopAssign __tmp__1;
                         };
                         if (((_dlen == ((1 : stdgo.GoInt)) || _dlen == ((3 : stdgo.GoInt)) : Bool) || (_dlen == (6 : stdgo.GoInt)) : Bool)) {
                             return {

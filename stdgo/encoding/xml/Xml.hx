@@ -497,7 +497,7 @@ _closed,
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
     function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this.charsetReader = v;
+        this.charsetReader = (_0, _1) -> v((_0 : stdgo.GoString), _1);
         return v;
     }
     public var defaultSpace(get, set) : String;
@@ -624,7 +624,7 @@ strict,
         };
         __obj__;
     },
-charsetReader,
+(_0, _1) -> charsetReader((_0 : stdgo.GoString), _1),
 (defaultSpace : stdgo.GoString),
 _r,
 _t,

@@ -874,10 +874,10 @@ _interrupted,
     public var _fuzzFn(get, set) : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>;
     function get__fuzzFn():stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error> return _0 -> this._fuzzFn(_0);
     function set__fuzzFn(v:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>):stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error> {
-        this._fuzzFn = v;
+        this._fuzzFn = _0 -> v(_0);
         return v;
     }
-    public function new(?_workerComm:T_workerComm, ?_m:T_mutator, ?_coverageMask:Array<std.UInt>, ?_fuzzFn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>) this = new stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer(_workerComm, (_m : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mutator.T_mutator>), ([for (i in _coverageMask) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _fuzzFn);
+    public function new(?_workerComm:T_workerComm, ?_m:T_mutator, ?_coverageMask:Array<std.UInt>, ?_fuzzFn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>) this = new stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer(_workerComm, (_m : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mutator.T_mutator>), ([for (i in _coverageMask) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _0 -> _fuzzFn(_0));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1430,7 +1430,7 @@ class Fuzz {
         * coordinator process.
     **/
     static public inline function runFuzzWorker(_ctx:stdgo._internal.context.Context_context.Context, _fn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Error):stdgo.Error {
-        final _fn = _fn;
+        final _fn = _0 -> _fn(_0);
         return stdgo._internal.internal.fuzz.Fuzz_runfuzzworker.runFuzzWorker(_ctx, _fn);
     }
 }

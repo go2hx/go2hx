@@ -1,0 +1,3 @@
+-m _internal.crypto.aes_dot_test.Aes_dot_test
+-lib go2hx
+-cp .

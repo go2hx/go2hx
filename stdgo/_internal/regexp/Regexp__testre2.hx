@@ -108,8 +108,8 @@ if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                         {
                             final __tmp__0 = _input[(0 : stdgo.GoInt)].__copy__();
                             final __tmp__1 = (_input.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-                            _text = __tmp__0;
-                            _input = __tmp__1;
+                            _text = @:binopAssign __tmp__0;
+                            _input = @:binopAssign __tmp__1;
                         };
                         if ((!stdgo._internal.regexp.Regexp__issinglebytes._isSingleBytes(_text.__copy__()) && stdgo._internal.strings.Strings_contains.contains((@:check2r _re.string() : stdgo.GoString).__copy__(), ("\\B" : stdgo.GoString)) : Bool)) {
                             {

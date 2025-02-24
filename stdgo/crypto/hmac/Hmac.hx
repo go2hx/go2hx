@@ -112,7 +112,7 @@ class Hmac {
         * or encoding.BinaryUnmarshaler.
     **/
     static public inline function new_(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:Array<std.UInt>):stdgo._internal.hash.Hash_hash.Hash {
-        final _h = _h;
+        final _h = () -> _h();
         final _key = ([for (i in _key) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.crypto.hmac.Hmac_new_.new_(_h, _key);
     }

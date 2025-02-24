@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusUseProxy : stdgo.GoUInt64 = (305i64 : stdgo.GoUInt64);
+final statusUseProxy : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

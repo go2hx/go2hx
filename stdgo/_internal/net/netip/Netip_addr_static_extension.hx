@@ -169,8 +169,8 @@ while (((_j < (8 : stdgo.GoUInt8) : Bool) && (_ip._v6u16(_j) == (0 : stdgo.GoUIn
                         {
                             final __tmp__0 = _i;
                             final __tmp__1 = _j;
-                            _zeroStart = __tmp__0;
-                            _zeroEnd = __tmp__1;
+                            _zeroStart = @:binopAssign __tmp__0;
+                            _zeroEnd = @:binopAssign __tmp__1;
                         };
                     };
                 };

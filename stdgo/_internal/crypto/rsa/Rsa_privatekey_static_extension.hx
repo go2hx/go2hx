@@ -32,8 +32,8 @@ package stdgo._internal.crypto.rsa;
                 {
                     final __tmp__0 = null;
                     final __tmp__1 = null;
-                    (@:checkr _priv ?? throw "null pointer dereference").precomputed._n = __tmp__0;
-                    (@:checkr _priv ?? throw "null pointer dereference").precomputed._p = __tmp__1;
+                    (@:checkr _priv ?? throw "null pointer dereference").precomputed._n = @:binopAssign __tmp__0;
+                    (@:checkr _priv ?? throw "null pointer dereference").precomputed._p = @:binopAssign __tmp__1;
                 };
                 return;
             };

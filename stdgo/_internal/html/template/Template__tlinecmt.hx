@@ -8,15 +8,15 @@ function _tLineCmt(_c:stdgo._internal.html.template.Template_t_context.T_context
                 {
                     final __tmp__0 = ("\n\r\u2028\u2029" : stdgo.GoString);
                     final __tmp__1 = (10 : stdgo._internal.html.template.Template_t_state.T_state);
-                    _lineTerminators = __tmp__0;
-                    _endState = __tmp__1;
+                    _lineTerminators = @:binopAssign __tmp__0;
+                    _endState = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == ((26 : stdgo._internal.html.template.Template_t_state.T_state))) {
                 {
                     final __tmp__0 = ("\n\x0C\r" : stdgo.GoString);
                     final __tmp__1 = (19 : stdgo._internal.html.template.Template_t_state.T_state);
-                    _lineTerminators = __tmp__0;
-                    _endState = __tmp__1;
+                    _lineTerminators = @:binopAssign __tmp__0;
+                    _endState = @:binopAssign __tmp__1;
                 };
             } else {
                 throw stdgo.Go.toInterface((_c._state.string() : stdgo.GoString));

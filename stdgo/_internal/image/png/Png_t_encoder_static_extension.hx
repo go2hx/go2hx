@@ -136,15 +136,15 @@ var _pix = __1, _stride = __0;
                                 {
                                     final __tmp__0 = (@:checkr _rgba ?? throw "null pointer dereference").stride;
                                     final __tmp__1 = (@:checkr _rgba ?? throw "null pointer dereference").pix;
-                                    _stride = __tmp__0;
-                                    _pix = __tmp__1;
+                                    _stride = @:binopAssign __tmp__0;
+                                    _pix = @:binopAssign __tmp__1;
                                 };
                             } else if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
                                 {
                                     final __tmp__0 = (@:checkr _nrgba ?? throw "null pointer dereference").stride;
                                     final __tmp__1 = (@:checkr _nrgba ?? throw "null pointer dereference").pix;
-                                    _stride = __tmp__0;
-                                    _pix = __tmp__1;
+                                    _stride = @:binopAssign __tmp__0;
+                                    _pix = @:binopAssign __tmp__1;
                                 };
                             };
                             if (_stride != ((0 : stdgo.GoInt))) {
@@ -242,8 +242,8 @@ if (_s[(3 : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                                     {
                                         final __tmp__0 = (_dst.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                                         final __tmp__1 = (_src.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                                        _dst = __tmp__0;
-                                        _src = __tmp__1;
+                                        _dst = @:binopAssign __tmp__0;
+                                        _src = @:binopAssign __tmp__1;
                                     };
                                 };
                             } else {
@@ -328,8 +328,8 @@ if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && 
                         final __tmp__1 = _pr;
                         final __tmp__2 = _cr;
                         final __tmp__3 = (0 : stdgo.GoInt);
-                        _pr = __tmp__0;
-                        __tmp__2[__tmp__3] = __tmp__1;
+                        _pr = @:binopAssign __tmp__0;
+                        __tmp__2[__tmp__3] = @:binopAssign __tmp__1;
                     };
                     _y++;
                 };

@@ -172,8 +172,8 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             {
                 final __tmp__0 = _c1?.__copy__();
                 final __tmp__1 = _i1;
-                _c = __tmp__0;
-                _i = __tmp__1;
+                _c = @:binopAssign __tmp__0;
+                _i = @:binopAssign __tmp__1;
             };
         };
         if (((_written != (0 : stdgo.GoInt)) && (_c._state != (27 : stdgo._internal.html.template.Template_t_state.T_state)) : Bool)) {
@@ -212,8 +212,8 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                     {
                         final __tmp__0 = _c2?.__copy__();
                         final __tmp__1 = true;
-                        _c1 = __tmp__0;
-                        _ok = __tmp__1;
+                        _c1 = @:binopAssign __tmp__0;
+                        _ok = @:binopAssign __tmp__1;
                     };
                 };
             };

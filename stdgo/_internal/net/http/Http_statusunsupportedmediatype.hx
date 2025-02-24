@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusUnsupportedMediaType : stdgo.GoUInt64 = (415i64 : stdgo.GoUInt64);
+final statusUnsupportedMediaType : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

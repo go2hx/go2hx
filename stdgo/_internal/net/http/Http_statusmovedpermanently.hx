@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusMovedPermanently : stdgo.GoUInt64 = (301i64 : stdgo.GoUInt64);
+final statusMovedPermanently : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

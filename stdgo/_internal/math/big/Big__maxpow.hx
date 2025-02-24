@@ -4,8 +4,8 @@ function _maxPow(_b:stdgo._internal.math.big.Big_word.Word):{ var _0 : stdgo._in
         {
             final __tmp__0 = _b;
             final __tmp__1 = (1 : stdgo.GoInt);
-            _p = __tmp__0;
-            _n = __tmp__1;
+            _p = @:binopAssign __tmp__0;
+            _n = @:binopAssign __tmp__1;
         };
         {
             var _max = ((-1u32 : stdgo._internal.math.big.Big_word.Word) / _b : stdgo._internal.math.big.Big_word.Word);

@@ -1411,7 +1411,7 @@ class GobDecoder_static_extension {
     public var f(get, set) : () -> Void;
     function get_f():() -> Void return () -> this.f();
     function set_f(v:() -> Void):() -> Void {
-        this.f = v;
+        this.f = () -> v();
         return v;
     }
     public var fPP(get, set) : stdgo.Pointer<stdgo.Pointer<() -> Void>>;
@@ -1420,7 +1420,7 @@ class GobDecoder_static_extension {
         this.fPP = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cP:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fPP:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_bug2.Bug2((a : stdgo.GoInt), (c : stdgo.Chan<stdgo.GoInt>), (cP : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), f, fPP);
+    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cP:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fPP:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_bug2.Bug2((a : stdgo.GoInt), (c : stdgo.Chan<stdgo.GoInt>), (cP : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), () -> f(), fPP);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

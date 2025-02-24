@@ -39,6 +39,56 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_blocksize.b
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.crypto.sha512.Sha512.T_sha512Test_static_extension) @:dox(hide) abstract T_sha512Test(stdgo._internal.crypto.sha512.Sha512_t_sha512test.T_sha512Test) from stdgo._internal.crypto.sha512.Sha512_t_sha512test.T_sha512Test to stdgo._internal.crypto.sha512.Sha512_t_sha512test.T_sha512Test {
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = (v : stdgo.GoString);
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfState(get, set) : String;
+    function get__halfState():String return this._halfState;
+    function set__halfState(v:String):String {
+        this._halfState = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_out:String, ?_in:String, ?_halfState:String) this = new stdgo._internal.crypto.sha512.Sha512_t_sha512test.T_sha512Test((_out : stdgo.GoString), (_in : stdgo.GoString), (_halfState : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:structInit @:using(stdgo.crypto.sha512.Sha512.T_unmarshalTest_static_extension) @:dox(hide) abstract T_unmarshalTest(stdgo._internal.crypto.sha512.Sha512_t_unmarshaltest.T_unmarshalTest) from stdgo._internal.crypto.sha512.Sha512_t_unmarshaltest.T_unmarshalTest to stdgo._internal.crypto.sha512.Sha512_t_unmarshaltest.T_unmarshalTest {
+    public var _state(get, set) : String;
+    function get__state():String return this._state;
+    function set__state(v:String):String {
+        this._state = (v : stdgo.GoString);
+        return v;
+    }
+    public var _sum(get, set) : String;
+    function get__sum():String return this._sum;
+    function set__sum(v:String):String {
+        this._sum = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_state:String, ?_sum:String) this = new stdgo._internal.crypto.sha512.Sha512_t_unmarshaltest.T_unmarshalTest((_state : stdgo.GoString), (_sum : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.crypto.sha512.Sha512_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0 = stdgo._internal.crypto.sha512.Sha512_t__struct_0.T__struct_0;
+@:dox(hide) typedef T__struct_1Pointer = stdgo._internal.crypto.sha512.Sha512_t__struct_1pointer.T__struct_1Pointer;
+@:dox(hide) class T__struct_1_static_extension {
+
+}
+@:dox(hide) typedef T__struct_1 = stdgo._internal.crypto.sha512.Sha512_t__struct_1.T__struct_1;
 @:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.sha512.Sha512_t_digestpointer.T_digestPointer;
 @:dox(hide) class T_digest_static_extension {
     static public function _checkSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
@@ -82,6 +132,22 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha512.Sha512_blocksize.b
         final _d = (_d : stdgo.Ref<stdgo._internal.crypto.sha512.Sha512_t_digest.T_digest>);
         stdgo._internal.crypto.sha512.Sha512_t_digest_static_extension.T_digest_static_extension.reset(_d);
     }
+}
+@:dox(hide) typedef T_sha512TestPointer = stdgo._internal.crypto.sha512.Sha512_t_sha512testpointer.T_sha512TestPointer;
+@:dox(hide) class T_sha512Test_static_extension {
+
+}
+@:dox(hide) typedef T_unmarshalTestPointer = stdgo._internal.crypto.sha512.Sha512_t_unmarshaltestpointer.T_unmarshalTestPointer;
+@:dox(hide) class T_unmarshalTest_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.crypto.sha512.Sha512_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
+
+}
+@:dox(hide) typedef T__struct_1PointerPointer = stdgo._internal.crypto.sha512.Sha512_t__struct_1pointerpointer.T__struct_1PointerPointer;
+@:dox(hide) class T__struct_1Pointer_static_extension {
+
 }
 /**
     * Package sha512 implements the SHA-384, SHA-512, SHA-512/224, and SHA-512/256
@@ -143,5 +209,52 @@ class Sha512 {
     static public inline function sum512_256(_data:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha512.Sha512_sum512_256.sum512_256(_data)) i]);
+    }
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testgolden.testGolden(_t);
+    }
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testgoldenmarshal.testGoldenMarshal(_t);
+    }
+    static public inline function testMarshalMismatch(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testmarshalmismatch.testMarshalMismatch(_t);
+    }
+    static public inline function testSize(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testsize.testSize(_t);
+    }
+    static public inline function testBlockSize(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testblocksize.testBlockSize(_t);
+    }
+    /**
+        * Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
+    **/
+    static public inline function testBlockGeneric(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testblockgeneric.testBlockGeneric(_t);
+    }
+    static public inline function testLargeHashes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testlargehashes.testLargeHashes(_t);
+    }
+    static public inline function testAllocations(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.sha512.Sha512_testallocations.testAllocations(_t);
+    }
+    static public inline function benchmarkHash8Bytes(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha512.Sha512_benchmarkhash8bytes.benchmarkHash8Bytes(_b);
+    }
+    static public inline function benchmarkHash1K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha512.Sha512_benchmarkhash1k.benchmarkHash1K(_b);
+    }
+    static public inline function benchmarkHash8K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.sha512.Sha512_benchmarkhash8k.benchmarkHash8K(_b);
     }
 }

@@ -37,8 +37,8 @@ if ((((((_b >= (32 : stdgo.GoUInt8) : Bool) && (_b <= (126 : stdgo.GoUInt8) : Bo
                     {
                         final __tmp__0 = (1 : stdgo.GoInt);
                         final __tmp__1 = (1 : stdgo.GoInt);
-                        _runeLen = __tmp__0;
-                        _encLen = __tmp__1;
+                        _runeLen = @:binopAssign __tmp__0;
+                        _encLen = @:binopAssign __tmp__1;
                     };
                 } else {
                     {

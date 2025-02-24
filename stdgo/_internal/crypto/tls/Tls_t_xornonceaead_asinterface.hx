@@ -8,9 +8,6 @@ class T_xorNonceAEAD_asInterface {
     public dynamic function seal(_out:stdgo.Slice<stdgo.GoUInt8>, _nonce:stdgo.Slice<stdgo.GoUInt8>, _plaintext:stdgo.Slice<stdgo.GoUInt8>, _additionalData:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.seal(_out, _nonce, _plaintext, _additionalData);
     @:keep
     @:tdfield
-    public dynamic function _explicitNonceLen():stdgo.GoInt return @:_0 __self__.value._explicitNonceLen();
-    @:keep
-    @:tdfield
     public dynamic function overhead():stdgo.GoInt return @:_0 __self__.value.overhead();
     @:keep
     @:tdfield

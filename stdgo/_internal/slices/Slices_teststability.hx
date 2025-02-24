@@ -6,8 +6,8 @@ var _m = __1, _n = __0;
             {
                 final __tmp__0 = (1000 : stdgo.GoInt);
                 final __tmp__1 = (100 : stdgo.GoInt);
-                _n = __tmp__0;
-                _m = __tmp__1;
+                _n = @:binopAssign __tmp__0;
+                _m = @:binopAssign __tmp__1;
             };
         };
         var _data = (new stdgo.Slice<stdgo._internal.slices.Slices_t_intpair.T_intPair>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.slices.Slices_t_intpair.T_intPair)]) : stdgo._internal.slices.Slices_t_intpairs.T_intPairs);

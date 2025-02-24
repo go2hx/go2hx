@@ -26,9 +26,9 @@ var _cdigit = __1, _c = __0;
                 final __tmp__0 = _l;
                 final __tmp__1 = _c;
                 final __tmp__2 = _u;
-                _lower = __tmp__0;
-                _central = __tmp__1;
-                _upper = __tmp__2;
+                _lower = @:binopAssign __tmp__0;
+                _central = @:binopAssign __tmp__1;
+                _upper = @:binopAssign __tmp__2;
             };
         };
         if ((_trimmed > (0 : stdgo.GoInt) : Bool)) {

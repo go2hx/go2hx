@@ -524,10 +524,10 @@ _count = (1 : stdgo.GoInt);
             final __tmp__1 = (0u32 : stdgo.GoUInt);
             final __tmp__2 = (0 : stdgo.GoInt);
             final __tmp__3 = (null : stdgo.Error);
-            (@:checkr _w ?? throw "null pointer dereference")._bits = __tmp__0;
-            (@:checkr _w ?? throw "null pointer dereference")._nbits = __tmp__1;
-            (@:checkr _w ?? throw "null pointer dereference")._nbytes = __tmp__2;
-            (@:checkr _w ?? throw "null pointer dereference")._err = __tmp__3;
+            (@:checkr _w ?? throw "null pointer dereference")._bits = @:binopAssign __tmp__0;
+            (@:checkr _w ?? throw "null pointer dereference")._nbits = @:binopAssign __tmp__1;
+            (@:checkr _w ?? throw "null pointer dereference")._nbytes = @:binopAssign __tmp__2;
+            (@:checkr _w ?? throw "null pointer dereference")._err = @:binopAssign __tmp__3;
         };
     }
 }

@@ -532,7 +532,7 @@ modified,
     public var _testHookCloseSizeOffset(get, set) : (haxe.UInt64, haxe.UInt64) -> Void;
     function get__testHookCloseSizeOffset():(haxe.UInt64, haxe.UInt64) -> Void return (_0, _1) -> this._testHookCloseSizeOffset(_0, _1);
     function set__testHookCloseSizeOffset(v:(haxe.UInt64, haxe.UInt64) -> Void):(haxe.UInt64, haxe.UInt64) -> Void {
-        this._testHookCloseSizeOffset = v;
+        this._testHookCloseSizeOffset = (_0, _1) -> v((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64));
         return v;
     }
     public function new(?_cw:T_countWriter, ?_dir:Array<T_header>, ?_last:T_fileWriter, ?_closed:Bool, ?_compressors:Map<std.UInt, Compressor>, ?_comment:String, ?_testHookCloseSizeOffset:(haxe.UInt64, haxe.UInt64) -> Void) this = new stdgo._internal.archive.zip.Zip_writer.Writer((_cw : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_countwriter.T_countWriter>), ([for (i in _dir) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>>), (_last : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>), _closed, {
@@ -541,7 +541,7 @@ modified,
             __obj__[(key : stdgo.GoUInt16)] = value;
         };
         __obj__;
-    }, (_comment : stdgo.GoString), _testHookCloseSizeOffset);
+    }, (_comment : stdgo.GoString), (_0, _1) -> _testHookCloseSizeOffset((_0 : stdgo.GoUInt64), (_1 : stdgo.GoUInt64)));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

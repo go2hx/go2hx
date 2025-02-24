@@ -1,0 +1,13 @@
+package stdgo._internal.image.draw;
+function testNonZeroSrcPt(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        var _a = stdgo._internal.image.Image_newrgba.newRGBA(stdgo._internal.image.Image_rect.rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__());
+        var _b = stdgo._internal.image.Image_newrgba.newRGBA(stdgo._internal.image.Image_rect.rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (2 : stdgo.GoInt), (2 : stdgo.GoInt))?.__copy__());
+        @:check2r _b.set((0 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA)));
+        @:check2r _b.set((1 : stdgo.GoInt), (0 : stdgo.GoInt), stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA)));
+        @:check2r _b.set((0 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA)));
+        @:check2r _b.set((1 : stdgo.GoInt), (1 : stdgo.GoInt), stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((5 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA)));
+        stdgo._internal.image.draw.Draw_draw.draw(stdgo.Go.asInterface(_a), stdgo._internal.image.Image_rect.rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__(), stdgo.Go.asInterface(_b), stdgo._internal.image.Image_pt.pt((1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__(), (0 : stdgo._internal.image.draw.Draw_op.Op));
+        if (!stdgo._internal.image.draw.Draw__eq._eq(stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((5 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA)), @:check2r _a.at((0 : stdgo.GoInt), (0 : stdgo.GoInt)))) {
+            @:check2r _t.errorf(("non-zero src pt: want %v got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.image.color.Color_rgba.RGBA((5 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (5 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color_rgba.RGBA))), stdgo.Go.toInterface(@:check2r _a.at((0 : stdgo.GoInt), (0 : stdgo.GoInt))));
+        };
+    }

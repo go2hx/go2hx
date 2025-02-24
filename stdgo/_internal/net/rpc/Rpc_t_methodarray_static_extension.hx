@@ -11,8 +11,8 @@ package stdgo._internal.net.rpc;
             final __tmp__3 = (_i : stdgo.GoInt);
             final __tmp__4 = _m;
             final __tmp__5 = (_j : stdgo.GoInt);
-            __tmp__2[__tmp__3] = __tmp__0;
-            __tmp__4[__tmp__5] = __tmp__1;
+            __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+            __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
         };
     }
     @:keep

@@ -141,26 +141,26 @@ var _stdIsDST = __1, _dstIsDST = __0;
             {
                 final __tmp__0 = _endSec;
                 final __tmp__1 = _startSec;
-                _startSec = __tmp__0;
-                _endSec = __tmp__1;
+                _startSec = @:binopAssign __tmp__0;
+                _endSec = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstName?.__copy__();
                 final __tmp__1 = _stdName?.__copy__();
-                _stdName = __tmp__0;
-                _dstName = __tmp__1;
+                _stdName = @:binopAssign __tmp__0;
+                _dstName = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstOffset;
                 final __tmp__1 = _stdOffset;
-                _stdOffset = __tmp__0;
-                _dstOffset = __tmp__1;
+                _stdOffset = @:binopAssign __tmp__0;
+                _dstOffset = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstIsDST;
                 final __tmp__1 = _stdIsDST;
-                _stdIsDST = __tmp__0;
-                _dstIsDST = __tmp__1;
+                _stdIsDST = @:binopAssign __tmp__0;
+                _dstIsDST = @:binopAssign __tmp__1;
             };
         };
         if ((_ysec < _startSec : Bool)) {

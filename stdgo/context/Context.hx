@@ -40,7 +40,7 @@ class Context_static_extension {
 }
 @:dox(hide) class T_afterFuncer_static_extension {
     static public function afterFunc(t:stdgo._internal.context.Context_t_afterfuncer.T_afterFuncer, _0:() -> Void):() -> Bool {
-        final _0 = _0;
+        final _0 = () -> _0();
         return () -> stdgo._internal.context.Context_t_afterfuncer_static_extension.T_afterFuncer_static_extension.afterFunc(t, _0)();
     }
 }
@@ -203,10 +203,10 @@ class Context_static_extension {
     public var _f(get, set) : () -> Void;
     function get__f():() -> Void return () -> this._f();
     function set__f(v:() -> Void):() -> Void {
-        this._f = v;
+        this._f = () -> v();
         return v;
     }
-    public function new(?_cancelCtx:T_cancelCtx, ?_once:stdgo._internal.sync.Sync_once.Once, ?_f:() -> Void) this = new stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx(_cancelCtx, _once, _f);
+    public function new(?_cancelCtx:T_cancelCtx, ?_once:stdgo._internal.sync.Sync_once.Once, ?_f:() -> Void) this = new stdgo._internal.context.Context_t_afterfuncctx.T_afterFuncCtx(_cancelCtx, _once, () -> _f());
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -220,10 +220,10 @@ class Context_static_extension {
     public var _stop(get, set) : () -> Bool;
     function get__stop():() -> Bool return () -> this._stop();
     function set__stop(v:() -> Bool):() -> Bool {
-        this._stop = v;
+        this._stop = () -> v();
         return v;
     }
-    public function new(?context:Context_, ?_stop:() -> Bool) this = new stdgo._internal.context.Context_t_stopctx.T_stopCtx(context, _stop);
+    public function new(?context:Context_, ?_stop:() -> Bool) this = new stdgo._internal.context.Context_t_stopctx.T_stopCtx(context, () -> _stop());
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -798,7 +798,7 @@ class Context {
         * AfterFunc will use it to schedule the call.
     **/
     static public inline function afterFunc(_ctx:Context_, _f:() -> Void):() -> Bool {
-        final _f = _f;
+        final _f = () -> _f();
         return () -> stdgo._internal.context.Context_afterfunc.afterFunc(_ctx, _f)();
     }
     /**

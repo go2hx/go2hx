@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.base32;
+@:keep @:follow @:using(stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307_static_extension.T_testEncodedDecodedLen___localname___test_20307_static_extension) typedef T_testEncodedDecodedLen___localname___test_20307Pointer = stdgo.Pointer<stdgo._internal.encoding.base32.Base32_t_testencodeddecodedlen___localname___test_20307.T_testEncodedDecodedLen___localname___test_20307>;

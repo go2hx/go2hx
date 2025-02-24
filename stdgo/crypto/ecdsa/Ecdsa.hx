@@ -92,7 +92,7 @@ package stdgo.crypto.ecdsa;
     public var _newPoint(get, set) : () -> Dynamic;
     function get__newPoint():() -> Dynamic return () -> this._newPoint();
     function set__newPoint(v:() -> Dynamic):() -> Dynamic {
-        this._newPoint = v;
+        this._newPoint = () -> v();
         return v;
     }
     public var _curve(get, set) : stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
@@ -113,7 +113,7 @@ package stdgo.crypto.ecdsa;
         this._nMinus2 = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_newPoint:() -> Dynamic, ?_curve:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve, ?n:stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus, ?_nMinus2:Array<std.UInt>) this = new stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve(_newPoint, _curve, (n : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus>), ([for (i in _nMinus2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_newPoint:() -> Dynamic, ?_curve:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve, ?n:stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus, ?_nMinus2:Array<std.UInt>) this = new stdgo._internal.crypto.ecdsa.Ecdsa_t_nistcurve.T_nistCurve(() -> _newPoint(), _curve, (n : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus>), ([for (i in _nMinus2) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

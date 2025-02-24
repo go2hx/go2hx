@@ -1,0 +1,3 @@
+-m _internal.go.format_dot_test.Format_dot_test
+-lib go2hx
+-cp .

@@ -284,10 +284,10 @@ class Model_static_extension {
     public var _f(get, set) : Color_ -> Color_;
     function get__f():Color_ -> Color_ return _0 -> this._f(_0);
     function set__f(v:Color_ -> Color_):Color_ -> Color_ {
-        this._f = v;
+        this._f = _0 -> v(_0);
         return v;
     }
-    public function new(?_f:Color_ -> Color_) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_f);
+    public function new(?_f:Color_ -> Color_) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_0 -> _f(_0));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -484,7 +484,7 @@ class Color {
         * ModelFunc returns a Model that invokes f to implement the conversion.
     **/
     static public inline function modelFunc(_f:Color_ -> Color_):Model {
-        final _f = _f;
+        final _f = _0 -> _f(_0);
         return stdgo._internal.image.color.Color_modelfunc.modelFunc(_f);
     }
     static public inline function testSqDiff(_t:stdgo._internal.testing.Testing_t_.T_):Void {

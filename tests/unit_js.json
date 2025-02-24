@@ -162,5 +162,7 @@
  "js|vars0",
  "js|pointerAssign0",
  "js|vars2",
- "js|argMethods"
+ "js|argMethods",
+ "js|append1",
+ "js|appendnil"
 ]

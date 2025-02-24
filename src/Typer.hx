@@ -3186,6 +3186,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
 				var op = typeOp(stmt.tok);
 				var exprs:Array<Expr> = [];
+				var destructExprs:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);

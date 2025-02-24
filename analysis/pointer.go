@@ -4,6 +4,7 @@ import (
 	"go/ast"
 	"go/token"
 	"go/types"
+	"slices"
 	"strings"
 
 	"golang.org/x/tools/go/ast/astutil"
@@ -62,17 +63,25 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 				case *ast.DeclStmt:
 					switch decl2 := stmt.Decl.(type) {
 					case *ast.GenDecl:
-						for _, spec := range decl2.Specs {
+						for i, spec := range decl2.Specs {
 							switch stmt2 := spec.(type) {
 							case *ast.ValueSpec:
 								if !isValidPointer(checker.TypeOf(stmt2.Type)) {
 									continue
 								}
 								for _, ident := range stmt2.Names {
+									_ = i
 									if hasAddrObj(ident.Obj, decl.Body, stmt2) {
+										var value ast.Expr = &ast.UnaryExpr{Op: token.AND, X: ast.NewIdent(ident.Name)}
 										ident2 := *ident
 										ident2.Name += suffix
-										c.InsertAfter(define(&ident2, &ast.UnaryExpr{Op: token.AND, X: ident}))
+										var s ast.Spec = &ast.ValueSpec{
+											Names:  []*ast.Ident{&ident2},
+											Values: []ast.Expr{value},
+										}
+										_ = s
+										decl2.Specs = slices.Insert(decl2.Specs, i+1, s)
+										//c.InsertAfter(define(&ident2, value))
 										identObjMap[ident.Obj] = true
 									}
 								}

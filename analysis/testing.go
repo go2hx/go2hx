@@ -17,16 +17,16 @@ const dir = "analysis/tests/unit"
 
 func GotoParseTest() {
 	//create(dir+"/goto", "test.go")
-	all(dir + "/goto")
+	all(dir+"/goto", ParseLocalGotos)
 }
 
 func PointerParseTest() {
 	//create(dir+"/pointer", "issue5056.go")
 	//create(dir+"/pointer", "ref2.go")
-	all(dir + "/pointer")
+	all(dir+"/pointer", ParseLocalPointers)
 }
 
-func all(dir string) {
+func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet)) {
 	paths, err := os.ReadDir(dir)
 	if err != nil {
 		panic(err)
@@ -35,11 +35,11 @@ func all(dir string) {
 		if path.Name() == "test.go" {
 			continue
 		}
-		create(dir, path.Name())
+		create(dir, path.Name(), runFunc)
 	}
 }
 
-func create(filePath string, fileName string) {
+func create(filePath string, fileName string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet)) {
 	// Parse the code
 	code, err := os.ReadFile(filePath + "/" + fileName)
 	if err != nil {
@@ -66,7 +66,8 @@ func create(filePath string, fileName string) {
 	checker := types.NewChecker(&conf, fset, pkg, info)
 
 	// Rewrite the function body without goto statements
-	ParseLocalGotos(file, checker, fset)
+	runFunc(file, checker, fset)
+	//ParseLocalGotos(file, checker, fset)
 
 	// Print the result
 	config := printer.Config{Mode: printer.UseSpaces, Tabwidth: 4}

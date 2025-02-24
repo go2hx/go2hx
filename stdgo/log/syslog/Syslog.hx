@@ -39,7 +39,15 @@ final lOG_LOCAL7 = stdgo._internal.log.syslog.Syslog_log_local7.lOG_LOCAL7;
         return stdgo._internal.log.syslog.Syslog_t_serverconn_static_extension.T_serverConn_static_extension._writeString(t, _p, _hostname, _tag, _s, _nl);
     }
 }
-@:dox(hide) typedef T_serverConn = stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn;
+@:interface @:dox(hide) @:forward abstract T_serverConn(stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn) from stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn to stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn {
+    @:from
+    static function fromHaxeInterface(x:{ function _writeString(_p:Priority, _hostname:String, _tag:String, _s:String, _nl:String):stdgo.Error; function _close():stdgo.Error; }):T_serverConn {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_serverConn = { _writeString : (_0, _1, _2, _3, _4) -> x._writeString(_0, _1, _2, _3, _4), _close : () -> x._close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.log.syslog.Syslog.Writer_static_extension) abstract Writer(stdgo._internal.log.syslog.Syslog_writer.Writer) from stdgo._internal.log.syslog.Syslog_writer.Writer to stdgo._internal.log.syslog.Syslog_writer.Writer {
     public var _priority(get, set) : Priority;
     function get__priority():Priority return this._priority;

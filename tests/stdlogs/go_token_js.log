@@ -1,12 +1,17 @@
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:4: characters 91-96
+/home/runner/work/go2hx/go2hx/golibs/std_token.js:34514
+	var gt = a.type._common();
+	                ^
 
-  4 |         var __0 = stdgo._internal.go.token.Token_newfileset.newFileSet(), __1 = @:check2r _fset.addFile((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2 = (new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
-    |                                                                                           ^^^^^
-    | Unknown identifier : _fset
+TypeError: Cannot read properties of undefined (reading '_common')
+    at stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_token.js:34514:18)
+    at stdgo_GoObjectMap.compare (/home/runner/work/go2hx/go2hx/golibs/std_token.js:48931:25)
+    at stdgo_GoObjectMap.exists (/home/runner/work/go2hx/go2hx/golibs/std_token.js:42445:17)
+    at stdgo__$internal_encoding_gob_Gob_$_$bootstraptype__bootstrapType (/home/runner/work/go2hx/go2hx/golibs/std_token.js:50343:116)
+    at /home/runner/work/go2hx/go2hx/golibs/std_token.js:122049:55
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_token.js:123095:3)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object..js (node:internal/modules/cjs/loader:1899:10)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
 
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:21: characters 45-48
-
- 21 |                 var _pos = (@:check2r _file.pos((0 : stdgo.GoInt)) : stdgo._internal.go.token.Token_pos.Pos);
-    |                                             ^^^
-    | { addLine : stdgo.GoInt -> Unknown<0> } has no field pos
-
+Node.js v23.8.0

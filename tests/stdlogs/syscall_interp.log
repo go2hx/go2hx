@@ -12,14 +12,14 @@ Called from stdgo._internal.syscall._Syscall_setenv.Syscall_setenv_Fields_.seten
 -- FAIL: TestEnv
 
 === RUN  TestExecErrPermutedFds
-Exception: :testing.testing is not yet implemented
+Exception: :os.executable is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.syscall_test._Syscall_test_testexecerrpermutedfds.Syscall_test_testexecerrpermutedfds_Fields_.testExecErrPermutedFds (./_internal/syscall_test/Syscall_test_testexecerrpermutedfds.hx line 3 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 3 column 18)
 Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_once_static_extension.hx line 83 column 9)
 Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4 column 80)
-Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 9 column 14)
-Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.testing (./stdgo/_internal/testing/Testing_testing.hx line 2 column 25)
+Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 12 column 23)
+Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (./stdgo/_internal/os/Os_executable.hx line 2 column 74)
 
 -- FAIL: TestExecErrPermutedFds
 

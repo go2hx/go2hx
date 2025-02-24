@@ -229,7 +229,15 @@ private function set_errUnknownPC(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.debug.dwarf.Dwarf_t_dataformat_static_extension.T_dataFormat_static_extension._version(t);
     }
 }
-@:dox(hide) typedef T_dataFormat = stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat;
+@:interface @:dox(hide) @:forward abstract T_dataFormat(stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat) from stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat to stdgo._internal.debug.dwarf.Dwarf_t_dataformat.T_dataFormat {
+    @:from
+    static function fromHaxeInterface(x:{ function _version():StdTypes.Int; function _dwarf64():stdgo.Tuple<Bool, Bool>; function _addrsize():StdTypes.Int; }):T_dataFormat {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_dataFormat = { _version : () -> x._version(), _dwarf64 : () -> x._dwarf64(), _addrsize : () -> x._addrsize(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Type__static_extension {
     static public function size(t:stdgo._internal.debug.dwarf.Dwarf_type_.Type_):haxe.Int64 {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.size(t);
@@ -241,7 +249,15 @@ class Type__static_extension {
         return stdgo._internal.debug.dwarf.Dwarf_type__static_extension.Type__static_extension.common(t);
     }
 }
-typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
+@:interface @:forward abstract Type_(stdgo._internal.debug.dwarf.Dwarf_type_.Type_) from stdgo._internal.debug.dwarf.Dwarf_type_.Type_ to stdgo._internal.debug.dwarf.Dwarf_type_.Type_ {
+    @:from
+    static function fromHaxeInterface(x:{ function common():CommonType; function string():String; function size():haxe.Int64; }):Type_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Type_ = { common : () -> x.common(), string : () -> x.string(), size : () -> x.size(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_typeReader_static_extension {
     static public function addressSize(t:stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader):StdTypes.Int {
         return stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.addressSize(t);
@@ -262,13 +278,29 @@ typedef Type_ = stdgo._internal.debug.dwarf.Dwarf_type_.Type_;
         stdgo._internal.debug.dwarf.Dwarf_t_typereader_static_extension.T_typeReader_static_extension.seek(t, _0);
     }
 }
-@:dox(hide) typedef T_typeReader = stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader;
+@:interface @:dox(hide) @:forward abstract T_typeReader(stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader) from stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader to stdgo._internal.debug.dwarf.Dwarf_t_typereader.T_typeReader {
+    @:from
+    static function fromHaxeInterface(x:{ function seek(_0:Offset):Void; function next():stdgo.Tuple<Entry, stdgo.Error>; function _clone():T_typeReader; function _offset():Offset; function addressSize():StdTypes.Int; }):T_typeReader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_typeReader = { seek : _0 -> x.seek(_0), next : () -> x.next(), _clone : () -> x._clone(), _offset : () -> x._offset(), addressSize : () -> x.addressSize(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_0_static_extension {
     static public function basic(t:stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0):BasicType {
         return stdgo._internal.debug.dwarf.Dwarf_t__interface_0_static_extension.T__interface_0_static_extension.basic(t);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0;
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0) from stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 to stdgo._internal.debug.dwarf.Dwarf_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function basic():BasicType; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { basic : () -> x.basic(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.debug.dwarf.Dwarf.T_buf_static_extension) @:dox(hide) abstract T_buf(stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf) from stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf to stdgo._internal.debug.dwarf.Dwarf_t_buf.T_buf {
     public var _dwarf(get, set) : Data;
     function get__dwarf():Data return this._dwarf;
@@ -884,10 +916,22 @@ endSequence);
         this._rngLists = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _abbrevCache(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>;
-    function get__abbrevCache():stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable> return this._abbrevCache;
-    function set__abbrevCache(v:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>):stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable> {
-        this._abbrevCache = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>);
+    public var _abbrevCache(get, set) : Map<haxe.UInt64, T_abbrevTable>;
+    function get__abbrevCache():Map<haxe.UInt64, T_abbrevTable> return {
+        final __obj__:Map<haxe.UInt64, T_abbrevTable> = [];
+        for (key => value in this._abbrevCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__abbrevCache(v:Map<haxe.UInt64, T_abbrevTable>):Map<haxe.UInt64, T_abbrevTable> {
+        this._abbrevCache = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _bigEndian(get, set) : Bool;
@@ -902,16 +946,40 @@ endSequence);
         this._order = v;
         return v;
     }
-    public var _typeCache(get, set) : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>;
-    function get__typeCache():stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_> return this._typeCache;
-    function set__typeCache(v:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>):stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_> {
-        this._typeCache = (v : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>);
+    public var _typeCache(get, set) : Map<Offset, Type_>;
+    function get__typeCache():Map<Offset, Type_> return {
+        final __obj__:Map<Offset, Type_> = [];
+        for (key => value in this._typeCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__typeCache(v:Map<Offset, Type_>):Map<Offset, Type_> {
+        this._typeCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+            for (key => value in v) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _typeSigs(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>;
-    function get__typeSigs():stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>> return this._typeSigs;
-    function set__typeSigs(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>> {
-        this._typeSigs = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>);
+    public var _typeSigs(get, set) : Map<haxe.UInt64, T_typeUnit>;
+    function get__typeSigs():Map<haxe.UInt64, T_typeUnit> return {
+        final __obj__:Map<haxe.UInt64, T_typeUnit> = [];
+        for (key => value in this._typeSigs) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__typeSigs(v:Map<haxe.UInt64, T_typeUnit>):Map<haxe.UInt64, T_typeUnit> {
+        this._typeSigs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _unit(get, set) : Array<T_unit>;
@@ -920,7 +988,7 @@ endSequence);
         this._unit = ([for (i in v) i] : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>);
         return v;
     }
-    public function new(?_abbrev:Array<std.UInt>, ?_aranges:Array<std.UInt>, ?_frame:Array<std.UInt>, ?_info:Array<std.UInt>, ?_line:Array<std.UInt>, ?_pubnames:Array<std.UInt>, ?_ranges:Array<std.UInt>, ?_str:Array<std.UInt>, ?_addr:Array<std.UInt>, ?_lineStr:Array<std.UInt>, ?_strOffsets:Array<std.UInt>, ?_rngLists:Array<std.UInt>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>, ?_unit:Array<T_unit>) this = new stdgo._internal.debug.dwarf.Dwarf_data.Data(
+    public function new(?_abbrev:Array<std.UInt>, ?_aranges:Array<std.UInt>, ?_frame:Array<std.UInt>, ?_info:Array<std.UInt>, ?_line:Array<std.UInt>, ?_pubnames:Array<std.UInt>, ?_ranges:Array<std.UInt>, ?_str:Array<std.UInt>, ?_addr:Array<std.UInt>, ?_lineStr:Array<std.UInt>, ?_strOffsets:Array<std.UInt>, ?_rngLists:Array<std.UInt>, ?_abbrevCache:Map<haxe.UInt64, T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.Binary_byteorder.ByteOrder, ?_typeCache:Map<Offset, Type_>, ?_typeSigs:Map<haxe.UInt64, T_typeUnit>, ?_unit:Array<T_unit>) this = new stdgo._internal.debug.dwarf.Dwarf_data.Data(
 ([for (i in _abbrev) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _aranges) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _frame) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
@@ -933,11 +1001,29 @@ endSequence);
 ([for (i in _lineStr) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _strOffsets) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 ([for (i in _rngLists) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
-(_abbrevCache : stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.Dwarf_t_abbrevtable.T_abbrevTable>();
+        for (key => value in _abbrevCache) {
+            __obj__[(key : stdgo.GoUInt64)] = value;
+        };
+        __obj__;
+    },
 _bigEndian,
 _order,
-(_typeCache : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>),
-(_typeSigs : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+        for (key => value in _typeCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>>();
+        for (key => value in _typeSigs) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typeunit.T_typeUnit>);
+        };
+        __obj__;
+    },
 ([for (i in _unit) i] : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_t_unit.T_unit>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -1802,10 +1888,16 @@ class Data_static_extension {
         final _types = ([for (i in _types) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.debug.dwarf.Dwarf_data_static_extension.Data_static_extension._parseTypes(_d, _name, _types);
     }
-    static public function _readType(_d:Data, _name:String, _r:T_typeReader, _off:Offset, _typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>, _fixups:T_typeFixer):stdgo.Tuple<Type_, stdgo.Error> {
+    static public function _readType(_d:Data, _name:String, _r:T_typeReader, _off:Offset, _typeCache:Map<Offset, Type_>, _fixups:T_typeFixer):stdgo.Tuple<Type_, stdgo.Error> {
         final _d = (_d : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_data.Data>);
         final _name = (_name : stdgo.GoString);
-        final _typeCache = (_typeCache : stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>);
+        final _typeCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.debug.dwarf.Dwarf_offset.Offset, stdgo._internal.debug.dwarf.Dwarf_type_.Type_>();
+            for (key => value in _typeCache) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         final _fixups = (_fixups : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer>);
         return {
             final obj = stdgo._internal.debug.dwarf.Dwarf_data_static_extension.Data_static_extension._readType(_d, _name, _r, _off, _typeCache, _fixups);

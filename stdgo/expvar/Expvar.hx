@@ -4,7 +4,15 @@ class Var_static_extension {
         return stdgo._internal.expvar.Expvar_var_static_extension.Var_static_extension.string(t);
     }
 }
-typedef Var = stdgo._internal.expvar.Expvar_var.Var;
+@:interface @:forward abstract Var(stdgo._internal.expvar.Expvar_var.Var) from stdgo._internal.expvar.Expvar_var.Var to stdgo._internal.expvar.Expvar_var.Var {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):Var {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Var = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.expvar.Expvar.Int__static_extension) abstract Int_(stdgo._internal.expvar.Expvar_int_.Int_) from stdgo._internal.expvar.Expvar_int_.Int_ to stdgo._internal.expvar.Expvar_int_.Int_ {
     public var _i(get, set) : haxe.Int64;
     function get__i():haxe.Int64 return this._i;
@@ -123,7 +131,7 @@ class Float__static_extension {
 }
 typedef Map_Pointer = stdgo._internal.expvar.Expvar_map_pointer.Map_Pointer;
 class Map__static_extension {
-    static public function do_(_v:Map_, _f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
+    static public function do_(_v:Map_, _f:KeyValue -> Void):Void {
         final _v = (_v : stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>);
         final _f = _f;
         stdgo._internal.expvar.Expvar_map__static_extension.Map__static_extension.do_(_v, _f);
@@ -256,7 +264,7 @@ class Expvar {
         * The global variable map is locked during the iteration,
         * but existing entries may be concurrently updated.
     **/
-    static public inline function do_(_f:stdgo._internal.expvar.Expvar_keyvalue.KeyValue -> Void):Void {
+    static public inline function do_(_f:KeyValue -> Void):Void {
         final _f = _f;
         stdgo._internal.expvar.Expvar_do_.do_(_f);
     }

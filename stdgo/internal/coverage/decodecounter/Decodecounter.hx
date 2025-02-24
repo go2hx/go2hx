@@ -6,10 +6,22 @@ package stdgo.internal.coverage.decodecounter;
         this._stab = (v : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader>);
         return v;
     }
-    public var _args(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__args():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._args;
-    function set__args(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._args = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _args(get, set) : Map<String, String>;
+    function get__args():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._args) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__args(v:Map<String, String>):Map<String, String> {
+        this._args = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _osargs(get, set) : Array<String>;
@@ -84,9 +96,15 @@ package stdgo.internal.coverage.decodecounter;
         this._debug = v;
         return v;
     }
-    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader, ?_args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_osargs:Array<String>, ?_goarch:String, ?_goos:String, ?_mr:stdgo._internal.io.Io_readseeker.ReadSeeker, ?_hdr:stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader, ?_ftr:stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter, ?_shdr:stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader, ?_u32b:Array<std.UInt>, ?_u8b:Array<std.UInt>, ?_fcnCount:std.UInt, ?_segCount:std.UInt, ?_debug:Bool) this = new stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader(
+    public function new(?_stab:stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader, ?_args:Map<String, String>, ?_osargs:Array<String>, ?_goarch:String, ?_goos:String, ?_mr:stdgo._internal.io.Io_readseeker.ReadSeeker, ?_hdr:stdgo._internal.internal.coverage.Coverage_counterfileheader.CounterFileHeader, ?_ftr:stdgo._internal.internal.coverage.Coverage_counterfilefooter.CounterFileFooter, ?_shdr:stdgo._internal.internal.coverage.Coverage_countersegmentheader.CounterSegmentHeader, ?_u32b:Array<std.UInt>, ?_u8b:Array<std.UInt>, ?_fcnCount:std.UInt, ?_segCount:std.UInt, ?_debug:Bool) this = new stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader(
 (_stab : stdgo.Ref<stdgo._internal.internal.coverage.stringtab.Stringtab_reader.Reader>),
-(_args : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _args) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 ([for (i in _osargs) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (_goarch : stdgo.GoString),
 (_goos : stdgo.GoString),

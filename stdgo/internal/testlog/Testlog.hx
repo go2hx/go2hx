@@ -17,7 +17,15 @@ class Interface_static_extension {
         stdgo._internal.internal.testlog.Testlog_interface_static_extension.Interface_static_extension.getenv(t, _key);
     }
 }
-typedef Interface = stdgo._internal.internal.testlog.Testlog_interface.Interface;
+@:interface @:forward abstract Interface(stdgo._internal.internal.testlog.Testlog_interface.Interface) from stdgo._internal.internal.testlog.Testlog_interface.Interface to stdgo._internal.internal.testlog.Testlog_interface.Interface {
+    @:from
+    static function fromHaxeInterface(x:{ function getenv(_key:String):Void; function stat(_file:String):Void; function open(_file:String):Void; function chdir(_dir:String):Void; }):Interface {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Interface = { getenv : _0 -> x.getenv(_0), stat : _0 -> x.stat(_0), open : _0 -> x.open(_0), chdir : _0 -> x.chdir(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) typedef T__struct_0Pointer = stdgo._internal.internal.testlog.Testlog_t__struct_0pointer.T__struct_0Pointer;
 @:dox(hide) class T__struct_0_static_extension {
 

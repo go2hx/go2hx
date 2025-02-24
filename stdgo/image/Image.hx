@@ -56,7 +56,15 @@ private function set_opaque(v:Uniform):Uniform {
         };
     }
 }
-@:dox(hide) typedef T_reader = stdgo._internal.image.Image_t_reader.T_reader;
+@:interface @:dox(hide) @:forward abstract T_reader(stdgo._internal.image.Image_t_reader.T_reader) from stdgo._internal.image.Image_t_reader.T_reader to stdgo._internal.image.Image_t_reader.T_reader {
+    @:from
+    static function fromHaxeInterface(x:{ function peek(_0:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_reader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_reader = { peek : _0 -> x.peek(_0), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Image_static_extension {
     static public function at(t:stdgo._internal.image.Image_image.Image, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color_color.Color {
         final _x = (_x : stdgo.GoInt);
@@ -70,7 +78,15 @@ class Image_static_extension {
         return stdgo._internal.image.Image_image_static_extension.Image_static_extension.colorModel(t);
     }
 }
-typedef Image_ = stdgo._internal.image.Image_image.Image;
+@:interface @:forward abstract Image_(stdgo._internal.image.Image_image.Image) from stdgo._internal.image.Image_image.Image to stdgo._internal.image.Image_image.Image {
+    @:from
+    static function fromHaxeInterface(x:{ function colorModel():stdgo._internal.image.color.Color_model.Model; function bounds():Rectangle; function at(_x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color_color.Color; }):Image_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Image_ = { colorModel : () -> x.colorModel(), bounds : () -> x.bounds(), at : (_0, _1) -> x.at(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class RGBA64Image_static_extension {
     static public function rGBA64At(t:stdgo._internal.image.Image_rgba64image.RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color_rgba64.RGBA64 {
         final _x = (_x : stdgo.GoInt);
@@ -78,7 +94,15 @@ class RGBA64Image_static_extension {
         return stdgo._internal.image.Image_rgba64image_static_extension.RGBA64Image_static_extension.rGBA64At(t, _x, _y);
     }
 }
-typedef RGBA64Image = stdgo._internal.image.Image_rgba64image.RGBA64Image;
+@:interface @:forward abstract RGBA64Image(stdgo._internal.image.Image_rgba64image.RGBA64Image) from stdgo._internal.image.Image_rgba64image.RGBA64Image to stdgo._internal.image.Image_rgba64image.RGBA64Image {
+    @:from
+    static function fromHaxeInterface(x:{ function rGBA64At(_x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color_rgba64.RGBA64; function at(_0:StdTypes.Int, _1:StdTypes.Int):stdgo._internal.image.color.Color_color.Color; function bounds():Rectangle; function colorModel():stdgo._internal.image.color.Color_model.Model; }):RGBA64Image {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RGBA64Image = { rGBA64At : (_0, _1) -> x.rGBA64At(_0, _1), at : (_0, _1) -> x.at(_0, _1), bounds : () -> x.bounds(), colorModel : () -> x.colorModel(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class PalettedImage_static_extension {
     static public function colorIndexAt(t:stdgo._internal.image.Image_palettedimage.PalettedImage, _x:StdTypes.Int, _y:StdTypes.Int):std.UInt {
         final _x = (_x : stdgo.GoInt);
@@ -86,7 +110,15 @@ class PalettedImage_static_extension {
         return stdgo._internal.image.Image_palettedimage_static_extension.PalettedImage_static_extension.colorIndexAt(t, _x, _y);
     }
 }
-typedef PalettedImage = stdgo._internal.image.Image_palettedimage.PalettedImage;
+@:interface @:forward abstract PalettedImage(stdgo._internal.image.Image_palettedimage.PalettedImage) from stdgo._internal.image.Image_palettedimage.PalettedImage to stdgo._internal.image.Image_palettedimage.PalettedImage {
+    @:from
+    static function fromHaxeInterface(x:{ function colorIndexAt(_x:StdTypes.Int, _y:StdTypes.Int):std.UInt; function at(_0:StdTypes.Int, _1:StdTypes.Int):stdgo._internal.image.color.Color_color.Color; function bounds():Rectangle; function colorModel():stdgo._internal.image.color.Color_model.Model; }):PalettedImage {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:PalettedImage = { colorIndexAt : (_0, _1) -> x.colorIndexAt(_0, _1), at : (_0, _1) -> x.at(_0, _1), bounds : () -> x.bounds(), colorModel : () -> x.colorModel(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_image_static_extension {
     static public function subImage(t:stdgo._internal.image.Image_t_image.T_image, _0:Rectangle):Image_ {
         return stdgo._internal.image.Image_t_image_static_extension.T_image_static_extension.subImage(t, _0);
@@ -100,7 +132,15 @@ typedef PalettedImage = stdgo._internal.image.Image_palettedimage.PalettedImage;
         return stdgo._internal.image.Image_t_image_static_extension.T_image_static_extension.opaque(t);
     }
 }
-@:dox(hide) typedef T_image = stdgo._internal.image.Image_t_image.T_image;
+@:interface @:dox(hide) @:forward abstract T_image(stdgo._internal.image.Image_t_image.T_image) from stdgo._internal.image.Image_t_image.T_image to stdgo._internal.image.Image_t_image.T_image {
+    @:from
+    static function fromHaxeInterface(x:{ function opaque():Bool; function set(_0:StdTypes.Int, _1:StdTypes.Int, _2:stdgo._internal.image.color.Color_color.Color):Void; function subImage(_0:Rectangle):Image_; function at(_0:StdTypes.Int, _1:StdTypes.Int):stdgo._internal.image.color.Color_color.Color; function bounds():Rectangle; function colorModel():stdgo._internal.image.color.Color_model.Model; }):T_image {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_image = { opaque : () -> x.opaque(), set : (_0, _1, _2) -> x.set(_0, _1, _2), subImage : _0 -> x.subImage(_0), at : (_0, _1) -> x.at(_0, _1), bounds : () -> x.bounds(), colorModel : () -> x.colorModel(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_0_static_extension {
     static public function setRGBA64(t:stdgo._internal.image.Image_t__interface_0.T__interface_0, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_rgba64.RGBA64):Void {
         final _x = (_x : stdgo.GoInt);
@@ -108,7 +148,15 @@ typedef PalettedImage = stdgo._internal.image.Image_palettedimage.PalettedImage;
         stdgo._internal.image.Image_t__interface_0_static_extension.T__interface_0_static_extension.setRGBA64(t, _x, _y, _c);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.image.Image_t__interface_0.T__interface_0;
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.image.Image_t__interface_0.T__interface_0) from stdgo._internal.image.Image_t__interface_0.T__interface_0 to stdgo._internal.image.Image_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function setRGBA64(_x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color_rgba64.RGBA64):Void; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { setRGBA64 : (_0, _1, _2) -> x.setRGBA64(_0, _1, _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.image.Image.T_format_static_extension) @:dox(hide) abstract T_format(stdgo._internal.image.Image_t_format.T_format) from stdgo._internal.image.Image_t_format.T_format to stdgo._internal.image.Image_t_format.T_format {
     public var _name(get, set) : String;
     function get__name():String return this._name;
@@ -122,19 +170,19 @@ typedef PalettedImage = stdgo._internal.image.Image_palettedimage.PalettedImage;
         this._magic = (v : stdgo.GoString);
         return v;
     }
-    public var _decode(get, set) : stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; };
-    function get__decode():stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; } return _0 -> this._decode(_0);
-    function set__decode(v:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; }):stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; } {
+    public var _decode(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>;
+    function get__decode():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> return _0 -> this._decode(_0);
+    function set__decode(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> {
         this._decode = v;
         return v;
     }
-    public var _decodeConfig(get, set) : stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; };
-    function get__decodeConfig():stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; } return _0 -> this._decodeConfig(_0);
-    function set__decodeConfig(v:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; }):stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; } {
+    public var _decodeConfig(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>;
+    function get__decodeConfig():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> return _0 -> this._decodeConfig(_0);
+    function set__decodeConfig(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> {
         this._decodeConfig = v;
         return v;
     }
-    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; }, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; }) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _decode, _decodeConfig);
+    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _decode, _decodeConfig);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1409,7 +1457,7 @@ class Image {
         * Decode is the function that decodes the encoded image.
         * DecodeConfig is the function that decodes just its configuration.
     **/
-    static public inline function registerFormat(_name:String, _magic:String, _decode:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_image.Image; var _1 : stdgo.Error; }, _decodeConfig:stdgo._internal.io.Io_reader.Reader -> { var _0 : stdgo._internal.image.Image_config.Config; var _1 : stdgo.Error; }):Void {
+    static public inline function registerFormat(_name:String, _magic:String, _decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, _decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):Void {
         final _name = (_name : stdgo.GoString);
         final _magic = (_magic : stdgo.GoString);
         final _decode = _decode;

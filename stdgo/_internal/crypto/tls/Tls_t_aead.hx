@@ -1,13 +1,9 @@
 package stdgo._internal.crypto.tls;
 @:interface typedef T_aead = stdgo.StructType & {
-    > stdgo._internal.crypto.cipher.Cipher_aead.AEAD,
-    /**
-        * explicitNonceLen returns the number of bytes of explicit nonce
-        * included in each record. This is eight for older AEADs and
-        * zero for modern ones.
-        
-        
-    **/
     @:interfacetypeffun
-    public dynamic function _explicitNonceLen():stdgo.GoInt;
+    function _explicitNonceLen():stdgo.GoInt;
+    function nonceSize():stdgo.GoInt;
+    function open(_0:stdgo.Slice<stdgo.GoUInt8>, _1:stdgo.Slice<stdgo.GoUInt8>, _2:stdgo.Slice<stdgo.GoUInt8>, _3:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
+    function overhead():stdgo.GoInt;
+    function seal(_0:stdgo.Slice<stdgo.GoUInt8>, _1:stdgo.Slice<stdgo.GoUInt8>, _2:stdgo.Slice<stdgo.GoUInt8>, _3:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8>;
 };

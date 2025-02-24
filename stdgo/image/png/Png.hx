@@ -12,13 +12,29 @@ class EncoderBufferPool_static_extension {
         return stdgo._internal.image.png.Png_encoderbufferpool_static_extension.EncoderBufferPool_static_extension.get(t);
     }
 }
-typedef EncoderBufferPool = stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool;
+@:interface @:forward abstract EncoderBufferPool(stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool) from stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool to stdgo._internal.image.png.Png_encoderbufferpool.EncoderBufferPool {
+    @:from
+    static function fromHaxeInterface(x:{ function get():EncoderBuffer; function put(_0:EncoderBuffer):Void; }):EncoderBufferPool {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:EncoderBufferPool = { get : () -> x.get(), put : _0 -> x.put(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_opaquer_static_extension {
     static public function opaque(t:stdgo._internal.image.png.Png_t_opaquer.T_opaquer):Bool {
         return stdgo._internal.image.png.Png_t_opaquer_static_extension.T_opaquer_static_extension.opaque(t);
     }
 }
-@:dox(hide) typedef T_opaquer = stdgo._internal.image.png.Png_t_opaquer.T_opaquer;
+@:interface @:dox(hide) @:forward abstract T_opaquer(stdgo._internal.image.png.Png_t_opaquer.T_opaquer) from stdgo._internal.image.png.Png_t_opaquer.T_opaquer to stdgo._internal.image.png.Png_t_opaquer.T_opaquer {
+    @:from
+    static function fromHaxeInterface(x:{ function opaque():Bool; }):T_opaquer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_opaquer = { opaque : () -> x.opaque(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.image.png.Png.T_interlaceScan_static_extension) @:dox(hide) abstract T_interlaceScan(stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan) from stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan to stdgo._internal.image.png.Png_t_interlacescan.T_interlaceScan {
     public var _xFactor(get, set) : StdTypes.Int;
     function get__xFactor():StdTypes.Int return this._xFactor;

@@ -315,10 +315,22 @@ private function set_graphicRanges(v:Array<RangeTable>):Array<RangeTable> {
         stdgo._internal.unicode.Unicode_graphicranges.graphicRanges = ([for (i in v) (i : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
         return v;
     }
-var categories(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_categories():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_categories.categories;
-private function set_categories(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_categories.categories = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+var categories(get, set) : Map<String, RangeTable>;
+private function get_categories():Map<String, RangeTable> return {
+        final __obj__:Map<String, RangeTable> = [];
+        for (key => value in stdgo._internal.unicode.Unicode_categories.categories) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_categories(v:Map<String, RangeTable>):Map<String, RangeTable> {
+        stdgo._internal.unicode.Unicode_categories.categories = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+            };
+            __obj__;
+        };
         return v;
     }
 var adlam(get, set) : RangeTable;
@@ -1299,10 +1311,22 @@ private function set_zanabazar_Square(v:RangeTable):RangeTable {
         stdgo._internal.unicode.Unicode_zanabazar_square.zanabazar_Square = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
-var scripts(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_scripts():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_scripts.scripts;
-private function set_scripts(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_scripts.scripts = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+var scripts(get, set) : Map<String, RangeTable>;
+private function get_scripts():Map<String, RangeTable> return {
+        final __obj__:Map<String, RangeTable> = [];
+        for (key => value in stdgo._internal.unicode.Unicode_scripts.scripts) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_scripts(v:Map<String, RangeTable>):Map<String, RangeTable> {
+        stdgo._internal.unicode.Unicode_scripts.scripts = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+            };
+            __obj__;
+        };
         return v;
     }
 var aSCII_Hex_Digit(get, set) : RangeTable;
@@ -1515,10 +1539,22 @@ private function set_white_Space(v:RangeTable):RangeTable {
         stdgo._internal.unicode.Unicode_white_space.white_Space = (v : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
         return v;
     }
-var properties(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_properties():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_properties.properties;
-private function set_properties(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_properties.properties = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+var properties(get, set) : Map<String, RangeTable>;
+private function get_properties():Map<String, RangeTable> return {
+        final __obj__:Map<String, RangeTable> = [];
+        for (key => value in stdgo._internal.unicode.Unicode_properties.properties) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_properties(v:Map<String, RangeTable>):Map<String, RangeTable> {
+        stdgo._internal.unicode.Unicode_properties.properties = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+            };
+            __obj__;
+        };
         return v;
     }
 var caseRanges(get, set) : Array<CaseRange>;
@@ -1527,16 +1563,40 @@ private function set_caseRanges(v:Array<CaseRange>):Array<CaseRange> {
         stdgo._internal.unicode.Unicode_caseranges.caseRanges = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unicode.Unicode_caserange.CaseRange>);
         return v;
     }
-var foldCategory(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_foldCategory():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldcategory.foldCategory;
-private function set_foldCategory(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_foldcategory.foldCategory = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+var foldCategory(get, set) : Map<String, RangeTable>;
+private function get_foldCategory():Map<String, RangeTable> return {
+        final __obj__:Map<String, RangeTable> = [];
+        for (key => value in stdgo._internal.unicode.Unicode_foldcategory.foldCategory) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_foldCategory(v:Map<String, RangeTable>):Map<String, RangeTable> {
+        stdgo._internal.unicode.Unicode_foldcategory.foldCategory = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+            };
+            __obj__;
+        };
         return v;
     }
-var foldScript(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>;
-private function get_foldScript():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> return stdgo._internal.unicode.Unicode_foldscript.foldScript;
-private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>> {
-        stdgo._internal.unicode.Unicode_foldscript.foldScript = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>);
+var foldScript(get, set) : Map<String, RangeTable>;
+private function get_foldScript():Map<String, RangeTable> return {
+        final __obj__:Map<String, RangeTable> = [];
+        for (key => value in stdgo._internal.unicode.Unicode_foldscript.foldScript) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_foldScript(v:Map<String, RangeTable>):Map<String, RangeTable> {
+        stdgo._internal.unicode.Unicode_foldscript.foldScript = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>);
+            };
+            __obj__;
+        };
         return v;
     }
 @:structInit @:using(stdgo.unicode.Unicode.RangeTable_static_extension) abstract RangeTable(stdgo._internal.unicode.Unicode_rangetable.RangeTable) from stdgo._internal.unicode.Unicode_rangetable.RangeTable to stdgo._internal.unicode.Unicode_rangetable.RangeTable {

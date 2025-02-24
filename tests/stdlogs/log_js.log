@@ -1,94 +1,59 @@
-[ERROR] ./_internal/log_test/Log_test_examplelogger.hx:3: characters 189-193
+=== RUN  TestDefault
 
- 3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
-   |                                                                                                                                                                                             ^^^^
-   | Unknown identifier : _buf
+-- PASS: TestDefault
 
-      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
-        |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestAll
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
+log output should match <invalid reflect.Value> is %!q(MISSING)
 
-    ->  stdgo/Go.macro.hx:305: lines 305-310
+-- FAIL: TestAll
 
-    305 |   final selfType = Context.typeof(switch expr.expr {
-      - |     [...]
-    310 |   });
-        |
-        | Called from here
+=== RUN  TestOutput
 
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+-- PASS: TestOutput
 
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestNonNewLogger
 
-    ->  ./_internal/log_test/Log_test_examplelogger.hx:3: characters 173-194
+-- PASS: TestNonNewLogger
 
-      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("logger: " : stdgo.GoString), (16 : stdgo.GoInt));
-        |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestOutputRace
 
-    ->  stdgo/Go.macro.hx:476: characters 11-31
+-- PASS: TestOutputRace
 
-    476 |   var t = Context.typeof(expr);
-        |           ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestFlagAndPrefixSetting
+Prefix: expected "Test:" got <invalid reflect.Value>
+Prefix: expected "Reality:" got <invalid reflect.Value>
+<invalid reflect.Value>
 
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
+-- FAIL: TestFlagAndPrefixSetting
 
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestUTCFlag
+got <invalid reflect.Value>; want %!q(MISSING)
 
-        | For function argument '_out'
+-- FAIL: TestUTCFlag
 
-[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:3: characters 189-193
+=== RUN  TestEmptyPrintCreatesLine
+expected 2 headers, got <invalid reflect.Value>
 
- 3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
-   |                                                                                                                                                                                             ^^^^
-   | Unknown identifier : _buf
+-- FAIL: TestEmptyPrintCreatesLine
 
-      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
-        |                                                                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
+=== RUN  TestDiscard
 
-    ->  stdgo/Go.macro.hx:305: lines 305-310
-
-    305 |   final selfType = Context.typeof(switch expr.expr {
-      - |     [...]
-    310 |   });
-        |
-        | Called from here
-
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  ./_internal/log_test/Log_test_examplelogger_output.hx:3: characters 173-194
-
-      3 |         var __0:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __1 = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("INFO: " : stdgo.GoString), (16 : stdgo.GoInt)), __2 = function(_info:stdgo.GoString):Void {
-        |                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  stdgo/Go.macro.hx:476: characters 11-31
-
-    476 |   var t = Context.typeof(expr);
-        |           ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-        | For function argument '_out'
-
-[ERROR] ./_internal/log_test/Log_test_examplelogger_output.hx:4: characters 23-30
-
- 4 |             @:check2r _logger.output((2 : stdgo.GoInt), _info?.__copy__());
-   |                       ^^^^^^^
-   | Unknown identifier : _logger
+-- PASS: TestDiscard
 

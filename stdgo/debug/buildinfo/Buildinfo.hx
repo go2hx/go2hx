@@ -12,7 +12,15 @@ package stdgo.debug.buildinfo;
         };
     }
 }
-@:dox(hide) typedef T_exe = stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe;
+@:interface @:dox(hide) @:forward abstract T_exe(stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe) from stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe to stdgo._internal.debug.buildinfo.Buildinfo_t_exe.T_exe {
+    @:from
+    static function fromHaxeInterface(x:{ function readData(_addr:haxe.UInt64, _size:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function dataStart():haxe.UInt64; }):T_exe {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_exe = { readData : (_0, _1) -> x.readData(_0, _1), dataStart : () -> x.dataStart(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.debug.buildinfo.Buildinfo.T_elfExe_static_extension) @:dox(hide) abstract T_elfExe(stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe) from stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe to stdgo._internal.debug.buildinfo.Buildinfo_t_elfexe.T_elfExe {
     public var _f(get, set) : stdgo._internal.debug.elf.Elf_file.File;
     function get__f():stdgo._internal.debug.elf.Elf_file.File return this._f;

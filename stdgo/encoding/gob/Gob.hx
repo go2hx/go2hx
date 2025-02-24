@@ -4,16 +4,38 @@ class Squarer_static_extension {
         return stdgo._internal.encoding.gob.Gob_squarer_static_extension.Squarer_static_extension.square(t);
     }
 }
-typedef Squarer = stdgo._internal.encoding.gob.Gob_squarer.Squarer;
+@:interface @:forward abstract Squarer(stdgo._internal.encoding.gob.Gob_squarer.Squarer) from stdgo._internal.encoding.gob.Gob_squarer.Squarer to stdgo._internal.encoding.gob.Gob_squarer.Squarer {
+    @:from
+    static function fromHaxeInterface(x:{ function square():StdTypes.Int; }):Squarer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Squarer = { square : () -> x.square(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_interfaceIndirectTestI_static_extension {
     static public function f(t:stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI):Bool {
         return stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti_static_extension.T_interfaceIndirectTestI_static_extension.f(t);
     }
 }
-@:dox(hide) typedef T_interfaceIndirectTestI = stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI;
+@:interface @:dox(hide) @:forward abstract T_interfaceIndirectTestI(stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI) from stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI to stdgo._internal.encoding.gob.Gob_t_interfaceindirecttesti.T_interfaceIndirectTestI {
+    @:from
+    static function fromHaxeInterface(x:{ function f():Bool; }):T_interfaceIndirectTestI {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_interfaceIndirectTestI = { f : () -> x.f(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_gobType_static_extension {
-    static public function _safeString(t:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+    static public function _safeString(t:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType, _seen:Map<T_typeId, Bool>):String {
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_gobtype_static_extension.T_gobType_static_extension._safeString(t, _seen);
     }
     static public function _string(t:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType):String {
@@ -29,7 +51,21 @@ typedef Squarer = stdgo._internal.encoding.gob.Gob_squarer.Squarer;
         return stdgo._internal.encoding.gob.Gob_t_gobtype_static_extension.T_gobType_static_extension._id(t);
     }
 }
-@:dox(hide) typedef T_gobType = stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType;
+@:interface @:dox(hide) @:forward abstract T_gobType(stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType) from stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType to stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType {
+    @:from
+    static function fromHaxeInterface(x:{ function _id():T_typeId; function _setId(_id:T_typeId):Void; function _name():String; function _string():String; function _safeString(_seen:Map<T_typeId, Bool>):String; }):T_gobType {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_gobType = { _id : () -> x._id(), _setId : _0 -> x._setId(_0), _name : () -> x._name(), _string : () -> x._string(), _safeString : _0 -> x._safeString({
+            final __obj__:Map<T_typeId, Bool> = [];
+            for (key => value in _0) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        }), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class GobEncoder_static_extension {
     static public function gobEncode(t:stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -38,14 +74,30 @@ class GobEncoder_static_extension {
         };
     }
 }
-typedef GobEncoder = stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder;
+@:interface @:forward abstract GobEncoder(stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder) from stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder to stdgo._internal.encoding.gob.Gob_gobencoder.GobEncoder {
+    @:from
+    static function fromHaxeInterface(x:{ function gobEncode():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):GobEncoder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:GobEncoder = { gobEncode : () -> x.gobEncode(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class GobDecoder_static_extension {
     static public function gobDecode(t:stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder, _0:Array<std.UInt>):stdgo.Error {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo._internal.encoding.gob.Gob_gobdecoder_static_extension.GobDecoder_static_extension.gobDecode(t, _0);
     }
 }
-typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
+@:interface @:forward abstract GobDecoder(stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder) from stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder to stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder {
+    @:from
+    static function fromHaxeInterface(x:{ function gobDecode(_0:Array<std.UInt>):stdgo.Error; }):GobDecoder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:GobDecoder = { gobDecode : _0 -> x.gobDecode([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.encoding.gob.Gob.EncodeT_static_extension) abstract EncodeT(stdgo._internal.encoding.gob.Gob_encodet.EncodeT) from stdgo._internal.encoding.gob.Gob_encodet.EncodeT to stdgo._internal.encoding.gob.Gob_encodet.EncodeT {
     public var _x(get, set) : haxe.UInt64;
     function get__x():haxe.UInt64 return this._x;
@@ -251,10 +303,22 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.ignore_i = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_rt1.RT1>);
         return v;
     }
-    public var ignore_m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_ignore_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.ignore_m;
-    function set_ignore_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.ignore_m = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var ignore_m(get, set) : Map<String, StdTypes.Int>;
+    function get_ignore_m():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.ignore_m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_ignore_m(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.ignore_m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
     public var c(get, set) : StdTypes.Float;
@@ -263,7 +327,13 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.c = (v : stdgo.GoFloat64);
         return v;
     }
-    public function new(?a:haxe.Int64, ?b:String, ?ignore_d:Array<StdTypes.Int>, ?ignore_e:haxe.ds.Vector<StdTypes.Float>, ?ignore_f:Bool, ?ignore_g:String, ?ignore_h:Array<std.UInt>, ?ignore_i:RT1, ?ignore_m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?c:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob_it0.IT0((a : stdgo.GoInt64), (b : stdgo.GoString), ([for (i in ignore_d) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), ([for (i in ignore_e) (i : stdgo.GoFloat64)] : stdgo.GoArray<stdgo.GoFloat64>), ignore_f, (ignore_g : stdgo.GoString), ([for (i in ignore_h) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (ignore_i : stdgo.Ref<stdgo._internal.encoding.gob.Gob_rt1.RT1>), (ignore_m : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), (c : stdgo.GoFloat64));
+    public function new(?a:haxe.Int64, ?b:String, ?ignore_d:Array<StdTypes.Int>, ?ignore_e:haxe.ds.Vector<StdTypes.Float>, ?ignore_f:Bool, ?ignore_g:String, ?ignore_h:Array<std.UInt>, ?ignore_i:RT1, ?ignore_m:Map<String, StdTypes.Int>, ?c:StdTypes.Float) this = new stdgo._internal.encoding.gob.Gob_it0.IT0((a : stdgo.GoInt64), (b : stdgo.GoString), ([for (i in ignore_d) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), ([for (i in ignore_e) (i : stdgo.GoFloat64)] : stdgo.GoArray<stdgo.GoFloat64>), ignore_f, (ignore_g : stdgo.GoString), ([for (i in ignore_h) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (ignore_i : stdgo.Ref<stdgo._internal.encoding.gob.Gob_rt1.RT1>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in ignore_m) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    }, (c : stdgo.GoFloat64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -280,13 +350,13 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.s = v;
         return v;
     }
-    public var m(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>;
-    function get_m():stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>> return this.m;
-    function set_m(v:stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>):stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>> {
+    public var m(get, set) : stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>;
+    function get_m():stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>> return this.m;
+    function set_m(v:stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>> {
         this.m = v;
         return v;
     }
-    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>) this = new stdgo._internal.encoding.gob.Gob_indirect.Indirect(a, s, m);
+    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>) this = new stdgo._internal.encoding.gob.Gob_indirect.Indirect(a, s, m);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -303,13 +373,31 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.s = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.m;
-    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.m = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var m(get, set) : Map<String, StdTypes.Int>;
+    function get_m():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_m(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?a:haxe.ds.Vector<StdTypes.Int>, ?s:Array<StdTypes.Int>, ?m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>) this = new stdgo._internal.encoding.gob.Gob_direct.Direct(([for (i in a) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (m : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>));
+    public function new(?a:haxe.ds.Vector<StdTypes.Int>, ?s:Array<StdTypes.Int>, ?m:Map<String, StdTypes.Int>) this = new stdgo._internal.encoding.gob.Gob_direct.Direct(([for (i in a) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in m) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -606,10 +694,22 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.i_nil = (v : stdgo.AnyInterface);
         return v;
     }
-    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.m;
-    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.m = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var m(get, set) : Map<String, StdTypes.Int>;
+    function get_m():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_m(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
     public var t(get, set) : haxe.ds.Vector<StdTypes.Int>;
@@ -624,7 +724,13 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this.s = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:String, ?c:StdTypes.Float, ?i:stdgo.AnyInterface, ?j:stdgo.AnyInterface, ?i_nil:stdgo.AnyInterface, ?m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?t:haxe.ds.Vector<StdTypes.Int>, ?s:Array<String>) this = new stdgo._internal.encoding.gob.Gob_dt.DT((a : stdgo.GoInt), (b : stdgo.GoString), (c : stdgo.GoFloat64), (i : stdgo.AnyInterface), (j : stdgo.AnyInterface), (i_nil : stdgo.AnyInterface), (m : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>), ([for (i in t) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
+    public function new(?a:StdTypes.Int, ?b:String, ?c:StdTypes.Float, ?i:stdgo.AnyInterface, ?j:stdgo.AnyInterface, ?i_nil:stdgo.AnyInterface, ?m:Map<String, StdTypes.Int>, ?t:haxe.ds.Vector<StdTypes.Int>, ?s:Array<String>) this = new stdgo._internal.encoding.gob.Gob_dt.DT((a : stdgo.GoInt), (b : stdgo.GoString), (c : stdgo.GoFloat64), (i : stdgo.AnyInterface), (j : stdgo.AnyInterface), (i_nil : stdgo.AnyInterface), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in m) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    }, ([for (i in t) (i : stdgo.GoInt)] : stdgo.GoArray<stdgo.GoInt>), ([for (i in s) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -805,22 +911,70 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this._buf = v;
         return v;
     }
-    public var _wireType(get, set) : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>;
-    function get__wireType():stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>> return this._wireType;
-    function set__wireType(v:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>):stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>> {
-        this._wireType = (v : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>);
+    public var _wireType(get, set) : Map<T_typeId, T_wireType>;
+    function get__wireType():Map<T_typeId, T_wireType> return {
+        final __obj__:Map<T_typeId, T_wireType> = [];
+        for (key => value in this._wireType) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__wireType(v:Map<T_typeId, T_wireType>):Map<T_typeId, T_wireType> {
+        this._wireType = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>();
+            for (key => value in v) {
+                __obj__[key] = (value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _decoderCache(get, set) : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>;
-    function get__decoderCache():stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>> return this._decoderCache;
-    function set__decoderCache(v:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>):stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>> {
-        this._decoderCache = (v : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>);
+    public var _decoderCache(get, set) : Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>;
+    function get__decoderCache():Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> return {
+        final __obj__:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> = [];
+        for (key => value in this._decoderCache) {
+            __obj__[key] = {
+                final __obj__:Map<T_typeId, T_decEngine> = [];
+                for (key => value in value) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    };
+    function set__decoderCache(v:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>):Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> {
+        this._decoderCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
+            for (key => value in v) {
+                __obj__[key] = {
+                    final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+                    for (key => value in value) {
+                        __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+                    };
+                    __obj__;
+                };
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _ignorerCache(get, set) : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>;
-    function get__ignorerCache():stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>> return this._ignorerCache;
-    function set__ignorerCache(v:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>):stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>> {
-        this._ignorerCache = (v : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>);
+    public var _ignorerCache(get, set) : Map<T_typeId, T_decEngine>;
+    function get__ignorerCache():Map<T_typeId, T_decEngine> return {
+        final __obj__:Map<T_typeId, T_decEngine> = [];
+        for (key => value in this._ignorerCache) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__ignorerCache(v:Map<T_typeId, T_decEngine>):Map<T_typeId, T_decEngine> {
+        this._ignorerCache = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+            for (key => value in v) {
+                __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _freeList(get, set) : T_decoderState;
@@ -841,7 +995,31 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_r:stdgo._internal.io.Io_reader.Reader, ?_buf:T_decBuffer, ?_wireType:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>, ?_decoderCache:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>, ?_ignorerCache:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>, ?_freeList:T_decoderState, ?_countBuf:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_decoder.Decoder(_mutex, _r, _buf, (_wireType : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>), (_decoderCache : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>), (_ignorerCache : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>), (_freeList : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>), ([for (i in _countBuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_err : stdgo.Error));
+    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_r:stdgo._internal.io.Io_reader.Reader, ?_buf:T_decBuffer, ?_wireType:Map<T_typeId, T_wireType>, ?_decoderCache:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>, ?_ignorerCache:Map<T_typeId, T_decEngine>, ?_freeList:T_decoderState, ?_countBuf:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_decoder.Decoder(_mutex, _r, _buf, {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>();
+        for (key => value in _wireType) {
+            __obj__[key] = (value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
+        for (key => value in _decoderCache) {
+            __obj__[key] = {
+                final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+                for (key => value in value) {
+                    __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+        for (key => value in _ignorerCache) {
+            __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+        };
+        __obj__;
+    }, (_freeList : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>), ([for (i in _countBuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -956,10 +1134,22 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this._w = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io_writer.Writer>);
         return v;
     }
-    public var _sent(get, set) : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>;
-    function get__sent():stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId> return this._sent;
-    function set__sent(v:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>):stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId> {
-        this._sent = (v : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>);
+    public var _sent(get, set) : Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId>;
+    function get__sent():Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId> return {
+        final __obj__:Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId> = [];
+        for (key => value in this._sent) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__sent(v:Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId>):Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId> {
+        this._sent = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>();
+            for (key => value in v) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _countState(get, set) : T_encoderState;
@@ -986,7 +1176,13 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob_gobdecoder.GobDecoder;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_w:Array<stdgo._internal.io.Io_writer.Writer>, ?_sent:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>, ?_countState:T_encoderState, ?_freeList:T_encoderState, ?_byteBuf:T_encBuffer, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_encoder.Encoder(_mutex, ([for (i in _w) i] : stdgo.Slice<stdgo._internal.io.Io_writer.Writer>), (_sent : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>), (_countState : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>), (_freeList : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>), _byteBuf, (_err : stdgo.Error));
+    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_w:Array<stdgo._internal.io.Io_writer.Writer>, ?_sent:Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId>, ?_countState:T_encoderState, ?_freeList:T_encoderState, ?_byteBuf:T_encBuffer, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_encoder.Encoder(_mutex, ([for (i in _w) i] : stdgo.Slice<stdgo._internal.io.Io_writer.Writer>), {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>();
+        for (key => value in _sent) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    }, (_countState : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>), (_freeList : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>), _byteBuf, (_err : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2239,46 +2435,130 @@ typedef TextValueGobber = stdgo._internal.encoding.gob.Gob_textvaluegobber.TextV
         this.c = (v : stdgo.GoInt);
         return v;
     }
-    public var m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>;
-    function get_m():stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>> return this.m;
-    function set_m(v:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>):stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>> {
-        this.m = (v : stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>);
+    public var m(get, set) : Map<String, stdgo.Pointer<StdTypes.Float>>;
+    function get_m():Map<String, stdgo.Pointer<StdTypes.Float>> return {
+        final __obj__:Map<String, stdgo.Pointer<StdTypes.Float>> = [];
+        for (key => value in this.m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_m(v:Map<String, stdgo.Pointer<StdTypes.Float>>):Map<String, stdgo.Pointer<StdTypes.Float>> {
+        this.m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var m2(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>;
-    function get_m2():stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794> return this.m2;
-    function set_m2(v:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>):stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794> {
-        this.m2 = (v : stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>);
+    public var m2(get, set) : Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794>;
+    function get_m2():Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794> return {
+        final __obj__:Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794> = [];
+        for (key => value in this.m2) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_m2(v:Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794>):Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794> {
+        this.m2 = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mstring(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_mstring():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.mstring;
-    function set_mstring(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.mstring = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var mstring(get, set) : Map<String, String>;
+    function get_mstring():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.mstring) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mstring(v:Map<String, String>):Map<String, String> {
+        this.mstring = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mintptr(get, set) : stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>;
-    function get_mintptr():stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>> return this.mintptr;
-    function set_mintptr(v:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>):stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>> {
-        this.mintptr = (v : stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>);
+    public var mintptr(get, set) : Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>>;
+    function get_mintptr():Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>> return {
+        final __obj__:Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>> = [];
+        for (key => value in this.mintptr) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mintptr(v:Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>>):Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>> {
+        this.mintptr = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoInt)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mcomp(get, set) : stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>;
-    function get_mcomp():stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128> return this.mcomp;
-    function set_mcomp(v:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>):stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128> {
-        this.mcomp = (v : stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>);
+    public var mcomp(get, set) : Map<stdgo.GoComplex128, stdgo.GoComplex128>;
+    function get_mcomp():Map<stdgo.GoComplex128, stdgo.GoComplex128> return {
+        final __obj__:Map<stdgo.GoComplex128, stdgo.GoComplex128> = [];
+        for (key => value in this.mcomp) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mcomp(v:Map<stdgo.GoComplex128, stdgo.GoComplex128>):Map<stdgo.GoComplex128, stdgo.GoComplex128> {
+        this.mcomp = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoComplex128)] = (value : stdgo.GoComplex128);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var marr(get, set) : stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>;
-    function get_marr():stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>> return this.marr;
-    function set_marr(v:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>):stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>> {
-        this.marr = (v : stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>);
+    public var marr(get, set) : Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>>;
+    function get_marr():Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>> return {
+        final __obj__:Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>> = [];
+        for (key => value in this.marr) {
+            __obj__[haxe.ds.Vector.fromArrayCopy([for (i in key) i])] = haxe.ds.Vector.fromArrayCopy([for (i in value) i]);
+        };
+        __obj__;
+    };
+    function set_marr(v:Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>>):Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>> {
+        this.marr = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>();
+            for (key => value in v) {
+                __obj__[([for (i in key) (i : stdgo.GoString)] : stdgo.GoArray<stdgo.GoString>)] = ([for (i in value) i] : stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var emptyMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>;
-    function get_emptyMap():stdgo.GoMap<stdgo.GoString, stdgo.GoInt> return this.emptyMap;
-    function set_emptyMap(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt> {
-        this.emptyMap = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
+    public var emptyMap(get, set) : Map<String, StdTypes.Int>;
+    function get_emptyMap():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this.emptyMap) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_emptyMap(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this.emptyMap = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
     public var n(get, set) : haxe.ds.Vector<StdTypes.Float>;
@@ -2323,17 +2603,59 @@ typedef TextValueGobber = stdgo._internal.encoding.gob.Gob_textvaluegobber.TextV
         this.t = (v : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t2_13762.T_testEndToEnd___localname___T2_13762>);
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?rI:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T_testEndToEnd___localname___T2_13762) this = new stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t1_13836.T_testEndToEnd___localname___T1_13836(
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:Map<String, stdgo.Pointer<StdTypes.Float>>, ?m2:Map<StdTypes.Int, T_testEndToEnd___localname___T3_13794>, ?mstring:Map<String, String>, ?mintptr:Map<StdTypes.Int, stdgo.Pointer<StdTypes.Int>>, ?mcomp:Map<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:Map<haxe.ds.Vector<String>, haxe.ds.Vector<stdgo.Pointer<StdTypes.Float>>>, ?emptyMap:Map<String, StdTypes.Int>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?rI:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T_testEndToEnd___localname___T2_13762) this = new stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t1_13836.T_testEndToEnd___localname___T1_13836(
 (a : stdgo.GoInt),
 (b : stdgo.GoInt),
 (c : stdgo.GoInt),
-(m : stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>),
-(m2 : stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>),
-(mstring : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
-(mintptr : stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>),
-(mcomp : stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>),
-(marr : stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>),
-(emptyMap : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>();
+        for (key => value in m) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_t_testendtoend___localname___t3_13794.T_testEndToEnd___localname___T3_13794>();
+        for (key => value in m2) {
+            __obj__[(key : stdgo.GoInt)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in mstring) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>();
+        for (key => value in mintptr) {
+            __obj__[(key : stdgo.GoInt)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>();
+        for (key => value in mcomp) {
+            __obj__[(key : stdgo.GoComplex128)] = (value : stdgo.GoComplex128);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>();
+        for (key => value in marr) {
+            __obj__[([for (i in key) (i : stdgo.GoString)] : stdgo.GoArray<stdgo.GoString>)] = ([for (i in value) i] : stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt>();
+        for (key => value in emptyMap) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
 (n : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>),
 (strs : stdgo.Ref<stdgo.GoArray<stdgo.GoString>>),
 (int64s : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>),
@@ -2969,9 +3291,15 @@ class Decoder_static_extension {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
         return stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._typeString(_dec, _remoteId);
     }
-    static public function _compatibleType(_dec:Decoder, _fr:stdgo._internal.reflect.Reflect_type_.Type_, _fw:T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>):Bool {
+    static public function _compatibleType(_dec:Decoder, _fr:stdgo._internal.reflect.Reflect_type_.Type_, _fw:T_typeId, _inProgress:Map<stdgo._internal.reflect.Reflect_type_.Type_, T_typeId>):Bool {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
-        final _inProgress = (_inProgress : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>);
+        final _inProgress = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId>();
+            for (key => value in _inProgress) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._compatibleType(_dec, _fr, _fw, _inProgress);
     }
     static public function _gobDecodeOpFor(_dec:Decoder, _ut:T_userTypeInfo):stdgo.Pointer<T_decOp> {
@@ -2979,16 +3307,28 @@ class Decoder_static_extension {
         final _ut = (_ut : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>);
         return stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._gobDecodeOpFor(_dec, _ut);
     }
-    static public function _decIgnoreOpFor(_dec:Decoder, _wireId:T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>, _depth:StdTypes.Int):stdgo.Pointer<T_decOp> {
+    static public function _decIgnoreOpFor(_dec:Decoder, _wireId:T_typeId, _inProgress:Map<T_typeId, stdgo.Pointer<T_decOp>>, _depth:StdTypes.Int):stdgo.Pointer<T_decOp> {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
-        final _inProgress = (_inProgress : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>);
+        final _inProgress = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>();
+            for (key => value in _inProgress) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         final _depth = (_depth : stdgo.GoInt);
         return stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._decIgnoreOpFor(_dec, _wireId, _inProgress, _depth);
     }
-    static public function _decOpFor(_dec:Decoder, _wireId:T_typeId, _rt:stdgo._internal.reflect.Reflect_type_.Type_, _name:String, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>):stdgo.Pointer<T_decOp> {
+    static public function _decOpFor(_dec:Decoder, _wireId:T_typeId, _rt:stdgo._internal.reflect.Reflect_type_.Type_, _name:String, _inProgress:Map<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Pointer<T_decOp>>):stdgo.Pointer<T_decOp> {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
         final _name = (_name : stdgo.GoString);
-        final _inProgress = (_inProgress : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>);
+        final _inProgress = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_t_decop.T_decOp>>();
+            for (key => value in _inProgress) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._decOpFor(_dec, _wireId, _rt, _name, _inProgress);
     }
     static public function _ignoreGobDecoder(_dec:Decoder, _state:T_decoderState):Void {
@@ -3513,9 +3853,15 @@ class CommonType_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>);
         return stdgo._internal.encoding.gob.Gob_commontype_static_extension.CommonType_static_extension._name(_t);
     }
-    static public function _safeString(_t:CommonType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_t:CommonType, _seen:Map<T_typeId, Bool>):String {
         final _t = (_t : stdgo.Ref<stdgo._internal.encoding.gob.Gob_commontype.CommonType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_commontype_static_extension.CommonType_static_extension._safeString(_t, _seen);
     }
     static public function _string(_t:CommonType):String {
@@ -3537,9 +3883,15 @@ class CommonType_static_extension {
         final _a = (_a : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType>);
         return stdgo._internal.encoding.gob.Gob_t_arraytype_static_extension.T_arrayType_static_extension._string(_a);
     }
-    static public function _safeString(_a:T_arrayType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_a:T_arrayType, _seen:Map<T_typeId, Bool>):String {
         final _a = (_a : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_arraytype.T_arrayType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_arraytype_static_extension.T_arrayType_static_extension._safeString(_a, _seen);
     }
     static public function _init(_a:T_arrayType, _elem:T_gobType, _len:StdTypes.Int):Void {
@@ -3563,9 +3915,15 @@ class CommonType_static_extension {
         final _g = (_g : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType>);
         return stdgo._internal.encoding.gob.Gob_t_gobencodertype_static_extension.T_gobEncoderType_static_extension._string(_g);
     }
-    static public function _safeString(_g:T_gobEncoderType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_g:T_gobEncoderType, _seen:Map<T_typeId, Bool>):String {
         final _g = (_g : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_gobencodertype_static_extension.T_gobEncoderType_static_extension._safeString(_g, _seen);
     }
     public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_t_gobencodertype.T_gobEncoderType, _0:T_typeId):Void {
@@ -3584,9 +3942,15 @@ class CommonType_static_extension {
         final _m = (_m : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_maptype.T_mapType>);
         return stdgo._internal.encoding.gob.Gob_t_maptype_static_extension.T_mapType_static_extension._string(_m);
     }
-    static public function _safeString(_m:T_mapType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_m:T_mapType, _seen:Map<T_typeId, Bool>):String {
         final _m = (_m : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_maptype.T_mapType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_maptype_static_extension.T_mapType_static_extension._safeString(_m, _seen);
     }
     static public function _init(_m:T_mapType, _key:T_gobType, _elem:T_gobType):Void {
@@ -3609,9 +3973,15 @@ class CommonType_static_extension {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType>);
         return stdgo._internal.encoding.gob.Gob_t_slicetype_static_extension.T_sliceType_static_extension._string(_s);
     }
-    static public function _safeString(_s:T_sliceType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_s:T_sliceType, _seen:Map<T_typeId, Bool>):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_slicetype.T_sliceType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_slicetype_static_extension.T_sliceType_static_extension._safeString(_s, _seen);
     }
     static public function _init(_s:T_sliceType, _elem:T_gobType):Void {
@@ -3638,9 +4008,15 @@ class CommonType_static_extension {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_structtype.T_structType>);
         return stdgo._internal.encoding.gob.Gob_t_structtype_static_extension.T_structType_static_extension._string(_s);
     }
-    static public function _safeString(_s:T_structType, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):String {
+    static public function _safeString(_s:T_structType, _seen:Map<T_typeId, Bool>):String {
         final _s = (_s : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_structtype.T_structType>);
-        final _seen = (_seen : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>);
+        final _seen = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>();
+            for (key => value in _seen) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
         return stdgo._internal.encoding.gob.Gob_t_structtype_static_extension.T_structType_static_extension._safeString(_s, _seen);
     }
     public static function _setId(__self__:stdgo._internal.encoding.gob.Gob_t_structtype.T_structType, _0:T_typeId):Void {

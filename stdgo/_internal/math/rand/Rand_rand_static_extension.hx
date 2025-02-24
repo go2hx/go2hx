@@ -71,25 +71,25 @@ _m[(_j : stdgo.GoInt)] = _i;
     @:tdfield
     static public function float32( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>):stdgo.GoFloat32 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> = _r;
-        var _f_2999427:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+        var _f_1:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2999419i32;
-                } else if (__value__ == (2999419i32)) {
-                    _f_2999427 = (@:check2r _r.float64() : stdgo.GoFloat32);
-                    if (_f_2999427 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2999464i32;
+                    _gotoNext = 2833735i32;
+                } else if (__value__ == (2833735i32)) {
+                    _f_1 = (@:check2r _r.float64() : stdgo.GoFloat32);
+                    if (_f_1 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2833780i32;
                     } else {
-                        _gotoNext = 2999532i32;
+                        _gotoNext = 2833848i32;
                     };
-                } else if (__value__ == (2999464i32)) {
-                    _gotoNext = 2999419i32;
-                } else if (__value__ == (2999532i32)) {
-                    return _f_2999427;
+                } else if (__value__ == (2833780i32)) {
+                    _gotoNext = 2833735i32;
+                } else if (__value__ == (2833848i32)) {
+                    return _f_1;
                     _gotoNext = -1i32;
                 };
             };
@@ -100,25 +100,25 @@ _m[(_j : stdgo.GoInt)] = _i;
     @:tdfield
     static public function float64( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand>):stdgo.GoFloat64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> = _r;
-        var _f_2998959:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _f_0:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2998951i32;
-                } else if (__value__ == (2998951i32)) {
-                    _f_2998959 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
-                    if (_f_2998959 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2999006i32;
+                    _gotoNext = 2833267i32;
+                } else if (__value__ == (2833267i32)) {
+                    _f_0 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
+                    if (_f_0 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2833322i32;
                     } else {
-                        _gotoNext = 2999068i32;
+                        _gotoNext = 2833384i32;
                     };
-                } else if (__value__ == (2999006i32)) {
-                    _gotoNext = 2998951i32;
-                } else if (__value__ == (2999068i32)) {
-                    return _f_2998959;
+                } else if (__value__ == (2833322i32)) {
+                    _gotoNext = 2833267i32;
+                } else if (__value__ == (2833384i32)) {
+                    return _f_0;
                     _gotoNext = -1i32;
                 };
             };

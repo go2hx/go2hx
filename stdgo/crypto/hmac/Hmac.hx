@@ -11,7 +11,15 @@ package stdgo.crypto.hmac;
         };
     }
 }
-@:dox(hide) typedef T_marshalable = stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable;
+@:interface @:dox(hide) @:forward abstract T_marshalable(stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable) from stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable to stdgo._internal.crypto.hmac.Hmac_t_marshalable.T_marshalable {
+    @:from
+    static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function unmarshalBinary(_0:Array<std.UInt>):stdgo.Error; }):T_marshalable {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_marshalable = { marshalBinary : () -> x.marshalBinary(), unmarshalBinary : _0 -> x.unmarshalBinary([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.crypto.hmac.Hmac.T_hmac_static_extension) @:dox(hide) abstract T_hmac(stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac) from stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac to stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac {
     public var _opad(get, set) : Array<std.UInt>;
     function get__opad():Array<std.UInt> return [for (i in this._opad) i];

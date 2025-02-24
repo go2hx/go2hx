@@ -33,7 +33,7 @@ class NotInHeap_static_extension {
     * package sys contains system- and configuration- and architecture-specific
     * constants used by the runtime.
 **/
-class Sys {
+class Sys_ {
     /**
         * TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
     **/

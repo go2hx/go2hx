@@ -3,13 +3,29 @@ final defaultQuality : haxe.UInt64 = stdgo._internal.image.jpeg.Jpeg_defaultqual
 class Reader_static_extension {
 
 }
-typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
+@:interface @:forward abstract Reader(stdgo._internal.image.jpeg.Jpeg_reader.Reader) from stdgo._internal.image.jpeg.Jpeg_reader.Reader to stdgo._internal.image.jpeg.Jpeg_reader.Reader {
+    @:from
+    static function fromHaxeInterface(x:{ function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Reader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Reader = { readByte : () -> x.readByte(), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_writer_static_extension {
     static public function flush(t:stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer):stdgo.Error {
         return stdgo._internal.image.jpeg.Jpeg_t_writer_static_extension.T_writer_static_extension.flush(t);
     }
 }
-@:dox(hide) typedef T_writer = stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer;
+@:interface @:dox(hide) @:forward abstract T_writer(stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer) from stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer to stdgo._internal.image.jpeg.Jpeg_t_writer.T_writer {
+    @:from
+    static function fromHaxeInterface(x:{ function flush():stdgo.Error; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function writeByte(_0:std.UInt):stdgo.Error; }):T_writer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_writer = { flush : () -> x.flush(), write : _0 -> x.write([for (i in _0) i]), writeByte : _0 -> x.writeByte(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.image.jpeg.Jpeg.T_huffman_static_extension) @:dox(hide) abstract T_huffman(stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman) from stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman to stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman {
     public var _nCodes(get, set) : StdTypes.Int;
     function get__nCodes():StdTypes.Int return this._nCodes;
@@ -116,12 +132,12 @@ typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
         this._bits = v;
         return v;
     }
-    public var _bytes(get, set) : stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int>;
-    function get__bytes():stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int> return {
+    public var _bytes(get, set) : { var _buf : haxe.ds.Vector<std.UInt>; var _i : StdTypes.Int; var _j : StdTypes.Int; var _nUnreadable : StdTypes.Int; };
+    function get__bytes():{ var _buf : haxe.ds.Vector<std.UInt>; var _i : StdTypes.Int; var _j : StdTypes.Int; var _nUnreadable : StdTypes.Int; } return {
         final obj = this._bytes;
         { _buf : haxe.ds.Vector.fromArrayCopy([for (i in obj._buf) i]), _i : obj._i, _j : obj._j, _nUnreadable : obj._nUnreadable };
     };
-    function set__bytes(v:stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int>):stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int> {
+    function set__bytes(v:{ var _buf : haxe.ds.Vector<std.UInt>; var _i : StdTypes.Int; var _j : StdTypes.Int; var _nUnreadable : StdTypes.Int; }):{ var _buf : haxe.ds.Vector<std.UInt>; var _i : StdTypes.Int; var _j : StdTypes.Int; var _nUnreadable : StdTypes.Int; } {
         this._bytes = {
             final obj = v;
             { _buf : ([for (i in obj._buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), _i : (obj._i : stdgo.GoInt), _j : (obj._j : stdgo.GoInt), _nUnreadable : (obj._nUnreadable : stdgo.GoInt) };
@@ -242,7 +258,7 @@ typedef Reader = stdgo._internal.image.jpeg.Jpeg_reader.Reader;
         this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_bits:T_bits, ?_bytes:stdgo.Tuple.Tuple4<haxe.ds.Vector<std.UInt>, StdTypes.Int, StdTypes.Int, StdTypes.Int>, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_img1:stdgo._internal.image.Image_gray.Gray, ?_img3:stdgo._internal.image.Image_ycbcr.YCbCr, ?_blackPix:Array<std.UInt>, ?_blackStride:StdTypes.Int, ?_ri:StdTypes.Int, ?_nComp:StdTypes.Int, ?_baseline:Bool, ?_progressive:Bool, ?_jfif:Bool, ?_adobeTransformValid:Bool, ?_adobeTransform:std.UInt, ?_eobRun:std.UInt, ?_comp:haxe.ds.Vector<T_component>, ?_progCoeffs:haxe.ds.Vector<Array<T_block>>, ?_huff:haxe.ds.Vector<haxe.ds.Vector<T_huffman>>, ?_quant:haxe.ds.Vector<T_block>, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder(
+    public function new(?_r:stdgo._internal.io.Io_reader.Reader, ?_bits:T_bits, ?_bytes:{ var _buf : haxe.ds.Vector<std.UInt>; var _i : StdTypes.Int; var _j : StdTypes.Int; var _nUnreadable : StdTypes.Int; }, ?_width:StdTypes.Int, ?_height:StdTypes.Int, ?_img1:stdgo._internal.image.Image_gray.Gray, ?_img3:stdgo._internal.image.Image_ycbcr.YCbCr, ?_blackPix:Array<std.UInt>, ?_blackStride:StdTypes.Int, ?_ri:StdTypes.Int, ?_nComp:StdTypes.Int, ?_baseline:Bool, ?_progressive:Bool, ?_jfif:Bool, ?_adobeTransformValid:Bool, ?_adobeTransform:std.UInt, ?_eobRun:std.UInt, ?_comp:haxe.ds.Vector<T_component>, ?_progCoeffs:haxe.ds.Vector<Array<T_block>>, ?_huff:haxe.ds.Vector<haxe.ds.Vector<T_huffman>>, ?_quant:haxe.ds.Vector<T_block>, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder(
 _r,
 _bits,
 {

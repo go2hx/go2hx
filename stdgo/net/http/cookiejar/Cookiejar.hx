@@ -8,7 +8,15 @@ class PublicSuffixList_static_extension {
         return stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist_static_extension.PublicSuffixList_static_extension.publicSuffix(t, _domain);
     }
 }
-typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList;
+@:interface @:forward abstract PublicSuffixList(stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList) from stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList to stdgo._internal.net.http.cookiejar.Cookiejar_publicsuffixlist.PublicSuffixList {
+    @:from
+    static function fromHaxeInterface(x:{ function publicSuffix(_domain:String):String; function string():String; }):PublicSuffixList {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:PublicSuffixList = { publicSuffix : _0 -> x.publicSuffix(_0), string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.net.http.cookiejar.Cookiejar.Options_static_extension) abstract Options(stdgo._internal.net.http.cookiejar.Cookiejar_options.Options) from stdgo._internal.net.http.cookiejar.Cookiejar_options.Options to stdgo._internal.net.http.cookiejar.Cookiejar_options.Options {
     public var publicSuffixList(get, set) : PublicSuffixList;
     function get_publicSuffixList():PublicSuffixList return this.publicSuffixList;
@@ -33,10 +41,34 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_publicsu
         this._mu = v;
         return v;
     }
-    public var _entries(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>;
-    function get__entries():stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>> return this._entries;
-    function set__entries(v:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>):stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>> {
-        this._entries = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>);
+    public var _entries(get, set) : Map<String, Map<String, T_entry>>;
+    function get__entries():Map<String, Map<String, T_entry>> return {
+        final __obj__:Map<String, Map<String, T_entry>> = [];
+        for (key => value in this._entries) {
+            __obj__[key] = {
+                final __obj__:Map<String, T_entry> = [];
+                for (key => value in value) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    };
+    function set__entries(v:Map<String, Map<String, T_entry>>):Map<String, Map<String, T_entry>> {
+        this._entries = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = {
+                    final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>();
+                    for (key => value in value) {
+                        __obj__[(key : stdgo.GoString)] = value;
+                    };
+                    __obj__;
+                };
+            };
+            __obj__;
+        };
         return v;
     }
     public var _nextSeqNum(get, set) : haxe.UInt64;
@@ -45,7 +77,19 @@ typedef PublicSuffixList = stdgo._internal.net.http.cookiejar.Cookiejar_publicsu
         this._nextSeqNum = (v : stdgo.GoUInt64);
         return v;
     }
-    public function new(?_psList:PublicSuffixList, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_entries:stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>, ?_nextSeqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar(_psList, _mu, (_entries : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>), (_nextSeqNum : stdgo.GoUInt64));
+    public function new(?_psList:PublicSuffixList, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_entries:Map<String, Map<String, T_entry>>, ?_nextSeqNum:haxe.UInt64) this = new stdgo._internal.net.http.cookiejar.Cookiejar_jar.Jar(_psList, _mu, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>>();
+        for (key => value in _entries) {
+            __obj__[(key : stdgo.GoString)] = {
+                final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry>();
+                for (key => value in value) {
+                    __obj__[(key : stdgo.GoString)] = value;
+                };
+                __obj__;
+            };
+        };
+        __obj__;
+    }, (_nextSeqNum : stdgo.GoUInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

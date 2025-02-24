@@ -4,7 +4,15 @@ class CounterVisitor_static_extension {
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor_static_extension.CounterVisitor_static_extension.visitFuncs(t, _f);
     }
 }
-typedef CounterVisitor = stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor;
+@:interface @:forward abstract CounterVisitor(stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor) from stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor to stdgo._internal.internal.coverage.encodecounter.Encodecounter_countervisitor.CounterVisitor {
+    @:from
+    static function fromHaxeInterface(x:{ function visitFuncs(_f:CounterVisitorFn):stdgo.Error; }):CounterVisitor {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:CounterVisitor = { visitFuncs : _0 -> x.visitFuncs(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.internal.coverage.encodecounter.Encodecounter.CoverageDataWriter_static_extension) abstract CoverageDataWriter(stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter) from stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter to stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter {
     public var _stab(get, set) : stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer;
     function get__stab():stdgo._internal.internal.coverage.stringtab.Stringtab_writer.Writer return this._stab;
@@ -74,14 +82,26 @@ class CoverageDataWriter_static_extension {
         final _metaFileHash = ([for (i in _metaFileHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter_static_extension.CoverageDataWriter_static_extension._writeHeader(_cfw, _metaFileHash);
     }
-    static public function appendSegment(_cfw:CoverageDataWriter, _args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _visitor:CounterVisitor):stdgo.Error {
+    static public function appendSegment(_cfw:CoverageDataWriter, _args:Map<String, String>, _visitor:CounterVisitor):stdgo.Error {
         final _cfw = (_cfw : stdgo.Ref<stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter>);
-        final _args = (_args : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _args = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _args) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter_static_extension.CoverageDataWriter_static_extension.appendSegment(_cfw, _args, _visitor);
     }
-    static public function _writeSegmentPreamble(_cfw:CoverageDataWriter, _args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _ws:stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker):stdgo.Error {
+    static public function _writeSegmentPreamble(_cfw:CoverageDataWriter, _args:Map<String, String>, _ws:stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker):stdgo.Error {
         final _cfw = (_cfw : stdgo.Ref<stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter>);
-        final _args = (_args : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _args = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _args) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         final _ws = (_ws : stdgo.Ref<stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker>);
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter_static_extension.CoverageDataWriter_static_extension._writeSegmentPreamble(_cfw, _args, _ws);
     }
@@ -90,10 +110,16 @@ class CoverageDataWriter_static_extension {
         final _ws = (_ws : stdgo.Ref<stdgo._internal.internal.coverage.slicewriter.Slicewriter_writeseeker.WriteSeeker>);
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter_static_extension.CoverageDataWriter_static_extension._patchSegmentHeader(_cfw, _ws);
     }
-    static public function write(_cfw:CoverageDataWriter, _metaFileHash:haxe.ds.Vector<std.UInt>, _args:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _visitor:CounterVisitor):stdgo.Error {
+    static public function write(_cfw:CoverageDataWriter, _metaFileHash:haxe.ds.Vector<std.UInt>, _args:Map<String, String>, _visitor:CounterVisitor):stdgo.Error {
         final _cfw = (_cfw : stdgo.Ref<stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter.CoverageDataWriter>);
         final _metaFileHash = ([for (i in _metaFileHash) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
-        final _args = (_args : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _args = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _args) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return stdgo._internal.internal.coverage.encodecounter.Encodecounter_coveragedatawriter_static_extension.CoverageDataWriter_static_extension.write(_cfw, _metaFileHash, _args, _visitor);
     }
 }

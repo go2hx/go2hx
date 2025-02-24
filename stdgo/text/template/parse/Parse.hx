@@ -43,7 +43,15 @@ class Node_static_extension {
         return stdgo._internal.text.template.parse.Parse_node_static_extension.Node_static_extension.type(t);
     }
 }
-typedef Node = stdgo._internal.text.template.parse.Parse_node.Node;
+@:interface @:forward abstract Node(stdgo._internal.text.template.parse.Parse_node.Node) from stdgo._internal.text.template.parse.Parse_node.Node to stdgo._internal.text.template.parse.Parse_node.Node {
+    @:from
+    static function fromHaxeInterface(x:{ function type():NodeType; function string():String; function copy():Node; function position():Pos; function _tree():Tree; function _writeTo(_0:stdgo._internal.strings.Strings_builder.Builder):Void; }):Node {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Node = { type : () -> x.type(), string : () -> x.string(), copy : () -> x.copy(), position : () -> x.position(), _tree : () -> x._tree(), _writeTo : _0 -> x._writeTo(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.text.template.parse.Parse.T_item_static_extension) @:dox(hide) abstract T_item(stdgo._internal.text.template.parse.Parse_t_item.T_item) from stdgo._internal.text.template.parse.Parse_t_item.T_item to stdgo._internal.text.template.parse.Parse_t_item.T_item {
     public var _typ(get, set) : T_itemType;
     function get__typ():T_itemType return this._typ;
@@ -973,10 +981,22 @@ isComplex,
         this._text = (v : stdgo.GoString);
         return v;
     }
-    public var _funcs(get, set) : Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>;
-    function get__funcs():Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>> return [for (i in this._funcs) i];
-    function set__funcs(v:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>> {
-        this._funcs = ([for (i in v) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+    public var _funcs(get, set) : Array<Map<String, stdgo.AnyInterface>>;
+    function get__funcs():Array<Map<String, stdgo.AnyInterface>> return [for (i in this._funcs) {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in i) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    }];
+    function set__funcs(v:Array<Map<String, stdgo.AnyInterface>>):Array<Map<String, stdgo.AnyInterface>> {
+        this._funcs = ([for (i in v) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         return v;
     }
     public var _lex(get, set) : T_lexer;
@@ -1003,10 +1023,22 @@ isComplex,
         this._vars = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _treeSet(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>;
-    function get__treeSet():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> return this._treeSet;
-    function set__treeSet(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> {
-        this._treeSet = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+    public var _treeSet(get, set) : Map<String, Tree>;
+    function get__treeSet():Map<String, Tree> return {
+        final __obj__:Map<String, Tree> = [];
+        for (key => value in this._treeSet) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__treeSet(v:Map<String, Tree>):Map<String, Tree> {
+        this._treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _actionLine(get, set) : StdTypes.Int;
@@ -1021,18 +1053,30 @@ isComplex,
         this._rangeDepth = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_tree.Tree(
+    public function new(?name:String, ?parseName:String, ?root:ListNode, ?mode:Mode, ?_text:String, ?_funcs:Array<Map<String, stdgo.AnyInterface>>, ?_lex:T_lexer, ?_token:haxe.ds.Vector<T_item>, ?_peekCount:StdTypes.Int, ?_vars:Array<String>, ?_treeSet:Map<String, Tree>, ?_actionLine:StdTypes.Int, ?_rangeDepth:StdTypes.Int) this = new stdgo._internal.text.template.parse.Parse_tree.Tree(
 (name : stdgo.GoString),
 (parseName : stdgo.GoString),
 (root : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>),
 mode,
 (_text : stdgo.GoString),
-([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>),
+([for (i in _funcs) {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in i) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>),
 (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>),
 ([for (i in _token) i] : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>),
 (_peekCount : stdgo.GoInt),
 ([for (i in _vars) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
-(_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+        for (key => value in _treeSet) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+        };
+        __obj__;
+    },
 (_actionLine : stdgo.GoInt),
 (_rangeDepth : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -1897,12 +1941,18 @@ class Tree_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._add(_t);
     }
-    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
+    static public function parse(_t:Tree, _text:String, _leftDelim:String, _rightDelim:String, _treeSet:Map<String, Tree>, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):stdgo.Tuple<Tree, stdgo.Error> {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);
         final _rightDelim = (_rightDelim : stdgo.GoString);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+        final _treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in _treeSet) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         return {
             final obj = stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension.parse(_t, _text, _leftDelim, _rightDelim, _treeSet, ...[for (i in _funcs) i]);
             { _0 : obj._0, _1 : obj._1 };
@@ -1912,11 +1962,23 @@ class Tree_static_extension {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._stopParse(_t);
     }
-    static public function _startParse(_t:Tree, _funcs:Array<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>):Void {
+    static public function _startParse(_t:Tree, _funcs:Array<Map<String, stdgo.AnyInterface>>, _lex:T_lexer, _treeSet:Map<String, Tree>):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
-        final _funcs = ([for (i in _funcs) (i : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        final _funcs = ([for (i in _funcs) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         final _lex = (_lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
-        final _treeSet = (_treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);
+        final _treeSet = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>();
+            for (key => value in _treeSet) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
+            };
+            __obj__;
+        };
         stdgo._internal.text.template.parse.Parse_tree_static_extension.Tree_static_extension._startParse(_t, _funcs, _lex, _treeSet);
     }
     static public function _recover(_t:Tree, _errp:stdgo.Error):Void {
@@ -2153,20 +2215,26 @@ class Parse {
         * given the specified name. If an error is encountered, parsing stops and an
         * empty map is returned with the error.
     **/
-    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):stdgo.Tuple<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>, stdgo.Error> {
+    static public inline function parse(_name:String, _text:String, _leftDelim:String, _rightDelim:String, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):stdgo.Tuple<Map<String, Tree>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
         final _text = (_text : stdgo.GoString);
         final _leftDelim = (_leftDelim : stdgo.GoString);
         final _rightDelim = (_rightDelim : stdgo.GoString);
         return {
             final obj = stdgo._internal.text.template.parse.Parse_parse.parse(_name, _text, _leftDelim, _rightDelim, ...[for (i in _funcs) i]);
-            { _0 : obj._0, _1 : obj._1 };
+            { _0 : {
+                final __obj__:Map<String, Tree> = [];
+                for (key => value in obj._0) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            }, _1 : obj._1 };
         };
     }
     /**
         * New allocates a new parse tree with the given name.
     **/
-    static public inline function new_(_name:String, _funcs:haxe.Rest<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>):Tree {
+    static public inline function new_(_name:String, _funcs:haxe.Rest<Map<String, stdgo.AnyInterface>>):Tree {
         final _name = (_name : stdgo.GoString);
         return stdgo._internal.text.template.parse.Parse_new_.new_(_name, ...[for (i in _funcs) i]);
     }

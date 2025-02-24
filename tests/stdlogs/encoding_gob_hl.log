@@ -1,24 +1,5 @@
-[ERROR] ./stdgo/_internal/encoding/gob/Gob_testnilpointerpanics.hx:8: characters 117-124
-
- 8 |         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2 = (stdgo.Go.setRef(_intMap) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8 = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
-   |                                                                                                                     ^^^^^^^
-   | Unknown identifier : _intMap
-
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  stdgo/Go.macro.hx:476: characters 11-31
-
-    476 |   var t = Context.typeof(expr);
-        |           ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  ./stdgo/_internal/encoding/gob/Gob_testnilpointerpanics.hx:8: characters 101-125
-
-      8 |         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2 = (stdgo.Go.setRef(_intMap) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8 = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
-        |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
+Uncaught exception: Can't cast stdgo._internal.internal.reflect._Type_asInterface to stdgo.AnyInterfaceData
+Called from stdgo.GoAnyInterfaceMap.compare(stdgo/GoMap.hx:688)
+Called from haxe.ds.BalancedTree.exists(/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx:104)
+Called from stdgo._internal.encoding.gob._Gob__bootstraptype.$Gob__bootstraptype_Fields_._bootstrapType(stdgo/GoMap.hx:66)
+Called from .init(stdgo/_internal/encoding/gob/Gob__tint.hx:2)

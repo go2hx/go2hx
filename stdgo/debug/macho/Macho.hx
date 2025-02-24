@@ -95,7 +95,15 @@ class Load_static_extension {
         return [for (i in stdgo._internal.debug.macho.Macho_load_static_extension.Load_static_extension.raw(t)) i];
     }
 }
-typedef Load = stdgo._internal.debug.macho.Macho_load.Load;
+@:interface @:forward abstract Load(stdgo._internal.debug.macho.Macho_load.Load) from stdgo._internal.debug.macho.Macho_load.Load to stdgo._internal.debug.macho.Macho_load.Load {
+    @:from
+    static function fromHaxeInterface(x:{ function raw():Array<std.UInt>; }):Load {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Load = { raw : () -> x.raw(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.debug.macho.Macho.FatFile_static_extension) abstract FatFile(stdgo._internal.debug.macho.Macho_fatfile.FatFile) from stdgo._internal.debug.macho.Macho_fatfile.FatFile to stdgo._internal.debug.macho.Macho_fatfile.FatFile {
     public var magic(get, set) : std.UInt;
     function get_magic():std.UInt return this.magic;

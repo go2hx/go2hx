@@ -440,7 +440,7 @@ class Reflectlite {
         * 
         * Swapper panics if the provided interface is not a slice.
     **/
-    static public inline function swapper(_slice:stdgo.AnyInterface):(stdgo.GoInt, stdgo.GoInt) -> Void {
+    static public inline function swapper(_slice:stdgo.AnyInterface):(StdTypes.Int, StdTypes.Int) -> Void {
         final _slice = (_slice : stdgo.AnyInterface);
         return (_0, _1) -> stdgo._internal.internal.reflectlite.Reflectlite_swapper.swapper(_slice)(_0, _1);
     }

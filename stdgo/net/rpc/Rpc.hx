@@ -31,7 +31,15 @@ class ClientCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_clientcodec_static_extension.ClientCodec_static_extension.writeRequest(t, _0, _1);
     }
 }
-typedef ClientCodec = stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec;
+@:interface @:forward abstract ClientCodec(stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec) from stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec to stdgo._internal.net.rpc.Rpc_clientcodec.ClientCodec {
+    @:from
+    static function fromHaxeInterface(x:{ function writeRequest(_0:Request, _1:stdgo.AnyInterface):stdgo.Error; function readResponseHeader(_0:Response):stdgo.Error; function readResponseBody(_0:stdgo.AnyInterface):stdgo.Error; function close():stdgo.Error; }):ClientCodec {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ClientCodec = { writeRequest : (_0, _1) -> x.writeRequest(_0, _1), readResponseHeader : _0 -> x.readResponseHeader(_0), readResponseBody : _0 -> x.readResponseBody(_0), close : () -> x.close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ServerCodec_static_extension {
     static public function close(t:stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec):stdgo.Error {
         return stdgo._internal.net.rpc.Rpc_servercodec_static_extension.ServerCodec_static_extension.close(t);
@@ -50,7 +58,15 @@ class ServerCodec_static_extension {
         return stdgo._internal.net.rpc.Rpc_servercodec_static_extension.ServerCodec_static_extension.readRequestHeader(t, _0);
     }
 }
-typedef ServerCodec = stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec;
+@:interface @:forward abstract ServerCodec(stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec) from stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec to stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec {
+    @:from
+    static function fromHaxeInterface(x:{ function readRequestHeader(_0:Request):stdgo.Error; function readRequestBody(_0:stdgo.AnyInterface):stdgo.Error; function writeResponse(_0:Response, _1:stdgo.AnyInterface):stdgo.Error; function close():stdgo.Error; }):ServerCodec {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ServerCodec = { readRequestHeader : _0 -> x.readRequestHeader(_0), readRequestBody : _0 -> x.readRequestBody(_0), writeResponse : (_0, _1) -> x.writeResponse(_0, _1), close : () -> x.close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.net.rpc.Rpc.Call_static_extension) abstract Call(stdgo._internal.net.rpc.Rpc_call.Call) from stdgo._internal.net.rpc.Rpc_call.Call to stdgo._internal.net.rpc.Rpc_call.Call {
     public var serviceMethod(get, set) : String;
     function get_serviceMethod():String return this.serviceMethod;
@@ -117,10 +133,22 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec;
         this._seq = (v : stdgo.GoUInt64);
         return v;
     }
-    public var _pending(get, set) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>;
-    function get__pending():stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>> return this._pending;
-    function set__pending(v:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>):stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>> {
-        this._pending = (v : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>);
+    public var _pending(get, set) : Map<haxe.UInt64, Call>;
+    function get__pending():Map<haxe.UInt64, Call> return {
+        final __obj__:Map<haxe.UInt64, Call> = [];
+        for (key => value in this._pending) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__pending(v:Map<haxe.UInt64, Call>):Map<haxe.UInt64, Call> {
+        this._pending = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _closing(get, set) : Bool;
@@ -135,7 +163,13 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec;
         this._shutdown = v;
         return v;
     }
-    public function new(?_codec:ClientCodec, ?_reqMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_request:Request, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>, ?_closing:Bool, ?_shutdown:Bool) this = new stdgo._internal.net.rpc.Rpc_client.Client(_codec, _reqMutex, _request, _mutex, (_seq : stdgo.GoUInt64), (_pending : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>), _closing, _shutdown);
+    public function new(?_codec:ClientCodec, ?_reqMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_request:Request, ?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_seq:haxe.UInt64, ?_pending:Map<haxe.UInt64, Call>, ?_closing:Bool, ?_shutdown:Bool) this = new stdgo._internal.net.rpc.Rpc_client.Client(_codec, _reqMutex, _request, _mutex, (_seq : stdgo.GoUInt64), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>>();
+        for (key => value in _pending) {
+            __obj__[(key : stdgo.GoUInt64)] = (value : stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>);
+        };
+        __obj__;
+    }, _closing, _shutdown);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -273,13 +307,31 @@ typedef ServerCodec = stdgo._internal.net.rpc.Rpc_servercodec.ServerCodec;
         this._typ = v;
         return v;
     }
-    public var _method(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>;
-    function get__method():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>> return this._method;
-    function set__method(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>> {
-        this._method = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>);
+    public var _method(get, set) : Map<String, T_methodType>;
+    function get__method():Map<String, T_methodType> return {
+        final __obj__:Map<String, T_methodType> = [];
+        for (key => value in this._method) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__method(v:Map<String, T_methodType>):Map<String, T_methodType> {
+        this._method = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_name:String, ?_rcvr:stdgo._internal.reflect.Reflect_value.Value, ?_typ:stdgo._internal.reflect.Reflect_type_.Type_, ?_method:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>) this = new stdgo._internal.net.rpc.Rpc_t_service.T_service((_name : stdgo.GoString), _rcvr, _typ, (_method : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>));
+    public function new(?_name:String, ?_rcvr:stdgo._internal.reflect.Reflect_value.Value, ?_typ:stdgo._internal.reflect.Reflect_type_.Type_, ?_method:Map<String, T_methodType>) this = new stdgo._internal.net.rpc.Rpc_t_service.T_service((_name : stdgo.GoString), _rcvr, _typ, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>>();
+        for (key => value in _method) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

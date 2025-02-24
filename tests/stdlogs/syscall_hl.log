@@ -13,9 +13,9 @@ Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Field
 -- FAIL: TestEnv
 
 === RUN  TestExecErrPermutedFds
-Exception: :testing.testing is not yet implemented
-Called from stdgo._internal.testing._Testing_testing.$Testing_testing_Fields_.testing (stdgo/_internal/testing/Testing_testing.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv__tryexec.$Testenv__tryexec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 9)
+Exception: :os.executable is not yet implemented
+Called from stdgo._internal.os._Os_executable.$Os_executable_Fields_.executable (stdgo/_internal/os/Os_executable.hx line 2)
+Called from stdgo._internal.internal.testenv._Testenv__tryexec.$Testenv__tryexec_Fields_._tryExec (stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 12)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.~mustHaveExec.0 (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4)
 Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/sync/Sync_once_static_extension.hx line 83)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 3)

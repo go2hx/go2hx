@@ -1,11 +1,6 @@
 package stdgo._internal.io;
 @:interface typedef ByteScanner = stdgo.StructType & {
-    > stdgo._internal.io.Io_bytereader.ByteReader,
-    /**
-        
-        
-        
-    **/
     @:interfacetypeffun
-    public dynamic function unreadByte():stdgo.Error;
+    function unreadByte():stdgo.Error;
+    function readByte():{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; };
 };

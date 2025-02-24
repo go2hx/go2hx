@@ -125,9 +125,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this._ch = (v : stdgo.GoInt32);
         return v;
     }
-    public var error(get, set) : (stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void;
-    function get_error():(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void return (_0, _1) -> this.error(_0, _1);
-    function set_error(v:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void):(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void {
+    public var error(get, set) : (Scanner_, String) -> Void;
+    function get_error():(Scanner_, String) -> Void return (_0, _1) -> this.error(_0, _1);
+    function set_error(v:(Scanner_, String) -> Void):(Scanner_, String) -> Void {
         this.error = v;
         return v;
     }
@@ -149,9 +149,9 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this.whitespace = (v : stdgo.GoUInt64);
         return v;
     }
-    public var isIdentRune(get, set) : (stdgo.GoInt32, stdgo.GoInt) -> Bool;
-    function get_isIdentRune():(stdgo.GoInt32, stdgo.GoInt) -> Bool return (_0, _1) -> this.isIdentRune(_0, _1);
-    function set_isIdentRune(v:(stdgo.GoInt32, stdgo.GoInt) -> Bool):(stdgo.GoInt32, stdgo.GoInt) -> Bool {
+    public var isIdentRune(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
+    function get_isIdentRune():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.isIdentRune(_0, _1);
+    function set_isIdentRune(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
         this.isIdentRune = v;
         return v;
     }
@@ -161,7 +161,7 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner_gowhites
         this.position = v;
         return v;
     }
-    public function new(?_src:stdgo._internal.io.Io_reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner_scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_scanner.Scanner(
+    public function new(?_src:stdgo._internal.io.Io_reader.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(Scanner_, String) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(StdTypes.Int, StdTypes.Int) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner_scanner.Scanner(
 _src,
 ([for (i in _srcBuf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>),
 (_srcPos : stdgo.GoInt),

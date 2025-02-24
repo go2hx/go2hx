@@ -12,14 +12,14 @@
 
 === RUN  TestGlob
 Exception: ENOENT: no such file or directory, scandir ''
-Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 23523 column 25)
-Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 23258 column 16)
-Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 20196 column 17)
+Called from .stdgo__$internal_io_fs_Fs_$readdir_readDir (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 23518 column 25)
+Called from .stdgo__$internal_io_fs_Fs_$_$glob__glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 23255 column 16)
+Called from .stdgo__$internal_io_fs_Fs_$_$globwithlimit__globWithLimit (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 20195 column 17)
 Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 20081 column 16)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:20045:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 49946 column 9)
-Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 42062 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56423:1
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 49933 column 9)
+Called from ._$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 42036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56410:1
 
 -- FAIL: TestGlob
 
@@ -68,21 +68,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'hphl4dhrte/a/bad'
+Error: EACCES: permission denied, scandir 'hiwfs356mo/a/bad'
     at Object.readdirSync (node:fs:1581:26)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46272:30)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46278:7)
-    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46278:7)
-    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46318:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:50523:4
-    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:49960:4)
-    at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:42062:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56423:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:56424:3) {
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46259:30)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46265:7)
+    at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46265:7)
+    at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:46305:2)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:50510:4
+    at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:49947:4)
+    at _$internal_io_fs_$dot_$test_Fs_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:42036:59)
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:56410:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:56411:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'hphl4dhrte/a/bad'
+  path: 'hiwfs356mo/a/bad'
 }
 
-Node.js v23.7.0
+Node.js v23.8.0

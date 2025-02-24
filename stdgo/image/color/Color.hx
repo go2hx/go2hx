@@ -97,13 +97,29 @@ class Color_static_extension {
         };
     }
 }
-typedef Color_ = stdgo._internal.image.color.Color_color.Color;
+@:interface @:forward abstract Color_(stdgo._internal.image.color.Color_color.Color) from stdgo._internal.image.color.Color_color.Color to stdgo._internal.image.color.Color_color.Color {
+    @:from
+    static function fromHaxeInterface(x:{ function rGBA():stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt>; }):Color_ {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Color_ = { rGBA : () -> x.rGBA(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Model_static_extension {
     static public function convert(t:stdgo._internal.image.color.Color_model.Model, _c:Color_):Color_ {
         return stdgo._internal.image.color.Color_model_static_extension.Model_static_extension.convert(t, _c);
     }
 }
-typedef Model = stdgo._internal.image.color.Color_model.Model;
+@:interface @:forward abstract Model(stdgo._internal.image.color.Color_model.Model) from stdgo._internal.image.color.Color_model.Model to stdgo._internal.image.color.Color_model.Model {
+    @:from
+    static function fromHaxeInterface(x:{ function convert(_c:Color_):Color_; }):Model {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Model = { convert : _0 -> x.convert(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.image.color.Color.RGBA_static_extension) abstract RGBA(stdgo._internal.image.color.Color_rgba.RGBA) from stdgo._internal.image.color.Color_rgba.RGBA to stdgo._internal.image.color.Color_rgba.RGBA {
     public var r(get, set) : std.UInt;
     function get_r():std.UInt return this.r;
@@ -265,13 +281,13 @@ typedef Model = stdgo._internal.image.color.Color_model.Model;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.image.color.Color.T_modelFunc_static_extension) @:dox(hide) abstract T_modelFunc(stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc) from stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc to stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc {
-    public var _f(get, set) : stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color;
-    function get__f():stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color return _0 -> this._f(_0);
-    function set__f(v:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color {
+    public var _f(get, set) : Color_ -> Color_;
+    function get__f():Color_ -> Color_ return _0 -> this._f(_0);
+    function set__f(v:Color_ -> Color_):Color_ -> Color_ {
         this._f = v;
         return v;
     }
-    public function new(?_f:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_f);
+    public function new(?_f:Color_ -> Color_) this = new stdgo._internal.image.color.Color_t_modelfunc.T_modelFunc(_f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -467,7 +483,7 @@ class Color {
     /**
         * ModelFunc returns a Model that invokes f to implement the conversion.
     **/
-    static public inline function modelFunc(_f:stdgo._internal.image.color.Color_color.Color -> stdgo._internal.image.color.Color_color.Color):Model {
+    static public inline function modelFunc(_f:Color_ -> Color_):Model {
         final _f = _f;
         return stdgo._internal.image.color.Color_modelfunc.modelFunc(_f);
     }

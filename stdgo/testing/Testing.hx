@@ -7,14 +7,22 @@ package stdgo.testing;
         return stdgo._internal.testing.Testing_t_fuzzcrasherror_static_extension.T_fuzzCrashError_static_extension.unwrap(t);
     }
 }
-@:dox(hide) typedef T_fuzzCrashError = stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError;
+@:interface @:dox(hide) @:forward abstract T_fuzzCrashError(stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError) from stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError to stdgo._internal.testing.Testing_t_fuzzcrasherror.T_fuzzCrashError {
+    @:from
+    static function fromHaxeInterface(x:{ function unwrap():stdgo.Error; function crashPath():String; function error():String; }):T_fuzzCrashError {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_fuzzCrashError = { unwrap : () -> x.unwrap(), crashPath : () -> x.crashPath(), error : () -> x.error(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_filterMatch_static_extension {
-    static public function _verify(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
+    static public function _verify(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
         return stdgo._internal.testing.Testing_t_filtermatch_static_extension.T_filterMatch_static_extension._verify(t, _name, _matchString);
     }
-    static public function _matches(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:Array<String>, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Tuple<Bool, Bool> {
+    static public function _matches(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         final _matchString = _matchString;
         return {
@@ -23,7 +31,15 @@ package stdgo.testing;
         };
     }
 }
-@:dox(hide) typedef T_filterMatch = stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch;
+@:interface @:dox(hide) @:forward abstract T_filterMatch(stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch) from stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch to stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch {
+    @:from
+    static function fromHaxeInterface(x:{ function _matches(_name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool>; function _verify(_name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error; }):T_filterMatch {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_filterMatch = { _matches : (_0, _1) -> x._matches([for (i in _0) i], (_0, _1) -> _1(_0, _1)), _verify : (_0, _1) -> x._verify(_0, (_0, _1) -> _1(_0, _1)), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class TB_static_extension {
     static public function _private(t:stdgo._internal.testing.Testing_tb.TB):Void {
         stdgo._internal.testing.Testing_tb_static_extension.TB_static_extension._private(t);
@@ -90,7 +106,15 @@ class TB_static_extension {
         stdgo._internal.testing.Testing_tb_static_extension.TB_static_extension.cleanup(t, _0);
     }
 }
-typedef TB = stdgo._internal.testing.Testing_tb.TB;
+@:interface @:forward abstract TB(stdgo._internal.testing.Testing_tb.TB) from stdgo._internal.testing.Testing_tb.TB to stdgo._internal.testing.Testing_tb.TB {
+    @:from
+    static function fromHaxeInterface(x:{ function cleanup(_0:() -> Void):Void; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function setenv(_key:String, _value:String):Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; function tempDir():String; function _private():Void; }):TB {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:TB = { cleanup : _0 -> x.cleanup(() -> _0()), error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), setenv : (_0, _1) -> x.setenv(_0, _1), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), tempDir : () -> x.tempDir(), _private : () -> x._private(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_testDeps_static_extension {
     static public function snapshotCoverage(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps):Void {
         stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.snapshotCoverage(t);
@@ -103,7 +127,7 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
         final _1 = ([for (i in _1) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>);
         return stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.checkCorpus(t, _0, _1);
     }
-    static public function readCorpus(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:String, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Tuple<Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, stdgo.Error> {
+    static public function readCorpus(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:String, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Tuple<Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, stdgo.Error> {
         final _0 = (_0 : stdgo.GoString);
         final _1 = ([for (i in _1) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>);
         return {
@@ -114,11 +138,11 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
             }], _1 : obj._1 };
         };
     }
-    static public function runFuzzWorker(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:({ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error {
+    static public function runFuzzWorker(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:({ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error {
         final _0 = _0;
         return stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.runFuzzWorker(t, _0);
     }
-    static public function coordinateFuzzing(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error {
+    static public function coordinateFuzzing(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error {
         final _1 = (_1 : stdgo.GoInt64);
         final _3 = (_3 : stdgo.GoInt64);
         final _4 = (_4 : stdgo.GoInt);
@@ -163,7 +187,21 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
         return stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.importPath(t);
     }
 }
-@:dox(hide) typedef T_testDeps = stdgo._internal.testing.Testing_t_testdeps.T_testDeps;
+@:interface @:dox(hide) @:forward abstract T_testDeps(stdgo._internal.testing.Testing_t_testdeps.T_testDeps) from stdgo._internal.testing.Testing_t_testdeps.T_testDeps to stdgo._internal.testing.Testing_t_testdeps.T_testDeps {
+    @:from
+    static function fromHaxeInterface(x:{ function importPath():String; function matchString(_pat:String, _str:String):stdgo.Tuple<Bool, stdgo.Error>; function setPanicOnExit0(_0:Bool):Void; function startCPUProfile(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Error; function stopCPUProfile():Void; function startTestLog(_0:stdgo._internal.io.Io_writer.Writer):Void; function stopTestLog():stdgo.Error; function writeProfileTo(_0:String, _1:stdgo._internal.io.Io_writer.Writer, _2:StdTypes.Int):stdgo.Error; function coordinateFuzzing(_0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error; function runFuzzWorker(_0:({ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error; function readCorpus(_0:String, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Tuple<Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, stdgo.Error>; function checkCorpus(_0:Array<stdgo.AnyInterface>, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Error; function resetCoverage():Void; function snapshotCoverage():Void; }):T_testDeps {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_testDeps = { importPath : () -> x.importPath(), matchString : (_0, _1) -> x.matchString(_0, _1), setPanicOnExit0 : _0 -> x.setPanicOnExit0(_0), startCPUProfile : _0 -> x.startCPUProfile(_0), stopCPUProfile : () -> x.stopCPUProfile(), startTestLog : _0 -> x.startTestLog(_0), stopTestLog : () -> x.stopTestLog(), writeProfileTo : (_0, _1, _2) -> x.writeProfileTo(_0, _1, _2), coordinateFuzzing : (_0, _1, _2, _3, _4, _5, _6, _7, _8) -> x.coordinateFuzzing(_0, _1, _2, _3, _4, [for (i in _5) {
+            final obj = i;
+            { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
+        }], [for (i in _6) i], _7, _8), runFuzzWorker : _0 -> x.runFuzzWorker(_0 -> _0({
+            final obj = _0;
+            { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
+        })), readCorpus : (_0, _1) -> x.readCorpus(_0, [for (i in _1) i]), checkCorpus : (_0, _1) -> x.checkCorpus([for (i in _0) i], [for (i in _1) i]), resetCoverage : () -> x.resetCoverage(), snapshotCoverage : () -> x.snapshotCoverage(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.testing.Testing.T_durationOrCountFlag_static_extension) @:dox(hide) abstract T_durationOrCountFlag(stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag) from stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag to stdgo._internal.testing.Testing_t_durationorcountflag.T_durationOrCountFlag {
     public var _d(get, set) : stdgo._internal.time.Time_duration.Duration;
     function get__d():stdgo._internal.time.Time_duration.Duration return this._d;
@@ -194,13 +232,13 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public var f(get, set) : stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void;
-    function get_f():stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void return _0 -> this.f(_0);
-    function set_f(v:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void {
+    public var f(get, set) : B -> Void;
+    function get_f():B -> Void return _0 -> this.f(_0);
+    function set_f(v:B -> Void):B -> Void {
         this.f = v;
         return v;
     }
-    public function new(?name:String, ?f:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void) this = new stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark((name : stdgo.GoString), f);
+    public function new(?name:String, ?f:B -> Void) this = new stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark((name : stdgo.GoString), f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -241,9 +279,9 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
         this._previousDuration = v;
         return v;
     }
-    public var _benchFunc(get, set) : stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void;
-    function get__benchFunc():stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void return _0 -> this._benchFunc(_0);
-    function set__benchFunc(v:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void {
+    public var _benchFunc(get, set) : B -> Void;
+    function get__benchFunc():B -> Void return _0 -> this._benchFunc(_0);
+    function set__benchFunc(v:B -> Void):B -> Void {
         this._benchFunc = v;
         return v;
     }
@@ -313,13 +351,25 @@ typedef TB = stdgo._internal.testing.Testing_tb.TB;
         this._netBytes = (v : stdgo.GoUInt64);
         return v;
     }
-    public var _extra(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>;
-    function get__extra():stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64> return this._extra;
-    function set__extra(v:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64> {
-        this._extra = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>);
+    public var _extra(get, set) : Map<String, StdTypes.Float>;
+    function get__extra():Map<String, StdTypes.Float> return {
+        final __obj__:Map<String, StdTypes.Float> = [];
+        for (key => value in this._extra) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__extra(v:Map<String, StdTypes.Float>):Map<String, StdTypes.Float> {
+        this._extra = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoFloat64);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_common:T_common, ?_importPath:String, ?_context:T_benchContext, ?n:StdTypes.Int, ?_previousN:StdTypes.Int, ?_previousDuration:stdgo._internal.time.Time_duration.Duration, ?_benchFunc:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void, ?_benchTime:T_durationOrCountFlag, ?_bytes:haxe.Int64, ?_missingBytes:Bool, ?_timerOn:Bool, ?_showAllocResult:Bool, ?_result:BenchmarkResult, ?_parallelism:StdTypes.Int, ?_startAllocs:haxe.UInt64, ?_startBytes:haxe.UInt64, ?_netAllocs:haxe.UInt64, ?_netBytes:haxe.UInt64, ?_extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>) this = new stdgo._internal.testing.Testing_b.B(
+    public function new(?_common:T_common, ?_importPath:String, ?_context:T_benchContext, ?n:StdTypes.Int, ?_previousN:StdTypes.Int, ?_previousDuration:stdgo._internal.time.Time_duration.Duration, ?_benchFunc:B -> Void, ?_benchTime:T_durationOrCountFlag, ?_bytes:haxe.Int64, ?_missingBytes:Bool, ?_timerOn:Bool, ?_showAllocResult:Bool, ?_result:BenchmarkResult, ?_parallelism:StdTypes.Int, ?_startAllocs:haxe.UInt64, ?_startBytes:haxe.UInt64, ?_netAllocs:haxe.UInt64, ?_netBytes:haxe.UInt64, ?_extra:Map<String, StdTypes.Float>) this = new stdgo._internal.testing.Testing_b.B(
 _common,
 (_importPath : stdgo.GoString),
 (_context : stdgo.Ref<stdgo._internal.testing.Testing_t_benchcontext.T_benchContext>),
@@ -338,7 +388,13 @@ _result,
 (_startBytes : stdgo.GoUInt64),
 (_netAllocs : stdgo.GoUInt64),
 (_netBytes : stdgo.GoUInt64),
-(_extra : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>));
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>();
+        for (key => value in _extra) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoFloat64);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -373,13 +429,31 @@ _result,
         this.memBytes = (v : stdgo.GoUInt64);
         return v;
     }
-    public var extra(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>;
-    function get_extra():stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64> return this.extra;
-    function set_extra(v:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>):stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64> {
-        this.extra = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>);
+    public var extra(get, set) : Map<String, StdTypes.Float>;
+    function get_extra():Map<String, StdTypes.Float> return {
+        final __obj__:Map<String, StdTypes.Float> = [];
+        for (key => value in this.extra) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_extra(v:Map<String, StdTypes.Float>):Map<String, StdTypes.Float> {
+        this.extra = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoFloat64);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?n:StdTypes.Int, ?t:stdgo._internal.time.Time_duration.Duration, ?bytes:haxe.Int64, ?memAllocs:haxe.UInt64, ?memBytes:haxe.UInt64, ?extra:stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>) this = new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult((n : stdgo.GoInt), t, (bytes : stdgo.GoInt64), (memAllocs : stdgo.GoUInt64), (memBytes : stdgo.GoUInt64), (extra : stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>));
+    public function new(?n:StdTypes.Int, ?t:stdgo._internal.time.Time_duration.Duration, ?bytes:haxe.Int64, ?memAllocs:haxe.UInt64, ?memBytes:haxe.UInt64, ?extra:Map<String, StdTypes.Float>) this = new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult((n : stdgo.GoInt), t, (bytes : stdgo.GoInt64), (memAllocs : stdgo.GoUInt64), (memBytes : stdgo.GoUInt64), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoFloat64>();
+        for (key => value in extra) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoFloat64);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -482,16 +556,40 @@ _result,
         this.mode = (v : stdgo.GoString);
         return v;
     }
-    public var counters(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>;
-    function get_counters():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>> return this.counters;
-    function set_counters(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>> {
-        this.counters = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>);
+    public var counters(get, set) : Map<String, Array<std.UInt>>;
+    function get_counters():Map<String, Array<std.UInt>> return {
+        final __obj__:Map<String, Array<std.UInt>> = [];
+        for (key => value in this.counters) {
+            __obj__[key] = [for (i in value) i];
+        };
+        __obj__;
+    };
+    function set_counters(v:Map<String, Array<std.UInt>>):Map<String, Array<std.UInt>> {
+        this.counters = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var blocks(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>;
-    function get_blocks():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>> return this.blocks;
-    function set_blocks(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>> {
-        this.blocks = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>);
+    public var blocks(get, set) : Map<String, Array<CoverBlock>>;
+    function get_blocks():Map<String, Array<CoverBlock>> return {
+        final __obj__:Map<String, Array<CoverBlock>> = [];
+        for (key => value in this.blocks) {
+            __obj__[key] = [for (i in value) i];
+        };
+        __obj__;
+    };
+    function set_blocks(v:Map<String, Array<CoverBlock>>):Map<String, Array<CoverBlock>> {
+        this.blocks = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var coveredPackages(get, set) : String;
@@ -500,7 +598,19 @@ _result,
         this.coveredPackages = (v : stdgo.GoString);
         return v;
     }
-    public function new(?mode:String, ?counters:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>, ?blocks:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>, ?coveredPackages:String) this = new stdgo._internal.testing.Testing_cover.Cover((mode : stdgo.GoString), (counters : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>), (blocks : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>), (coveredPackages : stdgo.GoString));
+    public function new(?mode:String, ?counters:Map<String, Array<std.UInt>>, ?blocks:Map<String, Array<CoverBlock>>, ?coveredPackages:String) this = new stdgo._internal.testing.Testing_cover.Cover((mode : stdgo.GoString), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt32>>();
+        for (key => value in counters) {
+            __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>>();
+        for (key => value in blocks) {
+            __obj__[(key : stdgo.GoString)] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.testing.Testing_coverblock.CoverBlock>);
+        };
+        __obj__;
+    }, (coveredPackages : stdgo.GoString));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -540,13 +650,13 @@ _result,
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public var fn(get, set) : stdgo.Ref<stdgo._internal.testing.Testing_f.F> -> Void;
-    function get_fn():stdgo.Ref<stdgo._internal.testing.Testing_f.F> -> Void return _0 -> this.fn(_0);
-    function set_fn(v:stdgo.Ref<stdgo._internal.testing.Testing_f.F> -> Void):stdgo.Ref<stdgo._internal.testing.Testing_f.F> -> Void {
+    public var fn(get, set) : F -> Void;
+    function get_fn():F -> Void return _0 -> this.fn(_0);
+    function set_fn(v:F -> Void):F -> Void {
         this.fn = v;
         return v;
     }
-    public function new(?name:String, ?fn:stdgo.Ref<stdgo._internal.testing.Testing_f.F> -> Void) this = new stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget((name : stdgo.GoString), fn);
+    public function new(?name:String, ?fn:F -> Void) this = new stdgo._internal.testing.Testing_internalfuzztarget.InternalFuzzTarget((name : stdgo.GoString), fn);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -575,12 +685,12 @@ _result,
         this._inFuzzFn = v;
         return v;
     }
-    public var _corpus(get, set) : Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>;
-    function get__corpus():Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> return [for (i in this._corpus) {
+    public var _corpus(get, set) : Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>;
+    function get__corpus():Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> return [for (i in this._corpus) {
         final obj = i;
         { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
     }];
-    function set__corpus(v:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>):Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> {
+    function set__corpus(v:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>):Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> {
         this._corpus = ([for (i in v) {
             final obj = i;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
@@ -599,7 +709,7 @@ _result,
         this._fuzzCalled = v;
         return v;
     }
-    public function new(?_common:T_common, ?_fuzzContext:T_fuzzContext, ?_testContext:T_testContext, ?_inFuzzFn:Bool, ?_corpus:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, ?_result:T_fuzzResult, ?_fuzzCalled:Bool) this = new stdgo._internal.testing.Testing_f.F(_common, (_fuzzContext : stdgo.Ref<stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext>), (_testContext : stdgo.Ref<stdgo._internal.testing.Testing_t_testcontext.T_testContext>), _inFuzzFn, ([for (i in _corpus) {
+    public function new(?_common:T_common, ?_fuzzContext:T_fuzzContext, ?_testContext:T_testContext, ?_inFuzzFn:Bool, ?_corpus:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, ?_result:T_fuzzResult, ?_fuzzCalled:Bool) this = new stdgo._internal.testing.Testing_f.F(_common, (_fuzzContext : stdgo.Ref<stdgo._internal.testing.Testing_t_fuzzcontext.T_fuzzContext>), (_testContext : stdgo.Ref<stdgo._internal.testing.Testing_t_testcontext.T_testContext>), _inFuzzFn, ([for (i in _corpus) {
         final obj = i;
         { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
     }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>), _result, _fuzzCalled);
@@ -660,9 +770,9 @@ _result,
         this._skip = v;
         return v;
     }
-    public var _matchFunc(get, set) : (stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; };
-    function get__matchFunc():(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; } return (_0, _1) -> this._matchFunc(_0, _1);
-    function set__matchFunc(v:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; } {
+    public var _matchFunc(get, set) : (String, String) -> stdgo.Tuple<Bool, stdgo.Error>;
+    function get__matchFunc():(String, String) -> stdgo.Tuple<Bool, stdgo.Error> return (_0, _1) -> this._matchFunc(_0, _1);
+    function set__matchFunc(v:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):(String, String) -> stdgo.Tuple<Bool, stdgo.Error> {
         this._matchFunc = v;
         return v;
     }
@@ -672,13 +782,31 @@ _result,
         this._mu = v;
         return v;
     }
-    public var _subNames(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>;
-    function get__subNames():stdgo.GoMap<stdgo.GoString, stdgo.GoInt32> return this._subNames;
-    function set__subNames(v:stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>):stdgo.GoMap<stdgo.GoString, stdgo.GoInt32> {
-        this._subNames = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>);
+    public var _subNames(get, set) : Map<String, StdTypes.Int>;
+    function get__subNames():Map<String, StdTypes.Int> return {
+        final __obj__:Map<String, StdTypes.Int> = [];
+        for (key => value in this._subNames) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__subNames(v:Map<String, StdTypes.Int>):Map<String, StdTypes.Int> {
+        this._subNames = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt32);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_filter:T_filterMatch, ?_skip:T_filterMatch, ?_matchFunc:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_subNames:stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>) this = new stdgo._internal.testing.Testing_t_matcher.T_matcher(_filter, _skip, _matchFunc, _mu, (_subNames : stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>));
+    public function new(?_filter:T_filterMatch, ?_skip:T_filterMatch, ?_matchFunc:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_subNames:Map<String, StdTypes.Int>) this = new stdgo._internal.testing.Testing_t_matcher.T_matcher(_filter, _skip, _matchFunc, _mu, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>();
+        for (key => value in _subNames) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt32);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -771,16 +899,40 @@ _result,
         this._done = v;
         return v;
     }
-    public var _helperPCs(get, set) : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>;
-    function get__helperPCs():stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard> return this._helperPCs;
-    function set__helperPCs(v:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>):stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard> {
-        this._helperPCs = (v : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>);
+    public var _helperPCs(get, set) : Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>;
+    function get__helperPCs():Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard> return {
+        final __obj__:Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard> = [];
+        for (key => value in this._helperPCs) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__helperPCs(v:Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>):Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard> {
+        this._helperPCs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUIntptr)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _helperNames(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>;
-    function get__helperNames():stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard> return this._helperNames;
-    function set__helperNames(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>):stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard> {
-        this._helperNames = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>);
+    public var _helperNames(get, set) : Map<String, stdgo._internal.testing.Testing_t_discard.T_discard>;
+    function get__helperNames():Map<String, stdgo._internal.testing.Testing_t_discard.T_discard> return {
+        final __obj__:Map<String, stdgo._internal.testing.Testing_t_discard.T_discard> = [];
+        for (key => value in this._helperNames) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__helperNames(v:Map<String, stdgo._internal.testing.Testing_t_discard.T_discard>):Map<String, stdgo._internal.testing.Testing_t_discard.T_discard> {
+        this._helperNames = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _cleanups(get, set) : Array<() -> Void>;
@@ -933,7 +1085,7 @@ _result,
         this._tempDirSeq = (v : stdgo.GoInt32);
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_output:Array<std.UInt>, ?_w:stdgo._internal.io.Io_writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>, ?_helperNames:stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>, ?_cleanups:Array<() -> Void>, ?_cleanupName:String, ?_cleanupPc:Array<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:T_chattyPrinter, ?_bench:Bool, ?_hasSub:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_cleanupStarted:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_raceErrors:StdTypes.Int, ?_runner:String, ?_isParallel:Bool, ?_parent:T_common, ?_level:StdTypes.Int, ?_creator:Array<stdgo.GoUIntptr>, ?_name:String, ?_start:stdgo._internal.time.Time_time.Time, ?_duration:stdgo._internal.time.Time_duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:Array<T_>, ?_tempDirMu:stdgo._internal.sync.Sync_mutex.Mutex, ?_tempDir:String, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:StdTypes.Int, ?failCount) this = new stdgo._internal.testing.Testing_t_common.T_common(
+    public function new(?_mu:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_output:Array<std.UInt>, ?_w:stdgo._internal.io.Io_writer.Writer, ?_ran:Bool, ?_failed:Bool, ?_skipped:Bool, ?_done:Bool, ?_helperPCs:Map<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>, ?_helperNames:Map<String, stdgo._internal.testing.Testing_t_discard.T_discard>, ?_cleanups:Array<() -> Void>, ?_cleanupName:String, ?_cleanupPc:Array<stdgo.GoUIntptr>, ?_finished:Bool, ?_inFuzzFn:Bool, ?_chatty:T_chattyPrinter, ?_bench:Bool, ?_hasSub:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_cleanupStarted:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_raceErrors:StdTypes.Int, ?_runner:String, ?_isParallel:Bool, ?_parent:T_common, ?_level:StdTypes.Int, ?_creator:Array<stdgo.GoUIntptr>, ?_name:String, ?_start:stdgo._internal.time.Time_time.Time, ?_duration:stdgo._internal.time.Time_duration.Duration, ?_barrier:stdgo.Chan<Bool>, ?_signal:stdgo.Chan<Bool>, ?_sub:Array<T_>, ?_tempDirMu:stdgo._internal.sync.Sync_mutex.Mutex, ?_tempDir:String, ?_tempDirErr:stdgo.Error, ?_tempDirSeq:StdTypes.Int, ?failCount) this = new stdgo._internal.testing.Testing_t_common.T_common(
 _mu,
 ([for (i in _output) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 _w,
@@ -941,8 +1093,20 @@ _ran,
 _failed,
 _skipped,
 _done,
-(_helperPCs : stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>),
-(_helperNames : stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoUIntptr, stdgo._internal.testing.Testing_t_discard.T_discard>();
+        for (key => value in _helperPCs) {
+            __obj__[(key : stdgo.GoUIntptr)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.testing.Testing_t_discard.T_discard>();
+        for (key => value in _helperNames) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
 ([for (i in _cleanups) i] : stdgo.Slice<() -> Void>),
 (_cleanupName : stdgo.GoString),
 ([for (i in _cleanupPc) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>),
@@ -1013,13 +1177,13 @@ failCount);
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public var f(get, set) : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void;
-    function get_f():stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void return _0 -> this.f(_0);
-    function set_f(v:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void):stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void {
+    public var f(get, set) : T_ -> Void;
+    function get_f():T_ -> Void return _0 -> this.f(_0);
+    function set_f(v:T_ -> Void):T_ -> Void {
         this.f = v;
         return v;
     }
-    public function new(?name:String, ?f:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void) this = new stdgo._internal.testing.Testing_internaltest.InternalTest((name : stdgo.GoString), f);
+    public function new(?name:String, ?f:T_ -> Void) this = new stdgo._internal.testing.Testing_internaltest.InternalTest((name : stdgo.GoString), f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1173,7 +1337,7 @@ class B_static_extension {
         final _p = (_p : stdgo.GoInt);
         stdgo._internal.testing.Testing_b_static_extension.B_static_extension.setParallelism(_b, _p);
     }
-    static public function runParallel(_b:B, _body:stdgo.Ref<stdgo._internal.testing.Testing_pb.PB> -> Void):Void {
+    static public function runParallel(_b:B, _body:PB -> Void):Void {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         final _body = _body;
         stdgo._internal.testing.Testing_b_static_extension.B_static_extension.runParallel(_b, _body);
@@ -1186,7 +1350,7 @@ class B_static_extension {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         stdgo._internal.testing.Testing_b_static_extension.B_static_extension._add(_b, _other);
     }
-    static public function run(_b:B, _name:String, _f:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):Bool {
+    static public function run(_b:B, _name:String, _f:B -> Void):Bool {
         final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
         final _name = (_name : stdgo.GoString);
         final _f = _f;
@@ -1754,7 +1918,7 @@ class F_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function run(_t:T_, _name:String, _f:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void):Bool {
+    static public function run(_t:T_, _name:String, _f:T_ -> Void):Bool {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
         final _name = (_name : stdgo.GoString);
         final _f = _f;
@@ -1919,12 +2083,12 @@ class M_static_extension {
 }
 @:dox(hide) typedef T_simpleMatchPointer = stdgo._internal.testing.Testing_t_simplematchpointer.T_simpleMatchPointer;
 @:dox(hide) class T_simpleMatch_static_extension {
-    static public function _verify(_m:T_simpleMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
+    static public function _verify(_m:T_simpleMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
         return stdgo._internal.testing.Testing_t_simplematch_static_extension.T_simpleMatch_static_extension._verify(_m, _name, _matchString);
     }
-    static public function _matches(_m:T_simpleMatch, _name:Array<String>, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Tuple<Bool, Bool> {
+    static public function _matches(_m:T_simpleMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         final _matchString = _matchString;
         return {
@@ -1935,12 +2099,12 @@ class M_static_extension {
 }
 @:dox(hide) typedef T_alternationMatchPointer = stdgo._internal.testing.Testing_t_alternationmatchpointer.T_alternationMatchPointer;
 @:dox(hide) class T_alternationMatch_static_extension {
-    static public function _verify(_m:T_alternationMatch, _name:String, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Error {
+    static public function _verify(_m:T_alternationMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
         final _matchString = _matchString;
         return stdgo._internal.testing.Testing_t_alternationmatch_static_extension.T_alternationMatch_static_extension._verify(_m, _name, _matchString);
     }
-    static public function _matches(_m:T_alternationMatch, _name:Array<String>, _matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }):stdgo.Tuple<Bool, Bool> {
+    static public function _matches(_m:T_alternationMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         final _matchString = _matchString;
         return {
@@ -2407,7 +2571,7 @@ class Testing {
         * RunBenchmarks is an internal function but exported because it is cross-package;
         * it is part of the implementation of the "go test" command.
     **/
-    static public inline function runBenchmarks(_matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }, _benchmarks:Array<InternalBenchmark>):Void {
+    static public inline function runBenchmarks(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _benchmarks:Array<InternalBenchmark>):Void {
         final _matchString = _matchString;
         final _benchmarks = ([for (i in _benchmarks) i] : stdgo.Slice<stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark>);
         stdgo._internal.testing.Testing_runbenchmarks.runBenchmarks(_matchString, _benchmarks);
@@ -2422,7 +2586,7 @@ class Testing {
         * If f calls Run, the result will be an estimate of running all its
         * subbenchmarks that don't call Run in sequence in a single benchmark.
     **/
-    static public inline function benchmark(_f:stdgo.Ref<stdgo._internal.testing.Testing_b.B> -> Void):BenchmarkResult {
+    static public inline function benchmark(_f:B -> Void):BenchmarkResult {
         final _f = _f;
         return stdgo._internal.testing.Testing_benchmark.benchmark(_f);
     }
@@ -2450,7 +2614,7 @@ class Testing {
         * RunExamples is an internal function but exported because it is cross-package;
         * it is part of the implementation of the "go test" command.
     **/
-    static public inline function runExamples(_matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }, _examples:Array<InternalExample>):Bool {
+    static public inline function runExamples(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _examples:Array<InternalExample>):Bool {
         final _matchString = _matchString;
         final _examples = ([for (i in _examples) i] : stdgo.Slice<stdgo._internal.testing.Testing_internalexample.InternalExample>);
         return stdgo._internal.testing.Testing_runexamples.runExamples(_matchString, _examples);
@@ -2509,7 +2673,7 @@ class Testing {
         * RunTests is an internal function but exported because it is cross-package;
         * it is part of the implementation of the "go test" command.
     **/
-    static public inline function runTests(_matchString:(stdgo.GoString, stdgo.GoString) -> { var _0 : Bool; var _1 : stdgo.Error; }, _tests:Array<InternalTest>):Bool {
+    static public inline function runTests(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _tests:Array<InternalTest>):Bool {
         final _matchString = _matchString;
         final _tests = ([for (i in _tests) i] : stdgo.Slice<stdgo._internal.testing.Testing_internaltest.InternalTest>);
         return stdgo._internal.testing.Testing_runtests.runTests(_matchString, _tests);

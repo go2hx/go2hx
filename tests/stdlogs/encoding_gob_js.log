@@ -1,24 +1,17 @@
-[ERROR] ./stdgo/_internal/encoding/gob/Gob_testnilpointerpanics.hx:8: characters 117-124
+/home/runner/work/go2hx/go2hx/golibs/std_gob.js:32653
+	var gt = a.type._common();
+	                ^
 
- 8 |         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2 = (stdgo.Go.setRef(_intMap) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8 = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
-   |                                                                                                                     ^^^^^^^
-   | Unknown identifier : _intMap
+TypeError: Cannot read properties of undefined (reading '_common')
+    at stdgo_AnyInterface.equals (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:32653:18)
+    at stdgo_GoObjectMap.compare (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:44499:25)
+    at stdgo_GoObjectMap.exists (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:44164:17)
+    at stdgo__$internal_encoding_gob_Gob_$_$bootstraptype__bootstrapType (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:50602:116)
+    at /home/runner/work/go2hx/go2hx/golibs/std_gob.js:115162:55
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_gob.js:116421:3)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14)
+    at Object..js (node:internal/modules/cjs/loader:1899:10)
+    at Module.load (node:internal/modules/cjs/loader:1469:32)
+    at Function._load (node:internal/modules/cjs/loader:1286:12)
 
-    ->  /home/runner/haxe/versions/c4868e5/std/haxe/macro/Context.hx:504: characters 10-30
-
-    504 |   return load("typeof", 1)(e);
-        |          ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  stdgo/Go.macro.hx:476: characters 11-31
-
-    476 |   var t = Context.typeof(expr);
-        |           ^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
-    ->  ./stdgo/_internal/encoding/gob/Gob_testnilpointerpanics.hx:8: characters 101-125
-
-      8 |         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>) : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2 = (stdgo.Go.setRef(_intMap) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8 = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);
-        |                                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^
-        | Called from here
-
+Node.js v23.8.0

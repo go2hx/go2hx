@@ -10,31 +10,31 @@ package stdgo.internal.nettrace;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.nettrace.Nettrace.Trace_static_extension) abstract Trace(stdgo._internal.internal.nettrace.Nettrace_trace.Trace) from stdgo._internal.internal.nettrace.Nettrace_trace.Trace to stdgo._internal.internal.nettrace.Nettrace_trace.Trace {
-    public var dNSStart(get, set) : stdgo.GoString -> Void;
-    function get_dNSStart():stdgo.GoString -> Void return _0 -> this.dNSStart(_0);
-    function set_dNSStart(v:stdgo.GoString -> Void):stdgo.GoString -> Void {
+    public var dNSStart(get, set) : String -> Void;
+    function get_dNSStart():String -> Void return _0 -> this.dNSStart(_0);
+    function set_dNSStart(v:String -> Void):String -> Void {
         this.dNSStart = v;
         return v;
     }
-    public var dNSDone(get, set) : (stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void;
-    function get_dNSDone():(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void return (_0, _1, _2) -> this.dNSDone([for (i in _0) i], _1, _2);
-    function set_dNSDone(v:(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void):(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void {
+    public var dNSDone(get, set) : (Array<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void;
+    function get_dNSDone():(Array<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void return (_0, _1, _2) -> this.dNSDone([for (i in _0) i], _1, _2);
+    function set_dNSDone(v:(Array<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void):(Array<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void {
         this.dNSDone = v;
         return v;
     }
-    public var connectStart(get, set) : (stdgo.GoString, stdgo.GoString) -> Void;
-    function get_connectStart():(stdgo.GoString, stdgo.GoString) -> Void return (_0, _1) -> this.connectStart(_0, _1);
-    function set_connectStart(v:(stdgo.GoString, stdgo.GoString) -> Void):(stdgo.GoString, stdgo.GoString) -> Void {
+    public var connectStart(get, set) : (String, String) -> Void;
+    function get_connectStart():(String, String) -> Void return (_0, _1) -> this.connectStart(_0, _1);
+    function set_connectStart(v:(String, String) -> Void):(String, String) -> Void {
         this.connectStart = v;
         return v;
     }
-    public var connectDone(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void;
-    function get_connectDone():(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void return (_0, _1, _2) -> this.connectDone(_0, _1, _2);
-    function set_connectDone(v:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void):(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void {
+    public var connectDone(get, set) : (String, String, stdgo.Error) -> Void;
+    function get_connectDone():(String, String, stdgo.Error) -> Void return (_0, _1, _2) -> this.connectDone(_0, _1, _2);
+    function set_connectDone(v:(String, String, stdgo.Error) -> Void):(String, String, stdgo.Error) -> Void {
         this.connectDone = v;
         return v;
     }
-    public function new(?dNSStart:stdgo.GoString -> Void, ?dNSDone:(stdgo.Slice<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void, ?connectStart:(stdgo.GoString, stdgo.GoString) -> Void, ?connectDone:(stdgo.GoString, stdgo.GoString, stdgo.Error) -> Void) this = new stdgo._internal.internal.nettrace.Nettrace_trace.Trace(dNSStart, dNSDone, connectStart, connectDone);
+    public function new(?dNSStart:String -> Void, ?dNSDone:(Array<stdgo.AnyInterface>, Bool, stdgo.Error) -> Void, ?connectStart:(String, String) -> Void, ?connectDone:(String, String, stdgo.Error) -> Void) this = new stdgo._internal.internal.nettrace.Nettrace_trace.Trace(dNSStart, dNSDone, connectStart, connectDone);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

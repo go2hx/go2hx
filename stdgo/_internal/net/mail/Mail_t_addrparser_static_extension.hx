@@ -160,17 +160,17 @@ package stdgo._internal.net.mail;
     static public function _consumeAtom( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser>, _dot:Bool, _permissive:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser> = _p;
         var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _r_4212315:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
-        var _i_4212292:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _size_4212318:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_6:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _i_4212292 = (0 : stdgo.GoInt);
+                    _i_5 = (0 : stdgo.GoInt);
                     _gotoNext = 4212300i32;
                 } else if (__value__ == (4212300i32)) {
                     var __blank__ = 0i32;
@@ -184,15 +184,15 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4212311i32)) {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_4212292) : stdgo.GoString)?.__copy__());
-                        _r_4212315 = @:tmpset0 __tmp__._0;
-                        _size_4212318 = @:tmpset0 __tmp__._1;
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_5) : stdgo.GoString)?.__copy__());
+                        _r_6 = @:tmpset0 __tmp__._0;
+                        _size_7 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4212361i32;
                 } else if (__value__ == (4212361i32)) {
-                    if (((_size_4212318 == (1 : stdgo.GoInt)) && (_r_4212315 == (65533 : stdgo.GoInt32)) : Bool)) {
+                    if (((_size_7 == (1 : stdgo.GoInt)) && (_r_6 == (65533 : stdgo.GoInt32)) : Bool)) {
                         _gotoNext = 4212372i32;
-                    } else if (((_size_4212318 == (0 : stdgo.GoInt)) || !stdgo._internal.net.mail.Mail__isatext._isAtext(_r_4212315, _dot, _permissive) : Bool)) {
+                    } else if (((_size_7 == (0 : stdgo.GoInt)) || !stdgo._internal.net.mail.Mail__isatext._isAtext(_r_6, _dot, _permissive) : Bool)) {
                         _gotoNext = 4212482i32;
                     } else {
                         _gotoNext = 4212547i32;
@@ -209,10 +209,10 @@ package stdgo._internal.net.mail;
                     loopBreak = true;
                     _gotoNext = 4212307i32;
                 } else if (__value__ == (4212547i32)) {
-                    _i_4212292 = (_i_4212292 + (_size_4212318) : stdgo.GoInt);
+                    _i_5 = (_i_5 + (_size_7) : stdgo.GoInt);
                     _gotoNext = 4212307i32;
                 } else if (__value__ == (4212579i32)) {
-                    if (_i_4212292 == ((0 : stdgo.GoInt))) {
+                    if (_i_5 == ((0 : stdgo.GoInt))) {
                         _gotoNext = 4212589i32;
                     } else {
                         _gotoNext = 4212643i32;
@@ -227,8 +227,8 @@ package stdgo._internal.net.mail;
                     _gotoNext = 4212643i32;
                 } else if (__value__ == (4212643i32)) {
                     {
-                        final __tmp__0 = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(0, _i_4212292) : stdgo.GoString)?.__copy__();
-                        final __tmp__1 = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_4212292) : stdgo.GoString)?.__copy__();
+                        final __tmp__0 = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(0, _i_5) : stdgo.GoString)?.__copy__();
+                        final __tmp__1 = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_5) : stdgo.GoString)?.__copy__();
                         _atom = __tmp__0;
                         (@:checkr _p ?? throw "null pointer dereference")._s = __tmp__1;
                     };
@@ -297,21 +297,21 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_t_addrparser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _size_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_3:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
-        var _escaped_4210985:Bool = false;
-        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _escaped_2:Bool = false;
+        var _qsb_1:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _i_4210948 = (1 : stdgo.GoInt);
-                    _qsb_4210956 = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-                    _escaped_4210985 = false;
+                    _i_0 = (1 : stdgo.GoInt);
+                    _qsb_1 = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+                    _escaped_2 = false;
                     _gotoNext = 4211003i32;
                 } else if (__value__ == (4211003i32)) {
                     var __blank__ = 0i32;
@@ -325,23 +325,23 @@ package stdgo._internal.net.mail;
                     };
                 } else if (__value__ == (4211014i32)) {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_4210948) : stdgo.GoString)?.__copy__());
-                        _r_4211018 = @:tmpset0 __tmp__._0;
-                        _size_4211021 = @:tmpset0 __tmp__._1;
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decoderuneinstring.decodeRuneInString(((@:checkr _p ?? throw "null pointer dereference")._s.__slice__(_i_0) : stdgo.GoString)?.__copy__());
+                        _r_3 = @:tmpset0 __tmp__._0;
+                        _size_4 = @:tmpset0 __tmp__._1;
                     };
                     _gotoNext = 4211065i32;
                 } else if (__value__ == (4211065i32)) {
-                    if (_size_4211021 == ((0 : stdgo.GoInt))) {
+                    if (_size_4 == ((0 : stdgo.GoInt))) {
                         _gotoNext = 4211076i32;
-                    } else if (((_size_4211021 == (1 : stdgo.GoInt)) && (_r_4211018 == (65533 : stdgo.GoInt32)) : Bool)) {
+                    } else if (((_size_4 == (1 : stdgo.GoInt)) && (_r_3 == (65533 : stdgo.GoInt32)) : Bool)) {
                         _gotoNext = 4211152i32;
-                    } else if (_escaped_4210985) {
+                    } else if (_escaped_2) {
                         _gotoNext = 4211268i32;
-                    } else if ((stdgo._internal.net.mail.Mail__isqtext._isQtext(_r_4211018) || stdgo._internal.net.mail.Mail__iswsp._isWSP(_r_4211018) : Bool)) {
+                    } else if ((stdgo._internal.net.mail.Mail__isqtext._isQtext(_r_3) || stdgo._internal.net.mail.Mail__iswsp._isWSP(_r_3) : Bool)) {
                         _gotoNext = 4211482i32;
-                    } else if (_r_4211018 == ((34 : stdgo.GoInt32))) {
+                    } else if (_r_3 == ((34 : stdgo.GoInt32))) {
                         _gotoNext = 4211633i32;
-                    } else if (_r_4211018 == ((92 : stdgo.GoInt32))) {
+                    } else if (_r_3 == ((92 : stdgo.GoInt32))) {
                         _gotoNext = 4211665i32;
                     } else {
                         _gotoNext = 4211702i32;
@@ -363,47 +363,47 @@ package stdgo._internal.net.mail;
                     };
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211268i32)) {
-                    if ((!stdgo._internal.net.mail.Mail__isvchar._isVchar(_r_4211018) && !stdgo._internal.net.mail.Mail__iswsp._isWSP(_r_4211018) : Bool)) {
+                    if ((!stdgo._internal.net.mail.Mail__isvchar._isVchar(_r_3) && !stdgo._internal.net.mail.Mail__iswsp._isWSP(_r_3) : Bool)) {
                         _gotoNext = 4211355i32;
                     } else {
                         _gotoNext = 4211439i32;
                     };
                 } else if (__value__ == (4211355i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_3)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
                     _gotoNext = 4211439i32;
                 } else if (__value__ == (4211439i32)) {
-                    _qsb_4210956 = (_qsb_4210956.__append__(_r_4211018));
-                    _escaped_4210985 = false;
+                    _qsb_1 = (_qsb_1.__append__(_r_3));
+                    _escaped_2 = false;
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211482i32)) {
-                    _qsb_4210956 = (_qsb_4210956.__append__(_r_4211018));
+                    _qsb_1 = (_qsb_1.__append__(_r_3));
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211633i32)) {
                     loopBreak = true;
                     _gotoNext = 4211010i32;
                 } else if (__value__ == (4211665i32)) {
-                    _escaped_4210985 = true;
+                    _escaped_2 = true;
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211702i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_3)) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
                     _gotoNext = 4211791i32;
                 } else if (__value__ == (4211791i32)) {
-                    _i_4210948 = (_i_4210948 + (_size_4211021) : stdgo.GoInt);
+                    _i_0 = (_i_0 + (_size_4) : stdgo.GoInt);
                     _gotoNext = 4211010i32;
                 } else if (__value__ == (4211805i32)) {
-                    (@:checkr _p ?? throw "null pointer dereference")._s = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__((_i_4210948 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    (@:checkr _p ?? throw "null pointer dereference")._s = ((@:checkr _p ?? throw "null pointer dereference")._s.__slice__((_i_0 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (_qsb_4210956 : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (_qsb_1 : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
                         _qs = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;

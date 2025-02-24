@@ -1,9 +1,21 @@
 package stdgo.internal.coverage.cformat;
 @:structInit @:using(stdgo.internal.coverage.cformat.Cformat.Formatter_static_extension) abstract Formatter(stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter) from stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter to stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter {
-    public var _pm(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>;
-    function get__pm():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>> return this._pm;
-    function set__pm(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>> {
-        this._pm = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>);
+    public var _pm(get, set) : Map<String, T_pstate>;
+    function get__pm():Map<String, T_pstate> return {
+        final __obj__:Map<String, T_pstate> = [];
+        for (key => value in this._pm) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__pm(v:Map<String, T_pstate>):Map<String, T_pstate> {
+        this._pm = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _pkg(get, set) : String;
@@ -24,7 +36,13 @@ package stdgo.internal.coverage.cformat;
         this._cm = v;
         return v;
     }
-    public function new(?_pm:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>, ?_pkg:String, ?_p:T_pstate, ?_cm:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode) this = new stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter((_pm : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>), (_pkg : stdgo.GoString), (_p : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>), _cm);
+    public function new(?_pm:Map<String, T_pstate>, ?_pkg:String, ?_p:T_pstate, ?_cm:stdgo._internal.internal.coverage.Coverage_countermode.CounterMode) this = new stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter({
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>>();
+        for (key => value in _pm) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>);
+        };
+        __obj__;
+    }, (_pkg : stdgo.GoString), (_p : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>), _cm);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -35,19 +53,55 @@ package stdgo.internal.coverage.cformat;
         this._funcs = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile>);
         return v;
     }
-    public var _funcTable(get, set) : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>;
-    function get__funcTable():stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32> return this._funcTable;
-    function set__funcTable(v:stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>):stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32> {
-        this._funcTable = (v : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>);
+    public var _funcTable(get, set) : Map<T_fnfile, std.UInt>;
+    function get__funcTable():Map<T_fnfile, std.UInt> return {
+        final __obj__:Map<T_fnfile, std.UInt> = [];
+        for (key => value in this._funcTable) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__funcTable(v:Map<T_fnfile, std.UInt>):Map<T_fnfile, std.UInt> {
+        this._funcTable = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>();
+            for (key => value in v) {
+                __obj__[key] = (value : stdgo.GoUInt32);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _unitTable(get, set) : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>;
-    function get__unitTable():stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32> return this._unitTable;
-    function set__unitTable(v:stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>):stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32> {
-        this._unitTable = (v : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>);
+    public var _unitTable(get, set) : Map<T_extcu, std.UInt>;
+    function get__unitTable():Map<T_extcu, std.UInt> return {
+        final __obj__:Map<T_extcu, std.UInt> = [];
+        for (key => value in this._unitTable) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__unitTable(v:Map<T_extcu, std.UInt>):Map<T_extcu, std.UInt> {
+        this._unitTable = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>();
+            for (key => value in v) {
+                __obj__[key] = (value : stdgo.GoUInt32);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_funcs:Array<T_fnfile>, ?_funcTable:stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>, ?_unitTable:stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>) this = new stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate(([for (i in _funcs) i] : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile>), (_funcTable : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>), (_unitTable : stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>));
+    public function new(?_funcs:Array<T_fnfile>, ?_funcTable:Map<T_fnfile, std.UInt>, ?_unitTable:Map<T_extcu, std.UInt>) this = new stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate(([for (i in _funcs) i] : stdgo.Slice<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile>), {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile, stdgo.GoUInt32>();
+        for (key => value in _funcTable) {
+            __obj__[key] = (value : stdgo.GoUInt32);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu, stdgo.GoUInt32>();
+        for (key => value in _unitTable) {
+            __obj__[key] = (value : stdgo.GoUInt32);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

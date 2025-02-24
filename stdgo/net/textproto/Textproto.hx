@@ -41,13 +41,31 @@ package stdgo.net.textproto;
         this._id = (v : stdgo.GoUInt);
         return v;
     }
-    public var _wait(get, set) : stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>;
-    function get__wait():stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>> return this._wait;
-    function set__wait(v:stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>):stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>> {
-        this._wait = (v : stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>);
+    public var _wait(get, set) : Map<std.UInt, stdgo.Chan<{ }>>;
+    function get__wait():Map<std.UInt, stdgo.Chan<{ }>> return {
+        final __obj__:Map<std.UInt, stdgo.Chan<{ }>> = [];
+        for (key => value in this._wait) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__wait(v:Map<std.UInt, stdgo.Chan<{ }>>):Map<std.UInt, stdgo.Chan<{ }>> {
+        this._wait = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt)] = (value : stdgo.Chan<{ }>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_id:std.UInt, ?_wait:stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>) this = new stdgo._internal.net.textproto.Textproto_t_sequencer.T_sequencer(_mu, (_id : stdgo.GoUInt), (_wait : stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>));
+    public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_id:std.UInt, ?_wait:Map<std.UInt, stdgo.Chan<{ }>>) this = new stdgo._internal.net.textproto.Textproto_t_sequencer.T_sequencer(_mu, (_id : stdgo.GoUInt), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt, stdgo.Chan<{ }>>();
+        for (key => value in _wait) {
+            __obj__[(key : stdgo.GoUInt)] = (value : stdgo.Chan<{ }>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -281,7 +299,7 @@ class Reader_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>);
         return stdgo._internal.net.textproto.Textproto_reader_static_extension.Reader_static_extension._skipSpace(_r);
     }
-    static public function _readContinuedLineSlice(_r:Reader, _validateFirstLine:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    static public function _readContinuedLineSlice(_r:Reader, _validateFirstLine:Array<std.UInt> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>);
         final _validateFirstLine = _validateFirstLine;
         return {
@@ -369,7 +387,7 @@ class Conn_static_extension {
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function _readContinuedLineSlice(__self__:stdgo._internal.net.textproto.Textproto_conn.Conn, _0:stdgo.Slice<stdgo.GoUInt8> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function _readContinuedLineSlice(__self__:stdgo._internal.net.textproto.Textproto_conn.Conn, _0:Array<std.UInt> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _0 = _0;
         return {
             final obj = stdgo._internal.net.textproto.Textproto_conn_static_extension.Conn_static_extension._readContinuedLineSlice(__self__, _0);

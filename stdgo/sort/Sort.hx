@@ -14,21 +14,29 @@ class Interface_static_extension {
         return stdgo._internal.sort.Sort_interface_static_extension.Interface_static_extension.len(t);
     }
 }
-typedef Interface = stdgo._internal.sort.Sort_interface.Interface;
+@:interface @:forward abstract Interface(stdgo._internal.sort.Sort_interface.Interface) from stdgo._internal.sort.Sort_interface.Interface to stdgo._internal.sort.Sort_interface.Interface {
+    @:from
+    static function fromHaxeInterface(x:{ function len():StdTypes.Int; function less(_i:StdTypes.Int, _j:StdTypes.Int):Bool; function swap(_i:StdTypes.Int, _j:StdTypes.Int):Void; }):Interface {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Interface = { len : () -> x.len(), less : (_0, _1) -> x.less(_0, _1), swap : (_0, _1) -> x.swap(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.sort.Sort.T_lessSwap_static_extension) @:dox(hide) abstract T_lessSwap(stdgo._internal.sort.Sort_t_lessswap.T_lessSwap) from stdgo._internal.sort.Sort_t_lessswap.T_lessSwap to stdgo._internal.sort.Sort_t_lessswap.T_lessSwap {
-    public var less(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Bool;
-    function get_less():(stdgo.GoInt, stdgo.GoInt) -> Bool return (_0, _1) -> this.less(_0, _1);
-    function set_less(v:(stdgo.GoInt, stdgo.GoInt) -> Bool):(stdgo.GoInt, stdgo.GoInt) -> Bool {
+    public var less(get, set) : (StdTypes.Int, StdTypes.Int) -> Bool;
+    function get_less():(StdTypes.Int, StdTypes.Int) -> Bool return (_0, _1) -> this.less(_0, _1);
+    function set_less(v:(StdTypes.Int, StdTypes.Int) -> Bool):(StdTypes.Int, StdTypes.Int) -> Bool {
         this.less = v;
         return v;
     }
-    public var swap(get, set) : (stdgo.GoInt, stdgo.GoInt) -> Void;
-    function get_swap():(stdgo.GoInt, stdgo.GoInt) -> Void return (_0, _1) -> this.swap(_0, _1);
-    function set_swap(v:(stdgo.GoInt, stdgo.GoInt) -> Void):(stdgo.GoInt, stdgo.GoInt) -> Void {
+    public var swap(get, set) : (StdTypes.Int, StdTypes.Int) -> Void;
+    function get_swap():(StdTypes.Int, StdTypes.Int) -> Void return (_0, _1) -> this.swap(_0, _1);
+    function set_swap(v:(StdTypes.Int, StdTypes.Int) -> Void):(StdTypes.Int, StdTypes.Int) -> Void {
         this.swap = v;
         return v;
     }
-    public function new(?less:(stdgo.GoInt, stdgo.GoInt) -> Bool, ?swap:(stdgo.GoInt, stdgo.GoInt) -> Void) this = new stdgo._internal.sort.Sort_t_lessswap.T_lessSwap(less, swap);
+    public function new(?less:(StdTypes.Int, StdTypes.Int) -> Bool, ?swap:(StdTypes.Int, StdTypes.Int) -> Void) this = new stdgo._internal.sort.Sort_t_lessswap.T_lessSwap(less, swap);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -210,7 +218,7 @@ class Sort {
         * 		fmt.Printf("Your number is %d.\n", answer)
         * 	}
     **/
-    static public inline function search(_n:StdTypes.Int, _f:stdgo.GoInt -> Bool):StdTypes.Int {
+    static public inline function search(_n:StdTypes.Int, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _n = (_n : stdgo.GoInt);
         final _f = _f;
         return stdgo._internal.sort.Sort_search.search(_n, _f);
@@ -241,7 +249,7 @@ class Sort {
         * 	    fmt.Printf("%s not found, would insert at %d", target, i)
         * 	}
     **/
-    static public inline function find(_n:StdTypes.Int, _cmp:stdgo.GoInt -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public inline function find(_n:StdTypes.Int, _cmp:StdTypes.Int -> StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
         final _n = (_n : stdgo.GoInt);
         final _cmp = _cmp;
         return {
@@ -293,7 +301,7 @@ class Sort {
         * The less function must satisfy the same requirements as
         * the Interface type's Less method.
     **/
-    static public inline function slice(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+    static public inline function slice(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Void {
         final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         stdgo._internal.sort.Sort_slice.slice(_x, _less);
@@ -306,7 +314,7 @@ class Sort {
         * The less function must satisfy the same requirements as
         * the Interface type's Less method.
     **/
-    static public inline function sliceStable(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Void {
+    static public inline function sliceStable(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Void {
         final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         stdgo._internal.sort.Sort_slicestable.sliceStable(_x, _less);
@@ -315,7 +323,7 @@ class Sort {
         * SliceIsSorted reports whether the slice x is sorted according to the provided less function.
         * It panics if x is not a slice.
     **/
-    static public inline function sliceIsSorted(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -> Bool):Bool {
+    static public inline function sliceIsSorted(_x:stdgo.AnyInterface, _less:(StdTypes.Int, StdTypes.Int) -> Bool):Bool {
         final _x = (_x : stdgo.AnyInterface);
         final _less = _less;
         return stdgo._internal.sort.Sort_sliceissorted.sliceIsSorted(_x, _less);

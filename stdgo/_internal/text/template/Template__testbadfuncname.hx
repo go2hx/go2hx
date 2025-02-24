@@ -6,7 +6,11 @@ function _testBadFuncName(_name:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.tes
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
-                        stdgo._internal.text.template.Template__recover._recover();
+                        ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
                     };
                     a();
                 }) });

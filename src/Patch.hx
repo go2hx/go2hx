@@ -104,7 +104,7 @@ final list = [
 				var result = "";
 		
 				for (i in 0...length) {
-					var randomIndex = Math.floor(Math.random() * chars.length);
+					var randomIndex = std.Math.floor(std.Math.random() * chars.length);
 					result += chars.charAt(randomIndex);
 				}
 		
@@ -205,6 +205,13 @@ final list = [
 		}
 		deleteRecursively(_path);
 		return null;
+	},
+	"os.File:readFrom" => macro {
+		final data = stdgo._internal.io.Io_readall.readAll(_r);
+		if (data._1 != null)
+			return {_0: 0, _1: data._1};
+		final obj = _f.write(data._0);
+		return {_0: obj._0, _1: obj._1};
 	},
 	"os:readFile" => macro {
 		return @:define("(sys || hxnodejs)") {
@@ -582,6 +589,8 @@ final list = [
 		std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647)),
 	// stdgo/runtime
 	// :)
+	// (pc uintptr, file string, line int, ok bool)
+	"runtime:caller" => macro  return { _0 : new stdgo.GoUIntptr(0), _1 : "", _2 : 0, _3 : false },
 	"runtime:numCPU" => macro return 1,
 	"runtime:compiler" => macro "go2hx",
 	"runtime:gOMAXPROCS" => macro return 1,
@@ -1642,6 +1651,7 @@ final list = [
 		var m = new stdgo._internal.testing.Testing_m.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
 		return m;
 	},
+	"testing:testing" => macro return true,
 	"testing:coverMode" => macro return "",
 	"testing:short" => macro return true,
 	"testing:allocsPerRun" => macro return 0,

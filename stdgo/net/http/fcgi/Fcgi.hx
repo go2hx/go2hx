@@ -24,10 +24,22 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
         this._reqId = (v : stdgo.GoUInt16);
         return v;
     }
-    public var _params(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__params():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._params;
-    function set__params(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._params = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _params(get, set) : Map<String, String>;
+    function get__params():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._params) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__params(v:Map<String, String>):Map<String, String> {
+        this._params = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _buf(get, set) : haxe.ds.Vector<std.UInt>;
@@ -48,7 +60,13 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
         this._keepConn = v;
         return v;
     }
-    public function new(?_pw:stdgo._internal.io.Io_pipewriter.PipeWriter, ?_reqId:std.UInt, ?_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_buf:haxe.ds.Vector<std.UInt>, ?_rawParams:Array<std.UInt>, ?_keepConn:Bool) this = new stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request((_pw : stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter>), (_reqId : stdgo.GoUInt16), (_params : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _rawParams) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _keepConn);
+    public function new(?_pw:stdgo._internal.io.Io_pipewriter.PipeWriter, ?_reqId:std.UInt, ?_params:Map<String, String>, ?_buf:haxe.ds.Vector<std.UInt>, ?_rawParams:Array<std.UInt>, ?_keepConn:Bool) this = new stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request((_pw : stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter>), (_reqId : stdgo.GoUInt16), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _params) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    }, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), ([for (i in _rawParams) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _keepConn);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -111,13 +129,31 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
         this._handler = v;
         return v;
     }
-    public var _requests(get, set) : stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>;
-    function get__requests():stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>> return this._requests;
-    function set__requests(v:stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>):stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>> {
-        this._requests = (v : stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>);
+    public var _requests(get, set) : Map<std.UInt, T_request>;
+    function get__requests():Map<std.UInt, T_request> return {
+        final __obj__:Map<std.UInt, T_request> = [];
+        for (key => value in this._requests) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__requests(v:Map<std.UInt, T_request>):Map<std.UInt, T_request> {
+        this._requests = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt16)] = (value : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_conn:T_conn, ?_handler:stdgo._internal.net.http.Http_handler.Handler, ?_requests:stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>) this = new stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child((_conn : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn>), _handler, (_requests : stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>));
+    public function new(?_conn:T_conn, ?_handler:stdgo._internal.net.http.Http_handler.Handler, ?_requests:Map<std.UInt, T_request>) this = new stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child((_conn : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn>), _handler, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>>();
+        for (key => value in _requests) {
+            __obj__[(key : stdgo.GoUInt16)] = (value : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_request.T_request>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -368,10 +404,16 @@ private function set_errConnClosed(v:stdgo.Error):stdgo.Error {
 }
 @:dox(hide) typedef T_connPointer = stdgo._internal.net.http.fcgi.Fcgi_t_connpointer.T_connPointer;
 @:dox(hide) class T_conn_static_extension {
-    static public function _writePairs(_c:T_conn, _recType:T_recType, _reqId:std.UInt, _pairs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
+    static public function _writePairs(_c:T_conn, _recType:T_recType, _reqId:std.UInt, _pairs:Map<String, String>):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_conn.T_conn>);
         final _reqId = (_reqId : stdgo.GoUInt16);
-        final _pairs = (_pairs : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _pairs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _pairs) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return stdgo._internal.net.http.fcgi.Fcgi_t_conn_static_extension.T_conn_static_extension._writePairs(_c, _recType, _reqId, _pairs);
     }
     static public function _writeEndRequest(_c:T_conn, _reqId:std.UInt, _appStatus:StdTypes.Int, _protocolStatus:std.UInt):stdgo.Error {
@@ -504,8 +546,14 @@ class Fcgi {
         * request, it will not be found anywhere in r, but it will be included in
         * ProcessEnv's response (via r's context).
     **/
-    static public inline function processEnv(_r:stdgo._internal.net.http.Http_request.Request):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
+    static public inline function processEnv(_r:stdgo._internal.net.http.Http_request.Request):Map<String, String> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
-        return stdgo._internal.net.http.fcgi.Fcgi_processenv.processEnv(_r);
+        return {
+            final __obj__:Map<String, String> = [];
+            for (key => value in stdgo._internal.net.http.fcgi.Fcgi_processenv.processEnv(_r)) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
     }
 }

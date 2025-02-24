@@ -8,21 +8,65 @@ private function set_errMessageTooLarge(v:stdgo.Error):stdgo.Error {
 class File_static_extension {
 
 }
-typedef File = stdgo._internal.mime.multipart.Multipart_file.File;
+@:interface @:forward abstract File(stdgo._internal.mime.multipart.Multipart_file.File) from stdgo._internal.mime.multipart.Multipart_file.File to stdgo._internal.mime.multipart.Multipart_file.File {
+    @:from
+    static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readAt(_0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; function close():stdgo.Error; }):File {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:File = { read : _0 -> x.read([for (i in _0) i]), readAt : (_0, _1) -> x.readAt([for (i in _0) i], _1), seek : (_0, _1) -> x.seek(_0, _1), close : () -> x.close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.mime.multipart.Multipart.Form_static_extension) abstract Form(stdgo._internal.mime.multipart.Multipart_form.Form) from stdgo._internal.mime.multipart.Multipart_form.Form to stdgo._internal.mime.multipart.Multipart_form.Form {
-    public var value(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>;
-    function get_value():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>> return this.value;
-    function set_value(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>> {
-        this.value = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>);
+    public var value(get, set) : Map<String, Array<String>>;
+    function get_value():Map<String, Array<String>> return {
+        final __obj__:Map<String, Array<String>> = [];
+        for (key => value in this.value) {
+            __obj__[key] = [for (i in value) i];
+        };
+        __obj__;
+    };
+    function set_value(v:Map<String, Array<String>>):Map<String, Array<String>> {
+        this.value = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var file(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>;
-    function get_file():stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>> return this.file;
-    function set_file(v:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>):stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>> {
-        this.file = (v : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>);
+    public var file(get, set) : Map<String, Array<FileHeader>>;
+    function get_file():Map<String, Array<FileHeader>> return {
+        final __obj__:Map<String, Array<FileHeader>> = [];
+        for (key => value in this.file) {
+            __obj__[key] = [for (i in value) i];
+        };
+        __obj__;
+    };
+    function set_file(v:Map<String, Array<FileHeader>>):Map<String, Array<FileHeader>> {
+        this.file = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?value:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>, ?file:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>) this = new stdgo._internal.mime.multipart.Multipart_form.Form((value : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>), (file : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>));
+    public function new(?value:Map<String, Array<String>>, ?file:Map<String, Array<FileHeader>>) this = new stdgo._internal.mime.multipart.Multipart_form.Form({
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>();
+        for (key => value in value) {
+            __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>();
+        for (key => value in file) {
+            __obj__[(key : stdgo.GoString)] = ([for (i in value) (i : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -109,10 +153,22 @@ typedef File = stdgo._internal.mime.multipart.Multipart_file.File;
         this._disposition = (v : stdgo.GoString);
         return v;
     }
-    public var _dispositionParams(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__dispositionParams():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._dispositionParams;
-    function set__dispositionParams(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._dispositionParams = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _dispositionParams(get, set) : Map<String, String>;
+    function get__dispositionParams():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._dispositionParams) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__dispositionParams(v:Map<String, String>):Map<String, String> {
+        this._dispositionParams = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _r(get, set) : stdgo._internal.io.Io_reader.Reader;
@@ -145,7 +201,13 @@ typedef File = stdgo._internal.mime.multipart.Multipart_file.File;
         this._readErr = (v : stdgo.Error);
         return v;
     }
-    public function new(?header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, ?_mr:Reader, ?_disposition:String, ?_dispositionParams:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_n:StdTypes.Int, ?_total:haxe.Int64, ?_err:stdgo.Error, ?_readErr:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_part.Part(header, (_mr : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>), (_disposition : stdgo.GoString), (_dispositionParams : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _r, (_n : stdgo.GoInt), (_total : stdgo.GoInt64), (_err : stdgo.Error), (_readErr : stdgo.Error));
+    public function new(?header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader, ?_mr:Reader, ?_disposition:String, ?_dispositionParams:Map<String, String>, ?_r:stdgo._internal.io.Io_reader.Reader, ?_n:StdTypes.Int, ?_total:haxe.Int64, ?_err:stdgo.Error, ?_readErr:stdgo.Error) this = new stdgo._internal.mime.multipart.Multipart_part.Part(header, (_mr : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>), (_disposition : stdgo.GoString), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _dispositionParams) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    }, _r, (_n : stdgo.GoInt), (_total : stdgo.GoInt64), (_err : stdgo.Error), (_readErr : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -28,7 +28,15 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
 @:dox(hide) class T_fileInfoDirEntry_static_extension {
 
 }
-@:dox(hide) typedef T_fileInfoDirEntry = stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry;
+@:interface @:dox(hide) @:forward abstract T_fileInfoDirEntry(stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry) from stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry to stdgo._internal.archive.zip.Zip_t_fileinfodirentry.T_fileInfoDirEntry {
+    @:from
+    static function fromHaxeInterface(x:{ function isDir():Bool; function modTime():stdgo._internal.time.Time_time.Time; function mode():stdgo._internal.io.fs.Fs_filemode.FileMode; function name():String; function size():haxe.Int64; function sys():stdgo.AnyInterface; function info():stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>; function type():stdgo._internal.io.fs.Fs_filemode.FileMode; }):T_fileInfoDirEntry {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_fileInfoDirEntry = { isDir : () -> x.isDir(), modTime : () -> x.modTime(), mode : () -> x.mode(), name : () -> x.name(), size : () -> x.size(), sys : () -> x.sys(), info : () -> x.info(), type : () -> x.type(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.archive.zip.Zip.Reader_static_extension) abstract Reader(stdgo._internal.archive.zip.Zip_reader.Reader) from stdgo._internal.archive.zip.Zip_reader.Reader to stdgo._internal.archive.zip.Zip_reader.Reader {
     public var _r(get, set) : stdgo._internal.io.Io_readerat.ReaderAt;
     function get__r():stdgo._internal.io.Io_readerat.ReaderAt return this._r;
@@ -48,10 +56,22 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         this.comment = (v : stdgo.GoString);
         return v;
     }
-    public var _decompressors(get, set) : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>;
-    function get__decompressors():stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor> return this._decompressors;
-    function set__decompressors(v:stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>):stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor> {
-        this._decompressors = (v : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>);
+    public var _decompressors(get, set) : Map<std.UInt, Decompressor>;
+    function get__decompressors():Map<std.UInt, Decompressor> return {
+        final __obj__:Map<std.UInt, Decompressor> = [];
+        for (key => value in this._decompressors) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__decompressors(v:Map<std.UInt, Decompressor>):Map<std.UInt, Decompressor> {
+        this._decompressors = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt16)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _baseOffset(get, set) : haxe.Int64;
@@ -72,7 +92,13 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         this._fileList = ([for (i in v) i] : stdgo.Slice<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>);
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io_readerat.ReaderAt, ?file:Array<File>, ?comment:String, ?_decompressors:stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>, ?_baseOffset:haxe.Int64, ?_fileListOnce:stdgo._internal.sync.Sync_once.Once, ?_fileList:Array<T_fileListEntry>) this = new stdgo._internal.archive.zip.Zip_reader.Reader(_r, ([for (i in file) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>>), (comment : stdgo.GoString), (_decompressors : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>), (_baseOffset : stdgo.GoInt64), _fileListOnce, ([for (i in _fileList) i] : stdgo.Slice<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>));
+    public function new(?_r:stdgo._internal.io.Io_readerat.ReaderAt, ?file:Array<File>, ?comment:String, ?_decompressors:Map<std.UInt, Decompressor>, ?_baseOffset:haxe.Int64, ?_fileListOnce:stdgo._internal.sync.Sync_once.Once, ?_fileList:Array<T_fileListEntry>) this = new stdgo._internal.archive.zip.Zip_reader.Reader(_r, ([for (i in file) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>>), (comment : stdgo.GoString), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_decompressor.Decompressor>();
+        for (key => value in _decompressors) {
+            __obj__[(key : stdgo.GoUInt16)] = value;
+        };
+        __obj__;
+    }, (_baseOffset : stdgo.GoInt64), _fileListOnce, ([for (i in _fileList) i] : stdgo.Slice<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -479,10 +505,22 @@ modified,
         this._closed = v;
         return v;
     }
-    public var _compressors(get, set) : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>;
-    function get__compressors():stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor> return this._compressors;
-    function set__compressors(v:stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>):stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor> {
-        this._compressors = (v : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>);
+    public var _compressors(get, set) : Map<std.UInt, Compressor>;
+    function get__compressors():Map<std.UInt, Compressor> return {
+        final __obj__:Map<std.UInt, Compressor> = [];
+        for (key => value in this._compressors) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__compressors(v:Map<std.UInt, Compressor>):Map<std.UInt, Compressor> {
+        this._compressors = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoUInt16)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var _comment(get, set) : String;
@@ -491,13 +529,19 @@ modified,
         this._comment = (v : stdgo.GoString);
         return v;
     }
-    public var _testHookCloseSizeOffset(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> Void;
-    function get__testHookCloseSizeOffset():(stdgo.GoUInt64, stdgo.GoUInt64) -> Void return (_0, _1) -> this._testHookCloseSizeOffset(_0, _1);
-    function set__testHookCloseSizeOffset(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> Void):(stdgo.GoUInt64, stdgo.GoUInt64) -> Void {
+    public var _testHookCloseSizeOffset(get, set) : (haxe.UInt64, haxe.UInt64) -> Void;
+    function get__testHookCloseSizeOffset():(haxe.UInt64, haxe.UInt64) -> Void return (_0, _1) -> this._testHookCloseSizeOffset(_0, _1);
+    function set__testHookCloseSizeOffset(v:(haxe.UInt64, haxe.UInt64) -> Void):(haxe.UInt64, haxe.UInt64) -> Void {
         this._testHookCloseSizeOffset = v;
         return v;
     }
-    public function new(?_cw:T_countWriter, ?_dir:Array<T_header>, ?_last:T_fileWriter, ?_closed:Bool, ?_compressors:stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>, ?_comment:String, ?_testHookCloseSizeOffset:(stdgo.GoUInt64, stdgo.GoUInt64) -> Void) this = new stdgo._internal.archive.zip.Zip_writer.Writer((_cw : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_countwriter.T_countWriter>), ([for (i in _dir) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>>), (_last : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>), _closed, (_compressors : stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>), (_comment : stdgo.GoString), _testHookCloseSizeOffset);
+    public function new(?_cw:T_countWriter, ?_dir:Array<T_header>, ?_last:T_fileWriter, ?_closed:Bool, ?_compressors:Map<std.UInt, Compressor>, ?_comment:String, ?_testHookCloseSizeOffset:(haxe.UInt64, haxe.UInt64) -> Void) this = new stdgo._internal.archive.zip.Zip_writer.Writer((_cw : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_countwriter.T_countWriter>), ([for (i in _dir) (i : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>>), (_last : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>), _closed, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoUInt16, stdgo._internal.archive.zip.Zip_compressor.Compressor>();
+        for (key => value in _compressors) {
+            __obj__[(key : stdgo.GoUInt16)] = value;
+        };
+        __obj__;
+    }, (_comment : stdgo.GoString), _testHookCloseSizeOffset);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

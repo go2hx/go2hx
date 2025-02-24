@@ -1768,7 +1768,7 @@ class Int__static_extension {
     public static function unreadRune(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader):stdgo.Error {
         return stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.unreadRune(__self__);
     }
-    public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:stdgo.GoInt32 -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _1 = _1;
         return {
             final obj = stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.token(__self__, _0, _1);

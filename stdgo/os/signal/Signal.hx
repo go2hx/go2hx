@@ -4,7 +4,15 @@ package stdgo.os.signal;
         return stdgo._internal.os.signal.Signal_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) typedef T_stringer = stdgo._internal.os.signal.Signal_t_stringer.T_stringer;
+@:interface @:dox(hide) @:forward abstract T_stringer(stdgo._internal.os.signal.Signal_t_stringer.T_stringer) from stdgo._internal.os.signal.Signal_t_stringer.T_stringer to stdgo._internal.os.signal.Signal_t_stringer.T_stringer {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stringer = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.os.signal.Signal.T_stopping_static_extension) @:dox(hide) abstract T_stopping(stdgo._internal.os.signal.Signal_t_stopping.T_stopping) from stdgo._internal.os.signal.Signal_t_stopping.T_stopping to stdgo._internal.os.signal.Signal_t_stopping.T_stopping {
     public var _c(get, set) : stdgo.Chan<stdgo._internal.os.Os_signal.Signal>;
     function get__c():stdgo.Chan<stdgo._internal.os.Os_signal.Signal> return this._c;

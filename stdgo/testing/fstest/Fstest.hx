@@ -390,7 +390,7 @@ class MapFile_static_extension {
 }
 @:dox(hide) typedef T_fsTesterPointer = stdgo._internal.testing.fstest.Fstest_t_fstesterpointer.T_fsTesterPointer;
 @:dox(hide) class T_fsTester_static_extension {
-    static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:stdgo.GoString -> stdgo.Error):Void {
+    static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:String -> stdgo.Error):Void {
         final _t = (_t : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_fstester.T_fsTester>);
         final _file = (_file : stdgo.GoString);
         final _desc = (_desc : stdgo.GoString);

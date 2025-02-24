@@ -8,13 +8,13 @@ private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
         return v;
     }
 @:structInit @:using(stdgo.mime.Mime.WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_worddecoder.WordDecoder) from stdgo._internal.mime.Mime_worddecoder.WordDecoder to stdgo._internal.mime.Mime_worddecoder.WordDecoder {
-    public var charsetReader(get, set) : (stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
-    function get_charsetReader():(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return (_0, _1) -> this.charsetReader(_0, _1);
-    function set_charsetReader(v:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
+    public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
+    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
+    function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
         this.charsetReader = v;
         return v;
     }
-    public function new(?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder(charsetReader);
+    public function new(?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder(charsetReader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -91,9 +91,15 @@ class Mime {
         * When any of the arguments result in a standard violation then
         * FormatMediaType returns the empty string.
     **/
-    static public inline function formatMediaType(_t:String, _param:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):String {
+    static public inline function formatMediaType(_t:String, _param:Map<String, String>):String {
         final _t = (_t : stdgo.GoString);
-        final _param = (_param : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _param = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _param) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return stdgo._internal.mime.Mime_formatmediatype.formatMediaType(_t, _param);
     }
     /**
@@ -108,11 +114,17 @@ class Mime {
         * The returned map, params, maps from the lowercase
         * attribute to the attribute value with its case preserved.
     **/
-    static public inline function parseMediaType(_v:String):stdgo.Tuple.Tuple3<String, stdgo.GoMap<stdgo.GoString, stdgo.GoString>, stdgo.Error> {
+    static public inline function parseMediaType(_v:String):stdgo.Tuple.Tuple3<String, Map<String, String>, stdgo.Error> {
         final _v = (_v : stdgo.GoString);
         return {
             final obj = stdgo._internal.mime.Mime_parsemediatype.parseMediaType(_v);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+            { _0 : obj._0, _1 : {
+                final __obj__:Map<String, String> = [];
+                for (key => value in obj._1) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            }, _2 : obj._2 };
         };
     }
     /**

@@ -18,13 +18,31 @@ package stdgo.plugin;
         this._loaded = (v : stdgo.Chan<{ }>);
         return v;
     }
-    public var _syms(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
-    function get__syms():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._syms;
-    function set__syms(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._syms = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    public var _syms(get, set) : Map<String, stdgo.AnyInterface>;
+    function get__syms():Map<String, stdgo.AnyInterface> return {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in this._syms) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__syms(v:Map<String, stdgo.AnyInterface>):Map<String, stdgo.AnyInterface> {
+        this._syms = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_plugin.Plugin((_pluginpath : stdgo.GoString), (_err : stdgo.GoString), (_loaded : stdgo.Chan<{ }>), (_syms : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>));
+    public function new(?_pluginpath:String, ?_err:String, ?_loaded:stdgo.Chan<{ }>, ?_syms:Map<String, stdgo.AnyInterface>) this = new stdgo._internal.plugin.Plugin_plugin.Plugin((_pluginpath : stdgo.GoString), (_err : stdgo.GoString), (_loaded : stdgo.Chan<{ }>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in _syms) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -118,9 +118,9 @@ private function set_atime(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo
         stdgo._internal.os.Os_atime.atime = v;
         return v;
     }
-var lstatP(get, set) : stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>;
-private function get_lstatP():stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> return _0 -> stdgo._internal.os.Os_lstatp.lstatP(_0);
-private function set_lstatP(v:stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }>):stdgo.Pointer<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; }> {
+var lstatP(get, set) : stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>;
+private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> stdgo._internal.os.Os_lstatp.lstatP(_0);
+private function set_lstatP(v:stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>):stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> {
         stdgo._internal.os.Os_lstatp.lstatP = v;
         return v;
     }
@@ -142,9 +142,9 @@ private function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error {
         stdgo._internal.os.Os_errpatternhasseparator.errPatternHasSeparator = (v : stdgo.Error);
         return v;
     }
-var splitPath(get, set) : stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; };
-private function get_splitPath():stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } return _0 -> stdgo._internal.os.Os_splitpath.splitPath(_0);
-private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; }):stdgo.GoString -> { var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
+var splitPath(get, set) : String -> stdgo.Tuple<String, String>;
+private function get_splitPath():String -> stdgo.Tuple<String, String> return _0 -> stdgo._internal.os.Os_splitpath.splitPath(_0);
+private function set_splitPath(v:String -> stdgo.Tuple<String, String>):String -> stdgo.Tuple<String, String> {
         stdgo._internal.os.Os_splitpath.splitPath = v;
         return v;
     }
@@ -153,7 +153,15 @@ private function set_splitPath(v:stdgo.GoString -> { var _0 : stdgo.GoString; va
         return stdgo._internal.os.Os_t_timeout_static_extension.T_timeout_static_extension.timeout(t);
     }
 }
-@:dox(hide) typedef T_timeout = stdgo._internal.os.Os_t_timeout.T_timeout;
+@:interface @:dox(hide) @:forward abstract T_timeout(stdgo._internal.os.Os_t_timeout.T_timeout) from stdgo._internal.os.Os_t_timeout.T_timeout to stdgo._internal.os.Os_t_timeout.T_timeout {
+    @:from
+    static function fromHaxeInterface(x:{ function timeout():Bool; }):T_timeout {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_timeout = { timeout : () -> x.timeout(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Signal_static_extension {
     static public function signal(t:stdgo._internal.os.Os_signal.Signal):Void {
         stdgo._internal.os.Os_signal_static_extension.Signal_static_extension.signal(t);
@@ -162,7 +170,15 @@ class Signal_static_extension {
         return stdgo._internal.os.Os_signal_static_extension.Signal_static_extension.string(t);
     }
 }
-typedef Signal = stdgo._internal.os.Os_signal.Signal;
+@:interface @:forward abstract Signal(stdgo._internal.os.Os_signal.Signal) from stdgo._internal.os.Os_signal.Signal to stdgo._internal.os.Os_signal.Signal {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; function signal():Void; }):Signal {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Signal = { string : () -> x.string(), signal : () -> x.signal(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) @:dox(hide) abstract T_dirInfo(stdgo._internal.os.Os_t_dirinfo.T_dirInfo) from stdgo._internal.os.Os_t_dirinfo.T_dirInfo to stdgo._internal.os.Os_t_dirinfo.T_dirInfo {
     public var _buf(get, set) : Array<std.UInt>;
     function get__buf():Array<std.UInt> return this._buf;
@@ -1275,7 +1291,7 @@ class Os {
         * Expand replaces ${var} or $var in the string based on the mapping function.
         * For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
     **/
-    static public inline function expand(_s:String, _mapping:stdgo.GoString -> stdgo.GoString):String {
+    static public inline function expand(_s:String, _mapping:String -> String):String {
         final _s = (_s : stdgo.GoString);
         final _mapping = _mapping;
         return stdgo._internal.os.Os_expand.expand(_s, _mapping);

@@ -30,13 +30,29 @@ class Signer_static_extension {
         return stdgo._internal.crypto.Crypto_signer_static_extension.Signer_static_extension.public_(t);
     }
 }
-typedef Signer = stdgo._internal.crypto.Crypto_signer.Signer;
+@:interface @:forward abstract Signer(stdgo._internal.crypto.Crypto_signer.Signer) from stdgo._internal.crypto.Crypto_signer.Signer to stdgo._internal.crypto.Crypto_signer.Signer {
+    @:from
+    static function fromHaxeInterface(x:{ function public_():PublicKey; function sign(_rand:stdgo._internal.io.Io_reader.Reader, _digest:Array<std.UInt>, _opts:SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Signer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Signer = { public_ : () -> x.public_(), sign : (_0, _1, _2) -> x.sign(_0, [for (i in _1) i], _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class SignerOpts_static_extension {
     static public function hashFunc(t:stdgo._internal.crypto.Crypto_signeropts.SignerOpts):Hash {
         return stdgo._internal.crypto.Crypto_signeropts_static_extension.SignerOpts_static_extension.hashFunc(t);
     }
 }
-typedef SignerOpts = stdgo._internal.crypto.Crypto_signeropts.SignerOpts;
+@:interface @:forward abstract SignerOpts(stdgo._internal.crypto.Crypto_signeropts.SignerOpts) from stdgo._internal.crypto.Crypto_signeropts.SignerOpts to stdgo._internal.crypto.Crypto_signeropts.SignerOpts {
+    @:from
+    static function fromHaxeInterface(x:{ function hashFunc():Hash; }):SignerOpts {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:SignerOpts = { hashFunc : () -> x.hashFunc(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Decrypter_static_extension {
     static public function decrypt(t:stdgo._internal.crypto.Crypto_decrypter.Decrypter, _rand:stdgo._internal.io.Io_reader.Reader, _msg:Array<std.UInt>, _opts:DecrypterOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _msg = ([for (i in _msg) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -49,7 +65,15 @@ class Decrypter_static_extension {
         return stdgo._internal.crypto.Crypto_decrypter_static_extension.Decrypter_static_extension.public_(t);
     }
 }
-typedef Decrypter = stdgo._internal.crypto.Crypto_decrypter.Decrypter;
+@:interface @:forward abstract Decrypter(stdgo._internal.crypto.Crypto_decrypter.Decrypter) from stdgo._internal.crypto.Crypto_decrypter.Decrypter to stdgo._internal.crypto.Crypto_decrypter.Decrypter {
+    @:from
+    static function fromHaxeInterface(x:{ function public_():PublicKey; function decrypt(_rand:stdgo._internal.io.Io_reader.Reader, _msg:Array<std.UInt>, _opts:DecrypterOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Decrypter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Decrypter = { public_ : () -> x.public_(), decrypt : (_0, _1, _2) -> x.decrypt(_0, [for (i in _1) i], _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 typedef Hash = stdgo._internal.crypto.Crypto_hash.Hash;
 typedef PublicKey = stdgo._internal.crypto.Crypto_publickey.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto_privatekey.PrivateKey;

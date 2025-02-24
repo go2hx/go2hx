@@ -233,7 +233,15 @@ class RawConn_static_extension {
         return stdgo._internal.syscall.Syscall_rawconn_static_extension.RawConn_static_extension.control(t, _f);
     }
 }
-typedef RawConn = stdgo._internal.syscall.Syscall_rawconn.RawConn;
+@:interface @:forward abstract RawConn(stdgo._internal.syscall.Syscall_rawconn.RawConn) from stdgo._internal.syscall.Syscall_rawconn.RawConn to stdgo._internal.syscall.Syscall_rawconn.RawConn {
+    @:from
+    static function fromHaxeInterface(x:{ function control(_f:stdgo.GoUIntptr -> Void):stdgo.Error; function read(_f:stdgo.GoUIntptr -> Bool):stdgo.Error; function write(_f:stdgo.GoUIntptr -> Bool):stdgo.Error; }):RawConn {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:RawConn = { control : _0 -> x.control(_0 -> _0(_0)), read : _0 -> x.read(_0 -> _0(_0)), write : _0 -> x.write(_0 -> _0(_0)), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Conn_static_extension {
     static public function syscallConn(t:stdgo._internal.syscall.Syscall_conn.Conn):stdgo.Tuple<RawConn, stdgo.Error> {
         return {
@@ -242,7 +250,15 @@ class Conn_static_extension {
         };
     }
 }
-typedef Conn = stdgo._internal.syscall.Syscall_conn.Conn;
+@:interface @:forward abstract Conn(stdgo._internal.syscall.Syscall_conn.Conn) from stdgo._internal.syscall.Syscall_conn.Conn to stdgo._internal.syscall.Syscall_conn.Conn {
+    @:from
+    static function fromHaxeInterface(x:{ function syscallConn():stdgo.Tuple<RawConn, stdgo.Error>; }):Conn {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Conn = { syscallConn : () -> x.syscallConn(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.syscall.Syscall.T_jsFile_static_extension) @:dox(hide) abstract T_jsFile(stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile) from stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile to stdgo._internal.syscall.Syscall_t_jsfile.T_jsFile {
     public var _path(get, set) : String;
     function get__path():String return this._path;

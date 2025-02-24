@@ -12,15 +12,15 @@ private function set_errSyntax(v:stdgo.Error):stdgo.Error {
         stdgo._internal.strconv.Strconv_errsyntax.errSyntax = (v : stdgo.Error);
         return v;
     }
-var bitSizeError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>;
-private function get_bitSizeError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError(_0, _1, _2);
-private function set_bitSizeError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> {
+var bitSizeError(get, set) : (String, String, StdTypes.Int) -> NumError;
+private function get_bitSizeError():(String, String, StdTypes.Int) -> NumError return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError(_0, _1, _2);
+private function set_bitSizeError(v:(String, String, StdTypes.Int) -> NumError):(String, String, StdTypes.Int) -> NumError {
         stdgo._internal.strconv.Strconv_bitsizeerror.bitSizeError = v;
         return v;
     }
-var baseError(get, set) : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>;
-private function get_baseError():(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_baseerror.baseError(_0, _1, _2);
-private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError>):(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv_numerror.NumError> {
+var baseError(get, set) : (String, String, StdTypes.Int) -> NumError;
+private function get_baseError():(String, String, StdTypes.Int) -> NumError return (_0, _1, _2) -> stdgo._internal.strconv.Strconv_baseerror.baseError(_0, _1, _2);
+private function set_baseError(v:(String, String, StdTypes.Int) -> NumError):(String, String, StdTypes.Int) -> NumError {
         stdgo._internal.strconv.Strconv_baseerror.baseError = v;
         return v;
     }

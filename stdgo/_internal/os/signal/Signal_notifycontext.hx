@@ -2,7 +2,7 @@ package stdgo._internal.os.signal;
 function notifyContext(_parent:stdgo._internal.context.Context_context.Context, _signals:haxe.Rest<stdgo._internal.os.Os_signal.Signal>):{ var _0 : stdgo._internal.context.Context_context.Context; var _1 : stdgo._internal.context.Context_cancelfunc.CancelFunc; } {
         var _signals = new stdgo.Slice<stdgo._internal.os.Os_signal.Signal>(_signals.length, 0, ..._signals);
         var _ctx = (null : stdgo._internal.context.Context_context.Context), _stop = (null : stdgo._internal.context.Context_cancelfunc.CancelFunc);
-        var __tmp__ = stdgo._internal.os.signal.Signal_context.context.withCancel(_parent), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
+        var __tmp__ = stdgo._internal.context.Context_withcancel.withCancel(_parent), _ctx:stdgo._internal.context.Context_context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_cancelfunc.CancelFunc = __tmp__._1;
         var _c = (stdgo.Go.setRef(({ context : _ctx, _cancel : _cancel, _signals : _signals } : stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx)) : stdgo.Ref<stdgo._internal.os.signal.Signal_t_signalctx.T_signalCtx>);
         (@:checkr _c ?? throw "null pointer dereference")._ch = (new stdgo.Chan<stdgo._internal.os.Os_signal.Signal>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo._internal.os.Os_signal.Signal)) : stdgo.Chan<stdgo._internal.os.Os_signal.Signal>);
         stdgo._internal.os.signal.Signal_notify.notify((@:checkr _c ?? throw "null pointer dereference")._ch, ...((@:checkr _c ?? throw "null pointer dereference")._signals : Array<stdgo._internal.os.Os_signal.Signal>));

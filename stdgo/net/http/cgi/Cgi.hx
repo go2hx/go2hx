@@ -177,8 +177,14 @@ class Cgi {
         * RequestFromMap creates an http.Request from CGI variables.
         * The returned Request's Body field is not populated.
     **/
-    static public inline function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
-        final _params = (_params : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    static public inline function requestFromMap(_params:Map<String, String>):stdgo.Tuple<stdgo._internal.net.http.Http_request.Request, stdgo.Error> {
+        final _params = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _params) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return {
             final obj = stdgo._internal.net.http.cgi.Cgi_requestfrommap.requestFromMap(_params);
             { _0 : obj._0, _1 : obj._1 };

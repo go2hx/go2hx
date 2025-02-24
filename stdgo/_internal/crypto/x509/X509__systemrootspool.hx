@@ -2,7 +2,7 @@ package stdgo._internal.crypto.x509;
 function _systemRootsPool():stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            @:check2 stdgo._internal.crypto.x509.X509_once.once.do_(stdgo._internal.crypto.x509.X509__initsystemroots._initSystemRoots);
+            @:check2 stdgo._internal.crypto.x509.X509__once._once.do_(stdgo._internal.crypto.x509.X509__initsystemroots._initSystemRoots);
             @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.rLock();
             {
                 final __f__ = @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.rUnlock;

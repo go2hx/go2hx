@@ -371,7 +371,7 @@ class Js {
         * 
         * Func.Release must be called to free up resources when the function will not be invoked any more.
     **/
-    static public inline function funcOf(_fn:(stdgo._internal.syscall.js.Js_value.Value, stdgo.Slice<stdgo._internal.syscall.js.Js_value.Value>) -> stdgo.AnyInterface):Func {
+    static public inline function funcOf(_fn:(Value, Array<Value>) -> stdgo.AnyInterface):Func {
         final _fn = _fn;
         return stdgo._internal.syscall.js.Js_funcof.funcOf(_fn);
     }

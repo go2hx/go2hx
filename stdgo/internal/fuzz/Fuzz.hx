@@ -26,7 +26,15 @@ package stdgo.internal.fuzz;
         return stdgo._internal.internal.fuzz.Fuzz_t_mutatorrand_static_extension.T_mutatorRand_static_extension._uint32(t);
     }
 }
-@:dox(hide) typedef T_mutatorRand = stdgo._internal.internal.fuzz.Fuzz_t_mutatorrand.T_mutatorRand;
+@:interface @:dox(hide) @:forward abstract T_mutatorRand(stdgo._internal.internal.fuzz.Fuzz_t_mutatorrand.T_mutatorRand) from stdgo._internal.internal.fuzz.Fuzz_t_mutatorrand.T_mutatorRand to stdgo._internal.internal.fuzz.Fuzz_t_mutatorrand.T_mutatorRand {
+    @:from
+    static function fromHaxeInterface(x:{ function _uint32():std.UInt; function _intn(_0:StdTypes.Int):StdTypes.Int; function _uint32n(_0:std.UInt):std.UInt; function _exp2():StdTypes.Int; function _bool():Bool; function _save(_randState:stdgo.Pointer<haxe.UInt64>, _randInc:stdgo.Pointer<haxe.UInt64>):Void; function _restore(_randState:haxe.UInt64, _randInc:haxe.UInt64):Void; }):T_mutatorRand {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_mutatorRand = { _uint32 : () -> x._uint32(), _intn : _0 -> x._intn(_0), _uint32n : _0 -> x._uint32n(_0), _exp2 : () -> x._exp2(), _bool : () -> x._bool(), _save : (_0, _1) -> x._save(_0, _1), _restore : (_0, _1) -> x._restore(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.internal.fuzz.Fuzz.CoordinateFuzzingOpts_static_extension) abstract CoordinateFuzzingOpts(stdgo._internal.internal.fuzz.Fuzz_coordinatefuzzingopts.CoordinateFuzzingOpts) from stdgo._internal.internal.fuzz.Fuzz_coordinatefuzzingopts.CoordinateFuzzingOpts to stdgo._internal.internal.fuzz.Fuzz_coordinatefuzzingopts.CoordinateFuzzingOpts {
     public var log(get, set) : stdgo._internal.io.Io_writer.Writer;
     function get_log():stdgo._internal.io.Io_writer.Writer return this.log;
@@ -64,12 +72,12 @@ package stdgo.internal.fuzz;
         this.parallel = (v : stdgo.GoInt);
         return v;
     }
-    public var seed(get, set) : Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>;
-    function get_seed():Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> return [for (i in this.seed) {
+    public var seed(get, set) : Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>;
+    function get_seed():Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> return [for (i in this.seed) {
         final obj = i;
         { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
     }];
-    function set_seed(v:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>):Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> {
+    function set_seed(v:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>):Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> {
         this.seed = ([for (i in v) {
             final obj = i;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
@@ -94,7 +102,7 @@ package stdgo.internal.fuzz;
         this.cacheDir = (v : stdgo.GoString);
         return v;
     }
-    public function new(?log:stdgo._internal.io.Io_writer.Writer, ?timeout:stdgo._internal.time.Time_duration.Duration, ?limit:haxe.Int64, ?minimizeTimeout:stdgo._internal.time.Time_duration.Duration, ?minimizeLimit:haxe.Int64, ?parallel:StdTypes.Int, ?seed:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, ?types:Array<stdgo._internal.reflect.Reflect_type_.Type_>, ?corpusDir:String, ?cacheDir:String) this = new stdgo._internal.internal.fuzz.Fuzz_coordinatefuzzingopts.CoordinateFuzzingOpts(log, timeout, (limit : stdgo.GoInt64), minimizeTimeout, (minimizeLimit : stdgo.GoInt64), (parallel : stdgo.GoInt), ([for (i in seed) {
+    public function new(?log:stdgo._internal.io.Io_writer.Writer, ?timeout:stdgo._internal.time.Time_duration.Duration, ?limit:haxe.Int64, ?minimizeTimeout:stdgo._internal.time.Time_duration.Duration, ?minimizeLimit:haxe.Int64, ?parallel:StdTypes.Int, ?seed:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, ?types:Array<stdgo._internal.reflect.Reflect_type_.Type_>, ?corpusDir:String, ?cacheDir:String) this = new stdgo._internal.internal.fuzz.Fuzz_coordinatefuzzingopts.CoordinateFuzzingOpts(log, timeout, (limit : stdgo.GoInt64), minimizeTimeout, (minimizeLimit : stdgo.GoInt64), (parallel : stdgo.GoInt), ([for (i in seed) {
         final obj = i;
         { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
     }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>), ([for (i in types) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_type_.Type_>), (corpusDir : stdgo.GoString), (cacheDir : stdgo.GoString));
@@ -119,28 +127,46 @@ package stdgo.internal.fuzz;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.fuzz.Fuzz.T_corpus_static_extension) @:dox(hide) abstract T_corpus(stdgo._internal.internal.fuzz.Fuzz_t_corpus.T_corpus) from stdgo._internal.internal.fuzz.Fuzz_t_corpus.T_corpus to stdgo._internal.internal.fuzz.Fuzz_t_corpus.T_corpus {
-    public var _entries(get, set) : Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>;
-    function get__entries():Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> return [for (i in this._entries) {
+    public var _entries(get, set) : Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>;
+    function get__entries():Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> return [for (i in this._entries) {
         final obj = i;
         { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
     }];
-    function set__entries(v:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>):Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>> {
+    function set__entries(v:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>):Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }> {
         this._entries = ([for (i in v) {
             final obj = i;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
         }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>);
         return v;
     }
-    public var _hashes(get, set) : stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>;
-    function get__hashes():stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool> return this._hashes;
-    function set__hashes(v:stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>):stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool> {
-        this._hashes = (v : stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>);
+    public var _hashes(get, set) : Map<haxe.ds.Vector<std.UInt>, Bool>;
+    function get__hashes():Map<haxe.ds.Vector<std.UInt>, Bool> return {
+        final __obj__:Map<haxe.ds.Vector<std.UInt>, Bool> = [];
+        for (key => value in this._hashes) {
+            __obj__[haxe.ds.Vector.fromArrayCopy([for (i in key) i])] = value;
+        };
+        __obj__;
+    };
+    function set__hashes(v:Map<haxe.ds.Vector<std.UInt>, Bool>):Map<haxe.ds.Vector<std.UInt>, Bool> {
+        this._hashes = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>();
+            for (key => value in v) {
+                __obj__[([for (i in key) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_entries:Array<stdgo.Tuple.Tuple6<String, String, Array<std.UInt>, Array<stdgo.AnyInterface>, StdTypes.Int, Bool>>, ?_hashes:stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>) this = new stdgo._internal.internal.fuzz.Fuzz_t_corpus.T_corpus(([for (i in _entries) {
+    public function new(?_entries:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, ?_hashes:Map<haxe.ds.Vector<std.UInt>, Bool>) this = new stdgo._internal.internal.fuzz.Fuzz_t_corpus.T_corpus(([for (i in _entries) {
         final obj = i;
         { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
-    }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>), (_hashes : stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>));
+    }] : stdgo.Slice<{ var parent : stdgo.GoString; var path : stdgo.GoString; var data : stdgo.Slice<stdgo.GoUInt8>; var values : stdgo.Slice<stdgo.AnyInterface>; var generation : stdgo.GoInt; var isSeed : Bool; }>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoArray<stdgo.GoUInt8>, Bool>();
+        for (key => value in _hashes) {
+            __obj__[([for (i in key) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>)] = value;
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -845,13 +871,13 @@ _interrupted,
         this._coverageMask = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _fuzzFn(get, set) : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; };
-    function get__fuzzFn():stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; } return _0 -> this._fuzzFn(_0);
-    function set__fuzzFn(v:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; }):stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; } {
+    public var _fuzzFn(get, set) : stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>;
+    function get__fuzzFn():stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error> return _0 -> this._fuzzFn(_0);
+    function set__fuzzFn(v:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>):stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error> {
         this._fuzzFn = v;
         return v;
     }
-    public function new(?_workerComm:T_workerComm, ?_m:T_mutator, ?_coverageMask:Array<std.UInt>, ?_fuzzFn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Error; }) this = new stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer(_workerComm, (_m : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mutator.T_mutator>), ([for (i in _coverageMask) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _fuzzFn);
+    public function new(?_workerComm:T_workerComm, ?_m:T_mutator, ?_coverageMask:Array<std.UInt>, ?_fuzzFn:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry -> stdgo.Tuple<stdgo._internal.time.Time_duration.Duration, stdgo.Error>) this = new stdgo._internal.internal.fuzz.Fuzz_t_workerserver.T_workerServer(_workerComm, (_m : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_mutator.T_mutator>), ([for (i in _coverageMask) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), _fuzzFn);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -1,18 +1,326 @@
-[ERROR] ./_internal/math/rand_test/Rand_test__initnorm.hx:5: characters 85-88
+=== RUN  TestAuto
+Exception: field access on null
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.math.rand_test._Rand_test_testauto.Rand_test_testauto_Fields_.testAuto (./_internal/math/rand_test/Rand_test_testauto.hx line 7 column 41)
+Called from stdgo._internal.math.rand._Rand_int63.Rand_int63_Fields_.int63 (./stdgo/_internal/math/rand/Rand_int63.hx line 3 column 26)
+Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (./stdgo/_internal/math/rand/Rand__globalrand.hx line 4 column 31)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29 column 32)
+Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
-  5 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__rn._rn, __1 = _dn, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64);
-    |                                                                                     ^^^
-    | Unknown identifier : _dn
+-- FAIL: TestAuto
 
-[ERROR] ./_internal/math/rand_test/Rand_test__initexp.hx:5: characters 85-88
+=== RUN  TestDefaultRace
+skipping starting another executable in short mode
+Exception: __skip__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.math.rand_test._Rand_test_testdefaultrace.Rand_test_testdefaultrace_Fields_.testDefaultRace (./_internal/math/rand_test/Rand_test_testdefaultrace.hx line 4 column 31)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
+Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
 
-  5 |         var __0:stdgo.GoFloat64 = _internal.math.rand_test.Rand_test__re._re, __1 = _de, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64);
-    |                                                                                     ^^^
-    | Unknown identifier : _de
+-- SKIP: TestDefaultRace
 
-[ERROR] ./_internal/math/rand_test/Rand_test__testreaduniformity.hx:12: characters 166-173
+=== RUN  TestConcurrent
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 
- 12 |         var __0 = (127.5 : stdgo.GoFloat64), __1 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math_sqrt.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2 = (_stddev / stdgo._internal.math.Math_sqrt.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64);
-    |                                                                                                                                                                      ^^^^^^^
-    | Unknown identifier : _stddev
+-- PASS: TestConcurrent
+
+=== RUN  TestStandardNormalValues
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
+
+
+-- PASS: TestStandardNormalValues
+
+=== RUN  TestNonStandardNormalValues
+
+-- PASS: TestNonStandardNormalValues
+
+=== RUN  TestStandardExponentialValues
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean 0.028403907620684725 != 1 (allowed error 0.1, 0.2)
+mean 0.028403907620684725 != 1 (allowed error 0.1, 0.2)
+mean -0.00581962569866067 != 1 (allowed error 0.1, 0.2)
+mean -0.00581962569866067 != 1 (allowed error 0.1, 0.2)
+mean 0.07358691984506556 != 1 (allowed error 0.1, 0.2)
+mean 0.07358691984506556 != 1 (allowed error 0.1, 0.2)
+mean 0.014796945185700683 != 1 (allowed error 0.1, 0.2)
+mean 0.014796945185700683 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean -0.020516641971063468 != 1 (allowed error 0.1, 0.2)
+mean -0.020516641971063468 != 1 (allowed error 0.1, 0.2)
+mean 0.08079344990639334 != 1 (allowed error 0.1, 0.2)
+mean 0.08079344990639334 != 1 (allowed error 0.1, 0.2)
+mean 0.03555612985039658 != 1 (allowed error 0.1, 0.2)
+mean 0.03555612985039658 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean 0.017056760909419117 != 1 (allowed error 0.1, 0.2)
+mean 0.017056760909419117 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean 0.015081689236336288 != 1 (allowed error 0.1, 0.2)
+mean 0.015081689236336288 != 1 (allowed error 0.1, 0.2)
+mean 0.0127521898255883 != 1 (allowed error 0.1, 0.2)
+mean 0.0127521898255883 != 1 (allowed error 0.1, 0.2)
+mean 0.014181920081440588 != 1 (allowed error 0.1, 0.2)
+mean 0.014181920081440588 != 1 (allowed error 0.1, 0.2)
+mean 0.021282760397382024 != 1 (allowed error 0.1, 0.2)
+mean 0.021282760397382024 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean -0.003432635434799998 != 1 (allowed error 0.1, 0.2)
+mean -0.003432635434799998 != 1 (allowed error 0.1, 0.2)
+mean 0.013916565480392445 != 1 (allowed error 0.1, 0.2)
+mean 0.013916565480392445 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean -0.032625683751874815 != 1 (allowed error 0.1, 0.2)
+mean -0.032625683751874815 != 1 (allowed error 0.1, 0.2)
+mean 0.02106466676131121 != 1 (allowed error 0.1, 0.2)
+mean 0.02106466676131121 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean -0.004487053749318505 != 1 (allowed error 0.1, 0.2)
+mean -0.004487053749318505 != 1 (allowed error 0.1, 0.2)
+mean -0.01535373519833855 != 1 (allowed error 0.1, 0.2)
+mean -0.01535373519833855 != 1 (allowed error 0.1, 0.2)
+mean -0.010226298261184208 != 1 (allowed error 0.1, 0.2)
+mean -0.010226298261184208 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean -0.005602486992320902 != 1 (allowed error 0.1, 0.2)
+mean -0.005602486992320902 != 1 (allowed error 0.1, 0.2)
+mean -0.002254905529122409 != 1 (allowed error 0.1, 0.2)
+mean -0.002254905529122409 != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean NaN != 1 (allowed error 0.1, 0.2)
+mean 0.019655546726475882 != 1 (allowed error 0.1, 0.2)
+mean 0.019655546726475882 != 1 (allowed error 0.1, 0.2)
+mean 0.03525630723548501 != 1 (allowed error 0.1, 0.2)
+mean 0.03525630723548501 != 1 (allowed error 0.1, 0.2)
+
+-- FAIL: TestStandardExponentialValues
+
+=== RUN  TestNonStandardExponentialValues
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 20 (allowed error 2, 4)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 10 (allowed error 1, 2)
+mean NaN != 5 (allowed error 0.5, 1)
+mean NaN != 5 (allowed error 0.5, 1)
+mean NaN != 5 (allowed error 0.5, 1)
+mean NaN != 5 (allowed error 0.5, 1)
+mean -0.029098128493303278 != 5 (allowed error 0.5, 1)
+mean -0.029098128493303278 != 5 (allowed error 0.5, 1)
+mean NaN != 5 (allowed error 0.5, 1)
+mean NaN != 5 (allowed error 0.5, 1)
+mean -0.10258320985531731 != 5 (allowed error 0.5, 1)
+mean -0.10258320985531731 != 5 (allowed error 0.5, 1)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean 0.071009769051712 != 2.5 (allowed error 0.25, 0.5)
+mean 0.071009769051712 != 2.5 (allowed error 0.25, 0.5)
+mean -0.014549064246651639 != 2.5 (allowed error 0.25, 0.5)
+mean -0.014549064246651639 != 2.5 (allowed error 0.25, 0.5)
+mean 0.18396729961266395 != 2.5 (allowed error 0.25, 0.5)
+mean 0.18396729961266395 != 2.5 (allowed error 0.25, 0.5)
+mean 0.03699236296425167 != 2.5 (allowed error 0.25, 0.5)
+mean 0.03699236296425167 != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 2.5 (allowed error 0.25, 0.5)
+mean -0.051291604927658656 != 2.5 (allowed error 0.25, 0.5)
+mean -0.051291604927658656 != 2.5 (allowed error 0.25, 0.5)
+mean 0.20198362476598425 != 2.5 (allowed error 0.25, 0.5)
+mean 0.20198362476598425 != 2.5 (allowed error 0.25, 0.5)
+mean 0.08889032462599172 != 2.5 (allowed error 0.25, 0.5)
+mean 0.08889032462599172 != 2.5 (allowed error 0.25, 0.5)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean 0.035504884525856 != 1.25 (allowed error 0.125, 0.25)
+mean 0.035504884525856 != 1.25 (allowed error 0.125, 0.25)
+mean -0.007274532123325819 != 1.25 (allowed error 0.125, 0.25)
+mean -0.007274532123325819 != 1.25 (allowed error 0.125, 0.25)
+mean 0.09198364980633197 != 1.25 (allowed error 0.125, 0.25)
+mean 0.09198364980633197 != 1.25 (allowed error 0.125, 0.25)
+mean 0.018496181482125836 != 1.25 (allowed error 0.125, 0.25)
+mean 0.018496181482125836 != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 1.25 (allowed error 0.125, 0.25)
+mean -0.025645802463829328 != 1.25 (allowed error 0.125, 0.25)
+mean -0.025645802463829328 != 1.25 (allowed error 0.125, 0.25)
+mean 0.10099181238299212 != 1.25 (allowed error 0.125, 0.25)
+mean 0.10099181238299212 != 1.25 (allowed error 0.125, 0.25)
+mean 0.04444516231299586 != 1.25 (allowed error 0.125, 0.25)
+mean 0.04444516231299586 != 1.25 (allowed error 0.125, 0.25)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean 0.017752442262928 != 0.625 (allowed error 0.1, 0.2)
+mean 0.017752442262928 != 0.625 (allowed error 0.1, 0.2)
+mean -0.0036372660616629097 != 0.625 (allowed error 0.1, 0.2)
+mean -0.0036372660616629097 != 0.625 (allowed error 0.1, 0.2)
+mean 0.04599182490316599 != 0.625 (allowed error 0.1, 0.2)
+mean 0.04599182490316599 != 0.625 (allowed error 0.1, 0.2)
+mean 0.009248090741062918 != 0.625 (allowed error 0.1, 0.2)
+mean 0.009248090741062918 != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.625 (allowed error 0.1, 0.2)
+mean -0.012822901231914664 != 0.625 (allowed error 0.1, 0.2)
+mean -0.012822901231914664 != 0.625 (allowed error 0.1, 0.2)
+mean 0.05049590619149606 != 0.625 (allowed error 0.1, 0.2)
+mean 0.05049590619149606 != 0.625 (allowed error 0.1, 0.2)
+mean 0.02222258115649793 != 0.625 (allowed error 0.1, 0.2)
+mean 0.02222258115649793 != 0.625 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean 0.008876221131464 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.008876221131464 != 0.3125 (allowed error 0.1, 0.2)
+mean -0.0018186330308314548 != 0.3125 (allowed error 0.1, 0.2)
+mean -0.0018186330308314548 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.022995912451582994 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.022995912451582994 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.004624045370531459 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.004624045370531459 != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.3125 (allowed error 0.1, 0.2)
+mean -0.006411450615957332 != 0.3125 (allowed error 0.1, 0.2)
+mean -0.006411450615957332 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.02524795309574803 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.02524795309574803 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.011111290578248965 != 0.3125 (allowed error 0.1, 0.2)
+mean 0.011111290578248965 != 0.3125 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean 0.004438110565732 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.004438110565732 != 0.15625 (allowed error 0.1, 0.2)
+mean -0.0009093165154157274 != 0.15625 (allowed error 0.1, 0.2)
+mean -0.0009093165154157274 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.011497956225791497 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.011497956225791497 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.0023120226852657295 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.0023120226852657295 != 0.15625 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean NaN != 0.15625 (allowed error 0.1, 0.2)
+mean -0.003205725307978666 != 0.15625 (allowed error 0.1, 0.2)
+mean -0.003205725307978666 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.012623976547874016 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.012623976547874016 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.005555645289124483 != 0.15625 (allowed error 0.1, 0.2)
+mean 0.005555645289124483 != 0.15625 (allowed error 0.1, 0.2)
+
+-- FAIL: TestNonStandardExponentialValues
+
+=== RUN  TestNormTables
+
+-- PASS: TestNormTables
+
+=== RUN  TestExpTables
+
+-- PASS: TestExpTables
+
+=== RUN  TestFloat32
+
+-- PASS: TestFloat32
+
+=== RUN  TestReadUniformity
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.005773502691896259)
+
+-- FAIL: TestReadUniformity
+
+=== RUN  TestReadEmpty
+
+-- PASS: TestReadEmpty
+
+=== RUN  TestReadByOneByte
+
+-- PASS: TestReadByOneByte
+
+=== RUN  TestReadSeedReset
+
+-- PASS: TestReadSeedReset
+
+=== RUN  TestShuffleSmall
+
+-- PASS: TestShuffleSmall
+
+=== RUN  TestUniformFactorial
+
+-- PASS: TestUniformFactorial
+
+=== RUN  TestRegress
+Exception: Value:reflect.numMethod is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (./_internal/math/rand_test/Rand_test_testregress.hx line 22 column 18)
+Called from stdgo._internal.reflect.Value_static_extension.numMethod (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 384 column 99)
+
+-- FAIL: TestRegress
 

@@ -1,0 +1,7 @@
+#haxelib run go2hx ./tests/interop
+-cp tests/interop
+-cp golibs
+-lib go2hx
+#-lib interop
+-m Main
+--interp

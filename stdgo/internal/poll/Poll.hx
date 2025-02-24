@@ -29,27 +29,27 @@ private function set_errNotPollable(v:stdgo.Error):stdgo.Error {
         stdgo._internal.internal.poll.Poll_errnotpollable.errNotPollable = (v : stdgo.Error);
         return v;
     }
-var testHookDidWritev(get, set) : stdgo.GoInt -> Void;
-private function get_testHookDidWritev():stdgo.GoInt -> Void return _0 -> stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev(_0);
-private function set_testHookDidWritev(v:stdgo.GoInt -> Void):stdgo.GoInt -> Void {
+var testHookDidWritev(get, set) : StdTypes.Int -> Void;
+private function get_testHookDidWritev():StdTypes.Int -> Void return _0 -> stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev(_0);
+private function set_testHookDidWritev(v:StdTypes.Int -> Void):StdTypes.Int -> Void {
         stdgo._internal.internal.poll.Poll_testhookdidwritev.testHookDidWritev = v;
         return v;
     }
-var closeFunc(get, set) : stdgo.GoInt -> stdgo.Error;
-private function get_closeFunc():stdgo.GoInt -> stdgo.Error return _0 -> stdgo._internal.internal.poll.Poll_closefunc.closeFunc(_0);
-private function set_closeFunc(v:stdgo.GoInt -> stdgo.Error):stdgo.GoInt -> stdgo.Error {
+var closeFunc(get, set) : StdTypes.Int -> stdgo.Error;
+private function get_closeFunc():StdTypes.Int -> stdgo.Error return _0 -> stdgo._internal.internal.poll.Poll_closefunc.closeFunc(_0);
+private function set_closeFunc(v:StdTypes.Int -> stdgo.Error):StdTypes.Int -> stdgo.Error {
         stdgo._internal.internal.poll.Poll_closefunc.closeFunc = v;
         return v;
     }
-var acceptFunc(get, set) : stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; };
-private function get_acceptFunc():stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } return _0 -> stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc(_0);
-private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; }):stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } {
+var acceptFunc(get, set) : StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>;
+private function get_acceptFunc():StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> return _0 -> stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc(_0);
+private function set_acceptFunc(v:StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>):StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
         stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc = v;
         return v;
     }
-var consume(get, set) : (stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, stdgo.GoInt64) -> Void;
-private function get_consume():(stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, stdgo.GoInt64) -> Void return (_0, _1) -> stdgo._internal.internal.poll.Poll_consume.consume(_0, _1);
-private function set_consume(v:(stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, stdgo.GoInt64) -> Void):(stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, stdgo.GoInt64) -> Void {
+var consume(get, set) : (Array<Array<std.UInt>>, haxe.Int64) -> Void;
+private function get_consume():(Array<Array<std.UInt>>, haxe.Int64) -> Void return (_0, _1) -> stdgo._internal.internal.poll.Poll_consume.consume(_0, _1);
+private function set_consume(v:(Array<Array<std.UInt>>, haxe.Int64) -> Void):(Array<Array<std.UInt>>, haxe.Int64) -> Void {
         stdgo._internal.internal.poll.Poll_consume.consume = v;
         return v;
     }

@@ -42,7 +42,15 @@ private function set_nullBytes(v:Array<std.UInt>):Array<std.UInt> {
         return stdgo._internal.encoding.asn1.Asn1_t_encoder_static_extension.T_encoder_static_extension.len(t);
     }
 }
-@:dox(hide) typedef T_encoder = stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder;
+@:interface @:dox(hide) @:forward abstract T_encoder(stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder) from stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder to stdgo._internal.encoding.asn1.Asn1_t_encoder.T_encoder {
+    @:from
+    static function fromHaxeInterface(x:{ function len():StdTypes.Int; function encode(_dst:Array<std.UInt>):Void; }):T_encoder {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_encoder = { len : () -> x.len(), encode : _0 -> x.encode([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.encoding.asn1.Asn1.StructuralError_static_extension) abstract StructuralError(stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError) from stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError to stdgo._internal.encoding.asn1.Asn1_structuralerror.StructuralError {
     public var msg(get, set) : String;
     function get_msg():String return this.msg;

@@ -1,6 +1,10 @@
 package stdgo._internal.text.template;
 function _errRecover(_errp:stdgo.Ref<stdgo.Error>):Void {
-        var _e = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+        var _e = ({
+            final r = stdgo.Go.recover_exception;
+            stdgo.Go.recover_exception = null;
+            r;
+        } : stdgo.AnyInterface);
         if (_e != null) {
             {
                 final __type__ = _e;

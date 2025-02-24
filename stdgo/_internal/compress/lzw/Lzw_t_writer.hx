@@ -1,11 +1,6 @@
 package stdgo._internal.compress.lzw;
 @:interface typedef T_writer = stdgo.StructType & {
-    > stdgo._internal.io.Io_bytewriter.ByteWriter,
-    /**
-        
-        
-        
-    **/
     @:interfacetypeffun
-    public dynamic function flush():stdgo.Error;
+    function flush():stdgo.Error;
+    function writeByte(_0:stdgo.GoUInt8):stdgo.Error;
 };

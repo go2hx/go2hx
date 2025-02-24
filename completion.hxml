@@ -2,6 +2,5 @@
 -cp src
 extraParams.hxml
 -D nolinkstd
--lib hxnodejs
---js main.js
-#--interp
+--macro exclude("stdgo")
+--interp

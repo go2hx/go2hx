@@ -55,7 +55,15 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.archive.tar.Tar_t_filestate_static_extension.T_fileState_static_extension._logicalRemaining(t);
     }
 }
-@:dox(hide) typedef T_fileState = stdgo._internal.archive.tar.Tar_t_filestate.T_fileState;
+@:interface @:dox(hide) @:forward abstract T_fileState(stdgo._internal.archive.tar.Tar_t_filestate.T_fileState) from stdgo._internal.archive.tar.Tar_t_filestate.T_fileState to stdgo._internal.archive.tar.Tar_t_filestate.T_fileState {
+    @:from
+    static function fromHaxeInterface(x:{ function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileState {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_fileState = { _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_fileReader_static_extension {
     static public function writeTo(t:stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader, _0:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -64,7 +72,15 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         };
     }
 }
-@:dox(hide) typedef T_fileReader = stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader;
+@:interface @:dox(hide) @:forward abstract T_fileReader(stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader) from stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader to stdgo._internal.archive.tar.Tar_t_filereader.T_fileReader {
+    @:from
+    static function fromHaxeInterface(x:{ function writeTo(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileReader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_fileReader = { writeTo : _0 -> x.writeTo(_0), read : _0 -> x.read([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_fileWriter_static_extension {
     static public function readFrom(t:stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter, _0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
@@ -73,7 +89,15 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         };
     }
 }
-@:dox(hide) typedef T_fileWriter = stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter;
+@:interface @:dox(hide) @:forward abstract T_fileWriter(stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter) from stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter to stdgo._internal.archive.tar.Tar_t_filewriter.T_fileWriter {
+    @:from
+    static function fromHaxeInterface(x:{ function readFrom(_0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileWriter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_fileWriter = { readFrom : _0 -> x.readFrom(_0), write : _0 -> x.write([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.archive.tar.Tar.Header_static_extension) abstract Header(stdgo._internal.archive.tar.Tar_header.Header) from stdgo._internal.archive.tar.Tar_header.Header to stdgo._internal.archive.tar.Tar_header.Header {
     public var typeflag(get, set) : std.UInt;
     function get_typeflag():std.UInt return this.typeflag;
@@ -159,16 +183,40 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         this.devminor = (v : stdgo.GoInt64);
         return v;
     }
-    public var xattrs(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_xattrs():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.xattrs;
-    function set_xattrs(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.xattrs = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var xattrs(get, set) : Map<String, String>;
+    function get_xattrs():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.xattrs) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_xattrs(v:Map<String, String>):Map<String, String> {
+        this.xattrs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var pAXRecords(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_pAXRecords():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.pAXRecords;
-    function set_pAXRecords(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.pAXRecords = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var pAXRecords(get, set) : Map<String, String>;
+    function get_pAXRecords():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.pAXRecords) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_pAXRecords(v:Map<String, String>):Map<String, String> {
+        this.pAXRecords = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var format(get, set) : Format;
@@ -177,7 +225,7 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
         this.format = v;
         return v;
     }
-    public function new(?typeflag:std.UInt, ?name:String, ?linkname:String, ?size:haxe.Int64, ?mode:haxe.Int64, ?uid:StdTypes.Int, ?gid:StdTypes.Int, ?uname:String, ?gname:String, ?modTime:stdgo._internal.time.Time_time.Time, ?accessTime:stdgo._internal.time.Time_time.Time, ?changeTime:stdgo._internal.time.Time_time.Time, ?devmajor:haxe.Int64, ?devminor:haxe.Int64, ?xattrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?pAXRecords:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?format:Format) this = new stdgo._internal.archive.tar.Tar_header.Header(
+    public function new(?typeflag:std.UInt, ?name:String, ?linkname:String, ?size:haxe.Int64, ?mode:haxe.Int64, ?uid:StdTypes.Int, ?gid:StdTypes.Int, ?uname:String, ?gname:String, ?modTime:stdgo._internal.time.Time_time.Time, ?accessTime:stdgo._internal.time.Time_time.Time, ?changeTime:stdgo._internal.time.Time_time.Time, ?devmajor:haxe.Int64, ?devminor:haxe.Int64, ?xattrs:Map<String, String>, ?pAXRecords:Map<String, String>, ?format:Format) this = new stdgo._internal.archive.tar.Tar_header.Header(
 (typeflag : stdgo.GoUInt8),
 (name : stdgo.GoString),
 (linkname : stdgo.GoString),
@@ -192,8 +240,20 @@ accessTime,
 changeTime,
 (devmajor : stdgo.GoInt64),
 (devminor : stdgo.GoInt64),
-(xattrs : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
-(pAXRecords : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in xattrs) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in pAXRecords) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 format);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
@@ -455,10 +515,16 @@ class Header_static_extension {
         final _h = (_h : stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>);
         return stdgo._internal.archive.tar.Tar_header_static_extension.Header_static_extension.fileInfo(_h);
     }
-    static public function _allowedFormats(_h:Header):stdgo.Tuple.Tuple3<Format, stdgo.GoMap<stdgo.GoString, stdgo.GoString>, stdgo.Error> {
+    static public function _allowedFormats(_h:Header):stdgo.Tuple.Tuple3<Format, Map<String, String>, stdgo.Error> {
         return {
             final obj = stdgo._internal.archive.tar.Tar_header_static_extension.Header_static_extension._allowedFormats(_h);
-            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+            { _0 : obj._0, _1 : {
+                final __obj__:Map<String, String> = [];
+                for (key => value in obj._1) {
+                    __obj__[key] = value;
+                };
+                __obj__;
+            }, _2 : obj._2 };
         };
     }
 }
@@ -701,10 +767,16 @@ class Writer_static_extension {
         final _hdr = (_hdr : stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>);
         return stdgo._internal.archive.tar.Tar_writer_static_extension.Writer_static_extension._writeGNUHeader(_tw, _hdr);
     }
-    static public function _writePAXHeader(_tw:Writer, _hdr:Header, _paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.Error {
+    static public function _writePAXHeader(_tw:Writer, _hdr:Header, _paxHdrs:Map<String, String>):stdgo.Error {
         final _tw = (_tw : stdgo.Ref<stdgo._internal.archive.tar.Tar_writer.Writer>);
         final _hdr = (_hdr : stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>);
-        final _paxHdrs = (_paxHdrs : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+        final _paxHdrs = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in _paxHdrs) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return stdgo._internal.archive.tar.Tar_writer_static_extension.Writer_static_extension._writePAXHeader(_tw, _hdr, _paxHdrs);
     }
     static public function _writeUSTARHeader(_tw:Writer, _hdr:Header):stdgo.Error {

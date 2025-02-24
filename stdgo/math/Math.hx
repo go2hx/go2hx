@@ -30,33 +30,33 @@ final maxUint16 : haxe.UInt64 = stdgo._internal.math.Math_maxuint16.maxUint16;
 final maxUint32 : haxe.UInt64 = stdgo._internal.math.Math_maxuint32.maxUint32;
 final maxUint64 : haxe.UInt64 = stdgo._internal.math.Math_maxuint64.maxUint64;
 final reduceThreshold : haxe.UInt64 = stdgo._internal.math.Math_reducethreshold.reduceThreshold;
-var expGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_expGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_expgo.expGo(_0);
-private function set_expGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
+var expGo(get, set) : StdTypes.Float -> StdTypes.Float;
+private function get_expGo():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.math.Math_expgo.expGo(_0);
+private function set_expGo(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
         stdgo._internal.math.Math_expgo.expGo = v;
         return v;
     }
-var exp2Go(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_exp2Go():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_exp2go.exp2Go(_0);
-private function set_exp2Go(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
+var exp2Go(get, set) : StdTypes.Float -> StdTypes.Float;
+private function get_exp2Go():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.math.Math_exp2go.exp2Go(_0);
+private function set_exp2Go(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
         stdgo._internal.math.Math_exp2go.exp2Go = v;
         return v;
     }
-var hypotGo(get, set) : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64;
-private function get_hypotGo():(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 return (_0, _1) -> stdgo._internal.math.Math_hypotgo.hypotGo(_0, _1);
-private function set_hypotGo(v:(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64):(stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64 {
+var hypotGo(get, set) : (StdTypes.Float, StdTypes.Float) -> StdTypes.Float;
+private function get_hypotGo():(StdTypes.Float, StdTypes.Float) -> StdTypes.Float return (_0, _1) -> stdgo._internal.math.Math_hypotgo.hypotGo(_0, _1);
+private function set_hypotGo(v:(StdTypes.Float, StdTypes.Float) -> StdTypes.Float):(StdTypes.Float, StdTypes.Float) -> StdTypes.Float {
         stdgo._internal.math.Math_hypotgo.hypotGo = v;
         return v;
     }
-var sqrtGo(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_sqrtGo():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.math.Math_sqrtgo.sqrtGo(_0);
-private function set_sqrtGo(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
+var sqrtGo(get, set) : StdTypes.Float -> StdTypes.Float;
+private function get_sqrtGo():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.math.Math_sqrtgo.sqrtGo(_0);
+private function set_sqrtGo(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
         stdgo._internal.math.Math_sqrtgo.sqrtGo = v;
         return v;
     }
-var trigReduce(get, set) : stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; };
-private function get_trigReduce():stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } return _0 -> stdgo._internal.math.Math_trigreduce.trigReduce(_0);
-private function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; }):stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } {
+var trigReduce(get, set) : StdTypes.Float -> stdgo.Tuple<haxe.UInt64, StdTypes.Float>;
+private function get_trigReduce():StdTypes.Float -> stdgo.Tuple<haxe.UInt64, StdTypes.Float> return _0 -> stdgo._internal.math.Math_trigreduce.trigReduce(_0);
+private function set_trigReduce(v:StdTypes.Float -> stdgo.Tuple<haxe.UInt64, StdTypes.Float>):StdTypes.Float -> stdgo.Tuple<haxe.UInt64, StdTypes.Float> {
         stdgo._internal.math.Math_trigreduce.trigReduce = v;
         return v;
     }

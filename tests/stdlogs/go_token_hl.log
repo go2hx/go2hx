@@ -1,12 +1,5 @@
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:4: characters 91-96
-
-  4 |         var __0 = stdgo._internal.go.token.Token_newfileset.newFileSet(), __1 = @:check2r _fset.addFile((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2 = (new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
-    |                                                                                           ^^^^^
-    | Unknown identifier : _fset
-
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:21: characters 45-48
-
- 21 |                 var _pos = (@:check2r _file.pos((0 : stdgo.GoInt)) : stdgo._internal.go.token.Token_pos.Pos);
-    |                                             ^^^
-    | { addLine : stdgo.GoInt -> Unknown<0> } has no field pos
-
+Uncaught exception: Can't cast stdgo._internal.internal.reflect._Type_asInterface to stdgo.AnyInterfaceData
+Called from stdgo.GoAnyInterfaceMap.compare(stdgo/GoMap.hx:688)
+Called from haxe.ds.BalancedTree.exists(/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx:104)
+Called from stdgo._internal.encoding.gob._Gob__bootstraptype.$Gob__bootstraptype_Fields_._bootstrapType(stdgo/GoMap.hx:66)
+Called from .init(stdgo/_internal/encoding/gob/Gob__tint.hx:2)

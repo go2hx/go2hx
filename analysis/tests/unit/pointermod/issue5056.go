@@ -4,14 +4,16 @@ type Foo int16
 
 func (f Foo) Esc() *int {
     x := int(f)
+    x__pointer__ := &x
     if true {
         x := 20
-        ptr2 := &x
-        if &x == ptr2 {
+        x__pointer__ := &x
+        ptr2 := x__pointer__
+        if x__pointer__ == ptr2 {
             println("equal")
         }
     }
-    ptr := &x
+    ptr := x__pointer__
     return ptr
 }
 
@@ -27,13 +29,15 @@ func main() {
     foobar = quux.Esc()
     println(bar == foobar)
     x2 := 0
-    y := &x2
-    z := &x2
+    x2__pointer__ := &x2
+    y := x2__pointer__
+    z := x2__pointer__
     println(y == z)
     x3 := 0
-    y2 := &x3
+    x3__pointer__ := &x3
+    y2 := x3__pointer__
     x3 = get(x3)
-    z2 := &x3
+    z2 := x3__pointer__
     println(y2 == z2)
 }
 func get(i int) int {

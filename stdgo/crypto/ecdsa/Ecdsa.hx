@@ -34,7 +34,15 @@ package stdgo.crypto.ecdsa;
         return [for (i in stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-@:dox(hide) typedef T_nistPoint = stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint<T_>;
+@:interface @:dox(hide) @:forward abstract T_nistPoint(stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint) from stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint to stdgo._internal.crypto.ecdsa.Ecdsa_t_nistpoint.T_nistPoint {
+    @:from
+    static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function bytesX():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function add(_0:Dynamic, _1:Dynamic):Dynamic; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_nistPoint = { bytes : () -> x.bytes(), bytesX : () -> x.bytesX(), setBytes : _0 -> x.setBytes([for (i in _0) i]), add : (_0, _1) -> x.add(_0, _1), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.crypto.ecdsa.Ecdsa.PublicKey_static_extension) abstract PublicKey(stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey) from stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey to stdgo._internal.crypto.ecdsa.Ecdsa_publickey.PublicKey {
     public var curve(get, set) : stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
     function get_curve():stdgo._internal.crypto.elliptic.Elliptic_curve.Curve return this.curve;

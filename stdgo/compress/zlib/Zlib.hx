@@ -28,7 +28,15 @@ class Resetter_static_extension {
         return stdgo._internal.compress.zlib.Zlib_resetter_static_extension.Resetter_static_extension.reset(t, _r, _dict);
     }
 }
-typedef Resetter = stdgo._internal.compress.zlib.Zlib_resetter.Resetter;
+@:interface @:forward abstract Resetter(stdgo._internal.compress.zlib.Zlib_resetter.Resetter) from stdgo._internal.compress.zlib.Zlib_resetter.Resetter to stdgo._internal.compress.zlib.Zlib_resetter.Resetter {
+    @:from
+    static function fromHaxeInterface(x:{ function reset(_r:stdgo._internal.io.Io_reader.Reader, _dict:Array<std.UInt>):stdgo.Error; }):Resetter {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Resetter = { reset : (_0, _1) -> x.reset(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.compress.zlib.Zlib.T_reader_static_extension) @:dox(hide) abstract T_reader(stdgo._internal.compress.zlib.Zlib_t_reader.T_reader) from stdgo._internal.compress.zlib.Zlib_t_reader.T_reader to stdgo._internal.compress.zlib.Zlib_t_reader.T_reader {
     public var _r(get, set) : stdgo._internal.compress.flate.Flate_reader.Reader;
     function get__r():stdgo._internal.compress.flate.Flate_reader.Reader return this._r;

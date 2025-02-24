@@ -33,19 +33,43 @@ class Handler_static_extension {
         return stdgo._internal.log.slog.Slog_handler_static_extension.Handler_static_extension.enabled(t, _0, _1);
     }
 }
-typedef Handler = stdgo._internal.log.slog.Slog_handler.Handler;
+@:interface @:forward abstract Handler(stdgo._internal.log.slog.Slog_handler.Handler) from stdgo._internal.log.slog.Slog_handler.Handler to stdgo._internal.log.slog.Slog_handler.Handler {
+    @:from
+    static function fromHaxeInterface(x:{ function enabled(_0:stdgo._internal.context.Context_context.Context, _1:Level):Bool; function handle(_0:stdgo._internal.context.Context_context.Context, _1:Record):stdgo.Error; function withAttrs(_attrs:Array<Attr>):Handler; function withGroup(_name:String):Handler; }):Handler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Handler = { enabled : (_0, _1) -> x.enabled(_0, _1), handle : (_0, _1) -> x.handle(_0, _1), withAttrs : _0 -> x.withAttrs([for (i in _0) i]), withGroup : _0 -> x.withGroup(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Leveler_static_extension {
     static public function level(t:stdgo._internal.log.slog.Slog_leveler.Leveler):Level {
         return stdgo._internal.log.slog.Slog_leveler_static_extension.Leveler_static_extension.level(t);
     }
 }
-typedef Leveler = stdgo._internal.log.slog.Slog_leveler.Leveler;
+@:interface @:forward abstract Leveler(stdgo._internal.log.slog.Slog_leveler.Leveler) from stdgo._internal.log.slog.Slog_leveler.Leveler to stdgo._internal.log.slog.Slog_leveler.Leveler {
+    @:from
+    static function fromHaxeInterface(x:{ function level():Level; }):Leveler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Leveler = { level : () -> x.level(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class LogValuer_static_extension {
     static public function logValue(t:stdgo._internal.log.slog.Slog_logvaluer.LogValuer):Value {
         return stdgo._internal.log.slog.Slog_logvaluer_static_extension.LogValuer_static_extension.logValue(t);
     }
 }
-typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
+@:interface @:forward abstract LogValuer(stdgo._internal.log.slog.Slog_logvaluer.LogValuer) from stdgo._internal.log.slog.Slog_logvaluer.LogValuer to stdgo._internal.log.slog.Slog_logvaluer.LogValuer {
+    @:from
+    static function fromHaxeInterface(x:{ function logValue():Value; }):LogValuer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:LogValuer = { logValue : () -> x.logValue(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.log.slog.Slog.Attr_static_extension) abstract Attr(stdgo._internal.log.slog.Slog_attr.Attr) from stdgo._internal.log.slog.Slog_attr.Attr to stdgo._internal.log.slog.Slog_attr.Attr {
     public var key(get, set) : String;
     function get_key():String return this.key;
@@ -70,13 +94,13 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
         this._ch = (v : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>);
         return v;
     }
-    public var _output(get, set) : (stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error;
-    function get__output():(stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error return (_0, _1) -> this._output(_0, [for (i in _1) i]);
-    function set__output(v:(stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error):(stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error {
+    public var _output(get, set) : (stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error;
+    function get__output():(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error return (_0, _1) -> this._output(_0, [for (i in _1) i]);
+    function set__output(v:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error):(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error {
         this._output = v;
         return v;
     }
-    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), _output);
+    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), _output);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -93,13 +117,13 @@ typedef LogValuer = stdgo._internal.log.slog.Slog_logvaluer.LogValuer;
         this.level = v;
         return v;
     }
-    public var replaceAttr(get, set) : (stdgo.Slice<stdgo.GoString>, stdgo._internal.log.slog.Slog_attr.Attr) -> stdgo._internal.log.slog.Slog_attr.Attr;
-    function get_replaceAttr():(stdgo.Slice<stdgo.GoString>, stdgo._internal.log.slog.Slog_attr.Attr) -> stdgo._internal.log.slog.Slog_attr.Attr return (_0, _1) -> this.replaceAttr([for (i in _0) i], _1);
-    function set_replaceAttr(v:(stdgo.Slice<stdgo.GoString>, stdgo._internal.log.slog.Slog_attr.Attr) -> stdgo._internal.log.slog.Slog_attr.Attr):(stdgo.Slice<stdgo.GoString>, stdgo._internal.log.slog.Slog_attr.Attr) -> stdgo._internal.log.slog.Slog_attr.Attr {
+    public var replaceAttr(get, set) : (Array<String>, Attr) -> Attr;
+    function get_replaceAttr():(Array<String>, Attr) -> Attr return (_0, _1) -> this.replaceAttr([for (i in _0) i], _1);
+    function set_replaceAttr(v:(Array<String>, Attr) -> Attr):(Array<String>, Attr) -> Attr {
         this.replaceAttr = v;
         return v;
     }
-    public function new(?addSource:Bool, ?level:Leveler, ?replaceAttr:(stdgo.Slice<stdgo.GoString>, stdgo._internal.log.slog.Slog_attr.Attr) -> stdgo._internal.log.slog.Slog_attr.Attr) this = new stdgo._internal.log.slog.Slog_handleroptions.HandlerOptions(addSource, level, replaceAttr);
+    public function new(?addSource:Bool, ?level:Leveler, ?replaceAttr:(Array<String>, Attr) -> Attr) this = new stdgo._internal.log.slog.Slog_handleroptions.HandlerOptions(addSource, level, replaceAttr);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -668,7 +692,7 @@ class Record_static_extension {
         final _r = (_r : stdgo.Ref<stdgo._internal.log.slog.Slog_record.Record>);
         stdgo._internal.log.slog.Slog_record_static_extension.Record_static_extension.addAttrs(_r, ...[for (i in _attrs) i]);
     }
-    static public function attrs(_r:Record, _f:stdgo._internal.log.slog.Slog_attr.Attr -> Bool):Void {
+    static public function attrs(_r:Record, _f:Attr -> Bool):Void {
         final _f = _f;
         stdgo._internal.log.slog.Slog_record_static_extension.Record_static_extension.attrs(_r, _f);
     }

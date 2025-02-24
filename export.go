@@ -388,7 +388,7 @@ func mergePackageToFile(pkg *packages.Package) *ast.File {
 		path := filepath.Base(pkg.GoFiles[i])
 		files[path] = pkg.Syntax[i]
 	}
-	return ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates)
+	return ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, 0)
 }
 
 var countStruct = 0

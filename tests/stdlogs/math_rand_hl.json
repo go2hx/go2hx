@@ -1,0 +1,42 @@
+{
+    "passes": [
+        "TestDefaultRace",
+        "TestConcurrent",
+        "TestStandardNormalValues",
+        "TestNonStandardNormalValues",
+        "TestFloat32",
+        "TestReadUniformity",
+        "TestReadEmpty",
+        "TestReadByOneByte",
+        "TestReadSeedReset",
+        "TestShuffleSmall",
+        "TestUniformFactorial"
+    ],
+    "fails": [
+        "TestAuto",
+        "TestStandardExponentialValues",
+        "TestNonStandardExponentialValues",
+        "TestNormTables",
+        "TestExpTables",
+        "TestRegress"
+    ],
+    "runs": [
+        "TestAuto",
+        "TestDefaultRace",
+        "TestConcurrent",
+        "TestStandardNormalValues",
+        "TestNonStandardNormalValues",
+        "TestStandardExponentialValues",
+        "TestNonStandardExponentialValues",
+        "TestNormTables",
+        "TestExpTables",
+        "TestFloat32",
+        "TestReadUniformity",
+        "TestReadEmpty",
+        "TestReadByOneByte",
+        "TestReadSeedReset",
+        "TestShuffleSmall",
+        "TestUniformFactorial",
+        "TestRegress"
+    ]
+}

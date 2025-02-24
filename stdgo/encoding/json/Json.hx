@@ -5,7 +5,15 @@ class Unmarshaler_static_extension {
         return stdgo._internal.encoding.json.Json_unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalJSON(t, _0);
     }
 }
-typedef Unmarshaler = stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler;
+@:interface @:forward abstract Unmarshaler(stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler) from stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler to stdgo._internal.encoding.json.Json_unmarshaler.Unmarshaler {
+    @:from
+    static function fromHaxeInterface(x:{ function unmarshalJSON(_0:Array<std.UInt>):stdgo.Error; }):Unmarshaler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Unmarshaler = { unmarshalJSON : _0 -> x.unmarshalJSON([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Marshaler_static_extension {
     static public function marshalJSON(t:stdgo._internal.encoding.json.Json_marshaler.Marshaler):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
@@ -14,7 +22,15 @@ class Marshaler_static_extension {
         };
     }
 }
-typedef Marshaler = stdgo._internal.encoding.json.Json_marshaler.Marshaler;
+@:interface @:forward abstract Marshaler(stdgo._internal.encoding.json.Json_marshaler.Marshaler) from stdgo._internal.encoding.json.Json_marshaler.Marshaler to stdgo._internal.encoding.json.Json_marshaler.Marshaler {
+    @:from
+    static function fromHaxeInterface(x:{ function marshalJSON():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Marshaler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Marshaler = { marshalJSON : () -> x.marshalJSON(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.encoding.json.Json.T_codeResponse_static_extension) @:dox(hide) abstract T_codeResponse(stdgo._internal.encoding.json.Json_t_coderesponse.T_codeResponse) from stdgo._internal.encoding.json.Json_t_coderesponse.T_codeResponse to stdgo._internal.encoding.json.Json_t_coderesponse.T_codeResponse {
     public var tree(get, set) : T_codeNode;
     function get_tree():T_codeNode return this.tree;
@@ -757,13 +773,31 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_marshaler.Marshaler;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.json.Json.T_mapStringToStringData_static_extension) @:dox(hide) abstract T_mapStringToStringData(stdgo._internal.encoding.json.Json_t_mapstringtostringdata.T_mapStringToStringData) from stdgo._internal.encoding.json.Json_t_mapstringtostringdata.T_mapStringToStringData to stdgo._internal.encoding.json.Json_t_mapstringtostringdata.T_mapStringToStringData {
-    public var data(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_data():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.data;
-    function set_data(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.data = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var data(get, set) : Map<String, String>;
+    function get_data():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.data) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_data(v:Map<String, String>):Map<String, String> {
+        this.data = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?data:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.encoding.json.Json_t_mapstringtostringdata.T_mapStringToStringData((data : stdgo.GoMap<stdgo.GoString, stdgo.GoString>));
+    public function new(?data:Map<String, String>) this = new stdgo._internal.encoding.json.Json_t_mapstringtostringdata.T_mapStringToStringData({
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in data) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1086,40 +1120,88 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_marshaler.Marshaler;
         this.pString = v;
         return v;
     }
-    public var map_(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>;
-    function get_map_():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> return this.map_;
-    function set_map_(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> {
-        this.map_ = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>);
+    public var map_(get, set) : Map<String, Small>;
+    function get_map_():Map<String, Small> return {
+        final __obj__:Map<String, Small> = [];
+        for (key => value in this.map_) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_map_(v:Map<String, Small>):Map<String, Small> {
+        this.map_ = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mapP(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>;
-    function get_mapP():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>> return this.mapP;
-    function set_mapP(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>> {
-        this.mapP = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>);
+    public var mapP(get, set) : Map<String, Small>;
+    function get_mapP():Map<String, Small> return {
+        final __obj__:Map<String, Small> = [];
+        for (key => value in this.mapP) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mapP(v:Map<String, Small>):Map<String, Small> {
+        this.mapP = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var pMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>;
-    function get_pMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> return this.pMap;
-    function set_pMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> {
+    public var pMap(get, set) : Map<String, Small>;
+    function get_pMap():Map<String, Small> return this.pMap;
+    function set_pMap(v:Map<String, Small>):Map<String, Small> {
         this.pMap = (v : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>>);
         return v;
     }
-    public var pMapP(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>;
-    function get_pMapP():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>> return this.pMapP;
-    function set_pMapP(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>> {
+    public var pMapP(get, set) : Map<String, Small>;
+    function get_pMapP():Map<String, Small> return this.pMapP;
+    function set_pMapP(v:Map<String, Small>):Map<String, Small> {
         this.pMapP = (v : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>>);
         return v;
     }
-    public var emptyMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>;
-    function get_emptyMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> return this.emptyMap;
-    function set_emptyMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> {
-        this.emptyMap = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>);
+    public var emptyMap(get, set) : Map<String, Small>;
+    function get_emptyMap():Map<String, Small> return {
+        final __obj__:Map<String, Small> = [];
+        for (key => value in this.emptyMap) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_emptyMap(v:Map<String, Small>):Map<String, Small> {
+        this.emptyMap = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public var nilMap(get, set) : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>;
-    function get_nilMap():stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> return this.nilMap;
-    function set_nilMap(v:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>):stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small> {
-        this.nilMap = (v : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>);
+    public var nilMap(get, set) : Map<String, Small>;
+    function get_nilMap():Map<String, Small> return {
+        final __obj__:Map<String, Small> = [];
+        for (key => value in this.nilMap) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_nilMap(v:Map<String, Small>):Map<String, Small> {
+        this.nilMap = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
     public var slice(get, set) : Array<Small>;
@@ -1206,7 +1288,7 @@ typedef Marshaler = stdgo._internal.encoding.json.Json_marshaler.Marshaler;
         this._unexported = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?uintptr:stdgo.GoUIntptr, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?foo:String, ?foo2:String, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?pBool:stdgo.Pointer<Bool>, ?pInt:stdgo.Pointer<StdTypes.Int>, ?pInt8:stdgo.Pointer<StdTypes.Int>, ?pInt16:stdgo.Pointer<StdTypes.Int>, ?pInt32:stdgo.Pointer<StdTypes.Int>, ?pInt64:stdgo.Pointer<haxe.Int64>, ?pUint:stdgo.Pointer<std.UInt>, ?pUint8:stdgo.Pointer<std.UInt>, ?pUint16:stdgo.Pointer<std.UInt>, ?pUint32:stdgo.Pointer<std.UInt>, ?pUint64:stdgo.Pointer<haxe.UInt64>, ?pUintptr:stdgo.Pointer<stdgo.GoUIntptr>, ?pFloat32:stdgo.Pointer<StdTypes.Float>, ?pFloat64:stdgo.Pointer<StdTypes.Float>, ?string:String, ?pString:stdgo.Pointer<String>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>, ?mapP:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>, ?pMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>, ?pMapP:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>, ?nilMap:stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>, ?slice:Array<Small>, ?sliceP:Array<Small>, ?pSlice:Array<Small>, ?pSliceP:Array<Small>, ?emptySlice:Array<Small>, ?nilSlice:Array<Small>, ?stringSlice:Array<String>, ?byteSlice:Array<std.UInt>, ?small:Small, ?pSmall:Small, ?pPSmall:Small, ?interface_:stdgo.AnyInterface, ?pInterface:stdgo.AnyInterface, ?_unexported:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_all.All(
+    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?uintptr:stdgo.GoUIntptr, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?foo:String, ?foo2:String, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?pBool:stdgo.Pointer<Bool>, ?pInt:stdgo.Pointer<StdTypes.Int>, ?pInt8:stdgo.Pointer<StdTypes.Int>, ?pInt16:stdgo.Pointer<StdTypes.Int>, ?pInt32:stdgo.Pointer<StdTypes.Int>, ?pInt64:stdgo.Pointer<haxe.Int64>, ?pUint:stdgo.Pointer<std.UInt>, ?pUint8:stdgo.Pointer<std.UInt>, ?pUint16:stdgo.Pointer<std.UInt>, ?pUint32:stdgo.Pointer<std.UInt>, ?pUint64:stdgo.Pointer<haxe.UInt64>, ?pUintptr:stdgo.Pointer<stdgo.GoUIntptr>, ?pFloat32:stdgo.Pointer<StdTypes.Float>, ?pFloat64:stdgo.Pointer<StdTypes.Float>, ?string:String, ?pString:stdgo.Pointer<String>, ?map_:Map<String, Small>, ?mapP:Map<String, Small>, ?pMap:Map<String, Small>, ?pMapP:Map<String, Small>, ?emptyMap:Map<String, Small>, ?nilMap:Map<String, Small>, ?slice:Array<Small>, ?sliceP:Array<Small>, ?pSlice:Array<Small>, ?pSliceP:Array<Small>, ?emptySlice:Array<Small>, ?nilSlice:Array<Small>, ?stringSlice:Array<String>, ?byteSlice:Array<std.UInt>, ?small:Small, ?pSmall:Small, ?pPSmall:Small, ?interface_:stdgo.AnyInterface, ?pInterface:stdgo.AnyInterface, ?_unexported:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_all.All(
 bool_,
 (int_ : stdgo.GoInt),
 (int8 : stdgo.GoInt8),
@@ -1241,12 +1323,36 @@ pFloat32,
 pFloat64,
 (string : stdgo.GoString),
 pString,
-(map_ : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>),
-(mapP : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+        for (key => value in map_) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>();
+        for (key => value in mapP) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>);
+        };
+        __obj__;
+    },
 (pMap : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>>),
 (pMapP : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>>),
-(emptyMap : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>),
-(nilMap : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+        for (key => value in emptyMap) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.json.Json_small.Small>();
+        for (key => value in nilMap) {
+            __obj__[(key : stdgo.GoString)] = value;
+        };
+        __obj__;
+    },
 ([for (i in slice) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>),
 ([for (i in sliceP) (i : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>),
 (pSlice : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json.Json_small.Small>>),
@@ -1366,10 +1472,22 @@ small,
         this.pBool = v;
         return v;
     }
-    public var map_(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_map_():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.map_;
-    function set_map_(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.map_ = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var map_(get, set) : Map<String, String>;
+    function get_map_():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.map_) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_map_(v:Map<String, String>):Map<String, String> {
+        this.map_ = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var slice(get, set) : Array<String>;
@@ -1456,7 +1574,7 @@ small,
         this.struct_ = v;
         return v;
     }
-    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?string:String, ?pBool:stdgo.Pointer<Bool>, ?map_:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?slice:Array<String>, ?interface_:stdgo.AnyInterface, ?pRaw:RawMessage, ?pTime:stdgo._internal.time.Time_time.Time, ?pBigInt:stdgo._internal.math.big.Big_int_.Int_, ?pText:MustNotUnmarshalText, ?pBuffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?pStruct:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue, ?raw:RawMessage, ?time:stdgo._internal.time.Time_time.Time, ?bigInt:stdgo._internal.math.big.Big_int_.Int_, ?text:MustNotUnmarshalText, ?buffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?struct_:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_nulltest.NullTest(
+    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?string:String, ?pBool:stdgo.Pointer<Bool>, ?map_:Map<String, String>, ?slice:Array<String>, ?interface_:stdgo.AnyInterface, ?pRaw:RawMessage, ?pTime:stdgo._internal.time.Time_time.Time, ?pBigInt:stdgo._internal.math.big.Big_int_.Int_, ?pText:MustNotUnmarshalText, ?pBuffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?pStruct:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue, ?raw:RawMessage, ?time:stdgo._internal.time.Time_time.Time, ?bigInt:stdgo._internal.math.big.Big_int_.Int_, ?text:MustNotUnmarshalText, ?buffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?struct_:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_nulltest.NullTest(
 bool_,
 (int_ : stdgo.GoInt),
 (int8 : stdgo.GoInt8),
@@ -1472,7 +1590,13 @@ bool_,
 (float64 : stdgo.GoFloat64),
 (string : stdgo.GoString),
 pBool,
-(map_ : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in map_) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 ([for (i in slice) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 (interface_ : stdgo.AnyInterface),
 (pRaw : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>),
@@ -1507,16 +1631,40 @@ struct_);
         this.name = (v : stdgo.GoString);
         return v;
     }
-    public var _m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
-    function get__m():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._m;
-    function set__m(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._m = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    public var _m(get, set) : Map<String, stdgo.AnyInterface>;
+    function get__m():Map<String, stdgo.AnyInterface> return {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in this._m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__m(v:Map<String, stdgo.AnyInterface>):Map<String, stdgo.AnyInterface> {
+        this._m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _m2(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
-    function get__m2():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this._m2;
-    function set__m2(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this._m2 = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    public var _m2(get, set) : Map<String, stdgo.AnyInterface>;
+    function get__m2():Map<String, stdgo.AnyInterface> return {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in this._m2) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__m2(v:Map<String, stdgo.AnyInterface>):Map<String, stdgo.AnyInterface> {
+        this._m2 = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _s(get, set) : Array<StdTypes.Int>;
@@ -1525,7 +1673,19 @@ struct_);
         this._s = ([for (i in v) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?name:String, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_m2:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?_s:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_t_unexportedfields.T_unexportedFields((name : stdgo.GoString), (_m : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), (_m2 : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>), ([for (i in _s) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?name:String, ?_m:Map<String, stdgo.AnyInterface>, ?_m2:Map<String, stdgo.AnyInterface>, ?_s:Array<StdTypes.Int>) this = new stdgo._internal.encoding.json.Json_t_unexportedfields.T_unexportedFields((name : stdgo.GoString), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in _m) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in _m2) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    }, ([for (i in _s) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1609,13 +1769,31 @@ struct_);
         this._ptrLevel = (v : stdgo.GoUInt);
         return v;
     }
-    public var _ptrSeen(get, set) : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>;
-    function get__ptrSeen():stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> return this._ptrSeen;
-    function set__ptrSeen(v:stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>):stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> {
-        this._ptrSeen = (v : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>);
+    public var _ptrSeen(get, set) : Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>;
+    function get__ptrSeen():Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> return {
+        final __obj__:Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> = [];
+        for (key => value in this._ptrSeen) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__ptrSeen(v:Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>):Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue> {
+        this._ptrSeen = {
+            final __obj__ = new stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.AnyInterface)] = value;
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?buffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_ptrLevel:std.UInt, ?_ptrSeen:stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>) this = new stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState(buffer, (_ptrLevel : stdgo.GoUInt), (_ptrSeen : stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>));
+    public function new(?buffer:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_ptrLevel:std.UInt, ?_ptrSeen:Map<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>) this = new stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState(buffer, (_ptrLevel : stdgo.GoUInt), {
+        final __obj__ = new stdgo.GoMap<stdgo.AnyInterface, stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue>();
+        for (key => value in _ptrSeen) {
+            __obj__[(key : stdgo.AnyInterface)] = value;
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1665,19 +1843,55 @@ struct_);
         this._list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
         return v;
     }
-    public var _byExactName(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>;
-    function get__byExactName():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>> return this._byExactName;
-    function set__byExactName(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>> {
-        this._byExactName = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>);
+    public var _byExactName(get, set) : Map<String, T_field>;
+    function get__byExactName():Map<String, T_field> return {
+        final __obj__:Map<String, T_field> = [];
+        for (key => value in this._byExactName) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__byExactName(v:Map<String, T_field>):Map<String, T_field> {
+        this._byExactName = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _byFoldedName(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>;
-    function get__byFoldedName():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>> return this._byFoldedName;
-    function set__byFoldedName(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>> {
-        this._byFoldedName = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>);
+    public var _byFoldedName(get, set) : Map<String, T_field>;
+    function get__byFoldedName():Map<String, T_field> return {
+        final __obj__:Map<String, T_field> = [];
+        for (key => value in this._byFoldedName) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__byFoldedName(v:Map<String, T_field>):Map<String, T_field> {
+        this._byFoldedName = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_list:Array<T_field>, ?_byExactName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>, ?_byFoldedName:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>) this = new stdgo._internal.encoding.json.Json_t_structfields.T_structFields(([for (i in _list) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>), (_byExactName : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>), (_byFoldedName : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>));
+    public function new(?_list:Array<T_field>, ?_byExactName:Map<String, T_field>, ?_byFoldedName:Map<String, T_field>) this = new stdgo._internal.encoding.json.Json_t_structfields.T_structFields(([for (i in _list) i] : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>), {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>();
+        for (key => value in _byExactName) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
+        };
+        __obj__;
+    }, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>>();
+        for (key => value in _byFoldedName) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1873,16 +2087,40 @@ struct_);
         this.slo = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var mr(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
-    function get_mr():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this.mr;
-    function set_mr(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this.mr = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    public var mr(get, set) : Map<String, stdgo.AnyInterface>;
+    function get_mr():Map<String, stdgo.AnyInterface> return {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in this.mr) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mr(v:Map<String, stdgo.AnyInterface>):Map<String, stdgo.AnyInterface> {
+        this.mr = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var mo(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>;
-    function get_mo():stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> return this.mo;
-    function set_mo(v:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
-        this.mo = (v : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+    public var mo(get, set) : Map<String, stdgo.AnyInterface>;
+    function get_mo():Map<String, stdgo.AnyInterface> return {
+        final __obj__:Map<String, stdgo.AnyInterface> = [];
+        for (key => value in this.mo) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_mo(v:Map<String, stdgo.AnyInterface>):Map<String, stdgo.AnyInterface> {
+        this.mo = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        };
         return v;
     }
     public var fr(get, set) : StdTypes.Float;
@@ -1933,7 +2171,7 @@ struct_);
         this.sto = v;
         return v;
     }
-    public function new(?sr:String, ?so:String, ?sw:String, ?ir:StdTypes.Int, ?io:StdTypes.Int, ?slr:Array<String>, ?slo:Array<String>, ?mr:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?mo:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>, ?fr:StdTypes.Float, ?fo:StdTypes.Float, ?br:Bool, ?bo:Bool, ?ur:std.UInt, ?uo:std.UInt, ?str:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue, ?sto:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_optionals.Optionals(
+    public function new(?sr:String, ?so:String, ?sw:String, ?ir:StdTypes.Int, ?io:StdTypes.Int, ?slr:Array<String>, ?slo:Array<String>, ?mr:Map<String, stdgo.AnyInterface>, ?mo:Map<String, stdgo.AnyInterface>, ?fr:StdTypes.Float, ?fo:StdTypes.Float, ?br:Bool, ?bo:Bool, ?ur:std.UInt, ?uo:std.UInt, ?str:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue, ?sto:stdgo._internal.encoding.json.Json_t_unquotedvalue.T_unquotedValue) this = new stdgo._internal.encoding.json.Json_optionals.Optionals(
 (sr : stdgo.GoString),
 (so : stdgo.GoString),
 (sw : stdgo.GoString),
@@ -1941,8 +2179,20 @@ struct_);
 (io : stdgo.GoInt),
 ([for (i in slr) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 ([for (i in slo) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
-(mr : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>),
-(mo : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in mr) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+        for (key => value in mo) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+        };
+        __obj__;
+    },
 (fr : stdgo.GoFloat64),
 (fo : stdgo.GoFloat64),
 br,
@@ -2164,9 +2414,9 @@ sto);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.json.Json.T_scanner_static_extension) @:dox(hide) abstract T_scanner(stdgo._internal.encoding.json.Json_t_scanner.T_scanner) from stdgo._internal.encoding.json.Json_t_scanner.T_scanner to stdgo._internal.encoding.json.Json_t_scanner.T_scanner {
-    public var _step(get, set) : (stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt;
-    function get__step():(stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt return (_0, _1) -> this._step(_0, _1);
-    function set__step(v:(stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt):(stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt {
+    public var _step(get, set) : (T_scanner, std.UInt) -> StdTypes.Int;
+    function get__step():(T_scanner, std.UInt) -> StdTypes.Int return (_0, _1) -> this._step(_0, _1);
+    function set__step(v:(T_scanner, std.UInt) -> StdTypes.Int):(T_scanner, std.UInt) -> StdTypes.Int {
         this._step = v;
         return v;
     }
@@ -2194,7 +2444,7 @@ sto);
         this._bytes = (v : stdgo.GoInt64);
         return v;
     }
-    public function new(?_step:(stdgo.Ref<stdgo._internal.encoding.json.Json_t_scanner.T_scanner>, stdgo.GoUInt8) -> stdgo.GoInt, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_t_scanner.T_scanner(_step, _endTop, ([for (i in _parseState) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_err : stdgo.Error), (_bytes : stdgo.GoInt64));
+    public function new(?_step:(T_scanner, std.UInt) -> StdTypes.Int, ?_endTop:Bool, ?_parseState:Array<StdTypes.Int>, ?_err:stdgo.Error, ?_bytes:haxe.Int64) this = new stdgo._internal.encoding.json.Json_t_scanner.T_scanner(_step, _endTop, ([for (i in _parseState) (i : stdgo.GoInt)] : stdgo.Slice<stdgo.GoInt>), (_err : stdgo.Error), (_bytes : stdgo.GoInt64));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3642,9 +3892,15 @@ class InvalidUnmarshalError_static_extension {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_t_decodestate.T_decodeState>);
         return stdgo._internal.encoding.json.Json_t_decodestate_static_extension.T_decodeState_static_extension._literalInterface(_d);
     }
-    static public function _objectInterface(_d:T_decodeState):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> {
+    static public function _objectInterface(_d:T_decodeState):Map<String, stdgo.AnyInterface> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_t_decodestate.T_decodeState>);
-        return stdgo._internal.encoding.json.Json_t_decodestate_static_extension.T_decodeState_static_extension._objectInterface(_d);
+        return {
+            final __obj__:Map<String, stdgo.AnyInterface> = [];
+            for (key => value in stdgo._internal.encoding.json.Json_t_decodestate_static_extension.T_decodeState_static_extension._objectInterface(_d)) {
+                __obj__[key] = value;
+            };
+            __obj__;
+        };
     }
     static public function _arrayInterface(_d:T_decodeState):Array<stdgo.AnyInterface> {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.json.Json_t_decodestate.T_decodeState>);

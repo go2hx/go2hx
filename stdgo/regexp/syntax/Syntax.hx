@@ -187,19 +187,43 @@ final opAlternate = stdgo._internal.regexp.syntax.Syntax_opalternate.opAlternate
         this._repeats = (v : stdgo.GoInt64);
         return v;
     }
-    public var _height(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>;
-    function get__height():stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt> return this._height;
-    function set__height(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>):stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt> {
-        this._height = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>);
+    public var _height(get, set) : Map<Regexp, StdTypes.Int>;
+    function get__height():Map<Regexp, StdTypes.Int> return {
+        final __obj__:Map<Regexp, StdTypes.Int> = [];
+        for (key => value in this._height) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__height(v:Map<Regexp, StdTypes.Int>):Map<Regexp, StdTypes.Int> {
+        this._height = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _size(get, set) : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>;
-    function get__size():stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64> return this._size;
-    function set__size(v:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>):stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64> {
-        this._size = (v : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>);
+    public var _size(get, set) : Map<Regexp, haxe.Int64>;
+    function get__size():Map<Regexp, haxe.Int64> return {
+        final __obj__:Map<Regexp, haxe.Int64> = [];
+        for (key => value in this._size) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__size(v:Map<Regexp, haxe.Int64>):Map<Regexp, haxe.Int64> {
+        this._size = {
+            final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt64);
+            };
+            __obj__;
+        };
         return v;
     }
-    public function new(?_flags:Flags, ?_stack:Array<Regexp>, ?_free:Regexp, ?_numCap:StdTypes.Int, ?_wholeRegexp:String, ?_tmpClass:Array<StdTypes.Int>, ?_numRegexp:StdTypes.Int, ?_numRunes:StdTypes.Int, ?_repeats:haxe.Int64, ?_height:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>, ?_size:stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>) this = new stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser(
+    public function new(?_flags:Flags, ?_stack:Array<Regexp>, ?_free:Regexp, ?_numCap:StdTypes.Int, ?_wholeRegexp:String, ?_tmpClass:Array<StdTypes.Int>, ?_numRegexp:StdTypes.Int, ?_numRunes:StdTypes.Int, ?_repeats:haxe.Int64, ?_height:Map<Regexp, StdTypes.Int>, ?_size:Map<Regexp, haxe.Int64>) this = new stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser(
 _flags,
 ([for (i in _stack) (i : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>>),
 (_free : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>),
@@ -209,8 +233,20 @@ _flags,
 (_numRegexp : stdgo.GoInt),
 (_numRunes : stdgo.GoInt),
 (_repeats : stdgo.GoInt64),
-(_height : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>),
-(_size : stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>));
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt>();
+        for (key => value in _height) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, stdgo.GoInt64>();
+        for (key => value in _size) {
+            __obj__[(key : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>)] = (value : stdgo.GoInt64);
+        };
+        __obj__;
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

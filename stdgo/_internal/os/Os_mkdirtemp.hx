@@ -5,7 +5,7 @@ function mkdirTemp(_dir:stdgo.GoString, _pattern:stdgo.GoString):{ var _0 : stdg
                 var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
                 var result = "";
                 for (i in 0 ... length) {
-                    var randomIndex = Math.floor(Math.random() * chars.length);
+                    var randomIndex = std.Math.floor(std.Math.random() * chars.length);
                     result += chars.charAt(randomIndex);
                 };
                 return result;

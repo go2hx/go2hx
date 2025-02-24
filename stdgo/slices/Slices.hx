@@ -347,7 +347,7 @@ class Slices {
         * returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2),
         * and +1 if len(s1) > len(s2).
     **/
-    static public inline function compareFunc(_s1:Dynamic, _s2:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):StdTypes.Int {
+    static public inline function compareFunc(_s1:Dynamic, _s2:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):StdTypes.Int {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_comparefunc.compareFunc(_s1, _s2, _cmp);
     }
@@ -628,7 +628,7 @@ class Slices {
         * SortFunc requires that cmp is a strict weak ordering.
         * See https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings.
     **/
-    static public inline function sortFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
+    static public inline function sortFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Void {
         final _cmp = _cmp;
         stdgo._internal.slices.Slices_sortfunc.sortFunc(_x, _cmp);
     }
@@ -636,7 +636,7 @@ class Slices {
         * SortStableFunc sorts the slice x while keeping the original order of equal
         * elements, using cmp to compare elements in the same way as [SortFunc].
     **/
-    static public inline function sortStableFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
+    static public inline function sortStableFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Void {
         final _cmp = _cmp;
         stdgo._internal.slices.Slices_sortstablefunc.sortStableFunc(_x, _cmp);
     }
@@ -650,7 +650,7 @@ class Slices {
         * IsSortedFunc reports whether x is sorted in ascending order, with cmp as the
         * comparison function as defined by [SortFunc].
     **/
-    static public inline function isSortedFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Bool {
+    static public inline function isSortedFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Bool {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_issortedfunc.isSortedFunc(_x, _cmp);
     }
@@ -667,7 +667,7 @@ class Slices {
         * It panics if x is empty. If there is more than one minimal element
         * according to the cmp function, MinFunc returns the first one.
     **/
-    static public inline function minFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
+    static public inline function minFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Dynamic {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_minfunc.minFunc(_x, _cmp);
     }
@@ -684,7 +684,7 @@ class Slices {
         * It panics if x is empty. If there is more than one maximal element
         * according to the cmp function, MaxFunc returns the first one.
     **/
-    static public inline function maxFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
+    static public inline function maxFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Dynamic {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_maxfunc.maxFunc(_x, _cmp);
     }
@@ -709,7 +709,7 @@ class Slices {
         * cmp must implement the same ordering as the slice, such that if
         * cmp(a, t) < 0 and cmp(b, t) >= 0, then a must precede b in the slice.
     **/
-    static public inline function binarySearchFunc(_x:Dynamic, _target:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public inline function binarySearchFunc(_x:Dynamic, _target:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
         final _cmp = _cmp;
         return {
             final obj = stdgo._internal.slices.Slices_binarysearchfunc.binarySearchFunc(_x, _target, _cmp);

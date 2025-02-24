@@ -8,7 +8,15 @@ class Interface_static_extension {
         stdgo._internal.container.heap.Heap_interface_static_extension.Interface_static_extension.push(t, _x);
     }
 }
-typedef Interface = stdgo._internal.container.heap.Heap_interface.Interface;
+@:interface @:forward abstract Interface(stdgo._internal.container.heap.Heap_interface.Interface) from stdgo._internal.container.heap.Heap_interface.Interface to stdgo._internal.container.heap.Heap_interface.Interface {
+    @:from
+    static function fromHaxeInterface(x:{ function push(_x:stdgo.AnyInterface):Void; function pop():stdgo.AnyInterface; function len():StdTypes.Int; function less(_0:StdTypes.Int, _1:StdTypes.Int):Bool; function swap(_0:StdTypes.Int, _1:StdTypes.Int):Void; }):Interface {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Interface = { push : _0 -> x.push(_0), pop : () -> x.pop(), len : () -> x.len(), less : (_0, _1) -> x.less(_0, _1), swap : (_0, _1) -> x.swap(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 /**
     * Package heap provides heap operations for any type that implements
     * heap.Interface. A heap is a tree with the property that each node is the

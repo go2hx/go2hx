@@ -2,7 +2,7 @@ package stdgo._internal.net.http;
 function allowQuerySemicolons(_h:stdgo._internal.net.http.Http_handler.Handler):stdgo._internal.net.http.Http_handler.Handler {
         return stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_responsewriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>):Void {
             if (stdgo._internal.net.http.Http__strings._strings.contains((@:checkr (@:checkr _r ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").rawQuery?.__copy__(), (";" : stdgo.GoString))) {
-                var _r2 = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http_stdgo._internal.net.http.http_request_static_extension.request_static_extension.stdgo._internal.net.http.Http_request_static_extension.Request_static_extension);
+                var _r2 = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>);
                 {
                     var __tmp__ = (_r : stdgo._internal.net.http.Http_request.Request)?.__copy__();
                     var x = (_r2 : stdgo._internal.net.http.Http_request.Request);
@@ -29,7 +29,7 @@ function allowQuerySemicolons(_h:stdgo._internal.net.http.Http_handler.Handler):
                     x.response = __tmp__?.response;
                     x._ctx = __tmp__?._ctx;
                 };
-                (@:checkr _r2 ?? throw "null pointer dereference").uRL = stdgo._internal.net.http.Http_new_.new_(stdgo._internal.net.http.Http__url._url.uRL);
+                (@:checkr _r2 ?? throw "null pointer dereference").uRL = (stdgo.Go.setRef(({} : stdgo._internal.net.url.Url_url.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
                 {
                     var __tmp__ = ((@:checkr _r ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_url.URL)?.__copy__();
                     var x = ((@:checkr _r2 ?? throw "null pointer dereference").uRL : stdgo._internal.net.url.Url_url.URL);

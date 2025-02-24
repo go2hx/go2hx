@@ -2,7 +2,7 @@
 	For of dts2hx (@haxiomic) Fork of hxargs by Simon Krajewski (@simn)
 	Fork: https://github.com/haxiomic/dts2hx/blob/master/src/hxargs/Args.hx
 	Original: https://github.com/Simn/hxargs
-**/
+*/
 
 package;
 

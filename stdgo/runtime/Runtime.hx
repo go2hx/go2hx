@@ -36,9 +36,9 @@ final userArenaChunkBytes : stdgo.GoUIntptr = stdgo._internal.runtime.Runtime_us
 final framePointerEnabled : Bool = stdgo._internal.runtime.Runtime_framepointerenabled.framePointerEnabled;
 final gOOS : String = stdgo._internal.runtime.Runtime_goos.gOOS;
 final gOARCH : String = stdgo._internal.runtime.Runtime_goarch.gOARCH;
-var fmtSprintf(get, set) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString;
-private function get_fmtSprintf():(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString return (_0, _1) -> stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf(_0, _1);
-private function set_fmtSprintf(v:(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString):(stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString {
+var fmtSprintf(get, set) : (String, haxe.Rest<stdgo.AnyInterface>) -> String;
+private function get_fmtSprintf():(String, haxe.Rest<stdgo.AnyInterface>) -> String return (_0, _1) -> stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf(_0, _1);
+private function set_fmtSprintf(v:(String, haxe.Rest<stdgo.AnyInterface>) -> String):(String, haxe.Rest<stdgo.AnyInterface>) -> String {
         stdgo._internal.runtime.Runtime_fmtsprintf.fmtSprintf = v;
         return v;
     }
@@ -66,63 +66,63 @@ private function set_atomicVariables(v:Array<stdgo._internal.unsafe.Unsafe.Unsaf
         stdgo._internal.runtime.Runtime_atomicvariables.atomicVariables = ([for (i in v) i] : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         return v;
     }
-var dlog(get, set) : () -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>;
-private function get_dlog():() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
-private function set_dlog(v:() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger>):() -> stdgo.Ref<stdgo._internal.runtime.Runtime_t_dlogger.T_dlogger> {
+var dlog(get, set) : () -> T_dlogger;
+private function get_dlog():() -> T_dlogger return () -> stdgo._internal.runtime.Runtime_dlog.dlog();
+private function set_dlog(v:() -> T_dlogger):() -> T_dlogger {
         stdgo._internal.runtime.Runtime_dlog.dlog = v;
         return v;
     }
-var fadd64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fadd64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fadd64.fadd64(_0, _1);
-private function set_fadd64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fadd64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fadd64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fadd64.fadd64(_0, _1);
+private function set_fadd64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fadd64.fadd64 = v;
         return v;
     }
-var fsub64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fsub64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fsub64.fsub64(_0, _1);
-private function set_fsub64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fsub64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fsub64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fsub64.fsub64(_0, _1);
+private function set_fsub64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fsub64.fsub64 = v;
         return v;
     }
-var fmul64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fmul64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fmul64.fmul64(_0, _1);
-private function set_fmul64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fmul64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fmul64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fmul64.fmul64(_0, _1);
+private function set_fmul64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fmul64.fmul64 = v;
         return v;
     }
-var fdiv64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64;
-private function get_fdiv64():(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fdiv64.fdiv64(_0, _1);
-private function set_fdiv64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64):(stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.GoUInt64 {
+var fdiv64(get, set) : (haxe.UInt64, haxe.UInt64) -> haxe.UInt64;
+private function get_fdiv64():(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 return (_0, _1) -> stdgo._internal.runtime.Runtime_fdiv64.fdiv64(_0, _1);
+private function set_fdiv64(v:(haxe.UInt64, haxe.UInt64) -> haxe.UInt64):(haxe.UInt64, haxe.UInt64) -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fdiv64.fdiv64 = v;
         return v;
     }
-var f64to32(get, set) : stdgo.GoUInt64 -> stdgo.GoUInt32;
-private function get_f64to32():stdgo.GoUInt64 -> stdgo.GoUInt32 return _0 -> stdgo._internal.runtime.Runtime_f64to32.f64to32(_0);
-private function set_f64to32(v:stdgo.GoUInt64 -> stdgo.GoUInt32):stdgo.GoUInt64 -> stdgo.GoUInt32 {
+var f64to32(get, set) : haxe.UInt64 -> std.UInt;
+private function get_f64to32():haxe.UInt64 -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_f64to32.f64to32(_0);
+private function set_f64to32(v:haxe.UInt64 -> std.UInt):haxe.UInt64 -> std.UInt {
         stdgo._internal.runtime.Runtime_f64to32.f64to32 = v;
         return v;
     }
-var f32to64(get, set) : stdgo.GoUInt32 -> stdgo.GoUInt64;
-private function get_f32to64():stdgo.GoUInt32 -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_f32to64.f32to64(_0);
-private function set_f32to64(v:stdgo.GoUInt32 -> stdgo.GoUInt64):stdgo.GoUInt32 -> stdgo.GoUInt64 {
+var f32to64(get, set) : std.UInt -> haxe.UInt64;
+private function get_f32to64():std.UInt -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_f32to64.f32to64(_0);
+private function set_f32to64(v:std.UInt -> haxe.UInt64):std.UInt -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_f32to64.f32to64 = v;
         return v;
     }
-var fcmp64(get, set) : (stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; };
-private function get_fcmp64():(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; } return (_0, _1) -> stdgo._internal.runtime.Runtime_fcmp64.fcmp64(_0, _1);
-private function set_fcmp64(v:(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; }):(stdgo.GoUInt64, stdgo.GoUInt64) -> { var _0 : stdgo.GoInt32; var _1 : Bool; } {
+var fcmp64(get, set) : (haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_fcmp64():(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> return (_0, _1) -> stdgo._internal.runtime.Runtime_fcmp64.fcmp64(_0, _1);
+private function set_fcmp64(v:(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool>):(haxe.UInt64, haxe.UInt64) -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_fcmp64.fcmp64 = v;
         return v;
     }
-var fintto64(get, set) : stdgo.GoInt64 -> stdgo.GoUInt64;
-private function get_fintto64():stdgo.GoInt64 -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_fintto64.fintto64(_0);
-private function set_fintto64(v:stdgo.GoInt64 -> stdgo.GoUInt64):stdgo.GoInt64 -> stdgo.GoUInt64 {
+var fintto64(get, set) : haxe.Int64 -> haxe.UInt64;
+private function get_fintto64():haxe.Int64 -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_fintto64.fintto64(_0);
+private function set_fintto64(v:haxe.Int64 -> haxe.UInt64):haxe.Int64 -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_fintto64.fintto64 = v;
         return v;
     }
-var f64toint(get, set) : stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; };
-private function get_f64toint():stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_f64toint.f64toint(_0);
-private function set_f64toint(v:stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; }):stdgo.GoUInt64 -> { var _0 : stdgo.GoInt64; var _1 : Bool; } {
+var f64toint(get, set) : haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>;
+private function get_f64toint():haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_f64toint.f64toint(_0);
+private function set_f64toint(v:haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool>):haxe.UInt64 -> stdgo.Tuple<haxe.Int64, Bool> {
         stdgo._internal.runtime.Runtime_f64toint.f64toint = v;
         return v;
     }
@@ -150,33 +150,33 @@ private function set_xadduintptr(v:(stdgo.Pointer<stdgo.GoUIntptr>, stdgo.GoUInt
         stdgo._internal.runtime.Runtime_xadduintptr.xadduintptr = v;
         return v;
     }
-var fastlog2(get, set) : stdgo.GoFloat64 -> stdgo.GoFloat64;
-private function get_fastlog2():stdgo.GoFloat64 -> stdgo.GoFloat64 return _0 -> stdgo._internal.runtime.Runtime_fastlog2.fastlog2(_0);
-private function set_fastlog2(v:stdgo.GoFloat64 -> stdgo.GoFloat64):stdgo.GoFloat64 -> stdgo.GoFloat64 {
+var fastlog2(get, set) : StdTypes.Float -> StdTypes.Float;
+private function get_fastlog2():StdTypes.Float -> StdTypes.Float return _0 -> stdgo._internal.runtime.Runtime_fastlog2.fastlog2(_0);
+private function set_fastlog2(v:StdTypes.Float -> StdTypes.Float):StdTypes.Float -> StdTypes.Float {
         stdgo._internal.runtime.Runtime_fastlog2.fastlog2 = v;
         return v;
     }
-var atoi(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; };
-private function get_atoi():stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_atoi.atoi(_0);
-private function set_atoi(v:stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt; var _1 : Bool; } {
+var atoi(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_atoi():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi.atoi(_0);
+private function set_atoi(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_atoi.atoi = v;
         return v;
     }
-var atoi32(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; };
-private function get_atoi32():stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_atoi32.atoi32(_0);
-private function set_atoi32(v:stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt32; var _1 : Bool; } {
+var atoi32(get, set) : String -> stdgo.Tuple<StdTypes.Int, Bool>;
+private function get_atoi32():String -> stdgo.Tuple<StdTypes.Int, Bool> return _0 -> stdgo._internal.runtime.Runtime_atoi32.atoi32(_0);
+private function set_atoi32(v:String -> stdgo.Tuple<StdTypes.Int, Bool>):String -> stdgo.Tuple<StdTypes.Int, Bool> {
         stdgo._internal.runtime.Runtime_atoi32.atoi32 = v;
         return v;
     }
-var parseByteCount(get, set) : stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; };
-private function get_parseByteCount():stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; } return _0 -> stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount(_0);
-private function set_parseByteCount(v:stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; }):stdgo.GoString -> { var _0 : stdgo.GoInt64; var _1 : Bool; } {
+var parseByteCount(get, set) : String -> stdgo.Tuple<haxe.Int64, Bool>;
+private function get_parseByteCount():String -> stdgo.Tuple<haxe.Int64, Bool> return _0 -> stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount(_0);
+private function set_parseByteCount(v:String -> stdgo.Tuple<haxe.Int64, Bool>):String -> stdgo.Tuple<haxe.Int64, Bool> {
         stdgo._internal.runtime.Runtime_parsebytecount.parseByteCount = v;
         return v;
     }
-var nanotime(get, set) : () -> stdgo.GoInt64;
-private function get_nanotime():() -> stdgo.GoInt64 return () -> stdgo._internal.runtime.Runtime_nanotime.nanotime();
-private function set_nanotime(v:() -> stdgo.GoInt64):() -> stdgo.GoInt64 {
+var nanotime(get, set) : () -> haxe.Int64;
+private function get_nanotime():() -> haxe.Int64 return () -> stdgo._internal.runtime.Runtime_nanotime.nanotime();
+private function set_nanotime(v:() -> haxe.Int64):() -> haxe.Int64 {
         stdgo._internal.runtime.Runtime_nanotime.nanotime = v;
         return v;
     }
@@ -186,9 +186,9 @@ private function set_netpollBreak(v:() -> Void):() -> Void {
         stdgo._internal.runtime.Runtime_netpollbreak.netpollBreak = v;
         return v;
     }
-var usleep(get, set) : stdgo.GoUInt32 -> Void;
-private function get_usleep():stdgo.GoUInt32 -> Void return _0 -> stdgo._internal.runtime.Runtime_usleep.usleep(_0);
-private function set_usleep(v:stdgo.GoUInt32 -> Void):stdgo.GoUInt32 -> Void {
+var usleep(get, set) : std.UInt -> Void;
+private function get_usleep():std.UInt -> Void return _0 -> stdgo._internal.runtime.Runtime_usleep.usleep(_0);
+private function set_usleep(v:std.UInt -> Void):std.UInt -> Void {
         stdgo._internal.runtime.Runtime_usleep.usleep = v;
         return v;
     }
@@ -234,27 +234,27 @@ private function set_lockPartialOrder(v:Array<Array<T_lockRank>>):Array<Array<T_
         stdgo._internal.runtime.Runtime_lockpartialorder.lockPartialOrder = ([for (i in v) ([for (i in i) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>)] : stdgo.Slice<stdgo.Slice<stdgo._internal.runtime.Runtime_t_lockrank.T_lockRank>>);
         return v;
     }
-var stringHash(get, set) : (stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_stringHash():(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_stringhash.stringHash(_0, _1);
-private function set_stringHash(v:(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoString, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var stringHash(get, set) : (String, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_stringHash():(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_stringhash.stringHash(_0, _1);
+private function set_stringHash(v:(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(String, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_stringhash.stringHash = v;
         return v;
     }
-var bytesHash(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_bytesHash():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_byteshash.bytesHash([for (i in _0) i], _1);
-private function set_bytesHash(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var bytesHash(get, set) : (Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_bytesHash():(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_byteshash.bytesHash([for (i in _0) i], _1);
+private function set_bytesHash(v:(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(Array<std.UInt>, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_byteshash.bytesHash = v;
         return v;
     }
-var int32Hash(get, set) : (stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_int32Hash():(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int32hash.int32Hash(_0, _1);
-private function set_int32Hash(v:(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoUInt32, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var int32Hash(get, set) : (std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_int32Hash():(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int32hash.int32Hash(_0, _1);
+private function set_int32Hash(v:(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(std.UInt, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_int32hash.int32Hash = v;
         return v;
     }
-var int64Hash(get, set) : (stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
-private function get_int64Hash():(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int64hash.int64Hash(_0, _1);
-private function set_int64Hash(v:(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(stdgo.GoUInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
+var int64Hash(get, set) : (haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr;
+private function get_int64Hash():(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr return (_0, _1) -> stdgo._internal.runtime.Runtime_int64hash.int64Hash(_0, _1);
+private function set_int64Hash(v:(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr):(haxe.UInt64, stdgo.GoUIntptr) -> stdgo.GoUIntptr {
         stdgo._internal.runtime.Runtime_int64hash.int64Hash = v;
         return v;
     }
@@ -294,27 +294,27 @@ private function set_useAeshash(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
         stdgo._internal.runtime.Runtime_useaeshash.useAeshash = v;
         return v;
     }
-var open(get, set) : (stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_open():(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_open.open(_0, _1, _2);
-private function set_open(v:(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.Pointer<stdgo.GoUInt8>, stdgo.GoInt32, stdgo.GoInt32) -> stdgo.GoInt32 {
+var open(get, set) : (stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int;
+private function get_open():(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_open.open(_0, _1, _2);
+private function set_open(v:(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int):(stdgo.Pointer<std.UInt>, StdTypes.Int, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_open.open = v;
         return v;
     }
-var close(get, set) : stdgo.GoInt32 -> stdgo.GoInt32;
-private function get_close():stdgo.GoInt32 -> stdgo.GoInt32 return _0 -> stdgo._internal.runtime.Runtime_close.close(_0);
-private function set_close(v:stdgo.GoInt32 -> stdgo.GoInt32):stdgo.GoInt32 -> stdgo.GoInt32 {
+var close(get, set) : StdTypes.Int -> StdTypes.Int;
+private function get_close():StdTypes.Int -> StdTypes.Int return _0 -> stdgo._internal.runtime.Runtime_close.close(_0);
+private function set_close(v:StdTypes.Int -> StdTypes.Int):StdTypes.Int -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_close.close = v;
         return v;
     }
-var read(get, set) : (stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_read():(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_read.read(_0, _1, _2);
-private function set_read(v:(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.GoInt32, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 {
+var read(get, set) : (StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
+private function get_read():(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_read.read(_0, _1, _2);
+private function set_read(v:(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(StdTypes.Int, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_read.read = v;
         return v;
     }
-var write(get, set) : (stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32;
-private function get_write():(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_write.write(_0, _1, _2);
-private function set_write(v:(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32):(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, stdgo.GoInt32) -> stdgo.GoInt32 {
+var write(get, set) : (stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int;
+private function get_write():(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_write.write(_0, _1, _2);
+private function set_write(v:(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int):(stdgo.GoUIntptr, stdgo._internal.unsafe.Unsafe.UnsafePointer, StdTypes.Int) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_write.write = v;
         return v;
     }
@@ -324,15 +324,15 @@ private function set_forceGCPeriod(v:stdgo.Pointer<haxe.Int64>):stdgo.Pointer<ha
         stdgo._internal.runtime.Runtime_forcegcperiod.forceGCPeriod = v;
         return v;
     }
-var readUnaligned32(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32;
-private function get_readUnaligned32():stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32 return _0 -> stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32(_0);
-private function set_readUnaligned32(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32):stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt32 {
+var readUnaligned32(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt;
+private function get_readUnaligned32():stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt return _0 -> stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32(_0);
+private function set_readUnaligned32(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt):stdgo._internal.unsafe.Unsafe.UnsafePointer -> std.UInt {
         stdgo._internal.runtime.Runtime_readunaligned32.readUnaligned32 = v;
         return v;
     }
-var readUnaligned64(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64;
-private function get_readUnaligned64():stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64 return _0 -> stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64(_0);
-private function set_readUnaligned64(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64):stdgo._internal.unsafe.Unsafe.UnsafePointer -> stdgo.GoUInt64 {
+var readUnaligned64(get, set) : stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64;
+private function get_readUnaligned64():stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 return _0 -> stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64(_0);
+private function set_readUnaligned64(v:stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64):stdgo._internal.unsafe.Unsafe.UnsafePointer -> haxe.UInt64 {
         stdgo._internal.runtime.Runtime_readunaligned64.readUnaligned64 = v;
         return v;
     }
@@ -348,21 +348,21 @@ private function set_baseChunkIdx(v:ChunkIdx):ChunkIdx {
         stdgo._internal.runtime.Runtime_basechunkidx.baseChunkIdx = v;
         return v;
     }
-var semacquire(get, set) : stdgo.Pointer<stdgo.GoUInt32> -> Void;
-private function get_semacquire():stdgo.Pointer<stdgo.GoUInt32> -> Void return _0 -> stdgo._internal.runtime.Runtime_semacquire.semacquire(_0);
-private function set_semacquire(v:stdgo.Pointer<stdgo.GoUInt32> -> Void):stdgo.Pointer<stdgo.GoUInt32> -> Void {
+var semacquire(get, set) : stdgo.Pointer<std.UInt> -> Void;
+private function get_semacquire():stdgo.Pointer<std.UInt> -> Void return _0 -> stdgo._internal.runtime.Runtime_semacquire.semacquire(_0);
+private function set_semacquire(v:stdgo.Pointer<std.UInt> -> Void):stdgo.Pointer<std.UInt> -> Void {
         stdgo._internal.runtime.Runtime_semacquire.semacquire = v;
         return v;
     }
-var semrelease1(get, set) : (stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void;
-private function get_semrelease1():(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_semrelease1.semrelease1(_0, _1, _2);
-private function set_semrelease1(v:(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void):(stdgo.Pointer<stdgo.GoUInt32>, Bool, stdgo.GoInt) -> Void {
+var semrelease1(get, set) : (stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void;
+private function get_semrelease1():(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_semrelease1.semrelease1(_0, _1, _2);
+private function set_semrelease1(v:(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void):(stdgo.Pointer<std.UInt>, Bool, StdTypes.Int) -> Void {
         stdgo._internal.runtime.Runtime_semrelease1.semrelease1 = v;
         return v;
     }
-var timeHistogramMetricsBuckets(get, set) : () -> stdgo.Slice<stdgo.GoFloat64>;
-private function get_timeHistogramMetricsBuckets():() -> stdgo.Slice<stdgo.GoFloat64> return () -> stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets();
-private function set_timeHistogramMetricsBuckets(v:() -> stdgo.Slice<stdgo.GoFloat64>):() -> stdgo.Slice<stdgo.GoFloat64> {
+var timeHistogramMetricsBuckets(get, set) : () -> Array<StdTypes.Float>;
+private function get_timeHistogramMetricsBuckets():() -> Array<StdTypes.Float> return () -> stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets();
+private function set_timeHistogramMetricsBuckets(v:() -> Array<StdTypes.Float>):() -> Array<StdTypes.Float> {
         stdgo._internal.runtime.Runtime_timehistogrammetricsbuckets.timeHistogramMetricsBuckets = v;
         return v;
     }
@@ -372,9 +372,9 @@ private function set_gCTestMoveStackOnNextCall(v:() -> Void):() -> Void {
         stdgo._internal.runtime.Runtime_gctestmovestackonnextcall.gCTestMoveStackOnNextCall = v;
         return v;
     }
-var timediv(get, set) : (stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32;
-private function get_timediv():(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32 return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_timediv.timediv(_0, _1, _2);
-private function set_timediv(v:(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32):(stdgo.GoInt64, stdgo.GoInt32, stdgo.Pointer<stdgo.GoInt32>) -> stdgo.GoInt32 {
+var timediv(get, set) : (haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int;
+private function get_timediv():(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int return (_0, _1, _2) -> stdgo._internal.runtime.Runtime_timediv.timediv(_0, _1, _2);
+private function set_timediv(v:(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int):(haxe.Int64, StdTypes.Int, stdgo.Pointer<StdTypes.Int>) -> StdTypes.Int {
         stdgo._internal.runtime.Runtime_timediv.timediv = v;
         return v;
     }
@@ -407,13 +407,29 @@ class Error_static_extension {
         stdgo._internal.runtime.Runtime_error_static_extension.Error_static_extension.runtimeError(t);
     }
 }
-typedef Error = stdgo._internal.runtime.Runtime_error.Error;
+@:interface @:forward abstract Error(stdgo._internal.runtime.Runtime_error.Error) from stdgo._internal.runtime.Runtime_error.Error to stdgo._internal.runtime.Runtime_error.Error {
+    @:from
+    static function fromHaxeInterface(x:{ function runtimeError():Void; }):Error {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Error = { runtimeError : () -> x.runtimeError(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_stringer_static_extension {
     static public function string(t:stdgo._internal.runtime.Runtime_t_stringer.T_stringer):String {
         return stdgo._internal.runtime.Runtime_t_stringer_static_extension.T_stringer_static_extension.string(t);
     }
 }
-@:dox(hide) typedef T_stringer = stdgo._internal.runtime.Runtime_t_stringer.T_stringer;
+@:interface @:dox(hide) @:forward abstract T_stringer(stdgo._internal.runtime.Runtime_t_stringer.T_stringer) from stdgo._internal.runtime.Runtime_t_stringer.T_stringer to stdgo._internal.runtime.Runtime_t_stringer.T_stringer {
+    @:from
+    static function fromHaxeInterface(x:{ function string():String; }):T_stringer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_stringer = { string : () -> x.string(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class TestingT_static_extension {
     static public function tempDir(t:stdgo._internal.runtime.Runtime_testingt.TestingT):String {
         return stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.tempDir(t);
@@ -477,11 +493,27 @@ class TestingT_static_extension {
         stdgo._internal.runtime.Runtime_testingt_static_extension.TestingT_static_extension.cleanup(t, _0);
     }
 }
-typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
+@:interface @:forward abstract TestingT(stdgo._internal.runtime.Runtime_testingt.TestingT) from stdgo._internal.runtime.Runtime_testingt.TestingT to stdgo._internal.runtime.Runtime_testingt.TestingT {
+    @:from
+    static function fromHaxeInterface(x:{ function cleanup(_0:() -> Void):Void; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function setenv(_key:String, _value:String):Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; function tempDir():String; }):TestingT {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:TestingT = { cleanup : _0 -> x.cleanup(() -> _0()), error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), setenv : (_0, _1) -> x.setenv(_0, _1), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), tempDir : () -> x.tempDir(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_floaty_static_extension {
 
 }
-@:dox(hide) typedef T_floaty = stdgo._internal.runtime.Runtime_t_floaty.T_floaty;
+@:interface @:dox(hide) @:forward abstract T_floaty(stdgo._internal.runtime.Runtime_t_floaty.T_floaty) from stdgo._internal.runtime.Runtime_t_floaty.T_floaty to stdgo._internal.runtime.Runtime_t_floaty.T_floaty {
+    @:from
+    static function fromHaxeInterface(x:{ }):T_floaty {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_floaty = { __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.runtime.Runtime.T_userArena_static_extension) @:dox(hide) abstract T_userArena(stdgo._internal.runtime.Runtime_t_userarena.T_userArena) from stdgo._internal.runtime.Runtime_t_userarena.T_userArena to stdgo._internal.runtime.Runtime_t_userarena.T_userArena {
     public function new() this = new stdgo._internal.runtime.Runtime_t_userarena.T_userArena();
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -700,15 +732,15 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.runtime.Runtime.Scavenger_static_extension) abstract Scavenger(stdgo._internal.runtime.Runtime_scavenger.Scavenger) from stdgo._internal.runtime.Runtime_scavenger.Scavenger to stdgo._internal.runtime.Runtime_scavenger.Scavenger {
-    public var sleep(get, set) : stdgo.GoInt64 -> stdgo.GoInt64;
-    function get_sleep():stdgo.GoInt64 -> stdgo.GoInt64 return _0 -> this.sleep(_0);
-    function set_sleep(v:stdgo.GoInt64 -> stdgo.GoInt64):stdgo.GoInt64 -> stdgo.GoInt64 {
+    public var sleep(get, set) : haxe.Int64 -> haxe.Int64;
+    function get_sleep():haxe.Int64 -> haxe.Int64 return _0 -> this.sleep(_0);
+    function set_sleep(v:haxe.Int64 -> haxe.Int64):haxe.Int64 -> haxe.Int64 {
         this.sleep = v;
         return v;
     }
-    public var scavenge(get, set) : stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; };
-    function get_scavenge():stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; } return _0 -> this.scavenge(_0);
-    function set_scavenge(v:stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; }):stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; } {
+    public var scavenge(get, set) : stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>;
+    function get_scavenge():stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> return _0 -> this.scavenge(_0);
+    function set_scavenge(v:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>):stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64> {
         this.scavenge = v;
         return v;
     }
@@ -718,13 +750,13 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
         this.shouldStop = v;
         return v;
     }
-    public var goMaxProcs(get, set) : () -> stdgo.GoInt32;
-    function get_goMaxProcs():() -> stdgo.GoInt32 return () -> this.goMaxProcs();
-    function set_goMaxProcs(v:() -> stdgo.GoInt32):() -> stdgo.GoInt32 {
+    public var goMaxProcs(get, set) : () -> StdTypes.Int;
+    function get_goMaxProcs():() -> StdTypes.Int return () -> this.goMaxProcs();
+    function set_goMaxProcs(v:() -> StdTypes.Int):() -> StdTypes.Int {
         this.goMaxProcs = v;
         return v;
     }
-    public function new(?sleep:stdgo.GoInt64 -> stdgo.GoInt64, ?scavenge:stdgo.GoUIntptr -> { var _0 : stdgo.GoUIntptr; var _1 : stdgo.GoInt64; }, ?shouldStop:() -> Bool, ?goMaxProcs:() -> stdgo.GoInt32) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(sleep, scavenge, shouldStop, goMaxProcs);
+    public function new(?sleep:haxe.Int64 -> haxe.Int64, ?scavenge:stdgo.GoUIntptr -> stdgo.Tuple<stdgo.GoUIntptr, haxe.Int64>, ?shouldStop:() -> Bool, ?goMaxProcs:() -> StdTypes.Int) this = new stdgo._internal.runtime.Runtime_scavenger.Scavenger(sleep, scavenge, shouldStop, goMaxProcs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1496,19 +1528,19 @@ typedef TestingT = stdgo._internal.runtime.Runtime_testingt.TestingT;
         this.debugGC = v;
         return v;
     }
-    public var bySize(get, set) : haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>;
-    function get_bySize():haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> return haxe.ds.Vector.fromArrayCopy([for (i in this.bySize) {
+    public var bySize(get, set) : haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>;
+    function get_bySize():haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }> return haxe.ds.Vector.fromArrayCopy([for (i in this.bySize) {
         final obj = i;
         { size : obj.size, mallocs : obj.mallocs, frees : obj.frees };
     }]);
-    function set_bySize(v:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>):haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>> {
+    function set_bySize(v:haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>):haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }> {
         this.bySize = ([for (i in v) {
             final obj = i;
             { size : (obj.size : stdgo.GoUInt32), mallocs : (obj.mallocs : stdgo.GoUInt64), frees : (obj.frees : stdgo.GoUInt64) };
         }] : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>);
         return v;
     }
-    public function new(?alloc:haxe.UInt64, ?totalAlloc:haxe.UInt64, ?sys:haxe.UInt64, ?lookups:haxe.UInt64, ?mallocs:haxe.UInt64, ?frees:haxe.UInt64, ?heapAlloc:haxe.UInt64, ?heapSys:haxe.UInt64, ?heapIdle:haxe.UInt64, ?heapInuse:haxe.UInt64, ?heapReleased:haxe.UInt64, ?heapObjects:haxe.UInt64, ?stackInuse:haxe.UInt64, ?stackSys:haxe.UInt64, ?mSpanInuse:haxe.UInt64, ?mSpanSys:haxe.UInt64, ?mCacheInuse:haxe.UInt64, ?mCacheSys:haxe.UInt64, ?buckHashSys:haxe.UInt64, ?gCSys:haxe.UInt64, ?otherSys:haxe.UInt64, ?nextGC:haxe.UInt64, ?lastGC:haxe.UInt64, ?pauseTotalNs:haxe.UInt64, ?pauseNs:haxe.ds.Vector<haxe.UInt64>, ?pauseEnd:haxe.ds.Vector<haxe.UInt64>, ?numGC:std.UInt, ?numForcedGC:std.UInt, ?gCCPUFraction:StdTypes.Float, ?enableGC:Bool, ?debugGC:Bool, ?bySize:haxe.ds.Vector<stdgo.Tuple.Tuple3<std.UInt, haxe.UInt64, haxe.UInt64>>) this = new stdgo._internal.runtime.Runtime_memstats.MemStats(
+    public function new(?alloc:haxe.UInt64, ?totalAlloc:haxe.UInt64, ?sys:haxe.UInt64, ?lookups:haxe.UInt64, ?mallocs:haxe.UInt64, ?frees:haxe.UInt64, ?heapAlloc:haxe.UInt64, ?heapSys:haxe.UInt64, ?heapIdle:haxe.UInt64, ?heapInuse:haxe.UInt64, ?heapReleased:haxe.UInt64, ?heapObjects:haxe.UInt64, ?stackInuse:haxe.UInt64, ?stackSys:haxe.UInt64, ?mSpanInuse:haxe.UInt64, ?mSpanSys:haxe.UInt64, ?mCacheInuse:haxe.UInt64, ?mCacheSys:haxe.UInt64, ?buckHashSys:haxe.UInt64, ?gCSys:haxe.UInt64, ?otherSys:haxe.UInt64, ?nextGC:haxe.UInt64, ?lastGC:haxe.UInt64, ?pauseTotalNs:haxe.UInt64, ?pauseNs:haxe.ds.Vector<haxe.UInt64>, ?pauseEnd:haxe.ds.Vector<haxe.UInt64>, ?numGC:std.UInt, ?numForcedGC:std.UInt, ?gCCPUFraction:StdTypes.Float, ?enableGC:Bool, ?debugGC:Bool, ?bySize:haxe.ds.Vector<{ var size : std.UInt; var mallocs : haxe.UInt64; var frees : haxe.UInt64; }>) this = new stdgo._internal.runtime.Runtime_memstats.MemStats(
 (alloc : stdgo.GoUInt64),
 (totalAlloc : stdgo.GoUInt64),
 (sys : stdgo.GoUInt64),
@@ -5039,12 +5071,24 @@ class Runtime {
     static public inline function blockOnSystemStack():Void {
         stdgo._internal.runtime.Runtime_blockonsystemstack.blockOnSystemStack();
     }
-    static public inline function mapBucketsCount(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):StdTypes.Int {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapBucketsCount(_m:Map<StdTypes.Int, StdTypes.Int>):StdTypes.Int {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_mapbucketscount.mapBucketsCount(_m);
     }
-    static public inline function mapBucketsPointerIsNil(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):Bool {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapBucketsPointerIsNil(_m:Map<StdTypes.Int, StdTypes.Int>):Bool {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_mapbucketspointerisnil.mapBucketsPointerIsNil(_m);
     }
     static public inline function lockOSCounts():stdgo.Tuple<std.UInt, std.UInt> {
@@ -5103,8 +5147,14 @@ class Runtime {
     static public inline function g0StackOverflow():Void {
         stdgo._internal.runtime.Runtime_g0stackoverflow.g0StackOverflow();
     }
-    static public inline function mapTombstoneCheck(_m:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>):Void {
-        final _m = (_m : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
+    static public inline function mapTombstoneCheck(_m:Map<StdTypes.Int, StdTypes.Int>):Void {
+        final _m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>();
+            for (key => value in _m) {
+                __obj__[(key : stdgo.GoInt)] = (value : stdgo.GoInt);
+            };
+            __obj__;
+        };
         stdgo._internal.runtime.Runtime_maptombstonecheck.mapTombstoneCheck(_m);
     }
     static public inline function runGetgThreadSwitchTest():Void {
@@ -5212,9 +5262,21 @@ class Runtime {
         * chunk index in scav must appear in chunks; ones that do not are
         * ignored.
     **/
-    static public inline function newPageAlloc(_chunks:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>, _scav:stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>):PageAlloc {
-        final _chunks = (_chunks : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
-        final _scav = (_scav : stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>);
+    static public inline function newPageAlloc(_chunks:Map<ChunkIdx, Array<BitRange>>, _scav:Map<ChunkIdx, Array<BitRange>>):PageAlloc {
+        final _chunks = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>();
+            for (key => value in _chunks) {
+                __obj__[key] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>);
+            };
+            __obj__;
+        };
+        final _scav = {
+            final __obj__ = new stdgo.GoMap<stdgo._internal.runtime.Runtime_chunkidx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>>();
+            for (key => value in _scav) {
+                __obj__[key] = ([for (i in value) i] : stdgo.Slice<stdgo._internal.runtime.Runtime_bitrange.BitRange>);
+            };
+            __obj__;
+        };
         return stdgo._internal.runtime.Runtime_newpagealloc.newPageAlloc(_chunks, _scav);
     }
     /**

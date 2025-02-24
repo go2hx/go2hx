@@ -1,9 +1,21 @@
 package stdgo.encoding.xml;
 final header : String = stdgo._internal.encoding.xml.Xml_header.header;
-var hTMLEntity(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-private function get_hTMLEntity():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity;
-private function set_hTMLEntity(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+var hTMLEntity(get, set) : Map<String, String>;
+private function get_hTMLEntity():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+private function set_hTMLEntity(v:Map<String, String>):Map<String, String> {
+        stdgo._internal.encoding.xml.Xml_htmlentity.hTMLEntity = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
 var hTMLAutoClose(get, set) : Array<String>;
@@ -18,7 +30,15 @@ class Marshaler_static_extension {
         return stdgo._internal.encoding.xml.Xml_marshaler_static_extension.Marshaler_static_extension.marshalXML(t, _e, _start);
     }
 }
-typedef Marshaler = stdgo._internal.encoding.xml.Xml_marshaler.Marshaler;
+@:interface @:forward abstract Marshaler(stdgo._internal.encoding.xml.Xml_marshaler.Marshaler) from stdgo._internal.encoding.xml.Xml_marshaler.Marshaler to stdgo._internal.encoding.xml.Xml_marshaler.Marshaler {
+    @:from
+    static function fromHaxeInterface(x:{ function marshalXML(_e:Encoder, _start:StartElement):stdgo.Error; }):Marshaler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Marshaler = { marshalXML : (_0, _1) -> x.marshalXML(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class MarshalerAttr_static_extension {
     static public function marshalXMLAttr(t:stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr, _name:Name):stdgo.Tuple<Attr, stdgo.Error> {
         return {
@@ -27,20 +47,44 @@ class MarshalerAttr_static_extension {
         };
     }
 }
-typedef MarshalerAttr = stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr;
+@:interface @:forward abstract MarshalerAttr(stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr) from stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr to stdgo._internal.encoding.xml.Xml_marshalerattr.MarshalerAttr {
+    @:from
+    static function fromHaxeInterface(x:{ function marshalXMLAttr(_name:Name):stdgo.Tuple<Attr, stdgo.Error>; }):MarshalerAttr {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:MarshalerAttr = { marshalXMLAttr : _0 -> x.marshalXMLAttr(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class Unmarshaler_static_extension {
     static public function unmarshalXML(t:stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler, _d:Decoder, _start:StartElement):stdgo.Error {
         final _d = (_d : stdgo.Ref<stdgo._internal.encoding.xml.Xml_decoder.Decoder>);
         return stdgo._internal.encoding.xml.Xml_unmarshaler_static_extension.Unmarshaler_static_extension.unmarshalXML(t, _d, _start);
     }
 }
-typedef Unmarshaler = stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler;
+@:interface @:forward abstract Unmarshaler(stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler) from stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler to stdgo._internal.encoding.xml.Xml_unmarshaler.Unmarshaler {
+    @:from
+    static function fromHaxeInterface(x:{ function unmarshalXML(_d:Decoder, _start:StartElement):stdgo.Error; }):Unmarshaler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Unmarshaler = { unmarshalXML : (_0, _1) -> x.unmarshalXML(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class UnmarshalerAttr_static_extension {
     static public function unmarshalXMLAttr(t:stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr, _attr:Attr):stdgo.Error {
         return stdgo._internal.encoding.xml.Xml_unmarshalerattr_static_extension.UnmarshalerAttr_static_extension.unmarshalXMLAttr(t, _attr);
     }
 }
-typedef UnmarshalerAttr = stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr;
+@:interface @:forward abstract UnmarshalerAttr(stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr) from stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr to stdgo._internal.encoding.xml.Xml_unmarshalerattr.UnmarshalerAttr {
+    @:from
+    static function fromHaxeInterface(x:{ function unmarshalXMLAttr(_attr:Attr):stdgo.Error; }):UnmarshalerAttr {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:UnmarshalerAttr = { unmarshalXMLAttr : _0 -> x.unmarshalXMLAttr(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class TokenReader_static_extension {
     static public function token(t:stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader):stdgo.Tuple<Token, stdgo.Error> {
         return {
@@ -49,7 +93,15 @@ class TokenReader_static_extension {
         };
     }
 }
-typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
+@:interface @:forward abstract TokenReader(stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader) from stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader to stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader {
+    @:from
+    static function fromHaxeInterface(x:{ function token():stdgo.Tuple<Token, stdgo.Error>; }):TokenReader {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:TokenReader = { token : () -> x.token(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.encoding.xml.Xml.Encoder_static_extension) abstract Encoder(stdgo._internal.encoding.xml.Xml_encoder.Encoder) from stdgo._internal.encoding.xml.Xml_encoder.Encoder to stdgo._internal.encoding.xml.Xml_encoder.Encoder {
     public var _p(get, set) : T_printer;
     function get__p():T_printer return this._p;
@@ -110,16 +162,40 @@ typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
         this._putNewline = v;
         return v;
     }
-    public var _attrNS(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__attrNS():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._attrNS;
-    function set__attrNS(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._attrNS = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _attrNS(get, set) : Map<String, String>;
+    function get__attrNS():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._attrNS) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__attrNS(v:Map<String, String>):Map<String, String> {
+        this._attrNS = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var _attrPrefix(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__attrPrefix():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._attrPrefix;
-    function set__attrPrefix(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._attrPrefix = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _attrPrefix(get, set) : Map<String, String>;
+    function get__attrPrefix():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._attrPrefix) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__attrPrefix(v:Map<String, String>):Map<String, String> {
+        this._attrPrefix = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _prefixes(get, set) : Array<String>;
@@ -146,7 +222,7 @@ typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_encoder:Encoder, ?_seq:StdTypes.Int, ?_indent:String, ?_prefix:String, ?_depth:StdTypes.Int, ?_indentedIn:Bool, ?_putNewline:Bool, ?_attrNS:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_attrPrefix:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_prefixes:Array<String>, ?_tags:Array<Name>, ?_closed:Bool, ?_err:stdgo.Error) this = new stdgo._internal.encoding.xml.Xml_t_printer.T_printer(
+    public function new(?_w:stdgo._internal.bufio.Bufio_writer.Writer, ?_encoder:Encoder, ?_seq:StdTypes.Int, ?_indent:String, ?_prefix:String, ?_depth:StdTypes.Int, ?_indentedIn:Bool, ?_putNewline:Bool, ?_attrNS:Map<String, String>, ?_attrPrefix:Map<String, String>, ?_prefixes:Array<String>, ?_tags:Array<Name>, ?_closed:Bool, ?_err:stdgo.Error) this = new stdgo._internal.encoding.xml.Xml_t_printer.T_printer(
 (_w : stdgo.Ref<stdgo._internal.bufio.Bufio_writer.Writer>),
 (_encoder : stdgo.Ref<stdgo._internal.encoding.xml.Xml_encoder.Encoder>),
 (_seq : stdgo.GoInt),
@@ -155,8 +231,20 @@ typedef TokenReader = stdgo._internal.encoding.xml.Xml_tokenreader.TokenReader;
 (_depth : stdgo.GoInt),
 _indentedIn,
 _putNewline,
-(_attrNS : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
-(_attrPrefix : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _attrNS) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _attrPrefix) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 ([for (i in _prefixes) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 ([for (i in _tags) i] : stdgo.Slice<stdgo._internal.encoding.xml.Xml_name.Name>),
 _closed,
@@ -388,15 +476,27 @@ _closed,
         this.autoClose = ([for (i in v) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var entity(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get_entity():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this.entity;
-    function set_entity(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this.entity = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var entity(get, set) : Map<String, String>;
+    function get_entity():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this.entity) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_entity(v:Map<String, String>):Map<String, String> {
+        this.entity = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var charsetReader(get, set) : (stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; };
-    function get_charsetReader():(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } return (_0, _1) -> this.charsetReader(_0, _1);
-    function set_charsetReader(v:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
+    public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
+    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
+    function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
         this.charsetReader = v;
         return v;
     }
@@ -466,10 +566,22 @@ _closed,
         this._nextByte = (v : stdgo.GoInt);
         return v;
     }
-    public var _ns(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>;
-    function get__ns():stdgo.GoMap<stdgo.GoString, stdgo.GoString> return this._ns;
-    function set__ns(v:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
-        this._ns = (v : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
+    public var _ns(get, set) : Map<String, String>;
+    function get__ns():Map<String, String> return {
+        final __obj__:Map<String, String> = [];
+        for (key => value in this._ns) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__ns(v:Map<String, String>):Map<String, String> {
+        this._ns = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _err(get, set) : stdgo.Error;
@@ -502,10 +614,16 @@ _closed,
         this._unmarshalDepth = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?strict:Bool, ?autoClose:Array<String>, ?entity:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?charsetReader:(stdgo.GoString, stdgo._internal.io.Io_reader.Reader) -> { var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; }, ?defaultSpace:String, ?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_t:TokenReader, ?_buf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_saved:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_stk:T_stack, ?_free:T_stack, ?_needClose:Bool, ?_toClose:Name, ?_nextToken:Token, ?_nextByte:StdTypes.Int, ?_ns:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_err:stdgo.Error, ?_line:StdTypes.Int, ?_linestart:haxe.Int64, ?_offset:haxe.Int64, ?_unmarshalDepth:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_decoder.Decoder(
+    public function new(?strict:Bool, ?autoClose:Array<String>, ?entity:Map<String, String>, ?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>, ?defaultSpace:String, ?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_t:TokenReader, ?_buf:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_saved:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_stk:T_stack, ?_free:T_stack, ?_needClose:Bool, ?_toClose:Name, ?_nextToken:Token, ?_nextByte:StdTypes.Int, ?_ns:Map<String, String>, ?_err:stdgo.Error, ?_line:StdTypes.Int, ?_linestart:haxe.Int64, ?_offset:haxe.Int64, ?_unmarshalDepth:StdTypes.Int) this = new stdgo._internal.encoding.xml.Xml_decoder.Decoder(
 strict,
 ([for (i in autoClose) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
-(entity : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in entity) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 charsetReader,
 (defaultSpace : stdgo.GoString),
 _r,
@@ -518,7 +636,13 @@ _needClose,
 _toClose,
 _nextToken,
 (_nextByte : stdgo.GoInt),
-(_ns : stdgo.GoMap<stdgo.GoString, stdgo.GoString>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoString>();
+        for (key => value in _ns) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.GoString);
+        };
+        __obj__;
+    },
 (_err : stdgo.Error),
 (_line : stdgo.GoInt),
 (_linestart : stdgo.GoInt64),

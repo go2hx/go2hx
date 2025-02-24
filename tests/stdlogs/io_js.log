@@ -1,16 +1,256 @@
-[ERROR] ./_internal/io_test/Io_test_testpipe2.hx:5: characters 32-64
+=== RUN  TestCopy
 
-  5 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_reader.reader(_t, stdgo.Go.asInterface(_r), _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_reader
+-- PASS: TestCopy
 
-        | For function argument 'func'
+=== RUN  TestCopyNegative
 
-[ERROR] ./_internal/io_test/Io_test_testpipe3.hx:13: characters 32-64
+-- PASS: TestCopyNegative
 
- 13 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_writer.writer(stdgo.Go.asInterface(_w), _wdat, _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_writer
+=== RUN  TestCopyBuffer
 
-        | For function argument 'func'
+-- PASS: TestCopyBuffer
 
+=== RUN  TestCopyBufferNil
+
+-- PASS: TestCopyBufferNil
+
+=== RUN  TestCopyReadFrom
+
+-- PASS: TestCopyReadFrom
+
+=== RUN  TestCopyWriteTo
+
+-- PASS: TestCopyWriteTo
+
+=== RUN  TestCopyPriority
+
+-- PASS: TestCopyPriority
+
+=== RUN  TestCopyReadErrWriteErr
+
+-- PASS: TestCopyReadErrWriteErr
+
+=== RUN  TestCopyN
+
+-- PASS: TestCopyN
+
+=== RUN  TestCopyNReadFrom
+
+-- PASS: TestCopyNReadFrom
+
+=== RUN  TestCopyNWriteTo
+
+-- PASS: TestCopyNWriteTo
+
+=== RUN  TestCopyNEOF
+
+-- PASS: TestCopyNEOF
+
+=== RUN  TestReadAtLeast
+
+-- PASS: TestReadAtLeast
+
+=== RUN  TestReadAtLeastWithDataAndEOF
+
+-- PASS: TestReadAtLeastWithDataAndEOF
+
+=== RUN  TestReadAtLeastWithDataAndError
+
+-- PASS: TestReadAtLeastWithDataAndError
+
+=== RUN  TestTeeReader
+
+-- PASS: TestTeeReader
+
+=== RUN  TestSectionReader_ReadAt
+
+-- PASS: TestSectionReader_ReadAt
+
+=== RUN  TestSectionReader_Seek
+
+-- PASS: TestSectionReader_Seek
+
+=== RUN  TestSectionReader_Size
+
+-- PASS: TestSectionReader_Size
+
+=== RUN  TestSectionReader_Max
+
+-- PASS: TestSectionReader_Max
+
+=== RUN  TestCopyLargeWriter
+
+-- PASS: TestCopyLargeWriter
+
+=== RUN  TestNopCloserWriterToForwarding
+
+-- PASS: TestNopCloserWriterToForwarding
+
+=== RUN  TestOffsetWriter_Seek
+Exception: :os.createTemp is not yet implemented
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$seek_testOffsetWriter_Seek [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:41014:25)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+
+-- FAIL: TestOffsetWriter_Seek
+
+=== RUN  TestOffsetWriter_WriteAt
+Exception: :os.createTemp is not yet implemented
+Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 41905 column 26)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:41914:4)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestOffsetWriter_WriteAt
+
+=== RUN  TestWriteAt_PositionPriorToBase
+Exception: :os.createTemp is not yet implemented
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteat_$positionpriortobase_testWriteAt_PositionPriorToBase [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:42189:25)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
+
+-- FAIL: TestWriteAt_PositionPriorToBase
+
+=== RUN  TestOffsetWriter_Write
+
+-- PASS: TestOffsetWriter_Write
+
+=== RUN  TestMultiReader
+
+-- PASS: TestMultiReader
+
+=== RUN  TestMultiReaderAsWriterTo
+
+-- PASS: TestMultiReaderAsWriterTo
+
+=== RUN  TestMultiWriter
+
+-- PASS: TestMultiWriter
+
+=== RUN  TestMultiWriter_String
+
+-- PASS: TestMultiWriter_String
+
+=== RUN  TestMultiWriter_WriteStringSingleAlloc
+num allocations = <invalid reflect.Value>; want 1
+
+-- FAIL: TestMultiWriter_WriteStringSingleAlloc
+
+=== RUN  TestMultiWriter_StringCheckCall
+
+-- PASS: TestMultiWriter_StringCheckCall
+
+=== RUN  TestMultiWriterSingleChainFlatten
+Exception: :runtime.callers is not yet implemented
+Called from .stdgo__$internal_runtime_Runtime_$callers_callers (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 44831 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testmultiwritersinglechainflatten_testMultiWriterSingleChainFlatten [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:44804:11)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestMultiWriterSingleChainFlatten
+
+=== RUN  TestMultiWriterError
+
+-- PASS: TestMultiWriterError
+
+=== RUN  TestMultiReaderCopy
+
+-- PASS: TestMultiReaderCopy
+
+=== RUN  TestMultiWriterCopy
+
+-- PASS: TestMultiWriterCopy
+
+=== RUN  TestMultiReaderFlatten
+Exception: :runtime.callers is not yet implemented
+Called from .stdgo__$internal_runtime_Runtime_$callers_callers (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 44831 column 23)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testmultireaderflatten_testMultiReaderFlatten [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:44971:11)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+
+-- FAIL: TestMultiReaderFlatten
+
+=== RUN  TestMultiReaderSingleByteWithEOF
+
+-- PASS: TestMultiReaderSingleByteWithEOF
+
+=== RUN  TestMultiReaderFinalEOF
+
+-- PASS: TestMultiReaderFinalEOF
+
+=== RUN  TestMultiReaderFreesExhaustedReaders
+Exception: :runtime.setFinalizer is not yet implemented
+Called from .stdgo__$internal_runtime_Runtime_$setfinalizer_setFinalizer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 45158 column 23)
+Called from .a (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 45097 column 3)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testmultireaderfreesexhaustedreaders_testMultiReaderFreesExhaustedReaders [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:45125:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+
+-- FAIL: TestMultiReaderFreesExhaustedReaders
+
+=== RUN  TestInterleavedMultiReader
+
+-- PASS: TestInterleavedMultiReader
+
+=== RUN  TestPipe1
+read: <invalid reflect.Value>
+
+-- FAIL: TestPipe1
+
+=== RUN  TestPipe2
+wrote <invalid reflect.Value>, got %!d(MISSING)
+write: <invalid reflect.Value>
+wrote <invalid reflect.Value>, read got %!d(MISSING)
+wrote <invalid reflect.Value>, got %!d(MISSING)
+write: <invalid reflect.Value>
+wrote <invalid reflect.Value>, read got %!d(MISSING)
+wrote <invalid reflect.Value>, got %!d(MISSING)
+write: <invalid reflect.Value>
+wrote <invalid reflect.Value>, read got %!d(MISSING)
+wrote <invalid reflect.Value>, got %!d(MISSING)
+write: <invalid reflect.Value>
+wrote <invalid reflect.Value>, read got %!d(MISSING)
+wrote <invalid reflect.Value>, got %!d(MISSING)
+write: <invalid reflect.Value>
+wrote <invalid reflect.Value>, read got %!d(MISSING)
+final read got <invalid reflect.Value>
+
+-- FAIL: TestPipe2
+
+=== RUN  TestPipe3
+read: <invalid reflect.Value>Exception: __fail__
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 62525 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 62414 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61961:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:46180:21)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61765 column 9)
+Called from ._$internal_io_$dot_$test_Io_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53599 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:67350:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:67351:3)
+
+-- FAIL: TestPipe3

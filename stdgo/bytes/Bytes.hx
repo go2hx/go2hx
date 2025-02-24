@@ -6,9 +6,9 @@ private function set_errTooLarge(v:stdgo.Error):stdgo.Error {
         stdgo._internal.bytes.Bytes_errtoolarge.errTooLarge = (v : stdgo.Error);
         return v;
     }
-var indexBytePortable(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt;
-private function get_indexBytePortable():(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt return (_0, _1) -> stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable([for (i in _0) i], _1);
-private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt):(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt {
+var indexBytePortable(get, set) : (Array<std.UInt>, std.UInt) -> StdTypes.Int;
+private function get_indexBytePortable():(Array<std.UInt>, std.UInt) -> StdTypes.Int return (_0, _1) -> stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable([for (i in _0) i], _1);
+private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes.Int):(Array<std.UInt>, std.UInt) -> StdTypes.Int {
         stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = v;
         return v;
     }
@@ -412,7 +412,7 @@ class Bytes {
     /**
         * ContainsFunc reports whether any of the UTF-8-encoded code points r within b satisfy f(r).
     **/
-    static public inline function containsFunc(_b:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):Bool {
+    static public inline function containsFunc(_b:Array<std.UInt>, _f:StdTypes.Int -> Bool):Bool {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return stdgo._internal.bytes.Bytes_containsfunc.containsFunc(_b, _f);
@@ -552,7 +552,7 @@ class Bytes {
         * FieldsFunc makes no guarantees about the order in which it calls f(c)
         * and assumes that f always returns the same value for a given c.
     **/
-    static public inline function fieldsFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):Array<Array<std.UInt>> {
+    static public inline function fieldsFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<Array<std.UInt>> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_fieldsfunc.fieldsFunc(_s, _f)) [for (i in i) i]];
@@ -588,7 +588,7 @@ class Bytes {
         * dropped from the byte slice with no replacement. The characters in s and the
         * output are interpreted as UTF-8-encoded code points.
     **/
-    static public inline function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:Array<std.UInt>):Array<std.UInt> {
+    static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:Array<std.UInt>):Array<std.UInt> {
         final _mapping = _mapping;
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_map_.map_(_mapping, _s)) i];
@@ -675,7 +675,7 @@ class Bytes {
         * TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off
         * all leading UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public inline function trimLeftFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):Array<std.UInt> {
+    static public inline function trimLeftFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimleftfunc.trimLeftFunc(_s, _f)) i];
@@ -684,7 +684,7 @@ class Bytes {
         * TrimRightFunc returns a subslice of s by slicing off all trailing
         * UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public inline function trimRightFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):Array<std.UInt> {
+    static public inline function trimRightFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimrightfunc.trimRightFunc(_s, _f)) i];
@@ -693,7 +693,7 @@ class Bytes {
         * TrimFunc returns a subslice of s by slicing off all leading and trailing
         * UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public inline function trimFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):Array<std.UInt> {
+    static public inline function trimFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):Array<std.UInt> {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return [for (i in stdgo._internal.bytes.Bytes_trimfunc.trimFunc(_s, _f)) i];
@@ -721,7 +721,7 @@ class Bytes {
         * It returns the byte index in s of the first Unicode
         * code point satisfying f(c), or -1 if none do.
     **/
-    static public inline function indexFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function indexFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return stdgo._internal.bytes.Bytes_indexfunc.indexFunc(_s, _f);
@@ -731,7 +731,7 @@ class Bytes {
         * It returns the byte index in s of the last Unicode
         * code point satisfying f(c), or -1 if none do.
     **/
-    static public inline function lastIndexFunc(_s:Array<std.UInt>, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function lastIndexFunc(_s:Array<std.UInt>, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         final _f = _f;
         return stdgo._internal.bytes.Bytes_lastindexfunc.lastIndexFunc(_s, _f);

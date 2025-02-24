@@ -35,23 +35,15 @@ steps:
         ./go2hx.*.zip 
         ./data/go4hx.*
       key: ${{ github.sha }}-build-${{ env.cache-name }}
-  # run yaegi easy tests
-  - name: clone yaegi
-    run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-  - name: Sort tests
-    run: go run ./scripts/sortTests ci
-  - name: Run yaegi easy tests
-    run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
-  - name: Report results
-    run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D report -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
+  - name: Run lib tests
+    run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
   - name: Remove stdgo folder
     run: rm -r -d stdgo
   - name: Remove _internal folder
     run: rm -r -d _internal
-  # add yaegi_easy.json regression 
   - uses: EndBug/add-and-commit@v9
     with:
-        message: yaegi easy tests update ::target::
+        message: libs tests update ::target::
         add: ./tests
         pull: --rebase --autostash
     continue-on-error: true

@@ -1,12 +1,30 @@
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:4: characters 91-96
+[ERROR] ./stdgo/AnyInterface.hx:49: characters 76-104
 
-  4 |         var __0 = stdgo._internal.go.token.Token_newfileset.newFileSet(), __1 = @:check2r _fset.addFile((stdgo.Go.str() : stdgo.GoString)?.__copy__(), (-1 : stdgo.GoInt), (1000 : stdgo.GoInt)), __2 = (new stdgo.Chan<stdgo.GoInt>((2 : stdgo.GoInt).toBasic(), () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
-    |                                                                                           ^^^^^
-    | Unknown identifier : _fset
+ 49 |   var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
+    |                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Uncaught exception Cannot call null
 
-[ERROR] ./stdgo/_internal/go/token/Token_testfilesetrace2.hx:21: characters 45-48
+     ->  ./stdgo/GoMap.hx:688: characters 7-15
 
- 21 |                 var _pos = (@:check2r _file.pos((0 : stdgo.GoInt)) : stdgo._internal.go.token.Token_pos.Pos);
-    |                                             ^^^
-    | { addLine : stdgo.GoInt -> Unknown<0> } has no field pos
+     688 |   if (k1 == k2) {
+         |       ^^^^^^^^
+         | Called from here
+
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx:104: characters 12-34
+
+     104 |    var c = compare(key, node.key);
+         |            ^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./stdgo/_internal/encoding/gob/Gob__bootstraptype.hx:13: characters 571-587
+
+      13 | 
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./stdgo/_internal/encoding/gob/Gob__tint.hx:2: characters 66-213
+
+       2 | var _tInt : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId = stdgo._internal.encoding.gob.Gob__bootstraptype._bootstrapType(("int" : stdgo.GoString), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)));
+         |                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
 

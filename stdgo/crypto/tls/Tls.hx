@@ -73,14 +73,30 @@ final qUICHandshakeDone = stdgo._internal.crypto.tls.Tls_quichandshakedone.qUICH
         return stdgo._internal.crypto.tls.Tls_t_aead_static_extension.T_aead_static_extension._explicitNonceLen(t);
     }
 }
-@:dox(hide) typedef T_aead = stdgo._internal.crypto.tls.Tls_t_aead.T_aead;
+@:interface @:dox(hide) @:forward abstract T_aead(stdgo._internal.crypto.tls.Tls_t_aead.T_aead) from stdgo._internal.crypto.tls.Tls_t_aead.T_aead to stdgo._internal.crypto.tls.Tls_t_aead.T_aead {
+    @:from
+    static function fromHaxeInterface(x:{ function _explicitNonceLen():StdTypes.Int; function nonceSize():StdTypes.Int; function open(_0:Array<std.UInt>, _1:Array<std.UInt>, _2:Array<std.UInt>, _3:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function overhead():StdTypes.Int; function seal(_0:Array<std.UInt>, _1:Array<std.UInt>, _2:Array<std.UInt>, _3:Array<std.UInt>):Array<std.UInt>; }):T_aead {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_aead = { _explicitNonceLen : () -> x._explicitNonceLen(), nonceSize : () -> x.nonceSize(), open : (_0, _1, _2, _3) -> x.open([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), overhead : () -> x.overhead(), seal : (_0, _1, _2, _3) -> x.seal([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_constantTimeHash_static_extension {
     static public function constantTimeSum(t:stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash, _b:Array<std.UInt>):Array<std.UInt> {
         final _b = ([for (i in _b) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.crypto.tls.Tls_t_constanttimehash_static_extension.T_constantTimeHash_static_extension.constantTimeSum(t, _b)) i];
     }
 }
-@:dox(hide) typedef T_constantTimeHash = stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash;
+@:interface @:dox(hide) @:forward abstract T_constantTimeHash(stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash) from stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash to stdgo._internal.crypto.tls.Tls_t_constanttimehash.T_constantTimeHash {
+    @:from
+    static function fromHaxeInterface(x:{ function constantTimeSum(_b:Array<std.UInt>):Array<std.UInt>; function blockSize():StdTypes.Int; function reset():Void; function size():StdTypes.Int; function sum(_0:Array<std.UInt>):Array<std.UInt>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_constantTimeHash {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_constantTimeHash = { constantTimeSum : _0 -> x.constantTimeSum([for (i in _0) i]), blockSize : () -> x.blockSize(), reset : () -> x.reset(), size : () -> x.size(), sum : _0 -> x.sum([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ClientSessionCache_static_extension {
     static public function put(t:stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache, _sessionKey:String, _cs:ClientSessionState):Void {
         final _sessionKey = (_sessionKey : stdgo.GoString);
@@ -95,7 +111,15 @@ class ClientSessionCache_static_extension {
         };
     }
 }
-typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache;
+@:interface @:forward abstract ClientSessionCache(stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache) from stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache to stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache {
+    @:from
+    static function fromHaxeInterface(x:{ function get(_sessionKey:String):stdgo.Tuple<ClientSessionState, Bool>; function put(_sessionKey:String, _cs:ClientSessionState):Void; }):ClientSessionCache {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ClientSessionCache = { get : _0 -> x.get(_0), put : (_0, _1) -> x.put(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_handshakeMessage_static_extension {
     static public function _unmarshal(t:stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage, _0:Array<std.UInt>):Bool {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -108,14 +132,30 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         };
     }
 }
-@:dox(hide) typedef T_handshakeMessage = stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage;
+@:interface @:dox(hide) @:forward abstract T_handshakeMessage(stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage) from stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage to stdgo._internal.crypto.tls.Tls_t_handshakemessage.T_handshakeMessage {
+    @:from
+    static function fromHaxeInterface(x:{ function _marshal():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function _unmarshal(_0:Array<std.UInt>):Bool; }):T_handshakeMessage {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_handshakeMessage = { _marshal : () -> x._marshal(), _unmarshal : _0 -> x._unmarshal([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_cbcMode_static_extension {
     static public function setIV(t:stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode, _0:Array<std.UInt>):Void {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         stdgo._internal.crypto.tls.Tls_t_cbcmode_static_extension.T_cbcMode_static_extension.setIV(t, _0);
     }
 }
-@:dox(hide) typedef T_cbcMode = stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode;
+@:interface @:dox(hide) @:forward abstract T_cbcMode(stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode) from stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode to stdgo._internal.crypto.tls.Tls_t_cbcmode.T_cbcMode {
+    @:from
+    static function fromHaxeInterface(x:{ function setIV(_0:Array<std.UInt>):Void; function blockSize():StdTypes.Int; function cryptBlocks(_0:Array<std.UInt>, _1:Array<std.UInt>):Void; }):T_cbcMode {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_cbcMode = { setIV : _0 -> x.setIV([for (i in _0) i]), blockSize : () -> x.blockSize(), cryptBlocks : (_0, _1) -> x.cryptBlocks([for (i in _0) i], [for (i in _1) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_transcriptHash_static_extension {
     static public function write(t:stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -125,7 +165,15 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         };
     }
 }
-@:dox(hide) typedef T_transcriptHash = stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash;
+@:interface @:dox(hide) @:forward abstract T_transcriptHash(stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash) from stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash to stdgo._internal.crypto.tls.Tls_t_transcripthash.T_transcriptHash {
+    @:from
+    static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_transcriptHash {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_transcriptHash = { write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_keyAgreement_static_extension {
     static public function _generateClientKeyExchange(t:stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, _0:Config, _1:T_clientHelloMsg, _2:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error> {
         final _0 = (_0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
@@ -165,7 +213,15 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         };
     }
 }
-@:dox(hide) typedef T_keyAgreement = stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement;
+@:interface @:dox(hide) @:forward abstract T_keyAgreement(stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement) from stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement to stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement {
+    @:from
+    static function fromHaxeInterface(x:{ function _generateServerKeyExchange(_0:Config, _1:Certificate, _2:T_clientHelloMsg, _3:T_serverHelloMsg):stdgo.Tuple<T_serverKeyExchangeMsg, stdgo.Error>; function _processClientKeyExchange(_0:Config, _1:Certificate, _2:T_clientKeyExchangeMsg, _3:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function _processServerKeyExchange(_0:Config, _1:T_clientHelloMsg, _2:T_serverHelloMsg, _3:stdgo._internal.crypto.x509.X509_certificate.Certificate, _4:T_serverKeyExchangeMsg):stdgo.Error; function _generateClientKeyExchange(_0:Config, _1:T_clientHelloMsg, _2:stdgo._internal.crypto.x509.X509_certificate.Certificate):stdgo.Tuple.Tuple3<Array<std.UInt>, T_clientKeyExchangeMsg, stdgo.Error>; }):T_keyAgreement {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_keyAgreement = { _generateServerKeyExchange : (_0, _1, _2, _3) -> x._generateServerKeyExchange(_0, _1, _2, _3), _processClientKeyExchange : (_0, _1, _2, _3) -> x._processClientKeyExchange(_0, _1, _2, _3), _processServerKeyExchange : (_0, _1, _2, _3, _4) -> x._processServerKeyExchange(_0, _1, _2, _3, _4), _generateClientKeyExchange : (_0, _1, _2) -> x._generateClientKeyExchange(_0, _1, _2), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.crypto.tls.Tls.T_cacheEntry_static_extension) @:dox(hide) abstract T_cacheEntry(stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry) from stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry to stdgo._internal.crypto.tls.Tls_t_cacheentry.T_cacheEntry {
     public var _refs(get, set) : stdgo._internal.sync.atomic_.Atomic__int64_.Int64_;
     function get__refs():stdgo._internal.sync.atomic_.Atomic__int64_.Int64_ return this._refs;
@@ -259,9 +315,9 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         this._ivLen = (v : stdgo.GoInt);
         return v;
     }
-    public var _ka(get, set) : stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement;
-    function get__ka():stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement return _0 -> this._ka(_0);
-    function set__ka(v:stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement):stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement {
+    public var _ka(get, set) : std.UInt -> T_keyAgreement;
+    function get__ka():std.UInt -> T_keyAgreement return _0 -> this._ka(_0);
+    function set__ka(v:std.UInt -> T_keyAgreement):std.UInt -> T_keyAgreement {
         this._ka = v;
         return v;
     }
@@ -271,25 +327,25 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         this._flags = (v : stdgo.GoInt);
         return v;
     }
-    public var _cipher(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface;
-    function get__cipher():(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface return (_0, _1, _2) -> this._cipher([for (i in _0) i], [for (i in _1) i], _2);
-    function set__cipher(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface):(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface {
+    public var _cipher(get, set) : (Array<std.UInt>, Array<std.UInt>, Bool) -> stdgo.AnyInterface;
+    function get__cipher():(Array<std.UInt>, Array<std.UInt>, Bool) -> stdgo.AnyInterface return (_0, _1, _2) -> this._cipher([for (i in _0) i], [for (i in _1) i], _2);
+    function set__cipher(v:(Array<std.UInt>, Array<std.UInt>, Bool) -> stdgo.AnyInterface):(Array<std.UInt>, Array<std.UInt>, Bool) -> stdgo.AnyInterface {
         this._cipher = v;
         return v;
     }
-    public var _mac(get, set) : stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash;
-    function get__mac():stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash return _0 -> this._mac([for (i in _0) i]);
-    function set__mac(v:stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash):stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash {
+    public var _mac(get, set) : Array<std.UInt> -> stdgo._internal.hash.Hash_hash.Hash;
+    function get__mac():Array<std.UInt> -> stdgo._internal.hash.Hash_hash.Hash return _0 -> this._mac([for (i in _0) i]);
+    function set__mac(v:Array<std.UInt> -> stdgo._internal.hash.Hash_hash.Hash):Array<std.UInt> -> stdgo._internal.hash.Hash_hash.Hash {
         this._mac = v;
         return v;
     }
-    public var _aead(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead;
-    function get__aead():(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead return (_0, _1) -> this._aead([for (i in _0) i], [for (i in _1) i]);
-    function set__aead(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead):(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead {
+    public var _aead(get, set) : (Array<std.UInt>, Array<std.UInt>) -> T_aead;
+    function get__aead():(Array<std.UInt>, Array<std.UInt>) -> T_aead return (_0, _1) -> this._aead([for (i in _0) i], [for (i in _1) i]);
+    function set__aead(v:(Array<std.UInt>, Array<std.UInt>) -> T_aead):(Array<std.UInt>, Array<std.UInt>) -> T_aead {
         this._aead = v;
         return v;
     }
-    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_macLen:StdTypes.Int, ?_ivLen:StdTypes.Int, ?_ka:stdgo.GoUInt16 -> stdgo._internal.crypto.tls.Tls_t_keyagreement.T_keyAgreement, ?_flags:StdTypes.Int, ?_cipher:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, Bool) -> stdgo.AnyInterface, ?_mac:stdgo.Slice<stdgo.GoUInt8> -> stdgo._internal.hash.Hash_hash.Hash, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), (_macLen : stdgo.GoInt), (_ivLen : stdgo.GoInt), _ka, (_flags : stdgo.GoInt), _cipher, _mac, _aead);
+    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_macLen:StdTypes.Int, ?_ivLen:StdTypes.Int, ?_ka:std.UInt -> T_keyAgreement, ?_flags:StdTypes.Int, ?_cipher:(Array<std.UInt>, Array<std.UInt>, Bool) -> stdgo.AnyInterface, ?_mac:Array<std.UInt> -> stdgo._internal.hash.Hash_hash.Hash, ?_aead:(Array<std.UInt>, Array<std.UInt>) -> T_aead) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuite.T_cipherSuite((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), (_macLen : stdgo.GoInt), (_ivLen : stdgo.GoInt), _ka, (_flags : stdgo.GoInt), _cipher, _mac, _aead);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -306,9 +362,9 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         this._keyLen = (v : stdgo.GoInt);
         return v;
     }
-    public var _aead(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead;
-    function get__aead():(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead return (_0, _1) -> this._aead([for (i in _0) i], [for (i in _1) i]);
-    function set__aead(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead):(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead {
+    public var _aead(get, set) : (Array<std.UInt>, Array<std.UInt>) -> T_aead;
+    function get__aead():(Array<std.UInt>, Array<std.UInt>) -> T_aead return (_0, _1) -> this._aead([for (i in _0) i], [for (i in _1) i]);
+    function set__aead(v:(Array<std.UInt>, Array<std.UInt>) -> T_aead):(Array<std.UInt>, Array<std.UInt>) -> T_aead {
         this._aead = v;
         return v;
     }
@@ -318,7 +374,7 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         this._hash = v;
         return v;
     }
-    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_aead:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> stdgo._internal.crypto.tls.Tls_t_aead.T_aead, ?_hash:stdgo._internal.crypto.Crypto_hash.Hash) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), _aead, _hash);
+    public function new(?_id:std.UInt, ?_keyLen:StdTypes.Int, ?_aead:(Array<std.UInt>, Array<std.UInt>) -> T_aead, ?_hash:stdgo._internal.crypto.Crypto_hash.Hash) this = new stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13((_id : stdgo.GoUInt16), (_keyLen : stdgo.GoInt), _aead, _hash);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -474,13 +530,13 @@ typedef ClientSessionCache = stdgo._internal.crypto.tls.Tls_clientsessioncache.C
         this.tLSUnique = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var _ekm(get, set) : (stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
-    function get__ekm():(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return (_0, _1, _2) -> this._ekm(_0, [for (i in _1) i], _2);
-    function set__ekm(v:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    public var _ekm(get, set) : (String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>;
+    function get__ekm():(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> return (_0, _1, _2) -> this._ekm(_0, [for (i in _1) i], _2);
+    function set__ekm(v:(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>):(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         this._ekm = v;
         return v;
     }
-    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?oCSPResponse:Array<std.UInt>, ?tLSUnique:Array<std.UInt>, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }) this = new stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState(
+    public function new(?version:std.UInt, ?handshakeComplete:Bool, ?didResume:Bool, ?cipherSuite:std.UInt, ?negotiatedProtocol:String, ?negotiatedProtocolIsMutual:Bool, ?serverName:String, ?peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?signedCertificateTimestamps:Array<Array<std.UInt>>, ?oCSPResponse:Array<std.UInt>, ?tLSUnique:Array<std.UInt>, ?_ekm:(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>) this = new stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState(
 (version : stdgo.GoUInt16),
 handshakeComplete,
 didResume,
@@ -610,39 +666,51 @@ _ekm);
         this.certificates = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
         return v;
     }
-    public var nameToCertificate(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>;
-    function get_nameToCertificate():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>> return this.nameToCertificate;
-    function set_nameToCertificate(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>> {
-        this.nameToCertificate = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>);
+    public var nameToCertificate(get, set) : Map<String, Certificate>;
+    function get_nameToCertificate():Map<String, Certificate> return {
+        final __obj__:Map<String, Certificate> = [];
+        for (key => value in this.nameToCertificate) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set_nameToCertificate(v:Map<String, Certificate>):Map<String, Certificate> {
+        this.nameToCertificate = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
+            };
+            __obj__;
+        };
         return v;
     }
-    public var getCertificate(get, set) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; };
-    function get_getCertificate():stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; } return _0 -> this.getCertificate(_0);
-    function set_getCertificate(v:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }):stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; } {
+    public var getCertificate(get, set) : ClientHelloInfo -> stdgo.Tuple<Certificate, stdgo.Error>;
+    function get_getCertificate():ClientHelloInfo -> stdgo.Tuple<Certificate, stdgo.Error> return _0 -> this.getCertificate(_0);
+    function set_getCertificate(v:ClientHelloInfo -> stdgo.Tuple<Certificate, stdgo.Error>):ClientHelloInfo -> stdgo.Tuple<Certificate, stdgo.Error> {
         this.getCertificate = v;
         return v;
     }
-    public var getClientCertificate(get, set) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; };
-    function get_getClientCertificate():stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; } return _0 -> this.getClientCertificate(_0);
-    function set_getClientCertificate(v:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }):stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; } {
+    public var getClientCertificate(get, set) : CertificateRequestInfo -> stdgo.Tuple<Certificate, stdgo.Error>;
+    function get_getClientCertificate():CertificateRequestInfo -> stdgo.Tuple<Certificate, stdgo.Error> return _0 -> this.getClientCertificate(_0);
+    function set_getClientCertificate(v:CertificateRequestInfo -> stdgo.Tuple<Certificate, stdgo.Error>):CertificateRequestInfo -> stdgo.Tuple<Certificate, stdgo.Error> {
         this.getClientCertificate = v;
         return v;
     }
-    public var getConfigForClient(get, set) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; };
-    function get_getConfigForClient():stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; } return _0 -> this.getConfigForClient(_0);
-    function set_getConfigForClient(v:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; }):stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; } {
+    public var getConfigForClient(get, set) : ClientHelloInfo -> stdgo.Tuple<Config, stdgo.Error>;
+    function get_getConfigForClient():ClientHelloInfo -> stdgo.Tuple<Config, stdgo.Error> return _0 -> this.getConfigForClient(_0);
+    function set_getConfigForClient(v:ClientHelloInfo -> stdgo.Tuple<Config, stdgo.Error>):ClientHelloInfo -> stdgo.Tuple<Config, stdgo.Error> {
         this.getConfigForClient = v;
         return v;
     }
-    public var verifyPeerCertificate(get, set) : (stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error;
-    function get_verifyPeerCertificate():(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error return (_0, _1) -> this.verifyPeerCertificate([for (i in _0) [for (i in i) i]], [for (i in _1) [for (i in i) i]]);
-    function set_verifyPeerCertificate(v:(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error):(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error {
+    public var verifyPeerCertificate(get, set) : (Array<Array<std.UInt>>, Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>) -> stdgo.Error;
+    function get_verifyPeerCertificate():(Array<Array<std.UInt>>, Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>) -> stdgo.Error return (_0, _1) -> this.verifyPeerCertificate([for (i in _0) [for (i in i) i]], [for (i in _1) [for (i in i) i]]);
+    function set_verifyPeerCertificate(v:(Array<Array<std.UInt>>, Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>) -> stdgo.Error):(Array<Array<std.UInt>>, Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>) -> stdgo.Error {
         this.verifyPeerCertificate = v;
         return v;
     }
-    public var verifyConnection(get, set) : stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error;
-    function get_verifyConnection():stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error return _0 -> this.verifyConnection(_0);
-    function set_verifyConnection(v:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error):stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error {
+    public var verifyConnection(get, set) : ConnectionState -> stdgo.Error;
+    function get_verifyConnection():ConnectionState -> stdgo.Error return _0 -> this.verifyConnection(_0);
+    function set_verifyConnection(v:ConnectionState -> stdgo.Error):ConnectionState -> stdgo.Error {
         this.verifyConnection = v;
         return v;
     }
@@ -712,15 +780,15 @@ _ekm);
         this.clientSessionCache = v;
         return v;
     }
-    public var unwrapSession(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; };
-    function get_unwrapSession():(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; } return (_0, _1) -> this.unwrapSession([for (i in _0) i], _1);
-    function set_unwrapSession(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; }):(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; } {
+    public var unwrapSession(get, set) : (Array<std.UInt>, ConnectionState) -> stdgo.Tuple<SessionState, stdgo.Error>;
+    function get_unwrapSession():(Array<std.UInt>, ConnectionState) -> stdgo.Tuple<SessionState, stdgo.Error> return (_0, _1) -> this.unwrapSession([for (i in _0) i], _1);
+    function set_unwrapSession(v:(Array<std.UInt>, ConnectionState) -> stdgo.Tuple<SessionState, stdgo.Error>):(Array<std.UInt>, ConnectionState) -> stdgo.Tuple<SessionState, stdgo.Error> {
         this.unwrapSession = v;
         return v;
     }
-    public var wrapSession(get, set) : (stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
-    function get_wrapSession():(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return (_0, _1) -> this.wrapSession(_0, _1);
-    function set_wrapSession(v:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    public var wrapSession(get, set) : (ConnectionState, SessionState) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>;
+    function get_wrapSession():(ConnectionState, SessionState) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> return (_0, _1) -> this.wrapSession(_0, _1);
+    function set_wrapSession(v:(ConnectionState, SessionState) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>):(ConnectionState, SessionState) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         this.wrapSession = v;
         return v;
     }
@@ -778,11 +846,17 @@ _ekm);
         this._autoSessionTicketKeys = ([for (i in v) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_t_ticketkey.T_ticketKey>);
         return v;
     }
-    public function new(?rand:stdgo._internal.io.Io_reader.Reader, ?time:() -> stdgo._internal.time.Time_time.Time, ?certificates:Array<Certificate>, ?nameToCertificate:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>, ?getCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getClientCertificate:stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificaterequestinfo.CertificateRequestInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>; var _1 : stdgo.Error; }, ?getConfigForClient:stdgo.Ref<stdgo._internal.crypto.tls.Tls_clienthelloinfo.ClientHelloInfo> -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>; var _1 : stdgo.Error; }, ?verifyPeerCertificate:(stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>, stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>) -> stdgo.Error, ?verifyConnection:stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState -> stdgo.Error, ?rootCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?nextProtos:Array<String>, ?serverName:String, ?clientAuth:ClientAuthType, ?clientCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?insecureSkipVerify:Bool, ?cipherSuites:Array<std.UInt>, ?preferServerCipherSuites:Bool, ?sessionTicketsDisabled:Bool, ?sessionTicketKey:haxe.ds.Vector<std.UInt>, ?clientSessionCache:ClientSessionCache, ?unwrapSession:(stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; }, ?wrapSession:(stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?minVersion:std.UInt, ?maxVersion:std.UInt, ?curvePreferences:Array<CurveID>, ?dynamicRecordSizingDisabled:Bool, ?renegotiation:RenegotiationSupport, ?keyLogWriter:stdgo._internal.io.Io_writer.Writer, ?_mutex:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sessionTicketKeys:Array<T_ticketKey>, ?_autoSessionTicketKeys:Array<T_ticketKey>) this = new stdgo._internal.crypto.tls.Tls_config.Config(
+    public function new(?rand:stdgo._internal.io.Io_reader.Reader, ?time:() -> stdgo._internal.time.Time_time.Time, ?certificates:Array<Certificate>, ?nameToCertificate:Map<String, Certificate>, ?getCertificate:ClientHelloInfo -> stdgo.Tuple<Certificate, stdgo.Error>, ?getClientCertificate:CertificateRequestInfo -> stdgo.Tuple<Certificate, stdgo.Error>, ?getConfigForClient:ClientHelloInfo -> stdgo.Tuple<Config, stdgo.Error>, ?verifyPeerCertificate:(Array<Array<std.UInt>>, Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>) -> stdgo.Error, ?verifyConnection:ConnectionState -> stdgo.Error, ?rootCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?nextProtos:Array<String>, ?serverName:String, ?clientAuth:ClientAuthType, ?clientCAs:stdgo._internal.crypto.x509.X509_certpool.CertPool, ?insecureSkipVerify:Bool, ?cipherSuites:Array<std.UInt>, ?preferServerCipherSuites:Bool, ?sessionTicketsDisabled:Bool, ?sessionTicketKey:haxe.ds.Vector<std.UInt>, ?clientSessionCache:ClientSessionCache, ?unwrapSession:(Array<std.UInt>, ConnectionState) -> stdgo.Tuple<SessionState, stdgo.Error>, ?wrapSession:(ConnectionState, SessionState) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>, ?minVersion:std.UInt, ?maxVersion:std.UInt, ?curvePreferences:Array<CurveID>, ?dynamicRecordSizingDisabled:Bool, ?renegotiation:RenegotiationSupport, ?keyLogWriter:stdgo._internal.io.Io_writer.Writer, ?_mutex:stdgo._internal.sync.Sync_rwmutex.RWMutex, ?_sessionTicketKeys:Array<T_ticketKey>, ?_autoSessionTicketKeys:Array<T_ticketKey>) this = new stdgo._internal.crypto.tls.Tls_config.Config(
 rand,
 time,
 ([for (i in certificates) i] : stdgo.Slice<stdgo._internal.crypto.tls.Tls_certificate.Certificate>),
-(nameToCertificate : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>),
+{
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>>();
+        for (key => value in nameToCertificate) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.crypto.tls.Tls_certificate.Certificate>);
+        };
+        __obj__;
+    },
 getCertificate,
 getClientCertificate,
 getConfigForClient,
@@ -884,10 +958,22 @@ _mutex,
         this.mutex = v;
         return v;
     }
-    public var _m(get, set) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>;
-    function get__m():stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>> return this._m;
-    function set__m(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>):stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>> {
-        this._m = (v : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>);
+    public var _m(get, set) : Map<String, stdgo._internal.container.list.List_element.Element>;
+    function get__m():Map<String, stdgo._internal.container.list.List_element.Element> return {
+        final __obj__:Map<String, stdgo._internal.container.list.List_element.Element> = [];
+        for (key => value in this._m) {
+            __obj__[key] = value;
+        };
+        __obj__;
+    };
+    function set__m(v:Map<String, stdgo._internal.container.list.List_element.Element>):Map<String, stdgo._internal.container.list.List_element.Element> {
+        this._m = {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>();
+            for (key => value in v) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.container.list.List_element.Element>);
+            };
+            __obj__;
+        };
         return v;
     }
     public var _q(get, set) : stdgo._internal.container.list.List_list.List;
@@ -902,7 +988,13 @@ _mutex,
         this._capacity = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>, ?_q:stdgo._internal.container.list.List_list.List, ?_capacity:StdTypes.Int) this = new stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache(mutex, (_m : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>), (_q : stdgo.Ref<stdgo._internal.container.list.List_list.List>), (_capacity : stdgo.GoInt));
+    public function new(?mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:Map<String, stdgo._internal.container.list.List_element.Element>, ?_q:stdgo._internal.container.list.List_list.List, ?_capacity:StdTypes.Int) this = new stdgo._internal.crypto.tls.Tls_t_lrusessioncache.T_lruSessionCache(mutex, {
+        final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.container.list.List_element.Element>>();
+        for (key => value in _m) {
+            __obj__[(key : stdgo.GoString)] = (value : stdgo.Ref<stdgo._internal.container.list.List_element.Element>);
+        };
+        __obj__;
+    }, (_q : stdgo.Ref<stdgo._internal.container.list.List_list.List>), (_capacity : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1067,9 +1159,9 @@ _mutex,
         this._secureRenegotiation = v;
         return v;
     }
-    public var _ekm(get, set) : (stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; };
-    function get__ekm():(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return (_0, _1, _2) -> this._ekm(_0, [for (i in _1) i], _2);
-    function set__ekm(v:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }):(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    public var _ekm(get, set) : (String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>;
+    function get__ekm():(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> return (_0, _1, _2) -> this._ekm(_0, [for (i in _1) i], _2);
+    function set__ekm(v:(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>):(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         this._ekm = v;
         return v;
     }
@@ -1193,7 +1285,7 @@ _mutex,
         this._tmp = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_conn:stdgo._internal.net.Net_conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; }, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_conn.Conn(
+    public function new(?_conn:stdgo._internal.net.Net_conn.Conn, ?_isClient:Bool, ?_handshakeFn:stdgo._internal.context.Context_context.Context -> stdgo.Error, ?_quic:T_quicState, ?_isHandshakeComplete:stdgo._internal.sync.atomic_.Atomic__bool_.Bool_, ?_handshakeMutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_handshakeErr:stdgo.Error, ?_vers:std.UInt, ?_haveVers:Bool, ?_config:Config, ?_handshakes:StdTypes.Int, ?_extMasterSecret:Bool, ?_didResume:Bool, ?_cipherSuite:std.UInt, ?_ocspResponse:Array<std.UInt>, ?_scts:Array<Array<std.UInt>>, ?_peerCertificates:Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>, ?_activeCertHandles:Array<T_activeCert>, ?_verifiedChains:Array<Array<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, ?_serverName:String, ?_secureRenegotiation:Bool, ?_ekm:(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error>, ?_resumptionSecret:Array<std.UInt>, ?_ticketKeys:Array<T_ticketKey>, ?_clientFinishedIsFirst:Bool, ?_closeNotifyErr:stdgo.Error, ?_closeNotifySent:Bool, ?_clientFinished:haxe.ds.Vector<std.UInt>, ?_serverFinished:haxe.ds.Vector<std.UInt>, ?_clientProtocol:String, ?_in:T_halfConn, ?_out:T_halfConn, ?_rawInput:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_input:stdgo._internal.bytes.Bytes_reader.Reader, ?_hand:stdgo._internal.bytes.Bytes_buffer.Buffer, ?_buffering:Bool, ?_sendBuf:Array<std.UInt>, ?_bytesSent:haxe.Int64, ?_packetsSent:haxe.Int64, ?_retryCount:StdTypes.Int, ?_activeCall:stdgo._internal.sync.atomic_.Atomic__int32.Int32, ?_tmp:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.crypto.tls.Tls_conn.Conn(
 _conn,
 _isClient,
 _handshakeFn,
@@ -2515,13 +2607,13 @@ _transcript,
         this._version = (v : stdgo.GoUInt16);
         return v;
     }
-    public var _prf(get, set) : (stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void;
-    function get__prf():(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void return (_0, _1, _2, _3) -> this._prf([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]);
-    function set__prf(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void):(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void {
+    public var _prf(get, set) : (Array<std.UInt>, Array<std.UInt>, Array<std.UInt>, Array<std.UInt>) -> Void;
+    function get__prf():(Array<std.UInt>, Array<std.UInt>, Array<std.UInt>, Array<std.UInt>) -> Void return (_0, _1, _2, _3) -> this._prf([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]);
+    function set__prf(v:(Array<std.UInt>, Array<std.UInt>, Array<std.UInt>, Array<std.UInt>) -> Void):(Array<std.UInt>, Array<std.UInt>, Array<std.UInt>, Array<std.UInt>) -> Void {
         this._prf = v;
         return v;
     }
-    public function new(?_client:stdgo._internal.hash.Hash_hash.Hash, ?_server:stdgo._internal.hash.Hash_hash.Hash, ?_clientMD5:stdgo._internal.hash.Hash_hash.Hash, ?_serverMD5:stdgo._internal.hash.Hash_hash.Hash, ?_buffer:Array<std.UInt>, ?_version:std.UInt, ?_prf:(stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>, stdgo.Slice<stdgo.GoUInt8>) -> Void) this = new stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash(_client, _server, _clientMD5, _serverMD5, ([for (i in _buffer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_version : stdgo.GoUInt16), _prf);
+    public function new(?_client:stdgo._internal.hash.Hash_hash.Hash, ?_server:stdgo._internal.hash.Hash_hash.Hash, ?_clientMD5:stdgo._internal.hash.Hash_hash.Hash, ?_serverMD5:stdgo._internal.hash.Hash_hash.Hash, ?_buffer:Array<std.UInt>, ?_version:std.UInt, ?_prf:(Array<std.UInt>, Array<std.UInt>, Array<std.UInt>, Array<std.UInt>) -> Void) this = new stdgo._internal.crypto.tls.Tls_t_finishedhash.T_finishedHash(_client, _server, _clientMD5, _serverMD5, ([for (i in _buffer) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_version : stdgo.GoUInt16), _prf);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2863,7 +2955,15 @@ typedef QUICEventKind = stdgo._internal.crypto.tls.Tls_quiceventkind.QUICEventKi
         };
     }
 }
-@:dox(hide) typedef T__cloneHash___localname___binaryMarshaler_12373 = stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373;
+@:interface @:dox(hide) @:forward abstract T__cloneHash___localname___binaryMarshaler_12373(stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373) from stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373 to stdgo._internal.crypto.tls.Tls_t__clonehash___localname___binarymarshaler_12373.T__cloneHash___localname___binaryMarshaler_12373 {
+    @:from
+    static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function unmarshalBinary(_data:Array<std.UInt>):stdgo.Error; }):T__cloneHash___localname___binaryMarshaler_12373 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__cloneHash___localname___binaryMarshaler_12373 = { marshalBinary : () -> x.marshalBinary(), unmarshalBinary : _0 -> x.unmarshalBinary([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) typedef T_cacheEntryPointer = stdgo._internal.crypto.tls.Tls_t_cacheentrypointer.T_cacheEntryPointer;
 @:dox(hide) class T_cacheEntry_static_extension {
 
@@ -2966,7 +3066,7 @@ class CipherSuite_static_extension {
 }
 @:dox(hide) typedef T_cipherSuiteTLS13Pointer = stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13pointer.T_cipherSuiteTLS13Pointer;
 @:dox(hide) class T_cipherSuiteTLS13_static_extension {
-    static public function _exportKeyingMaterial(_c:T_cipherSuiteTLS13, _masterSecret:Array<std.UInt>, _transcript:stdgo._internal.hash.Hash_hash.Hash):(stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>, stdgo.GoInt) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
+    static public function _exportKeyingMaterial(_c:T_cipherSuiteTLS13, _masterSecret:Array<std.UInt>, _transcript:stdgo._internal.hash.Hash_hash.Hash):(String, Array<std.UInt>, StdTypes.Int) -> stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _c = (_c : stdgo.Ref<stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13.T_cipherSuiteTLS13>);
         final _masterSecret = ([for (i in _masterSecret) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return (_0, _1, _2) -> stdgo._internal.crypto.tls.Tls_t_ciphersuitetls13_static_extension.T_cipherSuiteTLS13_static_extension._exportKeyingMaterial(_c, _masterSecret, _transcript)(_0, [for (i in _1) i], _2);

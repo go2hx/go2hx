@@ -12,7 +12,15 @@ package stdgo.strings;
         return stdgo._internal.strings.Strings_t_replacer_static_extension.T_replacer_static_extension.replace(t, _s);
     }
 }
-@:dox(hide) typedef T_replacer = stdgo._internal.strings.Strings_t_replacer.T_replacer;
+@:interface @:dox(hide) @:forward abstract T_replacer(stdgo._internal.strings.Strings_t_replacer.T_replacer) from stdgo._internal.strings.Strings_t_replacer.T_replacer to stdgo._internal.strings.Strings_t_replacer.T_replacer {
+    @:from
+    static function fromHaxeInterface(x:{ function replace(_s:String):String; function writeString(_w:stdgo._internal.io.Io_writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_replacer {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_replacer = { replace : _0 -> x.replace(_0), writeString : (_0, _1) -> x.writeString(_0, _1), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.strings.Strings.Builder_static_extension) abstract Builder(stdgo._internal.strings.Strings_builder.Builder) from stdgo._internal.strings.Strings_builder.Builder to stdgo._internal.strings.Strings_builder.Builder {
     public var _addr(get, set) : Builder;
     function get__addr():Builder return this._addr;
@@ -627,7 +635,7 @@ class Strings {
     /**
         * ContainsFunc reports whether any Unicode code points r within s satisfy f(r).
     **/
-    static public inline function containsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Bool {
+    static public inline function containsFunc(_s:String, _f:StdTypes.Int -> Bool):Bool {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_containsfunc.containsFunc(_s, _f);
@@ -779,7 +787,7 @@ class Strings {
         * FieldsFunc makes no guarantees about the order in which it calls f(c)
         * and assumes that f always returns the same value for a given c.
     **/
-    static public inline function fieldsFunc(_s:String, _f:stdgo.GoInt32 -> Bool):Array<String> {
+    static public inline function fieldsFunc(_s:String, _f:StdTypes.Int -> Bool):Array<String> {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return [for (i in stdgo._internal.strings.Strings_fieldsfunc.fieldsFunc(_s, _f)) i];
@@ -814,7 +822,7 @@ class Strings {
         * according to the mapping function. If mapping returns a negative value, the character is
         * dropped from the string with no replacement.
     **/
-    static public inline function map_(_mapping:stdgo.GoInt32 -> stdgo.GoInt32, _s:String):String {
+    static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:String):String {
         final _mapping = _mapping;
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_map_.map_(_mapping, _s);
@@ -900,7 +908,7 @@ class Strings {
         * TrimLeftFunc returns a slice of the string s with all leading
         * Unicode code points c satisfying f(c) removed.
     **/
-    static public inline function trimLeftFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimLeftFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimleftfunc.trimLeftFunc(_s, _f);
@@ -909,7 +917,7 @@ class Strings {
         * TrimRightFunc returns a slice of the string s with all trailing
         * Unicode code points c satisfying f(c) removed.
     **/
-    static public inline function trimRightFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimRightFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimrightfunc.trimRightFunc(_s, _f);
@@ -918,7 +926,7 @@ class Strings {
         * TrimFunc returns a slice of the string s with all leading
         * and trailing Unicode code points c satisfying f(c) removed.
     **/
-    static public inline function trimFunc(_s:String, _f:stdgo.GoInt32 -> Bool):String {
+    static public inline function trimFunc(_s:String, _f:StdTypes.Int -> Bool):String {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_trimfunc.trimFunc(_s, _f);
@@ -927,7 +935,7 @@ class Strings {
         * IndexFunc returns the index into s of the first Unicode
         * code point satisfying f(c), or -1 if none do.
     **/
-    static public inline function indexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function indexFunc(_s:String, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_indexfunc.indexFunc(_s, _f);
@@ -936,7 +944,7 @@ class Strings {
         * LastIndexFunc returns the index into s of the last
         * Unicode code point satisfying f(c), or -1 if none do.
     **/
-    static public inline function lastIndexFunc(_s:String, _f:stdgo.GoInt32 -> Bool):StdTypes.Int {
+    static public inline function lastIndexFunc(_s:String, _f:StdTypes.Int -> Bool):StdTypes.Int {
         final _s = (_s : stdgo.GoString);
         final _f = _f;
         return stdgo._internal.strings.Strings_lastindexfunc.lastIndexFunc(_s, _f);

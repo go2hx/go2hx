@@ -10,27 +10,59 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
         return stdgo._internal.errors.Errors_t__interface_0_static_extension.T__interface_0_static_extension.unwrap(t);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.errors.Errors_t__interface_0.T__interface_0;
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.errors.Errors_t__interface_0.T__interface_0) from stdgo._internal.errors.Errors_t__interface_0.T__interface_0 to stdgo._internal.errors.Errors_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function unwrap():stdgo.Error; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_1_static_extension {
     static public function is_(t:stdgo._internal.errors.Errors_t__interface_1.T__interface_1, _0:stdgo.Error):Bool {
         final _0 = (_0 : stdgo.Error);
         return stdgo._internal.errors.Errors_t__interface_1_static_extension.T__interface_1_static_extension.is_(t, _0);
     }
 }
-@:dox(hide) typedef T__interface_1 = stdgo._internal.errors.Errors_t__interface_1.T__interface_1;
+@:interface @:dox(hide) @:forward abstract T__interface_1(stdgo._internal.errors.Errors_t__interface_1.T__interface_1) from stdgo._internal.errors.Errors_t__interface_1.T__interface_1 to stdgo._internal.errors.Errors_t__interface_1.T__interface_1 {
+    @:from
+    static function fromHaxeInterface(x:{ function is_(_0:stdgo.Error):Bool; }):T__interface_1 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_1 = { is_ : _0 -> x.is_(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_2_static_extension {
     static public function unwrap(t:stdgo._internal.errors.Errors_t__interface_2.T__interface_2):Array<stdgo.Error> {
         return [for (i in stdgo._internal.errors.Errors_t__interface_2_static_extension.T__interface_2_static_extension.unwrap(t)) i];
     }
 }
-@:dox(hide) typedef T__interface_2 = stdgo._internal.errors.Errors_t__interface_2.T__interface_2;
+@:interface @:dox(hide) @:forward abstract T__interface_2(stdgo._internal.errors.Errors_t__interface_2.T__interface_2) from stdgo._internal.errors.Errors_t__interface_2.T__interface_2 to stdgo._internal.errors.Errors_t__interface_2.T__interface_2 {
+    @:from
+    static function fromHaxeInterface(x:{ function unwrap():Array<stdgo.Error>; }):T__interface_2 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_2 = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_3_static_extension {
     static public function as(t:stdgo._internal.errors.Errors_t__interface_3.T__interface_3, _0:stdgo.AnyInterface):Bool {
         final _0 = (_0 : stdgo.AnyInterface);
         return stdgo._internal.errors.Errors_t__interface_3_static_extension.T__interface_3_static_extension.as(t, _0);
     }
 }
-@:dox(hide) typedef T__interface_3 = stdgo._internal.errors.Errors_t__interface_3.T__interface_3;
+@:interface @:dox(hide) @:forward abstract T__interface_3(stdgo._internal.errors.Errors_t__interface_3.T__interface_3) from stdgo._internal.errors.Errors_t__interface_3.T__interface_3 to stdgo._internal.errors.Errors_t__interface_3.T__interface_3 {
+    @:from
+    static function fromHaxeInterface(x:{ function as(_0:stdgo.AnyInterface):Bool; }):T__interface_3 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_3 = { as : _0 -> x.as(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.errors.Errors.T_errorString_static_extension) @:dox(hide) abstract T_errorString(stdgo._internal.errors.Errors_t_errorstring.T_errorString) from stdgo._internal.errors.Errors_t_errorstring.T_errorString to stdgo._internal.errors.Errors_t_errorstring.T_errorString {
     public var _s(get, set) : String;
     function get__s():String return this._s;

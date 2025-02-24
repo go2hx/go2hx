@@ -43,7 +43,15 @@ class Curve_static_extension {
         return stdgo._internal.crypto.elliptic.Elliptic_curve_static_extension.Curve_static_extension.params(t);
     }
 }
-typedef Curve = stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
+@:interface @:forward abstract Curve(stdgo._internal.crypto.elliptic.Elliptic_curve.Curve) from stdgo._internal.crypto.elliptic.Elliptic_curve.Curve to stdgo._internal.crypto.elliptic.Elliptic_curve.Curve {
+    @:from
+    static function fromHaxeInterface(x:{ function params():CurveParams; function isOnCurve(_x:stdgo._internal.math.big.Big_int_.Int_, _y:stdgo._internal.math.big.Big_int_.Int_):Bool; function add(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_, _x2:stdgo._internal.math.big.Big_int_.Int_, _y2:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function double(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function scalarMult(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_, _k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function scalarBaseMult(_k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; }):Curve {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:Curve = { params : () -> x.params(), isOnCurve : (_0, _1) -> x.isOnCurve(_0, _1), add : (_0, _1, _2, _3) -> x.add(_0, _1, _2, _3), double : (_0, _1) -> x.double(_0, _1), scalarMult : (_0, _1, _2) -> x.scalarMult(_0, _1, [for (i in _2) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_unmarshaler_static_extension {
     static public function unmarshalCompressed(t:stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler, _0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -60,7 +68,15 @@ typedef Curve = stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
         };
     }
 }
-@:dox(hide) typedef T_unmarshaler = stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler;
+@:interface @:dox(hide) @:forward abstract T_unmarshaler(stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler) from stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler to stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler {
+    @:from
+    static function fromHaxeInterface(x:{ function unmarshal(_0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function unmarshalCompressed(_0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; }):T_unmarshaler {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_unmarshaler = { unmarshal : _0 -> x.unmarshal([for (i in _0) i]), unmarshalCompressed : _0 -> x.unmarshalCompressed([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T_nistPoint_static_extension {
     static public function scalarBaseMult(t:stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint, _0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error> {
         final _0 = ([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
@@ -93,7 +109,15 @@ typedef Curve = stdgo._internal.crypto.elliptic.Elliptic_curve.Curve;
         return [for (i in stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint_static_extension.T_nistPoint_static_extension.bytes(t)) i];
     }
 }
-@:dox(hide) typedef T_nistPoint = stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint<T_>;
+@:interface @:dox(hide) @:forward abstract T_nistPoint(stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint) from stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint to stdgo._internal.crypto.elliptic.Elliptic_t_nistpoint.T_nistPoint {
+    @:from
+    static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function add(_0:Dynamic, _1:Dynamic):Dynamic; function double(_0:Dynamic):Dynamic; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T_nistPoint = { bytes : () -> x.bytes(), setBytes : _0 -> x.setBytes([for (i in _0) i]), add : (_0, _1) -> x.add(_0, _1), double : _0 -> x.double(_0), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.crypto.elliptic.Elliptic.T_p256Curve_static_extension) @:dox(hide) abstract T_p256Curve(stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve) from stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve to stdgo._internal.crypto.elliptic.Elliptic_t_p256curve.T_p256Curve {
     public var _nistCurve(get, set) : T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point>;
     function get__nistCurve():T_nistCurve<stdgo._internal.crypto.internal.nistec.Nistec_p256point.P256Point> return this._nistCurve;

@@ -65,7 +65,15 @@ class FS_static_extension {
         };
     }
 }
-typedef FS = stdgo._internal.io.fs.Fs_fs.FS;
+@:interface @:forward abstract FS(stdgo._internal.io.fs.Fs_fs.FS) from stdgo._internal.io.fs.Fs_fs.FS to stdgo._internal.io.fs.Fs_fs.FS {
+    @:from
+    static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<File, stdgo.Error>; }):FS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:FS = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class File_static_extension {
     static public function close(t:stdgo._internal.io.fs.Fs_file.File):stdgo.Error {
         return stdgo._internal.io.fs.Fs_file_static_extension.File_static_extension.close(t);
@@ -84,7 +92,15 @@ class File_static_extension {
         };
     }
 }
-typedef File = stdgo._internal.io.fs.Fs_file.File;
+@:interface @:forward abstract File(stdgo._internal.io.fs.Fs_file.File) from stdgo._internal.io.fs.Fs_file.File to stdgo._internal.io.fs.Fs_file.File {
+    @:from
+    static function fromHaxeInterface(x:{ function stat():stdgo.Tuple<FileInfo, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; }):File {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:File = { stat : () -> x.stat(), read : _0 -> x.read([for (i in _0) i]), close : () -> x.close(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class DirEntry_static_extension {
     static public function info(t:stdgo._internal.io.fs.Fs_direntry.DirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
@@ -102,7 +118,15 @@ class DirEntry_static_extension {
         return stdgo._internal.io.fs.Fs_direntry_static_extension.DirEntry_static_extension.name(t);
     }
 }
-typedef DirEntry = stdgo._internal.io.fs.Fs_direntry.DirEntry;
+@:interface @:forward abstract DirEntry(stdgo._internal.io.fs.Fs_direntry.DirEntry) from stdgo._internal.io.fs.Fs_direntry.DirEntry to stdgo._internal.io.fs.Fs_direntry.DirEntry {
+    @:from
+    static function fromHaxeInterface(x:{ function name():String; function isDir():Bool; function type():FileMode; function info():stdgo.Tuple<FileInfo, stdgo.Error>; }):DirEntry {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:DirEntry = { name : () -> x.name(), isDir : () -> x.isDir(), type : () -> x.type(), info : () -> x.info(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ReadDirFile_static_extension {
     static public function readDir(t:stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile, _n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         final _n = (_n : stdgo.GoInt);
@@ -112,7 +136,15 @@ class ReadDirFile_static_extension {
         };
     }
 }
-typedef ReadDirFile = stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile;
+@:interface @:forward abstract ReadDirFile(stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile) from stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile to stdgo._internal.io.fs.Fs_readdirfile.ReadDirFile {
+    @:from
+    static function fromHaxeInterface(x:{ function readDir(_n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error>; function close():stdgo.Error; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function stat():stdgo.Tuple<FileInfo, stdgo.Error>; }):ReadDirFile {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ReadDirFile = { readDir : _0 -> x.readDir(_0), close : () -> x.close(), read : _0 -> x.read([for (i in _0) i]), stat : () -> x.stat(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class FileInfo_static_extension {
     static public function sys(t:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo.AnyInterface {
         return stdgo._internal.io.fs.Fs_fileinfo_static_extension.FileInfo_static_extension.sys(t);
@@ -133,7 +165,15 @@ class FileInfo_static_extension {
         return stdgo._internal.io.fs.Fs_fileinfo_static_extension.FileInfo_static_extension.name(t);
     }
 }
-typedef FileInfo = stdgo._internal.io.fs.Fs_fileinfo.FileInfo;
+@:interface @:forward abstract FileInfo(stdgo._internal.io.fs.Fs_fileinfo.FileInfo) from stdgo._internal.io.fs.Fs_fileinfo.FileInfo to stdgo._internal.io.fs.Fs_fileinfo.FileInfo {
+    @:from
+    static function fromHaxeInterface(x:{ function name():String; function size():haxe.Int64; function mode():FileMode; function modTime():stdgo._internal.time.Time_time.Time; function isDir():Bool; function sys():stdgo.AnyInterface; }):FileInfo {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:FileInfo = { name : () -> x.name(), size : () -> x.size(), mode : () -> x.mode(), modTime : () -> x.modTime(), isDir : () -> x.isDir(), sys : () -> x.sys(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class GlobFS_static_extension {
     static public function glob(t:stdgo._internal.io.fs.Fs_globfs.GlobFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         final _pattern = (_pattern : stdgo.GoString);
@@ -143,7 +183,15 @@ class GlobFS_static_extension {
         };
     }
 }
-typedef GlobFS = stdgo._internal.io.fs.Fs_globfs.GlobFS;
+@:interface @:forward abstract GlobFS(stdgo._internal.io.fs.Fs_globfs.GlobFS) from stdgo._internal.io.fs.Fs_globfs.GlobFS to stdgo._internal.io.fs.Fs_globfs.GlobFS {
+    @:from
+    static function fromHaxeInterface(x:{ function glob(_pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):GlobFS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:GlobFS = { glob : _0 -> x.glob(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ReadDirFS_static_extension {
     static public function readDir(t:stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -153,7 +201,15 @@ class ReadDirFS_static_extension {
         };
     }
 }
-typedef ReadDirFS = stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS;
+@:interface @:forward abstract ReadDirFS(stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS) from stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS to stdgo._internal.io.fs.Fs_readdirfs.ReadDirFS {
+    @:from
+    static function fromHaxeInterface(x:{ function readDir(_name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):ReadDirFS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ReadDirFS = { readDir : _0 -> x.readDir(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class ReadFileFS_static_extension {
     static public function readFile(t:stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS, _name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -163,7 +219,15 @@ class ReadFileFS_static_extension {
         };
     }
 }
-typedef ReadFileFS = stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS;
+@:interface @:forward abstract ReadFileFS(stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS) from stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS to stdgo._internal.io.fs.Fs_readfilefs.ReadFileFS {
+    @:from
+    static function fromHaxeInterface(x:{ function readFile(_name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):ReadFileFS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:ReadFileFS = { readFile : _0 -> x.readFile(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class StatFS_static_extension {
     static public function stat(t:stdgo._internal.io.fs.Fs_statfs.StatFS, _name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
         final _name = (_name : stdgo.GoString);
@@ -173,7 +237,15 @@ class StatFS_static_extension {
         };
     }
 }
-typedef StatFS = stdgo._internal.io.fs.Fs_statfs.StatFS;
+@:interface @:forward abstract StatFS(stdgo._internal.io.fs.Fs_statfs.StatFS) from stdgo._internal.io.fs.Fs_statfs.StatFS to stdgo._internal.io.fs.Fs_statfs.StatFS {
+    @:from
+    static function fromHaxeInterface(x:{ function stat(_name:String):stdgo.Tuple<FileInfo, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):StatFS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:StatFS = { stat : _0 -> x.stat(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 class SubFS_static_extension {
     static public function sub(t:stdgo._internal.io.fs.Fs_subfs.SubFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         final _dir = (_dir : stdgo.GoString);
@@ -183,13 +255,29 @@ class SubFS_static_extension {
         };
     }
 }
-typedef SubFS = stdgo._internal.io.fs.Fs_subfs.SubFS;
+@:interface @:forward abstract SubFS(stdgo._internal.io.fs.Fs_subfs.SubFS) from stdgo._internal.io.fs.Fs_subfs.SubFS to stdgo._internal.io.fs.Fs_subfs.SubFS {
+    @:from
+    static function fromHaxeInterface(x:{ function sub(_dir:String):stdgo.Tuple<FS, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):SubFS {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:SubFS = { sub : _0 -> x.sub(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:dox(hide) class T__interface_0_static_extension {
     static public function timeout(t:stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0):Bool {
         return stdgo._internal.io.fs.Fs_t__interface_0_static_extension.T__interface_0_static_extension.timeout(t);
     }
 }
-@:dox(hide) typedef T__interface_0 = stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0;
+@:interface @:dox(hide) @:forward abstract T__interface_0(stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0) from stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0 to stdgo._internal.io.fs.Fs_t__interface_0.T__interface_0 {
+    @:from
+    static function fromHaxeInterface(x:{ function timeout():Bool; }):T__interface_0 {
+        var __f__:Void -> stdgo.AnyInterface = null;
+        final y:T__interface_0 = { timeout : () -> x.timeout(), __underlying__ : () -> __f__() };
+        __f__ = () -> stdgo.Go.toInterface(y);
+        return y;
+    }
+}
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) abstract PathError(stdgo._internal.io.fs.Fs_patherror.PathError) from stdgo._internal.io.fs.Fs_patherror.PathError to stdgo._internal.io.fs.Fs_patherror.PathError {
     public var op(get, set) : String;
     function get_op():String return this.op;

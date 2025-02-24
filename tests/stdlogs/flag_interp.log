@@ -22,7 +22,7 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from _internal.flag_test._Flag_test_testparse.Flag_test_testparse_Fields_.testParse (./_internal/flag_test/Flag_test_testparse.hx line 6 column 9)
 Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (./_internal/flag_test/Flag_test__testparse.hx line 35 column 24)
 Called from stdgo._internal.flag.FlagSet_static_extension.parse (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 23 column 37)
-Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 128 column 32)
+Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 128 column 96)
 Called from stdgo._internal.flag.T_durationValue_asInterface.set (./stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
 Called from stdgo._internal.flag.T_durationValue_static_extension.set (./stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 19 column 23)
 Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (./stdgo/_internal/time/Time_parseduration.hx line 28 column 31)
@@ -36,7 +36,7 @@ Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/te
 Called from _internal.flag_test._Flag_test_testflagsetparse.Flag_test_testflagsetparse_Fields_.testFlagSetParse (./_internal/flag_test/Flag_test_testflagsetparse.hx line 3 column 9)
 Called from _internal.flag_test._Flag_test__testparse.Flag_test__testparse_Fields_._testParse (./_internal/flag_test/Flag_test__testparse.hx line 35 column 24)
 Called from stdgo._internal.flag.FlagSet_static_extension.parse (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 23 column 37)
-Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 128 column 32)
+Called from stdgo._internal.flag.FlagSet_static_extension._parseOne (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 128 column 96)
 Called from stdgo._internal.flag.T_durationValue_asInterface.set (./stdgo/_internal/flag/Flag_t_durationvalue_asinterface.hx line 14 column 76)
 Called from stdgo._internal.flag.T_durationValue_static_extension.set (./stdgo/_internal/flag/Flag_t_durationvalue_static_extension.hx line 19 column 23)
 Called from stdgo._internal.time._Time_parseduration.Time_parseduration_Fields_.parseDuration (./stdgo/_internal/time/Time_parseduration.hx line 28 column 31)
@@ -119,14 +119,14 @@ Called from _internal.flag_test._Flag_test_testusageoutput.Flag_test_testusageou
 -- PASS: TestRangeError
 
 === RUN  TestExitCode
-Exception: :testing.testing is not yet implemented
+Exception: :os.executable is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.flag_test._Flag_test_testexitcode.Flag_test_testexitcode_Fields_.testExitCode (./_internal/flag_test/Flag_test_testexitcode.hx line 3 column 9)
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.Testenv_musthaveexec_Fields_.mustHaveExec (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 3 column 18)
 Called from stdgo._internal.sync.Once_static_extension.do_ (./stdgo/_internal/sync/Sync_once_static_extension.hx line 83 column 9)
 Called from local function #1 (./stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 4 column 80)
-Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 9 column 14)
-Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.testing (./stdgo/_internal/testing/Testing_testing.hx line 2 column 25)
+Called from stdgo._internal.internal.testenv._Testenv__tryexec.Testenv__tryexec_Fields_._tryExec (./stdgo/_internal/internal/testenv/Testenv__tryexec.hx line 12 column 23)
+Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (./stdgo/_internal/os/Os_executable.hx line 2 column 74)
 
 -- FAIL: TestExitCode
 
@@ -143,12 +143,8 @@ Called from stdgo._internal.testing._Testing_testing.Testing_testing_Fields_.tes
 -- PASS: TestUserDefinedBoolFunc
 
 === RUN  TestDefineAfterSet
-Exception: :runtime.caller is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.flag_test._Flag_test_testdefineafterset.Flag_test_testdefineafterset_Fields_.testDefineAfterSet (./_internal/flag_test/Flag_test_testdefineafterset.hx line 4 column 19)
-Called from stdgo._internal.flag.FlagSet_static_extension.set (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 469 column 26)
-Called from stdgo._internal.flag.FlagSet_static_extension._set (./stdgo/_internal/flag/Flag_flagset_static_extension.hx line 434 column 27)
-Called from stdgo._internal.runtime._Runtime_caller.Runtime_caller_Fields_.caller (./stdgo/_internal/runtime/Runtime_caller.hx line 2 column 128)
+DefineAfterSet
+: expected panic("flag myFlag set at .*/flag_test.go:.* before being defined"), but got panic("flag myFlag set at ?:0 before being defined")
 
 -- FAIL: TestDefineAfterSet
 

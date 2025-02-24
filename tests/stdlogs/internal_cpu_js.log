@@ -1,13 +1,13 @@
 === RUN  TestDisableAllCapabilities
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14207 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14587 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 18655 column 79)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35321 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35366 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 41805 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:41242:58
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14203 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14583 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 18651 column 73)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35245 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35290 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 41761 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:41198:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$musthavedebugoptionssupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 12093 column 19)
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$_$rundebugoptionstest__runDebugOptionsTest (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 12045 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testdisableallcapabilities_testDisableAllCapabilities [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:12040:2)
@@ -17,16 +17,16 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_
 === RUN  TestAllCapabilitiesDisabled
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module TypeError: Cannot read properties of undefined (reading '_common')
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14207 column 13)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14587 column 70)
-Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 18655 column 79)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35321 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35366 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 41805 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:41242:58
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14203 column 13)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 14583 column 70)
+Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 18651 column 73)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35245 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 35290 column 58)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 41761 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_cpu.js:41198:58
 Called from ._$internal_internal_cpu_$test_Cpu_$test_$musthavedebugoptionssupport_mustHaveDebugOptionsSupport (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 12093 column 19)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testallcapabilitiesdisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:32081:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 40992 column 9)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_cpu_$test_Cpu_$test_$testallcapabilitiesdisabled_testAllCapabilitiesDisabled [as f] (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js:32022:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_cpu.js line 40948 column 9)
 
 -- FAIL: TestAllCapabilitiesDisabled
 

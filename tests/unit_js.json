@@ -165,5 +165,7 @@
  "js|argMethods",
  "js|append1",
  "js|appendnil",
- "js|vars1"
+ "js|vars1",
+ "js|binaryreader",
+ "js|heappop"
 ]

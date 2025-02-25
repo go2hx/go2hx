@@ -165,5 +165,7 @@
  "interp|append1",
  "interp|appendnil",
  "interp|bytesBuffer",
- "interp|vars1"
+ "interp|vars1",
+ "interp|binaryreader",
+ "interp|heappop"
 ]

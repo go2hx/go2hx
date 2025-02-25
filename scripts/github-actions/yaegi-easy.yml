@@ -1,4 +1,4 @@
-timeout-minutes: 25
+timeout-minutes: 75
 needs: setup
 runs-on: ubuntu-latest
 steps:

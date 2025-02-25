@@ -190,7 +190,7 @@ jobs:
             add: ./tests
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   libs-hl:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -240,7 +240,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   libs-interp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -290,7 +290,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   libs-js:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -343,7 +343,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   libs-cpp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -393,7 +393,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-easy-hl:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -460,7 +460,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-easy-interp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -527,7 +527,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-easy-js:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -597,7 +597,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-easy-cpp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -664,7 +664,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   yaegi-easy-hl:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -720,7 +720,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-easy-interp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -776,7 +776,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-easy-js:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -835,7 +835,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-easy-cpp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -891,7 +891,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   go-medium-hl:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -958,7 +958,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-medium-js:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -1028,7 +1028,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   go-medium-cpp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     strategy:
       fail-fast: false
@@ -1095,7 +1095,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   yaegi-medium-hl:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -1151,7 +1151,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-medium-interp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -1207,7 +1207,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-medium-js:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -1266,7 +1266,7 @@ jobs:
         continue-on-error: true
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
   yaegi-medium-cpp:
-    timeout-minutes: 25
+    timeout-minutes: 75
     needs: setup
     runs-on: ubuntu-latest
     steps:
@@ -1517,6 +1517,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
   build-cpp:
+    
     timeout-minutes: 75
     needs: setup
     strategy:

@@ -19,8 +19,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                     };
                     for (__9 => _y in _args) {
                         @:check2r _yy.setFloat64(_y);
-                        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __2:(stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) -> stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = null;
-var _f = __2, _z = __1, _op = __0;
+                        var _op:stdgo.GoString = ("" : stdgo.GoString), _z:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f:(stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) -> stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = null;
                         {
                             final __value__ = _i;
                             if (__value__ == ((0 : stdgo.GoInt))) {

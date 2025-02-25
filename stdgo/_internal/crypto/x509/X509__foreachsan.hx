@@ -5,8 +5,7 @@ function _forEachSAN(_der:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cr
         };
         while (!_der.empty()) {
             var _san:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-            var _tag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag);
-            var _tag__pointer__ = stdgo.Go.pointer(_tag);
+            var _tag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), _tag__pointer__ = stdgo.Go.pointer(_tag);
             if (!@:check2 _der.readAnyASN1((stdgo.Go.setRef(_san) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _tag__pointer__)) {
                 return stdgo._internal.errors.Errors_new_.new_(("x509: invalid subject alternative name" : stdgo.GoString));
             };

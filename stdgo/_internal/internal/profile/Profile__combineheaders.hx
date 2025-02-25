@@ -8,8 +8,7 @@ function _combineHeaders(_srcs:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.pr
                 };
             };
         };
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64), __2:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _period = __2, _durationNanos = __1, _timeNanos = __0;
+        var _timeNanos:stdgo.GoInt64 = (0 : stdgo.GoInt64), _durationNanos:stdgo.GoInt64 = (0 : stdgo.GoInt64), _period:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _comments:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         var _seenComments = ({
             final x = new stdgo.GoMap.GoStringMap<Bool>();

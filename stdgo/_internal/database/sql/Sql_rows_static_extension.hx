@@ -730,8 +730,7 @@ package stdgo._internal.database.sql;
         if ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() != null && ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__ == null || !(@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__))) {
             return false;
         };
-        var __0:Bool = false, __1:Bool = false;
-var _ok = __1, _doClose = __0;
+        var _doClose:Bool = false, _ok:Bool = false;
         stdgo._internal.database.sql.Sql__withlock._withLock(@:check2 (@:checkr _rs ?? throw "null pointer dereference")._closemu.rLocker(), function():Void {
             {
                 var __tmp__ = @:check2r _rs._nextLocked();

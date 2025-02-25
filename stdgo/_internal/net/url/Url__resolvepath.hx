@@ -12,8 +12,7 @@ function _resolvePath(_base:stdgo.GoString, _ref:stdgo.GoString):stdgo.GoString 
         if (_full == ((stdgo.Go.str() : stdgo.GoString))) {
             return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
-var _dst = __1, _elem = __0;
+        var _elem:stdgo.GoString = ("" : stdgo.GoString), _dst:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
         var _first = (true : Bool);
         var _remaining = (_full?.__copy__() : stdgo.GoString);
         @:check2 _dst.writeByte((47 : stdgo.GoUInt8));

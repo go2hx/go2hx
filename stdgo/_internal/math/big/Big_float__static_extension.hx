@@ -914,8 +914,7 @@ package stdgo._internal.math.big;
         var _i = ((@:checkr _x ?? throw "null pointer dereference")._mant.length : stdgo.GoInt);
         var _j = ((@:checkr _y ?? throw "null pointer dereference")._mant.length : stdgo.GoInt);
         while (((_i > (0 : stdgo.GoInt) : Bool) || (_j > (0 : stdgo.GoInt) : Bool) : Bool)) {
-            var __0:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), __1:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
-var _ym = __1, _xm = __0;
+            var _xm:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _ym:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _i--;
                 _xm = (@:checkr _x ?? throw "null pointer dereference")._mant[(_i : stdgo.GoInt)];
@@ -1180,8 +1179,7 @@ var _ym = __1, _xm = __0;
                     };
                     return { _0 : stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), _1 : (1 : stdgo._internal.math.big.Big_accuracy.Accuracy) };
                 };
-                var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __2:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _mant = __2, _bexp = __1, _sign = __0;
+                var _sign:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _bexp:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _mant:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 if ((@:checkr _x ?? throw "null pointer dereference")._neg) {
                     _sign = (-9223372036854775808i64 : stdgo.GoUInt64);
                 };
@@ -1247,8 +1245,7 @@ var _mant = __2, _bexp = __1, _sign = __0;
                     };
                     return { _0 : (stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)) : stdgo.GoFloat32), _1 : (1 : stdgo._internal.math.big.Big_accuracy.Accuracy) };
                 };
-                var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _mant = __2, _bexp = __1, _sign = __0;
+                var _sign:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _bexp:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _mant:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
                 if ((@:checkr _x ?? throw "null pointer dereference")._neg) {
                     _sign = (-2147483648u32 : stdgo.GoUInt32);
                 };
@@ -1411,8 +1408,7 @@ var _mant = __2, _bexp = __1, _sign = __0;
         if (@:check2r _x.isInt()) {
             return @:check2r _z.setInt(@:check2r _x.num());
         };
-        var __0:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), __1:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-var _b = __1, _a = __0;
+        var _a:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), _b:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
         @:check2 _a.setInt(@:check2r _x.num());
         @:check2 _b.setInt(@:check2r _x.denom());
         if ((@:checkr _z ?? throw "null pointer dereference")._prec == ((0u32 : stdgo.GoUInt32))) {

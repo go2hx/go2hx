@@ -104,8 +104,7 @@ package stdgo._internal.archive.zip;
             @:check2 _eb._uint32(_mt);
             (@:checkr _fh ?? throw "null pointer dereference").extra = ((@:checkr _fh ?? throw "null pointer dereference").extra.__append__(...((_mbuf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         };
-        var __0:stdgo._internal.io.Io_writer.Writer = (null : stdgo._internal.io.Io_writer.Writer), __1:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter> = (null : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>);
-var _fw = __1, _ow = __0;
+        var _ow:stdgo._internal.io.Io_writer.Writer = (null : stdgo._internal.io.Io_writer.Writer), _fw:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter> = (null : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filewriter.T_fileWriter>);
         var _h = (stdgo.Go.setRef(({ fileHeader : _fh, _offset : ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._cw ?? throw "null pointer dereference")._count : stdgo.GoUInt64) } : stdgo._internal.archive.zip.Zip_t_header.T_header)) : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_header.T_header>);
         if (stdgo._internal.strings.Strings_hassuffix.hasSuffix((@:checkr _fh ?? throw "null pointer dereference").name?.__copy__(), ("/" : stdgo.GoString))) {
             (@:checkr _fh ?? throw "null pointer dereference").method = (0 : stdgo.GoUInt16);

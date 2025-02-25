@@ -26,8 +26,7 @@ package stdgo._internal.mime;
             stdgo._internal.mime.Mime__writeqstring._writeQString(_buf, _s?.__copy__());
             return;
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _runeLen = __1, _currentLen = __0;
+        var _currentLen:stdgo.GoInt = (0 : stdgo.GoInt), _runeLen:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
@@ -67,8 +66,7 @@ _currentLen = (_currentLen + (_encLen) : stdgo.GoInt);
             _w.close();
             return;
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _runeLen = __2, _last = __1, _currentLen = __0;
+        var _currentLen:stdgo.GoInt = (0 : stdgo.GoInt), _last:stdgo.GoInt = (0 : stdgo.GoInt), _runeLen:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {

@@ -2,8 +2,7 @@ package stdgo._internal.hash.maphash;
 function _wyhash(_key:stdgo.Slice<stdgo.GoUInt8>, _seed:stdgo.GoUInt64, _len:stdgo.GoUInt64):stdgo.GoUInt64 {
         var _p = _key;
         var _i = (_len : stdgo.GoUInt64);
-        var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _b = __1, _a = __0;
+        var _a:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _b:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         _seed = (_seed ^ ((-6884282663029611473i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if ((_i > (16i64 : stdgo.GoUInt64) : Bool)) {
             if ((_i > (48i64 : stdgo.GoUInt64) : Bool)) {

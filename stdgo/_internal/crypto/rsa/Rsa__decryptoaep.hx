@@ -35,8 +35,7 @@ function _decryptOAEP(_hash:stdgo._internal.hash.Hash_hash.Hash, _mgfHash:stdgo.
         stdgo._internal.crypto.rsa.Rsa__mgf1xor._mgf1XOR(_db, _mgfHash, _seed);
         var _lHash2 = (_db.__slice__((0 : stdgo.GoInt), _hash.size()) : stdgo.Slice<stdgo.GoUInt8>);
         var _lHash2Good = (stdgo._internal.crypto.subtle.Subtle_constanttimecompare.constantTimeCompare(_lHash, _lHash2) : stdgo.GoInt);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _invalid = __2, _index = __1, _lookingForIndex = __0;
+        var _lookingForIndex:stdgo.GoInt = (0 : stdgo.GoInt), _index:stdgo.GoInt = (0 : stdgo.GoInt), _invalid:stdgo.GoInt = (0 : stdgo.GoInt);
         _lookingForIndex = (1 : stdgo.GoInt);
         var _rest = (_db.__slice__(_hash.size()) : stdgo.Slice<stdgo.GoUInt8>);
         {

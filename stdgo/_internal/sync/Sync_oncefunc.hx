@@ -1,7 +1,6 @@
 package stdgo._internal.sync;
 function onceFunc(_f:() -> Void):() -> Void {
-        var __0:stdgo._internal.sync.Sync_once.Once = ({} : stdgo._internal.sync.Sync_once.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-var _p = __2, _valid = __1, _once = __0;
+        var _once:stdgo._internal.sync.Sync_once.Once = ({} : stdgo._internal.sync.Sync_once.Once), _valid:Bool = false, _p:stdgo.AnyInterface = (null : stdgo.AnyInterface);
         var _g = (function():Void {
             var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
             try {

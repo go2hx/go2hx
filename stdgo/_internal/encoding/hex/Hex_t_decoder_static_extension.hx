@@ -6,8 +6,7 @@ package stdgo._internal.encoding.hex;
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.hex.Hex_t_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((((@:checkr _d ?? throw "null pointer dereference")._in.length) < (2 : stdgo.GoInt) : Bool) && ((@:checkr _d ?? throw "null pointer dereference")._err == null) : Bool)) {
-            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _numRead = __1, _numCopy = __0;
+            var _numCopy:stdgo.GoInt = (0 : stdgo.GoInt), _numRead:stdgo.GoInt = (0 : stdgo.GoInt);
             _numCopy = ((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((@:checkr _d ?? throw "null pointer dereference")._in);
             {
                 var __tmp__ = (@:checkr _d ?? throw "null pointer dereference")._r.read(((@:checkr _d ?? throw "null pointer dereference")._arr.__slice__(_numCopy) : stdgo.Slice<stdgo.GoUInt8>));

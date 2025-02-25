@@ -4,8 +4,7 @@ function _drawCopyOver(_dst:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>, _r
 var _dy = __1, _dx = __0;
         var _d0 = (@:check2r _dst.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         var _s0 = (@:check2r _src.pixOffset(_sp.x, _sp.y) : stdgo.GoInt);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), __4:stdgo.GoInt = (0 : stdgo.GoInt);
-var _idelta = __4, _i1 = __3, _i0 = __2, _sdelta = __1, _ddelta = __0;
+        var _ddelta:stdgo.GoInt = (0 : stdgo.GoInt), _sdelta:stdgo.GoInt = (0 : stdgo.GoInt), _i0:stdgo.GoInt = (0 : stdgo.GoInt), _i1:stdgo.GoInt = (0 : stdgo.GoInt), _idelta:stdgo.GoInt = (0 : stdgo.GoInt);
         if (((_r.min.y < _sp.y : Bool) || (_r.min.y == (_sp.y) && (_r.min.x <= _sp.x : Bool) : Bool) : Bool)) {
             _ddelta = (@:checkr _dst ?? throw "null pointer dereference").stride;
             _sdelta = (@:checkr _src ?? throw "null pointer dereference").stride;

@@ -5,8 +5,7 @@ var _avalue = __1, _alayout = __0;
         var _rangeErrString = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _amSet = (false : Bool);
         var _pmSet = (false : Bool);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (-1 : stdgo.GoInt), __2:stdgo.GoInt = (-1 : stdgo.GoInt), __3:stdgo.GoInt = (-1 : stdgo.GoInt), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.GoInt = (0 : stdgo.GoInt), __6:stdgo.GoInt = (0 : stdgo.GoInt), __7:stdgo.GoInt = (0 : stdgo.GoInt), __8:stdgo.Ref<stdgo._internal.time.Time_location.Location> = (null : stdgo.Ref<stdgo._internal.time.Time_location.Location>), __9:stdgo.GoInt = (-1 : stdgo.GoInt), __10:stdgo.GoString = ("" : stdgo.GoString);
-var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, _year = __0;
+        var _year:stdgo.GoInt = (0 : stdgo.GoInt), _month:stdgo.GoInt = (-1 : stdgo.GoInt), _day:stdgo.GoInt = (-1 : stdgo.GoInt), _yday:stdgo.GoInt = (-1 : stdgo.GoInt), _hour:stdgo.GoInt = (0 : stdgo.GoInt), _min:stdgo.GoInt = (0 : stdgo.GoInt), _sec:stdgo.GoInt = (0 : stdgo.GoInt), _nsec:stdgo.GoInt = (0 : stdgo.GoInt), _z:stdgo.Ref<stdgo._internal.time.Time_location.Location> = (null : stdgo.Ref<stdgo._internal.time.Time_location.Location>), _zoneOffset:stdgo.GoInt = (-1 : stdgo.GoInt), _zoneName:stdgo.GoString = ("" : stdgo.GoString);
         while (true) {
             var _err:stdgo.Error = (null : stdgo.Error);
             var __tmp__ = stdgo._internal.time.Time__nextstdchunk._nextStdChunk(_layout?.__copy__()), _prefix:stdgo.GoString = __tmp__._0, _std:stdgo.GoInt = __tmp__._1, _suffix:stdgo.GoString = __tmp__._2;
@@ -268,8 +267,7 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                                 _z = stdgo._internal.time.Time_utc.uTC;
                                 break;
                             };
-                            var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString), __2:stdgo.GoString = ("" : stdgo.GoString), __3:stdgo.GoString = ("" : stdgo.GoString);
-var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
+                            var _sign:stdgo.GoString = ("" : stdgo.GoString), _hour:stdgo.GoString = ("" : stdgo.GoString), _min:stdgo.GoString = ("" : stdgo.GoString), _seconds:stdgo.GoString = ("" : stdgo.GoString);
                             if (((_std == (27 : stdgo.GoInt)) || (_std == (32 : stdgo.GoInt)) : Bool)) {
                                 if (((_value.length) < (6 : stdgo.GoInt) : Bool)) {
                                     _err = stdgo._internal.time.Time__errbad._errBad;
@@ -364,8 +362,7 @@ var _seconds = __3, _min = __2, _hour = __1, _sign = __0;
                                     _value = @:binopAssign __tmp__4;
                                 };
                             };
-                            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _ss = __2, _mm = __1, _hr = __0;
+                            var _hr:stdgo.GoInt = (0 : stdgo.GoInt), _mm:stdgo.GoInt = (0 : stdgo.GoInt), _ss:stdgo.GoInt = (0 : stdgo.GoInt);
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum._getnum(_hour?.__copy__(), true);
                                 _hr = @:tmpset0 __tmp__._0;

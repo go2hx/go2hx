@@ -253,8 +253,7 @@ package stdgo._internal.math.big;
         if (((@:checkr _z ?? throw "null pointer dereference")._a._abs.length) == ((0 : stdgo.GoInt))) {
             return { _0 : @:check2r _z._norm(), _1 : true };
         };
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _exp5 = __1, _exp2 = __0;
+        var _exp2:stdgo.GoInt64 = (0 : stdgo.GoInt64), _exp5:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         if ((_fcount < (0 : stdgo.GoInt) : Bool)) {
             var _d = (_fcount : stdgo.GoInt64);
             {
@@ -378,8 +377,7 @@ var _exp5 = __1, _exp2 = __0;
         if (((@:checkr _y ?? throw "null pointer dereference")._a._abs.length) == ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("division by zero" : stdgo.GoString));
         };
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _b = __1, _a = __0;
+        var _a:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _b:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _a._scaleDenom((stdgo.Go.setRef((@:checkr _x ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _y ?? throw "null pointer dereference")._b._abs);
         @:check2 _b._scaleDenom((stdgo.Go.setRef((@:checkr _y ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _x ?? throw "null pointer dereference")._b._abs);
         (@:checkr _z ?? throw "null pointer dereference")._a._abs = _a._abs;
@@ -409,8 +407,7 @@ var _b = __1, _a = __0;
     @:tdfield
     static public function sub( _z:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>, _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>, _y:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>):stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _z;
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _a2 = __1, _a1 = __0;
+        var _a1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _a2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _a1._scaleDenom((stdgo.Go.setRef((@:checkr _x ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _y ?? throw "null pointer dereference")._b._abs);
         @:check2 _a2._scaleDenom((stdgo.Go.setRef((@:checkr _y ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _x ?? throw "null pointer dereference")._b._abs);
         @:check2 (@:checkr _z ?? throw "null pointer dereference")._a.sub((stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
@@ -421,8 +418,7 @@ var _a2 = __1, _a1 = __0;
     @:tdfield
     static public function add( _z:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>, _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>, _y:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>):stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _z;
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _a2 = __1, _a1 = __0;
+        var _a1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _a2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _a1._scaleDenom((stdgo.Go.setRef((@:checkr _x ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _y ?? throw "null pointer dereference")._b._abs);
         @:check2 _a2._scaleDenom((stdgo.Go.setRef((@:checkr _y ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _x ?? throw "null pointer dereference")._b._abs);
         @:check2 (@:checkr _z ?? throw "null pointer dereference")._a.add((stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
@@ -433,8 +429,7 @@ var _a2 = __1, _a1 = __0;
     @:tdfield
     static public function cmp( _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>, _y:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>):stdgo.GoInt {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _x;
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _b = __1, _a = __0;
+        var _a:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _b:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _a._scaleDenom((stdgo.Go.setRef((@:checkr _x ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _y ?? throw "null pointer dereference")._b._abs);
         @:check2 _b._scaleDenom((stdgo.Go.setRef((@:checkr _y ?? throw "null pointer dereference")._a) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (@:checkr _x ?? throw "null pointer dereference")._b._abs);
         return @:check2 _a.cmp((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));

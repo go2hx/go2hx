@@ -9,8 +9,7 @@ function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; v
                 __tmp__;
             };
         };
-        var __0:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-var _lb = __1, _hb = __0;
+        var _hb:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _lb:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         {
             {
                 var __tmp__ = stdgo._internal.mime.quotedprintable.Quotedprintable__fromhex._fromHex(_v[(0 : stdgo.GoInt)]);

@@ -6,8 +6,7 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<stdgo._internal.enco
                 return { _0 : stdgo.Go.asInterface(stdgo._internal.encoding.gob.Gob__newgobencodertype._newGobEncoderType(_name?.__copy__())), _1 : (null : stdgo.Error) };
             };
             var _err:stdgo.Error = (null : stdgo.Error);
-            var __0:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = (null : stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType), __1:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = (null : stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType);
-var _type1 = __1, _type0 = __0;
+            var _type0:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = (null : stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType), _type1:stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType = (null : stdgo._internal.encoding.gob.Gob_t_gobtype.T_gobType);
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {

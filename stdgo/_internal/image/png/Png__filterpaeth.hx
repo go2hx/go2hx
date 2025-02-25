@@ -1,7 +1,6 @@
 package stdgo._internal.image.png;
 function _filterPaeth(_cdat:stdgo.Slice<stdgo.GoUInt8>, _pdat:stdgo.Slice<stdgo.GoUInt8>, _bytesPerPixel:stdgo.GoInt):Void {
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.GoInt = (0 : stdgo.GoInt);
-var _pc = __5, _pb = __4, _pa = __3, _c = __2, _b = __1, _a = __0;
+        var _a:stdgo.GoInt = (0 : stdgo.GoInt), _b:stdgo.GoInt = (0 : stdgo.GoInt), _c:stdgo.GoInt = (0 : stdgo.GoInt), _pa:stdgo.GoInt = (0 : stdgo.GoInt), _pb:stdgo.GoInt = (0 : stdgo.GoInt), _pc:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _bytesPerPixel : Bool)) {

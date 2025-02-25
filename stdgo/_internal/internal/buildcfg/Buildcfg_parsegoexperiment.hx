@@ -1,7 +1,6 @@
 package stdgo._internal.internal.buildcfg;
 function parseGOEXPERIMENT(_goos:stdgo.GoString, _goarch:stdgo.GoString, _goexp:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags>; var _1 : stdgo.Error; } {
-        var __0:Bool = false, __1:Bool = false;
-var _regabiAlwaysOn = __1, _regabiSupported = __0;
+        var _regabiSupported:Bool = false, _regabiAlwaysOn:Bool = false;
         {
             final __value__ = _goarch;
             if (__value__ == (("amd64" : stdgo.GoString)) || __value__ == (("arm64" : stdgo.GoString)) || __value__ == (("ppc64le" : stdgo.GoString)) || __value__ == (("ppc64" : stdgo.GoString)) || __value__ == (("riscv64" : stdgo.GoString))) {

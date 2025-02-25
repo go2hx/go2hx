@@ -20,8 +20,7 @@ function _parseName(_raw:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cry
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence: invalid attribute type" : stdgo.GoString)) };
                 };
                 var _rawValue:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-                var _valueTag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag);
-                var _valueTag__pointer__ = stdgo.Go.pointer(_valueTag);
+                var _valueTag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), _valueTag__pointer__ = stdgo.Go.pointer(_valueTag);
                 if (!@:check2 _atav.readAnyASN1((stdgo.Go.setRef(_rawValue) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _valueTag__pointer__)) {
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence: invalid attribute value" : stdgo.GoString)) };
                 };

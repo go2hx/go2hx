@@ -7,8 +7,7 @@ function _encodeColorTable(_dst:stdgo.Slice<stdgo.GoUInt8>, _p:stdgo._internal.i
             if (_c == null) {
                 return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("gif: cannot encode color table with nil entries" : stdgo.GoString)) };
             };
-            var __0:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __2:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-var _b = __2, _g = __1, _r = __0;
+            var _r:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _g:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _b:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c) : stdgo._internal.image.color.Color_rgba.RGBA)) : stdgo._internal.image.color.Color_rgba.RGBA), _1 : true };

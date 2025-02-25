@@ -51,8 +51,7 @@ var _zm2 = __1, _zm1 = __0;
             _zm1 = @:tmpset0 __tmp__._0;
             _zm2 = @:tmpset0 __tmp__._1;
         };
-        var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _c = __1, _m = __0;
+        var _m:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _c:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         if (_ps == (_zs)) {
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_pm2, _zm2, (0i64 : stdgo.GoUInt64));

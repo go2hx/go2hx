@@ -3,11 +3,7 @@ function benchmarkUnmarshalInt64(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.
         @:check2r _b.reportAllocs();
         var _data = ((("3" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
         @:check2r _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_pb.PB>):Void {
-            var _x:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _x__pointer__ = stdgo.Go.pointer(_x);
-            var _x__pointer__ = stdgo.Go.pointer(_x);
-            var _x__pointer__ = stdgo.Go.pointer(_x);
-            var _x__pointer__ = stdgo.Go.pointer(_x);
+            var _x:stdgo.GoInt64 = (0 : stdgo.GoInt64), _x__pointer__ = stdgo.Go.pointer(_x);
             while (@:check2r _pb.next()) {
                 {
                     var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, stdgo.Go.toInterface(_x__pointer__)) : stdgo.Error);

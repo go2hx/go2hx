@@ -525,8 +525,7 @@ _version,
     @:tdfield
     static public function compare( _t:stdgo._internal.time.Time_time.Time, _u:stdgo._internal.time.Time_time.Time):stdgo.GoInt {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _uc = __1, _tc = __0;
+        var _tc:stdgo.GoInt64 = (0 : stdgo.GoInt64), _uc:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         if (((_t._wall & _u._wall : stdgo.GoUInt64) & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
             {
                 final __tmp__0 = _t._ext;
@@ -724,8 +723,7 @@ var _uc = __1, _tc = __0;
     static public function _appendFormat( _t:stdgo._internal.time.Time_time.Time, _b:stdgo.Slice<stdgo.GoUInt8>, _layout:stdgo.GoString):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var __tmp__ = _t._locabs(), _name:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, _abs:stdgo.GoUInt64 = __tmp__._2;
-var __0:stdgo.GoInt = (-1 : stdgo.GoInt), __1:stdgo._internal.time.Time_month.Month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_month.Month), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), __4:stdgo.GoInt = (-1 : stdgo.GoInt), __5:stdgo.GoInt = (0 : stdgo.GoInt), __6:stdgo.GoInt = (0 : stdgo.GoInt);
-var _sec = __6, _min = __5, _hour = __4, _yday = __3, _day = __2, _month = __1, _year = __0;
+var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_month.Month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_month.Month), _day:stdgo.GoInt = (0 : stdgo.GoInt), _yday:stdgo.GoInt = (0 : stdgo.GoInt), _hour:stdgo.GoInt = (-1 : stdgo.GoInt), _min:stdgo.GoInt = (0 : stdgo.GoInt), _sec:stdgo.GoInt = (0 : stdgo.GoInt);
         while (_layout != ((stdgo.Go.str() : stdgo.GoString))) {
             var __tmp__ = stdgo._internal.time.Time__nextstdchunk._nextStdChunk(_layout?.__copy__()), _prefix:stdgo.GoString = __tmp__._0, _std:stdgo.GoInt = __tmp__._1, _suffix:stdgo.GoString = __tmp__._2;
             if (_prefix != ((stdgo.Go.str() : stdgo.GoString))) {

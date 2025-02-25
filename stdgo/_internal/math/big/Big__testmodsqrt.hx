@@ -1,7 +1,6 @@
 package stdgo._internal.math.big;
 function _testModSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _elt:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _mod:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _sq:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _sqrt:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):Bool {
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _sqrtsq = __2, _sqrtChk = __1, _sqChk = __0;
+        var _sqChk:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _sqrtChk:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _sqrtsq:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2r _sq.mul(_elt, _elt);
         @:check2r _sq.mod(_sq, _mod);
         var _z = @:check2r _sqrt.modSqrt(_sq, _mod);

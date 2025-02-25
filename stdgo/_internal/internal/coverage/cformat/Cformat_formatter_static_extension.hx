@@ -41,8 +41,7 @@ package stdgo._internal.internal.coverage.cformat;
                 var _ffile = ((stdgo.Go.str() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 var _flit = (false : Bool);
                 var _fline:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-                var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _tstmts = __1, _cstmts = __0;
+                var _cstmts:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _tstmts:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 var _captureFuncStart = (function(_u:stdgo._internal.internal.coverage.cformat.Cformat_t_extcu.T_extcu):Void {
                     _fname = (@:checkr _p ?? throw "null pointer dereference")._funcs[(_u._fnfid : stdgo.GoInt)]._fname?.__copy__();
                     _ffile = (@:checkr _p ?? throw "null pointer dereference")._funcs[(_u._fnfid : stdgo.GoInt)]._file?.__copy__();
@@ -208,8 +207,7 @@ var _tstmts = __1, _cstmts = __0;
             return (null : stdgo.Error);
         } : (stdgo.GoUInt64, stdgo.GoUInt64) -> stdgo.Error);
         stdgo._internal.sort.Sort_strings.strings(_pkgs);
-        var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _coveredStmts = __1, _totalStmts = __0;
+        var _totalStmts:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _coveredStmts:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         for (__0 => _importpath in _pkgs) {
             var _p = ((@:checkr _fm ?? throw "null pointer dereference")._pm[_importpath] ?? (null : stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_t_pstate.T_pstate>));
             if (!_aggregate) {

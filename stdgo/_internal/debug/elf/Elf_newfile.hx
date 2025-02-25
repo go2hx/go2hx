@@ -37,11 +37,9 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
         (@:checkr _f ?? throw "null pointer dereference").fileHeader.oSABI = (_ident[(7 : stdgo.GoInt)] : stdgo._internal.debug.elf.Elf_osabi.OSABI);
         (@:checkr _f ?? throw "null pointer dereference").fileHeader.aBIVersion = _ident[(8 : stdgo.GoInt)];
         var _phoff:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _phnum = __1, _phentsize = __0;
+        var _phentsize:stdgo.GoInt = (0 : stdgo.GoInt), _phnum:stdgo.GoInt = (0 : stdgo.GoInt);
         var _shoff:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _shstrndx = __2, _shnum = __1, _shentsize = __0;
+        var _shentsize:stdgo.GoInt = (0 : stdgo.GoInt), _shnum:stdgo.GoInt = (0 : stdgo.GoInt), _shstrndx:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.class_;
             if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_class_.Class_))) {
@@ -108,8 +106,7 @@ var _shstrndx = __2, _shnum = __1, _shentsize = __0;
         if (((_shnum > (0 : stdgo.GoInt) : Bool) && (_shstrndx >= _shnum : Bool) : Bool)) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_formaterror.FormatError((0i64 : stdgo.GoInt64), ("invalid ELF shstrndx" : stdgo.GoString), stdgo.Go.toInterface(_shstrndx)) : stdgo._internal.debug.elf.Elf_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_formaterror.FormatError>)) };
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _wantShentsize = __1, _wantPhentsize = __0;
+        var _wantPhentsize:stdgo.GoInt = (0 : stdgo.GoInt), _wantShentsize:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.class_;
             if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_class_.Class_))) {
@@ -165,8 +162,7 @@ if ((((@:checkr _p ?? throw "null pointer dereference").progHeader.filesz : stdg
             };
         };
         if (((_shoff > (0i64 : stdgo.GoInt64) : Bool) && (_shnum == (0 : stdgo.GoInt)) : Bool)) {
-            var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _link = __1, _typ = __0;
+            var _typ:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _link:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             @:check2r _sr.seek(_shoff, (0 : stdgo.GoInt));
             {
                 final __value__ = (@:checkr _f ?? throw "null pointer dereference").fileHeader.class_;

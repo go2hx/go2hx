@@ -692,8 +692,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     @:tdfield
     static public function _readvarint( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>, _pp:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):stdgo.GoUInt32 {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable> = _t;
-        var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _shift = __1, _v = __0;
+        var _v:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _shift:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _p = (_pp : stdgo.Slice<stdgo.GoUInt8>);
         {
             _shift = (0u32 : stdgo.GoUInt32);

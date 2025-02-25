@@ -20,13 +20,10 @@ function _ryuFtoaShortest(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimal
             return;
         };
         var _q = (stdgo._internal.strconv.Strconv__mulbylog2log10._mulByLog2Log10(-_e2) + (1 : stdgo.GoInt) : stdgo.GoInt);
-        var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __2:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _du = __2, _dc = __1, _dl = __0;
-        var __0:Bool = false, __1:Bool = false, __2:Bool = false;
-var _du0 = __2, _dc0 = __1, _dl0 = __0;
+        var _dl:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _dc:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _du:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _dl0:Bool = false, _dc0:Bool = false, _du0:Bool = false;
         if (_flt == ((stdgo.Go.setRef(stdgo._internal.strconv.Strconv__float32info._float32info) : stdgo.Ref<stdgo._internal.strconv.Strconv_t_floatinfo.T_floatInfo>))) {
-            var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _du32 = __2, _dc32 = __1, _dl32 = __0;
+            var _dl32:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _dc32:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _du32:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv__mult64bitpow10._mult64bitPow10((_ml : stdgo.GoUInt32), _e2, _q);
                 _dl32 = @:tmpset0 __tmp__._0;

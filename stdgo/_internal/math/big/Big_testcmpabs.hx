@@ -18,8 +18,7 @@ function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                 {
                     var _k = (0 : stdgo.GoInt);
                     while ((_k < (4 : stdgo.GoInt) : Bool)) {
-                        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _b = __1, _a = __0;
+                        var _a:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _b:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
 @:check2 _a.set(_x);
 @:check2 _b.set(_y);
 if ((_k & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {

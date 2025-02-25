@@ -11,8 +11,7 @@ function _encryptBlockGo(_xk:stdgo.Slice<stdgo.GoUInt32>, _dst:stdgo.Slice<stdgo
         _s3 = (_s3 ^ (_xk[((3 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
         var _nr = (((_xk.length) / (4 : stdgo.GoInt) : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt);
         var _k = (4 : stdgo.GoInt);
-        var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __3:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _t3 = __3, _t2 = __2, _t1 = __1, _t0 = __0;
+        var _t0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _t3:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _r = (0 : stdgo.GoInt);
             while ((_r < _nr : Bool)) {

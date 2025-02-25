@@ -31,8 +31,7 @@ package stdgo._internal.math.big;
         };
         {};
         {};
-        var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _rB = __1, _rA = __0;
+        var _rA:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _rB:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             final __value__ = (32 : stdgo.GoInt);
             if (__value__ == ((32 : stdgo.GoInt))) {
@@ -544,8 +543,7 @@ var _rB = __1, _rA = __0;
         while (stdgo._internal.math.big.Big_jacobi.jacobi((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _p) != ((-1 : stdgo.GoInt))) {
             @:check2 _n.add((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), stdgo._internal.math.big.Big__intone._intOne);
         };
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __3:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _t = __3, _g = __2, _b = __1, _y = __0;
+        var _y:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _b:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _g:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _t:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _y.add((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), stdgo._internal.math.big.Big__intone._intOne);
         @:check2 _y.rsh((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (1u32 : stdgo.GoUInt));
         @:check2 _y.exp(_x, (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _p);
@@ -608,8 +606,7 @@ var _t = __3, _g = __2, _b = __1, _y = __0;
             var _g2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
             _g = @:check2 _g2.mod(_g, _n);
         };
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _x = __1, _d = __0;
+        var _d:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _x:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 _d.gCD((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), null, _g, _n);
         if (@:check2 _d.cmp(stdgo._internal.math.big.Big__intone._intOne) != ((0 : stdgo.GoInt))) {
             return null;
@@ -638,8 +635,7 @@ var _x = __1, _d = __0;
     @:tdfield
     static public function _lehmerGCD( _z:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _b:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _z;
-        var __0:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), __1:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), __2:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), __3:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-var ub = __3, ua = __2, b = __1, a = __0;
+        var a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), b:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), ua:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), ub:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         a = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).abs(_a);
         b = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).abs(_b);
         var _extended = ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) || (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) : Bool);
@@ -704,8 +700,7 @@ _even);
                 var __0 = ((@:checkr a ?? throw "null pointer dereference")._abs[(0 : stdgo.GoInt)] : stdgo._internal.math.big.Big_word.Word), __1 = ((@:checkr b ?? throw "null pointer dereference")._abs[(0 : stdgo.GoInt)] : stdgo._internal.math.big.Big_word.Word);
 var _bWord = __1, _aWord = __0;
                 if (_extended) {
-                    var __0:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), __1:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), __2:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), __3:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
-var _vb = __3, _va = __2, _ub = __1, _ua = __0;
+                    var _ua:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _ub:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _va:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _vb:stdgo._internal.math.big.Big_word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word);
                     {
                         final __tmp__0 = (1u32 : stdgo._internal.math.big.Big_word.Word);
                         final __tmp__1 = (0u32 : stdgo._internal.math.big.Big_word.Word);
@@ -1108,8 +1103,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         if ((_k > (_n - _k : stdgo.GoInt64) : Bool)) {
             _k = (_n - _k : stdgo.GoInt64);
         };
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __3:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _t = __3, _i = __2, k = __1, n = __0;
+        var n:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), k:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _i:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _t:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         @:check2 n.setInt64(_n);
         @:check2 k.setInt64(_k);
         @:check2r _z.set(stdgo._internal.math.big.Big__intone._intOne);

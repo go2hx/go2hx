@@ -38,8 +38,7 @@ function testMarshalFloat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
                 };
             };
         } : (stdgo.GoFloat64, stdgo.GoInt) -> Void);
-        var __0 = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), __1 = stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));
-var _smaller = __1, _bigger = __0;
+        var _bigger = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), _smaller = stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));
         var _digits = ("1.2345678901234567890123" : stdgo.GoString);
         {
             var _i = (_digits.length : stdgo.GoInt);

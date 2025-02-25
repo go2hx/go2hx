@@ -17,8 +17,7 @@ function parseDuration(_s:stdgo.GoString):{ var _0 : stdgo._internal.time.Time_d
             return { _0 : (0i64 : stdgo._internal.time.Time_duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: invalid duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         while (_s != ((stdgo.Go.str() : stdgo.GoString))) {
-            var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __2:stdgo.GoFloat64 = (1 : stdgo.GoFloat64);
-var _scale = __2, _f = __1, _v = __0;
+            var _v:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _f:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _scale:stdgo.GoFloat64 = (1 : stdgo.GoFloat64);
             var _err:stdgo.Error = (null : stdgo.Error);
             if (!(((_s[(0 : stdgo.GoInt)] == (46 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _s[(0 : stdgo.GoInt)] : Bool) && (_s[(0 : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) : Bool))) {
                 return { _0 : (0i64 : stdgo._internal.time.Time_duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: invalid duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };

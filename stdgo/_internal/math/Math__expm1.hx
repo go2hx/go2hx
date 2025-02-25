@@ -23,8 +23,7 @@ function _expm1(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         var _c:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         var _k:stdgo.GoInt = (0 : stdgo.GoInt);
         if ((_absx > (0.34657359027997264 : stdgo.GoFloat64) : Bool)) {
-            var __0:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-var _lo = __1, _hi = __0;
+            var _hi:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _lo:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
             if ((_absx < (1.0397207708399179 : stdgo.GoFloat64) : Bool)) {
                 if (!_sign) {
                     _hi = (_x - (0.6931471803691238 : stdgo.GoFloat64) : stdgo.GoFloat64);

@@ -131,8 +131,7 @@ package stdgo._internal.net.http.cgi;
                 _env = (_env.__append__(...((@:checkr _h ?? throw "null pointer dereference").env : Array<stdgo.GoString>)));
             };
             _env = stdgo._internal.net.http.cgi.Cgi__removeleadingduplicates._removeLeadingDuplicates(_env);
-            var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _path = __1, _cwd = __0;
+            var _cwd:stdgo.GoString = ("" : stdgo.GoString), _path:stdgo.GoString = ("" : stdgo.GoString);
             if ((@:checkr _h ?? throw "null pointer dereference").dir != ((stdgo.Go.str() : stdgo.GoString))) {
                 _path = (@:checkr _h ?? throw "null pointer dereference").path?.__copy__();
                 _cwd = (@:checkr _h ?? throw "null pointer dereference").dir?.__copy__();

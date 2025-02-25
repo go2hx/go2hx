@@ -804,11 +804,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 };
             };
         };
-        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _op__pointer__ = stdgo.Go.pointer(_op);
         _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
             if (((_value.kind() != (22u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && (_rcvrType.kind() == (22u32 : stdgo._internal.reflect.Reflect_kind.Kind)) : Bool)) {
                 _value = _value.addr()?.__copy__();
@@ -900,11 +896,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             };
         };
         var _typ = ((@:checkr _ut ?? throw "null pointer dereference")._base : stdgo._internal.reflect.Reflect_type_.Type_);
-        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _op__pointer__ = stdgo.Go.pointer(_op);
         var _k = (_typ.kind() : stdgo._internal.reflect.Reflect_kind.Kind);
         if (((_k : stdgo.GoInt) < (stdgo._internal.encoding.gob.Gob__decoptable._decOpTable.length) : Bool)) {
             _op = stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[(_k : stdgo.GoInt)];

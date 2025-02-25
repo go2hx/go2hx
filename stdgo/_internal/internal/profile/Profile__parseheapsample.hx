@@ -16,8 +16,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
         if (stdgo._internal.internal.profile.Profile_legacyheapallocated.legacyHeapAllocated) {
             _valueIndex = (3 : stdgo.GoInt);
         };
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _v2 = __1, _v1 = __0;
+        var _v1:stdgo.GoInt64 = (0 : stdgo.GoInt64), _v2:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv_parseint.parseInt(_sampleData[(_valueIndex : stdgo.GoInt)]?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt));

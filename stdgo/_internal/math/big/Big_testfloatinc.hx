@@ -5,8 +5,7 @@ function testFloatInc(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
             if ((((1 : stdgo.GoInt) << _prec : stdgo.GoInt) < (10 : stdgo.GoInt) : Bool)) {
                 continue;
             };
-            var __0:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), __1:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-var _one = __1, _x = __0;
+            var _x:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), _one:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
             @:check2 _x.setPrec(_prec);
             @:check2 _one.setInt64((1i64 : stdgo.GoInt64));
             {

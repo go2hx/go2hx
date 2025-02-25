@@ -27,8 +27,7 @@ package stdgo._internal.encoding.ascii85;
                 (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 return { _0 : _n, _1 : _err };
             };
-            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _ndst = __2, _nsrc = __1, _nn = __0;
+            var _nn:stdgo.GoInt = (0 : stdgo.GoInt), _nsrc:stdgo.GoInt = (0 : stdgo.GoInt), _ndst:stdgo.GoInt = (0 : stdgo.GoInt);
             if (((@:checkr _d ?? throw "null pointer dereference")._nbuf > (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.encoding.ascii85.Ascii85_decode.decode(((@:checkr _d ?? throw "null pointer dereference")._outbuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__((0 : stdgo.GoInt), (@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._readErr != null);

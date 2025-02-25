@@ -1,7 +1,6 @@
 package stdgo._internal.testing.quick;
 function testInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _hi = __1, _lo = __0;
+        var _lo:stdgo.GoInt64 = (0 : stdgo.GoInt64), _hi:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _f = (function(_x:stdgo.GoInt64):Bool {
             if ((_x < _lo : Bool)) {
                 _lo = _x;

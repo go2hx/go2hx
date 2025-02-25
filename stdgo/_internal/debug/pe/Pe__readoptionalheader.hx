@@ -3,9 +3,7 @@ function _readOptionalHeader(_r:stdgo._internal.io.Io_readseeker.ReadSeeker, _sz
         if (_sz == ((0 : stdgo.GoUInt16))) {
             return { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
         };
-        var __0:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), __1 = stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(__0));
-var _ohMagicSz = __1, _ohMagic = __0;
-        var _ohMagic__pointer__ = stdgo.Go.pointer(_ohMagic);
+        var _ohMagic:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), _ohMagic__pointer__ = stdgo.Go.pointer(_ohMagic), _ohMagicSz = stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_ohMagic));
         if ((_sz < (_ohMagicSz : stdgo.GoUInt16) : Bool)) {
             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("optional header size is less than optional header magic size" : stdgo.GoString)) };
         };
@@ -20,8 +18,7 @@ var _ohMagicSz = __1, _ohMagic = __0;
         {
             final __value__ = _ohMagic;
             if (__value__ == ((267 : stdgo.GoUInt16))) {
-                var __0:stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 = ({} : stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32), __1 = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(__0))) - stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(__0.dataDirectory)) : stdgo.GoInt);
-var _oh32MinSz = __1, _oh32 = __0;
+                var _oh32:stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32 = ({} : stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32), _oh32MinSz = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(_oh32))) - stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_oh32.dataDirectory)) : stdgo.GoInt);
                 if ((_sz < (_oh32MinSz : stdgo.GoUInt16) : Bool)) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("optional header size(%d) is less minimum size (%d) of PE32 optional header" : stdgo.GoString), stdgo.Go.toInterface(_sz), stdgo.Go.toInterface(_oh32MinSz)) };
                 };
@@ -36,8 +33,7 @@ var _oh32MinSz = __1, _oh32 = __0;
                 (_oh32.dataDirectory.__slice__(0) : stdgo.Slice<stdgo._internal.debug.pe.Pe_datadirectory.DataDirectory>).__copyTo__(_dd);
                 return { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_oh32) : stdgo.Ref<stdgo._internal.debug.pe.Pe_optionalheader32.OptionalHeader32>))), _1 : (null : stdgo.Error) };
             } else if (__value__ == ((523 : stdgo.GoUInt16))) {
-                var __0:stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 = ({} : stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64), __1 = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(__0))) - stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(__0.dataDirectory)) : stdgo.GoInt);
-var _oh64MinSz = __1, _oh64 = __0;
+                var _oh64:stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64 = ({} : stdgo._internal.debug.pe.Pe_optionalheader64.OptionalHeader64), _oh64MinSz = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(stdgo.Go.asInterface(_oh64))) - stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_oh64.dataDirectory)) : stdgo.GoInt);
                 if ((_sz < (_oh64MinSz : stdgo.GoUInt16) : Bool)) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("optional header size(%d) is less minimum size (%d) for PE32+ optional header" : stdgo.GoString), stdgo.Go.toInterface(_sz), stdgo.Go.toInterface(_oh64MinSz)) };
                 };

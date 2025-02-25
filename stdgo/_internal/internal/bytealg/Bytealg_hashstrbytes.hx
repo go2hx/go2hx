@@ -8,8 +8,7 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt32
                 _i++;
             };
         };
-        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
-var _sq = __1, _pow = __0;
+        var _pow:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
         {
             var _i = (_sep.length : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {

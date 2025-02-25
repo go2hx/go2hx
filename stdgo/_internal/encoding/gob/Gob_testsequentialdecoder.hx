@@ -20,11 +20,7 @@ function testSequentialDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T
             var _i = (0 : stdgo.GoInt);
             while ((_i < (10 : stdgo.GoInt) : Bool)) {
                 var _dec = stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b));
-var _s:stdgo.GoString = ("" : stdgo.GoString);
-var _s__pointer__ = stdgo.Go.pointer(_s);
-var _s__pointer__ = stdgo.Go.pointer(_s);
-var _s__pointer__ = stdgo.Go.pointer(_s);
-var _s__pointer__ = stdgo.Go.pointer(_s);
+var _s:stdgo.GoString = ("" : stdgo.GoString), _s__pointer__ = stdgo.Go.pointer(_s);
 {
                     var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(_s__pointer__)) : stdgo.Error);
                     if (_err != null) {

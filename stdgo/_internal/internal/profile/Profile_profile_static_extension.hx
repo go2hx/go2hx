@@ -4,8 +4,7 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function removeUninteresting( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = _p;
-        var __0:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), __1:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
-var _drop = __1, _keep = __0;
+        var _keep:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), _drop:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
         var _err:stdgo.Error = (null : stdgo.Error);
         if ((@:checkr _p ?? throw "null pointer dereference").dropFrames != ((stdgo.Go.str() : stdgo.GoString))) {
             {
@@ -983,8 +982,7 @@ break;
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt64>>) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt64>>);
             for (__5 => _l in (@:checkr _s ?? throw "null pointer dereference")._labelX) {
-                var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _value = __1, _key = __0;
+                var _key:stdgo.GoString = ("" : stdgo.GoString), _value:stdgo.GoString = ("" : stdgo.GoString);
                 {
                     var __tmp__ = stdgo._internal.internal.profile.Profile__getstring._getString((@:checkr _p ?? throw "null pointer dereference")._stringTable, stdgo.Go.pointer(_l._keyX), _err);
                     _key = @:tmpset0 __tmp__._0?.__copy__();

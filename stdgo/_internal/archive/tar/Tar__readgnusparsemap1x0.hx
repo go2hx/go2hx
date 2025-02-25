@@ -1,7 +1,6 @@
 package stdgo._internal.archive.tar;
 function _readGNUSparseMap1x0(_r:stdgo._internal.io.Io_reader.Reader):{ var _0 : stdgo._internal.archive.tar.Tar_t_sparsedatas.T_sparseDatas; var _1 : stdgo.Error; } {
-        var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), __2:stdgo._internal.archive.tar.Tar_t_block.T_block = new stdgo._internal.archive.tar.Tar_t_block.T_block(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);
-var _blk = __2, _buf = __1, _cntNewline = __0;
+        var _cntNewline:stdgo.GoInt64 = (0 : stdgo.GoInt64), _buf:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer), _blk:stdgo._internal.archive.tar.Tar_t_block.T_block = new stdgo._internal.archive.tar.Tar_t_block.T_block(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);
         var _feedTokens = (function(_n:stdgo.GoInt64):stdgo.Error {
             while ((_cntNewline < _n : Bool)) {
                 {

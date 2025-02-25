@@ -18,8 +18,7 @@ _hasUpper = (_hasUpper || ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : 
             if (!_hasUpper) {
                 return _s?.__copy__();
             };
-            var __0:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _pos = __1, _b = __0;
+            var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder), _pos:stdgo.GoInt = (0 : stdgo.GoInt);
             @:check2 _b.grow((_s.length));
             {
                 var _i = (0 : stdgo.GoInt);

@@ -5,8 +5,7 @@ package stdgo._internal.net.mail;
     static public function string( _a:stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address> = _a;
         var _at = (stdgo._internal.strings.Strings_lastindex.lastIndex((@:checkr _a ?? throw "null pointer dereference").address?.__copy__(), ("@" : stdgo.GoString)) : stdgo.GoInt);
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _domain = __1, _local = __0;
+        var _local:stdgo.GoString = ("" : stdgo.GoString), _domain:stdgo.GoString = ("" : stdgo.GoString);
         if ((_at < (0 : stdgo.GoInt) : Bool)) {
             _local = (@:checkr _a ?? throw "null pointer dereference").address?.__copy__();
         } else {

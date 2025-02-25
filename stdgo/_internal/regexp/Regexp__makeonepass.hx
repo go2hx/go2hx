@@ -3,8 +3,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
         if ((((@:checkr _p ?? throw "null pointer dereference").inst.length) >= (1000 : stdgo.GoInt) : Bool)) {
             return null;
         };
-        var __0 = stdgo._internal.regexp.Regexp__newqueue._newQueue(((@:checkr _p ?? throw "null pointer dereference").inst.length)), __1 = stdgo._internal.regexp.Regexp__newqueue._newQueue(((@:checkr _p ?? throw "null pointer dereference").inst.length)), __2:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, __3 = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>(((@:checkr _p ?? throw "null pointer dereference").inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
-var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
+        var _instQueue = stdgo._internal.regexp.Regexp__newqueue._newQueue(((@:checkr _p ?? throw "null pointer dereference").inst.length)), _visitQueue = stdgo._internal.regexp.Regexp__newqueue._newQueue(((@:checkr _p ?? throw "null pointer dereference").inst.length)), _check:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, _onePassRunes = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>(((@:checkr _p ?? throw "null pointer dereference").inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
         _check = function(_pc:stdgo.GoUInt32, _m:stdgo.Slice<Bool>):Bool {
             var _ok = false;
             _ok = true;

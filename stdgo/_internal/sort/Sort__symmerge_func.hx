@@ -42,8 +42,7 @@ function _symMerge_func(_data:stdgo._internal.sort.Sort_t_lessswap.T_lessSwap, _
         };
         var _mid = ((((_a + _b : stdgo.GoInt) : stdgo.GoUInt) >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoInt);
         var _n = (_mid + _m : stdgo.GoInt);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _r = __1, _start = __0;
+        var _start:stdgo.GoInt = (0 : stdgo.GoInt), _r:stdgo.GoInt = (0 : stdgo.GoInt);
         if ((_m > _mid : Bool)) {
             _start = (_n - _b : stdgo.GoInt);
             _r = _mid;

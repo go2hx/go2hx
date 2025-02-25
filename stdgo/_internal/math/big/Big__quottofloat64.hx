@@ -16,8 +16,7 @@ function _quotToFloat64(_a:stdgo._internal.math.big.Big_t_nat.T_nat, _b:stdgo._i
             throw stdgo.Go.toInterface(("division by zero" : stdgo.GoString));
         };
         var _exp = (_alen - _blen : stdgo.GoInt);
-        var __0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), __1:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-var _b2 = __1, _a2 = __0;
+        var _a2:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _b2:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
         _a2 = _a2._set(_a);
         _b2 = _b2._set(_b);
         {

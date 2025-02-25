@@ -36,8 +36,7 @@ if (!(stdgo._internal.image.Image_pt.pt(_mx, _my).in_(_mb.__copy__()))) {
                             };
                         };
 {};
-var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __3:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _da = __3, _db = __2, _dg = __1, _dr = __0;
+var _dr:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _dg:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _db:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _da:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
 if (_op == ((0 : stdgo._internal.image.draw.Draw_op.Op))) {
                             {
                                 var __tmp__ = _dst.at(_x, _y).rGBA();

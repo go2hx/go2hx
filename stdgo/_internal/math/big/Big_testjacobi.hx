@@ -18,8 +18,7 @@ function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
 ({ _x : (6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : stdgo._internal.math.big.Big_t__struct_47.T__struct_47),
 ({ _x : (-6i64 : stdgo.GoInt64), _y : (5i64 : stdgo.GoInt64), _result : (1 : stdgo.GoInt) } : stdgo._internal.math.big.Big_t__struct_47.T__struct_47),
 ({ _x : (-6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (-1 : stdgo.GoInt) } : stdgo._internal.math.big.Big_t__struct_47.T__struct_47)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoInt64), _y : (0 : stdgo.GoInt64), _result : (0 : stdgo.GoInt) } : stdgo._internal.math.big.Big_t__struct_47.T__struct_47)])) : stdgo.Slice<stdgo._internal.math.big.Big_t__struct_47.T__struct_47>);
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _y = __1, _x = __0;
+        var _x:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _y:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         for (_i => _test in _testCases) {
             @:check2 _x.setInt64(_test._x);
             @:check2 _y.setInt64(_test._y);

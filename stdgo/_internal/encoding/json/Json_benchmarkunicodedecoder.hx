@@ -5,11 +5,7 @@ function benchmarkUnicodeDecoder(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.
         @:check2r _b.setBytes((_j.length : stdgo.GoInt64));
         var _r = stdgo._internal.bytes.Bytes_newreader.newReader(_j);
         var _dec = stdgo._internal.encoding.json.Json_newdecoder.newDecoder(stdgo.Go.asInterface(_r));
-        var _out:stdgo.GoString = ("" : stdgo.GoString);
-        var _out__pointer__ = stdgo.Go.pointer(_out);
-        var _out__pointer__ = stdgo.Go.pointer(_out);
-        var _out__pointer__ = stdgo.Go.pointer(_out);
-        var _out__pointer__ = stdgo.Go.pointer(_out);
+        var _out:stdgo.GoString = ("" : stdgo.GoString), _out__pointer__ = stdgo.Go.pointer(_out);
         @:check2r _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);

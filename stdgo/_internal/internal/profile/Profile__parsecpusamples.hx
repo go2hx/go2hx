@@ -7,8 +7,7 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>) : stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>>);
         while (((_b.length) > (0 : stdgo.GoInt) : Bool)) {
-            var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _nstk = __1, _count = __0;
+            var _count:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _nstk:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
             {
                 var __tmp__ = _parse(_b);
                 _count = @:tmpset0 __tmp__._0;

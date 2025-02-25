@@ -14,7 +14,10 @@ function main() {
             Sys.command("haxelib dev go2hx .");
             Sys.command("haxelib run go2hx setup");
         case _ if (args[0] == "std" || args[0] == "stdgo"):
-            final cmd = "haxe scripts/stdgo.hxml -D libs=" + args.slice(1).join(",");
+            var cmd = "haxe scripts/stdgo.hxml -D runnerCount=4";
+            if (args.length > 1)
+                cmd += " -D libs=" + args.slice(1).join(",");
+            Sys.println(cmd);
             Sys.command(cmd); 
         case ["sorttests"]:
             Sys.command("go run ./scripts/sortTests");

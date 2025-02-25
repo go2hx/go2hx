@@ -3,11 +3,11 @@
 	throw haxe_Exception.thrown("Value:syscall.js.call is not yet implemented");
 	^
 <ref *1> Error: Value:syscall.js.call is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:15107:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:15037:11)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_js.js:15138:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_js.js:15068:11)
     at stdgo__$internal_syscall_js_Value_$static_$extension.call (/home/runner/work/go2hx/go2hx/golibs/std_js.js:10871:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:47875:115
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:49520:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_js.js:47218:115
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_js.js:48863:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

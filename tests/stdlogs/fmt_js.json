@@ -1,5 +1,6 @@
 {
     "passes": [
+        "TestErrorf",
         "TestFmtInterface",
         "TestComplexFormatting",
         "TestReorder",
@@ -27,7 +28,6 @@
         "TestScanStateCount"
     ],
     "fails": [
-        "TestErrorf",
         "TestSprintf",
         "TestStructPrinter",
         "TestNilDoesNotBecomeTyped",

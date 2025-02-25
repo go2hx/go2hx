@@ -1786,6 +1786,7 @@ final skipTests = [
 	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside
 	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
+	"bytes_test:testLargeStringWrites" => ["js"], // max call stack
 	"bytes_test:testLargeByteWrites" => ["js"], // max call stack
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
 	"bytes_test:testMixedReadsAndWrites" => ["js"], // randomly causes errors in max call stack depth uses rand.Intn in the tests so it is random

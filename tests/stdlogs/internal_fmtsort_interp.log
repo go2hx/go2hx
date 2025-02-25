@@ -16,9 +16,9 @@
        |                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 
-     ->  ./stdgo/_internal/sort/Sort__pdqsort_func.hx:9: characters 17-109
+     ->  ./stdgo/_internal/sort/Sort__pdqsort_func.hx:8: characters 17-109
 
-     9 |                 stdgo._internal.sort.Sort__insertionsort_func._insertionSort_func(_data?.__copy__(), _a, _b);
+     8 |                 stdgo._internal.sort.Sort__insertionsort_func._insertionSort_func(_data?.__copy__(), _a, _b);
        |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 

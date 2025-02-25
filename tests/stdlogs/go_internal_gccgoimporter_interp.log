@@ -1,6 +1,34 @@
-[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:180: character 39
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 49-92
 
- 180 |         var _keys_6672446:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
+
+          | For optional function argument 'get'
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 21-100
+
+  73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Void should be stdgo.GoUInt16
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 46-85
+
+ 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
+
+          | For optional function argument 'get'
+
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 21-89
+
+ 190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+     |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Void should be stdgo.GoUInt32
+
+[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:172: character 39
+
+ 172 |         var _keys_6622367:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
      |                                       ^
      | Invalid character '#'
 

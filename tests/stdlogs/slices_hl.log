@@ -84,6 +84,7 @@ Exception: generic function is not supported
 Called from stdgo._internal.slices._Slices_insert.$Slices_insert_Fields_.insert (stdgo/_internal/slices/Slices_insert.hx line 2)
 Called from stdgo._internal.slices._Slices_testinsertoverlap.$Slices_testinsertoverlap_Fields_.testInsertOverlap (stdgo/_internal/slices/Slices_testinsertoverlap.hx line 29)
 Called from stdgo._internal.slices._Slices__equaltocmp.$Slices__equaltocmp_Fields_._equalToCmp (stdgo/_internal/slices/Slices__equaltocmp.hx line 2)
+Called from stdgo._internal.slices._Slices_testcomparefunc.$Slices_testcomparefunc_Fields_.testCompareFunc (stdgo/_internal/slices/Slices_testcomparefunc.hx line 11)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.slices_dot_test._Slices_dot_test.$Slices_dot_test_Fields_.main (_internal/slices_dot_test/Slices_dot_test.hx line 4)
 
@@ -190,6 +191,7 @@ Called from stdgo._internal.slices._Slices_testreplaceoverlap.$Slices_testreplac
 Called from stdgo._internal.slices._Slices_insert.$Slices_insert_Fields_.insert (stdgo/_internal/slices/Slices_insert.hx line 2)
 Called from stdgo._internal.slices._Slices_testinsertoverlap.$Slices_testinsertoverlap_Fields_.testInsertOverlap (stdgo/_internal/slices/Slices_testinsertoverlap.hx line 29)
 Called from stdgo._internal.slices._Slices__equaltocmp.$Slices__equaltocmp_Fields_._equalToCmp (stdgo/_internal/slices/Slices__equaltocmp.hx line 2)
+Called from stdgo._internal.slices._Slices_testcomparefunc.$Slices_testcomparefunc_Fields_.testCompareFunc (stdgo/_internal/slices/Slices_testcomparefunc.hx line 11)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.slices_dot_test._Slices_dot_test.$Slices_dot_test_Fields_.main (_internal/slices_dot_test/Slices_dot_test.hx line 4)
 

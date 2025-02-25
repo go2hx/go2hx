@@ -19,7 +19,6 @@ Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_int
 Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
 Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
 Called from stdgo._internal.go.scanner._Scanner__checksemi.$Scanner__checksemi_Fields_._checkSemi (stdgo/_internal/go/scanner/Scanner__checksemi.hx line 8)
-Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
 Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
 Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
 Called from stdgo._internal.go.scanner._Scanner_testscan.$Scanner_testscan_Fields_.testScan (stdgo/_internal/go/scanner/Scanner_testscan.hx line 8)

@@ -41,67 +41,12 @@ Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_te
 -- SKIP: TestWindowsGlob
 
 === RUN  TestNonWindowsGlobEscape
-Exception: stdgo._internal.math.bits.T_errorString_asInterface
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 188)
-Called from stdgo._internal.reflect._Reflect_deepequal.$Reflect_deepequal_Fields_.deepEqual (stdgo/_internal/reflect/Reflect_deepequal.hx line 4)
-Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.$Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 12)
+Glob(`\match.go`) = [] want [match.go]Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.$Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 13)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 4)
 
 -- FAIL: TestNonWindowsGlobEscape
-
-=== RUN  TestClean
-skipping malloc count in short mode
-Exception: __skip__
-Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
-Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
-Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
-Called from _internal.path.filepath_test._Filepath_test_testclean.$Filepath_test_testclean_Fields_.testClean (_internal/path/filepath_test/Filepath_test_testclean.hx line 27)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 4)
-
--- SKIP: TestClean
-
-=== RUN  TestIsLocal
-
--- PASS: TestIsLocal
-
-=== RUN  TestFromAndToSlash
-
--- PASS: TestFromAndToSlash
-
-=== RUN  TestSplitList
-
--- PASS: TestSplitList
-
-=== RUN  TestSplit
-
--- PASS: TestSplit
-
-=== RUN  TestJoin
-
--- PASS: TestJoin
-
-=== RUN  TestExt
-
--- PASS: TestExt
-
-=== RUN  TestWalk
-unexpected errors: [Exception: SysError(Can't open testdata for writing)
-Called from sys.io.$File.write (/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/io/File.hx line 70)
-Called from stdgo._internal.os._Os_openfile.$Os_openfile_Fields_.openFile (stdgo/_internal/os/Os_openfile.hx line 8)
-Called from stdgo._internal.os._Os_open.$Os_open_Fields_.open (stdgo/_internal/os/Os_open.hx line 3)
-Called from stdgo._internal.path.filepath._Filepath__readdirnames.$Filepath__readdirnames_Fields_._readDirNames (stdgo/_internal/path/filepath/Filepath__readdirnames.hx line 3)
-Called from stdgo._internal.path.filepath._Filepath__walk.$Filepath__walk_Fields_._walk (stdgo/_internal/path/filepath/Filepath__walk.hx line 6)
-Called from stdgo._internal.path.filepath._Filepath_walk.$Filepath_walk_Fields_.walk (stdgo/_internal/path/filepath/Filepath_walk.hx line 7)
-Called from _internal.path.filepath_test._Filepath_test_testwalk.$Filepath_test_testwalk_Fields_.~testWalk.0 (_internal/path/filepath_test/Filepath_test_testwalk.hx line 4)
-Called from _internal.path.filepath_test._Filepath_test__testwalk.$Filepath_test__testwalk_Fields_._testWalk (_internal/path/filepath_test/Filepath_test__testwalk.hx line 34)
-Called from _internal.path.filepath_test._Filepath_test_testwalk.$Filepath_test_testwalk_Fields_.testWalk (_internal/path/filepath_test/Filepath_test_testwalk.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 4)]Exception: __fail__
-Called from _internal.path.filepath_test._Filepath_test__testwalk.$Filepath_test__testwalk_Fields_._testWalk (_internal/path/filepath_test/Filepath_test__testwalk.hx line 133)
-Called from _internal.path.filepath_test._Filepath_test_testwalk.$Filepath_test_testwalk_Fields_.testWalk (_internal/path/filepath_test/Filepath_test_testwalk.hx line 8)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.path.filepath_dot_test._Filepath_dot_test.$Filepath_dot_test_Fields_.main (_internal/path/filepath_dot_test/Filepath_dot_test.hx line 4)
-
--- FAIL: TestWalk

@@ -1,17 +1,5 @@
 {
     "passes": [
-        "TestMatch",
-        "testCVE202230632",
-        "TestCVE202230632",
-        "TestGlobError",
-        "TestGlobUNC",
-        "TestClean",
-        "TestIsLocal",
-        "TestFromAndToSlash",
-        "TestSplitList",
-        "TestSplit",
-        "TestJoin",
-        "TestExt"
     ],
     "fails": [
         "TestGlob",

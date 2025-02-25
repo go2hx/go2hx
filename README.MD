@@ -1,6 +1,6 @@
 <img src="logo.svg" width="270" align="right"/>
 
-# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
+# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) [![Scc Count Badge](https://sloc.xyz/github/go2hx/go2hx/)](https://github.com/go2hx/go2hx/)
 
 Go2hx is a haxe compiler, that compiles Go code to haxe
 Spiritual successor to [Elliott stoneham's compiler](#credits)

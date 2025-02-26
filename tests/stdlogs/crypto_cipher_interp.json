@@ -1,5 +1,36 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestCryptBlocks",
+        "TestEmptyPlaintext",
+        "TestGCMInvalidTagSize"
+    ],
+    "fails": [
+        "TestCBCEncrypterAES",
+        "TestCBCDecrypterAES",
+        "TestCFBVectors",
+        "TestCFBInverse",
+        "TestCTR_AES",
+        "TestCTR",
+        "TestAESGCM",
+        "TestTagFailureOverwrite",
+        "TestGCMCounterWrap",
+        "TestGCMAsm",
+        "TestOFB"
+    ],
+    "runs": [
+        "TestCBCEncrypterAES",
+        "TestCBCDecrypterAES",
+        "TestCFBVectors",
+        "TestCFBInverse",
+        "TestCryptBlocks",
+        "TestEmptyPlaintext",
+        "TestCTR_AES",
+        "TestCTR",
+        "TestAESGCM",
+        "TestGCMInvalidTagSize",
+        "TestTagFailureOverwrite",
+        "TestGCMCounterWrap",
+        "TestGCMAsm",
+        "TestOFB"
+    ]
 }

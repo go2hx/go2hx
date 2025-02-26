@@ -14,111 +14,111 @@ function testExpandKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 4952339i32;
-                } else if (__value__ == (4952339i32)) {
+                    _gotoNext = 4878391i32;
+                } else if (__value__ == (4878391i32)) {
                     if ((0i32 : stdgo.GoInt) < (stdgo._internal.crypto.aes.Aes__keytests._keyTests.length)) {
-                        _gotoNext = 4953006i32;
+                        _gotoNext = 4879058i32;
                     } else {
-                        _gotoNext = 4953009i32;
+                        _gotoNext = 4879061i32;
                     };
-                } else if (__value__ == (4952347i32)) {
+                } else if (__value__ == (4878399i32)) {
                     _i_0++;
-                    _gotoNext = 4953007i32;
-                } else if (__value__ == (4952371i32)) {
+                    _gotoNext = 4879059i32;
+                } else if (__value__ == (4878423i32)) {
                     _tt_1 = stdgo._internal.crypto.aes.Aes__keytests._keyTests[(_i_0 : stdgo.GoInt)];
                     _enc_2 = (new stdgo.Slice<stdgo.GoUInt32>((_tt_1._enc.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
                     if (_tt_1._dec != null) {
-                        _gotoNext = 4952448i32;
+                        _gotoNext = 4878500i32;
                     } else {
-                        _gotoNext = 4952694i32;
+                        _gotoNext = 4878746i32;
                     };
-                } else if (__value__ == (4952448i32)) {
+                } else if (__value__ == (4878500i32)) {
                     _dec_3 = (new stdgo.Slice<stdgo.GoUInt32>((_tt_1._dec.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
-                    _gotoNext = 4952694i32;
-                } else if (__value__ == (4952694i32)) {
+                    _gotoNext = 4878746i32;
+                } else if (__value__ == (4878746i32)) {
                     stdgo._internal.crypto.aes.Aes__expandkeygo._expandKeyGo(_tt_1._key, _enc_2, _dec_3);
                     if ((0i32 : stdgo.GoInt) < (_enc_2.length)) {
-                        _gotoNext = 4952862i32;
+                        _gotoNext = 4878914i32;
                     } else {
-                        _gotoNext = 4952867i32;
+                        _gotoNext = 4878919i32;
                     };
-                } else if (__value__ == (4952730i32)) {
+                } else if (__value__ == (4878782i32)) {
                     _j_4++;
-                    _gotoNext = 4952863i32;
-                } else if (__value__ == (4952748i32)) {
+                    _gotoNext = 4878915i32;
+                } else if (__value__ == (4878800i32)) {
                     _v_5 = _enc_2[(_j_4 : stdgo.GoInt)];
                     if (_v_5 != (_tt_1._enc[(_j_4 : stdgo.GoInt)])) {
-                        _gotoNext = 4952771i32;
+                        _gotoNext = 4878823i32;
                     } else {
-                        _gotoNext = 4952730i32;
+                        _gotoNext = 4878782i32;
                     };
-                } else if (__value__ == (4952771i32)) {
+                } else if (__value__ == (4878823i32)) {
                     @:check2r _t.errorf(("key %d: enc[%d] = %#x, want %#x" : stdgo.GoString), stdgo.Go.toInterface(_i_0), stdgo.Go.toInterface(_j_4), stdgo.Go.toInterface(_v_5), stdgo.Go.toInterface(_tt_1._enc[(_j_4 : stdgo.GoInt)]));
                     _i_0++;
-                    _gotoNext = 4953007i32;
-                } else if (__value__ == (4952862i32)) {
+                    _gotoNext = 4879059i32;
+                } else if (__value__ == (4878914i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _enc_2[(0i32 : stdgo.GoInt)];
                         _j_4 = @:binopAssign __tmp__0;
                         _v_5 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 4952863i32;
-                } else if (__value__ == (4952863i32)) {
+                    _gotoNext = 4878915i32;
+                } else if (__value__ == (4878915i32)) {
                     if (_j_4 < (_enc_2.length)) {
-                        _gotoNext = 4952748i32;
+                        _gotoNext = 4878800i32;
                     } else {
-                        _gotoNext = 4952867i32;
+                        _gotoNext = 4878919i32;
                     };
-                } else if (__value__ == (4952867i32)) {
+                } else if (__value__ == (4878919i32)) {
                     if ((0i32 : stdgo.GoInt) < (_dec_3.length)) {
-                        _gotoNext = 4953003i32;
+                        _gotoNext = 4879055i32;
                     } else {
-                        _gotoNext = 4952347i32;
+                        _gotoNext = 4878399i32;
                     };
-                } else if (__value__ == (4952871i32)) {
+                } else if (__value__ == (4878923i32)) {
                     _j_6++;
-                    _gotoNext = 4953004i32;
-                } else if (__value__ == (4952889i32)) {
+                    _gotoNext = 4879056i32;
+                } else if (__value__ == (4878941i32)) {
                     _v_7 = _dec_3[(_j_6 : stdgo.GoInt)];
                     if (_v_7 != (_tt_1._dec[(_j_6 : stdgo.GoInt)])) {
-                        _gotoNext = 4952912i32;
+                        _gotoNext = 4878964i32;
                     } else {
-                        _gotoNext = 4952871i32;
+                        _gotoNext = 4878923i32;
                     };
-                } else if (__value__ == (4952912i32)) {
+                } else if (__value__ == (4878964i32)) {
                     @:check2r _t.errorf(("key %d: dec[%d] = %#x, want %#x" : stdgo.GoString), stdgo.Go.toInterface(_i_0), stdgo.Go.toInterface(_j_6), stdgo.Go.toInterface(_v_7), stdgo.Go.toInterface(_tt_1._dec[(_j_6 : stdgo.GoInt)]));
                     _i_0++;
-                    _gotoNext = 4953007i32;
-                } else if (__value__ == (4953003i32)) {
+                    _gotoNext = 4879059i32;
+                } else if (__value__ == (4879055i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _dec_3[(0i32 : stdgo.GoInt)];
                         _j_6 = @:binopAssign __tmp__0;
                         _v_7 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 4953004i32;
-                } else if (__value__ == (4953004i32)) {
+                    _gotoNext = 4879056i32;
+                } else if (__value__ == (4879056i32)) {
                     if (_j_6 < (_dec_3.length)) {
-                        _gotoNext = 4952889i32;
+                        _gotoNext = 4878941i32;
                     } else {
-                        _gotoNext = 4952347i32;
+                        _gotoNext = 4878399i32;
                     };
-                } else if (__value__ == (4953006i32)) {
+                } else if (__value__ == (4879058i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = stdgo._internal.crypto.aes.Aes__keytests._keyTests[(0i32 : stdgo.GoInt)];
                         _i_0 = @:binopAssign __tmp__0;
                         _tt_1 = @:binopAssign __tmp__1;
                     };
-                    _gotoNext = 4953007i32;
-                } else if (__value__ == (4953007i32)) {
+                    _gotoNext = 4879059i32;
+                } else if (__value__ == (4879059i32)) {
                     if (_i_0 < (stdgo._internal.crypto.aes.Aes__keytests._keyTests.length)) {
-                        _gotoNext = 4952371i32;
+                        _gotoNext = 4878423i32;
                     } else {
-                        _gotoNext = 4953009i32;
+                        _gotoNext = 4879061i32;
                     };
-                } else if (__value__ == (4953009i32)) {
+                } else if (__value__ == (4879061i32)) {
                     _gotoNext = -1i32;
                 };
             };

@@ -1,5 +1,5 @@
 package stdgo._internal.unsafe;
 
 function alignof_(x:AnyInterface):GoUIntptr {
-	return 0;
+	return new GoUIntptr(x.type.align());
 }

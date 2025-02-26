@@ -988,6 +988,10 @@ class _Type {
 		}
 	}
 
+	static public function numFields(t:_Type):GoInt {
+		return numFields(t);
+	}
+
 	static public function numField(t:_Type):GoInt {
 		var type:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess t._common();
 		type = getUnderlying(type);
@@ -1340,42 +1344,6 @@ class _Type {
 		}
 	}
 
-	static public function size(t:_Type):GoUIntptr {
-		final k = t.kind();
-		if (k == KindType.invalid)
-			return new stdgo.GoUIntptr(0);
-		final addr = switch k {
-			case KindType.bool, KindType.int8, KindType.uint8: 1;
-			case KindType.int16, KindType.uint16: 2;
-			case KindType.int32, KindType.uint32, KindType.int, KindType.uint: 4;
-			case KindType.int64, KindType.uint64: 8;
-			case KindType.float32: 4;
-			case KindType.float64: 8;
-			case KindType.complex64: 8;
-			case KindType.complex128: 16;
-			case KindType.string: 16; // TODO: this may be wrong
-			// TODO
-			case KindType.slice: 24;
-			case KindType.interface_: 16;
-			case KindType.func: 8;
-			case KindType.array:
-				final gt = t._common();
-				var gt = getUnderlying(gt);
-				switch gt {
-					case arrayType(_.get() => elem, len):
-						(new _Type(elem).size().toBasic() * len);
-					default:
-						0;
-				}
-			case KindType.struct: 0;
-			case KindType.pointer: 8;
-			case KindType.uintptr: 8;
-			default:
-				throw "unimplemented: size of type: " + k.string();
-		}
-		return new stdgo.GoUIntptr(addr);
-	}
-
 	static public function pkgPath(t:_Type):GoString
 		throw "not implemented pkgPath";
 
@@ -1406,11 +1374,178 @@ class _Type {
 	static public function method(t:_Type, _0:GoInt):ReflectMethod
 		throw "not implemented method";
 
-	static public function fieldAlign(t:_Type):GoInt
-		throw "not implemented fieldAlign";
+	static public function fieldAlign(t:_Type):GoInt {
+		return 0;
+	}
+	/*
+	func (s *StdSizes) Alignof(T Type) (result int64) {
+	defer func() {
+		assert(result >= 1)
+	}()
 
-	static public function align(t:_Type):GoInt
-		throw "not implemented align";
+	// For arrays and structs, alignment is defined in terms
+	// of alignment of the elements and fields, respectively.
+	switch t := under(T).(type) {
+	case *Array:
+		// spec: "For a variable x of array type: unsafe.Alignof(x)
+		// is the same as unsafe.Alignof(x[0]), but at least 1."
+		return s.Alignof(t.elem)
+	case *Struct:
+		if len(t.fields) == 0 && _IsSyncAtomicAlign64(T) {
+			// Special case: sync/atomic.align64 is an
+			// empty struct we recognize as a signal that
+			// the struct it contains must be
+			// 64-bit-aligned.
+			//
+			// This logic is equivalent to the logic in
+			// cmd/compile/internal/types/size.go:calcStructOffset
+			return 8
+		}
+
+		// spec: "For a variable x of struct type: unsafe.Alignof(x)
+		// is the largest of the values unsafe.Alignof(x.f) for each
+		// field f of x, but at least 1."
+		max := int64(1)
+		for _, f := range t.fields {
+			if a := s.Alignof(f.typ); a > max {
+				max = a
+			}
+		}
+		return max
+	case *Slice, *Interface:
+		// Multiword data structures are effectively structs
+		// in which each element has size WordSize.
+		// Type parameters lead to variable sizes/alignments;
+		// StdSizes.Alignof won't be called for them.
+		assert(!isTypeParam(T))
+		return s.WordSize
+	case *Basic:
+		// Strings are like slices and interfaces.
+		if t.Info()&IsString != 0 {
+			return s.WordSize
+		}
+	case *TypeParam, *Union:
+		unreachable()
+	}
+	a := s.Sizeof(T) // may be 0 or negative
+	// spec: "For a variable x of any type: unsafe.Alignof(x) is at least 1."
+	if a < 1 {
+		return 1
+	}
+	// complex{64,128} are aligned like [2]float{32,64}.
+	if isComplex(T) {
+		a /= 2
+	}
+	if a > s.MaxAlign {
+		return s.MaxAlign
+	}
+	return a
+}
+	*/
+	static public function align(t:_Type):GoInt {
+		final k = t.kind();
+		if (k == KindType.invalid)
+			return new stdgo.GoUIntptr(0);
+		final gt = t._common();
+		switch gt {
+			case arrayType(_.get() => elem, _):
+				return new _Type(elem).align();
+			case structType(fields):
+				if (field.length == 0)
+					return 8;
+				// max := int64(1)
+				// for _, f := range t.fields {
+				// 	if a := s.Alignof(f.typ); a > max {
+				// 		max = a
+				// 	}
+				// }
+				var max = 1;
+				for (field in fields) {
+					final fieldType = field.type.get();
+					final fieldAlign = new _Type(fieldType).align();
+					if (fieldAlign > max)
+						max = fieldAlign;
+				} 
+				return max;
+			case sliceType(_), interfaceType(_, _):
+				return 4;
+			case basic(kind):
+				if (kind != string_kind) {
+					return 4;
+				}
+			default:
+		}
+		var a = t.size();
+		if (a < new GoUIntptr(1))
+			return 1;
+		if (k == KindType.complex64 || k == KindType.complex128)
+			a = a / new GoUIntptr(2) ;
+		if (a > new GoUIntptr(4))
+			return a;
+		return a;
+	}
+
+	static public function size(t:_Type):GoUIntptr {
+		final k = t.kind();
+		if (k == KindType.invalid)
+			return new stdgo.GoUIntptr(0);
+		final addr = switch k {
+			case KindType.bool, KindType.int8, KindType.uint8: 1;
+			case KindType.int16, KindType.uint16: 2;
+			case KindType.int32, KindType.uint32, KindType.int, KindType.uint: 4;
+			case KindType.int64, KindType.uint64: 8;
+			case KindType.float32: 4;
+			case KindType.float64: 8;
+			case KindType.complex64: 8;
+			case KindType.complex128: 16;
+			case KindType.string: 16;
+			case KindType.slice: 24;
+			case KindType.interface_: 16;
+			case KindType.func: 8;
+			case KindType.array:
+				final gt = t._common();
+				var gt = getUnderlying(gt);
+				switch gt {
+					case arrayType(_.get() => elem, len):
+						(new _Type(elem).size().toBasic() * len);
+					default:
+						0;
+				}
+			case KindType.struct:
+				final n = t.numFields();
+				if (n == 0)
+					return new stdgo.GoUIntptr(0);
+				final lastField = t.field(t.numField() - 1);
+				switch getUnderlying(t._common()) {
+					case structType(fields):
+						// final offsets = offsetOf(fields);
+						// final offs = offsets[n - 1];
+						// final size = new _Type(fields[n - 1].type.get()).size();
+						// TODO implement proper structType type size
+						return new GoUIntptr(0);
+					default:
+				}
+				0;
+			case KindType.pointer: 8;
+			case KindType.uintptr: 8;
+			default:
+				throw "unimplemented: size of type: " + k.string();
+		}
+		return new stdgo.GoUIntptr(addr);
+	}
+}
+/*
+func align(x, a int64) int64 {
+	assert(x >= 0 && 1 <= a && a <= 8 && a&(a-1) == 0)
+	return (x + a - 1) &^ (a - 1)
+}
+*/
+
+// align returns the smallest y >= x such that y % a == 0.
+// a must be within 1 and 8 and it must be a power of 2.
+// The result may be negative due to overflow.
+private function align(x:Int, a:Int):Int {
+	return (x + a - 1) & - 1 ^ (a - 1);
 }
 
 private typedef ReflectStructField = stdgo._internal.reflect.Reflect_structfield.StructField;

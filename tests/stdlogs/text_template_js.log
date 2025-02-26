@@ -19,4 +19,4 @@
   value: 'Int32:sync.atomic_.add is not yet implemented'
 }
 
-Node.js v23.8.0
+Node.js v23.9.0

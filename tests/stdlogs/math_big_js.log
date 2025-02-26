@@ -14,4 +14,4 @@ TypeError: Cannot read properties of undefined (reading '_common')
     at Module.load (node:internal/modules/cjs/loader:1469:32)
     at Function._load (node:internal/modules/cjs/loader:1286:12)
 
-Node.js v23.8.0
+Node.js v23.9.0

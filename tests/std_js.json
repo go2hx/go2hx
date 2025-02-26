@@ -22,5 +22,6 @@
  "js|container/ring",
  "js|encoding/ascii85",
  "js|encoding/csv",
- "js|hash/fnv"
+ "js|hash/fnv",
+ "js|crypto"
 ]

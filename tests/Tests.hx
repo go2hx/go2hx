@@ -388,8 +388,9 @@ private function complete(modules:Array<Typer.Module>, _) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
 		var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
-		if (!FileSystem.exists(hxml)) // try to remove the prefix of T_
-			hxml = "golibs/" + type + "_" + sanatize(path.substr(2)) + ".hxml";
+		// TODO programatically search and remove _t_ part
+		if (hxml == "golibs/unit_t_4darray.hxml")
+			hxml == "golibs/unit_4darray.hxml";
 		final out = createTargetOutput(target, type, path);
 		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
 		final args = [hxml].concat(outCmd);

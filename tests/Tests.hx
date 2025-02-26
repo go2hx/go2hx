@@ -387,7 +387,9 @@ private function complete(modules:Array<Typer.Module>, _) {
 	for (path in paths) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
-		final hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
+		var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
+		if (!FileSystem.exists(hxml)) // try to remove the prefix of T_
+			hxml = "golibs/" + type + "_" + sanatize(path.substr(2)) + ".hxml";
 		final out = createTargetOutput(target, type, path);
 		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
 		final args = [hxml].concat(outCmd);

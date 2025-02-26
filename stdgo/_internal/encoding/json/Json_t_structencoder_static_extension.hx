@@ -4,12 +4,12 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function _encode( _se:stdgo._internal.encoding.json.Json_t_structencoder.T_structEncoder, _e:stdgo.Ref<stdgo._internal.encoding.json.Json_t_encodestate.T_encodeState>, _v:stdgo._internal.reflect.Reflect_value.Value, _opts:stdgo._internal.encoding.json.Json_t_encopts.T_encOpts):Void {
         @:recv var _se:stdgo._internal.encoding.json.Json_t_structencoder.T_structEncoder = _se?.__copy__();
+        var _i_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5440996_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _fv_5:stdgo._internal.reflect.Reflect_value.Value = ({} : stdgo._internal.reflect.Reflect_value.Value);
         var _f_4:stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field> = (null : stdgo.Ref<stdgo._internal.encoding.json.Json_t_field.T_field>);
         var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _next_2:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _i_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5440996_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

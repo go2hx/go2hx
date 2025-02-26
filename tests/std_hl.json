@@ -26,5 +26,6 @@
  "hl|encoding/ascii85",
  "hl|encoding/csv",
  "hl|hash/fnv",
- "hl|internal/platform"
+ "hl|internal/platform",
+ "hl|crypto"
 ]

@@ -1,12 +1,12 @@
 [ERROR] ./stdgo/_internal/image/draw/Draw_testdraw.hx:134: characters 21-63
 
- 134 |                     stdgo._internal.image.draw.Draw__i_5227000._i_5227000++;
+ 134 |                     stdgo._internal.image.draw.Draw__i_5109377._i_5109377++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__i_5227000
+     | Type not found : stdgo._internal.image.draw.Draw__i_5109377
 
-[ERROR] ./stdgo/_internal/image/draw/Draw_testpaletted.hx:5: character 43
+[ERROR] ./stdgo/_internal/image/draw/Draw_testpaletted.hx:7: character 43
 
-   5 |             var _keys_5236663:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
+   7 |             var _keys_5119040:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
      |                                           ^
      | Invalid character '#'
 

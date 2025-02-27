@@ -2,4 +2,5 @@ Uncaught exception: Can't cast stdgo._internal.internal.reflect._Type_asInterfac
 Called from stdgo.GoAnyInterfaceMap.compare(stdgo/GoMap.hx:688)
 Called from haxe.ds.BalancedTree.exists(/home/runner/haxe/versions/b0b2997/std/haxe/ds/BalancedTree.hx:104)
 Called from stdgo._internal.encoding.gob._Gob__bootstraptype.$Gob__bootstraptype_Fields_._bootstrapType(stdgo/GoMap.hx:66)
+Called from stdgo._internal.strconv.$T_decimal_static_extension._floatBits(stdgo/_internal/strconv/Strconv_t_decimal_static_extension.hx:215)
 Called from .init(stdgo/_internal/encoding/gob/Gob__tint.hx:2)

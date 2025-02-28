@@ -2,7 +2,9 @@
 
 The entry point for the compiler comes from running the command via haxelib.
 
-```haxelib run go2hx ./finderrors.go``
+```sh
+haxelib run go2hx ./finderrors.go
+```
 
 This command will run ``Run.hx``, this file will clone the necessary repos for the Go part of the compiler, run ``go build .`` on the users behalf and then choose a target to build the Haxe part of the compiler, the target is chosen based on what is available or explicit arguments.
 

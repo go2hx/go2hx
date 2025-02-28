@@ -141,7 +141,7 @@ import (
 )
 ```
 
-Each import is run with ``typeImport``, and sets ``info.renameIdents`` in most caases which is a map that looks for a given identifier and renames it.
+Each import is run with ``typeImport``, and sets ``info.renameIdents`` in most cases which is a map that looks for a given identifier and renames it.
 
 ```go
 var removeStrings = []string{

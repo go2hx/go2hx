@@ -1885,7 +1885,7 @@ private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String,
 	}
 	return toExpr(EObjectDecl(objectFields));
 }
-// implicit conversion
+// This is for implicit conversion
 // explicit conversion: assignTranslate
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
@@ -1998,6 +1998,13 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	return macro($e : $ct);
 }
 
+
+/**
+ * switch x.(type) {}
+ * @param stmt 
+ * @param info 
+ * @return ExprDef
+ */
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 	var init:Expr = stmt.init == null ? null : typeStmt(stmt.init, info);
 	var assign:Expr = null;
@@ -2873,7 +2880,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 						var bool = true;
 						for (i in 0...vars.length) {
 							if (!goTypesEqual(vars[i], vars2[i], depth + 1)) {
-								false;
+								bool = false;
 								break;
 							}
 						}
@@ -2944,7 +2951,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 			}
 	}
 }
-// explicit conversion
+// This is for explicit conversion
 // implicit conversion: checkType
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	if (goTypesEqual(fromType, toType, 0)) {
@@ -3033,6 +3040,26 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		y = wrapperExpr(fromType, y, info);
 		return y;
 	}
+	switch fromType {
+		case tuple(_, _.get() => vars):
+			switch toType {
+				case tuple(_, _.get() => vars2):
+					final fields:Array<ObjectField> = [
+						for (i in 0...vars.length) {
+							final fieldName = "_" + i;
+							{field: fieldName, expr: assignTranslate(vars[i], vars2[i], macro __tmp__.$fieldName, info, false)};
+						}
+					];
+					final obj = toExpr(EObjectDecl(fields));
+					return macro ({
+						final __tmp__ = $y;
+						$obj;
+					});
+				default:
+			}
+		default:
+	}
+	trace(fromType, toType);
 	return y;
 }
 

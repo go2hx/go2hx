@@ -1814,6 +1814,7 @@ final skipTests = [
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
 	"strings_test:testMap" => [], // uses unsafe pointer conversions
 	"crypto.sha512_test:testAllocations" => [], // checks runtime allocations num
+	"crypto.sha512:testAllocations" => [], // checks runtime allocations num
 	"log_test:testDiscard" => [], // checks runtime allocations num
 	"log:testDiscard" => [], // checks runtime allocations num
 	"bytes_test:testGrow" => [], // checks runtime allocations num

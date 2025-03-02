@@ -21,10 +21,6 @@ log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
 log output should match <invalid reflect.Value> is %!q(MISSING)
-log output should match <invalid reflect.Value> is %!q(MISSING)
-log output should match <invalid reflect.Value> is %!q(MISSING)
-log output should match <invalid reflect.Value> is %!q(MISSING)
-log output should match <invalid reflect.Value> is %!q(MISSING)
 
 -- FAIL: TestAll
 
@@ -58,6 +54,7 @@ expected 2 headers, got <invalid reflect.Value>
 -- FAIL: TestEmptyPrintCreatesLine
 
 === RUN  TestDiscard
+-- SKIP: testDiscard
 
 -- PASS: TestDiscard
 

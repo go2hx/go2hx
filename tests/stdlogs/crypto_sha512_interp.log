@@ -157,6 +157,7 @@ Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeas
 -- PASS: TestLargeHashes
 
 === RUN  TestAllocations
+-- SKIP: testAllocations
 
 -- PASS: TestAllocations
 

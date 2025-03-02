@@ -26,5 +26,6 @@
  "interp|encoding/csv",
  "interp|hash/fnv",
  "interp|internal/platform",
- "interp|crypto"
+ "interp|crypto",
+ "interp|bufio"
 ]

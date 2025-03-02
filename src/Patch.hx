@@ -1654,7 +1654,10 @@ final list = [
 	"testing:testing" => macro return true,
 	"testing:coverMode" => macro return "",
 	"testing:short" => macro return true,
-	"testing:allocsPerRun" => macro throw "allocsPerRun not implemented",
+	"testing:allocsPerRun" => macro {
+		trace("allocsPerRun not implemented");
+		return 0;
+	},
 	"testing:verbose" => macro return false,
 	"testing.T_:run" => macro return true,
 	"testing.T_common:log" => macro {},
@@ -1795,7 +1798,7 @@ final skipTests = [
 	"math_test:testFloatMinima" => ["interp", "js"],
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
-	"bufio_test:TestReadStringAllocs" => [], // checks runtime allocations num
+	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync

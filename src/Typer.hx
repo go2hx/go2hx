@@ -7971,7 +7971,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									if (isNamed(elem)) {
 										final ct = toComplexType(elem, info);
 										addPointerSuffix(ct);
-										macro @:check420 ((stdgo.Go.pointer(this.$name) : $ct) ?? throw "null pointer dereference").$fieldName;
+										macro @:check420 (stdgo.Go.pointer(this.$name) : $ct).$fieldName;
 									}else{
 										macro @:check50 (this.$name ?? throw "null pointer dereference").$fieldName;
 									}

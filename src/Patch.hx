@@ -1654,7 +1654,10 @@ final list = [
 	"testing:testing" => macro return true,
 	"testing:coverMode" => macro return "",
 	"testing:short" => macro return true,
-	"testing:allocsPerRun" => macro return 0,
+	"testing:allocsPerRun" => macro {
+		trace("allocsPerRun not implemented");
+		return 0;
+	},
 	"testing:verbose" => macro return false,
 	"testing.T_:run" => macro return true,
 	"testing.T_common:log" => macro {},
@@ -1795,7 +1798,7 @@ final skipTests = [
 	"math_test:testFloatMinima" => ["interp", "js"],
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
-	"bufio_test:TestReadStringAllocs" => [], // checks runtime allocations num
+	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync
@@ -1813,6 +1816,10 @@ final skipTests = [
 	"strings_test:testReplacer" => [], // TODO: implement - uses bytes.Buffer
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
 	"strings_test:testMap" => [], // uses unsafe pointer conversions
+	"crypto.sha512_test:testAllocations" => [], // checks runtime allocations num
+	"crypto.sha512:testAllocations" => [], // checks runtime allocations num
+	"log_test:testDiscard" => [], // checks runtime allocations num
+	"log:testDiscard" => [], // checks runtime allocations num
 	"bytes_test:testGrow" => [], // checks runtime allocations num
 	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync

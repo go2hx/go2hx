@@ -54,6 +54,7 @@ expected 2 headers, got <invalid reflect.Value>
 -- FAIL: TestEmptyPrintCreatesLine
 
 === RUN  TestDiscard
+-- SKIP: testDiscard
 
 -- PASS: TestDiscard
 

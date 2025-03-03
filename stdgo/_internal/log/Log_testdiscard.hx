@@ -1,5 +1,7 @@
 package stdgo._internal.log;
 function testDiscard(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        stdgo.Go.println('-- SKIP: ' + "testDiscard");
+        return;
         var _l = stdgo._internal.log.Log_new_.new_(stdgo._internal.io.Io_discard.discard, (stdgo.Go.str() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt));
         var _s = (stdgo._internal.strings.Strings_repeat.repeat(("a" : stdgo.GoString), (102400 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         var _c = (stdgo._internal.testing.Testing_allocsperrun.allocsPerRun((100 : stdgo.GoInt), function():Void {

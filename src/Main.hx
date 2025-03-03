@@ -676,7 +676,7 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 		default:
 			throw "unknown target: " + target;
 	};
-	if (args.length > 0)
+	if (args != null && args.length > 0)
 		s += " " + args.join(" ");
 	return s;
 }

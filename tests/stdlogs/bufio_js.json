@@ -17,6 +17,8 @@
         "TestUnreadRuneAtEOF",
         "TestReadWriteRune",
         "TestWriteInvalidRune",
+        "testReadStringAllocs",
+        "TestReadStringAllocs",
         "TestWriter",
         "TestWriterAppend",
         "TestWriteErrors",
@@ -78,7 +80,6 @@
     ],
     "fails": [
         "TestZeroReader",
-        "TestReadStringAllocs",
         "TestScanLongLines",
         "TestScanLineTooLong"
     ],

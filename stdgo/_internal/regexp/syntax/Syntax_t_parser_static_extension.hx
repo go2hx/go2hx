@@ -351,15 +351,15 @@ var _s = __1, _name = __0;
     static public function _parseEscape( _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser> = _p;
         var _r = (0 : stdgo.GoInt32), _rest = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _y_41:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _v_39:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nhex_38:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_37:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_36:stdgo.Error = (null : stdgo.Error);
-        var switchBreak = false;
-        var _x_40:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nhex_38:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_35:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _t_34:stdgo.GoString = ("" : stdgo.GoString);
+        var switchBreak = false;
+        var _y_41:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _x_40:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _v_39:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _c_35:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -368,11 +368,11 @@ var _s = __1, _name = __0;
                 if (__value__ == (0i32)) {
                     _t_34 = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     if (_t_34 == ((stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3355320i32;
+                        _gotoNext = 3440327i32;
                     } else {
-                        _gotoNext = 3355375i32;
+                        _gotoNext = 3440382i32;
                     };
-                } else if (__value__ == (3355320i32)) {
+                } else if (__value__ == (3440327i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_error.Error((("trailing backslash at end of expression" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_errorcode.ErrorCode), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_error.Error>)) };
                         _r = __tmp__._0;
@@ -380,8 +380,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3355375i32;
-                } else if (__value__ == (3355375i32)) {
+                    _gotoNext = 3440382i32;
+                } else if (__value__ == (3440382i32)) {
                     {
                         var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextrune._nextRune(_t_34?.__copy__());
                         _c_35 = @:tmpset0 __tmp__._0;
@@ -389,11 +389,11 @@ var _s = __1, _name = __0;
                         _err_36 = @:tmpset0 __tmp__._2;
                     };
                     if (_err_36 != null) {
-                        _gotoNext = 3355415i32;
+                        _gotoNext = 3440422i32;
                     } else {
-                        _gotoNext = 3355441i32;
+                        _gotoNext = 3440448i32;
                     };
-                } else if (__value__ == (3355415i32)) {
+                } else if (__value__ == (3440422i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -401,47 +401,47 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3355441i32;
-                } else if (__value__ == (3355441i32)) {
-                    _gotoNext = 3355441i32;
+                    _gotoNext = 3440448i32;
+                } else if (__value__ == (3440448i32)) {
+                    _gotoNext = 3440448i32;
                     switchBreak = false;
-                    _gotoNext = 3355450i32;
-                } else if (__value__ == (3355450i32)) {
+                    _gotoNext = 3440457i32;
+                } else if (__value__ == (3440457i32)) {
                     if (!switchBreak) {
                         {
                             final __value__ = _c_35;
                             if (__value__ == ((49 : stdgo.GoInt32)) || __value__ == ((50 : stdgo.GoInt32)) || __value__ == ((51 : stdgo.GoInt32)) || __value__ == ((52 : stdgo.GoInt32)) || __value__ == ((53 : stdgo.GoInt32)) || __value__ == ((54 : stdgo.GoInt32)) || __value__ == ((55 : stdgo.GoInt32))) {
-                                _gotoNext = 3355790i32;
+                                _gotoNext = 3440797i32;
                             } else if (__value__ == ((48 : stdgo.GoInt32))) {
-                                _gotoNext = 3355962i32;
+                                _gotoNext = 3440969i32;
                             } else if (__value__ == ((120 : stdgo.GoInt32))) {
-                                _gotoNext = 3356222i32;
+                                _gotoNext = 3441229i32;
                             } else if (__value__ == ((97 : stdgo.GoInt32))) {
-                                _gotoNext = 3357415i32;
+                                _gotoNext = 3442422i32;
                             } else if (__value__ == ((102 : stdgo.GoInt32))) {
-                                _gotoNext = 3357448i32;
+                                _gotoNext = 3442455i32;
                             } else if (__value__ == ((110 : stdgo.GoInt32))) {
-                                _gotoNext = 3357481i32;
+                                _gotoNext = 3442488i32;
                             } else if (__value__ == ((114 : stdgo.GoInt32))) {
-                                _gotoNext = 3357514i32;
+                                _gotoNext = 3442521i32;
                             } else if (__value__ == ((116 : stdgo.GoInt32))) {
-                                _gotoNext = 3357547i32;
+                                _gotoNext = 3442554i32;
                             } else if (__value__ == ((118 : stdgo.GoInt32))) {
-                                _gotoNext = 3357580i32;
+                                _gotoNext = 3442587i32;
                             } else {
-                                _gotoNext = 3355462i32;
+                                _gotoNext = 3440469i32;
                             };
                         };
                     } else {
-                        _gotoNext = 3357616i32;
+                        _gotoNext = 3442623i32;
                     };
-                } else if (__value__ == (3355462i32)) {
+                } else if (__value__ == (3440469i32)) {
                     if (((_c_35 < (128 : stdgo.GoInt32) : Bool) && !stdgo._internal.regexp.syntax.Syntax__isalnum._isalnum(_c_35) : Bool)) {
-                        _gotoNext = 3355509i32;
+                        _gotoNext = 3440516i32;
                     } else {
-                        _gotoNext = 3357616i32;
+                        _gotoNext = 3442623i32;
                     };
-                } else if (__value__ == (3355509i32)) {
+                } else if (__value__ == (3440516i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _c_35, _1 : _t_34?.__copy__(), _2 : (null : stdgo.Error) };
                         _r = __tmp__._0;
@@ -449,41 +449,41 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3355790i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3440797i32)) {
                     if (((_t_34 == ((stdgo.Go.str() : stdgo.GoString)) || (_t_34[(0 : stdgo.GoInt)] < (48 : stdgo.GoUInt8) : Bool) : Bool) || (_t_34[(0 : stdgo.GoInt)] > (55 : stdgo.GoUInt8) : Bool) : Bool)) {
-                        _gotoNext = 3355932i32;
+                        _gotoNext = 3440939i32;
                     } else {
-                        _gotoNext = 3355949i32;
+                        _gotoNext = 3440956i32;
                     };
-                } else if (__value__ == (3355932i32)) {
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3355949i32)) {
-                    _gotoNext = 3355962i32;
-                } else if (__value__ == (3355962i32)) {
+                } else if (__value__ == (3440939i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3440956i32)) {
+                    _gotoNext = 3440969i32;
+                } else if (__value__ == (3440969i32)) {
                     _r = (_c_35 - (48 : stdgo.GoInt32) : stdgo.GoInt32);
                     _i_37 = (1 : stdgo.GoInt);
-                    _gotoNext = 3356045i32;
-                } else if (__value__ == (3356045i32)) {
+                    _gotoNext = 3441052i32;
+                } else if (__value__ == (3441052i32)) {
                     if ((_i_37 < (3 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3356068i32;
+                        _gotoNext = 3441075i32;
                     } else {
-                        _gotoNext = 3356178i32;
+                        _gotoNext = 3441185i32;
                     };
-                } else if (__value__ == (3356068i32)) {
+                } else if (__value__ == (3441075i32)) {
                     if (((_t_34 == ((stdgo.Go.str() : stdgo.GoString)) || (_t_34[(0 : stdgo.GoInt)] < (48 : stdgo.GoUInt8) : Bool) : Bool) || (_t_34[(0 : stdgo.GoInt)] > (55 : stdgo.GoUInt8) : Bool) : Bool)) {
-                        _gotoNext = 3356112i32;
+                        _gotoNext = 3441119i32;
                     } else {
-                        _gotoNext = 3356132i32;
+                        _gotoNext = 3441139i32;
                     };
-                } else if (__value__ == (3356112i32)) {
-                    _gotoNext = 3356178i32;
-                } else if (__value__ == (3356132i32)) {
+                } else if (__value__ == (3441119i32)) {
+                    _gotoNext = 3441185i32;
+                } else if (__value__ == (3441139i32)) {
                     _r = (((_r * (8 : stdgo.GoInt32) : stdgo.GoInt32) + (_t_34[(0 : stdgo.GoInt)] : stdgo.GoInt32) : stdgo.GoInt32) - (48 : stdgo.GoInt32) : stdgo.GoInt32);
                     _t_34 = (_t_34.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _i_37++;
-                    _gotoNext = 3356045i32;
-                } else if (__value__ == (3356178i32)) {
+                    _gotoNext = 3441052i32;
+                } else if (__value__ == (3441185i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _r, _1 : _t_34?.__copy__(), _2 : (null : stdgo.Error) };
                         _r = __tmp__._0;
@@ -491,16 +491,16 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3356222i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3441229i32)) {
                     if (_t_34 == ((stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3356245i32;
+                        _gotoNext = 3441252i32;
                     } else {
-                        _gotoNext = 3356262i32;
+                        _gotoNext = 3441269i32;
                     };
-                } else if (__value__ == (3356245i32)) {
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3356262i32)) {
+                } else if (__value__ == (3441252i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3441269i32)) {
                     {
                         {
                             var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextrune._nextRune(_t_34?.__copy__());
@@ -509,12 +509,12 @@ var _s = __1, _name = __0;
                             _err_36 = @:tmpset0 __tmp__._2;
                         };
                         if (_err_36 != null) {
-                            _gotoNext = 3356301i32;
+                            _gotoNext = 3441308i32;
                         } else {
-                            _gotoNext = 3356330i32;
+                            _gotoNext = 3441337i32;
                         };
                     };
-                } else if (__value__ == (3356301i32)) {
+                } else if (__value__ == (3441308i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -522,34 +522,34 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3356330i32;
-                } else if (__value__ == (3356330i32)) {
+                    _gotoNext = 3441337i32;
+                } else if (__value__ == (3441337i32)) {
                     if (_c_35 == ((123 : stdgo.GoInt32))) {
-                        _gotoNext = 3356342i32;
+                        _gotoNext = 3441349i32;
                     } else {
-                        _gotoNext = 3356950i32;
+                        _gotoNext = 3441957i32;
                     };
-                } else if (__value__ == (3356342i32)) {
+                } else if (__value__ == (3441349i32)) {
                     _nhex_38 = (0 : stdgo.GoInt);
                     _r = (0 : stdgo.GoInt32);
                     var __blank__ = 0i32;
-                    _gotoNext = 3356552i32;
-                } else if (__value__ == (3356552i32)) {
+                    _gotoNext = 3441559i32;
+                } else if (__value__ == (3441559i32)) {
                     if (true) {
-                        _gotoNext = 3356556i32;
+                        _gotoNext = 3441563i32;
                     } else {
-                        _gotoNext = 3356854i32;
+                        _gotoNext = 3441861i32;
                     };
-                } else if (__value__ == (3356556i32)) {
+                } else if (__value__ == (3441563i32)) {
                     if (_t_34 == ((stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3356573i32;
+                        _gotoNext = 3441580i32;
                     } else {
-                        _gotoNext = 3356603i32;
+                        _gotoNext = 3441610i32;
                     };
-                } else if (__value__ == (3356573i32)) {
+                } else if (__value__ == (3441580i32)) {
                     switchBreak = true;
-                    _gotoNext = 3355450i32;
-                } else if (__value__ == (3356603i32)) {
+                    _gotoNext = 3440457i32;
+                } else if (__value__ == (3441610i32)) {
                     {
                         {
                             var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextrune._nextRune(_t_34?.__copy__());
@@ -558,12 +558,12 @@ var _s = __1, _name = __0;
                             _err_36 = @:tmpset0 __tmp__._2;
                         };
                         if (_err_36 != null) {
-                            _gotoNext = 3356642i32;
+                            _gotoNext = 3441649i32;
                         } else {
-                            _gotoNext = 3356677i32;
+                            _gotoNext = 3441684i32;
                         };
                     };
-                } else if (__value__ == (3356642i32)) {
+                } else if (__value__ == (3441649i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -571,48 +571,48 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3356677i32;
-                } else if (__value__ == (3356677i32)) {
+                    _gotoNext = 3441684i32;
+                } else if (__value__ == (3441684i32)) {
                     if (_c_35 == ((125 : stdgo.GoInt32))) {
-                        _gotoNext = 3356689i32;
+                        _gotoNext = 3441696i32;
                     } else {
-                        _gotoNext = 3356712i32;
+                        _gotoNext = 3441719i32;
                     };
-                } else if (__value__ == (3356689i32)) {
-                    _gotoNext = 3356854i32;
-                } else if (__value__ == (3356712i32)) {
+                } else if (__value__ == (3441696i32)) {
+                    _gotoNext = 3441861i32;
+                } else if (__value__ == (3441719i32)) {
                     _v_39 = stdgo._internal.regexp.syntax.Syntax__unhex._unhex(_c_35);
                     if ((_v_39 < (0 : stdgo.GoInt32) : Bool)) {
-                        _gotoNext = 3356739i32;
+                        _gotoNext = 3441746i32;
                     } else {
-                        _gotoNext = 3356769i32;
+                        _gotoNext = 3441776i32;
                     };
-                } else if (__value__ == (3356739i32)) {
+                } else if (__value__ == (3441746i32)) {
                     switchBreak = true;
-                    _gotoNext = 3355450i32;
-                } else if (__value__ == (3356769i32)) {
+                    _gotoNext = 3440457i32;
+                } else if (__value__ == (3441776i32)) {
                     _r = ((_r * (16 : stdgo.GoInt32) : stdgo.GoInt32) + _v_39 : stdgo.GoInt32);
                     if ((_r > (1114111 : stdgo.GoInt32) : Bool)) {
-                        _gotoNext = 3356809i32;
+                        _gotoNext = 3441816i32;
                     } else {
-                        _gotoNext = 3356839i32;
+                        _gotoNext = 3441846i32;
                     };
-                } else if (__value__ == (3356809i32)) {
+                } else if (__value__ == (3441816i32)) {
                     switchBreak = true;
-                    _gotoNext = 3355450i32;
-                } else if (__value__ == (3356839i32)) {
+                    _gotoNext = 3440457i32;
+                } else if (__value__ == (3441846i32)) {
                     _nhex_38++;
-                    _gotoNext = 3356552i32;
-                } else if (__value__ == (3356854i32)) {
+                    _gotoNext = 3441559i32;
+                } else if (__value__ == (3441861i32)) {
                     if (_nhex_38 == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 3356867i32;
+                        _gotoNext = 3441874i32;
                     } else {
-                        _gotoNext = 3356894i32;
+                        _gotoNext = 3441901i32;
                     };
-                } else if (__value__ == (3356867i32)) {
+                } else if (__value__ == (3441874i32)) {
                     switchBreak = true;
-                    _gotoNext = 3355450i32;
-                } else if (__value__ == (3356894i32)) {
+                    _gotoNext = 3440457i32;
+                } else if (__value__ == (3441901i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _r, _1 : _t_34?.__copy__(), _2 : (null : stdgo.Error) };
                         _r = __tmp__._0;
@@ -620,8 +620,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3356950i32;
-                } else if (__value__ == (3356950i32)) {
+                    _gotoNext = 3441957i32;
+                } else if (__value__ == (3441957i32)) {
                     _x_40 = stdgo._internal.regexp.syntax.Syntax__unhex._unhex(_c_35);
                     {
                         {
@@ -631,12 +631,12 @@ var _s = __1, _name = __0;
                             _err_36 = @:tmpset0 __tmp__._2;
                         };
                         if (_err_36 != null) {
-                            _gotoNext = 3357005i32;
+                            _gotoNext = 3442012i32;
                         } else {
-                            _gotoNext = 3357034i32;
+                            _gotoNext = 3442041i32;
                         };
                     };
-                } else if (__value__ == (3357005i32)) {
+                } else if (__value__ == (3442012i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -644,17 +644,17 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357034i32;
-                } else if (__value__ == (3357034i32)) {
+                    _gotoNext = 3442041i32;
+                } else if (__value__ == (3442041i32)) {
                     _y_41 = stdgo._internal.regexp.syntax.Syntax__unhex._unhex(_c_35);
                     if (((_x_40 < (0 : stdgo.GoInt32) : Bool) || (_y_41 < (0 : stdgo.GoInt32) : Bool) : Bool)) {
-                        _gotoNext = 3357068i32;
+                        _gotoNext = 3442075i32;
                     } else {
-                        _gotoNext = 3357085i32;
+                        _gotoNext = 3442092i32;
                     };
-                } else if (__value__ == (3357068i32)) {
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357085i32)) {
+                } else if (__value__ == (3442075i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442092i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : ((_x_40 * (16 : stdgo.GoInt32) : stdgo.GoInt32) + _y_41 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : (null : stdgo.Error) };
                         _r = __tmp__._0;
@@ -662,8 +662,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357415i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442422i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (7 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -671,8 +671,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357448i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442455i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (12 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -680,8 +680,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357481i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442488i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (10 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -689,8 +689,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357514i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442521i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (13 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -698,8 +698,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357547i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442554i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (9 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -707,8 +707,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357580i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442587i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (11 : stdgo.GoInt32), _1 : _t_34?.__copy__(), _2 : _err_36 };
                         _r = __tmp__._0;
@@ -716,8 +716,8 @@ var _s = __1, _name = __0;
                         _err = __tmp__._2;
                         __tmp__;
                     };
-                    _gotoNext = 3357616i32;
-                } else if (__value__ == (3357616i32)) {
+                    _gotoNext = 3442623i32;
+                } else if (__value__ == (3442623i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_error.Error((("invalid escape sequence" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_errorcode.ErrorCode), (_s.__slice__(0, ((_s.length) - (_t_34.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_error.Error>)) };
                         _r = __tmp__._0;
@@ -843,16 +843,16 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
     static public function _parsePerlFlags( _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser>, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_t_parser.T_parser> = _p;
         var _rest = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var loopBreak = false;
+        var _t_25:stdgo.GoString = ("" : stdgo.GoString);
         var _sawFlag_33:Bool = false;
+        var _c_30:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _re_29:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>);
         var _name_28:stdgo.GoString = ("" : stdgo.GoString);
         var _capture_27:stdgo.GoString = ("" : stdgo.GoString);
         var _end_26:stdgo.GoInt = (0 : stdgo.GoInt);
+        var loopBreak = false;
         var _sign_32:stdgo.GoInt = (0 : stdgo.GoInt);
         var _flags_31:stdgo._internal.regexp.syntax.Syntax_flags.Flags = ((0 : stdgo.GoUInt16) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
-        var _c_30:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _t_25:stdgo.GoString = ("" : stdgo.GoString);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -861,76 +861,76 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
                 if (__value__ == (0i32)) {
                     _t_25 = _s?.__copy__();
                     if (((((_t_25.length) > (4 : stdgo.GoInt) : Bool) && _t_25[(2 : stdgo.GoInt)] == ((80 : stdgo.GoUInt8)) : Bool) && (_t_25[(3 : stdgo.GoInt)] == (60 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 3349181i32;
+                        _gotoNext = 3434188i32;
                     } else {
-                        _gotoNext = 3349795i32;
+                        _gotoNext = 3434802i32;
                     };
-                } else if (__value__ == (3349181i32)) {
+                } else if (__value__ == (3434188i32)) {
                     _end_26 = stdgo._internal.strings.Strings_indexrune.indexRune(_t_25?.__copy__(), (62 : stdgo.GoInt32));
                     if ((_end_26 < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3349251i32;
+                        _gotoNext = 3434258i32;
                     } else {
-                        _gotoNext = 3349371i32;
+                        _gotoNext = 3434378i32;
                     };
-                } else if (__value__ == (3349251i32)) {
+                } else if (__value__ == (3434258i32)) {
                     {
                         _err = stdgo._internal.regexp.syntax.Syntax__checkutf8._checkUTF8(_t_25?.__copy__());
                         if (_err != null) {
-                            _gotoNext = 3349290i32;
+                            _gotoNext = 3434297i32;
                         } else {
-                            _gotoNext = 3349319i32;
+                            _gotoNext = 3434326i32;
                         };
                     };
-                } else if (__value__ == (3349290i32)) {
+                } else if (__value__ == (3434297i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _rest = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349319i32;
-                } else if (__value__ == (3349319i32)) {
+                    _gotoNext = 3434326i32;
+                } else if (__value__ == (3434326i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_error.Error((("invalid named capture" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_errorcode.ErrorCode), _s?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_error.Error>)) };
                         _rest = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349371i32;
-                } else if (__value__ == (3349371i32)) {
+                    _gotoNext = 3434378i32;
+                } else if (__value__ == (3434378i32)) {
                     _capture_27 = (_t_25.__slice__(0, (_end_26 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _name_28 = (_t_25.__slice__((4 : stdgo.GoInt), _end_26) : stdgo.GoString)?.__copy__();
                     {
                         _err = stdgo._internal.regexp.syntax.Syntax__checkutf8._checkUTF8(_name_28?.__copy__());
                         if (_err != null) {
-                            _gotoNext = 3349479i32;
+                            _gotoNext = 3434486i32;
                         } else {
-                            _gotoNext = 3349505i32;
+                            _gotoNext = 3434512i32;
                         };
                     };
-                } else if (__value__ == (3349479i32)) {
+                } else if (__value__ == (3434486i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _rest = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349505i32;
-                } else if (__value__ == (3349505i32)) {
+                    _gotoNext = 3434512i32;
+                } else if (__value__ == (3434512i32)) {
                     if (!stdgo._internal.regexp.syntax.Syntax__isvalidcapturename._isValidCaptureName(_name_28?.__copy__())) {
-                        _gotoNext = 3349534i32;
+                        _gotoNext = 3434541i32;
                     } else {
-                        _gotoNext = 3349636i32;
+                        _gotoNext = 3434643i32;
                     };
-                } else if (__value__ == (3349534i32)) {
+                } else if (__value__ == (3434541i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_error.Error((("invalid named capture" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_errorcode.ErrorCode), _capture_27?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_error.Error>)) };
                         _rest = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349636i32;
-                } else if (__value__ == (3349636i32)) {
+                    _gotoNext = 3434643i32;
+                } else if (__value__ == (3434643i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._numCap++;
                     _re_29 = @:check2r _p._op((128 : stdgo._internal.regexp.syntax.Syntax_op.Op));
                     (@:checkr _re_29 ?? throw "null pointer dereference").cap = (@:checkr _p ?? throw "null pointer dereference")._numCap;
@@ -941,24 +941,24 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349795i32;
-                } else if (__value__ == (3349795i32)) {
+                    _gotoNext = 3434802i32;
+                } else if (__value__ == (3434802i32)) {
                     _t_25 = (_t_25.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                     _flags_31 = (@:checkr _p ?? throw "null pointer dereference")._flags;
                     _sign_32 = (1 : stdgo.GoInt);
                     _sawFlag_33 = false;
-                    _gotoNext = 3349876i32;
-                } else if (__value__ == (3349876i32)) {
+                    _gotoNext = 3434883i32;
+                } else if (__value__ == (3434883i32)) {
                     var __blank__ = 0i32;
                     loopBreak = false;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3349883i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3434890i32)) {
                     if (!loopBreak && (_t_25 != (stdgo.Go.str() : stdgo.GoString))) {
-                        _gotoNext = 3349895i32;
+                        _gotoNext = 3434902i32;
                     } else {
-                        _gotoNext = 3350710i32;
+                        _gotoNext = 3435717i32;
                     };
-                } else if (__value__ == (3349895i32)) {
+                } else if (__value__ == (3434902i32)) {
                     {
                         {
                             var __tmp__ = stdgo._internal.regexp.syntax.Syntax__nextrune._nextRune(_t_25?.__copy__());
@@ -967,100 +967,100 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
                             _err = @:tmpset0 __tmp__._2;
                         };
                         if (_err != null) {
-                            _gotoNext = 3349938i32;
+                            _gotoNext = 3434945i32;
                         } else {
-                            _gotoNext = 3349964i32;
+                            _gotoNext = 3434971i32;
                         };
                     };
-                } else if (__value__ == (3349938i32)) {
+                } else if (__value__ == (3434945i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : _err };
                         _rest = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349964i32;
-                } else if (__value__ == (3349964i32)) {
-                    _gotoNext = 3349964i32;
+                    _gotoNext = 3434971i32;
+                } else if (__value__ == (3434971i32)) {
+                    _gotoNext = 3434971i32;
                     {
                         final __value__ = _c_30;
                         if (__value__ == ((105 : stdgo.GoInt32))) {
-                            _gotoNext = 3350015i32;
+                            _gotoNext = 3435022i32;
                         } else if (__value__ == ((109 : stdgo.GoInt32))) {
-                            _gotoNext = 3350066i32;
+                            _gotoNext = 3435073i32;
                         } else if (__value__ == ((115 : stdgo.GoInt32))) {
-                            _gotoNext = 3350117i32;
+                            _gotoNext = 3435124i32;
                         } else if (__value__ == ((85 : stdgo.GoInt32))) {
-                            _gotoNext = 3350165i32;
+                            _gotoNext = 3435172i32;
                         } else if (__value__ == ((45 : stdgo.GoInt32))) {
-                            _gotoNext = 3350243i32;
+                            _gotoNext = 3435250i32;
                         } else if (__value__ == ((58 : stdgo.GoInt32)) || __value__ == ((41 : stdgo.GoInt32))) {
-                            _gotoNext = 3350503i32;
+                            _gotoNext = 3435510i32;
                         } else {
-                            _gotoNext = 3349977i32;
+                            _gotoNext = 3434984i32;
                         };
                     };
-                } else if (__value__ == (3349977i32)) {
+                } else if (__value__ == (3434984i32)) {
                     loopBreak = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350015i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435022i32)) {
                     _flags_31 = (_flags_31 | ((1 : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
                     _sawFlag_33 = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350066i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435073i32)) {
                     _flags_31 = (_flags_31 & ((((16 : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) ^ (-1i32 : stdgo.GoInt32) : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
                     _sawFlag_33 = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350117i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435124i32)) {
                     _flags_31 = (_flags_31 | ((8 : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
                     _sawFlag_33 = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350165i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435172i32)) {
                     _flags_31 = (_flags_31 | ((32 : stdgo._internal.regexp.syntax.Syntax_flags.Flags)) : stdgo._internal.regexp.syntax.Syntax_flags.Flags);
                     _sawFlag_33 = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350243i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435250i32)) {
                     if ((_sign_32 < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3350268i32;
+                        _gotoNext = 3435275i32;
                     } else {
-                        _gotoNext = 3350293i32;
+                        _gotoNext = 3435300i32;
                     };
-                } else if (__value__ == (3350268i32)) {
+                } else if (__value__ == (3435275i32)) {
                     loopBreak = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350293i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435300i32)) {
                     _sign_32 = (-1 : stdgo.GoInt);
                     _flags_31 = (-1 ^ _flags_31);
                     _sawFlag_33 = false;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350503i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435510i32)) {
                     if ((_sign_32 < (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3350533i32;
+                        _gotoNext = 3435540i32;
                     } else {
-                        _gotoNext = 3350602i32;
+                        _gotoNext = 3435609i32;
                     };
-                } else if (__value__ == (3350533i32)) {
+                } else if (__value__ == (3435540i32)) {
                     if (!_sawFlag_33) {
-                        _gotoNext = 3350551i32;
+                        _gotoNext = 3435558i32;
                     } else {
-                        _gotoNext = 3350579i32;
+                        _gotoNext = 3435586i32;
                     };
-                } else if (__value__ == (3350551i32)) {
+                } else if (__value__ == (3435558i32)) {
                     loopBreak = true;
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350579i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435586i32)) {
                     _flags_31 = (-1 ^ _flags_31);
-                    _gotoNext = 3350602i32;
-                } else if (__value__ == (3350602i32)) {
+                    _gotoNext = 3435609i32;
+                } else if (__value__ == (3435609i32)) {
                     if (_c_30 == ((58 : stdgo.GoInt32))) {
-                        _gotoNext = 3350614i32;
+                        _gotoNext = 3435621i32;
                     } else {
-                        _gotoNext = 3350668i32;
+                        _gotoNext = 3435675i32;
                     };
-                } else if (__value__ == (3350614i32)) {
+                } else if (__value__ == (3435621i32)) {
                     @:check2r _p._op((128 : stdgo._internal.regexp.syntax.Syntax_op.Op));
-                    _gotoNext = 3350668i32;
-                } else if (__value__ == (3350668i32)) {
+                    _gotoNext = 3435675i32;
+                } else if (__value__ == (3435675i32)) {
                     (@:checkr _p ?? throw "null pointer dereference")._flags = _flags_31;
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : _t_25?.__copy__(), _1 : (null : stdgo.Error) };
@@ -1068,8 +1068,8 @@ _n = (((_n * (10 : stdgo.GoInt) : stdgo.GoInt) + (_t[(_i : stdgo.GoInt)] : stdgo
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 3349883i32;
-                } else if (__value__ == (3350710i32)) {
+                    _gotoNext = 3434890i32;
+                } else if (__value__ == (3435717i32)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.regexp.syntax.Syntax_error.Error((("invalid or unsupported Perl syntax" : stdgo.GoString) : stdgo._internal.regexp.syntax.Syntax_errorcode.ErrorCode), (_s.__slice__(0, ((_s.length) - (_t_25.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo._internal.regexp.syntax.Syntax_error.Error)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_error.Error>)) };
                         _rest = __tmp__._0;

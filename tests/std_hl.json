@@ -27,5 +27,6 @@
  "hl|encoding/csv",
  "hl|hash/fnv",
  "hl|internal/platform",
- "hl|crypto"
+ "hl|crypto",
+ "hl|bufio"
 ]

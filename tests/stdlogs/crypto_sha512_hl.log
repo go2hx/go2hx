@@ -158,6 +158,7 @@ Called from _internal.crypto.sha512_dot_test._Sha512_dot_test.$Sha512_dot_test_F
 -- PASS: TestLargeHashes
 
 === RUN  TestAllocations
+-- SKIP: testAllocations
 
 -- PASS: TestAllocations
 

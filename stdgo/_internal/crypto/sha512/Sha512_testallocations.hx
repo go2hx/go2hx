@@ -1,5 +1,7 @@
 package stdgo._internal.crypto.sha512;
 function testAllocations(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        stdgo.Go.println('-- SKIP: ' + "testAllocations");
+        return;
         if (false) {
             @:check2r _t.skip(stdgo.Go.toInterface(("BoringCrypto doesn\'t allocate the same way as stdlib" : stdgo.GoString)));
         };

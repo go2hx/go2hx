@@ -331,5 +331,6 @@
  "interp|Varadicnamedslice",
  "interp|Vars0",
  "interp|Vars1",
- "interp|Vars2"
+ "interp|Vars2",
+ "interp|Ptrrecv1"
 ]

@@ -167,5 +167,7 @@
  "interp|bytesBuffer",
  "interp|vars1",
  "interp|binaryreader",
- "interp|heappop"
+ "interp|heappop",
+ "interp|ptrrecv1",
+ "interp|t_4darray"
 ]

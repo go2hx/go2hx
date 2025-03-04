@@ -119,7 +119,10 @@ private function set_atime(v:stdgo._internal.io.fs.Fs_fileinfo.FileInfo -> stdgo
         return v;
     }
 var lstatP(get, set) : stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>;
-private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> stdgo._internal.os.Os_lstatp.lstatP(_0);
+private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> {
+        final obj = stdgo._internal.os.Os_lstatp.lstatP(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
 private function set_lstatP(v:stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>):stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> {
         stdgo._internal.os.Os_lstatp.lstatP = v;
         return v;
@@ -143,9 +146,15 @@ private function set_errPatternHasSeparator(v:stdgo.Error):stdgo.Error {
         return v;
     }
 var splitPath(get, set) : String -> stdgo.Tuple<String, String>;
-private function get_splitPath():String -> stdgo.Tuple<String, String> return _0 -> stdgo._internal.os.Os_splitpath.splitPath(_0);
+private function get_splitPath():String -> stdgo.Tuple<String, String> return _0 -> {
+        final obj = stdgo._internal.os.Os_splitpath.splitPath(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
 private function set_splitPath(v:String -> stdgo.Tuple<String, String>):String -> stdgo.Tuple<String, String> {
-        stdgo._internal.os.Os_splitpath.splitPath = _0 -> v((_0 : stdgo.GoString));
+        stdgo._internal.os.Os_splitpath.splitPath = _0 -> {
+            final obj = v((_0 : stdgo.GoString));
+            { _0 : (obj._0 : stdgo.GoString), _1 : (obj._1 : stdgo.GoString) };
+        };
         return v;
     }
 @:dox(hide) class T_timeout_static_extension {
@@ -1293,7 +1302,7 @@ class Os {
     **/
     static public inline function expand(_s:String, _mapping:String -> String):String {
         final _s = (_s : stdgo.GoString);
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoString));
+        final _mapping = _0 -> (_mapping((_0 : stdgo.GoString)) : stdgo.GoString);
         return stdgo._internal.os.Os_expand.expand(_s, _mapping);
     }
     /**

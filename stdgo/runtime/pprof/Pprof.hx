@@ -16,7 +16,7 @@ package stdgo.runtime.pprof;
     @:from
     static function fromHaxeInterface(x:{ function len():StdTypes.Int; function stack(_i:StdTypes.Int):Array<stdgo.GoUIntptr>; function label(_i:StdTypes.Int):T_labelMap; }):T_countProfile {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_countProfile = { len : () -> x.len(), stack : _0 -> x.stack(_0), label : _0 -> x.label(_0), __underlying__ : () -> __f__() };
+        final y:T_countProfile = { len : () -> x.len(), stack : _0 -> [for (i in x.stack(_0)) i], label : _0 -> x.label(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -176,13 +176,13 @@ package stdgo.runtime.pprof;
     public var _count(get, set) : () -> StdTypes.Int;
     function get__count():() -> StdTypes.Int return () -> this._count();
     function set__count(v:() -> StdTypes.Int):() -> StdTypes.Int {
-        this._count = () -> v();
+        this._count = () -> (v() : stdgo.GoInt);
         return v;
     }
     public var _write(get, set) : (stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error;
     function get__write():(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error return (_0, _1) -> this._write(_0, _1);
     function set__write(v:(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error):(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error {
-        this._write = (_0, _1) -> v(_0, (_1 : stdgo.GoInt));
+        this._write = (_0, _1) -> (v(_0, (_1 : stdgo.GoInt)) : stdgo.Error);
         return v;
     }
     public function new(?_name:String, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_m:Map<stdgo.AnyInterface, Array<stdgo.GoUIntptr>>, ?_count:() -> StdTypes.Int, ?_write:(stdgo._internal.io.Io_writer.Writer, StdTypes.Int) -> stdgo.Error) this = new stdgo._internal.runtime.pprof.Pprof_profile.Profile((_name : stdgo.GoString), _mu, {
@@ -191,7 +191,7 @@ package stdgo.runtime.pprof;
             __obj__[(key : stdgo.AnyInterface)] = ([for (i in value) (i : stdgo.GoUIntptr)] : stdgo.Slice<stdgo.GoUIntptr>);
         };
         __obj__;
-    }, () -> _count(), (_0, _1) -> _write(_0, (_1 : stdgo.GoInt)));
+    }, () -> (_count() : stdgo.GoInt), (_0, _1) -> (_write(_0, (_1 : stdgo.GoInt)) : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

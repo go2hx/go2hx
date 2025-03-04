@@ -19,12 +19,18 @@ package stdgo.testing;
 @:dox(hide) class T_filterMatch_static_extension {
     static public function _verify(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return stdgo._internal.testing.Testing_t_filtermatch_static_extension.T_filterMatch_static_extension._verify(t, _name, _matchString);
     }
     static public function _matches(t:stdgo._internal.testing.Testing_t_filtermatch.T_filterMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return {
             final obj = stdgo._internal.testing.Testing_t_filtermatch_static_extension.T_filterMatch_static_extension._matches(t, _name, _matchString);
             { _0 : obj._0, _1 : obj._1 };
@@ -35,7 +41,16 @@ package stdgo.testing;
     @:from
     static function fromHaxeInterface(x:{ function _matches(_name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool>; function _verify(_name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error; }):T_filterMatch {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_filterMatch = { _matches : (_0, _1) -> x._matches([for (i in _0) i], (_0, _1) -> _1(_0, _1)), _verify : (_0, _1) -> x._verify(_0, (_0, _1) -> _1(_0, _1)), __underlying__ : () -> __f__() };
+        final y:T_filterMatch = { _matches : (_0, _1) -> {
+            final obj = x._matches([for (i in _0) i], (_0, _1) -> {
+                final obj = _1(_0, _1);
+                { _0 : obj._0, _1 : obj._1 };
+            });
+            { _0 : obj._0, _1 : obj._1 };
+        }, _verify : (_0, _1) -> x._verify(_0, (_0, _1) -> {
+            final obj = _1(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -139,10 +154,10 @@ class TB_static_extension {
         };
     }
     static public function runFuzzWorker(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:({ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error {
-        final _0 = _0 -> _0({
+        final _0 = _0 -> (_0({
             final obj = _0;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
-        });
+        }) : stdgo.Error);
         return stdgo._internal.testing.Testing_t_testdeps_static_extension.T_testDeps_static_extension.runFuzzWorker(t, _0);
     }
     static public function coordinateFuzzing(t:stdgo._internal.testing.Testing_t_testdeps.T_testDeps, _0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error {
@@ -194,13 +209,22 @@ class TB_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function importPath():String; function matchString(_pat:String, _str:String):stdgo.Tuple<Bool, stdgo.Error>; function setPanicOnExit0(_0:Bool):Void; function startCPUProfile(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Error; function stopCPUProfile():Void; function startTestLog(_0:stdgo._internal.io.Io_writer.Writer):Void; function stopTestLog():stdgo.Error; function writeProfileTo(_0:String, _1:stdgo._internal.io.Io_writer.Writer, _2:StdTypes.Int):stdgo.Error; function coordinateFuzzing(_0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error; function runFuzzWorker(_0:({ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error; function readCorpus(_0:String, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Tuple<Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, stdgo.Error>; function checkCorpus(_0:Array<stdgo.AnyInterface>, _1:Array<stdgo._internal.reflect.Reflect_type_.Type_>):stdgo.Error; function resetCoverage():Void; function snapshotCoverage():Void; }):T_testDeps {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_testDeps = { importPath : () -> x.importPath(), matchString : (_0, _1) -> x.matchString(_0, _1), setPanicOnExit0 : _0 -> x.setPanicOnExit0(_0), startCPUProfile : _0 -> x.startCPUProfile(_0), stopCPUProfile : () -> x.stopCPUProfile(), startTestLog : _0 -> x.startTestLog(_0), stopTestLog : () -> x.stopTestLog(), writeProfileTo : (_0, _1, _2) -> x.writeProfileTo(_0, _1, _2), coordinateFuzzing : (_0, _1, _2, _3, _4, _5, _6, _7, _8) -> x.coordinateFuzzing(_0, _1, _2, _3, _4, [for (i in _5) {
+        final y:T_testDeps = { importPath : () -> x.importPath(), matchString : (_0, _1) -> {
+            final obj = x.matchString(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, setPanicOnExit0 : _0 -> x.setPanicOnExit0(_0), startCPUProfile : _0 -> x.startCPUProfile(_0), stopCPUProfile : () -> x.stopCPUProfile(), startTestLog : _0 -> x.startTestLog(_0), stopTestLog : () -> x.stopTestLog(), writeProfileTo : (_0, _1, _2) -> x.writeProfileTo(_0, _1, _2), coordinateFuzzing : (_0, _1, _2, _3, _4, _5, _6, _7, _8) -> x.coordinateFuzzing(_0, _1, _2, _3, _4, [for (i in _5) {
             final obj = i;
             { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
         }], [for (i in _6) i], _7, _8), runFuzzWorker : _0 -> x.runFuzzWorker(_0 -> _0({
             final obj = _0;
             { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
-        })), readCorpus : (_0, _1) -> x.readCorpus(_0, [for (i in _1) i]), checkCorpus : (_0, _1) -> x.checkCorpus([for (i in _0) i], [for (i in _1) i]), resetCoverage : () -> x.resetCoverage(), snapshotCoverage : () -> x.snapshotCoverage(), __underlying__ : () -> __f__() };
+        })), readCorpus : (_0, _1) -> {
+            final obj = x.readCorpus(_0, [for (i in _1) i]);
+            { _0 : [for (i in obj._0) {
+                final obj = i;
+                { parent : obj.parent, path : obj.path, data : [for (i in obj.data) i], values : [for (i in obj.values) i], generation : obj.generation, isSeed : obj.isSeed };
+            }], _1 : obj._1 };
+        }, checkCorpus : (_0, _1) -> x.checkCorpus([for (i in _0) i], [for (i in _1) i]), resetCoverage : () -> x.resetCoverage(), snapshotCoverage : () -> x.snapshotCoverage(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -774,9 +798,15 @@ _result,
         return v;
     }
     public var _matchFunc(get, set) : (String, String) -> stdgo.Tuple<Bool, stdgo.Error>;
-    function get__matchFunc():(String, String) -> stdgo.Tuple<Bool, stdgo.Error> return (_0, _1) -> this._matchFunc(_0, _1);
+    function get__matchFunc():(String, String) -> stdgo.Tuple<Bool, stdgo.Error> return (_0, _1) -> {
+        final obj = this._matchFunc(_0, _1);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set__matchFunc(v:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):(String, String) -> stdgo.Tuple<Bool, stdgo.Error> {
-        this._matchFunc = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        this._matchFunc = (_0, _1) -> {
+            final obj = v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var _mu(get, set) : stdgo._internal.sync.Sync_mutex.Mutex;
@@ -803,7 +833,10 @@ _result,
         };
         return v;
     }
-    public function new(?_filter:T_filterMatch, ?_skip:T_filterMatch, ?_matchFunc:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_subNames:Map<String, StdTypes.Int>) this = new stdgo._internal.testing.Testing_t_matcher.T_matcher(_filter, _skip, (_0, _1) -> _matchFunc((_0 : stdgo.GoString), (_1 : stdgo.GoString)), _mu, {
+    public function new(?_filter:T_filterMatch, ?_skip:T_filterMatch, ?_matchFunc:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_subNames:Map<String, StdTypes.Int>) this = new stdgo._internal.testing.Testing_t_matcher.T_matcher(_filter, _skip, (_0, _1) -> {
+        final obj = _matchFunc((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    }, _mu, {
         final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>();
         for (key => value in _subNames) {
             __obj__[(key : stdgo.GoString)] = (value : stdgo.GoInt32);
@@ -2088,12 +2121,18 @@ class M_static_extension {
 @:dox(hide) class T_simpleMatch_static_extension {
     static public function _verify(_m:T_simpleMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return stdgo._internal.testing.Testing_t_simplematch_static_extension.T_simpleMatch_static_extension._verify(_m, _name, _matchString);
     }
     static public function _matches(_m:T_simpleMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return {
             final obj = stdgo._internal.testing.Testing_t_simplematch_static_extension.T_simpleMatch_static_extension._matches(_m, _name, _matchString);
             { _0 : obj._0, _1 : obj._1 };
@@ -2104,12 +2143,18 @@ class M_static_extension {
 @:dox(hide) class T_alternationMatch_static_extension {
     static public function _verify(_m:T_alternationMatch, _name:String, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Error {
         final _name = (_name : stdgo.GoString);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return stdgo._internal.testing.Testing_t_alternationmatch_static_extension.T_alternationMatch_static_extension._verify(_m, _name, _matchString);
     }
     static public function _matches(_m:T_alternationMatch, _name:Array<String>, _matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>):stdgo.Tuple<Bool, Bool> {
         final _name = ([for (i in _name) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>);
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return {
             final obj = stdgo._internal.testing.Testing_t_alternationmatch_static_extension.T_alternationMatch_static_extension._matches(_m, _name, _matchString);
             { _0 : obj._0, _1 : obj._1 };
@@ -2142,7 +2187,7 @@ class M_static_extension {
         };
     }
     static public function runFuzzWorker(_f:T_matchStringOnly, _0:stdgo._internal.testing.Testing_t_corpusentry.T_corpusEntry -> stdgo.Error):stdgo.Error {
-        final _0 = _0 -> _0(_0);
+        final _0 = _0 -> (_0(_0) : stdgo.Error);
         return stdgo._internal.testing.Testing_t_matchstringonly_static_extension.T_matchStringOnly_static_extension.runFuzzWorker(_f, _0);
     }
     static public function coordinateFuzzing(_f:T_matchStringOnly, _0:stdgo._internal.time.Time_duration.Duration, _1:haxe.Int64, _2:stdgo._internal.time.Time_duration.Duration, _3:haxe.Int64, _4:StdTypes.Int, _5:Array<stdgo._internal.testing.Testing_t_corpusentry.T_corpusEntry>, _6:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _7:String, _8:String):stdgo.Error {
@@ -2575,7 +2620,10 @@ class Testing {
         * it is part of the implementation of the "go test" command.
     **/
     static public inline function runBenchmarks(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _benchmarks:Array<InternalBenchmark>):Void {
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         final _benchmarks = ([for (i in _benchmarks) i] : stdgo.Slice<stdgo._internal.testing.Testing_internalbenchmark.InternalBenchmark>);
         stdgo._internal.testing.Testing_runbenchmarks.runBenchmarks(_matchString, _benchmarks);
     }
@@ -2618,7 +2666,10 @@ class Testing {
         * it is part of the implementation of the "go test" command.
     **/
     static public inline function runExamples(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _examples:Array<InternalExample>):Bool {
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         final _examples = ([for (i in _examples) i] : stdgo.Slice<stdgo._internal.testing.Testing_internalexample.InternalExample>);
         return stdgo._internal.testing.Testing_runexamples.runExamples(_matchString, _examples);
     }
@@ -2677,7 +2728,10 @@ class Testing {
         * it is part of the implementation of the "go test" command.
     **/
     static public inline function runTests(_matchString:(String, String) -> stdgo.Tuple<Bool, stdgo.Error>, _tests:Array<InternalTest>):Bool {
-        final _matchString = (_0, _1) -> _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        final _matchString = (_0, _1) -> {
+            final obj = _matchString((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         final _tests = ([for (i in _tests) i] : stdgo.Slice<stdgo._internal.testing.Testing_internaltest.InternalTest>);
         return stdgo._internal.testing.Testing_runtests.runTests(_matchString, _tests);
     }

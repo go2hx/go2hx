@@ -99,7 +99,7 @@ class Load_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function raw():Array<std.UInt>; }):Load {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Load = { raw : () -> x.raw(), __underlying__ : () -> __f__() };
+        final y:Load = { raw : () -> [for (i in x.raw()) i], __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

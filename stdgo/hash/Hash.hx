@@ -18,7 +18,10 @@ class Hash_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function sum(_b:Array<std.UInt>):Array<std.UInt>; function reset():Void; function size():StdTypes.Int; function blockSize():StdTypes.Int; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Hash_ {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Hash_ = { sum : _0 -> x.sum([for (i in _0) i]), reset : () -> x.reset(), size : () -> x.size(), blockSize : () -> x.blockSize(), write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Hash_ = { sum : _0 -> [for (i in x.sum([for (i in _0) i])) i], reset : () -> x.reset(), size : () -> x.size(), blockSize : () -> x.blockSize(), write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -32,7 +35,10 @@ class Hash32_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function sum32():std.UInt; function blockSize():StdTypes.Int; function reset():Void; function size():StdTypes.Int; function sum(_0:Array<std.UInt>):Array<std.UInt>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Hash32 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Hash32 = { sum32 : () -> x.sum32(), blockSize : () -> x.blockSize(), reset : () -> x.reset(), size : () -> x.size(), sum : _0 -> x.sum([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Hash32 = { sum32 : () -> x.sum32(), blockSize : () -> x.blockSize(), reset : () -> x.reset(), size : () -> x.size(), sum : _0 -> [for (i in x.sum([for (i in _0) i])) i], write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -46,7 +52,10 @@ class Hash64_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function sum64():haxe.UInt64; function blockSize():StdTypes.Int; function reset():Void; function size():StdTypes.Int; function sum(_0:Array<std.UInt>):Array<std.UInt>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Hash64 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Hash64 = { sum64 : () -> x.sum64(), blockSize : () -> x.blockSize(), reset : () -> x.reset(), size : () -> x.size(), sum : _0 -> x.sum([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Hash64 = { sum64 : () -> x.sum64(), blockSize : () -> x.blockSize(), reset : () -> x.reset(), size : () -> x.size(), sum : _0 -> [for (i in x.sum([for (i in _0) i])) i], write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

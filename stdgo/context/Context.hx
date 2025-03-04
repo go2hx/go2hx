@@ -33,7 +33,10 @@ class Context_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function deadline():stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool>; function done():stdgo.Chan<{ }>; function err():stdgo.Error; function value(_key:stdgo.AnyInterface):stdgo.AnyInterface; }):Context_ {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Context_ = { deadline : () -> x.deadline(), done : () -> x.done(), err : () -> x.err(), value : _0 -> x.value(_0), __underlying__ : () -> __f__() };
+        final y:Context_ = { deadline : () -> {
+            final obj = x.deadline();
+            { _0 : obj._0, _1 : obj._1 };
+        }, done : () -> x.done(), err : () -> x.err(), value : _0 -> x.value(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -48,7 +51,7 @@ class Context_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function afterFunc(_0:() -> Void):() -> Bool; }):T_afterFuncer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_afterFuncer = { afterFunc : _0 -> x.afterFunc(() -> _0()), __underlying__ : () -> __f__() };
+        final y:T_afterFuncer = { afterFunc : _0 -> () -> x.afterFunc(() -> _0())(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -150,7 +153,10 @@ class Context_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function deadline():stdgo.Tuple<stdgo._internal.time.Time_time.Time, Bool>; function error(_args:haxe.Rest<stdgo.AnyInterface>):Void; function errorf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function fail():Void; function failNow():Void; function failed():Bool; function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void; function fatalf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function helper():Void; function log(_args:haxe.Rest<stdgo.AnyInterface>):Void; function logf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function name():String; function parallel():Void; function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void; function skipNow():Void; function skipf(_format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void; function skipped():Bool; }):T_testingT {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_testingT = { deadline : () -> x.deadline(), error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), parallel : () -> x.parallel(), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), __underlying__ : () -> __f__() };
+        final y:T_testingT = { deadline : () -> {
+            final obj = x.deadline();
+            { _0 : obj._0, _1 : obj._1 };
+        }, error : _0 -> x.error(_0), errorf : (_0, _1) -> x.errorf(_0, _1), fail : () -> x.fail(), failNow : () -> x.failNow(), failed : () -> x.failed(), fatal : _0 -> x.fatal(_0), fatalf : (_0, _1) -> x.fatalf(_0, _1), helper : () -> x.helper(), log : _0 -> x.log(_0), logf : (_0, _1) -> x.logf(_0, _1), name : () -> x.name(), parallel : () -> x.parallel(), skip : _0 -> x.skip(_0), skipNow : () -> x.skipNow(), skipf : (_0, _1) -> x.skipf(_0, _1), skipped : () -> x.skipped(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

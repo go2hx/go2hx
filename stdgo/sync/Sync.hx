@@ -14,7 +14,7 @@ private function set_runtime_Semrelease(v:(stdgo.Pointer<std.UInt>, Bool, StdTyp
 var runtime_procPin(get, set) : () -> StdTypes.Int;
 private function get_runtime_procPin():() -> StdTypes.Int return () -> stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin();
 private function set_runtime_procPin(v:() -> StdTypes.Int):() -> StdTypes.Int {
-        stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin = () -> v();
+        stdgo._internal.sync.Sync_runtime_procpin.runtime_procPin = () -> (v() : stdgo.GoInt);
         return v;
     }
 var runtime_procUnpin(get, set) : () -> Void;
@@ -45,7 +45,13 @@ class PoolDequeue_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function pushHead(_val:stdgo.AnyInterface):Bool; function popHead():stdgo.Tuple<stdgo.AnyInterface, Bool>; function popTail():stdgo.Tuple<stdgo.AnyInterface, Bool>; }):PoolDequeue {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:PoolDequeue = { pushHead : _0 -> x.pushHead(_0), popHead : () -> x.popHead(), popTail : () -> x.popTail(), __underlying__ : () -> __f__() };
+        final y:PoolDequeue = { pushHead : _0 -> x.pushHead(_0), popHead : () -> {
+            final obj = x.popHead();
+            { _0 : obj._0, _1 : obj._1 };
+        }, popTail : () -> {
+            final obj = x.popTail();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -262,10 +268,10 @@ class Locker_static_extension {
     public var new_(get, set) : () -> stdgo.AnyInterface;
     function get_new_():() -> stdgo.AnyInterface return () -> this.new_();
     function set_new_(v:() -> stdgo.AnyInterface):() -> stdgo.AnyInterface {
-        this.new_ = () -> v();
+        this.new_ = () -> (v() : stdgo.AnyInterface);
         return v;
     }
-    public function new(?_noCopy:T_noCopy, ?_local:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_localSize:stdgo.GoUIntptr, ?_victim:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_victimSize:stdgo.GoUIntptr, ?new_:() -> stdgo.AnyInterface, ?pool) this = new stdgo._internal.sync.Sync_pool.Pool(_noCopy, _local, (_localSize : stdgo.GoUIntptr), _victim, (_victimSize : stdgo.GoUIntptr), () -> new_(), pool);
+    public function new(?_noCopy:T_noCopy, ?_local:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_localSize:stdgo.GoUIntptr, ?_victim:stdgo._internal.unsafe.Unsafe.UnsafePointer, ?_victimSize:stdgo.GoUIntptr, ?new_:() -> stdgo.AnyInterface, ?pool) this = new stdgo._internal.sync.Sync_pool.Pool(_noCopy, _local, (_localSize : stdgo.GoUIntptr), _victim, (_victimSize : stdgo.GoUIntptr), () -> (new_() : stdgo.AnyInterface), pool);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -991,7 +997,13 @@ class Sync {
         * If f panics, the returned function will panic with the same value on every call.
     **/
     static public inline function onceValues(_f:() -> stdgo.Tuple<Dynamic, Dynamic>):() -> stdgo.Tuple<Dynamic, Dynamic> {
-        final _f = () -> _f();
-        return () -> stdgo._internal.sync.Sync_oncevalues.onceValues(_f)();
+        final _f = () -> {
+            final obj = _f();
+            { _0 : obj._0, _1 : obj._1 };
+        };
+        return () -> {
+            final obj = stdgo._internal.sync.Sync_oncevalues.onceValues(_f)();
+            { _0 : obj._0, _1 : obj._1 };
+        };
     }
 }

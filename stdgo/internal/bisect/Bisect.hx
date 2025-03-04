@@ -12,7 +12,10 @@ class Writer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Writer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Writer = { write : _0 -> x.write([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Writer = { write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -233,7 +233,10 @@ private function set_errUnknownPC(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function _version():StdTypes.Int; function _dwarf64():stdgo.Tuple<Bool, Bool>; function _addrsize():StdTypes.Int; }):T_dataFormat {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_dataFormat = { _version : () -> x._version(), _dwarf64 : () -> x._dwarf64(), _addrsize : () -> x._addrsize(), __underlying__ : () -> __f__() };
+        final y:T_dataFormat = { _version : () -> x._version(), _dwarf64 : () -> {
+            final obj = x._dwarf64();
+            { _0 : obj._0, _1 : obj._1 };
+        }, _addrsize : () -> x._addrsize(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -282,7 +285,10 @@ class Type__static_extension {
     @:from
     static function fromHaxeInterface(x:{ function seek(_0:Offset):Void; function next():stdgo.Tuple<Entry, stdgo.Error>; function _clone():T_typeReader; function _offset():Offset; function addressSize():StdTypes.Int; }):T_typeReader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_typeReader = { seek : _0 -> x.seek(_0), next : () -> x.next(), _clone : () -> x._clone(), _offset : () -> x._offset(), addressSize : () -> x.addressSize(), __underlying__ : () -> __f__() };
+        final y:T_typeReader = { seek : _0 -> x.seek(_0), next : () -> {
+            final obj = x.next();
+            { _0 : obj._0, _1 : obj._1 };
+        }, _clone : () -> x._clone(), _offset : () -> x._offset(), addressSize : () -> x.addressSize(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

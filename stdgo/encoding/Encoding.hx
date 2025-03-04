@@ -11,7 +11,10 @@ class BinaryMarshaler_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):BinaryMarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:BinaryMarshaler = { marshalBinary : () -> x.marshalBinary(), __underlying__ : () -> __f__() };
+        final y:BinaryMarshaler = { marshalBinary : () -> {
+            final obj = x.marshalBinary();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -43,7 +46,10 @@ class TextMarshaler_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function marshalText():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):TextMarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:TextMarshaler = { marshalText : () -> x.marshalText(), __underlying__ : () -> __f__() };
+        final y:TextMarshaler = { marshalText : () -> {
+            final obj = x.marshalText();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

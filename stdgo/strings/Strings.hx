@@ -16,7 +16,10 @@ package stdgo.strings;
     @:from
     static function fromHaxeInterface(x:{ function replace(_s:String):String; function writeString(_w:stdgo._internal.io.Io_writer.Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_replacer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_replacer = { replace : _0 -> x.replace(_0), writeString : (_0, _1) -> x.writeString(_0, _1), __underlying__ : () -> __f__() };
+        final y:T_replacer = { replace : _0 -> x.replace(_0), writeString : (_0, _1) -> {
+            final obj = x.writeString(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -823,7 +826,7 @@ class Strings {
         * dropped from the string with no replacement.
     **/
     static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:String):String {
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoInt32));
+        final _mapping = _0 -> (_mapping((_0 : stdgo.GoInt32)) : stdgo.GoInt32);
         final _s = (_s : stdgo.GoString);
         return stdgo._internal.strings.Strings_map_.map_(_mapping, _s);
     }

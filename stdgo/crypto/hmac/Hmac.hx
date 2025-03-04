@@ -15,7 +15,10 @@ package stdgo.crypto.hmac;
     @:from
     static function fromHaxeInterface(x:{ function marshalBinary():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function unmarshalBinary(_0:Array<std.UInt>):stdgo.Error; }):T_marshalable {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_marshalable = { marshalBinary : () -> x.marshalBinary(), unmarshalBinary : _0 -> x.unmarshalBinary([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_marshalable = { marshalBinary : () -> {
+            final obj = x.marshalBinary();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, unmarshalBinary : _0 -> x.unmarshalBinary([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

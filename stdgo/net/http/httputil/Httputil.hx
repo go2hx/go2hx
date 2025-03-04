@@ -36,7 +36,7 @@ class BufferPool_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function get():Array<std.UInt>; function put(_0:Array<std.UInt>):Void; }):BufferPool {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:BufferPool = { get : () -> x.get(), put : _0 -> x.put([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:BufferPool = { get : () -> [for (i in x.get()) i], put : _0 -> x.put([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -245,7 +245,7 @@ class BufferPool_static_extension {
     public var _writeReq(get, set) : (stdgo._internal.net.http.Http_request.Request, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error;
     function get__writeReq():(stdgo._internal.net.http.Http_request.Request, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error return (_0, _1) -> this._writeReq(_0, _1);
     function set__writeReq(v:(stdgo._internal.net.http.Http_request.Request, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error):(stdgo._internal.net.http.Http_request.Request, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error {
-        this._writeReq = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _1);
+        this._writeReq = (_0, _1) -> (v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _1) : stdgo.Error);
         return v;
     }
     public function new(?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_c:stdgo._internal.net.Net_conn.Conn, ?_r:stdgo._internal.bufio.Bufio_reader.Reader, ?_re:stdgo.Error, ?_we:stdgo.Error, ?_lastbody:stdgo._internal.io.Io_readcloser.ReadCloser, ?_nread:StdTypes.Int, ?_nwritten:StdTypes.Int, ?_pipereq:Map<stdgo._internal.net.http.Http_request.Request, std.UInt>, ?_pipe:stdgo._internal.net.textproto.Textproto_pipeline.Pipeline, ?_writeReq:(stdgo._internal.net.http.Http_request.Request, stdgo._internal.io.Io_writer.Writer) -> stdgo.Error) this = new stdgo._internal.net.http.httputil.Httputil_clientconn.ClientConn(
@@ -265,7 +265,7 @@ _lastbody,
         __obj__;
     },
 _pipe,
-(_0, _1) -> _writeReq((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _1));
+(_0, _1) -> (_writeReq((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), _1) : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -326,7 +326,7 @@ _pipe,
     public var modifyResponse(get, set) : stdgo._internal.net.http.Http_response.Response -> stdgo.Error;
     function get_modifyResponse():stdgo._internal.net.http.Http_response.Response -> stdgo.Error return _0 -> this.modifyResponse(_0);
     function set_modifyResponse(v:stdgo._internal.net.http.Http_response.Response -> stdgo.Error):stdgo._internal.net.http.Http_response.Response -> stdgo.Error {
-        this.modifyResponse = _0 -> v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>));
+        this.modifyResponse = _0 -> (v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)) : stdgo.Error);
         return v;
     }
     public var errorHandler(get, set) : (stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo._internal.net.http.Http_request.Request, stdgo.Error) -> Void;
@@ -335,7 +335,7 @@ _pipe,
         this.errorHandler = (_0, _1, _2) -> v(_0, (_1 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_2 : stdgo.Error));
         return v;
     }
-    public function new(?rewrite:ProxyRequest -> Void, ?director:stdgo._internal.net.http.Http_request.Request -> Void, ?transport:stdgo._internal.net.http.Http_roundtripper.RoundTripper, ?flushInterval:stdgo._internal.time.Time_duration.Duration, ?errorLog:stdgo._internal.log.Log_logger.Logger, ?bufferPool:BufferPool, ?modifyResponse:stdgo._internal.net.http.Http_response.Response -> stdgo.Error, ?errorHandler:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo._internal.net.http.Http_request.Request, stdgo.Error) -> Void) this = new stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy(_0 -> rewrite((_0 : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest>)), _0 -> director((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)), transport, flushInterval, (errorLog : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>), bufferPool, _0 -> modifyResponse((_0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)), (_0, _1, _2) -> errorHandler(_0, (_1 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_2 : stdgo.Error)));
+    public function new(?rewrite:ProxyRequest -> Void, ?director:stdgo._internal.net.http.Http_request.Request -> Void, ?transport:stdgo._internal.net.http.Http_roundtripper.RoundTripper, ?flushInterval:stdgo._internal.time.Time_duration.Duration, ?errorLog:stdgo._internal.log.Log_logger.Logger, ?bufferPool:BufferPool, ?modifyResponse:stdgo._internal.net.http.Http_response.Response -> stdgo.Error, ?errorHandler:(stdgo._internal.net.http.Http_responsewriter.ResponseWriter, stdgo._internal.net.http.Http_request.Request, stdgo.Error) -> Void) this = new stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy(_0 -> rewrite((_0 : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_proxyrequest.ProxyRequest>)), _0 -> director((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)), transport, flushInterval, (errorLog : stdgo.Ref<stdgo._internal.log.Log_logger.Logger>), bufferPool, _0 -> (modifyResponse((_0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)) : stdgo.Error), (_0, _1, _2) -> errorHandler(_0, (_1 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_2 : stdgo.Error)));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -349,7 +349,7 @@ _pipe,
     public var _flush(get, set) : () -> stdgo.Error;
     function get__flush():() -> stdgo.Error return () -> this._flush();
     function set__flush(v:() -> stdgo.Error):() -> stdgo.Error {
-        this._flush = () -> v();
+        this._flush = () -> (v() : stdgo.Error);
         return v;
     }
     public var _latency(get, set) : stdgo._internal.time.Time_duration.Duration;
@@ -376,7 +376,7 @@ _pipe,
         this._flushPending = v;
         return v;
     }
-    public function new(?_dst:stdgo._internal.io.Io_writer.Writer, ?_flush:() -> stdgo.Error, ?_latency:stdgo._internal.time.Time_duration.Duration, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_t:stdgo._internal.time.Time_timer.Timer, ?_flushPending:Bool) this = new stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter(_dst, () -> _flush(), _latency, _mu, (_t : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>), _flushPending);
+    public function new(?_dst:stdgo._internal.io.Io_writer.Writer, ?_flush:() -> stdgo.Error, ?_latency:stdgo._internal.time.Time_duration.Duration, ?_mu:stdgo._internal.sync.Sync_mutex.Mutex, ?_t:stdgo._internal.time.Time_timer.Timer, ?_flushPending:Bool) this = new stdgo._internal.net.http.httputil.Httputil_t_maxlatencywriter.T_maxLatencyWriter(_dst, () -> (_flush() : stdgo.Error), _latency, _mu, (_t : stdgo.Ref<stdgo._internal.time.Time_timer.Timer>), _flushPending);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

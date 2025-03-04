@@ -14,7 +14,10 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.aes.Aes_blocksize.blockSi
     @:from
     static function fromHaxeInterface(x:{ function newGCM(_nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<stdgo._internal.crypto.cipher.Cipher_aead.AEAD, stdgo.Error>; }):T_gcmAble {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_gcmAble = { newGCM : (_0, _1) -> x.newGCM(_0, _1), __underlying__ : () -> __f__() };
+        final y:T_gcmAble = { newGCM : (_0, _1) -> {
+            final obj = x.newGCM(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

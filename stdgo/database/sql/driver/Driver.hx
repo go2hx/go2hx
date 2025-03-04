@@ -60,7 +60,10 @@ class Driver_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<Conn, stdgo.Error>; }):Driver_ {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Driver_ = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:Driver_ = { open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -78,7 +81,10 @@ class DriverContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function openConnector(_name:String):stdgo.Tuple<Connector, stdgo.Error>; }):DriverContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:DriverContext = { openConnector : _0 -> x.openConnector(_0), __underlying__ : () -> __f__() };
+        final y:DriverContext = { openConnector : _0 -> {
+            final obj = x.openConnector(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -98,7 +104,10 @@ class Connector_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function connect(_0:stdgo._internal.context.Context_context.Context):stdgo.Tuple<Conn, stdgo.Error>; function driver():Driver_; }):Connector {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Connector = { connect : _0 -> x.connect(_0), driver : () -> x.driver(), __underlying__ : () -> __f__() };
+        final y:Connector = { connect : _0 -> {
+            final obj = x.connect(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, driver : () -> x.driver(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -131,7 +140,10 @@ class Execer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function exec(_query:String, _args:Array<Value>):stdgo.Tuple<Result, stdgo.Error>; }):Execer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Execer = { exec : (_0, _1) -> x.exec(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        final y:Execer = { exec : (_0, _1) -> {
+            final obj = x.exec(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -150,7 +162,10 @@ class ExecerContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function execContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error>; }):ExecerContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ExecerContext = { execContext : (_0, _1, _2) -> x.execContext(_0, _1, [for (i in _2) i]), __underlying__ : () -> __f__() };
+        final y:ExecerContext = { execContext : (_0, _1, _2) -> {
+            final obj = x.execContext(_0, _1, [for (i in _2) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -169,7 +184,10 @@ class Queryer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function query(_query:String, _args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error>; }):Queryer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Queryer = { query : (_0, _1) -> x.query(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        final y:Queryer = { query : (_0, _1) -> {
+            final obj = x.query(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -188,7 +206,10 @@ class QueryerContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function queryContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error>; }):QueryerContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:QueryerContext = { queryContext : (_0, _1, _2) -> x.queryContext(_0, _1, [for (i in _2) i]), __underlying__ : () -> __f__() };
+        final y:QueryerContext = { queryContext : (_0, _1, _2) -> {
+            final obj = x.queryContext(_0, _1, [for (i in _2) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -215,7 +236,13 @@ class Conn_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function prepare(_query:String):stdgo.Tuple<Stmt, stdgo.Error>; function close():stdgo.Error; function begin():stdgo.Tuple<Tx, stdgo.Error>; }):Conn {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Conn = { prepare : _0 -> x.prepare(_0), close : () -> x.close(), begin : () -> x.begin(), __underlying__ : () -> __f__() };
+        final y:Conn = { prepare : _0 -> {
+            final obj = x.prepare(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), begin : () -> {
+            final obj = x.begin();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -233,7 +260,10 @@ class ConnPrepareContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function prepareContext(_ctx:stdgo._internal.context.Context_context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error>; }):ConnPrepareContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ConnPrepareContext = { prepareContext : (_0, _1) -> x.prepareContext(_0, _1), __underlying__ : () -> __f__() };
+        final y:ConnPrepareContext = { prepareContext : (_0, _1) -> {
+            final obj = x.prepareContext(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -250,7 +280,10 @@ class ConnBeginTx_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function beginTx(_ctx:stdgo._internal.context.Context_context.Context, _opts:TxOptions):stdgo.Tuple<Tx, stdgo.Error>; }):ConnBeginTx {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ConnBeginTx = { beginTx : (_0, _1) -> x.beginTx(_0, _1), __underlying__ : () -> __f__() };
+        final y:ConnBeginTx = { beginTx : (_0, _1) -> {
+            final obj = x.beginTx(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -301,7 +334,13 @@ class Result_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function lastInsertId():stdgo.Tuple<haxe.Int64, stdgo.Error>; function rowsAffected():stdgo.Tuple<haxe.Int64, stdgo.Error>; }):Result {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Result = { lastInsertId : () -> x.lastInsertId(), rowsAffected : () -> x.rowsAffected(), __underlying__ : () -> __f__() };
+        final y:Result = { lastInsertId : () -> {
+            final obj = x.lastInsertId();
+            { _0 : obj._0, _1 : obj._1 };
+        }, rowsAffected : () -> {
+            final obj = x.rowsAffected();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -332,7 +371,13 @@ class Stmt_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function close():stdgo.Error; function numInput():StdTypes.Int; function exec(_args:Array<Value>):stdgo.Tuple<Result, stdgo.Error>; function query(_args:Array<Value>):stdgo.Tuple<Rows, stdgo.Error>; }):Stmt {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Stmt = { close : () -> x.close(), numInput : () -> x.numInput(), exec : _0 -> x.exec([for (i in _0) i]), query : _0 -> x.query([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Stmt = { close : () -> x.close(), numInput : () -> x.numInput(), exec : _0 -> {
+            final obj = x.exec([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, query : _0 -> {
+            final obj = x.query([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -350,7 +395,10 @@ class StmtExecContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function execContext(_ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Result, stdgo.Error>; }):StmtExecContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:StmtExecContext = { execContext : (_0, _1) -> x.execContext(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        final y:StmtExecContext = { execContext : (_0, _1) -> {
+            final obj = x.execContext(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -368,7 +416,10 @@ class StmtQueryContext_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function queryContext(_ctx:stdgo._internal.context.Context_context.Context, _args:Array<NamedValue>):stdgo.Tuple<Rows, stdgo.Error>; }):StmtQueryContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:StmtQueryContext = { queryContext : (_0, _1) -> x.queryContext(_0, [for (i in _1) i]), __underlying__ : () -> __f__() };
+        final y:StmtQueryContext = { queryContext : (_0, _1) -> {
+            final obj = x.queryContext(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -419,7 +470,7 @@ class Rows_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columns():Array<String>; function close():stdgo.Error; function next(_dest:Array<Value>):stdgo.Error; }):Rows {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Rows = { columns : () -> x.columns(), close : () -> x.close(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Rows = { columns : () -> [for (i in x.columns()) i], close : () -> x.close(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -436,7 +487,7 @@ class RowsNextResultSet_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function hasNextResultSet():Bool; function nextResultSet():stdgo.Error; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsNextResultSet {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsNextResultSet = { hasNextResultSet : () -> x.hasNextResultSet(), nextResultSet : () -> x.nextResultSet(), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsNextResultSet = { hasNextResultSet : () -> x.hasNextResultSet(), nextResultSet : () -> x.nextResultSet(), close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -451,7 +502,7 @@ class RowsColumnTypeScanType_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columnTypeScanType(_index:StdTypes.Int):stdgo._internal.reflect.Reflect_type_.Type_; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsColumnTypeScanType {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsColumnTypeScanType = { columnTypeScanType : _0 -> x.columnTypeScanType(_0), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsColumnTypeScanType = { columnTypeScanType : _0 -> x.columnTypeScanType(_0), close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -466,7 +517,7 @@ class RowsColumnTypeDatabaseTypeName_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columnTypeDatabaseTypeName(_index:StdTypes.Int):String; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsColumnTypeDatabaseTypeName {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsColumnTypeDatabaseTypeName = { columnTypeDatabaseTypeName : _0 -> x.columnTypeDatabaseTypeName(_0), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsColumnTypeDatabaseTypeName = { columnTypeDatabaseTypeName : _0 -> x.columnTypeDatabaseTypeName(_0), close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -484,7 +535,10 @@ class RowsColumnTypeLength_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columnTypeLength(_index:StdTypes.Int):stdgo.Tuple<haxe.Int64, Bool>; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsColumnTypeLength {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsColumnTypeLength = { columnTypeLength : _0 -> x.columnTypeLength(_0), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsColumnTypeLength = { columnTypeLength : _0 -> {
+            final obj = x.columnTypeLength(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -502,7 +556,10 @@ class RowsColumnTypeNullable_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columnTypeNullable(_index:StdTypes.Int):stdgo.Tuple<Bool, Bool>; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsColumnTypeNullable {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsColumnTypeNullable = { columnTypeNullable : _0 -> x.columnTypeNullable(_0), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsColumnTypeNullable = { columnTypeNullable : _0 -> {
+            final obj = x.columnTypeNullable(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -520,7 +577,10 @@ class RowsColumnTypePrecisionScale_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function columnTypePrecisionScale(_index:StdTypes.Int):stdgo.Tuple.Tuple3<haxe.Int64, haxe.Int64, Bool>; function close():stdgo.Error; function columns():Array<String>; function next(_0:Array<Value>):stdgo.Error; }):RowsColumnTypePrecisionScale {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RowsColumnTypePrecisionScale = { columnTypePrecisionScale : _0 -> x.columnTypePrecisionScale(_0), close : () -> x.close(), columns : () -> x.columns(), next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:RowsColumnTypePrecisionScale = { columnTypePrecisionScale : _0 -> {
+            final obj = x.columnTypePrecisionScale(_0);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        }, close : () -> x.close(), columns : () -> [for (i in x.columns()) i], next : _0 -> x.next([for (i in _0) i]), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -555,7 +615,10 @@ class ValueConverter_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function convertValue(_v:stdgo.AnyInterface):stdgo.Tuple<Value, stdgo.Error>; }):ValueConverter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ValueConverter = { convertValue : _0 -> x.convertValue(_0), __underlying__ : () -> __f__() };
+        final y:ValueConverter = { convertValue : _0 -> {
+            final obj = x.convertValue(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -572,7 +635,10 @@ class Valuer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function value():stdgo.Tuple<Value, stdgo.Error>; }):Valuer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Valuer = { value : () -> x.value(), __underlying__ : () -> __f__() };
+        final y:Valuer = { value : () -> {
+            final obj = x.value();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -590,7 +656,10 @@ class Valuer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function decompose(_buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int>; }):T_decimalDecompose {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_decimalDecompose = { decompose : _0 -> x.decompose([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_decimalDecompose = { decompose : _0 -> {
+            final obj = x.decompose([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1, _2 : [for (i in obj._2) i], _3 : obj._3 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -38,7 +38,19 @@ package stdgo.crypto.ecdsa;
     @:from
     static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function bytesX():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function add(_0:Dynamic, _1:Dynamic):Dynamic; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_nistPoint = { bytes : () -> x.bytes(), bytesX : () -> x.bytesX(), setBytes : _0 -> x.setBytes([for (i in _0) i]), add : (_0, _1) -> x.add(_0, _1), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_nistPoint = { bytes : () -> [for (i in x.bytes()) i], bytesX : () -> {
+            final obj = x.bytesX();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, setBytes : _0 -> {
+            final obj = x.setBytes([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, add : (_0, _1) -> x.add(_0, _1), scalarMult : (_0, _1) -> {
+            final obj = x.scalarMult(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarBaseMult : _0 -> {
+            final obj = x.scalarBaseMult([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

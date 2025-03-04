@@ -296,14 +296,14 @@ class FlagSet_static_extension {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _0 -> (_fn((_0 : stdgo.GoString)) : stdgo.Error);
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.boolFunc(_f, _name, _usage, _fn);
     }
     static public function func(_f:FlagSet, _name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _f = (_f : stdgo.Ref<stdgo._internal.flag.Flag_flagset.FlagSet>);
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _0 -> (_fn((_0 : stdgo.GoString)) : stdgo.Error);
         stdgo._internal.flag.Flag_flagset_static_extension.FlagSet_static_extension.func(_f, _name, _usage, _fn);
     }
     static public function textVar(_f:FlagSet, _p:stdgo._internal.encoding.Encoding_textunmarshaler.TextUnmarshaler, _name:String, _value:stdgo._internal.encoding.Encoding_textmarshaler.TextMarshaler, _usage:String):Void {
@@ -999,7 +999,7 @@ class Flag {
     static public inline function func(_name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _0 -> (_fn((_0 : stdgo.GoString)) : stdgo.Error);
         stdgo._internal.flag.Flag_func.func(_name, _usage, _fn);
     }
     /**
@@ -1010,7 +1010,7 @@ class Flag {
     static public inline function boolFunc(_name:String, _usage:String, _fn:String -> stdgo.Error):Void {
         final _name = (_name : stdgo.GoString);
         final _usage = (_usage : stdgo.GoString);
-        final _fn = _0 -> _fn((_0 : stdgo.GoString));
+        final _fn = _0 -> (_fn((_0 : stdgo.GoString)) : stdgo.Error);
         stdgo._internal.flag.Flag_boolfunc.boolFunc(_name, _usage, _fn);
     }
     /**

@@ -101,7 +101,10 @@ class Color_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function rGBA():stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt>; }):Color_ {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Color_ = { rGBA : () -> x.rGBA(), __underlying__ : () -> __f__() };
+        final y:Color_ = { rGBA : () -> {
+            final obj = x.rGBA();
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

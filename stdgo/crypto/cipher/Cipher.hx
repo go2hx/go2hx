@@ -144,7 +144,10 @@ class AEAD_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function nonceSize():StdTypes.Int; function overhead():StdTypes.Int; function seal(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _plaintext:Array<std.UInt>, _additionalData:Array<std.UInt>):Array<std.UInt>; function open(_dst:Array<std.UInt>, _nonce:Array<std.UInt>, _ciphertext:Array<std.UInt>, _additionalData:Array<std.UInt>):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):AEAD {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:AEAD = { nonceSize : () -> x.nonceSize(), overhead : () -> x.overhead(), seal : (_0, _1, _2, _3) -> x.seal([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), open : (_0, _1, _2, _3) -> x.open([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]), __underlying__ : () -> __f__() };
+        final y:AEAD = { nonceSize : () -> x.nonceSize(), overhead : () -> x.overhead(), seal : (_0, _1, _2, _3) -> [for (i in x.seal([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i])) i], open : (_0, _1, _2, _3) -> {
+            final obj = x.open([for (i in _0) i], [for (i in _1) i], [for (i in _2) i], [for (i in _3) i]);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -163,7 +166,10 @@ class AEAD_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function newGCM(_nonceSize:StdTypes.Int, _tagSize:StdTypes.Int):stdgo.Tuple<AEAD, stdgo.Error>; }):T_gcmAble {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_gcmAble = { newGCM : (_0, _1) -> x.newGCM(_0, _1), __underlying__ : () -> __f__() };
+        final y:T_gcmAble = { newGCM : (_0, _1) -> {
+            final obj = x.newGCM(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

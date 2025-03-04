@@ -14,18 +14,29 @@ function cutPrefix(paths:Array<String>):Array<String> {
 	return paths.length >= 2 ? paths.slice(2) : paths;
 }
 
+function cutPrefixComplexType(ct:ComplexType):ComplexType {
+	switch ct {
+		case TPath(p):
+			if (p.pack.length > 2 && p.pack[0] != "stdgo") {
+				p.pack = cutPrefix(p.pack);
+			}
+		default:
+	}
+	return ct;
+}
+
 function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 		// get rid of github.com/org/repo prefix
 	var isStdgo = false;
-	var actualPathExtern = paths.join("/");
-	var externDefBool = !module.isMain;
+	var actualPathInterop = paths.join("/");
+	var interopDefBool = !module.isMain;
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";
 	if (cut == _testStr) {
 		//actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
-		externDefBool = false;
+		interopDefBool = false;
 	}
 	final stdFormatPath = actualPath;
 	if (paths.length > 0) {
@@ -40,30 +51,30 @@ function create(outputPath:String, module:Module, root:String) {
 		isStdgo = true;
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
-		if (actualPathExtern.length > 0) {
-			actualPathExtern = "stdgo/" + actualPathExtern;
+		if (actualPathInterop.length > 0) {
+			actualPathInterop = "stdgo/" + actualPathInterop;
 		}else{
-			actualPathExtern = "stdgo";
+			actualPathInterop = "stdgo";
 		}
 	}
 	if (!isStdgo)
-		actualPathExtern = cutPrefix(actualPathExtern.split("/")).join("/");
+		actualPathInterop = cutPrefix(actualPathInterop.split("/")).join("/");
 	if (root.length > 0)
 		root += ".";
 	var pkgPath = 'package ${actualPath.split("/").join(".")};\n';
-	var pkgPathExtern = 'package ${actualPathExtern.split("/").join(".")};\n';
+	var pkgPathInterop = 'package ${actualPathInterop.split("/").join(".")};\n';
 	var content:Array<TypeDefinition> = [];
 	var contentImports:String = "";
-	var externContent:Array<TypeDefinition> = [];
-	var externMacroContent:Array<TypeDefinition> = [];
+	var interopContent:Array<TypeDefinition> = [];
+	var interopMacroContent:Array<TypeDefinition> = [];
 	var macroContent:Array<TypeDefinition> = [];
 	var count = module.files.length;
 	var hasMacroDef = false;
 	for (file in module.files) {
 		/*content = pkgPath;
 		macroContent = pkgPath;
-		externContent = pkgPathExtern;
-		externMacroContent = pkgPathExtern;*/
+		interopContent = pkgPathInterop;
+		interopMacroContent = pkgPathInterop;*/
 		contentImports = "";
 		for (imp in file.imports) {
 			if (imp == null)
@@ -91,8 +102,8 @@ function create(outputPath:String, module:Module, root:String) {
 								final isExtern = def.isExtern;
 								def.isExtern = true;
 								hasMacroDef = true;
-								for (td in externGen(def, actualPath, clMacro)) 
-									externMacroContent.push(td);
+								for (td in interopGen(def, actualPath, clMacro)) 
+									interopMacroContent.push(td);
 								macroContent.push(stripComments(def));
 								def.isExtern = isExtern;
 								f.expr = null;
@@ -132,28 +143,28 @@ function create(outputPath:String, module:Module, root:String) {
 					kind: def.kind,
 					isExtern: true,
 				};
-				if (externDefBool) {
-					for (td in externGen(def, actualPath, cl))
-						externMacroContent.push(td);
+				if (interopDefBool) {
+					for (td in interopGen(def, actualPath, cl))
+						interopMacroContent.push(td);
 				}
 				macroContent.push(stripComments(td));
 			}
-			if (externDefBool) {
-				for (td in externGen(def, actualPath, cl)) {
-					externContent.push(td);
+			if (interopDefBool) {
+				for (td in interopGen(def, actualPath, cl)) {
+					interopContent.push(td);
 				}
 			}
 			content.push(stripComments(def));
 		}
-		if (externDefBool) {
-			externContent.push(cl);
-			save(outputPath + actualPathExtern + "/", file.name, externContent, pkgPathExtern, "", false);
+		if (interopDefBool) {
+			interopContent.push(cl);
+			save(outputPath + actualPathInterop + "/", file.name, interopContent, pkgPathInterop, "", false);
 		}
 		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports);
 		if (hasMacroDef) {
-			if (externDefBool) {
-				externMacroContent.push(clMacro);
-				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, pkgPath, ".macro", false);
+			if (interopDefBool) {
+				interopMacroContent.push(clMacro);
+				save(outputPath + actualPathInterop + "/", file.name, interopMacroContent, pkgPath, ".macro", false);
 			}
 			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro");
 		}
@@ -262,12 +273,12 @@ function staticExtensionName(name:String,cl:TypeDefinition):String {
 	return name;//name.indexOf(cl.name) == 0 ? cl.name + "_" + name.substr(cl.name.length) : name;
 }
 
-function externStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
+function interopStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final fields = [];
 	for (field in td.fields) {
 		switch field.kind {
 			case FFun(f):
-				fields.push(copyField(field, FFun(externGenFun(field.name, f, path, td.name))));
+				fields.push(copyField(field, FFun(interopGenFun(field.name, f, path, td.name))));
 			default:
 		}
 	}
@@ -286,21 +297,21 @@ function externStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition
 }
 
 
-function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeDefinition> {
+function interopGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeDefinition> {
 	switch td.kind {
 		case TDClass(_, _, isInterface, _, isAbstract):
 			//if (td.name.substring(0,2) == "T_")
 			//	return null;
 			if (StringTools.endsWith(td.name, "_static_extension")) {
-				return [externStaticExtension(td, path, cl)];
+				return [interopStaticExtension(td, path, cl)];
 			}
 			if (StringTools.endsWith(td.name, "_asInterface"))
 				return []; // TODO
 			if (isInterface)
-				return [externGenInterface(td, path, cl)];
+				return [interopGenInterface(td, path, cl)];
 			if (isAbstract)
-				return [externGenAbstract(td, cl)];
-			return [externGenClass(td, path,cl)];
+				return [interopGenAbstract(td, cl)];
+			return [interopGenClass(td, path,cl)];
 		case TDField(kind, access):
 			if (td.name == "__go2hxdoc__package") {
 				cl.doc = td.doc;
@@ -310,7 +321,7 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 				return [];
 			return switch kind {
 				case FVar(_, _):
-					externGenVar(td, path);
+					interopGenVar(td, path);
 				case FFun(f):
 					final access = access.copy();
 					/*if (access.indexOf(AInline) == -1)
@@ -321,7 +332,7 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 						pos: td.pos,
 						doc: td.doc,
 						access: [AStatic, APublic, AInline],
-						kind: FFun(externGenFun(td.name, f, path)),
+						kind: FFun(interopGenFun(td.name, f, path)),
 					});
 					[];
 				case FProp(_, _, _, _):
@@ -338,15 +349,15 @@ function externGen(td:TypeDefinition,path:String, cl:TypeDefinition):Array<TypeD
 				}
 			}
 			if (isInterface)
-				return [externGenInterface(td, path, cl)];
-			return [externGenAlias(td,path)];
+				return [interopGenInterface(td, path, cl)];
+			return [interopGenAlias(td,path)];
 		default:
 	}
-	trace("No extern change made for " + td.kind);
+	trace("No interop change made for " + td.kind);
 	return [td];
 }
 
-function externGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
+function interopGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
 	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
@@ -373,7 +384,7 @@ function externGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):T
 		f.doc = null;
 		f;
 	});
-	final anonFields = externGenFields(fields, path, false);
+	final anonFields = interopGenFields(fields, path, false);
 	anonFields.map(f -> {
 		switch f.kind {
 			case FFun(f):
@@ -429,9 +440,9 @@ function externGenInterface(td:TypeDefinition, path:String, cl:TypeDefinition):T
 	return td;
 }
 
-function externGenAbstract(td:TypeDefinition, cl:TypeDefinition):TypeDefinition {
+function interopGenAbstract(td:TypeDefinition, cl:TypeDefinition):TypeDefinition {
 	trace("unknown abstract: " + td.name, td.pack);
-	return externInvalid(td);
+	return interopInvalid(td);
 }
 
 function copyField(field:Field, kind:FieldType):Field {
@@ -444,7 +455,7 @@ function copyField(field:Field, kind:FieldType):Field {
 }
 
 
-function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
+function interopGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
 	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name.toLowerCase());
@@ -457,18 +468,23 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 		// special fields
 		switch field.kind {
 			case FVar(type, _):
+				final ct = convertComplexType(type, path);
+				if (field.name == "_code") {
+					trace(td.name);
+					trace(new haxe.macro.Printer().printComplexType(ct));
+				}
 				final name = macro $i{"this." + field.name};
 				fields = fields.concat([{
 					name: field.name,
 					pos: field.pos,
 					access: field.access,
-					kind: FProp("get", "set", convertComplexType(type, path)),
+					kind: FProp("get", "set", ct),
 				},{
 					name: "get_" + field.name,
 					pos: field.pos,
 					kind: FFun({
 						args: [],
-						ret: convertComplexType(type, path),
+						ret: ct,
 						expr: macro return ${convertCast(name, type, path) ?? name},
 						params: [],
 					}),
@@ -476,8 +492,8 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 					name: "set_" + field.name,
 					pos: field.pos,
 					kind: FFun({
-						args: [{name: "v", type: convertComplexType(type, path)}],
-						ret: convertComplexType(type, path),
+						args: [{name: "v", type: ct}],
+						ret: ct,
 						expr: macro {
 							$name = ${reverseConvertCast(macro v, type) ?? macro v};
 							return v;
@@ -528,7 +544,7 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 			var usingPath = Typer.printer.printExpr(meta[i].params[0]).split(".");
 			final endUsing = staticExtensionName(usingPath.pop(), cl);
 			var last = usingPath.pop();
-			// remove splitdeps path from extern static extension
+			// remove splitdeps path from interop static extension
 			last = last.substr(0, last.length - endUsing.length - 1);
 			usingPath.push(last);
 			usingPath.push(endUsing);
@@ -558,7 +574,7 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 	return td;
 }
 
-function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
+function interopGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 	return switch td.kind {
 		case TDAlias(_):
 			final pack = path.split("/");
@@ -580,7 +596,7 @@ function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 	}
 }
 
-function externInvalid(td:TypeDefinition):TypeDefinition {
+function interopInvalid(td:TypeDefinition):TypeDefinition {
 	trace("invalid: " + td.kind);
 	return {
 		name: td.name,
@@ -592,7 +608,7 @@ function externInvalid(td:TypeDefinition):TypeDefinition {
 	};
 }
 
-function externInvalidVar(td:TypeDefinition):TypeDefinition {
+function interopInvalidVar(td:TypeDefinition):TypeDefinition {
 	trace("invalid var: " + td.kind);
 	return {
 		name: td.name,
@@ -604,11 +620,11 @@ function externInvalidVar(td:TypeDefinition):TypeDefinition {
 	};
 }
 
-function externGenStruct(td:TypeDefinition):TypeDefinition {
-	return externInvalid(td);
+function interopGenStruct(td:TypeDefinition):TypeDefinition {
+	return interopInvalid(td);
 }
 
-function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
+function interopGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 	switch td.kind {
 		case TDField(FVar(type, e), access):
 			final access = access.copy();
@@ -672,7 +688,7 @@ function removeUnderline(name:String):String {
 	return name;
 }
 
-function externGenFun(name:String, f:Function, path:String, staticExtensionName:String=""):Function {
+function interopGenFun(name:String, f:Function, path:String, staticExtensionName:String=""):Function {
 	final args = f.args.copy();
 	final args = [for (arg in args) {
 		name: removeUnderline(arg.name),
@@ -716,7 +732,7 @@ function externGenFun(name:String, f:Function, path:String, staticExtensionName:
 	};
 }
 
-function externGenFields(fields:Array<haxe.macro.Expr.Field>, path:String, insideAbstract:Bool=true):Array<haxe.macro.Expr.Field> {
+function interopGenFields(fields:Array<haxe.macro.Expr.Field>, path:String, insideAbstract:Bool=true):Array<haxe.macro.Expr.Field> {
 	return [for (field in fields) {
 		switch field.kind {
 			case FFun(f):
@@ -731,7 +747,7 @@ function externGenFields(fields:Array<haxe.macro.Expr.Field>, path:String, insid
 					access: access,
 					pos: field.pos,
 					doc: field.doc,
-					kind: FFun(externGenFun(field.name, f, path)),
+					kind: FFun(interopGenFun(field.name, f, path)),
 				};
 			default:
 				throw "Field kind not supported: " + field.kind;
@@ -767,7 +783,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 	if (ct == null)
 		return null;
 	switch ct {
-		case TAnonymous(fields):
+		case TAnonymous(fields): // tuple
 			final expr = toExpr(EObjectDecl([for (field in fields) {
 				switch field.kind {
 					case FVar(type, e):
@@ -819,7 +835,6 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 		case TPath({name: name, pack: ["stdgo"], params: _}):
 			return macro ($e : $ct);
 		case TFunction(args, ret):
-			final ret = ret;
 			final callArgs = [for (i in 0...args.length) "_" + i];
 			final exprArgs = [for (i in 0...args.length)
 				reverseConvertCast(macro $i{callArgs[i]}, args[i]) ?? macro $i{"_" + i}
@@ -830,7 +845,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 					args: callArgs.map(arg -> ({
 						name: arg,
 					} : FunctionArg)),
-					expr: expr,
+					expr: reverseConvertCast(expr, ret) ?? expr,
 					//ret: ret,
 				}),
 			);
@@ -850,7 +865,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 	if (ct == null)
 		return null;
 	switch ct {
-		case TAnonymous(fields):
+		case TAnonymous(fields): // tuple
 			final expr = toExpr(EObjectDecl([for (field in fields) {
 				switch field.kind {
 					case FVar(type, e):
@@ -902,7 +917,6 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 			
 		case TPath({name: "Void", pack: []}):
 		case TFunction(args, ret):
-			final ret = convertComplexType(ret, path);
 			final callArgs = [for (i in 0...args.length) "_" + i];
 			final exprArgs = [for (i in 0...args.length)
 				convertCast(macro $i{callArgs[i]}, args[i], path) ?? macro $i{"_" + i}
@@ -913,7 +927,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 					args: callArgs.map(arg -> ({
 						name: arg,
 					} : FunctionArg)),
-					expr: expr,
+					expr: convertCast(expr, ret, path) ?? expr,
 					//ret: ret,
 				}),
 			);
@@ -951,7 +965,7 @@ function stdgoType(name:String) {
 function convertComplexType(ct:ComplexType, path:String):ComplexType {
 	if (ct == null)
 		return null;
-	// To extern version
+	// To interop version
 	switch ct {
 		case TNamed(n, t):
 			return TNamed(n, convertComplexType(t, path));
@@ -1050,12 +1064,13 @@ function convertComplexType(ct:ComplexType, path:String):ComplexType {
 						}
 			}
 		case TPath({name: name, pack: pack, params: params}):
-			return TPath({name: name == clName ? name + "_" : name , pack: pack, params: params == null ? null : params.map(param -> switch param {
+			final ct = TPath({name: name == clName ? name + "_" : name , pack: pack, params: params == null ? null : params.map(param -> switch param {
 				case TPType(t):
 					TPType(convertComplexType(t, path));
 				default:
 					throw "unreachable";
 			})});
+			return cutPrefixComplexType(ct);
 		case TIntersection(tl):
 			// skip over stdgo.StructType
 			return TIntersection([convertComplexType(tl[1],path)]);

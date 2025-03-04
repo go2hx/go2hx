@@ -3,6 +3,7 @@ package;
 import go4hx.tests.interop.Interop;
 //import go4hx.tests.interop.colorful
 import stdgo.encoding.binary.Binary;
+import stdgo.crypto.Crypto;
 
 function main() {
     Binary.appendVarint;
@@ -40,6 +41,8 @@ function main() {
     trace(i.appendUint16([0,1,2], 3));
 
     $type(i);
+
+    Crypto.registerHash;
 }
 
 

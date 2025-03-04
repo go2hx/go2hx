@@ -12,7 +12,16 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readAt(_0:Array<std.UInt>, _1:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; function close():stdgo.Error; }):File {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:File = { read : _0 -> x.read([for (i in _0) i]), readAt : (_0, _1) -> x.readAt([for (i in _0) i], _1), seek : (_0, _1) -> x.seek(_0, _1), close : () -> x.close(), __underlying__ : () -> __f__() };
+        final y:File = { read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, readAt : (_0, _1) -> {
+            final obj = x.readAt([for (i in _0) i], _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, seek : (_0, _1) -> {
+            final obj = x.seek(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

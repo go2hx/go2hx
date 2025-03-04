@@ -119,7 +119,13 @@ class Slogtest {
         * then the results function should check for its absence and add it to the map it returns.
     **/
     static public inline function testHandler(_h:stdgo._internal.log.slog.Slog_handler.Handler, _results:() -> Array<Map<String, stdgo.AnyInterface>>):stdgo.Error {
-        final _results = () -> _results();
+        final _results = () -> ([for (i in _results()) {
+            final __obj__ = new stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>();
+            for (key => value in i) {
+                __obj__[(key : stdgo.GoString)] = (value : stdgo.AnyInterface);
+            };
+            __obj__;
+        }] : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
         return stdgo._internal.testing.slogtest.Slogtest_testhandler.testHandler(_h, _results);
     }
 }

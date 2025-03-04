@@ -76,7 +76,13 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function writeTo(_0:stdgo._internal.io.Io_writer.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileReader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileReader = { writeTo : _0 -> x.writeTo(_0), read : _0 -> x.read([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
+        final y:T_fileReader = { writeTo : _0 -> {
+            final obj = x.writeTo(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -93,7 +99,13 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function readFrom(_0:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error>; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function _logicalRemaining():haxe.Int64; function _physicalRemaining():haxe.Int64; }):T_fileWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileWriter = { readFrom : _0 -> x.readFrom(_0), write : _0 -> x.write([for (i in _0) i]), _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
+        final y:T_fileWriter = { readFrom : _0 -> {
+            final obj = x.readFrom(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, _logicalRemaining : () -> x._logicalRemaining(), _physicalRemaining : () -> x._physicalRemaining(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

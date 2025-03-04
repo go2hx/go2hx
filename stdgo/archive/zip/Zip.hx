@@ -32,7 +32,10 @@ private function set_errInsecurePath(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function isDir():Bool; function modTime():stdgo._internal.time.Time_time.Time; function mode():stdgo._internal.io.fs.Fs_filemode.FileMode; function name():String; function size():haxe.Int64; function sys():stdgo.AnyInterface; function info():stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>; function type():stdgo._internal.io.fs.Fs_filemode.FileMode; }):T_fileInfoDirEntry {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_fileInfoDirEntry = { isDir : () -> x.isDir(), modTime : () -> x.modTime(), mode : () -> x.mode(), name : () -> x.name(), size : () -> x.size(), sys : () -> x.sys(), info : () -> x.info(), type : () -> x.type(), __underlying__ : () -> __f__() };
+        final y:T_fileInfoDirEntry = { isDir : () -> x.isDir(), modTime : () -> x.modTime(), mode : () -> x.mode(), name : () -> x.name(), size : () -> x.size(), sys : () -> x.sys(), info : () -> {
+            final obj = x.info();
+            { _0 : obj._0, _1 : obj._1 };
+        }, type : () -> x.type(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

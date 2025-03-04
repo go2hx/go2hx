@@ -254,7 +254,10 @@ class Conn_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function syscallConn():stdgo.Tuple<RawConn, stdgo.Error>; }):Conn {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Conn = { syscallConn : () -> x.syscallConn(), __underlying__ : () -> __f__() };
+        final y:Conn = { syscallConn : () -> {
+            final obj = x.syscallConn();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

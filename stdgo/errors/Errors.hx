@@ -43,7 +43,7 @@ private function set_errUnsupported(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function unwrap():Array<stdgo.Error>; }):T__interface_2 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T__interface_2 = { unwrap : () -> x.unwrap(), __underlying__ : () -> __f__() };
+        final y:T__interface_2 = { unwrap : () -> [for (i in x.unwrap()) i], __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -78,7 +78,10 @@ class GobEncoder_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function gobEncode():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):GobEncoder {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:GobEncoder = { gobEncode : () -> x.gobEncode(), __underlying__ : () -> __f__() };
+        final y:GobEncoder = { gobEncode : () -> {
+            final obj = x.gobEncode();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

@@ -133,7 +133,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
     public var cancel(get, set) : () -> stdgo.Error;
     function get_cancel():() -> stdgo.Error return () -> this.cancel();
     function set_cancel(v:() -> stdgo.Error):() -> stdgo.Error {
-        this.cancel = () -> v();
+        this.cancel = () -> (v() : stdgo.Error);
         return v;
     }
     public var waitDelay(get, set) : stdgo._internal.time.Time_duration.Duration;
@@ -157,7 +157,7 @@ private function set_errNotFound(v:stdgo.Error):stdgo.Error {
     public var _goroutine(get, set) : Array<() -> stdgo.Error>;
     function get__goroutine():Array<() -> stdgo.Error> return [for (i in this._goroutine) () -> i()];
     function set__goroutine(v:Array<() -> stdgo.Error>):Array<() -> stdgo.Error> {
-        this._goroutine = ([for (i in v) () -> i()] : stdgo.Slice<() -> stdgo.Error>);
+        this._goroutine = ([for (i in v) () -> (i() : stdgo.Error)] : stdgo.Slice<() -> stdgo.Error>);
         return v;
     }
     public var _goroutineErr(get, set) : stdgo.Chan<stdgo.Error>;
@@ -198,11 +198,11 @@ stderr,
 (processState : stdgo.Ref<stdgo._internal.os.Os_processstate.ProcessState>),
 _ctx,
 (err : stdgo.Error),
-() -> cancel(),
+() -> (cancel() : stdgo.Error),
 waitDelay,
 ([for (i in _childIOFiles) i] : stdgo.Slice<stdgo._internal.io.Io_closer.Closer>),
 ([for (i in _parentIOPipes) i] : stdgo.Slice<stdgo._internal.io.Io_closer.Closer>),
-([for (i in _goroutine) () -> i()] : stdgo.Slice<() -> stdgo.Error>),
+([for (i in _goroutine) () -> (i() : stdgo.Error)] : stdgo.Slice<() -> stdgo.Error>),
 (_goroutineErr : stdgo.Chan<stdgo.Error>),
 (_ctxResult : stdgo.Chan<stdgo._internal.os.exec.Exec_t_ctxresult.T_ctxResult>),
 ([for (i in _createdByStack) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),

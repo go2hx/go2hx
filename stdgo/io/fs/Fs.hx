@@ -69,7 +69,10 @@ class FS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<File, stdgo.Error>; }):FS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:FS = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:FS = { open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -96,7 +99,13 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function stat():stdgo.Tuple<FileInfo, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; }):File {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:File = { stat : () -> x.stat(), read : _0 -> x.read([for (i in _0) i]), close : () -> x.close(), __underlying__ : () -> __f__() };
+        final y:File = { stat : () -> {
+            final obj = x.stat();
+            { _0 : obj._0, _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -122,7 +131,10 @@ class DirEntry_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function name():String; function isDir():Bool; function type():FileMode; function info():stdgo.Tuple<FileInfo, stdgo.Error>; }):DirEntry {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:DirEntry = { name : () -> x.name(), isDir : () -> x.isDir(), type : () -> x.type(), info : () -> x.info(), __underlying__ : () -> __f__() };
+        final y:DirEntry = { name : () -> x.name(), isDir : () -> x.isDir(), type : () -> x.type(), info : () -> {
+            final obj = x.info();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -140,7 +152,16 @@ class ReadDirFile_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readDir(_n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error>; function close():stdgo.Error; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function stat():stdgo.Tuple<FileInfo, stdgo.Error>; }):ReadDirFile {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadDirFile = { readDir : _0 -> x.readDir(_0), close : () -> x.close(), read : _0 -> x.read([for (i in _0) i]), stat : () -> x.stat(), __underlying__ : () -> __f__() };
+        final y:ReadDirFile = { readDir : _0 -> {
+            final obj = x.readDir(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, close : () -> x.close(), read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, stat : () -> {
+            final obj = x.stat();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -187,7 +208,13 @@ class GlobFS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function glob(_pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):GlobFS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:GlobFS = { glob : _0 -> x.glob(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:GlobFS = { glob : _0 -> {
+            final obj = x.glob(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -205,7 +232,13 @@ class ReadDirFS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readDir(_name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):ReadDirFS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadDirFS = { readDir : _0 -> x.readDir(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:ReadDirFS = { readDir : _0 -> {
+            final obj = x.readDir(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -223,7 +256,13 @@ class ReadFileFS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readFile(_name:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):ReadFileFS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ReadFileFS = { readFile : _0 -> x.readFile(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:ReadFileFS = { readFile : _0 -> {
+            final obj = x.readFile(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -241,7 +280,13 @@ class StatFS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function stat(_name:String):stdgo.Tuple<FileInfo, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):StatFS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:StatFS = { stat : _0 -> x.stat(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:StatFS = { stat : _0 -> {
+            final obj = x.stat(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -259,7 +304,13 @@ class SubFS_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function sub(_dir:String):stdgo.Tuple<FS, stdgo.Error>; function open(_0:String):stdgo.Tuple<File, stdgo.Error>; }):SubFS {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:SubFS = { sub : _0 -> x.sub(_0), open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:SubFS = { sub : _0 -> {
+            final obj = x.sub(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

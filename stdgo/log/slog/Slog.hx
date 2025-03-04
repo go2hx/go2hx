@@ -97,10 +97,10 @@ class LogValuer_static_extension {
     public var _output(get, set) : (stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error;
     function get__output():(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error return (_0, _1) -> this._output(_0, [for (i in _1) i]);
     function set__output(v:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error):(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error {
-        this._output = (_0, _1) -> v((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        this._output = (_0, _1) -> (v((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
         return v;
     }
-    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), (_0, _1) -> _output((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)));
+    public function new(?_ch:T_commonHandler, ?_output:(stdgo.GoUIntptr, Array<std.UInt>) -> stdgo.Error) this = new stdgo._internal.log.slog.Slog_t_defaulthandler.T_defaultHandler((_ch : stdgo.Ref<stdgo._internal.log.slog.Slog_t_commonhandler.T_commonHandler>), (_0, _1) -> (_output((_0 : stdgo.GoUIntptr), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

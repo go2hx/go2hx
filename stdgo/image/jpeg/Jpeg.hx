@@ -7,7 +7,13 @@ class Reader_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):Reader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Reader = { readByte : () -> x.readByte(), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Reader = { readByte : () -> {
+            final obj = x.readByte();
+            { _0 : obj._0, _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -21,7 +27,10 @@ class Reader_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function flush():stdgo.Error; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function writeByte(_0:std.UInt):stdgo.Error; }):T_writer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_writer = { flush : () -> x.flush(), write : _0 -> x.write([for (i in _0) i]), writeByte : _0 -> x.writeByte(_0), __underlying__ : () -> __f__() };
+        final y:T_writer = { flush : () -> x.flush(), write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, writeByte : _0 -> x.writeByte(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

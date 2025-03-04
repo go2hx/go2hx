@@ -140,7 +140,13 @@ class Conn_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function read(_b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function write(_b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; function localAddr():Addr; function remoteAddr():Addr; function setDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setReadDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setWriteDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; }):Conn {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Conn = { read : _0 -> x.read([for (i in _0) i]), write : _0 -> x.write([for (i in _0) i]), close : () -> x.close(), localAddr : () -> x.localAddr(), remoteAddr : () -> x.remoteAddr(), setDeadline : _0 -> x.setDeadline(_0), setReadDeadline : _0 -> x.setReadDeadline(_0), setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
+        final y:Conn = { read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), localAddr : () -> x.localAddr(), remoteAddr : () -> x.remoteAddr(), setDeadline : _0 -> x.setDeadline(_0), setReadDeadline : _0 -> x.setReadDeadline(_0), setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -180,7 +186,13 @@ class PacketConn_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readFrom(_p:Array<std.UInt>):stdgo.Tuple.Tuple3<StdTypes.Int, Addr, stdgo.Error>; function writeTo(_p:Array<std.UInt>, _addr:Addr):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function close():stdgo.Error; function localAddr():Addr; function setDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setReadDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; function setWriteDeadline(_t:stdgo._internal.time.Time_time.Time):stdgo.Error; }):PacketConn {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:PacketConn = { readFrom : _0 -> x.readFrom([for (i in _0) i]), writeTo : (_0, _1) -> x.writeTo([for (i in _0) i], _1), close : () -> x.close(), localAddr : () -> x.localAddr(), setDeadline : _0 -> x.setDeadline(_0), setReadDeadline : _0 -> x.setReadDeadline(_0), setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
+        final y:PacketConn = { readFrom : _0 -> {
+            final obj = x.readFrom([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        }, writeTo : (_0, _1) -> {
+            final obj = x.writeTo([for (i in _0) i], _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), localAddr : () -> x.localAddr(), setDeadline : _0 -> x.setDeadline(_0), setReadDeadline : _0 -> x.setReadDeadline(_0), setWriteDeadline : _0 -> x.setWriteDeadline(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -203,7 +215,10 @@ class Listener_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function accept():stdgo.Tuple<Conn, stdgo.Error>; function close():stdgo.Error; function addr():Addr; }):Listener {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Listener = { accept : () -> x.accept(), close : () -> x.close(), addr : () -> x.addr(), __underlying__ : () -> __f__() };
+        final y:Listener = { accept : () -> {
+            final obj = x.accept();
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), addr : () -> x.addr(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -380,16 +395,16 @@ class Error_static_extension {
     public var control(get, set) : (String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error;
     function get_control():(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error return (_0, _1, _2) -> this.control(_0, _1, _2);
     function set_control(v:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error):(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error {
-        this.control = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2);
+        this.control = (_0, _1, _2) -> (v((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2) : stdgo.Error);
         return v;
     }
     public var controlContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error;
     function get_controlContext():(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error return (_0, _1, _2, _3) -> this.controlContext(_0, _1, _2, _3);
     function set_controlContext(v:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error {
-        this.controlContext = (_0, _1, _2, _3) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), _3);
+        this.controlContext = (_0, _1, _2, _3) -> (v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), _3) : stdgo.Error);
         return v;
     }
-    public function new(?timeout:stdgo._internal.time.Time_duration.Duration, ?deadline:stdgo._internal.time.Time_time.Time, ?localAddr:Addr, ?dualStack:Bool, ?fallbackDelay:stdgo._internal.time.Time_duration.Duration, ?keepAlive:stdgo._internal.time.Time_duration.Duration, ?resolver:Resolver, ?cancel:stdgo.Chan<{ }>, ?control:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?controlContext:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error) this = new stdgo._internal.net.Net_dialer.Dialer(timeout, deadline, localAddr, dualStack, fallbackDelay, keepAlive, (resolver : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>), (cancel : stdgo.Chan<{ }>), (_0, _1, _2) -> control((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2), (_0, _1, _2, _3) -> controlContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), _3));
+    public function new(?timeout:stdgo._internal.time.Time_duration.Duration, ?deadline:stdgo._internal.time.Time_time.Time, ?localAddr:Addr, ?dualStack:Bool, ?fallbackDelay:stdgo._internal.time.Time_duration.Duration, ?keepAlive:stdgo._internal.time.Time_duration.Duration, ?resolver:Resolver, ?cancel:stdgo.Chan<{ }>, ?control:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?controlContext:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error) this = new stdgo._internal.net.Net_dialer.Dialer(timeout, deadline, localAddr, dualStack, fallbackDelay, keepAlive, (resolver : stdgo.Ref<stdgo._internal.net.Net_resolver.Resolver>), (cancel : stdgo.Chan<{ }>), (_0, _1, _2) -> (control((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2) : stdgo.Error), (_0, _1, _2, _3) -> (controlContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), _3) : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -408,7 +423,7 @@ class Error_static_extension {
     public var control(get, set) : (String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error;
     function get_control():(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error return (_0, _1, _2) -> this.control(_0, _1, _2);
     function set_control(v:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error):(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error {
-        this.control = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2);
+        this.control = (_0, _1, _2) -> (v((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2) : stdgo.Error);
         return v;
     }
     public var keepAlive(get, set) : stdgo._internal.time.Time_duration.Duration;
@@ -417,7 +432,7 @@ class Error_static_extension {
         this.keepAlive = v;
         return v;
     }
-    public function new(?control:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?keepAlive:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.Net_listenconfig.ListenConfig((_0, _1, _2) -> control((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2), keepAlive);
+    public function new(?control:(String, String, stdgo._internal.syscall.Syscall_rawconn.RawConn) -> stdgo.Error, ?keepAlive:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.Net_listenconfig.ListenConfig((_0, _1, _2) -> (control((_0 : stdgo.GoString), (_1 : stdgo.GoString), _2) : stdgo.Error), keepAlive);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -609,12 +624,21 @@ class Error_static_extension {
         return v;
     }
     public var dial(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error>;
-    function get_dial():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error> return (_0, _1, _2) -> this.dial(_0, _1, _2);
+    function get_dial():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.dial(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dial(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error> {
-        this.dial = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        this.dial = (_0, _1, _2) -> {
+            final obj = v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
-    public function new(?preferGo:Bool, ?strictErrors:Bool, ?dial:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error>) this = new stdgo._internal.net.Net_resolver.Resolver(preferGo, strictErrors, (_0, _1, _2) -> dial(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString)));
+    public function new(?preferGo:Bool, ?strictErrors:Bool, ?dial:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<Conn, stdgo.Error>) this = new stdgo._internal.net.Net_resolver.Resolver(preferGo, strictErrors, (_0, _1, _2) -> {
+        final obj = dial(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

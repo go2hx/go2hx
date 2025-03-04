@@ -85,7 +85,7 @@ class AppendByteOrder_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function appendUint16(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint32(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt>; function string():String; }):AppendByteOrder {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:AppendByteOrder = { appendUint16 : (_0, _1) -> x.appendUint16([for (i in _0) i], _1), appendUint32 : (_0, _1) -> x.appendUint32([for (i in _0) i], _1), appendUint64 : (_0, _1) -> x.appendUint64([for (i in _0) i], _1), string : () -> x.string(), __underlying__ : () -> __f__() };
+        final y:AppendByteOrder = { appendUint16 : (_0, _1) -> [for (i in x.appendUint16([for (i in _0) i], _1)) i], appendUint32 : (_0, _1) -> [for (i in x.appendUint32([for (i in _0) i], _1)) i], appendUint64 : (_0, _1) -> [for (i in x.appendUint64([for (i in _0) i], _1)) i], string : () -> x.string(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -485,7 +485,7 @@ bool_,
     @:from
     static function fromHaxeInterface(x:{ function putUint16(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint32(_0:Array<std.UInt>, _1:std.UInt):Void; function putUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Void; function string():String; function uint16(_0:Array<std.UInt>):std.UInt; function uint32(_0:Array<std.UInt>):std.UInt; function uint64(_0:Array<std.UInt>):haxe.UInt64; function appendUint16(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint32(_0:Array<std.UInt>, _1:std.UInt):Array<std.UInt>; function appendUint64(_0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt>; }):T_testByteOrder___localname___byteOrder_10108 {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_testByteOrder___localname___byteOrder_10108 = { putUint16 : (_0, _1) -> x.putUint16([for (i in _0) i], _1), putUint32 : (_0, _1) -> x.putUint32([for (i in _0) i], _1), putUint64 : (_0, _1) -> x.putUint64([for (i in _0) i], _1), string : () -> x.string(), uint16 : _0 -> x.uint16([for (i in _0) i]), uint32 : _0 -> x.uint32([for (i in _0) i]), uint64 : _0 -> x.uint64([for (i in _0) i]), appendUint16 : (_0, _1) -> x.appendUint16([for (i in _0) i], _1), appendUint32 : (_0, _1) -> x.appendUint32([for (i in _0) i], _1), appendUint64 : (_0, _1) -> x.appendUint64([for (i in _0) i], _1), __underlying__ : () -> __f__() };
+        final y:T_testByteOrder___localname___byteOrder_10108 = { putUint16 : (_0, _1) -> x.putUint16([for (i in _0) i], _1), putUint32 : (_0, _1) -> x.putUint32([for (i in _0) i], _1), putUint64 : (_0, _1) -> x.putUint64([for (i in _0) i], _1), string : () -> x.string(), uint16 : _0 -> x.uint16([for (i in _0) i]), uint32 : _0 -> x.uint32([for (i in _0) i]), uint64 : _0 -> x.uint64([for (i in _0) i]), appendUint16 : (_0, _1) -> [for (i in x.appendUint16([for (i in _0) i], _1)) i], appendUint32 : (_0, _1) -> [for (i in x.appendUint32([for (i in _0) i], _1)) i], appendUint64 : (_0, _1) -> [for (i in x.appendUint64([for (i in _0) i], _1)) i], __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

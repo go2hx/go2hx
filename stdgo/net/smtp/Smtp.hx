@@ -19,7 +19,13 @@ class Auth_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function start(_server:ServerInfo):stdgo.Tuple.Tuple3<String, Array<std.UInt>, stdgo.Error>; function next(_fromServer:Array<std.UInt>, _more:Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Auth {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Auth = { start : _0 -> x.start(_0), next : (_0, _1) -> x.next([for (i in _0) i], _1), __underlying__ : () -> __f__() };
+        final y:Auth = { start : _0 -> {
+            final obj = x.start(_0);
+            { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
+        }, next : (_0, _1) -> {
+            final obj = x.next([for (i in _0) i], _1);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

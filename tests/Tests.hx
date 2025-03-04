@@ -254,7 +254,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 8);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 16);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
@@ -403,8 +403,8 @@ private function complete(modules:Array<Typer.Module>, data:{excludes:Array<Stri
 	final paths = Main.mainPaths(modules);
 	for (path in paths) {
 		final main = path;
+		path = path.charAt(0).toLowerCase() + path.substr(1);
 		if (data.hxml == null) {
-			path = path.charAt(0).toLowerCase() + path.substr(1);
 			var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
 			// TODO programatically search and remove _t_ part
 			if (hxml == "golibs/unit_t_4darray.hxml")

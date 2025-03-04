@@ -167,5 +167,7 @@
  "js|appendnil",
  "js|vars1",
  "js|binaryreader",
- "js|heappop"
+ "js|heappop",
+ "js|ptrrecv1",
+ "js|t_4darray"
 ]

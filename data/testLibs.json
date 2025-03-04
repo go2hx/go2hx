@@ -7,6 +7,7 @@
             "TestPcre_Basics",
             "TestIncorrectTimeoutError",
             "TestStopTimeoutClock"
-        ]
+        ],
+        "main": "regexp2.Regexp2"
     }
 ]

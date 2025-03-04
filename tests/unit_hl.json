@@ -167,7 +167,5 @@
  "hl|bytesBuffer",
  "hl|vars1",
  "hl|binaryreader",
- "hl|heappop",
- "hl|t_4darray",
- "hl|multireturn0"
+ "hl|heappop"
 ]

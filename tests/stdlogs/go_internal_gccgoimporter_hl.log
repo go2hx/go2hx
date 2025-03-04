@@ -26,9 +26,9 @@
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Void should be stdgo.GoUInt32
 
-[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:177: character 39
+[ERROR] ./stdgo/_internal/go/types/Types_named_static_extension.hx:175: character 39
 
- 177 |         var _keys_6752925:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
+ 175 |         var _keys_6563326:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
      |                                       ^
      | Invalid character '#'
 

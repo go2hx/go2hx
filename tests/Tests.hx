@@ -254,7 +254,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 8);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 16);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
@@ -396,15 +396,15 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>, hxml:String}) {
+private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
 	// spawn targets
 	final paths = Main.mainPaths(modules);
 	for (path in paths) {
 		final main = path;
+		path = path.charAt(0).toLowerCase() + path.substr(1);
 		if (data.hxml == null) {
-			path = path.charAt(0).toLowerCase() + path.substr(1);
 			var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
 			// TODO programatically search and remove _t_ part
 			if (hxml == "golibs/unit_t_4darray.hxml")
@@ -467,24 +467,30 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
-		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
-		if (!sys.FileSystem.exists(hxml))
-			continue;
-		final main = name;
-		final out = createTargetOutput(target, type, name);
-		final targetLibs = Main.targetLibs(target);
-		final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
-		final args = [hxml].concat(outCmd);
-		// remove ANSI escape codes for colours
-		args.push("-D");
-		args.push("message.no-color");
-		if (ciBool)
-			args.unshift("haxe");
-		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main, excludeArgs: []});
-		Sys.println(args.join(" "));
+		createRunnableHxml(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
+}
+
+function createRunnableHxml(name:String, prefix:String) {
+	final hxml = prefix + StringTools.replace(name,"/","_") + ".hxml";
+	if (!sys.FileSystem.exists(hxml)) {
+		trace("hxml not found");
+		return;
+	}
+	final main = name;
+	final out = createTargetOutput(target, type, name);
+	final targetLibs = Main.targetLibs(target);
+	final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
+	final args = [hxml].concat(outCmd);
+	// remove ANSI escape codes for colours
+	args.push("-D");
+	args.push("message.no-color");
+	if (ciBool)
+		args.unshift("haxe");
+	tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main, excludeArgs: []});
+	Sys.println(args.join(" "));
 }
 
 private function log(v) {
@@ -495,7 +501,24 @@ private function log(v) {
 
 final input:Array<String> = [];
 
+
+private function runInterop() {
+	if (type != "libs")
+		return;
+	Sys.println("RUN INTEROP");
+	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
+	for (lib in libs) {
+		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs " + lib.main;
+		final code = Sys.command(command);
+		if (code != 0) {
+			trace(command);
+			throw "failed to run interop";
+		}
+	}
+}
+
 private function close() {
+	runInterop();
 	log("======= TIME =======");
 	log(Date.now().toString());
 	log("elapsed: " + (haxe.Timer.stamp() - startStamp));
@@ -600,7 +623,7 @@ private function testTinyGo() {
 private function testLibs() {
 	type = "libs";
 	testBool = true;
-	final libs:Array<{module:String, excludes:Array<String>}> = Json.parse(File.getContent("data/testLibs.json"));
+	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
 	for (lib in libs) {
 		tests.push(lib.module);
 		trace(lib.module);
@@ -610,6 +633,7 @@ private function testLibs() {
 			excludes.push(exclude);
 		}
 		excludeFuncArgs.push(excludes);
+		
 	}
 }
 

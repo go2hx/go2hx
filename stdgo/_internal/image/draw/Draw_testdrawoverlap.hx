@@ -1,17 +1,17 @@
 package stdgo._internal.image.draw;
 function testDrawOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _y_20:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _golden_19:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
-        var _src_17:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
-        var _yoff_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5111153_11:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _b_18:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-        var _dst_16:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _m_15:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _loopBreak = false;
+        var _yoff_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _x_21:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _golden_19:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
         var _xoff_14:stdgo.GoInt = (0 : stdgo.GoInt);
         var _op_12:stdgo._internal.image.draw.Draw_op.Op = ((0 : stdgo.GoInt) : stdgo._internal.image.draw.Draw_op.Op);
-        var _x_21:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5111153_11:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _y_20:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _b_18:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
+        var _src_17:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
+        var _dst_16:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

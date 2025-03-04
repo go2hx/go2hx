@@ -469,7 +469,7 @@ class Error_static_extension {
     static public function _escapeListConditionally(_e:T_escaper, _c:T_context, _n:stdgo._internal.text.template.parse.Parse_listnode.ListNode, _filter:(T_escaper, T_context) -> Bool):stdgo.Tuple<T_context, Bool> {
         final _e = (_e : stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>);
         final _n = (_n : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>);
-        final _filter = _filter;
+        final _filter = (_0, _1) -> _filter((_0 : stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>), _1);
         return {
             final obj = stdgo._internal.html.template.Template_t_escaper_static_extension.T_escaper_static_extension._escapeListConditionally(_e, _c, _n, _filter);
             { _0 : obj._0, _1 : obj._1 };

@@ -1,7 +1,6 @@
 package stdgo._internal.encoding.xml;
 function _isValidDirective(_dir:stdgo._internal.encoding.xml.Xml_directive.Directive):Bool {
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __2:Bool = false;
-var _incomment = __2, _inquote = __1, _depth = __0;
+        var _depth:stdgo.GoInt = (0 : stdgo.GoInt), _inquote:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _incomment:Bool = false;
         for (_i => _c in _dir) {
             if (_incomment) {
                 if (_c == ((62 : stdgo.GoUInt8))) {

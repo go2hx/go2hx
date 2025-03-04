@@ -14,7 +14,7 @@ package stdgo._internal.internal.coverage.decodecounter;
                 var _shift:stdgo.GoUInt = (0 : stdgo.GoUInt);
                 var _value:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 while (true) {
-                    var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.read((@:checkr _cdr ?? throw "null pointer dereference")._u8b), __43:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.read((@:checkr _cdr ?? throw "null pointer dereference")._u8b), __7:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return { _0 : (0u32 : stdgo.GoUInt32), _1 : _err };
                     };
@@ -132,7 +132,7 @@ if (_err != null) {
         (@:checkr _cdr ?? throw "null pointer dereference")._fcnCount = (0u32 : stdgo.GoUInt32);
         var _ftrSize = (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((@:checkr _cdr ?? throw "null pointer dereference")._ftr)) : stdgo.GoInt64);
         {
-            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_ftrSize, (1 : stdgo.GoInt)), __46:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_ftrSize, (1 : stdgo.GoInt)), __10:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : false, _1 : _err };
             };
@@ -208,7 +208,7 @@ if (_errv != null) {
                     return _errv;
                 };
 {
-                    var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(_k.__copy__()) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[_k.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __42:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = ((@:checkr _cdr ?? throw "null pointer dereference")._args != null && (@:checkr _cdr ?? throw "null pointer dereference")._args.__exists__(_k.__copy__()) ? { _0 : (@:checkr _cdr ?? throw "null pointer dereference")._args[_k.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), __6:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("malformed args table" : stdgo.GoString));
                     };
@@ -301,7 +301,7 @@ if (_errv != null) {
                 if (_rem != ((0i64 : stdgo.GoInt64))) {
                     var _pad = ((4i64 : stdgo.GoInt64) - _rem : stdgo.GoInt64);
                     {
-                        var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_pad, (1 : stdgo.GoInt)), __48:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(_pad, (1 : stdgo.GoInt)), __6:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             return _err;
                         };
@@ -317,7 +317,7 @@ if (_errv != null) {
         @:recv var _cdr:stdgo.Ref<stdgo._internal.internal.coverage.decodecounter.Decodecounter_counterdatareader.CounterDataReader> = _cdr;
         var _ftrSize = (stdgo._internal.unsafe.Unsafe_sizeof.sizeof(stdgo.Go.toInterface((@:checkr _cdr ?? throw "null pointer dereference")._ftr)) : stdgo.GoInt64);
         {
-            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(-_ftrSize, (2 : stdgo.GoInt)), __20:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = (@:checkr _cdr ?? throw "null pointer dereference")._mr.seek(-_ftrSize, (2 : stdgo.GoInt)), __8:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

@@ -8,7 +8,7 @@ function _encStringSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_enc
         if (!_ok) {
             return false;
         };
-        for (__8 => _x in _slice) {
+        for (__4 => _x in _slice) {
             if (((_x != (stdgo.Go.str() : stdgo.GoString)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 @:check2r _state._encodeUint((_x.length : stdgo.GoUInt64));
                 @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.writeString(_x?.__copy__());

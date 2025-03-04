@@ -136,7 +136,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _nextUint( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):stdgo.GoUInt64 {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
         };
@@ -146,7 +146,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _nextInt( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):stdgo.GoInt64 {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader(stdgo.Go.asInterface((stdgo.Go.setRef((@:checkr _dec ?? throw "null pointer dereference")._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>)), (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _n:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
         };
@@ -174,7 +174,7 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _recvMessage( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>):Bool {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader((@:checkr _dec ?? throw "null pointer dereference")._r, (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _nbytes:stdgo.GoUInt64 = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.encoding.gob.Gob__decodeuintreader._decodeUintReader((@:checkr _dec ?? throw "null pointer dereference")._r, (@:checkr _dec ?? throw "null pointer dereference")._countBuf), _nbytes:stdgo.GoUInt64 = __tmp__._0, __4:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = _err;
             return false;
@@ -804,11 +804,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 };
             };
         };
-        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _op__pointer__ = stdgo.Go.pointer(_op);
         _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
             if (((_value.kind() != (22u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && (_rcvrType.kind() == (22u32 : stdgo._internal.reflect.Reflect_kind.Kind)) : Bool)) {
                 _value = _value.addr()?.__copy__();
@@ -900,11 +896,7 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             };
         };
         var _typ = ((@:checkr _ut ?? throw "null pointer dereference")._base : stdgo._internal.reflect.Reflect_type_.Type_);
-        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_decop.T_decOp = (null : stdgo._internal.encoding.gob.Gob_t_decop.T_decOp), _op__pointer__ = stdgo.Go.pointer(_op);
         var _k = (_typ.kind() : stdgo._internal.reflect.Reflect_kind.Kind);
         if (((_k : stdgo.GoInt) < (stdgo._internal.encoding.gob.Gob__decoptable._decOpTable.length) : Bool)) {
             _op = stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[(_k : stdgo.GoInt)];

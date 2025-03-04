@@ -2,11 +2,7 @@ package stdgo._internal.encoding.gob;
 function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var _ovfl = (stdgo._internal.errors.Errors_new_.new_(("overflow" : stdgo.GoString)) : stdgo.Error);
         {
-            var _data:Bool = false;
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:Bool = false, _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decbool._decBool, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__boolresult._boolResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -15,11 +11,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoInt = (0 : stdgo.GoInt), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[((2u32 : stdgo._internal.reflect.Reflect_kind.Kind) : stdgo.GoInt)], (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedresult._signedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -28,11 +20,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUInt = (0 : stdgo.GoUInt);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUInt = (0 : stdgo.GoUInt), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[((7u32 : stdgo._internal.reflect.Reflect_kind.Kind) : stdgo.GoInt)], (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -41,11 +29,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoInt8 = (0 : stdgo.GoInt8);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoInt8 = (0 : stdgo.GoInt8), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decint8._decInt8, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedresult._signedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -54,11 +38,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decuint8._decUint8, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -67,11 +47,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoInt16 = (0 : stdgo.GoInt16);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoInt16 = (0 : stdgo.GoInt16), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decint16._decInt16, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedresult._signedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -80,11 +56,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decuint16._decUint16, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -93,11 +65,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoInt32 = (0 : stdgo.GoInt32), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decint32._decInt32, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedresult._signedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -106,11 +74,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decuint32._decUint32, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -119,11 +83,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUIntptr = new stdgo.GoUIntptr(0), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[((12u32 : stdgo._internal.reflect.Reflect_kind.Kind) : stdgo.GoInt)], (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -132,11 +92,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoInt64 = (0 : stdgo.GoInt64), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decint64._decInt64, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__signedresult._signedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -145,11 +101,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decuint64._decUint64, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__unsignedresult._unsignedResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -158,11 +110,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoFloat32 = (0 : stdgo.GoFloat32), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decfloat32._decFloat32, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__floatresult._floatResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -171,11 +119,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decfloat64._decFloat64, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__floatresult._floatResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -184,11 +128,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[((15u32 : stdgo._internal.reflect.Reflect_kind.Kind) : stdgo.GoInt)], (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__complexresult._complexResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -197,11 +137,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decoptable._decOpTable[((16u32 : stdgo._internal.reflect.Reflect_kind.Kind) : stdgo.GoInt)], (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__complexresult._complexResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
@@ -219,11 +155,7 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             };
         };
         {
-            var _data:stdgo.GoString = ("" : stdgo.GoString);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
-            var _data__pointer__ = stdgo.Go.pointer(_data);
+            var _data:stdgo.GoString = ("" : stdgo.GoString), _data__pointer__ = stdgo.Go.pointer(_data);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decstring._decString, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newdecodestatefromdata._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__bytesresult._bytesResult);
             stdgo._internal.encoding.gob.Gob__execdec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());

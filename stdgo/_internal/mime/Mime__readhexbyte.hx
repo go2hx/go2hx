@@ -1,7 +1,6 @@
 package stdgo._internal.mime;
 function _readHexByte(_a:stdgo.GoUInt8, _b:stdgo.GoUInt8):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
-        var __0:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-var _lb = __1, _hb = __0;
+        var _hb:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), _lb:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             {

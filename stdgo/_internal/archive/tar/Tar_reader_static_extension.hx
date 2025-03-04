@@ -155,8 +155,8 @@ _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._intern
                     {
                         final __tmp__0 = (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
                         final __tmp__1 = (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
-                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = __tmp__0;
-                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = __tmp__1;
+                        (@:checkr _hdr ?? throw "null pointer dereference").accessTime = @:binopAssign __tmp__0;
+                        (@:checkr _hdr ?? throw "null pointer dereference").changeTime = @:binopAssign __tmp__1;
                     };
                     var _ustar = @:check2 (@:checkr _tr ?? throw "null pointer dereference")._blk._toUSTAR();
                     {
@@ -263,8 +263,7 @@ var _minor = __1, _major = __0;
     static public function _next( _tr:stdgo.Ref<stdgo._internal.archive.tar.Tar_reader.Reader>):{ var _0 : stdgo.Ref<stdgo._internal.archive.tar.Tar_header.Header>; var _1 : stdgo.Error; } {
         @:recv var _tr:stdgo.Ref<stdgo._internal.archive.tar.Tar_reader.Reader> = _tr;
         var _paxHdrs:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _gnuLongLink = __1, _gnuLongName = __0;
+        var _gnuLongName:stdgo.GoString = ("" : stdgo.GoString), _gnuLongLink:stdgo.GoString = ("" : stdgo.GoString);
         var _format = (14 : stdgo._internal.archive.tar.Tar_format.Format);
         while (true) {
             {

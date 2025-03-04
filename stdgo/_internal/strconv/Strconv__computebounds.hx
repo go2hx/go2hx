@@ -6,9 +6,9 @@ function _computeBounds(_mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<s
                 final __tmp__0 = (((2i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                 final __tmp__1 = ((2i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64);
                 final __tmp__2 = (((2i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64) + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                _lower = __tmp__0;
-                _central = __tmp__1;
-                _upper = __tmp__2;
+                _lower = @:binopAssign __tmp__0;
+                _central = @:binopAssign __tmp__1;
+                _upper = @:binopAssign __tmp__2;
             };
             _e2 = (_exp - (1 : stdgo.GoInt) : stdgo.GoInt);
             return { _0 : _lower, _1 : _central, _2 : _upper, _3 : _e2 };
@@ -17,9 +17,9 @@ function _computeBounds(_mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<s
                 final __tmp__0 = (((4i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                 final __tmp__1 = ((4i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64);
                 final __tmp__2 = (((4i64 : stdgo.GoUInt64) * _mant : stdgo.GoUInt64) + (2i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                _lower = __tmp__0;
-                _central = __tmp__1;
-                _upper = __tmp__2;
+                _lower = @:binopAssign __tmp__0;
+                _central = @:binopAssign __tmp__1;
+                _upper = @:binopAssign __tmp__2;
             };
             _e2 = (_exp - (2 : stdgo.GoInt) : stdgo.GoInt);
             return { _0 : _lower, _1 : _central, _2 : _upper, _3 : _e2 };

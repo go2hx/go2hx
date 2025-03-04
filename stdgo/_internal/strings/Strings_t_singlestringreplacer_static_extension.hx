@@ -6,8 +6,7 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_t_singlestringreplacer.T_singleStringReplacer> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _sw = (stdgo._internal.strings.Strings__getstringwriter._getStringWriter(_w) : stdgo._internal.io.Io_stringwriter.StringWriter);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _wn = __1, _i = __0;
+        var _i:stdgo.GoInt = (0 : stdgo.GoInt), _wn:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             var _match = (@:check2r (@:checkr _r ?? throw "null pointer dereference")._finder._next((_s.__slice__(_i) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
             if (_match == ((-1 : stdgo.GoInt))) {

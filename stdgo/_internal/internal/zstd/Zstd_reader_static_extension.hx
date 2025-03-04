@@ -214,25 +214,25 @@ package stdgo._internal.internal.zstd;
     @:tdfield
     static public function _readFrameHeader( _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
+        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _windowAdd_16:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _windowLog_14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _err_10:stdgo.Error = (null : stdgo.Error);
         var _windowDescriptorSize_8:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _magic_2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _err_4:stdgo.Error = (null : stdgo.Error);
-        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _exponent_12:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _headerSize_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _singleSegment_6:Bool = false;
+        var _err_4:stdgo.Error = (null : stdgo.Error);
+        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fb_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _exponent_12:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowDescriptor_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _err_10:stdgo.Error = (null : stdgo.Error);
+        var _headerSize_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _descriptor_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _err_3:stdgo.Error = (null : stdgo.Error);
-        var _fb_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowDescriptor_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _magic_2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -685,8 +685,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
     @:tdfield
     static public function _readHuffLiterals( _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>, _data:stdgo._internal.internal.zstd.Zstd_t_block.T_block, _off:stdgo.GoInt, _hdr:stdgo.GoUInt8, _outbuf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _streams = __2, _compressedSize = __1, _regeneratedSize = __0;
+        var _regeneratedSize:stdgo.GoInt = (0 : stdgo.GoInt), _compressedSize:stdgo.GoInt = (0 : stdgo.GoInt), _streams:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             final __value__ = (((_hdr >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) & (3 : stdgo.GoUInt8) : stdgo.GoUInt8);
             if (__value__ == ((0 : stdgo.GoUInt8)) || __value__ == ((1 : stdgo.GoUInt8))) {

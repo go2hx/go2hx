@@ -38,16 +38,16 @@ package stdgo._internal.image;
             {
                 final __tmp__0 = _r.max.x;
                 final __tmp__1 = _r.min.x;
-                _r.min.x = __tmp__0;
-                _r.max.x = __tmp__1;
+                _r.min.x = @:binopAssign __tmp__0;
+                _r.max.x = @:binopAssign __tmp__1;
             };
         };
         if ((_r.max.y < _r.min.y : Bool)) {
             {
                 final __tmp__0 = _r.max.y;
                 final __tmp__1 = _r.min.y;
-                _r.min.y = __tmp__0;
-                _r.max.y = __tmp__1;
+                _r.min.y = @:binopAssign __tmp__0;
+                _r.max.y = @:binopAssign __tmp__1;
             };
         };
         return _r?.__copy__();

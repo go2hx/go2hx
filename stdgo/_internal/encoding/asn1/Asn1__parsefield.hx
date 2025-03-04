@@ -226,11 +226,7 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_value.Value, _bytes:stdg
                 return { _0 : _offset, _1 : _err };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>))) {
                 var _v:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier>) : __type__.__underlying__().value;
-                {
-                    var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseobjectidentifier._parseObjectIdentifier(_innerBytes);
-                    _v.__setData__(@:tmpset0 __tmp__._0);
-                    _err = @:tmpset0 __tmp__._1;
-                };
+                _v.__setData__(@:tmpset0 __tmp__._0);
                 return { _0 : _offset, _1 : _err };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString>))) {
                 var _v:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString>) : __type__.__underlying__().value;

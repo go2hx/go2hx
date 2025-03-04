@@ -8,8 +8,7 @@ function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                 continue;
             };
             var _n = (stdgo._internal.math.big.Big__max._max(@:check2r @:check2 _x.num().bitLen(), @:check2r @:check2 _x.denom().bitLen()) : stdgo.GoInt);
-            var __0:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), __1:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
-var _f2 = __1, _f1 = __0;
+            var _f1:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_), _f2:stdgo._internal.math.big.Big_float_.Float_ = ({} : stdgo._internal.math.big.Big_float_.Float_);
             @:check2 _f2.setPrec((1000u32 : stdgo.GoUInt));
             @:check2 _f1.setRat((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>));
             @:check2 _f2.setRat((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>));

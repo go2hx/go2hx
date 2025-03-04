@@ -1,6 +1,8 @@
-[ERROR] (macro) ./stdgo/_internal/net/http/Http_transport_static_extension.hx:7: characters 22-36
+[ERROR] (macro) ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
 
- 7 |         @:check2r _t._cancelRequest((new stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey(_req) : stdgo._internal.net.http.Http_t_cancelkey.T_cancelKey), stdgo._internal.net.http.Http__errrequestcanceled._errRequestCanceled);
-   |                      ^^^^^^^^^^^^^^
-   | stdgo.Ref<stdgo._internal.net.http.Transport> has no field _cancelRequest
+ 22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
+    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
+    | have: { _0: stdgo.Ref<...> }
+    | want: { _0: stdgo._internal.mime.multipart.File }
 

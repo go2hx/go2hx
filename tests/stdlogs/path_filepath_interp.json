@@ -5,20 +5,12 @@
         "TestCVE202230632",
         "TestGlobError",
         "TestGlobUNC",
-        "TestWindowsGlob",
-        "TestClean",
-        "TestIsLocal",
-        "TestFromAndToSlash",
-        "TestSplitList",
-        "TestSplit",
-        "TestJoin",
-        "TestExt"
+        "TestWindowsGlob"
     ],
     "fails": [
         "TestGlob",
         "TestGlobSymlink",
-        "TestNonWindowsGlobEscape",
-        "TestWalk"
+        "TestNonWindowsGlobEscape"
     ],
     "runs": [
         "TestMatch",
@@ -28,14 +20,6 @@
         "TestGlobUNC",
         "TestGlobSymlink",
         "TestWindowsGlob",
-        "TestNonWindowsGlobEscape",
-        "TestClean",
-        "TestIsLocal",
-        "TestFromAndToSlash",
-        "TestSplitList",
-        "TestSplit",
-        "TestJoin",
-        "TestExt",
-        "TestWalk"
+        "TestNonWindowsGlobEscape"
     ]
 }

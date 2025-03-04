@@ -23,40 +23,11 @@ Called from _internal.math.rand_dot_test._Rand_dot_test.$Rand_dot_test_Fields_.m
 -- SKIP: TestDefaultRace
 
 === RUN  TestConcurrent
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
-Uncaught exception: Null access .value
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
+-- SKIP: testConcurrent
 
 -- PASS: TestConcurrent
-Uncaught exception: Null access .value
 
 === RUN  TestStandardNormalValues
-Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
-Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 
 -- PASS: TestStandardNormalValues
 

@@ -160,5 +160,14 @@
  "interp|var1",
  "interp|vars0",
  "interp|pointerAssign0",
- "interp|vars2"
+ "interp|vars2",
+ "interp|argMethods",
+ "interp|append1",
+ "interp|appendnil",
+ "interp|bytesBuffer",
+ "interp|vars1",
+ "interp|binaryreader",
+ "interp|heappop",
+ "interp|ptrrecv1",
+ "interp|t_4darray"
 ]

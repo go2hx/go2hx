@@ -171,8 +171,7 @@ package stdgo._internal.crypto.x509;
     static public function _buildChains( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>, _currentChain:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, _sigChecks:stdgo.Pointer<stdgo.GoInt>, _opts:stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>):{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = _c;
         var _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _err = (null : stdgo.Error);
-        var __0:stdgo.Error = (null : stdgo.Error), __1:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
-var _hintCert = __1, _hintErr = __0;
+        var _hintErr:stdgo.Error = (null : stdgo.Error), _hintCert:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
         var _considerCandidate = function(_certType:stdgo.GoInt, _candidate:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Void {
             if (stdgo._internal.crypto.x509.X509__alreadyinchain._alreadyInChain(_candidate, _currentChain)) {
                 return;

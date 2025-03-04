@@ -267,8 +267,8 @@ package stdgo._internal.bufio;
         {
             final __tmp__0 = ((@:checkr _b ?? throw "null pointer dereference")._buf[((@:checkr _b ?? throw "null pointer dereference")._r : stdgo.GoInt)] : stdgo.GoInt32);
             final __tmp__1 = (1 : stdgo.GoInt);
-            _r = __tmp__0;
-            _size = __tmp__1;
+            _r = @:binopAssign __tmp__0;
+            _size = @:binopAssign __tmp__1;
         };
         if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
             {

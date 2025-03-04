@@ -32,7 +32,7 @@ function _decodeUintReader(_r:stdgo._internal.io.Io_reader.Reader, _buf:stdgo.Sl
             };
             return { _0 : _x, _1 : _width, _2 : _err };
         };
-        for (__8 => _b in (_buf.__slice__((0 : stdgo.GoInt), _width) : stdgo.Slice<stdgo.GoUInt8>)) {
+        for (__4 => _b in (_buf.__slice__((0 : stdgo.GoInt), _width) : stdgo.Slice<stdgo.GoUInt8>)) {
             _x = ((_x << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_b : stdgo.GoUInt64) : stdgo.GoUInt64);
         };
         _width++;

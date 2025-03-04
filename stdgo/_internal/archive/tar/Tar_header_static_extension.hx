@@ -18,8 +18,7 @@ package stdgo._internal.archive.tar;
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString), __2:stdgo.GoString = ("" : stdgo.GoString);
-var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
+        var _whyNoUSTAR:stdgo.GoString = ("" : stdgo.GoString), _whyNoPAX:stdgo.GoString = ("" : stdgo.GoString), _whyNoGNU:stdgo.GoString = ("" : stdgo.GoString);
         var _preferPAX:Bool = false;
         var _verifyString = (function(_s:stdgo.GoString, _size:stdgo.GoInt, _name:stdgo.GoString, _paxKey:stdgo.GoString):Void {
             var _tooLong = ((_s.length) > _size : Bool);
@@ -121,8 +120,7 @@ var _whyNoGNU = __2, _whyNoPAX = __1, _whyNoUSTAR = __0;
         _verifyTime(_h.modTime?.__copy__(), (@:check2r _v7._modTime().length), ("ModTime" : stdgo.GoString), ("mtime" : stdgo.GoString));
         _verifyTime(_h.accessTime?.__copy__(), (@:check2r _gnu._accessTime().length), ("AccessTime" : stdgo.GoString), ("atime" : stdgo.GoString));
         _verifyTime(_h.changeTime?.__copy__(), (@:check2r _gnu._changeTime().length), ("ChangeTime" : stdgo.GoString), ("ctime" : stdgo.GoString));
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _whyOnlyGNU = __1, _whyOnlyPAX = __0;
+        var _whyOnlyPAX:stdgo.GoString = ("" : stdgo.GoString), _whyOnlyGNU:stdgo.GoString = ("" : stdgo.GoString);
         {
             final __value__ = _h.typeflag;
             if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((83 : stdgo.GoUInt8))) {

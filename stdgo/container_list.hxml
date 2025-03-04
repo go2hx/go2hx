@@ -1,0 +1,3 @@
+-m _internal.container.list_dot_test.List_dot_test
+-lib go2hx
+-cp .

@@ -28,8 +28,7 @@ function _p256Sub(_out1:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fi
             _x7 = @:tmpset0 __tmp__._0;
             _x8 = @:tmpset0 __tmp__._1;
         };
-        var _x9:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _x9__pointer__ = stdgo.Go.pointer(_x9);
+        var _x9:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _x9__pointer__ = stdgo.Go.pointer(_x9);
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p256cmovznzu64._p256CmovznzU64(_x9__pointer__, (_x8 : stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p256uint1.T_p256Uint1), (0i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64));
         var _x10:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _x11:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

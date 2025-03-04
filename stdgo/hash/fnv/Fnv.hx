@@ -1,10 +1,46 @@
 package stdgo.hash.fnv;
+@:structInit @:using(stdgo.hash.fnv.Fnv.T_golden_static_extension) @:dox(hide) abstract T_golden(stdgo._internal.hash.fnv.Fnv_t_golden.T_golden) from stdgo._internal.hash.fnv.Fnv_t_golden.T_golden to stdgo._internal.hash.fnv.Fnv_t_golden.T_golden {
+    public var _out(get, set) : Array<std.UInt>;
+    function get__out():Array<std.UInt> return [for (i in this._out) i];
+    function set__out(v:Array<std.UInt>):Array<std.UInt> {
+        this._out = ([for (i in v) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfState(get, set) : String;
+    function get__halfState():String return this._halfState;
+    function set__halfState(v:String):String {
+        this._halfState = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_out:Array<std.UInt>, ?_in:String, ?_halfState:String) this = new stdgo._internal.hash.fnv.Fnv_t_golden.T_golden(([for (i in _out) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_in : stdgo.GoString), (_halfState : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:dox(hide) typedef T__struct_0Pointer = stdgo._internal.hash.fnv.Fnv_t__struct_0pointer.T__struct_0Pointer;
+@:dox(hide) class T__struct_0_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0 = stdgo._internal.hash.fnv.Fnv_t__struct_0.T__struct_0;
 @:dox(hide) typedef T_sum32 = stdgo._internal.hash.fnv.Fnv_t_sum32.T_sum32;
 @:dox(hide) typedef T_sum32a = stdgo._internal.hash.fnv.Fnv_t_sum32a.T_sum32a;
 @:dox(hide) typedef T_sum64 = stdgo._internal.hash.fnv.Fnv_t_sum64.T_sum64;
 @:dox(hide) typedef T_sum64a = stdgo._internal.hash.fnv.Fnv_t_sum64a.T_sum64a;
 @:dox(hide) typedef T_sum128 = stdgo._internal.hash.fnv.Fnv_t_sum128.T_sum128;
 @:dox(hide) typedef T_sum128a = stdgo._internal.hash.fnv.Fnv_t_sum128a.T_sum128a;
+@:dox(hide) typedef T_goldenPointer = stdgo._internal.hash.fnv.Fnv_t_goldenpointer.T_goldenPointer;
+@:dox(hide) class T_golden_static_extension {
+
+}
+@:dox(hide) typedef T__struct_0PointerPointer = stdgo._internal.hash.fnv.Fnv_t__struct_0pointerpointer.T__struct_0PointerPointer;
+@:dox(hide) class T__struct_0Pointer_static_extension {
+
+}
 @:dox(hide) typedef T_sum32Pointer = stdgo._internal.hash.fnv.Fnv_t_sum32pointer.T_sum32Pointer;
 @:dox(hide) class T_sum32_static_extension {
     static public function unmarshalBinary(_s:stdgo.Pointer<T_sum32>, _b:Array<std.UInt>):stdgo.Error {
@@ -281,5 +317,81 @@ class Fnv {
     **/
     static public inline function new128a():stdgo._internal.hash.Hash_hash.Hash {
         return stdgo._internal.hash.fnv.Fnv_new128a.new128a();
+    }
+    static public inline function testGolden32(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden32.testGolden32(_t);
+    }
+    static public inline function testGolden32a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden32a.testGolden32a(_t);
+    }
+    static public inline function testGolden64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden64.testGolden64(_t);
+    }
+    static public inline function testGolden64a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden64a.testGolden64a(_t);
+    }
+    static public inline function testGolden128(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden128.testGolden128(_t);
+    }
+    static public inline function testGolden128a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgolden128a.testGolden128a(_t);
+    }
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testgoldenmarshal.testGoldenMarshal(_t);
+    }
+    static public inline function testIntegrity32(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity32.testIntegrity32(_t);
+    }
+    static public inline function testIntegrity32a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity32a.testIntegrity32a(_t);
+    }
+    static public inline function testIntegrity64(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity64.testIntegrity64(_t);
+    }
+    static public inline function testIntegrity64a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity64a.testIntegrity64a(_t);
+    }
+    static public inline function testIntegrity128(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity128.testIntegrity128(_t);
+    }
+    static public inline function testIntegrity128a(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.hash.fnv.Fnv_testintegrity128a.testIntegrity128a(_t);
+    }
+    static public inline function benchmarkFnv32KB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv32kb.benchmarkFnv32KB(_b);
+    }
+    static public inline function benchmarkFnv32aKB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv32akb.benchmarkFnv32aKB(_b);
+    }
+    static public inline function benchmarkFnv64KB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv64kb.benchmarkFnv64KB(_b);
+    }
+    static public inline function benchmarkFnv64aKB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv64akb.benchmarkFnv64aKB(_b);
+    }
+    static public inline function benchmarkFnv128KB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv128kb.benchmarkFnv128KB(_b);
+    }
+    static public inline function benchmarkFnv128aKB(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.hash.fnv.Fnv_benchmarkfnv128akb.benchmarkFnv128aKB(_b);
     }
 }

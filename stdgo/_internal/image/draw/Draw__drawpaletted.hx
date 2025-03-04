@@ -20,13 +20,12 @@ var _stride = __2, _pix = __1, _palette = __0;
                 {
                     final __tmp__0 = ((@:checkr _p ?? throw "null pointer dereference").pix.__slice__(@:check2r _p.pixOffset(_r.min.x, _r.min.y)) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (@:checkr _p ?? throw "null pointer dereference").stride;
-                    _pix = __tmp__0;
-                    _stride = __tmp__1;
+                    _pix = @:binopAssign __tmp__0;
+                    _stride = @:binopAssign __tmp__1;
                 };
             };
         };
-        var __0:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>), __1:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
-var _quantErrorNext = __1, _quantErrorCurr = __0;
+        var _quantErrorCurr:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>), _quantErrorNext:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
         if (_floydSteinberg) {
             _quantErrorCurr = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
             _quantErrorNext = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
@@ -110,8 +109,8 @@ var _bestSum = __1, _bestIndex = __0;
                                     {
                                         final __tmp__0 = _index;
                                         final __tmp__1 = _sum;
-                                        _bestIndex = __tmp__0;
-                                        _bestSum = __tmp__1;
+                                        _bestIndex = @:binopAssign __tmp__0;
+                                        _bestSum = @:binopAssign __tmp__1;
                                     };
                                     if (_sum == ((0u32 : stdgo.GoUInt32))) {
                                         break;
@@ -176,8 +175,8 @@ if (_floydSteinberg) {
                     {
                         final __tmp__0 = _quantErrorNext;
                         final __tmp__1 = _quantErrorCurr;
-                        _quantErrorCurr = __tmp__0;
-                        _quantErrorNext = __tmp__1;
+                        _quantErrorCurr = @:binopAssign __tmp__0;
+                        _quantErrorNext = @:binopAssign __tmp__1;
                     };
                     for (_i => _ in _quantErrorNext) {
                         _quantErrorNext[(_i : stdgo.GoInt)] = (new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__();

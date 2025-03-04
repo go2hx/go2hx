@@ -11,6 +11,7 @@ tests.md
 bin/cpp/*
 ./debug
 ./export
+export/*
 ./repl
 vendor
 .lua
@@ -42,6 +43,7 @@ go4hx
 go2hxdoc
 gobyexample
 golibs
+.haxelib
 gopath
 go
 tinygo
@@ -75,4 +77,5 @@ prebuild
 _internal/*
 analysis/tests/unitmod/*
 analysis/tests/gotomod/*
+analysis/tests/pointermod/*
 !tests/stdlogs/*.log

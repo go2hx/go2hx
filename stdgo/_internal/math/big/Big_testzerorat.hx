@@ -2,8 +2,7 @@ package stdgo._internal.math.big;
 function testZeroRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var __0:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat), __1:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat), __2:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat);
-var _z = __2, _y = __1, _x = __0;
+            var _x:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat), _y:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat), _z:stdgo._internal.math.big.Big_rat.Rat = ({} : stdgo._internal.math.big.Big_rat.Rat);
             @:check2 _y.setFrac64((0i64 : stdgo.GoInt64), (42i64 : stdgo.GoInt64));
             if (@:check2 _x.cmp((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>)) != ((0 : stdgo.GoInt))) {
                 @:check2r _t.errorf(("x and y should be both equal and zero" : stdgo.GoString));

@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusLocked : stdgo.GoUInt64 = (423i64 : stdgo.GoUInt64);
+final statusLocked : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

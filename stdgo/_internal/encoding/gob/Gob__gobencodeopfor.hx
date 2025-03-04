@@ -12,11 +12,7 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_userty
                 };
             };
         };
-        var _op:stdgo._internal.encoding.gob.Gob_t_encop.T_encOp = (null : stdgo._internal.encoding.gob.Gob_t_encop.T_encOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_encop.T_encOp = (null : stdgo._internal.encoding.gob.Gob_t_encop.T_encOp), _op__pointer__ = stdgo.Go.pointer(_op);
         _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encinstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>, _v:stdgo._internal.reflect.Reflect_value.Value):Void {
             if ((@:checkr _ut ?? throw "null pointer dereference")._encIndir == ((-1 : stdgo.GoInt8))) {
                 if (!_v.canAddr()) {

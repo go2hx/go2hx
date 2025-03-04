@@ -1,7 +1,6 @@
 package stdgo._internal.internal.buildcfg;
 function parseGOEXPERIMENT(_goos:stdgo.GoString, _goarch:stdgo.GoString, _goexp:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.internal.buildcfg.Buildcfg_experimentflags.ExperimentFlags>; var _1 : stdgo.Error; } {
-        var __0:Bool = false, __1:Bool = false;
-var _regabiAlwaysOn = __1, _regabiSupported = __0;
+        var _regabiSupported:Bool = false, _regabiAlwaysOn:Bool = false;
         {
             final __value__ = _goarch;
             if (__value__ == (("amd64" : stdgo.GoString)) || __value__ == (("arm64" : stdgo.GoString)) || __value__ == (("ppc64le" : stdgo.GoString)) || __value__ == (("ppc64" : stdgo.GoString)) || __value__ == (("riscv64" : stdgo.GoString))) {
@@ -45,8 +44,8 @@ _names[stdgo._internal.strings.Strings_tolower.toLower(_rt.field(_i).name.__copy
                     {
                         final __tmp__0 = (_f.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         final __tmp__1 = false;
-                        _f = __tmp__0;
-                        _val = __tmp__1;
+                        _f = @:binopAssign __tmp__0;
+                        _val = @:binopAssign __tmp__1;
                     };
                 };
                 var __tmp__ = (_names != null && _names.__exists__(_f?.__copy__()) ? { _0 : _names[_f?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _set:Bool -> Void = __tmp__._0, _ok:Bool = __tmp__._1;

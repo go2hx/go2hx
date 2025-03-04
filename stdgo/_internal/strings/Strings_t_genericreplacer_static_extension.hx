@@ -6,8 +6,7 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_t_genericreplacer.T_genericReplacer> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _sw = (stdgo._internal.strings.Strings__getstringwriter._getStringWriter(_w) : stdgo._internal.io.Io_stringwriter.StringWriter);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _wn = __1, _last = __0;
+        var _last:stdgo.GoInt = (0 : stdgo.GoInt), _wn:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevMatchEmpty:Bool = false;
         {
             var _i = (0 : stdgo.GoInt);

@@ -56,8 +56,7 @@ function _elfBuildID(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 };
             };
             var _shnum:stdgo.GoInt = (0 : stdgo.GoInt);
-            var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _shentsize = __1, _shoff = __0;
+            var _shoff:stdgo.GoInt64 = (0 : stdgo.GoInt64), _shentsize:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             {
                 final __value__ = _buf[(4 : stdgo.GoInt)];
                 if (__value__ == ((1 : stdgo.GoUInt8))) {
@@ -128,8 +127,7 @@ var _shentsize = __1, _shoff = __0;
                             };
                         };
                     };
-var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _size = __1, _off = __0;
+var _off:stdgo.GoInt64 = (0 : stdgo.GoInt64), _size:stdgo.GoInt64 = (0 : stdgo.GoInt64);
 if (_shentsize == ((40i64 : stdgo.GoInt64))) {
                         _off = (_byteOrder.uint32((_buf.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
                         _size = (_byteOrder.uint32((_buf.__slice__((20 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);

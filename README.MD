@@ -1,9 +1,19 @@
 <img src="logo.svg" width="270" align="right"/>
 
-# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml)
+# go2hx [![build](https://github.com/go2hx/go2hx/actions/workflows/main.yml/badge.svg)](https://github.com/go2hx/go2hx/actions/workflows/main.yml) [![Scc Count Badge](https://sloc.xyz/github/go2hx/go2hx/)](https://github.com/go2hx/go2hx/) [![Discord](https://img.shields.io/discord/162395145352904705.svg?logo=discord)](https://discord.gg/jgPcqC7DY2)
 
-Go2hx is a haxe compiler, that compiles Go code to haxe
-Spiritual successor to [Elliott stoneham's compiler](#credits)
+A Haxe compiler, that compiles Go code to Haxe.
+
+Spiritual successor to [Elliott Stoneham's compiler](#credits)
+
+This project aims to change the paradigm of the Haxe ecosystem by providing thousands of high quality tested libraries from Go.
+
+
+- In a manner that is easy to use for Haxe devs.
+- Allows Haxe to be used in production for many more fields.
+- Fulfill Haxe's promises of cross target compilable code. Write once run anywhere, now with the libraries to back it up.
+
+If you are interested in improving the Haxe ecosystem you may be interested in [contributing](#contributing)
 
 > [!WARNING]  
 > Alpha version, not able to compile most Go code correctly
@@ -37,14 +47,14 @@ Spiritual successor to [Elliott stoneham's compiler](#credits)
 
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
-Use Haxe with it's promises upkept of a large library ecosystem with cross target support.
+Use Haxe with it's promises up kept of a large library ecosystem with cross target support.
 - No target lock in.
 - Lots of maintained and well tested libraries to choose from.
 - Built for Haxe devs needs such as native Haxe types and Haxe style naming convention.
 - Simple to use, CLI default behavior covers 95% of use cases.
 
 
-Precompiled libs are avaliable with [no setup required](https://github.com/go2hx#working-haxelibs-precompiled).
+Precompiled libs are available with [no setup required](https://github.com/go2hx#working-haxelibs-precompiled).
 
 
 
@@ -62,7 +72,7 @@ flowchart LR
 ```
 
 # Why Go for Haxe devs
-* Large library ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of Janurary 2025
+* Large library ecosystem >10 stars [Haxe 1k](https://github.com/search?q=stars%3A%3E10+language%3AHaxe&type=Repositories&ref=advsearch&l=Haxe&l=) vs [Go 73k](https://github.com/search?q=stars%3A%3E10+language%3AGo+&type=repositories&ref=advsearch) as of January 2025
 * High quality code because of the Go language and builtin testing
 * Interfacing with the compiled code is similar to interfacing with handwritten haxe code, examples: [unicode](https://github.com/go2hx/go2hx/blob/master/stdgo/unicode/Unicode.hx#L1751), [regexp/syntax](https://github.com/go2hx/go2hx/blob/master/stdgo/regexp/syntax/Syntax.hx#L633)
 * Go and Haxe are both high level statically typed garbage collected languages
@@ -129,7 +139,7 @@ To go ahead with more complicated compiles, proceed with caution as most librari
 Feedback is highly welcome, and any issues run across feel free to make an issue.
 
 Code using generics, goroutines, unsafe, or channels has a very low chance of correctly compiling.
-Likewise for nonpassing std libraries.
+Likewise for non passing std libraries.
 
 To experiment with a few samples take a look at: samples [code](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases) [live](https://go2hx.github.io/samples/)
 
@@ -178,11 +188,11 @@ Most of the compiled code will be in ``_internal/...`` this is intentional to hi
 
 go2hx generates extern like files for all public fields, funcs, types etc. This allows Haxe devs to interact with code using normal Haxe types, rather then the special number abstracts to uphold the behavior of go, as well as strings, structs etc.
 
-Some types however there is no Haxe equivlant such as interface{}/any, this is a type like Any but that can hold an extensive amount of type info about it's self, because of this when you want to create one you have to use a macro function, ``stdgo.Go.toInterface(x)`` likewise for go interfaces you must use ``stdgo.Go.asInterface``
+Some types however there is no Haxe equivalent such as interface{}/any, this is a type like Any but that can hold an extensive amount of type info about it's self, because of this when you want to create one you have to use a macro function, ``stdgo.Go.toInterface(x)`` likewise for go interfaces you must use ``stdgo.Go.asInterface``
 
 Because of the nature of these types and the extern system, there is not the same level of testing as the behavior within ``_internal`` so please if you run into an issue with interfacing with compiled Go code, make an issue and most likely it can be resolved quickly!
 
-This is a brief intro into usage, hopefully in the future, a lot of these details will become unnecessary and the usage will be more intutive.
+This is a brief intro into usage, hopefully in the future, a lot of these details will become unnecessary and the usage will be more intuitive.
 
 
 # Options
@@ -220,7 +230,7 @@ Target:
 
 # Project status
 
-The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensivly tested and will likely work in isolation, that are not explicited excluded such as: generics, goroutines, channels, unsafe
+The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensively tested and will likely work in isolation, that are not explicated excluded such as: generics, goroutines, channels, unsafe
 
 The project is on the verge of having larger 3rd party libraries working.
 For example ``regexp/syntax`` now passes as well as [regexp2](https://github.com/dlclark/regexp2)
@@ -234,7 +244,7 @@ The project is driven by testing. Test suites are broken into categories for an 
 
 * Easy: are tests that use no stdlibs and exclude non supported language features.
 
-* Mediumn: are tests with the same language feature constraints as easy, but allow passing stdlibs to be imported
+* Medium: are tests with the same language feature constraints as easy, but allow passing stdlibs to be imported
 
 * Hard: all other tests
 *(hashlink only)*
@@ -251,9 +261,9 @@ Become the one stop shop for high quality Haxe libraries for Haxe devs
 
 Beyond the known issues highlighted above, there are a handful of other issues
 with using Go2hx.
-- The compiler supports a subspecification of the full language, language features outside of it, are likely excluded from testing and have no support.
-- Many targets have fundemental problems not adressed by Go2hx such as too large of function blocks in jvm.
-- The project has many rough spots, and painpoints that need feedback to fix.
+- The compiler supports a sub-specification of the full language, language features outside of it, are likely excluded from testing and have no support.
+- Many targets have fundamental problems not addressed by Go2hx such as too large of function blocks in jvm.
+- The project has many rough spots, and pain points that need feedback to fix.
 - Some of the excluded language features such as goroutines and generics are heavily used in most Go libraries.
 - Most stdlibs do not work, most 3rd party libs also do not work.
 
@@ -278,7 +288,7 @@ for example: [pkg.go.dev/github.com/itchio/lzma](https://pkg.go.dev/github.com/i
 
 Next I find the tab called ``imports: X`` (X being the amount of imports) click on it and it will show you the [imports fot the projects](https://pkg.go.dev/github.com/alecthomas/chroma/v2?tab=imports).
 
-Libraries with only stdlibs are ideal, but a small amount of 3rd party libs can also work if they follow the same positive evaluation of language and lib usag denoted here.
+Libraries with only stdlibs are ideal, but a small amount of 3rd party libs can also work if they follow the same positive evaluation of language and lib usage denoted here.
 
  
  
@@ -353,10 +363,10 @@ After you have [setup from source](#setup-from-source) and **ran the compiler at
 # Similar Projects
 
 - [reflaxe_go](https://github.com/neimanpinchas/reflaxe_go) is a go target for haxe
-- [tardisgo](https://github.com/tardisgo/tardisgo) go to haxe compiler that this project is the spiritual sucessor to
+- [tardisgo](https://github.com/tardisgo/tardisgo) go to haxe compiler that this project is the spiritual successor to
 - [gopherjs](https://github.com/gopherjs/gopherjs) go to js compiler
 
 # Credits
 
 A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5),
-A maintainer, mentor, and code contribuitor of this project. Elliott's wise counsel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
+A maintainer, mentor, and code contributor of this project. Elliott's wise counsel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.

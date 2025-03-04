@@ -173,16 +173,16 @@ class PalettedImage_static_extension {
     public var _decode(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>;
     function get__decode():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> return _0 -> this._decode(_0);
     function set__decode(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> {
-        this._decode = v;
+        this._decode = _0 -> v(_0);
         return v;
     }
     public var _decodeConfig(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>;
     function get__decodeConfig():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> return _0 -> this._decodeConfig(_0);
     function set__decodeConfig(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> {
-        this._decodeConfig = v;
+        this._decodeConfig = _0 -> v(_0);
         return v;
     }
-    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _decode, _decodeConfig);
+    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _0 -> _decode(_0), _0 -> _decodeConfig(_0));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1460,8 +1460,8 @@ class Image {
     static public inline function registerFormat(_name:String, _magic:String, _decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, _decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):Void {
         final _name = (_name : stdgo.GoString);
         final _magic = (_magic : stdgo.GoString);
-        final _decode = _decode;
-        final _decodeConfig = _decodeConfig;
+        final _decode = _0 -> _decode(_0);
+        final _decodeConfig = _0 -> _decodeConfig(_0);
         stdgo._internal.image.Image_registerformat.registerFormat(_name, _magic, _decode, _decodeConfig);
     }
     /**

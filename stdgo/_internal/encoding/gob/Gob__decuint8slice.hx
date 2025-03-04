@@ -23,7 +23,7 @@ function _decUint8Slice(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr
                 _value.setLen(_ln);
                 var _sub = (_value.slice(_i, _ln)?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);
                 {
-                    var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_sub.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_sub.bytes()), __4:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("error decoding []byte at %d: %s" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_i));
                     };
@@ -33,7 +33,7 @@ function _decUint8Slice(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr
         } else {
             _value.setLen(_n);
             {
-                var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_value.bytes()), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _state ?? throw "null pointer dereference")._b.read(_value.bytes()), __4:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("error decoding []byte: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };

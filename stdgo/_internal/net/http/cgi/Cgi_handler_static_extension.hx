@@ -76,7 +76,7 @@ package stdgo._internal.net.http.cgi;
                 };
             };
             {
-                var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").host?.__copy__()), _hostDomain:stdgo.GoString = __tmp__._0, __16:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = stdgo._internal.net.Net_splithostport.splitHostPort((@:checkr _req ?? throw "null pointer dereference").host?.__copy__()), _hostDomain:stdgo.GoString = __tmp__._0, __0:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err == null) {
                     _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + _hostDomain?.__copy__() : stdgo.GoString)?.__copy__()));
                 } else {
@@ -111,7 +111,7 @@ package stdgo._internal.net.http.cgi;
                 _envPath = ("/bin:/usr/bin:/usr/ucb:/usr/bsd:/usr/local/bin" : stdgo.GoString);
             };
             _env = (_env.__append__((("PATH=" : stdgo.GoString) + _envPath?.__copy__() : stdgo.GoString)?.__copy__()));
-            for (__25 => _e in (@:checkr _h ?? throw "null pointer dereference").inheritEnv) {
+            for (__1 => _e in (@:checkr _h ?? throw "null pointer dereference").inheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
                     if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
@@ -119,7 +119,7 @@ package stdgo._internal.net.http.cgi;
                     };
                 };
             };
-            for (__26 => _e in stdgo._internal.net.http.cgi.Cgi__osdefaultinheritenv._osDefaultInheritEnv) {
+            for (__2 => _e in stdgo._internal.net.http.cgi.Cgi__osdefaultinheritenv._osDefaultInheritEnv) {
                 {
                     var _v = (stdgo._internal.os.Os_getenv.getenv(_e?.__copy__())?.__copy__() : stdgo.GoString);
                     if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
@@ -131,8 +131,7 @@ package stdgo._internal.net.http.cgi;
                 _env = (_env.__append__(...((@:checkr _h ?? throw "null pointer dereference").env : Array<stdgo.GoString>)));
             };
             _env = stdgo._internal.net.http.cgi.Cgi__removeleadingduplicates._removeLeadingDuplicates(_env);
-            var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _path = __1, _cwd = __0;
+            var _cwd:stdgo.GoString = ("" : stdgo.GoString), _path:stdgo.GoString = ("" : stdgo.GoString);
             if ((@:checkr _h ?? throw "null pointer dereference").dir != ((stdgo.Go.str() : stdgo.GoString))) {
                 _path = (@:checkr _h ?? throw "null pointer dereference").path?.__copy__();
                 _cwd = (@:checkr _h ?? throw "null pointer dereference").dir?.__copy__();
@@ -309,7 +308,7 @@ var _path = __1, _cwd = __0;
                 _statusCode = (200 : stdgo.GoInt);
             };
             for (_k => _vv in _headers) {
-                for (__85 => _v in _vv) {
+                for (__3 => _v in _vv) {
                     _rw.header().add(_k?.__copy__(), _v?.__copy__());
                 };
             };

@@ -117,8 +117,8 @@ package stdgo._internal.flag;
                     {
                         final __tmp__0 = (@:checkr _f ?? throw "null pointer dereference")._args[(0 : stdgo.GoInt)]?.__copy__();
                         final __tmp__1 = ((@:checkr _f ?? throw "null pointer dereference")._args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-                        _value = __tmp__0;
-                        (@:checkr _f ?? throw "null pointer dereference")._args = __tmp__1;
+                        _value = @:binopAssign __tmp__0;
+                        (@:checkr _f ?? throw "null pointer dereference")._args = @:binopAssign __tmp__1;
                     };
                 };
                 if (!_hasValue) {

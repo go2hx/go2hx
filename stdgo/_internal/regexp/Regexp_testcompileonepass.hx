@@ -1,7 +1,6 @@
 package stdgo._internal.regexp;
 function testCompileOnePass(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var __0:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>), __1:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>), __2:stdgo.Error = (null : stdgo.Error);
-var _err = __2, _re = __1, _p = __0;
+        var _p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.Prog>), _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>), _err:stdgo.Error = (null : stdgo.Error);
         for (__0 => _test in stdgo._internal.regexp.Regexp__onepasstests._onePassTests) {
             {
                 {

@@ -53,8 +53,7 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                 (@:checkr _p ?? throw "null pointer dereference").headers[(_key : stdgo.GoString)] = (_val : stdgo.GoString)?.__copy__();
                 _rest = _next;
             };
-            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _endTrailerIndex = __1, _endIndex = __0;
+            var _endIndex:stdgo.GoInt = (0 : stdgo.GoInt), _endTrailerIndex:stdgo.GoInt = (0 : stdgo.GoInt);
             if ((((@:checkr _p ?? throw "null pointer dereference").headers.length == (0 : stdgo.GoInt)) && stdgo._internal.bytes.Bytes_hasprefix.hasPrefix(_rest, (stdgo._internal.encoding.pem.Pem__pemend._pemEnd.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : Bool)) {
                 _endIndex = (0 : stdgo.GoInt);
                 _endTrailerIndex = ((stdgo._internal.encoding.pem.Pem__pemend._pemEnd.length) - (1 : stdgo.GoInt) : stdgo.GoInt);

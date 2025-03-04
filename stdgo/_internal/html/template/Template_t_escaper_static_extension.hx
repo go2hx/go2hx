@@ -29,7 +29,7 @@ package stdgo._internal.html.template;
         var _tmpl = @:check2r _e._arbitraryTemplate();
         for (__6 => _t in (@:checkr _e ?? throw "null pointer dereference")._derived) {
             {
-                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __39:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r (@:checkr _tmpl ?? throw "null pointer dereference")._text.addParseTree(@:check2r _t.name()?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree), __31:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     throw stdgo.Go.toInterface(("error adding derived template" : stdgo.GoString));
                 };
@@ -172,8 +172,8 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             {
                 final __tmp__0 = _c1?.__copy__();
                 final __tmp__1 = _i1;
-                _c = __tmp__0;
-                _i = __tmp__1;
+                _c = @:binopAssign __tmp__0;
+                _i = @:binopAssign __tmp__1;
             };
         };
         if (((_written != (0 : stdgo.GoInt)) && (_c._state != (27 : stdgo._internal.html.template.Template_t_state.T_state)) : Bool)) {
@@ -212,8 +212,8 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                     {
                         final __tmp__0 = _c2?.__copy__();
                         final __tmp__1 = true;
-                        _c1 = __tmp__0;
-                        _ok = __tmp__1;
+                        _c1 = @:binopAssign __tmp__0;
+                        _ok = @:binopAssign __tmp__1;
                     };
                 };
             };

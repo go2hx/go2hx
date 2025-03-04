@@ -30,6 +30,46 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.md5.Md5_blocksize.blockSi
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
+@:structInit @:using(stdgo.crypto.md5.Md5.T_md5Test_static_extension) @:dox(hide) abstract T_md5Test(stdgo._internal.crypto.md5.Md5_t_md5test.T_md5Test) from stdgo._internal.crypto.md5.Md5_t_md5test.T_md5Test to stdgo._internal.crypto.md5.Md5_t_md5test.T_md5Test {
+    public var _out(get, set) : String;
+    function get__out():String return this._out;
+    function set__out(v:String):String {
+        this._out = (v : stdgo.GoString);
+        return v;
+    }
+    public var _in(get, set) : String;
+    function get__in():String return this._in;
+    function set__in(v:String):String {
+        this._in = (v : stdgo.GoString);
+        return v;
+    }
+    public var _halfState(get, set) : String;
+    function get__halfState():String return this._halfState;
+    function set__halfState(v:String):String {
+        this._halfState = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_out:String, ?_in:String, ?_halfState:String) this = new stdgo._internal.crypto.md5.Md5_t_md5test.T_md5Test((_out : stdgo.GoString), (_in : stdgo.GoString), (_halfState : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
+@:structInit @:using(stdgo.crypto.md5.Md5.T_unmarshalTest_static_extension) @:dox(hide) abstract T_unmarshalTest(stdgo._internal.crypto.md5.Md5_t_unmarshaltest.T_unmarshalTest) from stdgo._internal.crypto.md5.Md5_t_unmarshaltest.T_unmarshalTest to stdgo._internal.crypto.md5.Md5_t_unmarshaltest.T_unmarshalTest {
+    public var _state(get, set) : String;
+    function get__state():String return this._state;
+    function set__state(v:String):String {
+        this._state = (v : stdgo.GoString);
+        return v;
+    }
+    public var _sum(get, set) : String;
+    function get__sum():String return this._sum;
+    function set__sum(v:String):String {
+        this._sum = (v : stdgo.GoString);
+        return v;
+    }
+    public function new(?_state:String, ?_sum:String) this = new stdgo._internal.crypto.md5.Md5_t_unmarshaltest.T_unmarshalTest((_state : stdgo.GoString), (_sum : stdgo.GoString));
+    public function __underlying__() return stdgo.Go.toInterface(this);
+    public function __copy__() return this.__copy__();
+}
 @:dox(hide) typedef T_digestPointer = stdgo._internal.crypto.md5.Md5_t_digestpointer.T_digestPointer;
 @:dox(hide) class T_digest_static_extension {
     static public function _checkSum(_d:T_digest):haxe.ds.Vector<std.UInt> {
@@ -74,6 +114,14 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.md5.Md5_blocksize.blockSi
         stdgo._internal.crypto.md5.Md5_t_digest_static_extension.T_digest_static_extension.reset(_d);
     }
 }
+@:dox(hide) typedef T_md5TestPointer = stdgo._internal.crypto.md5.Md5_t_md5testpointer.T_md5TestPointer;
+@:dox(hide) class T_md5Test_static_extension {
+
+}
+@:dox(hide) typedef T_unmarshalTestPointer = stdgo._internal.crypto.md5.Md5_t_unmarshaltestpointer.T_unmarshalTestPointer;
+@:dox(hide) class T_unmarshalTest_static_extension {
+
+}
 /**
     * Package md5 implements the MD5 hash algorithm as defined in RFC 1321.
     * 
@@ -95,5 +143,80 @@ class Md5 {
     static public inline function sum(_data:Array<std.UInt>):haxe.ds.Vector<std.UInt> {
         final _data = ([for (i in _data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.md5.Md5_sum.sum(_data)) i]);
+    }
+    static public inline function testGolden(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testgolden.testGolden(_t);
+    }
+    static public inline function testGoldenMarshal(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testgoldenmarshal.testGoldenMarshal(_t);
+    }
+    static public inline function testLarge(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testlarge.testLarge(_t);
+    }
+    /**
+        * Tests that blockGeneric (pure Go) and block (in assembly for amd64, 386, arm) match.
+    **/
+    static public inline function testBlockGeneric(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testblockgeneric.testBlockGeneric(_t);
+    }
+    static public inline function testLargeHashes(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testlargehashes.testLargeHashes(_t);
+    }
+    static public inline function testAllocations(_t:stdgo._internal.testing.Testing_t_.T_):Void {
+        final _t = (_t : stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>);
+        stdgo._internal.crypto.md5.Md5_testallocations.testAllocations(_t);
+    }
+    static public inline function benchmarkHash8Bytes(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash8bytes.benchmarkHash8Bytes(_b);
+    }
+    static public inline function benchmarkHash64(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash64.benchmarkHash64(_b);
+    }
+    static public inline function benchmarkHash128(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash128.benchmarkHash128(_b);
+    }
+    static public inline function benchmarkHash256(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash256.benchmarkHash256(_b);
+    }
+    static public inline function benchmarkHash512(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash512.benchmarkHash512(_b);
+    }
+    static public inline function benchmarkHash1K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash1k.benchmarkHash1K(_b);
+    }
+    static public inline function benchmarkHash8K(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash8k.benchmarkHash8K(_b);
+    }
+    static public inline function benchmarkHash1M(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash1m.benchmarkHash1M(_b);
+    }
+    static public inline function benchmarkHash8M(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash8m.benchmarkHash8M(_b);
+    }
+    static public inline function benchmarkHash8BytesUnaligned(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash8bytesunaligned.benchmarkHash8BytesUnaligned(_b);
+    }
+    static public inline function benchmarkHash1KUnaligned(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash1kunaligned.benchmarkHash1KUnaligned(_b);
+    }
+    static public inline function benchmarkHash8KUnaligned(_b:stdgo._internal.testing.Testing_b.B):Void {
+        final _b = (_b : stdgo.Ref<stdgo._internal.testing.Testing_b.B>);
+        stdgo._internal.crypto.md5.Md5_benchmarkhash8kunaligned.benchmarkHash8KUnaligned(_b);
     }
 }

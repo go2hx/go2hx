@@ -71,8 +71,7 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                     };
                                     var _dpNameDER:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-                                    var _dpNamePresent:Bool = false;
-                                    var _dpNamePresent__pointer__ = stdgo.Go.pointer(_dpNamePresent);
+                                    var _dpNamePresent:Bool = false, _dpNamePresent__pointer__ = stdgo.Go.pointer(_dpNamePresent);
                                     if (!@:check2 _dpDER.readOptionalASN1((stdgo.Go.setRef(_dpNameDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _dpNamePresent__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).constructed().contextSpecific())) {
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                     };

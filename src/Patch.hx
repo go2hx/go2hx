@@ -1654,7 +1654,10 @@ final list = [
 	"testing:testing" => macro return true,
 	"testing:coverMode" => macro return "",
 	"testing:short" => macro return true,
-	"testing:allocsPerRun" => macro return 0,
+	"testing:allocsPerRun" => macro {
+		trace("allocsPerRun not implemented");
+		return 0;
+	},
 	"testing:verbose" => macro return false,
 	"testing.T_:run" => macro return true,
 	"testing.T_common:log" => macro {},
@@ -1783,8 +1786,11 @@ final list = [
 ];
 
 final skipTests = [
+	"math.rand_test:testConcurrent" => [], // sync.WaitGroup and goroutines with exceptions inside
 	"path.filepath_test:testCVE202230632" => [], // segfault
 	"fmt_test:testPanics" => [], // keep Haxe specific throws, no need to replicate
+	"bytes_test:testLargeStringWrites" => ["js"], // max call stack
+	"bytes_test:testLargeByteWrites" => ["js"], // max call stack
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
 	"bytes_test:testMixedReadsAndWrites" => ["js"], // randomly causes errors in max call stack depth uses rand.Intn in the tests so it is random
 	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)
@@ -1792,6 +1798,7 @@ final skipTests = [
 	"math_test:testFloatMinima" => ["interp", "js"],
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
+	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync
@@ -1809,10 +1816,15 @@ final skipTests = [
 	"strings_test:testReplacer" => [], // TODO: implement - uses bytes.Buffer
 	"strings_test:testPickAlgorithm" => [], // TODO: implement - uses fmt.Sprintf
 	"strings_test:testMap" => [], // uses unsafe pointer conversions
+	"crypto.sha512_test:testAllocations" => [], // checks runtime allocations num
+	"crypto.sha512:testAllocations" => [], // checks runtime allocations num
+	"log_test:testDiscard" => [], // checks runtime allocations num
+	"log:testDiscard" => [], // checks runtime allocations num
 	"bytes_test:testGrow" => [], // checks runtime allocations num
 	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
+	"encoding.json:TestHTTPDecoding" => [], // uses net/http
 	"encoding.binary_test:testNativeEndian" => [], // uses unsafe pointer conversions
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter

@@ -22,8 +22,7 @@ function _tgs(_x:stdgo.Slice<stdgo.GoString>, _y:stdgo.Slice<stdgo.GoString>):st
                 };
             };
         };
-        var __0:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>), __1:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>), __2:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-var _inv = __2, _yi = __1, _xi = __0;
+        var _xi:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>), _yi:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>), _inv:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
         for (_i => _s in _y) {
             if ((_m[_s] ?? (0 : stdgo.GoInt)) == ((-5 : stdgo.GoInt))) {
                 _m[_s] = (_yi.length);

@@ -2,10 +2,7 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2noDialClientConnPool_asInterface) class T_http2noDialClientConnPool_static_extension {
     @:keep
     @:tdfield
-    static public function getClientConn( _p:stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool, _req:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, _addr:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>; var _1 : stdgo.Error; } {
-        @:recv var _p:stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool = _p?.__copy__();
-        return @:check2 _p._getClientConn(_req, _addr?.__copy__(), false);
-    }
+    static public function getClientConn( _p:stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool, _req:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>, _addr:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_t_http2clientconn.T_http2ClientConn>; var _1 : stdgo.Error; } throw "T_http2noDialClientConnPool:net.http.getClientConn is not yet implemented";
     @:embedded
     @:embeddededffieldsffun
     public static function _getStartDialLocked( __self__:stdgo._internal.net.http.Http_t_http2nodialclientconnpool.T_http2noDialClientConnPool, _0:stdgo._internal.context.Context_context.Context, _1:stdgo.GoString):stdgo.Ref<stdgo._internal.net.http.Http_t_http2dialcall.T_http2dialCall> return @:_5 __self__._getStartDialLocked(_0, _1);

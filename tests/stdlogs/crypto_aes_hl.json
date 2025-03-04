@@ -1,0 +1,34 @@
+{
+    "passes": [
+        "TestPowx",
+        "TestMul",
+        "TestSboxes",
+        "TestTe",
+        "TestTd",
+        "TestShortBlocks",
+        "TestGCMAble",
+        "TestCBCEncAble",
+        "TestCBCDecAble",
+        "TestCTRAble"
+    ],
+    "fails": [
+        "TestExpandKey",
+        "TestCipherEncrypt",
+        "TestCipherDecrypt"
+    ],
+    "runs": [
+        "TestPowx",
+        "TestMul",
+        "TestSboxes",
+        "TestTe",
+        "TestTd",
+        "TestExpandKey",
+        "TestCipherEncrypt",
+        "TestCipherDecrypt",
+        "TestShortBlocks",
+        "TestGCMAble",
+        "TestCBCEncAble",
+        "TestCBCDecAble",
+        "TestCTRAble"
+    ]
+}

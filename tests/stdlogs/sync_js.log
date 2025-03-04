@@ -142,9 +142,9 @@
     |                      ^^^^^
     | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test_testissue40999.hx:9: characters 22-27
+[ERROR] ./_internal/sync_test/Sync_test_testissue40999.hx:7: characters 22-27
 
-  9 |             var _p = _new_(_internal.sync_test.Sync_test__int._int);
+  7 |             var _p = _new_(_internal.sync_test.Sync_test__int._int);
     |                      ^^^^^
     | Unknown identifier : _new_
 
@@ -216,15 +216,29 @@
 
          | For function argument ''
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:51: characters 28-33
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:40: characters 47-81
 
- 51 |                     _v_6 = _new_(_internal.sync_test.Sync_test__string._string);
+ 40 |                     _fin_3 = stdgo.Go.pointer(_internal.sync_test.Sync_test__fin._fin);
+    |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Type not found : _internal.sync_test.Sync_test__fin
+
+         | For optional function argument 'get'
+
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:40: characters 21-87
+
+ 40 |                     _fin_3 = stdgo.Go.pointer(_internal.sync_test.Sync_test__fin._fin);
+    |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Void should be stdgo.GoUInt32
+
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:50: characters 28-33
+
+ 50 |                     _v_6 = _new_(_internal.sync_test.Sync_test__string._string);
     |                            ^^^^^
     | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:53: characters 82-88
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:52: characters 82-88
 
- 53 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_3, (1u32 : stdgo.GoUInt32));
+ 52 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_3, (1u32 : stdgo.GoUInt32));
     |                                                                                  ^^^^^^
     | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
     | For function argument '_addr'
@@ -241,19 +255,19 @@
          |           ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-     ->  ./_internal/sync_test/Sync_test__testpool.hx:52: lines 52-54
+     ->  ./_internal/sync_test/Sync_test__testpool.hx:51: lines 51-53
 
-      52 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_6), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
-      53 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_3, (1u32 : stdgo.GoUInt32));
-      54 |                     }));
+      51 |                     stdgo._internal.runtime.Runtime_setfinalizer.setFinalizer(stdgo.Go.toInterface(_v_6), stdgo.Go.toInterface(function(_vv:stdgo.Pointer<stdgo.GoString>):Void {
+      52 |                         stdgo._internal.sync.atomic_.Atomic__adduint32.addUint32(_fin_3, (1u32 : stdgo.GoUInt32));
+      53 |                     }));
          |
          | Called from here
 
          | For function argument '_finalizer'
 
-[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:92: characters 94-100
+[ERROR] ./_internal/sync_test/Sync_test__testpool.hx:91: characters 94-100
 
- 92 |                         _fin1_4 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_3);
+ 91 |                         _fin1_4 = stdgo._internal.sync.atomic_.Atomic__loaduint32.loadUint32(_fin_3);
     |                                                                                              ^^^^^^
     | stdgo.GoUInt32 should be stdgo.Pointer<stdgo.GoUInt32>
     | For function argument '_addr'

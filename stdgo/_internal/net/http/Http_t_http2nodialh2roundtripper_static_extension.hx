@@ -2,14 +2,7 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2noDialH2RoundTripper_asInterface) class T_http2noDialH2RoundTripper_static_extension {
     @:keep
     @:tdfield
-    static public function roundTrip( _rt:stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper, _req:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } {
-        @:recv var _rt:stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper = _rt?.__copy__();
-        var __tmp__ = @:check2r _rt._http2Transport.roundTrip(_req), _res:stdgo.Ref<stdgo._internal.net.http.Http_response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (stdgo._internal.net.http.Http__http2isnocachedconnerror._http2isNoCachedConnError(_err)) {
-            return { _0 : null, _1 : stdgo._internal.net.http.Http_errskipaltprotocol.errSkipAltProtocol };
-        };
-        return { _0 : _res, _1 : _err };
-    }
+    static public function roundTrip( _rt:stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper, _req:stdgo.Ref<stdgo._internal.net.http.Http_request.Request>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } throw "T_http2noDialH2RoundTripper:net.http.roundTrip is not yet implemented";
     @:embedded
     @:embeddededffieldsffun
     public static function _vlogf( __self__:stdgo._internal.net.http.Http_t_http2nodialh2roundtripper.T_http2noDialH2RoundTripper, _0:stdgo.GoString, _1:haxe.Rest<stdgo.AnyInterface>):Void return @:_5 __self__._vlogf(_0, ...[for (i in _1) i]);

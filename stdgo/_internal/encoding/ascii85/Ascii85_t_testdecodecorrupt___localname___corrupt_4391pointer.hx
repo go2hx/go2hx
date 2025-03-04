@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.ascii85;
+@:keep @:follow @:using(stdgo._internal.encoding.ascii85.Ascii85_t_testdecodecorrupt___localname___corrupt_4391_static_extension.T_testDecodeCorrupt___localname___corrupt_4391_static_extension) typedef T_testDecodeCorrupt___localname___corrupt_4391Pointer = stdgo.Pointer<stdgo._internal.encoding.ascii85.Ascii85_t_testdecodecorrupt___localname___corrupt_4391.T_testDecodeCorrupt___localname___corrupt_4391>;

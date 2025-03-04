@@ -873,11 +873,11 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big_maxbase.maxBase;
 @:dox(hide) typedef T__struct_67Pointer = stdgo._internal.math.big.Big_t__struct_67pointer.T__struct_67Pointer;
 @:dox(hide) class T__struct_67_static_extension {
     public static function _doSlow(__self__:stdgo._internal.math.big.Big_t__struct_67.T__struct_67, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.math.big.Big_t__struct_67_static_extension.T__struct_67_static_extension._doSlow(__self__, _0);
     }
     public static function do_(__self__:stdgo._internal.math.big.Big_t__struct_67.T__struct_67, _0:() -> Void):Void {
-        final _0 = _0;
+        final _0 = () -> _0();
         stdgo._internal.math.big.Big_t__struct_67_static_extension.T__struct_67_static_extension.do_(__self__, _0);
     }
 }
@@ -1769,7 +1769,7 @@ class Int__static_extension {
         return stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.unreadRune(__self__);
     }
     public static function token(__self__:stdgo._internal.math.big.Big_t_bytereader.T_byteReader, _0:Bool, _1:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _1 = _1;
+        final _1 = _0 -> _1((_0 : stdgo.GoInt32));
         return {
             final obj = stdgo._internal.math.big.Big_t_bytereader_static_extension.T_byteReader_static_extension.token(__self__, _0, _1);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };

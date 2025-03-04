@@ -11,13 +11,13 @@ package stdgo._internal.expvar;
                 final __f__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._keysMu.rUnlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__36 => _k in (@:checkr _v ?? throw "null pointer dereference")._keys) {
-                var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_k)), _i:stdgo.AnyInterface = __tmp__._0, __49:Bool = __tmp__._1;
+            for (__4 => _k in (@:checkr _v ?? throw "null pointer dereference")._keys) {
+                var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_k)), _i:stdgo.AnyInterface = __tmp__._0, __5:Bool = __tmp__._1;
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((_i : stdgo._internal.expvar.Expvar_var.Var)) : stdgo._internal.expvar.Expvar_var.Var), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo._internal.expvar.Expvar_var.Var), _1 : false };
-                }, _val = __tmp__._0, __50 = __tmp__._1;
+                }, _val = __tmp__._0, __6 = __tmp__._1;
                 _f((new stdgo._internal.expvar.Expvar_keyvalue.KeyValue(_k?.__copy__(), _val) : stdgo._internal.expvar.Expvar_keyvalue.KeyValue));
             };
             {
@@ -203,10 +203,10 @@ package stdgo._internal.expvar;
     static public function set( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>, _key:stdgo.GoString, _av:stdgo._internal.expvar.Expvar_var.Var):Void {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_> = _v;
         {
-            var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_key)), __16:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_key)), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
-                    var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.loadOrStore(stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_av)), __29:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
+                    var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.loadOrStore(stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_av)), __5:stdgo.AnyInterface = __tmp__._0, _dup:Bool = __tmp__._1;
                     if (!_dup) {
                         @:check2r _v._addKey(_key?.__copy__());
                         return;
@@ -220,12 +220,12 @@ package stdgo._internal.expvar;
     @:tdfield
     static public function get( _v:stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_>, _key:stdgo.GoString):stdgo._internal.expvar.Expvar_var.Var {
         @:recv var _v:stdgo.Ref<stdgo._internal.expvar.Expvar_map_.Map_> = _v;
-        var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_key)), _i:stdgo.AnyInterface = __tmp__._0, __16:Bool = __tmp__._1;
+        var __tmp__ = @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.load(stdgo.Go.toInterface(_key)), _i:stdgo.AnyInterface = __tmp__._0, __4:Bool = __tmp__._1;
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_i : stdgo._internal.expvar.Expvar_var.Var)) : stdgo._internal.expvar.Expvar_var.Var), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.expvar.Expvar_var.Var), _1 : false };
-        }, _av = __tmp__._0, __17 = __tmp__._1;
+        }, _av = __tmp__._0, __5 = __tmp__._1;
         return _av;
     }
     @:keep
@@ -315,7 +315,7 @@ package stdgo._internal.expvar;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _v ?? throw "null pointer dereference")._keys = ((@:checkr _v ?? throw "null pointer dereference")._keys.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-            @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.range(function(_k:stdgo.AnyInterface, __56:stdgo.AnyInterface):Bool {
+            @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.range(function(_k:stdgo.AnyInterface, __4:stdgo.AnyInterface):Bool {
                 @:check2 (@:checkr _v ?? throw "null pointer dereference")._m.delete(_k);
                 return true;
             });

@@ -301,7 +301,7 @@ class Reader_static_extension {
     }
     static public function _readContinuedLineSlice(_r:Reader, _validateFirstLine:Array<std.UInt> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         final _r = (_r : stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>);
-        final _validateFirstLine = _validateFirstLine;
+        final _validateFirstLine = _0 -> _validateFirstLine(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
         return {
             final obj = stdgo._internal.net.textproto.Textproto_reader_static_extension.Reader_static_extension._readContinuedLineSlice(_r, _validateFirstLine);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
@@ -388,7 +388,7 @@ class Conn_static_extension {
         };
     }
     public static function _readContinuedLineSlice(__self__:stdgo._internal.net.textproto.Textproto_conn.Conn, _0:Array<std.UInt> -> stdgo.Error):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
-        final _0 = _0;
+        final _0 = _0 -> _0(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
         return {
             final obj = stdgo._internal.net.textproto.Textproto_conn_static_extension.Conn_static_extension._readContinuedLineSlice(__self__, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };

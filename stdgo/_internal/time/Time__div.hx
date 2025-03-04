@@ -41,8 +41,8 @@ var _u0 = __1, _u0x = __0;
                     {
                         final __tmp__0 = _u0;
                         final __tmp__1 = (_u0 + (_nsec : stdgo.GoUInt64) : stdgo.GoUInt64);
-                        _u0x = __tmp__0;
-                        _u0 = __tmp__1;
+                        _u0x = @:binopAssign __tmp__0;
+                        _u0 = @:binopAssign __tmp__1;
                     };
                     if ((_u0 < _u0x : Bool)) {
                         _u1++;
@@ -59,8 +59,8 @@ var _u0 = __1, _u0x = __0;
                             {
                                 final __tmp__0 = _u0;
                                 final __tmp__1 = (_u0 - _d0 : stdgo.GoUInt64);
-                                _u0x = __tmp__0;
-                                _u0 = __tmp__1;
+                                _u0x = @:binopAssign __tmp__0;
+                                _u0 = @:binopAssign __tmp__1;
                             };
                             if ((_u0 > _u0x : Bool)) {
                                 _u1--;

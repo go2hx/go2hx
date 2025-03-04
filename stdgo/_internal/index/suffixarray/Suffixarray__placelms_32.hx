@@ -11,8 +11,8 @@ var _isTypeS = __2, _c1 = __1, _c0 = __0;
                 {
                     final __tmp__0 = _text[(_i : stdgo.GoInt)];
                     final __tmp__1 = _c0;
-                    _c0 = __tmp__0;
-                    _c1 = __tmp__1;
+                    _c0 = @:binopAssign __tmp__0;
+                    _c1 = @:binopAssign __tmp__1;
                 };
 if ((_c0 < _c1 : Bool)) {
                     _isTypeS = true;

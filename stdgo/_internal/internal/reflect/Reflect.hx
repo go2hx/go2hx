@@ -948,6 +948,24 @@ class _Type {
 }
 
 @:keep @:allow(github_com.go2hx.go4hx.rnd.Rnd._Type_asInterface) class _Type_static_extension {
+	static public function canSeq(t:_Type):Bool
+		throw "not implemented canSeq";
+
+	static public function canSeq2(t:_Type):Bool
+		throw "not implemented canSeq2";
+
+	static public function overflowComplex(t:_Type, _x:stdgo.GoComplex128):Bool
+		throw "not implemented overflowComplex";
+
+	static public function overflowFloat(t:_Type, _x:stdgo.GoFloat):Bool
+		throw "not implemented overflowFloat";
+
+	static public function overflowInt(t:_Type, _x:stdgo.GoInt64):Bool
+		throw "not implemented overflowInt";
+
+	static public function overflowUint(t:_Type, _x:stdgo.GoUInt64):Bool
+		throw "not implemented overflowUInt";
+
 	static public function _uncommon(t:_Type):Ref<Dynamic>
 		throw "not implemented _uncommon";
 
@@ -1494,6 +1512,24 @@ class _Type_asInterface {
 
 	public dynamic function align():GoInt
 		return __self__.value.align();
+
+	public dynamic function canSeq():Bool
+		return __self__.value.canSeq();
+
+	public dynamic function canSeq2():Bool
+		return __self__.value.canSeq2();
+
+	public dynamic function overflowComplex(_x:stdgo.GoComplex128):Bool
+		return __self__.value.overflowComplex(_x);
+
+	public dynamic function overflowFloat(_x:stdgo.GoFloat):Bool
+		return __self__.value.overflowFloat(_x);
+
+	public dynamic function overflowInt(_x:stdgo.GoInt64):Bool
+		return __self__.value.overflowInt(_x);
+
+	public dynamic function overflowUint(_x:stdgo.GoUInt64):Bool
+		return __self__.value.overflowUint(_x);
 
 	public function new(__self__, __type__) {
 		this.__self__ = __self__;

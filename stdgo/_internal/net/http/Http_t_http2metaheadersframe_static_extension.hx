@@ -2,40 +2,13 @@ package stdgo._internal.net.http;
 @:keep @:allow(stdgo._internal.net.http.Http.T_http2MetaHeadersFrame_asInterface) class T_http2MetaHeadersFrame_static_extension {
     @:keep
     @:tdfield
-    static public function pseudoFields( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>):stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> {
-        @:recv var _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame> = _mh;
-        for (_i => _hf in (@:checkr _mh ?? throw "null pointer dereference").fields) {
-            if (!_hf.isPseudo()) {
-                return ((@:checkr _mh ?? throw "null pointer dereference").fields.__slice__(0, _i) : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
-            };
-        };
-        return (@:checkr _mh ?? throw "null pointer dereference").fields;
-    }
+    static public function pseudoFields( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>):stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> throw "T_http2MetaHeadersFrame:net.http.pseudoFields is not yet implemented";
     @:keep
     @:tdfield
-    static public function regularFields( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>):stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> {
-        @:recv var _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame> = _mh;
-        for (_i => _hf in (@:checkr _mh ?? throw "null pointer dereference").fields) {
-            if (!_hf.isPseudo()) {
-                return ((@:checkr _mh ?? throw "null pointer dereference").fields.__slice__(_i) : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
-            };
-        };
-        return (null : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
-    }
+    static public function regularFields( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>):stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> throw "T_http2MetaHeadersFrame:net.http.regularFields is not yet implemented";
     @:keep
     @:tdfield
-    static public function pseudoValue( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>, _pseudo:stdgo.GoString):stdgo.GoString {
-        @:recv var _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame> = _mh;
-        for (__2357 => _hf in (@:checkr _mh ?? throw "null pointer dereference").fields) {
-            if (!_hf.isPseudo()) {
-                return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-            };
-            if ((_hf.name.__slice__((1 : stdgo.GoInt)) : stdgo.GoString) == (_pseudo)) {
-                return _hf.value?.__copy__();
-            };
-        };
-        return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-    }
+    static public function pseudoValue( _mh:stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>, _pseudo:stdgo.GoString):stdgo.GoString throw "T_http2MetaHeadersFrame:net.http.pseudoValue is not yet implemented";
     @:embedded
     @:embeddededffieldsffun
     public static function _writeDebug( __self__:stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame, _0:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>):Void return @:_5 __self__._writeDebug(_0);

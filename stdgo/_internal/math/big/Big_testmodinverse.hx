@@ -1,7 +1,6 @@
 package stdgo._internal.math.big;
 function testModInverse(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var __0:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __1:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __2:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), __3:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
-var _inverse = __3, _gcd = __2, _modulus = __1, _element = __0;
+        var _element:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _modulus:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _gcd:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_), _inverse:stdgo._internal.math.big.Big_int_.Int_ = ({} : stdgo._internal.math.big.Big_int_.Int_);
         var _one = stdgo._internal.math.big.Big_newint.newInt((1i64 : stdgo.GoInt64));
         for (__8 => _test in stdgo._internal.math.big.Big__modinversetests._modInverseTests) {
             @:check2r (stdgo.Go.setRef(_element) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setString(_test._element?.__copy__(), (10 : stdgo.GoInt));

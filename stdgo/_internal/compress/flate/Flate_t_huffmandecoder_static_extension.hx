@@ -16,8 +16,7 @@ package stdgo._internal.compress.flate;
             };
         };
         var _count:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16).__setNumber32__();
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _max = __1, _min = __0;
+        var _min:stdgo.GoInt = (0 : stdgo.GoInt), _max:stdgo.GoInt = (0 : stdgo.GoInt);
         for (__0 => _n in _lengths) {
             if (_n == ((0 : stdgo.GoInt))) {
                 continue;

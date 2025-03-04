@@ -21,8 +21,7 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
         };
         var _bl = (_base.length : stdgo.GoInt);
         var _tl = (_targ.length : stdgo.GoInt);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt);
-var _ti = __3, _t0 = __2, _bi = __1, _b0 = __0;
+        var _b0:stdgo.GoInt = (0 : stdgo.GoInt), _bi:stdgo.GoInt = (0 : stdgo.GoInt), _t0:stdgo.GoInt = (0 : stdgo.GoInt), _ti:stdgo.GoInt = (0 : stdgo.GoInt);
         while (true) {
             while (((_bi < _bl : Bool) && (_base[(_bi : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                 _bi++;

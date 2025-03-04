@@ -18,5 +18,14 @@
  "interp|unicode/utf8",
  "interp|internal/cpu",
  "interp|image/color",
- "interp|hash/crc64"
+ "interp|hash/crc64",
+ "interp|container/heap",
+ "interp|container/list",
+ "interp|container/ring",
+ "interp|encoding/ascii85",
+ "interp|encoding/csv",
+ "interp|hash/fnv",
+ "interp|internal/platform",
+ "interp|crypto",
+ "interp|bufio"
 ]

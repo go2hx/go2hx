@@ -26,8 +26,7 @@ package stdgo._internal.mime;
             stdgo._internal.mime.Mime__writeqstring._writeQString(_buf, _s?.__copy__());
             return;
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _runeLen = __1, _currentLen = __0;
+        var _currentLen:stdgo.GoInt = (0 : stdgo.GoInt), _runeLen:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
@@ -37,8 +36,8 @@ if ((((((_b >= (32 : stdgo.GoUInt8) : Bool) && (_b <= (126 : stdgo.GoUInt8) : Bo
                     {
                         final __tmp__0 = (1 : stdgo.GoInt);
                         final __tmp__1 = (1 : stdgo.GoInt);
-                        _runeLen = __tmp__0;
-                        _encLen = __tmp__1;
+                        _runeLen = @:binopAssign __tmp__0;
+                        _encLen = @:binopAssign __tmp__1;
                     };
                 } else {
                     {
@@ -67,8 +66,7 @@ _currentLen = (_currentLen + (_encLen) : stdgo.GoInt);
             _w.close();
             return;
         };
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _runeLen = __2, _last = __1, _currentLen = __0;
+        var _currentLen:stdgo.GoInt = (0 : stdgo.GoInt), _last:stdgo.GoInt = (0 : stdgo.GoInt), _runeLen:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {

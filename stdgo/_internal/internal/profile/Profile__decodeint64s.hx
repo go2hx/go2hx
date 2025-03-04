@@ -20,8 +20,7 @@ function _decodeInt64s(_b:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_b
             };
             return (null : stdgo.Error);
         };
-        var _i:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _i__pointer__ = stdgo.Go.pointer(_i);
+        var _i:stdgo.GoInt64 = (0 : stdgo.GoInt64), _i__pointer__ = stdgo.Go.pointer(_i);
         {
             var _err = (stdgo._internal.internal.profile.Profile__decodeint64._decodeInt64(_b, _i__pointer__) : stdgo.Error);
             if (_err != null) {

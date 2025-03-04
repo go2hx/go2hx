@@ -4,6 +4,7 @@
         "TestOutput",
         "TestNonNewLogger",
         "TestOutputRace",
+        "testDiscard",
         "TestDiscard"
     ],
     "fails": [

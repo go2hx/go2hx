@@ -12,8 +12,7 @@ function _tan(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
             _sign = true;
         };
         var _j:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var __0:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-var _z = __1, _y = __0;
+        var _y:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _z:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         if ((_x >= (5.36870912e+08 : stdgo.GoFloat64) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.math.Math__trigreduce._trigReduce(_x);

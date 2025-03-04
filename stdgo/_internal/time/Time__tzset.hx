@@ -1,8 +1,7 @@
 package stdgo._internal.time;
 function _tzset(_s:stdgo.GoString, _lastTxSec:stdgo.GoInt64, _sec:stdgo.GoInt64):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; var _5 : Bool; } {
         var _name = ("" : stdgo.GoString), _offset = (0 : stdgo.GoInt), _start = (0 : stdgo.GoInt64), _end = (0 : stdgo.GoInt64), _isDST = false, _ok = false;
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt);
-var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
+        var _stdName:stdgo.GoString = ("" : stdgo.GoString), _dstName:stdgo.GoString = ("" : stdgo.GoString), _stdOffset:stdgo.GoInt = (0 : stdgo.GoInt), _dstOffset:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetname._tzsetName(_s?.__copy__());
             _stdName = @:tmpset0 __tmp__._0?.__copy__();
@@ -89,8 +88,7 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
             };
         };
         _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-        var __0:stdgo._internal.time.Time_t_rule.T_rule = ({} : stdgo._internal.time.Time_t_rule.T_rule), __1:stdgo._internal.time.Time_t_rule.T_rule = ({} : stdgo._internal.time.Time_t_rule.T_rule);
-var _endRule = __1, _startRule = __0;
+        var _startRule:stdgo._internal.time.Time_t_rule.T_rule = ({} : stdgo._internal.time.Time_t_rule.T_rule), _endRule:stdgo._internal.time.Time_t_rule.T_rule = ({} : stdgo._internal.time.Time_t_rule.T_rule);
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetrule._tzsetRule(_s?.__copy__());
             _startRule = @:tmpset0 __tmp__._0?.__copy__();
@@ -141,26 +139,26 @@ var _stdIsDST = __1, _dstIsDST = __0;
             {
                 final __tmp__0 = _endSec;
                 final __tmp__1 = _startSec;
-                _startSec = __tmp__0;
-                _endSec = __tmp__1;
+                _startSec = @:binopAssign __tmp__0;
+                _endSec = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstName?.__copy__();
                 final __tmp__1 = _stdName?.__copy__();
-                _stdName = __tmp__0;
-                _dstName = __tmp__1;
+                _stdName = @:binopAssign __tmp__0;
+                _dstName = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstOffset;
                 final __tmp__1 = _stdOffset;
-                _stdOffset = __tmp__0;
-                _dstOffset = __tmp__1;
+                _stdOffset = @:binopAssign __tmp__0;
+                _dstOffset = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _dstIsDST;
                 final __tmp__1 = _stdIsDST;
-                _stdIsDST = __tmp__0;
-                _dstIsDST = __tmp__1;
+                _stdIsDST = @:binopAssign __tmp__0;
+                _dstIsDST = @:binopAssign __tmp__1;
             };
         };
         if ((_ysec < _startSec : Bool)) {

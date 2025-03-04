@@ -108,8 +108,7 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                 };
             };
         };
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo._internal.go.token.Token_token.Token = ((0 : stdgo.GoInt) : stdgo._internal.go.token.Token_token.Token);
-var _kind = __1, _val = __0;
+        var _val:stdgo.GoString = ("" : stdgo.GoString), _kind:stdgo._internal.go.token.Token_token.Token = ((0 : stdgo.GoInt) : stdgo._internal.go.token.Token_token.Token);
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_arg) : stdgo.Ref<stdgo._internal.go.ast.Ast_unaryexpr.UnaryExpr>)) : stdgo.Ref<stdgo._internal.go.ast.Ast_unaryexpr.UnaryExpr>), _1 : true };
@@ -150,8 +149,8 @@ var _kind = __1, _val = __0;
                         {
                             final __tmp__0 = (@:checkr _lit ?? throw "null pointer dereference").value?.__copy__();
                             final __tmp__1 = (@:checkr _lit ?? throw "null pointer dereference").kind;
-                            _val = __tmp__0;
-                            _kind = __tmp__1;
+                            _val = @:binopAssign __tmp__0;
+                            _kind = @:binopAssign __tmp__1;
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.go.ast.Ast_ident.Ident>))) {
                         var _lit:stdgo.Ref<stdgo._internal.go.ast.Ast_ident.Ident> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_ident.Ident>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_ident.Ident>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.go.ast.Ast_ident.Ident>) : __type__.__underlying__().value;
@@ -161,8 +160,8 @@ var _kind = __1, _val = __0;
                         {
                             final __tmp__0 = ("NaN" : stdgo.GoString);
                             final __tmp__1 = (6 : stdgo._internal.go.token.Token_token.Token);
-                            _val = __tmp__0;
-                            _kind = __tmp__1;
+                            _val = @:binopAssign __tmp__0;
+                            _kind = @:binopAssign __tmp__1;
                         };
                     } else {
                         var _lit:stdgo._internal.go.ast.Ast_expr.Expr = __type__ == null ? (null : stdgo._internal.go.ast.Ast_expr.Expr) : cast __type__;

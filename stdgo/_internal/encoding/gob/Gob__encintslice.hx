@@ -8,7 +8,7 @@ function _encIntSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encode
         if (!_ok) {
             return false;
         };
-        for (__8 => _x in _slice) {
+        for (__4 => _x in _slice) {
             if (((_x != (0 : stdgo.GoInt)) || (@:checkr _state ?? throw "null pointer dereference")._sendZero : Bool)) {
                 @:check2r _state._encodeInt((_x : stdgo.GoInt64));
             };

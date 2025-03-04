@@ -1,7 +1,6 @@
 package stdgo._internal.time;
 function _getnum3(_s:stdgo.GoString, _fixed:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _i = __1, _n = __0;
+        var _n:stdgo.GoInt = (0 : stdgo.GoInt), _i:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             _i = (0 : stdgo.GoInt);
             while (((_i < (3 : stdgo.GoInt) : Bool) && stdgo._internal.time.Time__isdigit._isDigit(_s?.__copy__(), _i) : Bool)) {

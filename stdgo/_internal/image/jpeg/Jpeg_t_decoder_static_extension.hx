@@ -19,8 +19,8 @@ var _stride = __1, _dst = __0;
             {
                 final __tmp__0 = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._img1 ?? throw "null pointer dereference").pix.__slice__(((8 : stdgo.GoInt) * (((_by * (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img1 ?? throw "null pointer dereference").stride : stdgo.GoInt) + _bx : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                 final __tmp__1 = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img1 ?? throw "null pointer dereference").stride;
-                _dst = __tmp__0;
-                _stride = __tmp__1;
+                _dst = @:binopAssign __tmp__0;
+                _stride = @:binopAssign __tmp__1;
             };
         } else {
             {
@@ -29,29 +29,29 @@ var _stride = __1, _dst = __0;
                     {
                         final __tmp__0 = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").y.__slice__(((8 : stdgo.GoInt) * (((_by * (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").yStride : stdgo.GoInt) + _bx : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                         final __tmp__1 = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").yStride;
-                        _dst = __tmp__0;
-                        _stride = __tmp__1;
+                        _dst = @:binopAssign __tmp__0;
+                        _stride = @:binopAssign __tmp__1;
                     };
                 } else if (__value__ == ((1 : stdgo.GoInt))) {
                     {
                         final __tmp__0 = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cb.__slice__(((8 : stdgo.GoInt) * (((_by * (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cStride : stdgo.GoInt) + _bx : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                         final __tmp__1 = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cStride;
-                        _dst = __tmp__0;
-                        _stride = __tmp__1;
+                        _dst = @:binopAssign __tmp__0;
+                        _stride = @:binopAssign __tmp__1;
                     };
                 } else if (__value__ == ((2 : stdgo.GoInt))) {
                     {
                         final __tmp__0 = ((@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cr.__slice__(((8 : stdgo.GoInt) * (((_by * (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cStride : stdgo.GoInt) + _bx : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                         final __tmp__1 = (@:checkr (@:checkr _d ?? throw "null pointer dereference")._img3 ?? throw "null pointer dereference").cStride;
-                        _dst = __tmp__0;
-                        _stride = __tmp__1;
+                        _dst = @:binopAssign __tmp__0;
+                        _stride = @:binopAssign __tmp__1;
                     };
                 } else if (__value__ == ((3 : stdgo.GoInt))) {
                     {
                         final __tmp__0 = ((@:checkr _d ?? throw "null pointer dereference")._blackPix.__slice__(((8 : stdgo.GoInt) * (((_by * (@:checkr _d ?? throw "null pointer dereference")._blackStride : stdgo.GoInt) + _bx : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                         final __tmp__1 = (@:checkr _d ?? throw "null pointer dereference")._blackStride;
-                        _dst = __tmp__0;
-                        _stride = __tmp__1;
+                        _dst = @:binopAssign __tmp__0;
+                        _stride = @:binopAssign __tmp__1;
                     };
                 } else {
                     return stdgo.Go.asInterface((("too many components" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_unsupportederror.UnsupportedError));
@@ -163,20 +163,20 @@ if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
     @:tdfield
     static public function _refine( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>, _zigStart:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _delta:stdgo.GoInt32):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _loopBreak = false;
-        var _bit_13:Bool = false;
-        var _val0_19:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _z_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _zig_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _err_25:stdgo.Error = (null : stdgo.Error);
-        var _err_24:stdgo.Error = (null : stdgo.Error);
-        var _bit_23:Bool = false;
-        var _err_22:stdgo.Error = (null : stdgo.Error);
-        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _val1_20:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_18:stdgo.Error = (null : stdgo.Error);
+        var _loopBreak = false;
         var _err_14:stdgo.Error = (null : stdgo.Error);
+        var _bit_23:Bool = false;
+        var _val0_19:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_18:stdgo.Error = (null : stdgo.Error);
+        var _z_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _bit_13:Bool = false;
+        var _err_25:stdgo.Error = (null : stdgo.Error);
+        var _err_22:stdgo.Error = (null : stdgo.Error);
+        var _err_24:stdgo.Error = (null : stdgo.Error);
+        var _zig_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -502,8 +502,7 @@ if ((@:checkr _d ?? throw "null pointer dereference")._progCoeffs[(_compIndex : 
         (@:checkr _d ?? throw "null pointer dereference")._bits = (new stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits() : stdgo._internal.image.jpeg.Jpeg_t_bits.T_bits);
         var __0 = (0 : stdgo.GoInt), __1 = ((208 : stdgo.GoUInt8) : stdgo.GoUInt8);
 var _expectedRST = __1, _mcu = __0;
-        var __0:stdgo._internal.image.jpeg.Jpeg_t_block.T_block = new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)]), __1:stdgo.GoArray<stdgo.GoInt32> = new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__(), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), __4:stdgo.GoInt = (0 : stdgo.GoInt);
-var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
+        var _b:stdgo._internal.image.jpeg.Jpeg_t_block.T_block = new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)]), _dc:stdgo.GoArray<stdgo.GoInt32> = new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__(), _bx:stdgo.GoInt = (0 : stdgo.GoInt), _by:stdgo.GoInt = (0 : stdgo.GoInt), _blockCount:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _my = (0 : stdgo.GoInt);
             while ((_my < _myy : Bool)) {
@@ -763,16 +762,16 @@ var _x = __1, _i = __0;
                             {
                                 final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
                                 final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
-                                _i = __tmp__0;
-                                _x = __tmp__1;
+                                _i = @:binopAssign __tmp__0;
+                                _x = @:binopAssign __tmp__1;
                             };
                         };
                     };
                     {
                         final __tmp__0 = (_iBase + (@:checkr _img ?? throw "null pointer dereference").stride : stdgo.GoInt);
                         final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _iBase = __tmp__0;
-                        _y = __tmp__1;
+                        _iBase = @:binopAssign __tmp__0;
+                        _y = @:binopAssign __tmp__1;
                     };
                 };
             };
@@ -803,16 +802,16 @@ if (_subsample) {
                             {
                                 final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
                                 final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
-                                _i = __tmp__0;
-                                _x = __tmp__1;
+                                _i = @:binopAssign __tmp__0;
+                                _x = @:binopAssign __tmp__1;
                             };
                         };
                     };
                     {
                         final __tmp__0 = (_iBase + (@:checkr _img ?? throw "null pointer dereference").stride : stdgo.GoInt);
                         final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _iBase = __tmp__0;
-                        _y = __tmp__1;
+                        _iBase = @:binopAssign __tmp__0;
+                        _y = @:binopAssign __tmp__1;
                     };
                 };
             };
@@ -1013,14 +1012,14 @@ if (_subsample) {
     @:tdfield
     static public function _processDQT( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _n:stdgo.GoInt):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _err_9:stdgo.Error = (null : stdgo.Error);
-        var _tq_8:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _err_7:stdgo.Error = (null : stdgo.Error);
         var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _loopBreak = false;
         var _i_12:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_11:stdgo.Error = (null : stdgo.Error);
         var _i_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_9:stdgo.Error = (null : stdgo.Error);
+        var _tq_8:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1242,8 +1241,8 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
                         {
                             final __tmp__0 = (1 : stdgo.GoInt);
                             final __tmp__1 = (1 : stdgo.GoInt);
-                            _h = __tmp__0;
-                            _v = __tmp__1;
+                            _h = @:binopAssign __tmp__0;
+                            _v = @:binopAssign __tmp__1;
                         };
                     } else if (__value__ == ((3 : stdgo.GoInt))) {
                         {
@@ -1482,8 +1481,8 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
             {
                 final __tmp__0 = (2 : stdgo.GoInt);
                 final __tmp__1 = (2 : stdgo.GoInt);
-                (@:checkr _d ?? throw "null pointer dereference")._bytes._i = __tmp__0;
-                (@:checkr _d ?? throw "null pointer dereference")._bytes._j = __tmp__1;
+                (@:checkr _d ?? throw "null pointer dereference")._bytes._i = @:binopAssign __tmp__0;
+                (@:checkr _d ?? throw "null pointer dereference")._bytes._j = @:binopAssign __tmp__1;
             };
         };
         var __tmp__ = (@:checkr _d ?? throw "null pointer dereference")._r.read(((@:checkr _d ?? throw "null pointer dereference")._bytes._buf.__slice__((@:checkr _d ?? throw "null pointer dereference")._bytes._j) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1535,13 +1534,13 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
     @:tdfield
     static public function _decodeHuffman( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _slowPathBreak = false;
         var _code_4:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_2:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _v_1:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_0:stdgo.Error = (null : stdgo.Error);
         var _err_5:stdgo.Error = (null : stdgo.Error);
+        var _slowPathBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1611,8 +1610,8 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
                     {
                         final __tmp__0 = (0 : stdgo.GoInt);
                         final __tmp__1 = (0 : stdgo.GoInt32);
-                        _i_3 = __tmp__0;
-                        _code_4 = __tmp__1;
+                        _i_3 = @:binopAssign __tmp__0;
+                        _code_4 = @:binopAssign __tmp__1;
                     };
                     _slowPathBreak = false;
                     _gotoNext = 2966917i32;
@@ -1720,8 +1719,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
             for (_i => _ in (@:checkr _h ?? throw "null pointer dereference")._lut) {
                 (@:checkr _h ?? throw "null pointer dereference")._lut[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt16);
             };
-            var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-var _code = __1, _x = __0;
+            var _x:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _code:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             {
                 var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
                 while ((_i < (8u32 : stdgo.GoUInt32) : Bool)) {
@@ -1746,8 +1744,7 @@ _x++;
                     _i++;
                 };
             };
-            var __0:stdgo.GoInt32 = (0 : stdgo.GoInt32), __1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-var _index = __1, _c = __0;
+            var _c:stdgo.GoInt32 = (0 : stdgo.GoInt32), _index:stdgo.GoInt32 = (0 : stdgo.GoInt32);
             for (_i => _n in _nCodes) {
                 if (_n == ((0 : stdgo.GoInt32))) {
                     (@:checkr _h ?? throw "null pointer dereference")._minCodes[(_i : stdgo.GoInt)] = (-1 : stdgo.GoInt32);

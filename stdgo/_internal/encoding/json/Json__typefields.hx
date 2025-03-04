@@ -2,8 +2,7 @@ package stdgo._internal.encoding.json;
 function _typeFields(_t:stdgo._internal.reflect.Reflect_type_.Type_):stdgo._internal.encoding.json.Json_t_structfields.T_structFields {
         var _current = (new stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>(0, 0, ...[].concat([for (i in 0 ... (0 > 0 ? 0 : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.json.Json_t_field.T_field)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
         var _next = (new stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>(1, 1, ...[({ _typ : _t } : stdgo._internal.encoding.json.Json_t_field.T_field)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.json.Json_t_field.T_field)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
-        var __0:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>), __1:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>);
-var _nextCount = __1, _count = __0;
+        var _count:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>), _nextCount:stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>);
         var _visited = ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.reflect.Reflect_type_.Type_, Bool>();
             x.t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.reflect.Reflect_type_.Type_", [], stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
@@ -17,8 +16,8 @@ var _nextCount = __1, _count = __0;
             {
                 final __tmp__0 = _next;
                 final __tmp__1 = (_current.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.json.Json_t_field.T_field>);
-                _current = __tmp__0;
-                _next = __tmp__1;
+                _current = @:binopAssign __tmp__0;
+                _next = @:binopAssign __tmp__1;
             };
             {
                 final __tmp__0 = _nextCount;
@@ -29,8 +28,8 @@ var _nextCount = __1, _count = __0;
                     {};
                     cast x;
                 } : stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoInt>);
-                _count = __tmp__0;
-                _nextCount = __tmp__1;
+                _count = @:binopAssign __tmp__0;
+                _nextCount = @:binopAssign __tmp__1;
             };
             for (__4 => _f in _current) {
                 if ((_visited[_f._typ] ?? false)) {

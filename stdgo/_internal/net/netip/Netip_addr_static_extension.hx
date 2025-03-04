@@ -169,8 +169,8 @@ while (((_j < (8 : stdgo.GoUInt8) : Bool) && (_ip._v6u16(_j) == (0 : stdgo.GoUIn
                         {
                             final __tmp__0 = _i;
                             final __tmp__1 = _j;
-                            _zeroStart = __tmp__0;
-                            _zeroEnd = __tmp__1;
+                            _zeroStart = @:binopAssign __tmp__0;
+                            _zeroEnd = @:binopAssign __tmp__1;
                         };
                     };
                 };
@@ -582,7 +582,7 @@ var _zb = __1, _za = __0;
             { _0 : (stdgo.Go.typeAssert((@:check2r _ip._z.get() : stdgo.GoString)) : stdgo.GoString), _1 : true };
         } catch(_) {
             { _0 : ("" : stdgo.GoString), _1 : false };
-        }, _zone = __tmp__._0, __26 = __tmp__._1;
+        }, _zone = __tmp__._0, __22 = __tmp__._1;
         return _zone?.__copy__();
     }
     @:keep

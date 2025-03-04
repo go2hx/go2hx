@@ -58,7 +58,7 @@ package stdgo._internal.internal.goroot;
         var _dirsEntries = stdgo._internal.strings.Strings_split.split((_allDirs : stdgo.GoString)?.__copy__(), ("\n" : stdgo.GoString));
         {};
         var _dirs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__18 => _dirEntry in _dirsEntries) {
+        for (__0 => _dirEntry in _dirsEntries) {
             if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_dirEntry?.__copy__(), ("libraries: =" : stdgo.GoString))) {
                 _dirs = stdgo._internal.path.filepath.Filepath_splitlist.splitList(stdgo._internal.strings.Strings_trimprefix.trimPrefix(_dirEntry?.__copy__(), ("libraries: =" : stdgo.GoString))?.__copy__());
                 break;
@@ -68,7 +68,7 @@ package stdgo._internal.internal.goroot;
             return;
         };
         var _lastDirs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__19 => _dir in _dirs) {
+        for (__1 => _dir in _dirs) {
             var _goDir = (stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), ("go" : stdgo.GoString), _version?.__copy__())?.__copy__() : stdgo.GoString);
             {
                 var __tmp__ = stdgo._internal.os.Os_stat.stat(_goDir?.__copy__()), _fi:stdgo._internal.io.fs.Fs_fileinfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;

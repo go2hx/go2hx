@@ -16,8 +16,7 @@ function newFatFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo
             };
         };
         var _offset = ((4i64 : stdgo.GoInt64) : stdgo.GoInt64);
-        var _narch:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _narch__pointer__ = stdgo.Go.pointer(_narch);
+        var _narch:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _narch__pointer__ = stdgo.Go.pointer(_narch);
         _err = stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigendian.bigEndian), stdgo.Go.toInterface(_narch__pointer__));
         if (_err != null) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, ("invalid fat_header" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };

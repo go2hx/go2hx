@@ -52,11 +52,7 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
             if (!stdgo._internal.encoding.json.Json__isvalidnumber._isValidNumber(_test?.__copy__())) {
                 @:check2r _t.errorf(("%s should be valid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
-            var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f__pointer__ = stdgo.Go.pointer(_f);
             {
                 var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err != null) {
@@ -93,11 +89,7 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
             if (stdgo._internal.encoding.json.Json__isvalidnumber._isValidNumber(_test?.__copy__())) {
                 @:check2r _t.errorf(("%s should be invalid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
-            var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
-            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f__pointer__ = stdgo.Go.pointer(_f);
             {
                 var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err == null) {

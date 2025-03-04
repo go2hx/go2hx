@@ -14,7 +14,7 @@ package stdgo.hash.maphash;
     public var __1(get, set) : haxe.ds.Vector<() -> Void>;
     function get___1():haxe.ds.Vector<() -> Void> return haxe.ds.Vector.fromArrayCopy([for (i in this.__1) () -> i()]);
     function set___1(v:haxe.ds.Vector<() -> Void>):haxe.ds.Vector<() -> Void> {
-        this.__1 = ([for (i in v) i] : stdgo.GoArray<() -> Void>);
+        this.__1 = ([for (i in v) () -> i()] : stdgo.GoArray<() -> Void>);
         return v;
     }
     public var _seed(get, set) : Seed;
@@ -41,7 +41,7 @@ package stdgo.hash.maphash;
         this._n = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_seed:Seed, ?_state:Seed, ?_buf:haxe.ds.Vector<std.UInt>, ?_n:StdTypes.Int) this = new stdgo._internal.hash.maphash.Maphash_hash.Hash(([for (i in __1) i] : stdgo.GoArray<() -> Void>), _seed, _state, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_n : stdgo.GoInt));
+    public function new(?__1:haxe.ds.Vector<() -> Void>, ?_seed:Seed, ?_state:Seed, ?_buf:haxe.ds.Vector<std.UInt>, ?_n:StdTypes.Int) this = new stdgo._internal.hash.maphash.Maphash_hash.Hash(([for (i in __1) () -> i()] : stdgo.GoArray<() -> Void>), _seed, _state, ([for (i in _buf) (i : stdgo.GoUInt8)] : stdgo.GoArray<stdgo.GoUInt8>), (_n : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

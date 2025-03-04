@@ -7,16 +7,7 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
             if ((((_leftLen & (1 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) || ((_rightLen & (1 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 throw stdgo.Go.toInterface(("mergeRuneSets odd length []rune" : stdgo.GoString));
             };
-            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var _rx = __1, _lx = __0;
-            var _rx__pointer__ = stdgo.Go.pointer(_rx);
-            var _lx__pointer__ = stdgo.Go.pointer(_lx);
-            var _rx__pointer__ = stdgo.Go.pointer(_rx);
-            var _lx__pointer__ = stdgo.Go.pointer(_lx);
-            var _rx__pointer__ = stdgo.Go.pointer(_rx);
-            var _lx__pointer__ = stdgo.Go.pointer(_lx);
-            var _rx__pointer__ = stdgo.Go.pointer(_rx);
-            var _lx__pointer__ = stdgo.Go.pointer(_lx);
+            var _lx:stdgo.GoInt = (0 : stdgo.GoInt), _rx:stdgo.GoInt = (0 : stdgo.GoInt), _rx__pointer__ = stdgo.Go.pointer(_rx), _lx__pointer__ = stdgo.Go.pointer(_lx);
             var _merged = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
             var _next = (new stdgo.Slice<stdgo.GoUInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
             var _ok = (true : Bool);

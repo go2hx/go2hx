@@ -10,11 +10,7 @@ function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
                 @:check2r _t.error(stdgo.Go.toInterface(_err));
             };
         };
-        var _ns:stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341 = (("" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341);
-        var _ns__pointer__ = stdgo.Go.pointer(_ns);
-        var _ns__pointer__ = stdgo.Go.pointer(_ns);
-        var _ns__pointer__ = stdgo.Go.pointer(_ns);
-        var _ns__pointer__ = stdgo.Go.pointer(_ns);
+        var _ns:stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341 = (("" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341), _ns__pointer__ = stdgo.Go.pointer(_ns);
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encanddec._encAndDec(stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(_ns__pointer__)) : stdgo.Error);
             if (_err == null) {
@@ -23,11 +19,7 @@ function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>
                 @:check2r _t.error(stdgo.Go.toInterface(("for struct/non-struct expected type error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
         };
-        var _nsp:stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341 = (("" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341);
-        var _nsp__pointer__ = stdgo.Go.pointer(_nsp);
-        var _nsp__pointer__ = stdgo.Go.pointer(_nsp);
-        var _nsp__pointer__ = stdgo.Go.pointer(_nsp);
-        var _nsp__pointer__ = stdgo.Go.pointer(_nsp);
+        var _nsp:stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341 = (("" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_t_teststructnonstruct___localname___nonstruct_10341.T_testStructNonStruct___localname___NonStruct_10341), _nsp__pointer__ = stdgo.Go.pointer(_nsp);
         {
             var _err = (stdgo._internal.encoding.gob.Gob__encanddec._encAndDec(stdgo.Go.toInterface(_ns), stdgo.Go.toInterface(_nsp__pointer__)) : stdgo.Error);
             if (_err != null) {

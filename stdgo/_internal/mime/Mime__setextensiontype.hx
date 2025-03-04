@@ -25,7 +25,7 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
                     _exts = (stdgo.Go.typeAssert((_ei : stdgo.Slice<stdgo.GoString>)) : stdgo.Slice<stdgo.GoString>);
                 };
             };
-            for (__12 => _v in _exts) {
+            for (__0 => _v in _exts) {
                 if (_v == (_extLower)) {
                     {
                         final __ret__:stdgo.Error = (null : stdgo.Error);

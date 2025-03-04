@@ -19,26 +19,25 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                     };
                     for (__9 => _y in _args) {
                         @:check2r _yy.setFloat64(_y);
-                        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __2:(stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) -> stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = null;
-var _f = __2, _z = __1, _op = __0;
+                        var _op:stdgo.GoString = ("" : stdgo.GoString), _z:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _f:(stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>, stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>) -> stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = null;
                         {
                             final __value__ = _i;
                             if (__value__ == ((0 : stdgo.GoInt))) {
                                 _op = ("+" : stdgo.GoString);
                                 _z = (_x + _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.add;
                             } else if (__value__ == ((1 : stdgo.GoInt))) {
                                 _op = ("-" : stdgo.GoString);
                                 _z = (_x - _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.sub;
                             } else if (__value__ == ((2 : stdgo.GoInt))) {
                                 _op = ("*" : stdgo.GoString);
                                 _z = (_x * _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.mul;
                             } else if (__value__ == ((3 : stdgo.GoInt))) {
                                 _op = ("/" : stdgo.GoString);
                                 _z = (_x / _y : stdgo.GoFloat64);
-                                _f = stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
+                                _f = @:selectorExprRecv stdgo._internal.math.big.Big_float__static_extension.Float__static_extension.quo;
                             } else {
                                 throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
                             };

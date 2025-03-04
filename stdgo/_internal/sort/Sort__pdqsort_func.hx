@@ -1,8 +1,7 @@
 package stdgo._internal.sort;
 function _pdqsort_func(_data:stdgo._internal.sort.Sort_t_lessswap.T_lessSwap, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void {
         {};
-        var __0 = true, __1 = true;
-var _wasPartitioned = __1, _wasBalanced = __0;
+        var _wasBalanced = true, _wasPartitioned = true;
         while (true) {
             var _length = (_b - _a : stdgo.GoInt);
             if ((_length <= (12 : stdgo.GoInt) : Bool)) {

@@ -1,17 +1,17 @@
 package stdgo._internal.crypto.x509;
 function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>, _keyUsages:stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>):Bool {
-        var _i_12:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _invalidUsage_11:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
-        var _i_5635645_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var nextCertBreak = false;
+        var _requestedUsage_13:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
         var _cert_8:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>);
+        var nextCertBreak = false;
+        var _i_5635970_14:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _usagesRemaining_6:stdgo.GoInt = (0 : stdgo.GoInt);
         var _usages_5:stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage>);
         var _usage_15:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
-        var _i_5635970_14:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _requestedUsage_13:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
+        var _i_12:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _invalidUsage_11:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
         var _usage_10:stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage);
+        var _i_5635645_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -77,8 +77,8 @@ function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.cry
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr _cert_8 ?? throw "null pointer dereference").extKeyUsage[(0i32 : stdgo.GoInt)];
-                        _i_5635645_9 = __tmp__0;
-                        _usage_10 = __tmp__1;
+                        _i_5635645_9 = @:binopAssign __tmp__0;
+                        _usage_10 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5635788i32;
                 } else if (__value__ == (5635788i32)) {
@@ -132,8 +132,8 @@ function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.cry
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (@:checkr _cert_8 ?? throw "null pointer dereference").extKeyUsage[(0i32 : stdgo.GoInt)];
-                        _i_5635970_14 = __tmp__0;
-                        _usage_15 = __tmp__1;
+                        _i_5635970_14 = @:binopAssign __tmp__0;
+                        _usage_15 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5636070i32;
                 } else if (__value__ == (5636070i32)) {
@@ -157,8 +157,8 @@ function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.cry
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _usages_5[(0i32 : stdgo.GoInt)];
-                        _i_12 = __tmp__0;
-                        _requestedUsage_13 = __tmp__1;
+                        _i_12 = @:binopAssign __tmp__0;
+                        _requestedUsage_13 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5636175i32;
                 } else if (__value__ == (5636175i32)) {

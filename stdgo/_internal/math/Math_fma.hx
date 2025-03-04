@@ -33,14 +33,14 @@ var _zm2 = __1, _zm1 = __0;
                 final __tmp__5 = _pe;
                 final __tmp__6 = _pm1;
                 final __tmp__7 = _pm2;
-                _ps = __tmp__0;
-                _pe = __tmp__1;
-                _pm1 = __tmp__2;
-                _pm2 = __tmp__3;
-                _zs = __tmp__4;
-                _ze = __tmp__5;
-                _zm1 = __tmp__6;
-                _zm2 = __tmp__7;
+                _ps = @:binopAssign __tmp__0;
+                _pe = @:binopAssign __tmp__1;
+                _pm1 = @:binopAssign __tmp__2;
+                _pm2 = @:binopAssign __tmp__3;
+                _zs = @:binopAssign __tmp__4;
+                _ze = @:binopAssign __tmp__5;
+                _zm1 = @:binopAssign __tmp__6;
+                _zm2 = @:binopAssign __tmp__7;
             };
         };
         if ((((_ps != (_zs) && _pe == (_ze) : Bool) && _pm1 == (_zm1) : Bool) && (_pm2 == _zm2) : Bool)) {
@@ -51,8 +51,7 @@ var _zm2 = __1, _zm1 = __0;
             _zm1 = @:tmpset0 __tmp__._0;
             _zm2 = @:tmpset0 __tmp__._1;
         };
-        var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _c = __1, _m = __0;
+        var _m:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _c:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         if (_ps == (_zs)) {
             {
                 var __tmp__ = stdgo._internal.math.bits.Bits_add64.add64(_pm2, _zm2, (0i64 : stdgo.GoUInt64));

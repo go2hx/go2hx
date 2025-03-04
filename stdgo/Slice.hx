@@ -39,8 +39,9 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	public inline function __append__(args:Rest<T>):Slice<T> {
 		if (this == null) {
-			final vector = new haxe.ds.Vector<T>(args.length * 2);
-			return new GoArrayData<T>(args.length, vector.length, ...args);
+			if (args.length == 0)
+				return null;
+			return new GoArrayData<T>(args.length, args.length, ...args);
 		}
 		return this.__append__(...args);
 	}
@@ -51,7 +52,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		return this;
 
 	public function __slice__(args:haxe.Rest<GoInt>):Slice<T> {
-		if (this == null)
+		if (this == null || this.__nil__)
 			return null;
 		return this.__slice__(...args);
 	}

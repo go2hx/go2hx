@@ -20,8 +20,7 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _file:std
             };
             var _lineno = (0 : stdgo.GoInt);
             var _scanner = stdgo._internal.bufio.Bufio_newscanner.newScanner(_txt);
-            var __0:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __1:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __2:Bool = false, __3:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), __4:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), __5:stdgo.GoInt = (0 : stdgo.GoInt), __6:stdgo.GoInt = (0 : stdgo.GoInt);
-var _ncase = __6, _nfail = __5, _refull = __4, _re = __3, _inStrings = __2, _input = __1, _str = __0;
+            var _str:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _input:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _inStrings:Bool = false, _re:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), _refull:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), _nfail:stdgo.GoInt = (0 : stdgo.GoInt), _ncase:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var _lineno = (1 : stdgo.GoInt);
                 while (@:check2r _scanner.scan()) {
@@ -108,8 +107,8 @@ if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                         {
                             final __tmp__0 = _input[(0 : stdgo.GoInt)].__copy__();
                             final __tmp__1 = (_input.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-                            _text = __tmp__0;
-                            _input = __tmp__1;
+                            _text = @:binopAssign __tmp__0;
+                            _input = @:binopAssign __tmp__1;
                         };
                         if ((!stdgo._internal.regexp.Regexp__issinglebytes._isSingleBytes(_text.__copy__()) && stdgo._internal.strings.Strings_contains.contains((@:check2r _re.string() : stdgo.GoString).__copy__(), ("\\B" : stdgo.GoString)) : Bool)) {
                             {

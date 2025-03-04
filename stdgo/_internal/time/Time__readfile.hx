@@ -11,8 +11,7 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; 
                 final __f__ = stdgo._internal.time.Time__closefd._closefd;
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
-            var __0:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__(), __1:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>), __2:stdgo.GoInt = (0 : stdgo.GoInt);
-var _n = __2, _ret = __1, _buf = __0;
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__(), _ret:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>), _n:stdgo.GoInt = (0 : stdgo.GoInt);
             while (true) {
                 {
                     var __tmp__ = stdgo._internal.time.Time__read._read(_f, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));

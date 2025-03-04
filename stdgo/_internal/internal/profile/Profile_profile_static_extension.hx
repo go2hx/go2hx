@@ -4,8 +4,7 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function removeUninteresting( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = _p;
-        var __0:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), __1:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
-var _drop = __1, _keep = __0;
+        var _keep:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>), _drop:stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
         var _err:stdgo.Error = (null : stdgo.Error);
         if ((@:checkr _p ?? throw "null pointer dereference").dropFrames != ((stdgo.Go.str() : stdgo.GoString))) {
             {
@@ -598,8 +597,8 @@ if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(_file.__copy__(), ("[" :
                     final __tmp__3 = (_i : stdgo.GoInt);
                     final __tmp__4 = (@:checkr _p ?? throw "null pointer dereference").mapping;
                     final __tmp__5 = (0 : stdgo.GoInt);
-                    __tmp__2[__tmp__3] = __tmp__0;
-                    __tmp__4[__tmp__5] = __tmp__1;
+                    __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+                    __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
                 };
 break;
                 _i++;
@@ -664,22 +663,22 @@ break;
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__allocrxstr._allocRxStr?.__copy__();
                 final __tmp__1 = stdgo._internal.internal.profile.Profile__allocskiprxstr._allocSkipRxStr?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
             };
         } else if (stdgo._internal.internal.profile.Profile__isprofiletype._isProfileType(_p, stdgo._internal.internal.profile.Profile__contentionzsampletypes._contentionzSampleTypes)) {
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__lockrxstr._lockRxStr?.__copy__();
                 final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
             };
         } else {
             {
                 final __tmp__0 = stdgo._internal.internal.profile.Profile__cpuprofilerrxstr._cpuProfilerRxStr?.__copy__();
                 final __tmp__1 = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
-                (@:checkr _p ?? throw "null pointer dereference").dropFrames = __tmp__0;
-                (@:checkr _p ?? throw "null pointer dereference").keepFrames = __tmp__1;
+                (@:checkr _p ?? throw "null pointer dereference").dropFrames = @:binopAssign __tmp__0;
+                (@:checkr _p ?? throw "null pointer dereference").keepFrames = @:binopAssign __tmp__1;
             };
         };
     }
@@ -983,8 +982,7 @@ break;
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt64>>) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt64>>);
             for (__5 => _l in (@:checkr _s ?? throw "null pointer dereference")._labelX) {
-                var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _value = __1, _key = __0;
+                var _key:stdgo.GoString = ("" : stdgo.GoString), _value:stdgo.GoString = ("" : stdgo.GoString);
                 {
                     var __tmp__ = stdgo._internal.internal.profile.Profile__getstring._getString((@:checkr _p ?? throw "null pointer dereference")._stringTable, stdgo.Go.pointer(_l._keyX), _err);
                     _key = @:tmpset0 __tmp__._0?.__copy__();

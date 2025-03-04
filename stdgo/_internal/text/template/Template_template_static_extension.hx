@@ -8,12 +8,12 @@ package stdgo._internal.text.template;
             throw stdgo.Go.toInterface(("internal error: associate not common" : stdgo.GoString));
         };
         {
-            var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
+            var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference").tree._lex._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
             if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && stdgo._internal.text.template.parse.Parse_isemptytree.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {
                 return false;
             };
         };
-        (@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference")._name] = _new_;
+        (@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference").tree._lex._name] = _new_;
         return true;
     }
     @:keep
@@ -22,14 +22,14 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         @:check2r _t._init();
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
-        var __tmp__ = stdgo._internal.text.template.parse.Parse_parse.parse((@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.text.template.parse.Parse_parse.parse((@:checkr _t ?? throw "null pointer dereference").tree._lex._name?.__copy__(), _text?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree._lex._leftDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference").tree._lex._rightDelim?.__copy__(), (@:checkr _t ?? throw "null pointer dereference")._common._parseFuncs, stdgo._internal.text.template.Template__builtins._builtins()), _trees:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rUnlock();
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
         for (_name => _tree in _trees) {
             {
-                var __tmp__ = @:check2r _t.addParseTree(_name?.__copy__(), _tree), __80:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = @:check2r _t.addParseTree(_name?.__copy__(), _tree), __72:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -195,8 +195,8 @@ package stdgo._internal.text.template;
     static public function delims( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _left:stdgo.GoString, _right:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         @:check2r _t._init();
-        (@:checkr _t ?? throw "null pointer dereference")._leftDelim = _left?.__copy__();
-        (@:checkr _t ?? throw "null pointer dereference")._rightDelim = _right?.__copy__();
+        (@:checkr _t ?? throw "null pointer dereference").tree._lex._leftDelim = _left?.__copy__();
+        (@:checkr _t ?? throw "null pointer dereference").tree._lex._rightDelim = _right?.__copy__();
         return _t;
     }
     @:keep
@@ -214,7 +214,7 @@ package stdgo._internal.text.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>((0 : stdgo.GoInt).toBasic(), ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
-            for (__56 => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
+            for (__48 => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
                 _m = (_m.__append__(_v));
             };
             {
@@ -292,7 +292,7 @@ package stdgo._internal.text.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _nt = _t;
-            if (_name != ((@:checkr _t ?? throw "null pointer dereference")._name)) {
+            if (_name != ((@:checkr _t ?? throw "null pointer dereference").tree._lex._name)) {
                 _nt = @:check2r _t.new_(_name?.__copy__());
             };
             if ((@:check2r _t._associate(_nt, _tree) || ((@:checkr _nt ?? throw "null pointer dereference").tree == null || ((@:checkr _nt ?? throw "null pointer dereference").tree : Dynamic).__nil__) : Bool)) {
@@ -365,7 +365,7 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _copy( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _c:stdgo.Ref<stdgo._internal.text.template.Template_t_common.T_common>):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        return (stdgo.Go.setRef(({ _name : (@:checkr _t ?? throw "null pointer dereference")._name?.__copy__(), tree : (@:checkr _t ?? throw "null pointer dereference").tree, _common : _c, _leftDelim : (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+        return (stdgo.Go.setRef(({ _name : (@:checkr _t ?? throw "null pointer dereference").tree._lex._name?.__copy__(), tree : (@:checkr _t ?? throw "null pointer dereference").tree, _common : _c, _leftDelim : (@:checkr _t ?? throw "null pointer dereference").tree._lex._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference").tree._lex._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
     }
     @:keep
     @:tdfield
@@ -384,8 +384,8 @@ package stdgo._internal.text.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_k => _v in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
-                if (_k == ((@:checkr _t ?? throw "null pointer dereference")._name)) {
-                    (@:checkr _nt ?? throw "null pointer dereference")._common._tmpl[(@:checkr _t ?? throw "null pointer dereference")._name] = _nt;
+                if (_k == ((@:checkr _t ?? throw "null pointer dereference").tree._lex._name)) {
+                    (@:checkr _nt ?? throw "null pointer dereference")._common._tmpl[(@:checkr _t ?? throw "null pointer dereference").tree._lex._name] = _nt;
                     continue;
                 };
                 var _tmpl = @:check2r _v._copy((@:checkr _nt ?? throw "null pointer dereference")._common);
@@ -497,14 +497,14 @@ package stdgo._internal.text.template;
     static public function new_( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         @:check2r _t._init();
-        var _nt = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _common : (@:checkr _t ?? throw "null pointer dereference")._common, _leftDelim : (@:checkr _t ?? throw "null pointer dereference")._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference")._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
+        var _nt = (stdgo.Go.setRef(({ _name : _name?.__copy__(), _common : (@:checkr _t ?? throw "null pointer dereference")._common, _leftDelim : (@:checkr _t ?? throw "null pointer dereference").tree._lex._leftDelim?.__copy__(), _rightDelim : (@:checkr _t ?? throw "null pointer dereference").tree._lex._rightDelim?.__copy__() } : stdgo._internal.text.template.Template_template.Template)) : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>);
         return _nt;
     }
     @:keep
     @:tdfield
     static public function name( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        return (@:checkr _t ?? throw "null pointer dereference")._name?.__copy__();
+        return (@:checkr _t ?? throw "null pointer dereference").tree._lex._name?.__copy__();
     }
     @:keep
     @:tdfield
@@ -760,7 +760,7 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var _tmpl = @:check2r _t.lookup(_name?.__copy__());
         if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
-            return stdgo._internal.fmt.Fmt_errorf.errorf(("template: no template %q associated with template %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference")._name));
+            return stdgo._internal.fmt.Fmt_errorf.errorf(("template: no template %q associated with template %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference").tree._lex._name));
         };
         return @:check2r _tmpl.execute(_wr, _data);
     }

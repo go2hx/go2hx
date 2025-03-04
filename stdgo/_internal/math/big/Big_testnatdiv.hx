@@ -32,8 +32,7 @@ function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                 };
                 var _x = ((new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat)._mul(_a, _b) : stdgo._internal.math.big.Big_t_nat.T_nat);
                 _x = _x._add(_x, _c);
-                var __0:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), __1:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-var _r = __1, _q = __0;
+                var _q:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat), _r:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
                 {
                     var __tmp__ = _q._div(_r, _x, _b);
                     _q = @:tmpset0 __tmp__._0;

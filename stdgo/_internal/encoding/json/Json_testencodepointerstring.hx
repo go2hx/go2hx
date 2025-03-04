@@ -1,11 +1,7 @@
 package stdgo._internal.encoding.json;
 function testEncodePointerString(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         {};
-        var _n:stdgo.GoInt64 = (42i64 : stdgo.GoInt64);
-        var _n__pointer__ = stdgo.Go.pointer(_n);
-        var _n__pointer__ = stdgo.Go.pointer(_n);
-        var _n__pointer__ = stdgo.Go.pointer(_n);
-        var _n__pointer__ = stdgo.Go.pointer(_n);
+        var _n:stdgo.GoInt64 = (42i64 : stdgo.GoInt64), _n__pointer__ = stdgo.Go.pointer(_n);
         var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ n : _n__pointer__ } : stdgo._internal.encoding.json.Json_t_testencodepointerstring___localname___stringpointer_16452.T_testEncodePointerString___localname___stringPointer_16452)))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _t.fatalf(("Marshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));

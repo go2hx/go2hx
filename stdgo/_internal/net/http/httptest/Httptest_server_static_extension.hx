@@ -32,7 +32,7 @@ package stdgo._internal.net.http.httptest;
                     final __value__ = _cs;
                     if (__value__ == ((0 : stdgo._internal.net.http.Http_connstate.ConnState))) {
                         {
-                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
+                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __0:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
                             if (_exists) {
                                 throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
                             };
@@ -76,7 +76,7 @@ package stdgo._internal.net.http.httptest;
                         };
                     } else if (__value__ == ((3 : stdgo._internal.net.http.Http_connstate.ConnState)) || __value__ == ((4 : stdgo._internal.net.http.Http_connstate.ConnState))) {
                         {
-                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = ((@:checkr _s ?? throw "null pointer dereference")._conns != null && (@:checkr _s ?? throw "null pointer dereference")._conns.__exists__(_c) ? { _0 : (@:checkr _s ?? throw "null pointer dereference")._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_connstate.ConnState), _1 : false }), __0:stdgo._internal.net.http.Http_connstate.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 if ((@:checkr _s ?? throw "null pointer dereference")._conns != null) (@:checkr _s ?? throw "null pointer dereference")._conns.__remove__(_c);
                                 {

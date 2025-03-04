@@ -55,8 +55,7 @@ function _log1p(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
             _f = (_u - (1 : stdgo.GoFloat64) : stdgo.GoFloat64);
         };
         var _hfsq = (((0.5 : stdgo.GoFloat64) * _f : stdgo.GoFloat64) * _f : stdgo.GoFloat64);
-        var __0:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __2:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-var _z = __2, r = __1, _s = __0;
+        var _s:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), r:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _z:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
         if (_iu == ((0i64 : stdgo.GoUInt64))) {
             if (_f == (0 : stdgo.GoFloat64)) {
                 if (_k == ((0 : stdgo.GoInt))) {

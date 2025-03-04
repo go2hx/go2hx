@@ -1,7 +1,6 @@
 package stdgo._internal.log.slog;
 function _argsToAttrSlice(_args:stdgo.Slice<stdgo.AnyInterface>):stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> {
-        var __0:stdgo._internal.log.slog.Slog_attr.Attr = ({} : stdgo._internal.log.slog.Slog_attr.Attr), __1:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
-var _attrs = __1, _attr = __0;
+        var _attr:stdgo._internal.log.slog.Slog_attr.Attr = ({} : stdgo._internal.log.slog.Slog_attr.Attr), _attrs:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
         while (((_args.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.log.slog.Slog__argstoattr._argsToAttr(_args);

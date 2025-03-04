@@ -12,37 +12,37 @@ function _tJS(_c:stdgo._internal.html.template.Template_t_context.T_context, _s:
                 {
                     final __tmp__0 = (11 : stdgo._internal.html.template.Template_t_state.T_state);
                     final __tmp__1 = (0 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
-                    _c._state = __tmp__0;
-                    _c._jsCtx = __tmp__1;
+                    _c._state = @:binopAssign __tmp__0;
+                    _c._jsCtx = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == ((39 : stdgo.GoUInt8))) {
                 {
                     final __tmp__0 = (12 : stdgo._internal.html.template.Template_t_state.T_state);
                     final __tmp__1 = (0 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
-                    _c._state = __tmp__0;
-                    _c._jsCtx = __tmp__1;
+                    _c._state = @:binopAssign __tmp__0;
+                    _c._jsCtx = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == ((96 : stdgo.GoUInt8))) {
                 {
                     final __tmp__0 = (13 : stdgo._internal.html.template.Template_t_state.T_state);
                     final __tmp__1 = (0 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx);
-                    _c._state = __tmp__0;
-                    _c._jsCtx = __tmp__1;
+                    _c._state = @:binopAssign __tmp__0;
+                    _c._jsCtx = @:binopAssign __tmp__1;
                 };
             } else if (__value__ == ((47 : stdgo.GoUInt8))) {
                 if ((((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_s.length) : Bool) && (_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool)) {
                     {
                         final __tmp__0 = (16 : stdgo._internal.html.template.Template_t_state.T_state);
                         final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _c._state = __tmp__0;
-                        _i = __tmp__1;
+                        _c._state = @:binopAssign __tmp__0;
+                        _i = @:binopAssign __tmp__1;
                     };
                 } else if ((((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_s.length) : Bool) && (_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
                     {
                         final __tmp__0 = (15 : stdgo._internal.html.template.Template_t_state.T_state);
                         final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _c._state = __tmp__0;
-                        _i = __tmp__1;
+                        _c._state = @:binopAssign __tmp__0;
+                        _i = @:binopAssign __tmp__1;
                     };
                 } else if (_c._jsCtx == ((0 : stdgo._internal.html.template.Template_t_jsctx.T_jsCtx))) {
                     _c._state = (14 : stdgo._internal.html.template.Template_t_state.T_state);
@@ -56,8 +56,8 @@ function _tJS(_c:stdgo._internal.html.template.Template_t_context.T_context, _s:
                     {
                         final __tmp__0 = (17 : stdgo._internal.html.template.Template_t_state.T_state);
                         final __tmp__1 = (_i + (3 : stdgo.GoInt) : stdgo.GoInt);
-                        _c._state = __tmp__0;
-                        _i = __tmp__1;
+                        _c._state = @:binopAssign __tmp__0;
+                        _i = @:binopAssign __tmp__1;
                     };
                 };
             } else if (__value__ == ((45 : stdgo.GoUInt8))) {
@@ -65,8 +65,8 @@ function _tJS(_c:stdgo._internal.html.template.Template_t_context.T_context, _s:
                     {
                         final __tmp__0 = (18 : stdgo._internal.html.template.Template_t_state.T_state);
                         final __tmp__1 = (_i + (2 : stdgo.GoInt) : stdgo.GoInt);
-                        _c._state = __tmp__0;
-                        _i = __tmp__1;
+                        _c._state = @:binopAssign __tmp__0;
+                        _i = @:binopAssign __tmp__1;
                     };
                 };
             } else if (__value__ == ((35 : stdgo.GoUInt8))) {
@@ -74,8 +74,8 @@ function _tJS(_c:stdgo._internal.html.template.Template_t_context.T_context, _s:
                     {
                         final __tmp__0 = (16 : stdgo._internal.html.template.Template_t_state.T_state);
                         final __tmp__1 = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _c._state = __tmp__0;
-                        _i = __tmp__1;
+                        _c._state = @:binopAssign __tmp__0;
+                        _i = @:binopAssign __tmp__1;
                     };
                 };
             } else {

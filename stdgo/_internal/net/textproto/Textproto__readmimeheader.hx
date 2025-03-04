@@ -65,8 +65,8 @@ function _readMIMEHeader(_r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_re
                 {
                     final __tmp__0 = (_strs.__slice__(0, (1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
                     final __tmp__1 = (_strs.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-                    _vv = __tmp__0;
-                    _strs = __tmp__1;
+                    _vv = @:binopAssign __tmp__0;
+                    _strs = @:binopAssign __tmp__1;
                 };
                 _vv[(0 : stdgo.GoInt)] = _value?.__copy__();
                 _m[_key] = _vv;

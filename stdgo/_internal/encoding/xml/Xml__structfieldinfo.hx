@@ -8,8 +8,8 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _f:s
                 {
                     final __tmp__0 = _ns?.__copy__();
                     final __tmp__1 = _t?.__copy__();
-                    (@:checkr _finfo ?? throw "null pointer dereference")._xmlns = __tmp__0;
-                    _tag = __tmp__1;
+                    (@:checkr _finfo ?? throw "null pointer dereference")._xmlns = @:binopAssign __tmp__0;
+                    _tag = @:binopAssign __tmp__1;
                 };
             };
         };
@@ -78,8 +78,8 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _f:s
                     {
                         final __tmp__0 = (@:checkr _xmlname ?? throw "null pointer dereference")._xmlns?.__copy__();
                         final __tmp__1 = (@:checkr _xmlname ?? throw "null pointer dereference")._name?.__copy__();
-                        (@:checkr _finfo ?? throw "null pointer dereference")._xmlns = __tmp__0;
-                        (@:checkr _finfo ?? throw "null pointer dereference")._name = __tmp__1;
+                        (@:checkr _finfo ?? throw "null pointer dereference")._xmlns = @:binopAssign __tmp__0;
+                        (@:checkr _finfo ?? throw "null pointer dereference")._name = @:binopAssign __tmp__1;
                     };
                 } else {
                     (@:checkr _finfo ?? throw "null pointer dereference")._name = (@:checkr _f ?? throw "null pointer dereference").name?.__copy__();

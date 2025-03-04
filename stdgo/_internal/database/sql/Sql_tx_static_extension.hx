@@ -108,7 +108,7 @@ package stdgo._internal.database.sql;
                 };
             } else {
                 @:check2r _stmt._removeClosedStmtLocked();
-                for (__119 => _v in (@:checkr _stmt ?? throw "null pointer dereference")._css) {
+                for (__19 => _v in (@:checkr _stmt ?? throw "null pointer dereference")._css) {
                     if (_v._dc == (_dc)) {
                         _si = (@:checkr _v._ds ?? throw "null pointer dereference")._si;
                         break;
@@ -316,7 +316,7 @@ package stdgo._internal.database.sql;
                 final __f__ = (@:checkr _tx ?? throw "null pointer dereference")._stmts.unlock;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
-            for (__61 => _stmt in (@:checkr _tx ?? throw "null pointer dereference")._stmts._v) {
+            for (__19 => _stmt in (@:checkr _tx ?? throw "null pointer dereference")._stmts._v) {
                 @:check2r _stmt.close();
             };
             {

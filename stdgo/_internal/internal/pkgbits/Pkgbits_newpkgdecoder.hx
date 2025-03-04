@@ -6,8 +6,7 @@ function newPkgDecoder(_pkgPath:stdgo.GoString, _input:stdgo.GoString):stdgo._in
         {
             final __value__ = _pr._version;
             if (__value__ == ((0u32 : stdgo.GoUInt32))) {} else if (__value__ == ((1u32 : stdgo.GoUInt32))) {
-                var _flags:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-                var _flags__pointer__ = stdgo.Go.pointer(_flags);
+                var _flags:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _flags__pointer__ = stdgo.Go.pointer(_flags);
                 stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_r), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(_flags__pointer__)) == null);
                 _pr._sync = (_flags & (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32));
             } else {

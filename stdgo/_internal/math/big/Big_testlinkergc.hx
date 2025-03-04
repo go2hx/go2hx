@@ -33,7 +33,7 @@ function testLinkerGC(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
             @:check2r _t.errorf(("expected symbol %q not found" : stdgo.GoString), stdgo.Go.toInterface(("runtime.main" : stdgo.GoString)));
         };
         var _bad = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("math/big.(*Float)" : stdgo.GoString), ("math/big.(*Rat)" : stdgo.GoString), ("math/big.(*Int)" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-        for (__48 => _sym in _bad) {
+        for (__24 => _sym in _bad) {
             if (stdgo._internal.bytes.Bytes_contains.contains(_nm, (_sym : stdgo.Slice<stdgo.GoUInt8>))) {
                 @:check2r _t.errorf(("unexpected symbol %q found" : stdgo.GoString), stdgo.Go.toInterface(_sym));
             };

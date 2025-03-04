@@ -39,54 +39,11 @@ Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath
 -- SKIP: TestWindowsGlob
 
 === RUN  TestNonWindowsGlobEscape
-Exception: stdgo._internal.math.bits.T_errorString_asInterface
+Glob(`\match.go`) = [] want [match.go]Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (./_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 12 column 14)
-Called from stdgo._internal.reflect._Reflect_deepequal.Reflect_deepequal_Fields_.deepEqual (./stdgo/_internal/reflect/Reflect_deepequal.hx line 4 column 20)
-Called from stdgo._AnyInterface.AnyInterface_Impl_.equals (./stdgo/AnyInterface.hx line 188 column 5)
+Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (./_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 13 column 142)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestNonWindowsGlobEscape
-
-=== RUN  TestClean
-skipping malloc count in short mode
-Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testclean.Filepath_test_testclean_Fields_.testClean (./_internal/path/filepath_test/Filepath_test_testclean.hx line 27 column 31)
-Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
-Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
-Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
-
--- SKIP: TestClean
-
-=== RUN  TestIsLocal
-
--- PASS: TestIsLocal
-
-=== RUN  TestFromAndToSlash
-
--- PASS: TestFromAndToSlash
-
-=== RUN  TestSplitList
-
--- PASS: TestSplitList
-
-=== RUN  TestSplit
-
--- PASS: TestSplit
-
-=== RUN  TestJoin
-
--- PASS: TestJoin
-
-=== RUN  TestExt
-
--- PASS: TestExt
-
-=== RUN  TestWalk
-unexpected errors: [Exception: testdata: Is a directory
-Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (./stdgo/_internal/os/Os_openfile.hx line 8 column 97)]Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.path.filepath_test._Filepath_test_testwalk.Filepath_test_testwalk_Fields_.testWalk (./_internal/path/filepath_test/Filepath_test_testwalk.hx line 8 column 9)
-Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (./_internal/path/filepath_test/Filepath_test__testwalk.hx line 133 column 21)
-
--- FAIL: TestWalk

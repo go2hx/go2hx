@@ -3,8 +3,7 @@ function commandContext(_t:stdgo._internal.testing.Testing_tb.TB, _ctx:stdgo._in
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         stdgo._internal.internal.testenv.Testenv_musthaveexec.mustHaveExec(_t);
-        var __0:stdgo._internal.context.Context_cancelfunc.CancelFunc = (null : stdgo._internal.context.Context_cancelfunc.CancelFunc), __1:stdgo._internal.time.Time_duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_duration.Duration);
-var _gracePeriod = __1, _cancelCtx = __0;
+        var _cancelCtx:stdgo._internal.context.Context_cancelfunc.CancelFunc = (null : stdgo._internal.context.Context_cancelfunc.CancelFunc), _gracePeriod:stdgo._internal.time.Time_duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_duration.Duration);
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0)) : stdgo._internal.internal.testenv.Testenv_t__interface_0.T__interface_0), _1 : true };

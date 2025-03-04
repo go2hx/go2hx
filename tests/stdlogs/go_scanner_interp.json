@@ -1,0 +1,30 @@
+{
+    "passes": [
+        "TestStripCR"
+    ],
+    "fails": [
+        "TestScan",
+        "TestSemicolons",
+        "TestLineDirectives",
+        "TestInvalidLineDirectives",
+        "TestInit",
+        "TestStdErrorHandler",
+        "TestScanErrors",
+        "TestIssue10213",
+        "TestIssue28112",
+        "TestNumbers"
+    ],
+    "runs": [
+        "TestScan",
+        "TestStripCR",
+        "TestSemicolons",
+        "TestLineDirectives",
+        "TestInvalidLineDirectives",
+        "TestInit",
+        "TestStdErrorHandler",
+        "TestScanErrors",
+        "TestIssue10213",
+        "TestIssue28112",
+        "TestNumbers"
+    ]
+}

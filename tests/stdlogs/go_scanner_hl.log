@@ -1,0 +1,122 @@
+=== RUN  TestScan
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testscan.$Scanner_testscan_Fields_.testScan (stdgo/_internal/go/scanner/Scanner_testscan.hx line 8)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestScan
+
+=== RUN  TestStripCR
+
+-- PASS: TestStripCR
+
+=== RUN  TestSemicolons
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner__checksemi.$Scanner__checksemi_Fields_._checkSemi (stdgo/_internal/go/scanner/Scanner__checksemi.hx line 8)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testscan.$Scanner_testscan_Fields_.testScan (stdgo/_internal/go/scanner/Scanner_testscan.hx line 8)
+Called from stdgo._internal.go.scanner._Scanner_testsemicolons.$Scanner_testsemicolons_Fields_.testSemicolons (stdgo/_internal/go/scanner/Scanner_testsemicolons.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestSemicolons
+
+=== RUN  TestLineDirectives
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner__testsegments.$Scanner__testsegments_Fields_._testSegments (stdgo/_internal/go/scanner/Scanner__testsegments.hx line 8)
+Called from stdgo._internal.go.scanner._Scanner_testlinedirectives.$Scanner_testlinedirectives_Fields_.testLineDirectives (stdgo/_internal/go/scanner/Scanner_testlinedirectives.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestLineDirectives
+
+=== RUN  TestInvalidLineDirectives
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testinvalidlinedirectives.$Scanner_testinvalidlinedirectives_Fields_.testInvalidLineDirectives (stdgo/_internal/go/scanner/Scanner_testinvalidlinedirectives.hx line 9)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestInvalidLineDirectives
+
+=== RUN  TestInit
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testinit.$Scanner_testinit_Fields_.testInit (stdgo/_internal/go/scanner/Scanner_testinit.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestInit
+
+=== RUN  TestStdErrorHandler
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_teststderrorhandler.$Scanner_teststderrorhandler_Fields_.testStdErrorHandler (stdgo/_internal/go/scanner/Scanner_teststderrorhandler.hx line 9)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestStdErrorHandler
+
+=== RUN  TestScanErrors
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner__checkerror.$Scanner__checkerror_Fields_._checkError (stdgo/_internal/go/scanner/Scanner__checkerror.hx line 10)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testscanerrors.$Scanner_testscanerrors_Fields_.testScanErrors (stdgo/_internal/go/scanner/Scanner_testscanerrors.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestScanErrors
+
+=== RUN  TestIssue10213
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testissue10213.$Scanner_testissue10213_Fields_.testIssue10213 (stdgo/_internal/go/scanner/Scanner_testissue10213.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestIssue10213
+
+=== RUN  TestIssue28112
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testissue28112.$Scanner_testissue28112_Fields_.testIssue28112 (stdgo/_internal/go/scanner/Scanner_testissue28112.hx line 6)
+Called from stdgo._internal.go.scanner._Scanner__checkerror.$Scanner__checkerror_Fields_._checkError (stdgo/_internal/go/scanner/Scanner__checkerror.hx line 10)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestIssue28112
+
+=== RUN  TestNumbers
+Exception: Int32:sync.atomic_.add is not yet implemented
+Called from stdgo._internal.sync.atomic_.$Int32_static_extension.add (stdgo/_internal/sync/atomic_/Atomic__int32_static_extension.hx line 5)
+Called from stdgo._internal.sync.$RWMutex_static_extension.rLock (stdgo/_internal/sync/Sync_rwmutex_static_extension.hx line 149)
+Called from stdgo._internal.go.token.$FileSet_static_extension.base (stdgo/_internal/go/token/Token_fileset_static_extension.hx line 364)
+Called from stdgo._internal.go.scanner._Scanner_testnumbers.$Scanner_testnumbers_Fields_.testNumbers (stdgo/_internal/go/scanner/Scanner_testnumbers.hx line 117)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.go.scanner_dot_test._Scanner_dot_test.$Scanner_dot_test_Fields_.main (_internal/go/scanner_dot_test/Scanner_dot_test.hx line 4)
+
+-- FAIL: TestNumbers
+

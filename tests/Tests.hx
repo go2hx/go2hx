@@ -17,6 +17,7 @@ var globalPath = "";
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
+var excludeFuncArgs:Array<Array<String>> = [];
 var ranTests:Array<String> = [];
 var outputMap:Map<String,String> = [];
 var tasks:Array<TaskData> = [];
@@ -38,6 +39,7 @@ var stdBool = false;
 var goBool = false;
 var yaegiBool = false;
 var tinygoBool = false;
+var libsBool = false;
 var noLogs = false;
 
 function main() {
@@ -53,6 +55,7 @@ function main() {
 	hxbBool = Compiler.getDefine("hxb") != null;
 	unitBool = Compiler.getDefine("unit") != null;
 	stdBool = Compiler.getDefine("std") != null;
+	libsBool = Compiler.getDefine("libs") != null;
 	goBool = Compiler.getDefine("go") != null;
 	globalPath = Compiler.getDefine("path") ?? "";
 	yaegiBool = Compiler.getDefine("yaegi") != null;
@@ -72,7 +75,7 @@ function main() {
 		createTestLists();
 		Sys.exit(0);
 	}
-	if (!unitBool && !stdBool && !goBool && !yaegiBool) {
+	if (!unitBool && !stdBool && !goBool && !yaegiBool && !libsBool) {
 		trace("no tests specified");
 		close();
 		return;
@@ -88,6 +91,7 @@ function main() {
 	if (!dryRun) {
 		Main.setup(new Main.InstanceData(), Std.parseInt(runnerCount)); // amount of processes to spawn
 		Main.onComplete = complete;
+		Main.onUnknownExit = close;
 		final timer = new haxe.Timer(100);
 		timer.run = update;
 	}
@@ -99,8 +103,19 @@ private function runReport() {
 	final output:Array<String> = exists ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	if (!exists)
 		throw testName + " not set";
-	final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
-	var paths:Array<String> = Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
+	var paths:Array<String> = if (type != "unit") {
+		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
+		Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
+	}else{
+		final dir = "./tests/unit/";
+		for (path in FileSystem.readDirectory(dir)) {
+			path = dir + path;
+			if (FileSystem.isDirectory(path) || path.extension() != "go")
+				continue;
+			tests.push(path);
+		}
+		tests;
+	}
 	var tests:Array<String> = paths.map(s -> toName(s));
 	tests = tests.map(s -> sanatize(s));
 	for (i in 0...output.length) {
@@ -134,7 +149,7 @@ private function runReport() {
 		mdContent.add(File.getContent(paths[i]));
 		mdContent.add('\n```\n');
 	}
-
+	Sys.println('tests/$testName.md');
 	File.saveContent('tests/$testName.md', mdContent.toString());
 }
 
@@ -149,6 +164,8 @@ private function runTests() {
 		testYaegi();
 	if (tinygoBool)
 		testTinyGo();
+	if (libsBool)
+		testLibs();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
 	if (run != "") {
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
@@ -195,9 +212,11 @@ function update() {
 		trace("tests left:",tests.length);
 		close();
 	}
-	for (test in tests) {
+	var removeTests = [];
+	for (i in 0...tests.length) {
+		final test = tests[i];
 		final hxmlName = sanatize(Path.withoutExtension(test));
-		final hxml = "golibs/" + type + "_" + hxmlName;
+		final hxml = "golibs/" + type + "_" + hxmlName + ".hxml";
 		final args = [test, '--norun', '--hxml', hxml];
 		if (testBool)
 			args.push("--test");
@@ -208,13 +227,18 @@ function update() {
 		}else{
 			args.push(globalPath);
 		}
+		//trace(args.join(" "));
 		instance = Main.compileArgs(args);
+		instance.data = {excludes: excludeFuncArgs[i], hxml: hxml};
 
 		final compiled = Main.compile(instance);
 		timeout = 0;
 		if (!compiled) {
 			break;
 		}
+		removeTests.push(test);
+	}
+	for (test in removeTests) {
 		tests.remove(test);
 	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
@@ -230,7 +254,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 8);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 16);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));
@@ -289,10 +313,15 @@ function update() {
 						suite.success(task);
 					}
 				}else {
-					final cmd = Main.runTarget(task.target,"golibs/" + task.out,[],task.main).split(" ");
-					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
+					trace(task.excludeArgs);
+					final cmd = Main.runTarget(task.target,"golibs/" + task.out,task.excludeArgs,task.main).split(" ");
+					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: "", excludeArgs: task.excludeArgs});
 				}
 			}else{
+				#if js
+				if (code == null)
+					code = 2;
+				#end
 				if (task.runtime || task.target == "interp") {
 					trace("runtime error: " + task.command + " " + task.args.join(" "));
 					// runtime error
@@ -367,7 +396,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	return {passes: passes, fails: fails, runs: runs};
 }
 
-private function complete(modules:Array<Typer.Module>, _) {
+private function complete(modules:Array<Typer.Module>, data:{excludes:Array<String>, hxml:String, ?main:String}) {
 	timeout = 0;
 	completeBool = true;
 	// spawn targets
@@ -375,13 +404,19 @@ private function complete(modules:Array<Typer.Module>, _) {
 	for (path in paths) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
-		final hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
+		if (data.hxml == null) {
+			var hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
+			// TODO programatically search and remove _t_ part
+			if (hxml == "golibs/unit_t_4darray.hxml")
+				hxml == "golibs/unit_4darray.hxml";
+			data.hxml = hxml;
+		}
 		final out = createTargetOutput(target, type, path);
 		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
-		final args = [hxml].concat(outCmd);
+		final args = [data.hxml].concat(outCmd);
 		if (ciBool)
 			args.unshift("haxe");
-		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: path, runtime: false, target: target, out: out, main: main});
+		tasks.push({command: ciBool ? "npx" : "haxe", args: args, excludeArgs: data.excludes, path: path, runtime: false, target: target, out: out, main: main});
 	}
 }
 
@@ -432,24 +467,30 @@ private function testStd() { // standard library package tests
 			case "regexp":
 				continue;
 		}
-		final hxml = "stdgo/" + StringTools.replace(name,"/","_") + ".hxml";
-		if (!sys.FileSystem.exists(hxml))
-			continue;
-		final main = name;
-		final out = createTargetOutput(target, type, name);
-		final targetLibs = Main.targetLibs(target);
-		final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
-		final args = [hxml].concat(outCmd);
-		// remove ANSI escape codes for colours
-		args.push("-D");
-		args.push("message.no-color");
-		if (ciBool)
-			args.unshift("haxe");
-		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
-		Sys.println(args.join(" "));
+		createRunnableHxml(name, "stdgo/");
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
+}
+
+function createRunnableHxml(name:String, prefix:String) {
+	final hxml = prefix + StringTools.replace(name,"/","_") + ".hxml";
+	if (!sys.FileSystem.exists(hxml)) {
+		trace("hxml not found");
+		return;
+	}
+	final main = name;
+	final out = createTargetOutput(target, type, name);
+	final targetLibs = Main.targetLibs(target);
+	final outCmd = (Main.buildTarget(target, "golibs/" + out) + (targetLibs == "" ? "" : " " + targetLibs)).split(" ");
+	final args = [hxml].concat(outCmd);
+	// remove ANSI escape codes for colours
+	args.push("-D");
+	args.push("message.no-color");
+	if (ciBool)
+		args.unshift("haxe");
+	tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main, excludeArgs: []});
+	Sys.println(args.join(" "));
 }
 
 private function log(v) {
@@ -460,7 +501,24 @@ private function log(v) {
 
 final input:Array<String> = [];
 
+
+private function runInterop() {
+	if (type != "libs")
+		return;
+	Sys.println("RUN INTEROP");
+	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
+	for (lib in libs) {
+		final command = (ciBool ? "npx haxe" : "haxe") + " -cp golibs " + lib.main;
+		final code = Sys.command(command);
+		if (code != 0) {
+			trace(command);
+			throw "failed to run interop";
+		}
+	}
+}
+
 private function close() {
+	runInterop();
 	log("======= TIME =======");
 	log(Date.now().toString());
 	log("elapsed: " + (haxe.Timer.stamp() - startStamp));
@@ -470,6 +528,8 @@ private function close() {
 			return "0 0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
+	if (type == "")
+		return;
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
 	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
@@ -558,6 +618,23 @@ private function close() {
 private function testTinyGo() {
 	type = "tinygo";
 	sortDataToTests(Json.parse(File.getContent("tests/sort_tinygo.json")));
+}
+
+private function testLibs() {
+	type = "libs";
+	testBool = true;
+	final libs:Array<{module:String, excludes:Array<String>, main:String}> = Json.parse(File.getContent("data/testLibs.json"));
+	for (lib in libs) {
+		tests.push(lib.module);
+		trace(lib.module);
+		final excludes = [];
+		for (exclude in lib.excludes) {
+			excludes.push("-exclude");
+			excludes.push(exclude);
+		}
+		excludeFuncArgs.push(excludes);
+		
+	}
 }
 
 private function sortDataToTests(sortData:SortData) {
@@ -738,6 +815,7 @@ class TestSuite {
 class TaskData {
 	public var path:String;
 	public var command:String;
+	public var excludeArgs:Array<String>;
 	public var args:Array<String>;
 	public var target:String;
 	public var runtime:Bool;
@@ -745,7 +823,7 @@ class TaskData {
 	public var main:String;
 	public var output:String = "";
 	var _stamp:Float = 0;
-	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String) {
+	public function new(path:String, command:String,args:Array<String>,target:String,runtime:Bool, out:String, main:String, excludeArgs:Array<String>) {
 		this.path = path;
 		this.target = target;
 		this.runtime = runtime;
@@ -754,6 +832,7 @@ class TaskData {
 		this.out = out;
 		this.main = main;
 		this._stamp = haxe.Timer.stamp();
+		this.excludeArgs = excludeArgs;
 	}
 	public function stamp():Float {
 		final oldStamp = this._stamp;

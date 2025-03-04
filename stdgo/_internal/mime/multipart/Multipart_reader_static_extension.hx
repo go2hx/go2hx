@@ -101,8 +101,7 @@ package stdgo._internal.mime.multipart;
                 {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>) : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_fileheader.FileHeader>>>)) : stdgo._internal.mime.multipart.Multipart_form.Form)) : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>);
-            var __0:stdgo.Ref<stdgo._internal.os.Os_file.File> = (null : stdgo.Ref<stdgo._internal.os.Os_file.File>), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-var _fileOff = __1, _file = __0;
+            var _file:stdgo.Ref<stdgo._internal.os.Os_file.File> = (null : stdgo.Ref<stdgo._internal.os.Os_file.File>), _fileOff:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             var _numDiskFiles = (0 : stdgo.GoInt);
             var _combineFiles = (true : Bool);
             if (@:check2r stdgo._internal.mime.multipart.Multipart__multipartfiles._multipartFiles.value() == (("distinct" : stdgo.GoString))) {

@@ -1,0 +1,3 @@
+-m _internal.encoding.ascii85_dot_test.Ascii85_dot_test
+-lib go2hx
+-cp .

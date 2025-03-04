@@ -11,15 +11,15 @@ package stdgo._internal.net.rpc;
             final __tmp__3 = (_i : stdgo.GoInt);
             final __tmp__4 = _m;
             final __tmp__5 = (_j : stdgo.GoInt);
-            __tmp__2[__tmp__3] = __tmp__0;
-            __tmp__4[__tmp__5] = __tmp__1;
+            __tmp__2[__tmp__3] = @:binopAssign __tmp__0;
+            __tmp__4[__tmp__5] = @:binopAssign __tmp__1;
         };
     }
     @:keep
     @:tdfield
     static public function less( _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_t_methodarray.T_methodArray = _m;
-        return (_m[(_i : stdgo.GoInt)].type._method.name < _m[(_j : stdgo.GoInt)].type._method.name : Bool);
+        return (_m[(_i : stdgo.GoInt)].name < _m[(_j : stdgo.GoInt)].name : Bool);
     }
     @:keep
     @:tdfield

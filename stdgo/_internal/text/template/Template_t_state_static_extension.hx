@@ -9,7 +9,7 @@ package stdgo._internal.text.template;
         if (!_ok) {
             @:check2r _s._errorf(("can\'t print %s of type %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_v.type()));
         };
-        var __tmp__ = stdgo._internal.fmt.Fmt_fprint.fprint((@:checkr _s ?? throw "null pointer dereference")._wr, _iface), __24:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.fmt.Fmt_fprint.fprint((@:checkr _s ?? throw "null pointer dereference")._wr, _iface), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             @:check2r _s._writeError(_err);
         };
@@ -581,13 +581,13 @@ package stdgo._internal.text.template;
         };
         @:check2r _s._at(stdgo.Go.asInterface(_pipe));
         _value = stdgo._internal.text.template.Template__missingval._missingVal?.__copy__();
-        for (__16 => _cmd in (@:checkr _pipe ?? throw "null pointer dereference").cmds) {
+        for (__8 => _cmd in (@:checkr _pipe ?? throw "null pointer dereference").cmds) {
             _value = @:check2r _s._evalCommand(_dot?.__copy__(), _cmd, _value?.__copy__())?.__copy__();
             if (((_value.kind() == (20u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && (_value.type().numMethod() == (0 : stdgo.GoInt)) : Bool)) {
                 _value = stdgo._internal.reflect.Reflect_valueof.valueOf(_value.interface_())?.__copy__();
             };
         };
-        for (__17 => _variable in (@:checkr _pipe ?? throw "null pointer dereference").decl) {
+        for (__9 => _variable in (@:checkr _pipe ?? throw "null pointer dereference").decl) {
             if ((@:checkr _pipe ?? throw "null pointer dereference").isAssign) {
                 @:check2r _s._setVar((@:checkr _variable ?? throw "null pointer dereference").ident[(0 : stdgo.GoInt)]?.__copy__(), _value?.__copy__());
             } else {
@@ -644,7 +644,7 @@ package stdgo._internal.text.template;
                 final __f__ = @:check2r _s._pop;
                 __deferstack__.unshift({ ran : false, f : () -> __f__(_a0) });
             };
-            var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(@:check2r _s._evalPipeline(_dot?.__copy__(), (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe)?.__copy__()), _val:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, __40:Bool = __tmp__._1;
+            var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(@:check2r _s._evalPipeline(_dot?.__copy__(), (@:checkr _r ?? throw "null pointer dereference").branchNode.pipe)?.__copy__()), _val:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, __8:Bool = __tmp__._1;
             var _mark = (@:check2r _s._mark() : stdgo.GoInt);
             var _oneIteration = (function(_index:stdgo._internal.reflect.Reflect_value.Value, _elem:stdgo._internal.reflect.Reflect_value.Value):Void {
                 var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
@@ -989,7 +989,7 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterfa
                 @:check2r _s._walkIfOrWith((10 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType), _dot?.__copy__(), (@:checkr _node ?? throw "null pointer dereference").branchNode.pipe, (@:checkr _node ?? throw "null pointer dereference").branchNode.list, (@:checkr _node ?? throw "null pointer dereference").branchNode.elseList);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>))) {
                 var _node:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>) : __type__.__underlying__().value;
-                for (__16 => _node in (@:checkr _node ?? throw "null pointer dereference").nodes) {
+                for (__8 => _node in (@:checkr _node ?? throw "null pointer dereference").nodes) {
                     @:check2r _s._walk(_dot?.__copy__(), _node);
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_rangenode.RangeNode>))) {
@@ -1001,7 +1001,7 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterfa
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>))) {
                 var _node:stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_textnode.TextNode>) : __type__.__underlying__().value;
                 {
-                    var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._wr.write((@:checkr _node ?? throw "null pointer dereference").text), __24:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._wr.write((@:checkr _node ?? throw "null pointer dereference").text), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         @:check2r _s._writeError(_err);
                     };

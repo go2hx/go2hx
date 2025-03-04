@@ -2,18 +2,6 @@ package stdgo._internal.crypto.tls;
 class T_finishedHash_asInterface {
     @:keep
     @:tdfield
-    public dynamic function _discardHandshakeBuffer():Void @:_0 __self__.value._discardHandshakeBuffer();
-    @:keep
-    @:tdfield
-    public dynamic function _hashForClientCertificate(_sigType:stdgo.GoUInt8, _hashAlg:stdgo._internal.crypto.Crypto_hash.Hash):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._hashForClientCertificate(_sigType, _hashAlg);
-    @:keep
-    @:tdfield
-    public dynamic function _serverSum(_masterSecret:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._serverSum(_masterSecret);
-    @:keep
-    @:tdfield
-    public dynamic function _clientSum(_masterSecret:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value._clientSum(_masterSecret);
-    @:keep
-    @:tdfield
     public dynamic function sum():stdgo.Slice<stdgo.GoUInt8> return @:_0 __self__.value.sum();
     @:keep
     @:tdfield

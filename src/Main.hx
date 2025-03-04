@@ -18,6 +18,7 @@ var clients:Array<Client> = [];
 var processes:Array<sys.io.Process> = [];
 #end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var onUnknownExit:Void->Void = null;
 var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
@@ -250,7 +251,7 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 		}else{
 			"go4hx.exe";
 		}
-		final child = js.node.ChildProcess.exec('$name $port', {timeout: 1000 * 60 * 10}, null);
+		final child = js.node.ChildProcess.exec('$name $port', null, null);
 		//final child = js.node.ChildProcess.execFile('go4hx', ['$port'], {cwd: cwd}, null);
 		child.on('exit', code -> {
 			final code:Int = code;
@@ -258,9 +259,10 @@ function setup(instance:InstanceData, processCount:Int = 1, allAccepted:Void->Vo
 			// print out output
 			Sys.println(child.stdout.read());
 			Sys.println(child.stderr.read());
-			if (resetCount++ > 4) {
+			if (resetCount++ > 8) {
 				child.kill();
-				Sys.exit(code);
+				if (onUnknownExit != null)
+					onUnknownExit();
 			}else{
 				child.kill();
 				jsProcess();
@@ -674,7 +676,7 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 		default:
 			throw "unknown target: " + target;
 	};
-	if (args.length > 0)
+	if (args != null && args.length > 0)
 		s += " " + args.join(" ");
 	return s;
 }

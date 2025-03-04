@@ -107,7 +107,7 @@ package stdgo._internal.log.slog;
                 if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {
                     @:check2r _s._openGroup(_a.key?.__copy__());
                 };
-                for (__781 => _aa in _attrs) {
+                for (__765 => _aa in _attrs) {
                     @:check2r _s._appendAttr(_aa?.__copy__());
                 };
                 if (_a.key != ((stdgo.Go.str() : stdgo.GoString))) {

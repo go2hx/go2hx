@@ -29,21 +29,20 @@ var _b = __1, _a = __0;
         (@:checkr _d ?? throw "null pointer dereference")._nd = _prec;
         var _v = (_m : stdgo.GoUInt64);
         while ((_v >= (100i64 : stdgo.GoUInt64) : Bool)) {
-            var __0:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-var _v2 = __1, _v1 = __0;
+            var _v1:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _v2:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
             if ((_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
                 {
                     final __tmp__0 = (((_v : stdgo.GoUInt32) / (100u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt64);
                     final __tmp__1 = (((_v : stdgo.GoUInt32) % (100u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt64);
-                    _v1 = __tmp__0;
-                    _v2 = __tmp__1;
+                    _v1 = @:binopAssign __tmp__0;
+                    _v2 = @:binopAssign __tmp__1;
                 };
             } else {
                 {
                     final __tmp__0 = (_v / (100i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                     final __tmp__1 = (_v % (100i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                    _v1 = __tmp__0;
-                    _v2 = __tmp__1;
+                    _v1 = @:binopAssign __tmp__0;
+                    _v2 = @:binopAssign __tmp__1;
                 };
             };
             _n = (_n - ((2u32 : stdgo.GoUInt)) : stdgo.GoUInt);

@@ -18,8 +18,7 @@ function erfinv(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
             var _z2 = (((((((((((((((((((((5226.495278852854 : stdgo.GoFloat64) * _r : stdgo.GoFloat64) + (28729.085735721943 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (39307.89580009271 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (21213.794301586597 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (5394.196021424751 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (687.1870074920579 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (42.31333070160091 : stdgo.GoFloat64) : stdgo.GoFloat64)) * _r : stdgo.GoFloat64) + (1 : stdgo.GoFloat64) : stdgo.GoFloat64);
             _ans = (((_x * _z1 : stdgo.GoFloat64)) / _z2 : stdgo.GoFloat64);
         } else {
-            var __0:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
-var _z2 = __1, _z1 = __0;
+            var _z1:stdgo.GoFloat64 = (0 : stdgo.GoFloat64), _z2:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
             var _r = (stdgo._internal.math.Math_sqrt.sqrt(((0.6931471805599453 : stdgo.GoFloat64) - stdgo._internal.math.Math_log.log(((1 : stdgo.GoFloat64) - _x : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64);
             if ((_r <= (5 : stdgo.GoFloat64) : Bool)) {
                 _r = (_r - (1.6 : stdgo.GoFloat64) : stdgo.GoFloat64);

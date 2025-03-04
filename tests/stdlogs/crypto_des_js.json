@@ -1,0 +1,44 @@
+{
+    "passes": [
+        "TestInitialPermute",
+        "TestFinalPermute"
+    ],
+    "fails": [
+        "TestWeakKeys",
+        "TestSemiWeakKeyPairs",
+        "TestDESEncryptBlock",
+        "TestDESDecryptBlock",
+        "TestEncryptTripleDES",
+        "TestDecryptTripleDES",
+        "TestVariablePlaintextKnownAnswer",
+        "TestVariableCiphertextKnownAnswer",
+        "TestInversePermutationKnownAnswer",
+        "TestInitialPermutationKnownAnswer",
+        "TestVariableKeyKnownAnswerEncrypt",
+        "TestVariableKeyKnownAnswerDecrypt",
+        "TestPermutationOperationKnownAnswerEncrypt",
+        "TestPermutationOperationKnownAnswerDecrypt",
+        "TestSubstitutionTableKnownAnswerEncrypt",
+        "TestSubstitutionTableKnownAnswerDecrypt"
+    ],
+    "runs": [
+        "TestWeakKeys",
+        "TestSemiWeakKeyPairs",
+        "TestDESEncryptBlock",
+        "TestDESDecryptBlock",
+        "TestEncryptTripleDES",
+        "TestDecryptTripleDES",
+        "TestVariablePlaintextKnownAnswer",
+        "TestVariableCiphertextKnownAnswer",
+        "TestInversePermutationKnownAnswer",
+        "TestInitialPermutationKnownAnswer",
+        "TestVariableKeyKnownAnswerEncrypt",
+        "TestVariableKeyKnownAnswerDecrypt",
+        "TestPermutationOperationKnownAnswerEncrypt",
+        "TestPermutationOperationKnownAnswerDecrypt",
+        "TestSubstitutionTableKnownAnswerEncrypt",
+        "TestSubstitutionTableKnownAnswerDecrypt",
+        "TestInitialPermute",
+        "TestFinalPermute"
+    ]
+}

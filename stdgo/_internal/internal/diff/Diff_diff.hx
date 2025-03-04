@@ -9,8 +9,7 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));
         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("+++ %s\n" : stdgo.GoString), stdgo.Go.toInterface(_newName));
-        var __0:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __1:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __2:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), __3:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
+        var _done:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), _chunk:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), _count:stdgo._internal.internal.diff.Diff_t_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_t_pair.T_pair), _ctext:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         for (__0 => _m in stdgo._internal.internal.diff.Diff__tgs._tgs(_x, _y)) {
             if ((_m._x < _done._x : Bool)) {
                 continue;

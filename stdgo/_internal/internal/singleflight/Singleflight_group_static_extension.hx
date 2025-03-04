@@ -109,7 +109,7 @@ package stdgo._internal.internal.singleflight;
         if (((@:checkr _g ?? throw "null pointer dereference")._m[_key] ?? (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_t_call.T_call>)) == (_c)) {
             if ((@:checkr _g ?? throw "null pointer dereference")._m != null) (@:checkr _g ?? throw "null pointer dereference")._m.__remove__(_key);
         };
-        for (__20 => _ch in (@:checkr _c ?? throw "null pointer dereference")._chans) {
+        for (__0 => _ch in (@:checkr _c ?? throw "null pointer dereference")._chans) {
             _ch.__send__((new stdgo._internal.internal.singleflight.Singleflight_result.Result((@:checkr _c ?? throw "null pointer dereference")._val, (@:checkr _c ?? throw "null pointer dereference")._err, ((@:checkr _c ?? throw "null pointer dereference")._dups > (0 : stdgo.GoInt) : Bool)) : stdgo._internal.internal.singleflight.Singleflight_result.Result));
         };
         @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();

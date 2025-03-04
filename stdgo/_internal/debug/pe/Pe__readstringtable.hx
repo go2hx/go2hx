@@ -8,8 +8,7 @@ function _readStringTable(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_fileheader.F
         if (_err != null) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to seek to string table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
         };
-        var _l:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _l__pointer__ = stdgo.Go.pointer(_l);
+        var _l:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _l__pointer__ = stdgo.Go.pointer(_l);
         _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleendian.littleEndian), stdgo.Go.toInterface(_l__pointer__));
         if (_err != null) {
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read string table length: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };

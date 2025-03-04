@@ -5,16 +5,15 @@ package stdgo._internal.net.mail;
     static public function string( _a:stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.net.mail.Mail_address.Address> = _a;
         var _at = (stdgo._internal.strings.Strings_lastindex.lastIndex((@:checkr _a ?? throw "null pointer dereference").address?.__copy__(), ("@" : stdgo.GoString)) : stdgo.GoInt);
-        var __0:stdgo.GoString = ("" : stdgo.GoString), __1:stdgo.GoString = ("" : stdgo.GoString);
-var _domain = __1, _local = __0;
+        var _local:stdgo.GoString = ("" : stdgo.GoString), _domain:stdgo.GoString = ("" : stdgo.GoString);
         if ((_at < (0 : stdgo.GoInt) : Bool)) {
             _local = (@:checkr _a ?? throw "null pointer dereference").address?.__copy__();
         } else {
             {
                 final __tmp__0 = ((@:checkr _a ?? throw "null pointer dereference").address.__slice__(0, _at) : stdgo.GoString)?.__copy__();
                 final __tmp__1 = ((@:checkr _a ?? throw "null pointer dereference").address.__slice__((_at + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                _local = __tmp__0;
-                _domain = __tmp__1;
+                _local = @:binopAssign __tmp__0;
+                _domain = @:binopAssign __tmp__1;
             };
         };
         var _quoteLocal = (false : Bool);

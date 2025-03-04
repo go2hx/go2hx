@@ -1,2 +1,2 @@
 package stdgo._internal.net.http;
-final statusUnauthorized : stdgo.GoUInt64 = (401i64 : stdgo.GoUInt64);
+final statusUnauthorized : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);

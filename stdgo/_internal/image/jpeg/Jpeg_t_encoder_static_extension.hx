@@ -12,8 +12,7 @@ package stdgo._internal.image.jpeg;
                 @:check2r _e._write(stdgo._internal.image.jpeg.Jpeg__sosheaderycbcr._sosHeaderYCbCr);
             };
         };
-        var __0:stdgo._internal.image.jpeg.Jpeg_t_block.T_block = new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)]), __1:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>(4, 4, ...[for (i in 0 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), __2:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>(4, 4, ...[for (i in 0 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), __3:stdgo.GoInt32 = (0 : stdgo.GoInt32), __4:stdgo.GoInt32 = (0 : stdgo.GoInt32), __5:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-var _prevDCCr = __5, _prevDCCb = __4, _prevDCY = __3, _cr = __2, _cb = __1, _b = __0;
+        var _b:stdgo._internal.image.jpeg.Jpeg_t_block.T_block = new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)]), _cb:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>(4, 4, ...[for (i in 0 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), _cr:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>(4, 4, ...[for (i in 0 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo._internal.image.jpeg.Jpeg_t_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), _prevDCY:stdgo.GoInt32 = (0 : stdgo.GoInt32), _prevDCCb:stdgo.GoInt32 = (0 : stdgo.GoInt32), _prevDCCr:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _bounds = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_rectangle.Rectangle);
         {
             final __type__ = _m;
@@ -193,8 +192,8 @@ var _b = __1, _a = __0;
             {
                 final __tmp__0 = -_value;
                 final __tmp__1 = (_value - (1 : stdgo.GoInt32) : stdgo.GoInt32);
-                _a = __tmp__0;
-                _b = __tmp__1;
+                _a = @:binopAssign __tmp__0;
+                _b = @:binopAssign __tmp__1;
             };
         };
         var _nBits:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
@@ -234,8 +233,8 @@ var _b = __1, _a = __0;
         {
             final __tmp__0 = _bits;
             final __tmp__1 = _nBits;
-            (@:checkr _e ?? throw "null pointer dereference")._bits = __tmp__0;
-            (@:checkr _e ?? throw "null pointer dereference")._nBits = __tmp__1;
+            (@:checkr _e ?? throw "null pointer dereference")._bits = @:binopAssign __tmp__0;
+            (@:checkr _e ?? throw "null pointer dereference")._nBits = @:binopAssign __tmp__1;
         };
     }
     @:keep

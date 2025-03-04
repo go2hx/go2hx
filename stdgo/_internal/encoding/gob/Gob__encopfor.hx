@@ -13,11 +13,7 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_type_.Type_, _inProgress:
         var _typ = ((@:checkr _ut ?? throw "null pointer dereference")._base : stdgo._internal.reflect.Reflect_type_.Type_);
         var _indir = ((@:checkr _ut ?? throw "null pointer dereference")._indir : stdgo.GoInt);
         var _k = (_typ.kind() : stdgo._internal.reflect.Reflect_kind.Kind);
-        var _op:stdgo._internal.encoding.gob.Gob_t_encop.T_encOp = (null : stdgo._internal.encoding.gob.Gob_t_encop.T_encOp);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
-        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op:stdgo._internal.encoding.gob.Gob_t_encop.T_encOp = (null : stdgo._internal.encoding.gob.Gob_t_encop.T_encOp), _op__pointer__ = stdgo.Go.pointer(_op);
         if (((_k : stdgo.GoInt) < (stdgo._internal.encoding.gob.Gob__encoptable._encOpTable.length) : Bool)) {
             _op = stdgo._internal.encoding.gob.Gob__encoptable._encOpTable[(_k : stdgo.GoInt)];
         };

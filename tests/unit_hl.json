@@ -160,5 +160,14 @@
  "hl|var1",
  "hl|vars0",
  "hl|pointerAssign0",
- "hl|vars2"
+ "hl|vars2",
+ "hl|argMethods",
+ "hl|append1",
+ "hl|appendnil",
+ "hl|bytesBuffer",
+ "hl|vars1",
+ "hl|binaryreader",
+ "hl|heappop",
+ "hl|ptrrecv1",
+ "hl|t_4darray"
 ]

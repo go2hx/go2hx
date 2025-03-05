@@ -3052,14 +3052,13 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 					];
 					final obj = toExpr(EObjectDecl(fields));
 					return macro ({
-						final __tmp__ = $y;
+						@:assignTranslate final __tmp__ = $y;
 						$obj;
 					});
 				default:
 			}
 		default:
 	}
-	trace(fromType, toType);
 	return y;
 }
 
@@ -3617,7 +3616,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				if (!isSelfAssignValue(x,e))
 					e = macro $x = $e;
 			}else{
-				// x,y = z
+				/*// x,y = z
 				// destructure
 				final assigns:Array<Expr> = [];
 				for (i in 0...info.returnNames.length) {
@@ -3644,7 +3643,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				];
 				assigns.push(toExpr(EObjectDecl(fields)));
 				final ct = info.returnType;
-				e = macro $b{[macro final __tmp__ = $e].concat(assigns)};
+				e = macro $b{[macro @:typeReturnStmt final __tmp__ = $e].concat(assigns)};*/
 			}
 			
 		}
@@ -3667,7 +3666,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	]));
 	if (info.returnNamed) {
 		final ct = info.returnType;
-		final decls:Array<Expr> = [macro final __tmp__:$ct = $expr];
+		final decls:Array<Expr> = [macro @:typeReturnStmt2 final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {
 			final fieldName = "_" + i;

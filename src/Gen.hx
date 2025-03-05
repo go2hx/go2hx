@@ -802,7 +802,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 			}
 		case TPath({name: "Bool", pack: [], params: _}):
 
-		case TPath({name: "GoMap", pack: ["stdgo"], params: params}):
+		/*case TPath({name: "GoMap", pack: ["stdgo"], params: params}):
 			final key = switch params[0] {
 				case TPType(t):
 					reverseConvertCast(macro key, t) ?? macro key;
@@ -822,7 +822,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 					__obj__[$key] = $value;
 				}
 				__obj__;
-			};
+			};*/
 		case TPath({name: "Slice", pack: ["stdgo"], params: [TPType(param)]}):
 			final i = reverseConvertCast(macro i, param) ?? macro i;
 			if (i != null)
@@ -890,7 +890,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 		case TPath({name: "GoArray", pack: ["stdgo"], params: [TPType(param)]}):
 				final i = convertCast(macro i, param, path) ?? macro i;
 				return macro haxe.ds.Vector.fromArrayCopy([for (i in $e) $i]);
-		case TPath({name: "GoMap", pack: ["stdgo"], params: params}):
+		/*case TPath({name: "GoMap", pack: ["stdgo"], params: params}):
 			final ct = convertComplexType(ct, path);
 			final key = switch params[0] {
 				case TPType(t):
@@ -910,7 +910,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 					__obj__[$key] = $value;
 				}
 				__obj__;
-			};
+			};*/
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 			return convertCast(e, param, path) ?? e;
 		case TPath({name: name, pack: ["stdgo"], params: _}):
@@ -1051,8 +1051,8 @@ function convertComplexType(ct:ComplexType, path:String):ComplexType {
 					return TPath({name: "Array", pack: [], params: convertTypeParams(p.params, path)});
 				case "GoArray":
 					return TPath({name: "Vector", pack: ["haxe","ds"], params: convertTypeParams(p.params, path)});
-				case "GoMap":
-					return TPath({name: "Map", pack: [], params: convertTypeParams(p.params, path)});
+				//case "GoMap":
+				//	return TPath({name: "Map", pack: [], params: convertTypeParams(p.params, path)});
 				case "Pointer":
 					return TPath({name: "Pointer", pack: ["stdgo"], params: convertTypeParams(p.params, path)});
 				case "Ref":

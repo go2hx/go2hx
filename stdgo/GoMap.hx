@@ -296,7 +296,13 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	static inline function toAnyInterfaceMap<K:AnyInterface, V>(t:IMap<K, V>):GoAnyInterfaceMap<V> {
 		return new GoAnyInterfaceMap<V>();
 	}
-	// Do not add ObjectMap casting, breaks regexp/syntax GoRefMap cast at stdgo/_internal/regexp/syntax/Syntax_T_parser_static_extension.hx  
+
+	@:from static inline function fromHaxeMap<K,V>(map:Map<K,V>):GoMap<K,V> {
+		return cast map;
+	}
+
+	// Do not add ObjectMap casting, breaks regexp/syntax GoRefMap cast at stdgo/_internal/regexp/syntax/Syntax_T_parser_static_extension.hx
+	
 }
 @:dox(hide)
 class GoStringMap<T> extends BalancedTree<GoString, T> {

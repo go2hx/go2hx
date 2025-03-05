@@ -4,6 +4,7 @@ import go4hx.tests.interop.Interop;
 //import go4hx.tests.interop.colorful
 import stdgo.encoding.binary.Binary;
 import stdgo.crypto.Crypto;
+import stdgo.regexp.syntax.Syntax;
 
 function main() {
     Binary.appendVarint;
@@ -21,7 +22,7 @@ function main() {
     final m = [0 => 1, 1 => 2];
     final value = Interop.map_(m);
     $type(value);
-    if (value.get(0) != 1)
+    if (value[0] != 1)
         throw "incorrect value";
     trace(t);
     if (t != "TInt")
@@ -43,6 +44,8 @@ function main() {
     $type(i);
 
     Crypto.registerHash;
+    Syntax.compile;
+    
 }
 
 

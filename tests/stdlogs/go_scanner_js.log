@@ -1,13 +1,13 @@
 === RUN  TestScan
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscan_testScan [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:11686:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscan_testScan [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:11770:235)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestScan
 
@@ -17,118 +17,118 @@ Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/s
 
 === RUN  TestSemicolons
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from .stdgo__$internal_go_scanner_Scanner_$_$checksemi__checkSemi (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37638 column 215)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testsemicolons_testSemicolons [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37607:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from .stdgo__$internal_go_scanner_Scanner_$_$checksemi__checkSemi (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37722 column 215)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testsemicolons_testSemicolons [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37691:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
 
 -- FAIL: TestSemicolons
 
 === RUN  TestLineDirectives
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from .stdgo__$internal_go_scanner_Scanner_$_$testsegments__testSegments (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37683 column 240)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testlinedirectives_testLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37668:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from .stdgo__$internal_go_scanner_Scanner_$_$testsegments__testSegments (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37767 column 240)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testlinedirectives_testLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37752:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
 
 -- FAIL: TestLineDirectives
 
 === RUN  TestInvalidLineDirectives
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinvalidlinedirectives_testInvalidLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37800:185)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinvalidlinedirectives_testInvalidLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37884:185)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestInvalidLineDirectives
 
 === RUN  TestInit
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinit_testInit [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37824:208)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinit_testInit [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37908:208)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestInit
 
 === RUN  TestStdErrorHandler
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$teststderrorhandler_testStdErrorHandler [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37903:262)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$teststderrorhandler_testStdErrorHandler [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37987:262)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestStdErrorHandler
 
 === RUN  TestScanErrors
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from .stdgo__$internal_go_scanner_Scanner_$_$checkerror__checkError (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 39057 column 235)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscanerrors_testScanErrors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39041:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from .stdgo__$internal_go_scanner_Scanner_$_$checkerror__checkError (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 39141 column 235)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscanerrors_testScanErrors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39125:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
 
 -- FAIL: TestScanErrors
 
 === RUN  TestIssue10213
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue10213_testIssue10213 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39133:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue10213_testIssue10213 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39217:235)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestIssue10213
 
 === RUN  TestIssue28112
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue28112_testIssue28112 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39210:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue28112_testIssue28112 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39294:235)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestIssue28112
 
 === RUN  TestNumbers
 Exception: Int32:sync.atomic_.add is not yet implemented
-Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35898 column 23)
-Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35861 column 78)
-Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35527 column 51)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testnumbers_testNumbers [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39728:236)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47645 column 9)
-Called from ._$internal_go_scanner_$dot_$test_Scanner_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40480 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57153:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57154:3)
+Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35982 column 23)
+Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35945 column 78)
+Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35611 column 51)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testnumbers_testNumbers [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39812:236)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47699 column 9)
+Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40509 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57239:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57240:3)
 
 -- FAIL: TestNumbers
 

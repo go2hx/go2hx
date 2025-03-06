@@ -1,12 +1,12 @@
 === RUN  TestGolden
 md5[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41508 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41397 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:40756:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:11115:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 40560 column 9)
-Called from ._$internal_crypto_md5_$dot_$test_Md5_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 33913 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:51723:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:51724:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41770 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 41659 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:41018:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_md5_Md5_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:11233:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 40822 column 9)
+Called from ._$internal_crypto_md5dottest_Md5dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_md5.js line 34014 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_md5.js:52038:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_md5.js:52039:3)
 
 -- FAIL: TestGolden

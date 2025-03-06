@@ -17,44 +17,44 @@
 === RUN  TestSlicing
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19338 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19331 column 47)
-Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19256 column 71)
-Called from .stdgo__$internal_math_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 16705 column 65)
-Called from .stdgo__$internal_hash_crc32_Crc32_$_$testcrosscheck__testCrossCheck (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 16693 column 19)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testslicing_testSlicing [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:16682:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41502 column 9)
-Called from ._$internal_hash_crc32_$dot_$test_Crc32_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34562 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50877:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50878:3)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19443 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19436 column 47)
+Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 19361 column 71)
+Called from .stdgo__$internal_math_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 16810 column 65)
+Called from .stdgo__$internal_hash_crc32_Crc32_$_$testcrosscheck__testCrossCheck (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 16798 column 19)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testslicing_testSlicing [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:16787:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41628 column 9)
+Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34663 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51026:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51027:3)
 
 -- FAIL: TestSlicing
 
 === RUN  TestArchIEEE
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42099 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42129 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41737:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchieee_testArchIEEE [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20660:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41502 column 9)
-Called from ._$internal_hash_crc32_$dot_$test_Crc32_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34562 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50877:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50878:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42225 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42255 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41863:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchieee_testArchIEEE [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20765:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41628 column 9)
+Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34663 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51026:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51027:3)
 
 -- SKIP: TestArchIEEE
 
 === RUN  TestArchCastagnoli
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42099 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42129 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41737:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchcastagnoli_testArchCastagnoli [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20670:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41502 column 9)
-Called from ._$internal_hash_crc32_$dot_$test_Crc32_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34562 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50877:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:50878:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42225 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 42255 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:41863:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_hash_crc32_Crc32_$testarchcastagnoli_testArchCastagnoli [as f] (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:20775:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 41628 column 9)
+Called from ._$internal_hash_crc32dottest_Crc32dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js line 34663 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51026:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_crc32.js:51027:3)
 
 -- SKIP: TestArchCastagnoli
 

@@ -41,9 +41,14 @@ function main() {
             Sys.command("haxe scripts/github-actions/build.hxml");
         case ["interop"]:
             Sys.println("build");
-            Sys.command("haxelib run go2hx ./tests/interop --nolibwrap");
+            final command = "haxelib run go2hx ./tests/interop --nolibwrap";
+            Sys.println(command);
+            Sys.command(command);
+            // haxe --run Make std regexp/syntap,crypto,encoding/binary
             Sys.println("test");
-            Sys.command("haxe tests/interop.hxml");
+            final command = "haxe tests/interop.hxml";
+            Sys.println(command);
+            Sys.command(command);
         case ["format"]:
             Sys.command("haxelib run formatter --source .");
         case ["rnd"]:

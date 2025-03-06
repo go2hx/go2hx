@@ -170,5 +170,10 @@
  "hl|heappop",
  "hl|multireturn0",
  "hl|ptrrecv1",
- "hl|t_4darray"
+ "hl|t_4darray",
+ "hl|bigalgochan",
+ "hl|issuedash177",
+ "hl|issuedash179",
+ "hl|issuedash185",
+ "hl|testdash189"
 ]

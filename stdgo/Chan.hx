@@ -79,13 +79,15 @@ class ChanData<T> {
     }
 
     public function __isGet__():Bool {
-        final b = getBool || amount > 0;
+        final b = getBool || amount > 0 || closed;
         if (debug)
             trace("__isGet__ " + b, amount);
         return b;
     }
 
-    public function __smartGet__():{value:T, ok:Bool} {
+    public function __smartGet__():{_0:T, _1:Bool} {
+        if (closed)
+            return {_0: defaultValue(), _1: false};
         if (getLock.wait(0)) {
             // released
             if (debug)
@@ -98,17 +100,17 @@ class ChanData<T> {
             mutex.release();
             if (debug)
                 trace("__smartGet__ getLock.wait release, mutext.acquire release");
-            return {value: value, ok: true};
+            return {_0: value, _1: true};
         }else{
             if (debug)
                 trace("__smartGet__ getLock.wait wait, defaultValue");
-            return {value: defaultValue(), ok: false};
+            return {_0: defaultValue(), _1: false};
         }
     }
 
     public function __get__():T {
         if (closed)
-            throw "get to closed channel";
+            return defaultValue();
         // set bools
         if (debug)
             trace("__get__ wait for mutex.acquire0");
@@ -203,9 +205,9 @@ private class ChanKeyValueIterator<T> {
     public inline function hasNext()
         return chan.amount > 0;
 
-    public inline function next():{key:T, value:Bool} {
+    public inline function next():{_0:T, _1:Bool} {
         final tmp = chan.__smartGet__();
-        return {key: tmp.value, value: tmp.ok};
+        return {_0: tmp._0, _1: tmp._1};
     }
 }
 

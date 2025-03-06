@@ -170,5 +170,10 @@
  "interp|heappop",
  "interp|ptrrecv1",
  "interp|t_4darray",
- "interp|multireturn0"
+ "interp|multireturn0",
+ "interp|bigalgochan",
+ "interp|issuedash177",
+ "interp|issuedash179",
+ "interp|issuedash185",
+ "interp|testdash189"
 ]

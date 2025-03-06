@@ -422,7 +422,7 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             stdgo._internal.net.http.httputil.Httputil__removehopbyhopheaders._removeHopByHopHeaders((@:checkr _outreq ?? throw "null pointer dereference").header);
-            if (_internal.golang_dot_org.x.net.http.httpguts.Httpguts_headervaluescontainstoken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Te" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("trailers" : stdgo.GoString))) {
+            if (_internal.golangdotorg.x.net.http.httpguts.Httpguts_headervaluescontainstoken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Te" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("trailers" : stdgo.GoString))) {
                 (@:checkr _outreq ?? throw "null pointer dereference").header.set(("Te" : stdgo.GoString), ("trailers" : stdgo.GoString));
             };
             if (_reqUpType != ((stdgo.Go.str() : stdgo.GoString))) {

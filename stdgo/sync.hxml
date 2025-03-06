@@ -1,3 +1,3 @@
--m _internal.sync_dot_test.Sync_dot_test
+-m _internal.syncdottest.Syncdottest
 -lib go2hx
 -cp .

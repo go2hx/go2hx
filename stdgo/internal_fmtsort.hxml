@@ -1,3 +1,3 @@
--m _internal.internal.fmtsort_dot_test.Fmtsort_dot_test
+-m _internal.internal.fmtsortdottest.Fmtsortdottest
 -lib go2hx
 -cp .

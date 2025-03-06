@@ -1039,7 +1039,7 @@ sameSite,
     public var readMetaHeaders(get, set) : x.net.http2.hpack.Hpack.Decoder;
     function get_readMetaHeaders():x.net.http2.hpack.Hpack.Decoder return this.readMetaHeaders;
     function set_readMetaHeaders(v:x.net.http2.hpack.Hpack.Decoder):x.net.http2.hpack.Hpack.Decoder {
-        this.readMetaHeaders = (v : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>);
+        this.readMetaHeaders = (v : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_decoder.Decoder>);
         return v;
     }
     public var maxHeaderListSize(get, set) : std.UInt;
@@ -1048,7 +1048,7 @@ sameSite,
         this.maxHeaderListSize = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:x.net.http2.hpack.Hpack.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
+    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:x.net.http2.hpack.Hpack.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1257,7 +1257,7 @@ sameSite,
     public var fields(get, set) : Array<x.net.http2.hpack.Hpack.HeaderField>;
     function get_fields():Array<x.net.http2.hpack.Hpack.HeaderField> return [for (i in this.fields) i];
     function set_fields(v:Array<x.net.http2.hpack.Hpack.HeaderField>):Array<x.net.http2.hpack.Hpack.HeaderField> {
-        this.fields = ([for (i in v) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
+        this.fields = ([for (i in v) i] : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
         return v;
     }
     public var truncated(get, set) : Bool;
@@ -1266,7 +1266,7 @@ sameSite,
         this.truncated = v;
         return v;
     }
-    public function new(?fields:Array<x.net.http2.hpack.Hpack.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
+    public function new(?fields:Array<x.net.http2.hpack.Hpack.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

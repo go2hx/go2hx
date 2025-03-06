@@ -2,10 +2,10 @@ package stdgo._internal.net.http;
 class T_http2MetaHeadersFrame_asInterface {
     @:keep
     @:tdfield
-    public dynamic function pseudoFields():stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> return @:_0 __self__.value.pseudoFields();
+    public dynamic function pseudoFields():stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField> return @:_0 __self__.value.pseudoFields();
     @:keep
     @:tdfield
-    public dynamic function regularFields():stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> return @:_0 __self__.value.regularFields();
+    public dynamic function regularFields():stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField> return @:_0 __self__.value.regularFields();
     @:keep
     @:tdfield
     public dynamic function pseudoValue(_pseudo:stdgo.GoString):stdgo.GoString return @:_0 __self__.value.pseudoValue(_pseudo);

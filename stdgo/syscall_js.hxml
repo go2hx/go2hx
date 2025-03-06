@@ -1,3 +1,3 @@
--m _internal.syscall.js_dot_test.Js_dot_test
+-m _internal.syscall.jsdottest.Jsdottest
 -lib go2hx
 -cp .

@@ -1,3 +1,3 @@
--m _internal.hash.adler32_dot_test.Adler32_dot_test
+-m _internal.hash.adler32dottest.Adler32dottest
 -lib go2hx
 -cp .

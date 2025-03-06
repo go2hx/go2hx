@@ -1,3 +1,3 @@
--m _internal.go.printer_dot_test.Printer_dot_test
+-m _internal.go.printerdottest.Printerdottest
 -lib go2hx
 -cp .

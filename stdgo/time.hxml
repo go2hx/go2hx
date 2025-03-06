@@ -1,3 +1,3 @@
--m _internal.time_dot_test.Time_dot_test
+-m _internal.timedottest.Timedottest
 -lib go2hx
 -cp .

@@ -226,7 +226,7 @@ package stdgo._internal.net.http.cgi;
                     @:check2r _h._printf(("cgi: bogus header line: %s" : stdgo.GoString), stdgo.Go.toInterface((_line : stdgo.GoString)));
                     continue;
                 };
-                if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validheaderfieldname.validHeaderFieldName(_header?.__copy__())) {
+                if (!_internal.golangdotorg.x.net.http.httpguts.Httpguts_validheaderfieldname.validHeaderFieldName(_header?.__copy__())) {
                     @:check2r _h._printf(("cgi: invalid header name: %q" : stdgo.GoString), stdgo.Go.toInterface(_header));
                     continue;
                 };

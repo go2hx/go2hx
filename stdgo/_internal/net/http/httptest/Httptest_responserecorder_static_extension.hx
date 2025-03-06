@@ -34,7 +34,7 @@ package stdgo._internal.net.http.httptest;
                 for (__0 => _k in _trailers) {
                     for (__1 => _k in stdgo._internal.strings.Strings_split.split(_k?.__copy__(), ("," : stdgo.GoString))) {
                         _k = stdgo._internal.net.http.Http_canonicalheaderkey.canonicalHeaderKey(stdgo._internal.net.textproto.Textproto_trimstring.trimString(_k?.__copy__())?.__copy__())?.__copy__();
-                        if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validtrailerheader.validTrailerHeader(_k?.__copy__())) {
+                        if (!_internal.golangdotorg.x.net.http.httpguts.Httpguts_validtrailerheader.validTrailerHeader(_k?.__copy__())) {
                             continue;
                         };
                         var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference").headerMap != null && (@:checkr _rw ?? throw "null pointer dereference").headerMap.__exists__(_k?.__copy__()) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference").headerMap[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _vv:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;

@@ -1,3 +1,3 @@
--m _internal.go.types_dot_test.Types_dot_test
+-m _internal.go.typesdottest.Typesdottest
 -lib go2hx
 -cp .

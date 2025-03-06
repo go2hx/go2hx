@@ -7,5 +7,5 @@ package stdgo._internal.net.http;
     @:interfacetypeffun
     function closeConn():stdgo.Error;
     @:interfacetypeffun
-    function headerEncoder():{ var _0 : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_encoder.Encoder>; var _1 : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>; };
+    function headerEncoder():{ var _0 : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_encoder.Encoder>; var _1 : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>; };
 };

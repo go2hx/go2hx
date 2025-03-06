@@ -17,9 +17,9 @@ function sign(_rand:stdgo._internal.io.Io_reader.Reader, _priv:stdgo.Ref<stdgo._
             _r = @:binopAssign __tmp__0;
             _s = @:binopAssign __tmp__1;
         };
-        var _inner:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-        var _input = (_sig : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
-        if (((((!@:check2 _input.readASN1((stdgo.Go.setRef(_inner) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag)) || !_input.empty() : Bool) || !@:check2 _inner.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_r))) : Bool) || !@:check2 _inner.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_s))) : Bool) || !_inner.empty() : Bool)) {
+        var _inner:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_ = (new _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_(0, 0) : _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_);
+        var _input = (_sig : _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_);
+        if (((((!@:check2 _input.readASN1((stdgo.Go.setRef(_inner) : stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag)) || !_input.empty() : Bool) || !@:check2 _inner.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_r))) : Bool) || !@:check2 _inner.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_s))) : Bool) || !_inner.empty() : Bool)) {
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Error; } = { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("invalid ASN.1 from SignASN1" : stdgo.GoString)) };
                 _r = __tmp__._0;

@@ -1798,7 +1798,7 @@ class RenegotiationSupport_static_extension {
 @:dox(hide) typedef T_marshalingFunctionPointer = stdgo._internal.crypto.tls.Tls_t_marshalingfunctionpointer.T_marshalingFunctionPointer;
 @:dox(hide) class T_marshalingFunction_static_extension {
     static public function marshal(_f:T_marshalingFunction, _b:x.crypto.cryptobyte.Cryptobyte.Builder):stdgo.Error {
-        final _b = (_b : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>);
+        final _b = (_b : stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>);
         return stdgo._internal.crypto.tls.Tls_t_marshalingfunction_static_extension.T_marshalingFunction_static_extension.marshal(_f, _b);
     }
 }

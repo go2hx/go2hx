@@ -1,3 +1,3 @@
--m _internal.crypto.rand_dot_test.Rand_dot_test
+-m _internal.crypto.randdottest.Randdottest
 -lib go2hx
 -cp .

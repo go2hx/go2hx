@@ -135,7 +135,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             var _serialiseConstraints = function(_dns:stdgo.Slice<stdgo.GoString>, _ips:stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>, _emails:stdgo.Slice<stdgo.GoString>, _uriDomains:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
                 var _der = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-                var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder);
+                var _b:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder = ({} : _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder);
                 for (__1 => _name in _dns) {
                     {
                         _err = stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_name?.__copy__());
@@ -148,15 +148,15 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                             };
                         };
                     };
-                    @:check2 _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                        @:check2r _b.addASN1((2 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2 _b.addASN1((48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                        @:check2r _b.addASN1((2 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addBytes((_name : stdgo.Slice<stdgo.GoUInt8>));
                         });
                     });
                 };
                 for (__2 => _ipNet in _ips) {
-                    @:check2 _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                        @:check2r _b.addASN1((7 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2 _b.addASN1((48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                        @:check2r _b.addASN1((7 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addBytes(_ipAndMask(_ipNet));
                         });
                     });
@@ -173,8 +173,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                             };
                         };
                     };
-                    @:check2 _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                        @:check2r _b.addASN1((1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2 _b.addASN1((48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                        @:check2r _b.addASN1((1 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addBytes((_email : stdgo.Slice<stdgo.GoUInt8>));
                         });
                     });
@@ -191,8 +191,8 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                             };
                         };
                     };
-                    @:check2 _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
-                        @:check2r _b.addASN1((6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2 _b.addASN1((48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                        @:check2r _b.addASN1((6 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                             @:check2r _b.addBytes((_uriDomain : stdgo.Slice<stdgo.GoUInt8>));
                         });
                     });
@@ -220,15 +220,15 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                     __tmp__;
                 };
             };
-            var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder);
-            @:check2 _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+            var _b:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder = ({} : _internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder);
+            @:check2 _b.addASN1((48 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                 if (((_permitted.length) > (0 : stdgo.GoInt) : Bool)) {
-                    @:check2r _b.addASN1((0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2r _b.addASN1((0 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addBytes(_permitted);
                     });
                 };
                 if (((_excluded.length) > (0 : stdgo.GoInt) : Bool)) {
-                    @:check2r _b.addASN1((1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed(), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
+                    @:check2r _b.addASN1((1 : _internal.vendor.golangdotorg.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed(), function(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):Void {
                         @:check2r _b.addBytes(_excluded);
                     });
                 };

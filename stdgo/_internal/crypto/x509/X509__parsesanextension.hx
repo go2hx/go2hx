@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.x509;
-function _parseSANExtension(_der:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.GoString>; var _2 : stdgo.Slice<stdgo._internal.net.Net_ip.IP>; var _3 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_url.URL>>; var _4 : stdgo.Error; } {
+function _parseSANExtension(_der:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.GoString>; var _2 : stdgo.Slice<stdgo._internal.net.Net_ip.IP>; var _3 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_url.URL>>; var _4 : stdgo.Error; } {
         var _dnsNames = (null : stdgo.Slice<stdgo.GoString>), _emailAddresses = (null : stdgo.Slice<stdgo.GoString>), _ipAddresses = (null : stdgo.Slice<stdgo._internal.net.Net_ip.IP>), _uris = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_url.URL>>), _err = (null : stdgo.Error);
         _err = stdgo._internal.crypto.x509.X509__foreachsan._forEachSAN(_der, function(_tag:stdgo.GoInt, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
             {

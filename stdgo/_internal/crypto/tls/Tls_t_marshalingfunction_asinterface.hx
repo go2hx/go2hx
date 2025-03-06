@@ -2,7 +2,7 @@ package stdgo._internal.crypto.tls;
 class T_marshalingFunction_asInterface {
     @:keep
     @:tdfield
-    public dynamic function marshal(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):stdgo.Error return @:_0 __self__.value.marshal(_b);
+    public dynamic function marshal(_b:stdgo.Ref<_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_builder.Builder>):stdgo.Error return @:_0 __self__.value.marshal(_b);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

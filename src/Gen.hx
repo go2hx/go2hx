@@ -884,6 +884,8 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 			}
 		case TPath({name: "Bool", pack: [], params: _}):
 			return e;
+		case TPath({name: "GoFloat32", pack: [], params: _}): // hl.F32 on hashlink
+			return macro ($e : Float);
 		case TPath({name: "Slice", pack: ["stdgo"], params: [TPType(param)]}):
 			final i = convertCast(macro i, param, path) ?? macro i;
 			return macro [for (i in $e) $i];

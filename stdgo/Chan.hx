@@ -140,6 +140,7 @@ class ChanData<T> {
 		if (bufferRemovePos >= buffer.length)
 			bufferRemovePos = 0;
         mutex.release();
+        sendLock.release();
         if (debug)
             trace("__get__ wait for mutex.release1");
         return value;
@@ -161,7 +162,7 @@ class ChanData<T> {
         if (debug)
             trace("__send__ wait for mutex.release0");
         getLock.release();
-        while (!sendLock.wait(debug ? 0.2 : 0.01) && !closed && !buffered) {
+        while (!sendLock.wait(debug ? 0.2 : 0.01) && !buffered && !closed) {
             if (debug)
                 trace("__send__ wait for !sendLock.wait");
             // set bools

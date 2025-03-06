@@ -3,7 +3,7 @@ Exception: T_:testing.setenv is not yet implemented
 Called from stdgo._internal.testing.$T__static_extension.setenv (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
 Called from _internal.internal.godebug_test._Godebug_test_testget.$Godebug_test_testget_Fields_.testGet (_internal/internal/godebug_test/Godebug_test_testget.hx line 18)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
+Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 7)
 
 -- FAIL: TestGet
 
@@ -14,6 +14,6 @@ Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_in
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.internal.godebug_test._Godebug_test_testmetrics.$Godebug_test_testmetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 10)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.godebug_dot_test._Godebug_dot_test.$Godebug_dot_test_Fields_.main (_internal/internal/godebug_dot_test/Godebug_dot_test.hx line 4)
+Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 7)
 
 -- FAIL: TestMetrics

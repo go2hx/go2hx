@@ -1,3 +1,15 @@
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+
+   3 |         _stopTimer(_t);
+     |         ^^^^^^^^^^
+     | Unknown identifier : _stopTimer
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+
+   9 |         _startTimer(_t);
+     |         ^^^^^^^^^^^
+     | Unknown identifier : _startTimer
+
 [ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:52: characters 68-71
 
   52 |     public function get__ok():() -> Bool return @:check32 this.new._ok;

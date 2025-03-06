@@ -331,5 +331,19 @@
  "js|method_wrapper",
  "js|receiver",
  "js|intcvt",
- "js|issue27278"
+ "js|issue27278",
+ "js|atomicload",
+ "js|bug067",
+ "js|bug078",
+ "js|bug084",
+ "js|bug285",
+ "js|bug499",
+ "js|closure7",
+ "js|deferprint",
+ "js|issue10353",
+ "js|issue31419",
+ "js|issue8039",
+ "js|issue8336",
+ "js|issue8347",
+ "js|reorder2"
 ]

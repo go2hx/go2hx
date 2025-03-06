@@ -1,3 +1,45 @@
+[ERROR] ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 58-63
+
+  3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+    |                                                          ^^^^^
+    | Unknown identifier : _new_
+
+       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  stdgo/Go.macro.hx:653: characters 11-31
+
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+
+     513 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 37-107
+
+       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
+         |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  stdgo/Go.macro.hx:305: lines 305-310
+
+     305 |   final selfType = Context.typeof(switch expr.expr {
+       - |     [...]
+     310 |   });
+         |
+         | Called from here
+
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+
+     513 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
 [ERROR] ./_internal/sync_test/Sync_test__applymap.hx:3: characters 91-96
 
   3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(stdgo._internal.sync.Sync_map_.map_)), _calls);
@@ -297,52 +339,4 @@
     | Unknown identifier : _new_
 
          | For function argument '_body'
-
-[ERROR] ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 58-63
-
-  3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
-    |                                                          ^^^^^
-    | Unknown identifier : _new_
-
-       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
-         |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from here
-
-     ->  stdgo/Go.macro.hx:653: characters 11-31
-
-     653 |   var t = Context.typeof(expr);
-         |           ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
-
-     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-     513 |   return load("typeof", 1)(e);
-         |          ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
-
-     ->  ./_internal/sync_test/Sync_test__bufpool.hx:3: characters 37-107
-
-       3 |         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new_(stdgo._internal.bytes.Bytes_buffer.buffer)));
-         |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from here
-
-     ->  stdgo/Go.macro.hx:305: lines 305-310
-
-     305 |   final selfType = Context.typeof(switch expr.expr {
-       - |     [...]
-     310 |   });
-         |
-         | Called from here
-
-     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
-
-     513 |   return load("typeof", 1)(e);
-         |          ^^^^^^^^^^^^^^^^^^^^
-         | Called from here
-
-     ->  ./_internal/sync_test/Sync_test_log.hx:3: characters 19-159
-
-       3 |         var _b = (stdgo.Go.typeAssert((@:check2 _internal.sync_test.Sync_test__bufpool._bufPool.get() : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
-         |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-         | Called from macro here
 

@@ -2,7 +2,7 @@
 Exception: :context.withCancel is not yet implemented
 Called from _internal.context_test._Context_test_testcustomcontextafterfunccancel.$Context_test_testcustomcontextafterfunccancel_Fields_.testCustomContextAfterFuncCancel (_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx line 61)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncCancel
 
@@ -10,7 +10,7 @@ Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Field
 Exception: :context.withTimeout is not yet implemented
 Called from _internal.context_test._Context_test_testcustomcontextafterfunctimeout.$Context_test_testcustomcontextafterfunctimeout_Fields_.testCustomContextAfterFuncTimeout (_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx line 61)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncTimeout
 
@@ -18,7 +18,7 @@ Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Field
 Exception: :context.afterFunc is not yet implemented
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncafterfunc.$Context_test_testcustomcontextafterfuncafterfunc_Fields_.testCustomContextAfterFuncAfterFunc (_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx line 64)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncAfterFunc
 
@@ -27,7 +27,7 @@ Exception: :context.withCancel is not yet implemented
 Called from stdgo._internal.context._Context_withcancel.$Context_withcancel_Fields_.withCancel (stdgo/_internal/context/Context_withcancel.hx line 2)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistercancel.$Context_test_testcustomcontextafterfuncunregistercancel_Fields_.testCustomContextAfterFuncUnregisterCancel (_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncUnregisterCancel
 
@@ -36,7 +36,7 @@ Exception: :context.withTimeout is not yet implemented
 Called from stdgo._internal.context._Context_withtimeout.$Context_withtimeout_Fields_.withTimeout (stdgo/_internal/context/Context_withtimeout.hx line 2)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistertimeout.$Context_test_testcustomcontextafterfuncunregistertimeout_Fields_.testCustomContextAfterFuncUnregisterTimeout (_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncUnregisterTimeout
 
@@ -45,7 +45,7 @@ Exception: :context.afterFunc is not yet implemented
 Called from stdgo._internal.context._Context_afterfunc.$Context_afterfunc_Fields_.afterFunc (stdgo/_internal/context/Context_afterfunc.hx line 2)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregisterafterfunc.$Context_test_testcustomcontextafterfuncunregisterafterfunc_Fields_.testCustomContextAfterFuncUnregisterAfterFunc (_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestCustomContextAfterFuncUnregisterAfterFunc
 
@@ -57,6 +57,6 @@ Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_int
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from _internal.context_test._Context_test_testdeadlineexceededisneterror.$Context_test_testdeadlineexceededisneterror_Fields_.testDeadlineExceededIsNetError (_internal/context_test/Context_test_testdeadlineexceededisneterror.hx line 9)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.context_dot_test._Context_dot_test.$Context_dot_test_Fields_.main (_internal/context_dot_test/Context_dot_test.hx line 4)
+Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.main (_internal/contextdottest/Contextdottest.hx line 7)
 
 -- FAIL: TestDeadlineExceededIsNetError

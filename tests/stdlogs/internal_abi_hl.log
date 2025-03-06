@@ -5,7 +5,7 @@ Called from stdgo._internal.internal.abi._Abi_funcpcabi0.$Abi_funcpcabi0_Fields_
 Called from stdgo._internal.internal.abi._Abi_funcpctest.$Abi_funcpctest_Fields_.funcPCTest (stdgo/_internal/internal/abi/Abi_funcpctest.hx line 3)
 Called from _internal.internal.abi_test._Abi_test_testfuncpc.$Abi_test_testfuncpc_Fields_.testFuncPC (_internal/internal/abi_test/Abi_test_testfuncpc.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.abi_dot_test._Abi_dot_test.$Abi_dot_test_Fields_.main (_internal/internal/abi_dot_test/Abi_dot_test.hx line 4)
+Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (_internal/internal/abidottest/Abidottest.hx line 7)
 
 -- FAIL: TestFuncPC
 
@@ -15,7 +15,7 @@ Called from stdgo._internal.os._Os_getenv.$Os_getenv_Fields_.getenv (stdgo/_inte
 Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 3)
 Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.$Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.abi_dot_test._Abi_dot_test.$Abi_dot_test_Fields_.main (_internal/internal/abi_dot_test/Abi_dot_test.hx line 4)
+Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (_internal/internal/abidottest/Abidottest.hx line 7)
 
 -- FAIL: TestFuncPCCompileError
 

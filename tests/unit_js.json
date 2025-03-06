@@ -170,5 +170,9 @@
  "js|heappop",
  "js|ptrrecv1",
  "js|t_4darray",
- "js|multireturn0"
+ "js|multireturn0",
+ "js|issuedash177",
+ "js|issuedash179",
+ "js|issuedash185",
+ "js|testdash189"
 ]

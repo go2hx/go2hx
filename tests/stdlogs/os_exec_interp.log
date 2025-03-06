@@ -70,14 +70,6 @@
      |                                                                             ^^^^^
      | () -> Void has no field close
 
-[ERROR] ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
-
-  22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
-     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
-     | have: { _0: stdgo.Ref<...> }
-     | want: { _0: stdgo._internal.mime.multipart.File }
-
 [ERROR] /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
 
  329 |   return load("get_type", 1)(name);

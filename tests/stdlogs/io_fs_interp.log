@@ -14,8 +14,8 @@
 Exception: : No such file or directory
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.testGlob (./_internal/io/fs_test/Fs_test_testglob.hx line 4 column 27)
-Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (./stdgo/_internal/io/fs/Fs_glob.hx line 5 column 29)
-Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (./stdgo/_internal/io/fs/Fs__globwithlimit.hx line 65 column 33)
+Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (./stdgo/_internal/io/fs/Fs_glob.hx line 5 column 47)
+Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (./stdgo/_internal/io/fs/Fs__globwithlimit.hx line 63 column 51)
 Called from stdgo._internal.io.fs._Fs__glob.Fs__glob_Fields_._glob (./stdgo/_internal/io/fs/Fs__glob.hx line 5 column 23)
 Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (./stdgo/_internal/io/fs/Fs_readdir.hx line 100 column 21)
 
@@ -65,7 +65,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception qraiqokwwt/a/bad: Permission denied
+   | Uncaught exception vbvt3zy3v9/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

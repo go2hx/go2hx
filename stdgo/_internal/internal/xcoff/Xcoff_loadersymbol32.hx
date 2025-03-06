@@ -1,6 +1,6 @@
 package stdgo._internal.internal.xcoff;
 @:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_loadersymbol32_static_extension.LoaderSymbol32_static_extension) class LoaderSymbol32 {
-    public var lname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var lname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
     public var lvalue : stdgo.GoUInt32 = 0;
     public var lscnum : stdgo.GoUInt16 = 0;
     public var lsmtype : stdgo.GoUInt8 = 0;

@@ -34,7 +34,7 @@ package stdgo._internal.crypto.cipher;
     @:tdfield
     static public function _counterCrypt( _g:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm>, _out:stdgo.Slice<stdgo.GoUInt8>, _in:stdgo.Slice<stdgo.GoUInt8>, _counter:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>):Void {
         @:recv var _g:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_t_gcm.T_gcm> = _g;
-        var _mask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _mask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         while (((_in.length) >= (16 : stdgo.GoInt) : Bool)) {
             (@:checkr _g ?? throw "null pointer dereference")._cipher.encrypt((_mask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_counter.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
             stdgo._internal.crypto.cipher.Cipher__gcminc32._gcmInc32(_counter);
@@ -55,7 +55,7 @@ package stdgo._internal.crypto.cipher;
         var _fullBlocks = ((((_data.length) >> (4i64 : stdgo.GoUInt64) : stdgo.GoInt)) << (4i64 : stdgo.GoUInt64) : stdgo.GoInt);
         @:check2r _g._updateBlocks(_y, (_data.__slice__(0, _fullBlocks) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_data.length) != (_fullBlocks)) {
-            var _partialBlock:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+            var _partialBlock:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
             (_partialBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_data.__slice__(_fullBlocks) : stdgo.Slice<stdgo.GoUInt8>));
             @:check2r _g._updateBlocks(_y, (_partialBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         };
@@ -126,11 +126,11 @@ _word = (_word >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         var _tag = (_ciphertext.__slice__(((_ciphertext.length) - (@:checkr _g ?? throw "null pointer dereference")._tagSize : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _ciphertext = (_ciphertext.__slice__(0, ((_ciphertext.length) - (@:checkr _g ?? throw "null pointer dereference")._tagSize : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        var _counter:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__(), _tagMask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _counter:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__(), _tagMask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         @:check2r _g._deriveCounter((stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>), _nonce);
         (@:checkr _g ?? throw "null pointer dereference")._cipher.encrypt((_tagMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_counter.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         stdgo._internal.crypto.cipher.Cipher__gcminc32._gcmInc32((stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
-        var _expectedTag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _expectedTag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         @:check2r _g._auth((_expectedTag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _ciphertext, _data, (stdgo.Go.setRef(_tagMask) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         var __tmp__ = stdgo._internal.crypto.cipher.Cipher__sliceforappend._sliceForAppend(_dst, (_ciphertext.length)), _ret:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1;
         if (stdgo._internal.crypto.internal.alias.Alias_inexactoverlap.inexactOverlap(_out, _ciphertext)) {
@@ -159,12 +159,12 @@ _word = (_word >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if (stdgo._internal.crypto.internal.alias.Alias_inexactoverlap.inexactOverlap(_out, _plaintext)) {
             throw stdgo.Go.toInterface(("crypto/cipher: invalid buffer overlap" : stdgo.GoString));
         };
-        var _counter:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__(), _tagMask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _counter:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__(), _tagMask:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         @:check2r _g._deriveCounter((stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>), _nonce);
         (@:checkr _g ?? throw "null pointer dereference")._cipher.encrypt((_tagMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_counter.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         stdgo._internal.crypto.cipher.Cipher__gcminc32._gcmInc32((stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         @:check2r _g._counterCrypt(_out, _plaintext, (stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
-        var _tag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _tag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         @:check2r _g._auth((_tag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_out.__slice__(0, (_plaintext.length)) : stdgo.Slice<stdgo.GoUInt8>), _data, (stdgo.Go.setRef(_tagMask) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         (_out.__slice__((_plaintext.length)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_tag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         return _ret;

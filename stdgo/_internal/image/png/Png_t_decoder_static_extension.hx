@@ -104,7 +104,7 @@ package stdgo._internal.image.png;
         if ((_length > (2147483647u32 : stdgo.GoUInt32) : Bool)) {
             return stdgo.Go.asInterface((stdgo._internal.fmt.Fmt_sprintf.sprintf(("Bad chunk length: %d" : stdgo.GoString), stdgo.Go.toInterface(_length)) : stdgo._internal.image.png.Png_formaterror.FormatError));
         };
-        var _ignored:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__();
+        var _ignored:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__().__setNil__();
         while ((_length > (0u32 : stdgo.GoUInt32) : Bool)) {
             var __tmp__ = stdgo._internal.io.Io_readfull.readFull((@:checkr _d ?? throw "null pointer dereference")._r, (_ignored.__slice__(0, stdgo._internal.image.png.Png__min._min((_ignored.length), (_length : stdgo.GoInt))) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

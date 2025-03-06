@@ -2,7 +2,7 @@ package stdgo._internal.debug.pe;
 function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>; var _1 : stdgo.Error; } {
         var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_file.File)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File>);
         var _sr = stdgo._internal.io.Io_newsectionreader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
-        var _dosheader:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(96, 96).__setNumber32__();
+        var _dosheader:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(96, 96).__setNumber32__().__setNil__();
         {
             var __tmp__ = _r.readAt((_dosheader.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -12,7 +12,7 @@ function newFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo.Re
         var _base:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         if (((_dosheader[(0 : stdgo.GoInt)] == (77 : stdgo.GoUInt8)) && (_dosheader[(1 : stdgo.GoInt)] == (90 : stdgo.GoUInt8)) : Bool)) {
             var _signoff = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32((_dosheader.__slice__((60 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
-            var _sign:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+            var _sign:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
             _r.readAt((_sign.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _signoff);
             if (!((((_sign[(0 : stdgo.GoInt)] == ((80 : stdgo.GoUInt8)) && _sign[(1 : stdgo.GoInt)] == ((69 : stdgo.GoUInt8)) : Bool) && _sign[(2 : stdgo.GoInt)] == ((0 : stdgo.GoUInt8)) : Bool) && (_sign[(3 : stdgo.GoInt)] == (0 : stdgo.GoUInt8)) : Bool))) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid PE file signature: % x" : stdgo.GoString), stdgo.Go.toInterface(_sign)) };

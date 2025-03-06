@@ -3,7 +3,7 @@ package stdgo._internal.net.http.fcgi;
     public var _pw : stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter> = (null : stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter>);
     public var _reqId : stdgo.GoUInt16 = 0;
     public var _params : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024).__setNumber32__();
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024).__setNumber32__().__setNil__();
     public var _rawParams : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _keepConn : Bool = false;
     public function new(?_pw:stdgo.Ref<stdgo._internal.io.Io_pipewriter.PipeWriter>, ?_reqId:stdgo.GoUInt16, ?_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_rawParams:stdgo.Slice<stdgo.GoUInt8>, ?_keepConn:Bool) {

@@ -12,9 +12,9 @@ package stdgo._internal.encoding.binary;
     public var float64 : stdgo.GoFloat64 = 0;
     public var complex64 : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
     public var complex128 : stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
-    public var array : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+    public var array : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
     public var bool_ : Bool = false;
-    public var boolArray : stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(4, 4);
+    public var boolArray : stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(4, 4).__setNil__();
     public function new(?int8:stdgo.GoInt8, ?int16:stdgo.GoInt16, ?int32:stdgo.GoInt32, ?int64:stdgo.GoInt64, ?uint8:stdgo.GoUInt8, ?uint16:stdgo.GoUInt16, ?uint32:stdgo.GoUInt32, ?uint64:stdgo.GoUInt64, ?float32:stdgo.GoFloat32, ?float64:stdgo.GoFloat64, ?complex64:stdgo.GoComplex64, ?complex128:stdgo.GoComplex128, ?array:stdgo.GoArray<stdgo.GoUInt8>, ?bool_:Bool, ?boolArray:stdgo.GoArray<Bool>) {
         if (int8 != null) this.int8 = int8;
         if (int16 != null) this.int16 = int16;

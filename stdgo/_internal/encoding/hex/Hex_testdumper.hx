@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.hex;
 function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(40, 40).__setNumber32__();
+        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(40, 40).__setNumber32__().__setNil__();
         for (_i => _ in _in) {
             _in[(_i : stdgo.GoInt)] = ((_i + (30 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
         };

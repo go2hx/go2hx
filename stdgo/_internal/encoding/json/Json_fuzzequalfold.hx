@@ -25,7 +25,7 @@ function fuzzEqualFold(_f:stdgo.Ref<stdgo._internal.testing.Testing_f.F>):Void {
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AesKey" : stdgo.GoString), ("AESKey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AESKey" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("DESKey" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
-(new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AES Key" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__()].concat([for (i in 25 ... (25 > 25 ? 25 : 25 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoString>>)) {
+(new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("AES Key" : stdgo.GoString), ("aeskey" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__()].concat([for (i in 25 ... (25 > 25 ? 25 : 25 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__().__setNil__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoString>>)) {
             @:check2r _f.add(stdgo.Go.toInterface((_ss[(0 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)), stdgo.Go.toInterface((_ss[(1 : stdgo.GoInt)] : stdgo.Slice<stdgo.GoUInt8>)));
         };
         var _equalFold = function(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Bool {

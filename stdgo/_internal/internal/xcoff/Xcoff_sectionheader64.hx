@@ -1,6 +1,6 @@
 package stdgo._internal.internal.xcoff;
 @:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_sectionheader64_static_extension.SectionHeader64_static_extension) class SectionHeader64 {
-    public var sname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var sname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
     public var spaddr : stdgo.GoUInt64 = 0;
     public var svaddr : stdgo.GoUInt64 = 0;
     public var ssize : stdgo.GoUInt64 = 0;

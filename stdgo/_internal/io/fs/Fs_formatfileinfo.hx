@@ -12,7 +12,7 @@ function formatFileInfo(_info:stdgo._internal.io.fs.Fs_fileinfo.FileInfo):stdgo.
             _b = (_b.__append__((45 : stdgo.GoUInt8)));
             _usize = (-_size : stdgo.GoUInt64);
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__().__setNil__();
         var _i = (19 : stdgo.GoInt);
         while ((_usize >= (10i64 : stdgo.GoUInt64) : Bool)) {
             var _q = (_usize / (10i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

@@ -103,7 +103,7 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                                 if (((_r < (128 : stdgo.GoInt32) : Bool) || !_multibyte : Bool)) {
                                     _buf = (_buf.__append__((_r : stdgo.GoUInt8)));
                                 } else {
-                                    var _arr:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+                                    var _arr:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
                                     var _n = (stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r) : stdgo.GoInt);
                                     _buf = (_buf.__append__(...((_arr.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                                 };

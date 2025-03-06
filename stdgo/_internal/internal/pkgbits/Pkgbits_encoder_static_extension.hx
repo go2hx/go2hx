@@ -205,7 +205,7 @@ package stdgo._internal.internal.pkgbits;
     @:tdfield
     static public function _rawUvarint( _w:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder>, _x:stdgo.GoUInt64):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_encoder.Encoder> = _w;
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__().__setNil__();
         var _n = (stdgo._internal.encoding.binary.Binary_putuvarint.putUvarint((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt);
         var __tmp__ = @:check2 (@:checkr _w ?? throw "null pointer dereference").data.write((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         @:check2r _w._checkErr(_err);

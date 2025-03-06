@@ -1,6 +1,6 @@
 package stdgo._internal.internal.xcoff;
 @:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_syment32_static_extension.SymEnt32_static_extension) class SymEnt32 {
-    public var nname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var nname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
     public var nvalue : stdgo.GoUInt32 = 0;
     public var nscnum : stdgo.GoUInt16 = 0;
     public var ntype : stdgo.GoUInt16 = 0;

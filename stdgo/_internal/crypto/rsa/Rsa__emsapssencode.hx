@@ -13,7 +13,7 @@ function _emsaPSSEncode(_mHash:stdgo.Slice<stdgo.GoUInt8>, _emBits:stdgo.GoInt, 
         var _psLen = (((_emLen - _sLen : stdgo.GoInt) - _hLen : stdgo.GoInt) - (2 : stdgo.GoInt) : stdgo.GoInt);
         var _db = (_em.__slice__(0, ((_psLen + (1 : stdgo.GoInt) : stdgo.GoInt) + _sLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _h = (_em.__slice__(((_psLen + (1 : stdgo.GoInt) : stdgo.GoInt) + _sLen : stdgo.GoInt), (_emLen - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        var _prefix:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+        var _prefix:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
         _hash.write((_prefix.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         _hash.write(_mHash);
         _hash.write(_salt);

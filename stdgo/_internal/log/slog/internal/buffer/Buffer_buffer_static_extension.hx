@@ -13,7 +13,7 @@ package stdgo._internal.log.slog.internal.buffer;
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("negative int" : stdgo.GoString));
         };
-        var _bb:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+        var _bb:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__().__setNil__();
         var _bp = (19 : stdgo.GoInt);
         while (((_i >= (10 : stdgo.GoInt) : Bool) || (_width > (1 : stdgo.GoInt) : Bool) : Bool)) {
             _width--;

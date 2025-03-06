@@ -4,7 +4,7 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function _findBodyOffset( _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File>):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_file.File> = _f;
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(30, 30).__setNumber32__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(30, 30).__setNumber32__().__setNil__();
         {
             var __tmp__ = (@:checkr _f ?? throw "null pointer dereference")._zipr.readAt((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _f ?? throw "null pointer dereference")._headerOffset), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

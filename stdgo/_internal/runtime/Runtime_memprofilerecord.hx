@@ -4,7 +4,7 @@ package stdgo._internal.runtime;
     public var freeBytes : stdgo.GoInt64 = 0;
     public var allocObjects : stdgo.GoInt64 = 0;
     public var freeObjects : stdgo.GoInt64 = 0;
-    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32);
+    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32).__setNil__();
     public function new(?allocBytes:stdgo.GoInt64, ?freeBytes:stdgo.GoInt64, ?allocObjects:stdgo.GoInt64, ?freeObjects:stdgo.GoInt64, ?stack0:stdgo.GoArray<stdgo.GoUIntptr>) {
         if (allocBytes != null) this.allocBytes = allocBytes;
         if (freeBytes != null) this.freeBytes = freeBytes;

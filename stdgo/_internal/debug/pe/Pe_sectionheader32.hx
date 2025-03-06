@@ -1,6 +1,6 @@
 package stdgo._internal.debug.pe;
 @:structInit @:using(stdgo._internal.debug.pe.Pe_sectionheader32_static_extension.SectionHeader32_static_extension) class SectionHeader32 {
-    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
     public var virtualSize : stdgo.GoUInt32 = 0;
     public var virtualAddress : stdgo.GoUInt32 = 0;
     public var sizeOfRawData : stdgo.GoUInt32 = 0;

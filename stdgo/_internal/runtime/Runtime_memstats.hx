@@ -24,14 +24,14 @@ package stdgo._internal.runtime;
     public var nextGC : stdgo.GoUInt64 = 0;
     public var lastGC : stdgo.GoUInt64 = 0;
     public var pauseTotalNs : stdgo.GoUInt64 = 0;
-    public var pauseNs : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256).__setNumber64__();
-    public var pauseEnd : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256).__setNumber64__();
+    public var pauseNs : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256).__setNumber64__().__setNil__();
+    public var pauseEnd : stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(256, 256).__setNumber64__().__setNil__();
     public var numGC : stdgo.GoUInt32 = 0;
     public var numForcedGC : stdgo.GoUInt32 = 0;
     public var gCCPUFraction : stdgo.GoFloat64 = 0;
     public var enableGC : Bool = false;
     public var debugGC : Bool = false;
-    public var bySize : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }> = new stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>(61, 61, ...[for (i in 0 ... (61 > 61 ? 61 : 61 : stdgo.GoInt).toBasic()) { size : (0 : stdgo.GoUInt32), mallocs : (0 : stdgo.GoUInt64), frees : (0 : stdgo.GoUInt64) }]);
+    public var bySize : stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }> = new stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>(61, 61, ...[for (i in 0 ... (61 > 61 ? 61 : 61 : stdgo.GoInt).toBasic()) { size : (0 : stdgo.GoUInt32), mallocs : (0 : stdgo.GoUInt64), frees : (0 : stdgo.GoUInt64) }]).__setNil__();
     public function new(?alloc:stdgo.GoUInt64, ?totalAlloc:stdgo.GoUInt64, ?sys:stdgo.GoUInt64, ?lookups:stdgo.GoUInt64, ?mallocs:stdgo.GoUInt64, ?frees:stdgo.GoUInt64, ?heapAlloc:stdgo.GoUInt64, ?heapSys:stdgo.GoUInt64, ?heapIdle:stdgo.GoUInt64, ?heapInuse:stdgo.GoUInt64, ?heapReleased:stdgo.GoUInt64, ?heapObjects:stdgo.GoUInt64, ?stackInuse:stdgo.GoUInt64, ?stackSys:stdgo.GoUInt64, ?mSpanInuse:stdgo.GoUInt64, ?mSpanSys:stdgo.GoUInt64, ?mCacheInuse:stdgo.GoUInt64, ?mCacheSys:stdgo.GoUInt64, ?buckHashSys:stdgo.GoUInt64, ?gCSys:stdgo.GoUInt64, ?otherSys:stdgo.GoUInt64, ?nextGC:stdgo.GoUInt64, ?lastGC:stdgo.GoUInt64, ?pauseTotalNs:stdgo.GoUInt64, ?pauseNs:stdgo.GoArray<stdgo.GoUInt64>, ?pauseEnd:stdgo.GoArray<stdgo.GoUInt64>, ?numGC:stdgo.GoUInt32, ?numForcedGC:stdgo.GoUInt32, ?gCCPUFraction:stdgo.GoFloat64, ?enableGC:Bool, ?debugGC:Bool, ?bySize:stdgo.GoArray<{ var size : stdgo.GoUInt32; var mallocs : stdgo.GoUInt64; var frees : stdgo.GoUInt64; }>) {
         if (alloc != null) this.alloc = alloc;
         if (totalAlloc != null) this.totalAlloc = totalAlloc;

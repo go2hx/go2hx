@@ -4,7 +4,7 @@ package stdgo._internal.internal.profile;
     public var _typ : stdgo.GoInt = 0;
     public var _u64 : stdgo.GoUInt64 = 0;
     public var _data : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
     public function new(?_field:stdgo.GoInt, ?_typ:stdgo.GoInt, ?_u64:stdgo.GoUInt64, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_field != null) this._field = _field;
         if (_typ != null) this._typ = _typ;

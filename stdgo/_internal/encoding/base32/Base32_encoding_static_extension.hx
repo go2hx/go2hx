@@ -41,7 +41,7 @@ package stdgo._internal.encoding.base32;
         var _dsti = (0 : stdgo.GoInt);
         var _olen = (_src.length : stdgo.GoInt);
         while ((((_src.length) > (0 : stdgo.GoInt) : Bool) && !_end : Bool)) {
-            var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+            var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
             var _dlen = (8 : stdgo.GoInt);
             {
                 var _j = (0 : stdgo.GoInt);
@@ -206,7 +206,7 @@ package stdgo._internal.encoding.base32;
     static public function encode( _enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding> = _enc;
         while (((_src.length) > (0 : stdgo.GoInt) : Bool)) {
-            var _b:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+            var _b:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
             {
                 var __switchIndex__ = -1;
                 var __run__ = true;

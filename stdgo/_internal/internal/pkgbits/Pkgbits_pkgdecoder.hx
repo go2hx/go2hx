@@ -5,7 +5,7 @@ package stdgo._internal.internal.pkgbits;
     public var _pkgPath : stdgo.GoString = "";
     public var _elemData : stdgo.GoString = "";
     public var _elemEnds : stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
-    public var _elemEndsEnds : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(10, 10).__setNumber32__();
+    public var _elemEndsEnds : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(10, 10).__setNumber32__().__setNil__();
     public var _scratchRelocEnt : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt> = (null : stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>);
     public function new(?_version:stdgo.GoUInt32, ?_sync:Bool, ?_pkgPath:stdgo.GoString, ?_elemData:stdgo.GoString, ?_elemEnds:stdgo.Slice<stdgo.GoUInt32>, ?_elemEndsEnds:stdgo.GoArray<stdgo.GoUInt32>, ?_scratchRelocEnt:stdgo.Slice<stdgo._internal.internal.pkgbits.Pkgbits_relocent.RelocEnt>) {
         if (_version != null) this._version = _version;

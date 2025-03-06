@@ -12,9 +12,9 @@ package stdgo._internal.compress.lzw;
     public var _hi : stdgo.GoUInt16 = 0;
     public var _overflow : stdgo.GoUInt16 = 0;
     public var _last : stdgo.GoUInt16 = 0;
-    public var _suffix : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__();
-    public var _prefix : stdgo.GoArray<stdgo.GoUInt16> = new stdgo.GoArray<stdgo.GoUInt16>(4096, 4096).__setNumber32__();
-    public var _output : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8192, 8192).__setNumber32__();
+    public var _suffix : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096).__setNumber32__().__setNil__();
+    public var _prefix : stdgo.GoArray<stdgo.GoUInt16> = new stdgo.GoArray<stdgo.GoUInt16>(4096, 4096).__setNumber32__().__setNil__();
+    public var _output : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8192, 8192).__setNumber32__().__setNil__();
     public var _o : stdgo.GoInt = 0;
     public var _toRead : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public function new(?_r:stdgo._internal.io.Io_bytereader.ByteReader, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_read:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader> -> { var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; }, ?_litWidth:stdgo.GoInt, ?_err:stdgo.Error, ?_clear:stdgo.GoUInt16, ?_eof:stdgo.GoUInt16, ?_hi:stdgo.GoUInt16, ?_overflow:stdgo.GoUInt16, ?_last:stdgo.GoUInt16, ?_suffix:stdgo.GoArray<stdgo.GoUInt8>, ?_prefix:stdgo.GoArray<stdgo.GoUInt16>, ?_output:stdgo.GoArray<stdgo.GoUInt8>, ?_o:stdgo.GoInt, ?_toRead:stdgo.Slice<stdgo.GoUInt8>) {

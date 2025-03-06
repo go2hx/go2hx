@@ -10,7 +10,7 @@ package stdgo._internal.log.slog;
         };
         var _pc:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         if (!stdgo._internal.log.slog.internal.Internal_ignorepc.ignorePC) {
-            var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1);
+            var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1).__setNil__();
             stdgo._internal.runtime.Runtime_callers.callers((3 : stdgo.GoInt), (_pcs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>));
             _pc = _pcs[(0 : stdgo.GoInt)];
         };
@@ -31,7 +31,7 @@ package stdgo._internal.log.slog;
         };
         var _pc:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         if (!stdgo._internal.log.slog.internal.Internal_ignorepc.ignorePC) {
-            var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1);
+            var _pcs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(1, 1).__setNil__();
             stdgo._internal.runtime.Runtime_callers.callers((3 : stdgo.GoInt), (_pcs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>));
             _pc = _pcs[(0 : stdgo.GoInt)];
         };

@@ -3,7 +3,7 @@ function uitoa(_val:stdgo.GoUInt):stdgo.GoString {
         if (_val == ((0u32 : stdgo.GoUInt))) {
             return ("0" : stdgo.GoString);
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__().__setNil__();
         var _i = (19 : stdgo.GoInt);
         while ((_val >= (10u32 : stdgo.GoUInt) : Bool)) {
             var _q = (_val / (10u32 : stdgo.GoUInt) : stdgo.GoUInt);

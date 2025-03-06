@@ -7,7 +7,7 @@ package stdgo._internal.debug.pe;
     public var secNum : stdgo.GoUInt16 = 0;
     public var selection : stdgo.GoUInt8 = 0;
     @:optional
-    public var __1 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3).__setNumber32__();
+    public var __1 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3).__setNumber32__().__setNil__();
     public function new(?size:stdgo.GoUInt32, ?numRelocs:stdgo.GoUInt16, ?numLineNumbers:stdgo.GoUInt16, ?checksum:stdgo.GoUInt32, ?secNum:stdgo.GoUInt16, ?selection:stdgo.GoUInt8, ?__1:stdgo.GoArray<stdgo.GoUInt8>) {
         if (size != null) this.size = size;
         if (numRelocs != null) this.numRelocs = numRelocs;

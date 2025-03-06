@@ -11,7 +11,7 @@ package stdgo._internal.crypto.md5;
         if ((@:checkr _d ?? throw "null pointer dereference")._nx != ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("d.nx != 0" : stdgo.GoString));
         };
-        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint32((_digest.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._s[(0 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint32((_digest.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._s[(1 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint32((_digest.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._s[(2 : stdgo.GoInt)]);

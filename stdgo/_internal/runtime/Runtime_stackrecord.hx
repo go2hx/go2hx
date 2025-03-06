@@ -1,6 +1,6 @@
 package stdgo._internal.runtime;
 @:structInit @:using(stdgo._internal.runtime.Runtime_stackrecord_static_extension.StackRecord_static_extension) class StackRecord {
-    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32);
+    public var stack0 : stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32).__setNil__();
     public function new(?stack0:stdgo.GoArray<stdgo.GoUIntptr>) {
         if (stack0 != null) this.stack0 = stack0;
     }

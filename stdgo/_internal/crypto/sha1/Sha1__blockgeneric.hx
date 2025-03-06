@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.sha1;
 function _blockGeneric(_dig:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):Void {
-        var _w:stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(16, 16).__setNumber32__();
+        var _w:stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(16, 16).__setNumber32__().__setNil__();
         var __0 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)] : stdgo.GoUInt32), __1 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)] : stdgo.GoUInt32), __2 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)] : stdgo.GoUInt32), __3 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(3 : stdgo.GoInt)] : stdgo.GoUInt32), __4 = ((@:checkr _dig ?? throw "null pointer dereference")._h[(4 : stdgo.GoInt)] : stdgo.GoUInt32);
 var _h4 = __4, _h3 = __3, _h2 = __2, _h1 = __1, _h0 = __0;
         while (((_p.length) >= (64 : stdgo.GoInt) : Bool)) {

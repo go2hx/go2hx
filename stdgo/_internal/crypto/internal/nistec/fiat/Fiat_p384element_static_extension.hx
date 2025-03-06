@@ -164,7 +164,7 @@ package stdgo._internal.crypto.internal.nistec.fiat;
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("invalid P384Element encoding" : stdgo.GoString)) };
             };
         };
-        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(48, 48).__setNumber32__();
+        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(48, 48).__setNumber32__().__setNil__();
         (_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_v);
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p384invertendianness._p384InvertEndianness((_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _tmp:stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelement.T_p384NonMontgomeryDomainFieldElement = new stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p384nonmontgomerydomainfieldelement.T_p384NonMontgomeryDomainFieldElement(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoUInt64)]);
@@ -186,7 +186,7 @@ package stdgo._internal.crypto.internal.nistec.fiat;
     @:tdfield
     static public function bytes( _e:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _e:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p384element.P384Element> = _e;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(48, 48).__setNumber32__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(48, 48).__setNumber32__().__setNil__();
         return @:check2r _e._bytes((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep

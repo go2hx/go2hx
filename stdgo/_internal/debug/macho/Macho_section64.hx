@@ -1,7 +1,7 @@
 package stdgo._internal.debug.macho;
 @:structInit @:using(stdgo._internal.debug.macho.Macho_section64_static_extension.Section64_static_extension) class Section64 {
-    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
-    public var seg : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
+    public var seg : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
     public var addr : stdgo.GoUInt64 = 0;
     public var size : stdgo.GoUInt64 = 0;
     public var offset : stdgo.GoUInt32 = 0;

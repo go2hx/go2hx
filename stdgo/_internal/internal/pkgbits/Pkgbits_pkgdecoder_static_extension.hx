@@ -128,7 +128,7 @@ package stdgo._internal.internal.pkgbits;
     @:tdfield
     static public function fingerprint( _pr:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder>):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _pr:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgdecoder.PkgDecoder> = _pr;
-        var _fp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+        var _fp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
         (_fp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _pr ?? throw "null pointer dereference")._elemData.__slice__((((@:checkr _pr ?? throw "null pointer dereference")._elemData.length) - (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString));
         return _fp?.__copy__();
     }

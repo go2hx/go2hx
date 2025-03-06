@@ -4,7 +4,7 @@ package stdgo._internal.encoding.gob;
     public var _b : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>);
     public var _sendZero : Bool = false;
     public var _fieldnum : stdgo.GoInt = 0;
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(9, 9).__setNumber32__();
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(9, 9).__setNumber32__().__setNil__();
     public var _next : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>);
     public function new(?_enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_encoder.Encoder>, ?_b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>, ?_sendZero:Bool, ?_fieldnum:stdgo.GoInt, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_next:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>) {
         if (_enc != null) this._enc = _enc;

@@ -18,7 +18,7 @@ package stdgo._internal.crypto.tls;
     public var cipherSuites : stdgo.Slice<stdgo.GoUInt16> = (null : stdgo.Slice<stdgo.GoUInt16>);
     public var preferServerCipherSuites : Bool = false;
     public var sessionTicketsDisabled : Bool = false;
-    public var sessionTicketKey : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
+    public var sessionTicketKey : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
     public var clientSessionCache : stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache = (null : stdgo._internal.crypto.tls.Tls_clientsessioncache.ClientSessionCache);
     public var unwrapSession : (stdgo.Slice<stdgo.GoUInt8>, stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState) -> { var _0 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>; var _1 : stdgo.Error; } = null;
     public var wrapSession : (stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState, stdgo.Ref<stdgo._internal.crypto.tls.Tls_sessionstate.SessionState>) -> { var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = null;

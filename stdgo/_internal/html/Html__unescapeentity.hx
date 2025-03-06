@@ -97,7 +97,7 @@ var _s = __1, _i = __0;
                     __tmp__;
                 };
             } else {
-                var _x = (stdgo._internal.html.Html__entity2._entity2[(_entityName : stdgo.GoString)] ?? new stdgo.GoArray<stdgo.GoInt32>(2, 2).__setNumber32__())?.__copy__();
+                var _x = (stdgo._internal.html.Html__entity2._entity2[(_entityName : stdgo.GoString)] ?? new stdgo.GoArray<stdgo.GoInt32>(2, 2).__setNumber32__().__setNil__())?.__copy__();
                 if (_x[(0 : stdgo.GoInt)] != ((0 : stdgo.GoInt32))) {
                     var _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x[(0 : stdgo.GoInt)]) : stdgo.GoInt);
                     return {

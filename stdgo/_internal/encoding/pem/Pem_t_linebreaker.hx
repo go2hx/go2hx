@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.pem;
 @:structInit @:using(stdgo._internal.encoding.pem.Pem_t_linebreaker_static_extension.T_lineBreaker_static_extension) class T_lineBreaker {
-    public var _line : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
+    public var _line : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__().__setNil__();
     public var _used : stdgo.GoInt = 0;
     public var _out : stdgo._internal.io.Io_writer.Writer = (null : stdgo._internal.io.Io_writer.Writer);
     public function new(?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_used:stdgo.GoInt, ?_out:stdgo._internal.io.Io_writer.Writer) {

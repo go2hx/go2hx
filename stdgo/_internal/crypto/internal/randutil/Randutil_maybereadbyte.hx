@@ -20,7 +20,7 @@ function maybeReadByte(_r:stdgo._internal.io.Io_reader.Reader):Void {
                     {
                         stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan.__get__();
                         {
-                            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1).__setNumber32__();
+                            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1).__setNumber32__().__setNil__();
                             _r.read((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                         };
                     };

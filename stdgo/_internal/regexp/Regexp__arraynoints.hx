@@ -1,2 +1,2 @@
 package stdgo._internal.regexp;
-var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(0, 0).__setNumber32__();
+var _arrayNoInts : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(0, 0).__setNumber32__().__setNil__();

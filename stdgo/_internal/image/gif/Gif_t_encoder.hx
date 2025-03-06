@@ -4,9 +4,9 @@ package stdgo._internal.image.gif;
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _g : stdgo._internal.image.gif.Gif_gif.GIF = ({} : stdgo._internal.image.gif.Gif_gif.GIF);
     public var _globalCT : stdgo.GoInt = 0;
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256).__setNumber32__();
-    public var _globalColorTable : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(768, 768).__setNumber32__();
-    public var _localColorTable : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(768, 768).__setNumber32__();
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256).__setNumber32__().__setNil__();
+    public var _globalColorTable : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(768, 768).__setNumber32__().__setNil__();
+    public var _localColorTable : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(768, 768).__setNumber32__().__setNil__();
     public function new(?_w:stdgo._internal.image.gif.Gif_t_writer.T_writer, ?_err:stdgo.Error, ?_g:stdgo._internal.image.gif.Gif_gif.GIF, ?_globalCT:stdgo.GoInt, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_globalColorTable:stdgo.GoArray<stdgo.GoUInt8>, ?_localColorTable:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_w != null) this._w = _w;
         if (_err != null) this._err = _err;

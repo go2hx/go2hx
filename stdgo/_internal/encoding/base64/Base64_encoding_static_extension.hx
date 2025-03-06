@@ -118,7 +118,7 @@ package stdgo._internal.encoding.base64;
     static public function _decodeQuantum( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>, _si:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_encoding.Encoding> = _enc;
         var _nsi = (0 : stdgo.GoInt), _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+        var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
         var _dlen = (4 : stdgo.GoInt);
         var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         {

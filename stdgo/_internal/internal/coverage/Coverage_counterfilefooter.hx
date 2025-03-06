@@ -1,11 +1,11 @@
 package stdgo._internal.internal.coverage;
 @:structInit @:using(stdgo._internal.internal.coverage.Coverage_counterfilefooter_static_extension.CounterFileFooter_static_extension) class CounterFileFooter {
-    public var magic : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+    public var magic : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
     @:optional
-    public var __10 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+    public var __10 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
     public var numSegments : stdgo.GoUInt32 = 0;
     @:optional
-    public var __11 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
+    public var __11 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
     public function new(?magic:stdgo.GoArray<stdgo.GoUInt8>, ?__10:stdgo.GoArray<stdgo.GoUInt8>, ?numSegments:stdgo.GoUInt32, ?__11:stdgo.GoArray<stdgo.GoUInt8>) {
         if (magic != null) this.magic = magic;
         if (__10 != null) this.__10 = __10;

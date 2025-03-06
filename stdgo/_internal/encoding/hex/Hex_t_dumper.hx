@@ -1,8 +1,8 @@
 package stdgo._internal.encoding.hex;
 @:structInit @:using(stdgo._internal.encoding.hex.Hex_t_dumper_static_extension.T_dumper_static_extension) class T_dumper {
     public var _w : stdgo._internal.io.Io_writer.Writer = (null : stdgo._internal.io.Io_writer.Writer);
-    public var _rightChars : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(18, 18).__setNumber32__();
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(14, 14).__setNumber32__();
+    public var _rightChars : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(18, 18).__setNumber32__().__setNil__();
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(14, 14).__setNumber32__().__setNil__();
     public var _used : stdgo.GoInt = 0;
     public var _n : stdgo.GoUInt = 0;
     public var _closed : Bool = false;

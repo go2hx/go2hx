@@ -42,7 +42,7 @@ function _emsaPSSVerify(_mHash:stdgo.Slice<stdgo.GoUInt8>, _em:stdgo.Slice<stdgo
             return stdgo._internal.crypto.rsa.Rsa_errverification.errVerification;
         };
         var _salt = (_db.__slice__(((_db.length) - _sLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        var _prefix:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+        var _prefix:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
         _hash.write((_prefix.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         _hash.write(_mHash);
         _hash.write(_salt);

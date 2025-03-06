@@ -892,7 +892,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("cannot load string table section: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
         };
-        var _skip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24).__setNumber32__();
+        var _skip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24).__setNumber32__().__setNil__();
         @:check2r _symtab.read((_skip.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _symbols = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>((@:check2r _symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((@:check2r _symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (@:check2r _symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_symbol.Symbol)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>);
         var _i = (0 : stdgo.GoInt);
@@ -930,7 +930,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("cannot load string table section: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
         };
-        var _skip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+        var _skip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
         @:check2r _symtab.read((_skip.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _symbols = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>((@:check2r _symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((@:check2r _symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (@:check2r _symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_symbol.Symbol)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>);
         var _i = (0 : stdgo.GoInt);

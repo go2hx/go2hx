@@ -2,7 +2,7 @@ package stdgo._internal.internal.coverage.rtcov;
 @:structInit @:using(stdgo._internal.internal.coverage.rtcov.Rtcov_covmetablob_static_extension.CovMetaBlob_static_extension) class CovMetaBlob {
     public var p : stdgo.Pointer<stdgo.GoUInt8> = (null : stdgo.Pointer<stdgo.GoUInt8>);
     public var len : stdgo.GoUInt32 = 0;
-    public var hash : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+    public var hash : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
     public var pkgPath : stdgo.GoString = "";
     public var pkgID : stdgo.GoInt = 0;
     public var counterMode : stdgo.GoUInt8 = 0;

@@ -3,7 +3,7 @@ package stdgo._internal.net.rpc.jsonrpc;
     @:tag("`json:\"method\"`")
     public var method : stdgo.GoString = "";
     @:tag("`json:\"params\"`")
-    public var params : stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1);
+    public var params : stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1).__setNil__();
     @:tag("`json:\"id\"`")
     public var id : stdgo.GoUInt64 = 0;
     public function new(?method:stdgo.GoString, ?params:stdgo.GoArray<stdgo.AnyInterface>, ?id:stdgo.GoUInt64) {

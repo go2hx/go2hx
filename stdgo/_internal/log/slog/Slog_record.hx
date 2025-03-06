@@ -4,7 +4,7 @@ package stdgo._internal.log.slog;
     public var message : stdgo.GoString = "";
     public var level : stdgo._internal.log.slog.Slog_level.Level = ((0 : stdgo.GoInt) : stdgo._internal.log.slog.Slog_level.Level);
     public var pC : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
-    public var _front : stdgo.GoArray<stdgo._internal.log.slog.Slog_attr.Attr> = new stdgo.GoArray<stdgo._internal.log.slog.Slog_attr.Attr>(5, 5, ...[for (i in 0 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.slog.Slog_attr.Attr)]);
+    public var _front : stdgo.GoArray<stdgo._internal.log.slog.Slog_attr.Attr> = new stdgo.GoArray<stdgo._internal.log.slog.Slog_attr.Attr>(5, 5, ...[for (i in 0 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.slog.Slog_attr.Attr)]).__setNil__();
     public var _nFront : stdgo.GoInt = 0;
     public var _back : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr> = (null : stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>);
     public function new(?time:stdgo._internal.time.Time_time.Time, ?message:stdgo.GoString, ?level:stdgo._internal.log.slog.Slog_level.Level, ?pC:stdgo.GoUIntptr, ?_front:stdgo.GoArray<stdgo._internal.log.slog.Slog_attr.Attr>, ?_nFront:stdgo.GoInt, ?_back:stdgo.Slice<stdgo._internal.log.slog.Slog_attr.Attr>) {

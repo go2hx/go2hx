@@ -1,6 +1,6 @@
 package stdgo._internal.internal.xcoff;
 @:structInit @:using(stdgo._internal.internal.xcoff.Xcoff_auxfile64_static_extension.AuxFile64_static_extension) class AuxFile64 {
-    public var xfname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
+    public var xfname : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
     public var xftype : stdgo.GoUInt8 = 0;
     public var xauxtype : stdgo.GoUInt8 = 0;
     public function new(?xfname:stdgo.GoArray<stdgo.GoUInt8>, ?xftype:stdgo.GoUInt8, ?xauxtype:stdgo.GoUInt8) {

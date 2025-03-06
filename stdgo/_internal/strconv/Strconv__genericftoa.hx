@@ -49,7 +49,7 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
         var _ok = (false : Bool);
         var _shortest = (_prec < (0 : stdgo.GoInt) : Bool);
         if (_shortest) {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
             _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
             stdgo._internal.strconv.Strconv__ryuftoashortest._ryuFtoaShortest((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice>), _mant, (_exp - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt), _flt);
             _ok = true;
@@ -78,7 +78,7 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
                     _digits = (1 : stdgo.GoInt);
                 };
             };
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24).__setNumber32__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24).__setNumber32__().__setNil__();
             if (((_bitSize == (32 : stdgo.GoInt)) && (_digits <= (9 : stdgo.GoInt) : Bool) : Bool)) {
                 _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
                 stdgo._internal.strconv.Strconv__ryuftoafixed32._ryuFtoaFixed32((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_t_decimalslice.T_decimalSlice>), (_mant : stdgo.GoUInt32), (_exp - ((@:checkr _flt ?? throw "null pointer dereference")._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);

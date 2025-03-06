@@ -37,7 +37,7 @@ package stdgo._internal.fmt;
                     };
                 };
             };
-            var _tailBuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(6, 6).__setNumber32__();
+            var _tailBuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(6, 6).__setNumber32__().__setNil__();
             var _tail = (_tailBuf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             var _hasDecimalPoint = (false : Bool);
             var _sawNonzeroDigit = (false : Bool);

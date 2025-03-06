@@ -11,7 +11,7 @@ package stdgo._internal.compress.lzw;
     public var _overflow : stdgo.GoUInt32 = 0;
     public var _savedCode : stdgo.GoUInt32 = 0;
     public var _err : stdgo.Error = (null : stdgo.Error);
-    public var _table : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(16384, 16384).__setNumber32__();
+    public var _table : stdgo.GoArray<stdgo.GoUInt32> = new stdgo.GoArray<stdgo.GoUInt32>(16384, 16384).__setNumber32__().__setNil__();
     public function new(?_w:stdgo._internal.compress.lzw.Lzw_t_writer.T_writer, ?_order:stdgo._internal.compress.lzw.Lzw_order.Order, ?_write:(stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, stdgo.GoUInt32) -> stdgo.Error, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_litWidth:stdgo.GoUInt, ?_hi:stdgo.GoUInt32, ?_overflow:stdgo.GoUInt32, ?_savedCode:stdgo.GoUInt32, ?_err:stdgo.Error, ?_table:stdgo.GoArray<stdgo.GoUInt32>) {
         if (_w != null) this._w = _w;
         if (_order != null) this._order = _order;

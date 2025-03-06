@@ -7,7 +7,7 @@ package stdgo._internal.text.template.parse;
     public var _text : stdgo.GoString = "";
     public var _funcs : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>> = (null : stdgo.Slice<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
     public var _lex : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer> = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_t_lexer.T_lexer>);
-    public var _token : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item> = new stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>(3, 3, ...[for (i in 0 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item)]);
+    public var _token : stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item> = new stdgo.GoArray<stdgo._internal.text.template.parse.Parse_t_item.T_item>(3, 3, ...[for (i in 0 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item)]).__setNil__();
     public var _peekCount : stdgo.GoInt = 0;
     public var _vars : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public var _treeSet : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>>);

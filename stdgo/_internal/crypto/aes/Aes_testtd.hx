@@ -9,7 +9,7 @@ var _sb = (stdgo._internal.crypto.aes.Aes__mul._mul(_s, (11u32 : stdgo.GoUInt32)
 var _sd = (stdgo._internal.crypto.aes.Aes__mul._mul(_s, (13u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
 var _se = (stdgo._internal.crypto.aes.Aes__mul._mul(_s, (14u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
 var _w = ((((_se << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | (_s9 << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | (_sd << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | _sb : stdgo.GoUInt32);
-var _td = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt32>>(4, 4, ...[stdgo._internal.crypto.aes.Aes__td0._td0.__copy__(), stdgo._internal.crypto.aes.Aes__td1._td1.__copy__(), stdgo._internal.crypto.aes.Aes__td2._td2.__copy__(), stdgo._internal.crypto.aes.Aes__td3._td3.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt32>(256, 256).__setNumber32__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt32>>);
+var _td = (new stdgo.Slice<stdgo.GoArray<stdgo.GoUInt32>>(4, 4, ...[stdgo._internal.crypto.aes.Aes__td0._td0.__copy__(), stdgo._internal.crypto.aes.Aes__td1._td1.__copy__(), stdgo._internal.crypto.aes.Aes__td2._td2.__copy__(), stdgo._internal.crypto.aes.Aes__td3._td3.__copy__()].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt32>(256, 256).__setNumber32__().__setNil__()])) : stdgo.Slice<stdgo.GoArray<stdgo.GoUInt32>>);
 {
                     var _j = (0 : stdgo.GoInt);
                     while ((_j < (4 : stdgo.GoInt) : Bool)) {

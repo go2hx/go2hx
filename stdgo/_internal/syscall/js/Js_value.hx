@@ -1,7 +1,7 @@
 package stdgo._internal.syscall.js;
 @:structInit @:using(stdgo._internal.syscall.js.Js_value_static_extension.Value_static_extension) class Value {
     @:optional
-    public var __32 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0);
+    public var __32 : stdgo.GoArray<() -> Void> = new stdgo.GoArray<() -> Void>(0, 0).__setNil__();
     public var _ref : stdgo._internal.syscall.js.Js_t_ref.T_ref = ((0 : stdgo.GoUInt64) : stdgo._internal.syscall.js.Js_t_ref.T_ref);
     public var _gcPtr : stdgo.Pointer<stdgo._internal.syscall.js.Js_t_ref.T_ref> = (null : stdgo.Pointer<stdgo._internal.syscall.js.Js_t_ref.T_ref>);
     @:local

@@ -3,7 +3,7 @@ package stdgo._internal.encoding.gob;
     public var a : stdgo.GoInt64 = 0;
     public var b : stdgo.GoString = "";
     public var ignore_d : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-    public var ignore_e : stdgo.GoArray<stdgo.GoFloat64> = new stdgo.GoArray<stdgo.GoFloat64>(3, 3).__setNumber32__();
+    public var ignore_e : stdgo.GoArray<stdgo.GoFloat64> = new stdgo.GoArray<stdgo.GoFloat64>(3, 3).__setNumber32__().__setNil__();
     public var ignore_f : Bool = false;
     public var ignore_g : stdgo.GoString = "";
     public var ignore_h : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

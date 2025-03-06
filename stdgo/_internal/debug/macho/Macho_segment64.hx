@@ -2,7 +2,7 @@ package stdgo._internal.debug.macho;
 @:structInit @:using(stdgo._internal.debug.macho.Macho_segment64_static_extension.Segment64_static_extension) class Segment64 {
     public var cmd : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.macho.Macho_loadcmd.LoadCmd);
     public var len : stdgo.GoUInt32 = 0;
-    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
+    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
     public var addr : stdgo.GoUInt64 = 0;
     public var memsz : stdgo.GoUInt64 = 0;
     public var offset : stdgo.GoUInt64 = 0;

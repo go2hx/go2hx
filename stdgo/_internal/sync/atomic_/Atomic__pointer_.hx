@@ -1,7 +1,7 @@
 package stdgo._internal.sync.atomic_;
 @:structInit @:using(stdgo._internal.sync.atomic_.Atomic__pointer__static_extension.Pointer__static_extension) class Pointer_<T_> {
     @:optional
-    public var __4 : stdgo.GoArray<stdgo.Ref<Dynamic>> = new stdgo.GoArray<stdgo.Ref<Dynamic>>(0, 0);
+    public var __4 : stdgo.GoArray<stdgo.Ref<Dynamic>> = new stdgo.GoArray<stdgo.Ref<Dynamic>>(0, 0).__setNil__();
     @:optional
     public var __5 : stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy = ({} : stdgo._internal.sync.atomic_.Atomic__t_nocopy.T_noCopy);
     public var _v : stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value_kind null;

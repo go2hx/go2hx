@@ -24,7 +24,7 @@ package stdgo._internal.crypto.ecdh;
     @:tdfield
     static public function bytes( _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> = _k;
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(133, 133).__setNumber32__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(133, 133).__setNumber32__().__setNil__();
         return ((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__append__(...((@:checkr _k ?? throw "null pointer dereference")._publicKey : Array<stdgo.GoUInt8>)));
     }
 }

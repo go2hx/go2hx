@@ -165,7 +165,7 @@ package stdgo._internal.internal.pkgbits;
             stdgo._internal.fmt.Fmt_printf.printf(("\t%s\n" : stdgo.GoString), stdgo.Go.toInterface(@:check2r (@:checkr _r ?? throw "null pointer dereference")._common.stringIdx(@:check2r _r._rawReloc((0 : stdgo._internal.internal.pkgbits.Pkgbits_relockind.RelocKind), _pc))));
         };
         stdgo._internal.fmt.Fmt_printf.printf(("\nexpected %v, reading at:\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_mWant)));
-        var _readerPCs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32);
+        var _readerPCs:stdgo.GoArray<stdgo.GoUIntptr> = new stdgo.GoArray<stdgo.GoUIntptr>(32, 32).__setNil__();
         var _n = (stdgo._internal.runtime.Runtime_callers.callers((2 : stdgo.GoInt), (_readerPCs.__slice__(0) : stdgo.Slice<stdgo.GoUIntptr>)) : stdgo.GoInt);
         for (__4 => _pc in stdgo._internal.internal.pkgbits.Pkgbits__fmtframes._fmtFrames(...((_readerPCs.__slice__(0, _n) : stdgo.Slice<stdgo.GoUIntptr>) : Array<stdgo.GoUIntptr>))) {
             stdgo._internal.fmt.Fmt_printf.printf(("\t%s\n" : stdgo.GoString), stdgo.Go.toInterface(_pc));

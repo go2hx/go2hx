@@ -1,6 +1,6 @@
 package stdgo._internal.internal.pkgbits;
 @:structInit @:using(stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder_static_extension.PkgEncoder_static_extension) class PkgEncoder {
-    public var _elems : stdgo.GoArray<stdgo.Slice<stdgo.GoString>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoString>>(10, 10);
+    public var _elems : stdgo.GoArray<stdgo.Slice<stdgo.GoString>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoString>>(10, 10).__setNil__();
     public var _stringsIdx : stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>);
     public var _syncFrames : stdgo.GoInt = 0;
     public function new(?_elems:stdgo.GoArray<stdgo.Slice<stdgo.GoString>>, ?_stringsIdx:stdgo.GoMap<stdgo.GoString, stdgo._internal.internal.pkgbits.Pkgbits_index.Index>, ?_syncFrames:stdgo.GoInt) {

@@ -4,7 +4,7 @@ package stdgo._internal.image;
     @:tdfield
     static public function opaque( _p:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>):Bool {
         @:recv var _p:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = _p;
-        var _present:stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(256, 256);
+        var _present:stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(256, 256).__setNil__();
         var __0 = (0 : stdgo.GoInt), __1 = ((@:checkr _p ?? throw "null pointer dereference").rect.dx() : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {

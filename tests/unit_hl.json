@@ -175,5 +175,8 @@
  "hl|issuedash177",
  "hl|issuedash179",
  "hl|issuedash185",
- "hl|testdash189"
+ "hl|testdash189",
+ "hl|closechan",
+ "hl|closechanmultireturn",
+ "hl|issuedash222"
 ]

@@ -169,5 +169,6 @@
  "interp|binaryreader",
  "interp|heappop",
  "interp|ptrrecv1",
- "interp|t_4darray"
+ "interp|t_4darray",
+ "interp|multireturn0"
 ]

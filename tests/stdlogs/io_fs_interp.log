@@ -65,7 +65,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception vbvt3zy3v9/a/bad: Permission denied
+   | Uncaught exception 1mb576b2iq/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -87,9 +87,9 @@ Try 'chmod --help' for more information.
        |                 ^^^
        | Called from here
 
-    ->  ./_internal/io/fs_dot_test/Fs_dot_test.hx:4: characters 50-58
+    ->  ./_internal/io/fsdottest/Fsdottest.hx:7: characters 50-58
 
-     4 |         #if (sys || hxnodejs) Sys.exit(@:check2r _m.run()) #else null #end;
+     7 |         #if (sys || hxnodejs) Sys.exit(@:check2r _m.run()) #else null #end;
        |                                                  ^^^^^^^^
        | Called from here
 

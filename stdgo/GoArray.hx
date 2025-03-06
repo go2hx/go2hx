@@ -365,6 +365,11 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	public function __setString__():GoArray<T>
 		return this.__setString__();
 
+	public inline function __setNil__():GoArray<T> {
+		this.__nil__ = true;
+		return this;
+	}
+
 	private function get_length():GoInt {
 		return this != null ? this.length : 0;
 	}

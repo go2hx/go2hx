@@ -8,9 +8,9 @@
     at stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_template.js:42338:23)
     at stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_template.js:42301:78)
     at stdgo__$internal_text_template_Template_$static_$extension.parse (/home/runner/work/go2hx/go2hx/golibs/std_template.js:40250:51)
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101499:75
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101504:2
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:107733:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101460:75
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101465:2
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:107694:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10) {
   __previousException: undefined,

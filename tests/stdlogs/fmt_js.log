@@ -13,11 +13,11 @@ Called from stdgo__$internal_reflect_Value_$static_$extension.isValid (/home/run
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._printArg (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 25100 column 74)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 23218 column 50)
 Called from .stdgo__$internal_fmt_Fmt_$sprintf_sprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 18234 column 48)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testsprintf_testSprintf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:41967:14)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104998:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104999:3)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testsprintf_testSprintf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:41958:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104952:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104953:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSprintf
@@ -33,14 +33,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestCountMallocs
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85508 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85538 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85146:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:42396:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104998:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104999:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85462 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85492 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85100:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:42387:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104952:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104953:3)
 
 -- SKIP: TestCountMallocs
 
@@ -118,13 +118,13 @@ Called from module TypeError: Cannot read properties of undefined (reading '_com
 Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19186 column 13)
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19566 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 23772 column 73)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 40002 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73204 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85552 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85107:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappendf_testAppendf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43523:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 39993 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73173 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85506 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85061:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappendf_testAppendf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43514:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
 
 -- FAIL: TestAppendf
 
@@ -134,13 +134,13 @@ Called from module TypeError: Cannot read properties of undefined (reading '_com
 Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19186 column 13)
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19566 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 23772 column 73)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 40002 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73204 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85552 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85107:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappend_testAppend [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43641:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 39993 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73173 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85506 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85061:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappend_testAppend [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43632:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
 
 -- FAIL: TestAppend
 
@@ -150,13 +150,13 @@ Called from module TypeError: Cannot read properties of undefined (reading '_com
 Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19186 column 13)
 Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 19566 column 70)
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 23772 column 73)
-Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 40002 column 48)
-Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73204 column 58)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85552 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85107:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappendln_testAppendln [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43759:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
+Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 39993 column 48)
+Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 73173 column 51)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85506 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85061:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testappendln_testAppendln [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:43750:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
 
 -- FAIL: TestAppendln
 
@@ -170,14 +170,14 @@ Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go
 
 === RUN  TestScanf
 Exception: array out of bounds, index: 0 length: 0
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44705 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscanf_fscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 50185 column 62)
-Called from .stdgo__$internal_fmt_Fmt_$sscanf_sscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 50118 column 56)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanf_testScanf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:50081:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104998:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104999:3)
+Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44696 column 25)
+Called from .stdgo__$internal_fmt_Fmt_$fscanf_fscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 50173 column 62)
+Called from .stdgo__$internal_fmt_Fmt_$sscanf_sscanf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 50109 column 49)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanf_testScanf [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:50072:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104952:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104953:3)
 
 -- FAIL: TestScanf
 
@@ -221,13 +221,13 @@ Sscan expected error; got none: <invalid reflect.Value>
 
 === RUN  TestScanNotPointer
 Exception: _v.set is not a function
-Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44878 column 25)
-Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44039 column 62)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscannotpointer_testScanNotPointer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:67956:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104998:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104999:3)
+Called from stdgo__$internal_fmt_T_$ss_$static_$extension._doScan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44869 column 25)
+Called from .stdgo__$internal_fmt_Fmt_$fscan_fscan (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 44030 column 62)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscannotpointer_testScanNotPointer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:67931:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104952:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104953:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestScanNotPointer
@@ -311,13 +311,13 @@ Sscan expected EOF; got <invalid reflect.Value>
 
 === RUN  TestScanInts
 bad scan: expected <invalid reflect.Value> got %!d(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85664 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85553 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85107:58
-Called from ._$internal_fmt_$test_Fmt_$test_$_$testscanints__testScanInts (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 70810 column 4)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanints_testScanInts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:70754:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84917 column 9)
-Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74153 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104998:1
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85618 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 85507 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:85061:58
+Called from ._$internal_fmt_$test_Fmt_$test_$_$testscanints__testScanInts (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 70782 column 4)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_fmt_$test_Fmt_$test_$testscanints_testScanInts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js:70726:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 84871 column 9)
+Called from ._$internal_fmt_$dot_$test_Fmt_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_fmt.js line 74110 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fmt.js:104952:1
 
 -- FAIL: TestScanInts

@@ -1,12 +1,12 @@
 === RUN  TestGolden
 sha256[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 42073 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41962 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:41516:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 42055 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41944 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:41498:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha256_Sha256_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:10986:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41320 column 9)
-Called from ._$internal_crypto_sha256_$dot_$test_Sha256_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 34222 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55801:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55802:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 41302 column 9)
+Called from ._$internal_crypto_sha256_$dot_$test_Sha256_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js line 34207 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55774:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha256.js:55775:3)
 
 -- FAIL: TestGolden

@@ -175,5 +175,8 @@
  "interp|issuedash177",
  "interp|issuedash179",
  "interp|issuedash185",
- "interp|testdash189"
+ "interp|testdash189",
+ "interp|closechan",
+ "interp|closechanmultireturn",
+ "interp|issuedash222"
 ]

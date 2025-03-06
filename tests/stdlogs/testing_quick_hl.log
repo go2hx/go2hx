@@ -3,7 +3,7 @@ Exception: Null access .__name__
 Called from $Type.getClassName (/home/runner/haxe/versions/b0b2997/std/hl/_std/Type.hx line 111)
 Called from stdgo._internal.reflect.$Value_static_extension.set (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 290)
 Called from stdgo._internal.testing.quick._Quick__sizedvalue.$Quick__sizedvalue_Fields_._sizedValue (stdgo/_internal/testing/quick/Quick__sizedvalue.hx line 125)
-Called from stdgo._internal.testing.quick._Quick_value.$Quick_value_Fields_.value (stdgo/_internal/testing/quick/Quick_value.hx line 5)
+Called from stdgo._internal.testing.quick._Quick_value.$Quick_value_Fields_.value (stdgo/_internal/testing/quick/Quick_value.hx line 4)
 Called from stdgo._internal.testing.quick._Quick__arbitraryvalues.$Quick__arbitraryvalues_Fields_._arbitraryValues (stdgo/_internal/testing/quick/Quick__arbitraryvalues.hx line 13)
 Called from stdgo._internal.testing.quick._Quick_checkequal.$Quick_checkequal_Fields_.checkEqual (stdgo/_internal/testing/quick/Quick_checkequal.hx line 23)
 Called from stdgo._internal.testing.quick._Quick_testcheckequal.$Quick_testcheckequal_Fields_.testCheckEqual (stdgo/_internal/testing/quick/Quick_testcheckequal.hx line 3)

@@ -1,8 +1,28 @@
-[ERROR] (macro) ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
+[ERROR] (macro) /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
 
- 22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
-    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
-    | have: { _0: stdgo.Ref<...> }
-    | want: { _0: stdgo._internal.mime.multipart.File }
+ 329 |   return load("get_type", 1)(name);
+     |          ^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Uncaught exception Type not found 'stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240_asinterface.T__readForm___localname___writerOnly_5240_asInterface'
+
+      ->  stdgo/Go.macro.hx:352: characters 14-55
+
+      352 |    final t = Context.getType(printer.printTypePath(p));
+          |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+      439 |      f(ct, params);
+          |      ^^^^^^^^^^^^^
+          | Called from here
+
+      465 |   return run();
+          |          ^^^^^
+          | Called from here
+
+      ->  ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:355: characters 79-387
+
+      355 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+          |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+          | For function argument '_dst'
 

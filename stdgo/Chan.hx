@@ -75,7 +75,7 @@ class ChanData<T> {
     public function __isSend__():Bool {
         if (debug)
             trace("__isSend__ " + sendBool);
-        return sendBool;
+        return sendBool || buffered && amount < buffer.length;
     }
 
     public function __isGet__():Bool {

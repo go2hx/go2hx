@@ -205,9 +205,9 @@ private class ChanKeyValueIterator<T> {
     public inline function hasNext()
         return chan.amount > 0;
 
-    public inline function next():{_0:T, _1:Bool} {
+    public inline function next():{key:T, value:Bool} {
         final tmp = chan.__smartGet__();
-        return {_0: tmp._0, _1: tmp._1};
+        return {key: tmp._0, value: tmp._1};
     }
 }
 

@@ -543,7 +543,7 @@ package stdgo._internal.html.template;
             if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -559,7 +559,7 @@ package stdgo._internal.html.template;
             if ((((@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr != null) && (stdgo.Go.toInterface((@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr) != stdgo.Go.toInterface(stdgo._internal.html.template.Template__escapeok._escapeOK)) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -575,7 +575,7 @@ package stdgo._internal.html.template;
             if ((((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree == null || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree : Dynamic).__nil__) || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree.root == null || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree.root : Dynamic).__nil__) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -596,7 +596,7 @@ package stdgo._internal.html.template;
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
                     _tmpl = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

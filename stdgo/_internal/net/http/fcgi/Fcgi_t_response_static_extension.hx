@@ -64,12 +64,7 @@ package stdgo._internal.net.http.fcgi;
         if (!(@:checkr _r ?? throw "null pointer dereference")._wroteCGIHeader) {
             @:check2r _r._writeCGIHeader(_p);
         };
-        return {
-            final __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._w.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return @:check2r (@:checkr _r ?? throw "null pointer dereference")._w.write(_p);
     }
     @:keep
     @:tdfield

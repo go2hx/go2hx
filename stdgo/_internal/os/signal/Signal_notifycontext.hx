@@ -36,7 +36,7 @@ function notifyContext(_parent:stdgo._internal.context.Context_context.Context, 
             }));
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.context.Context_context.Context; var _1 : stdgo._internal.context.Context_cancelfunc.CancelFunc; } = { _0 : stdgo.Go.asInterface(_c), _1 : @:check2r _c._stop };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.context.Context_context.Context; var _1 : stdgo._internal.context.Context_cancelfunc.CancelFunc; } = { _0 : stdgo.Go.asInterface(_c), _1 : @:check2r _c._stop };
             _ctx = __tmp__._0;
             _stop = __tmp__._1;
             __tmp__;

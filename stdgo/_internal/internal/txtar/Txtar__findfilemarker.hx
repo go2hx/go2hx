@@ -11,7 +11,7 @@ function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slic
                 };
                 if (_name != ((stdgo.Go.str() : stdgo.GoString))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : (_data.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), _1 : _name?.__copy__(), _2 : _after };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : (_data.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), _1 : _name?.__copy__(), _2 : _after };
                         _before = __tmp__._0;
                         _name = __tmp__._1;
                         _after = __tmp__._2;
@@ -22,7 +22,7 @@ function _findFileMarker(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slic
             var _j = (stdgo._internal.bytes.Bytes_index.index((_data.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.internal.txtar.Txtar__newlinemarker._newlineMarker) : stdgo.GoInt);
             if ((_j < (0 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo._internal.internal.txtar.Txtar__fixnl._fixNL(_data), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Slice<stdgo.GoUInt8>) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoString; var _2 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo._internal.internal.txtar.Txtar__fixnl._fixNL(_data), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Slice<stdgo.GoUInt8>) };
                     _before = __tmp__._0;
                     _name = __tmp__._1;
                     _after = __tmp__._2;

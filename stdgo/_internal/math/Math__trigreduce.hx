@@ -4,7 +4,7 @@ function _trigReduce(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoUInt64; var _1 : std
         {};
         if ((_x < (0.7853981633974483 : stdgo.GoFloat64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : _x };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : _x };
                 _j = __tmp__._0;
                 _z = __tmp__._1;
                 __tmp__;
@@ -38,7 +38,7 @@ var _bitshift = __1, _digit = __0;
             _z--;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : _j, _1 : (_z * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : _j, _1 : (_z * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) };
             _j = __tmp__._0;
             _z = __tmp__._1;
             __tmp__;

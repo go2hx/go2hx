@@ -22,7 +22,7 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                         _info = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -40,12 +40,7 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = {
-                    final __tmp__ = stdgo._internal.debug.buildinfo.Buildinfo_read.read(stdgo.Go.asInterface(_f));
-                    _info = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _info, _1 : _err };
-                };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.runtime.debug.Debug_buildinfo.BuildInfo>; var _1 : stdgo.Error; } = stdgo._internal.debug.buildinfo.Buildinfo_read.read(stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

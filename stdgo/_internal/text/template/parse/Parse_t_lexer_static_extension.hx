@@ -57,7 +57,7 @@ package stdgo._internal.text.template.parse;
         var _delim = false, _trimSpaces = false;
         if ((stdgo._internal.text.template.parse.Parse__hasrighttrimmarker._hasRightTrimMarker(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__()) && stdgo._internal.strings.Strings_hasprefix.hasPrefix(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__(((@:checkr _l ?? throw "null pointer dereference")._pos + (2 : stdgo._internal.text.template.parse.Parse_pos.Pos) : stdgo._internal.text.template.parse.Parse_pos.Pos)) : stdgo.GoString)?.__copy__(), (@:checkr _l ?? throw "null pointer dereference")._rightDelim?.__copy__()) : Bool)) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : true };
                 _delim = __tmp__._0;
                 _trimSpaces = __tmp__._1;
                 __tmp__;
@@ -65,14 +65,14 @@ package stdgo._internal.text.template.parse;
         };
         if (stdgo._internal.strings.Strings_hasprefix.hasPrefix(((@:checkr _l ?? throw "null pointer dereference")._input.__slice__((@:checkr _l ?? throw "null pointer dereference")._pos) : stdgo.GoString)?.__copy__(), (@:checkr _l ?? throw "null pointer dereference")._rightDelim?.__copy__())) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
                 _delim = __tmp__._0;
                 _trimSpaces = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
             _delim = __tmp__._0;
             _trimSpaces = __tmp__._1;
             __tmp__;

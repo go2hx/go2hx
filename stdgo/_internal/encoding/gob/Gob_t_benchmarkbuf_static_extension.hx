@@ -13,7 +13,7 @@ package stdgo._internal.encoding.gob;
         var _c = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
         if (((@:checkr _b ?? throw "null pointer dereference")._offset >= ((@:checkr _b ?? throw "null pointer dereference")._data.length) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eof.eOF };
                 _c = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -31,7 +31,7 @@ package stdgo._internal.encoding.gob;
         _n = _p.__copyTo__(((@:checkr _b ?? throw "null pointer dereference")._data.__slice__((@:checkr _b ?? throw "null pointer dereference")._offset) : stdgo.Slice<stdgo.GoUInt8>));
         if (_n == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

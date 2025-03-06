@@ -8,18 +8,8 @@ function writeString(_w:stdgo._internal.io.Io_writer.Writer, _s:stdgo.GoString):
                 { _0 : (null : stdgo._internal.io.Io_stringwriter.StringWriter), _1 : false };
             }, _sw = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return {
-                    final __tmp__ = _sw.writeString(_s?.__copy__());
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _n, _1 : _err };
-                };
+                return _sw.writeString(_s?.__copy__());
             };
         };
-        return {
-            final __tmp__ = _w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return _w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
     }

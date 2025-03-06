@@ -13,7 +13,7 @@ function _getLine(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo._internal.bytes.Bytes_trimright.trimRight((_data.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>), (" \t" : stdgo.GoString)), _1 : (_data.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : stdgo._internal.bytes.Bytes_trimright.trimRight((_data.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>), (" \t" : stdgo.GoString)), _1 : (_data.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>) };
             _line = __tmp__._0;
             _rest = __tmp__._1;
             __tmp__;

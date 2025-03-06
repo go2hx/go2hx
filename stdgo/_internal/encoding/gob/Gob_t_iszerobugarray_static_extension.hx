@@ -18,7 +18,7 @@ package stdgo._internal.encoding.gob;
         var _b = (null : stdgo.Slice<stdgo.GoUInt8>), _e = (null : stdgo.Error);
         _b = (_b.__append__(...((_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _b, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _b, _1 : (null : stdgo.Error) };
             _b = __tmp__._0;
             _e = __tmp__._1;
             __tmp__;

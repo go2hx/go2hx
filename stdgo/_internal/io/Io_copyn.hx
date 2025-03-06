@@ -8,7 +8,7 @@ function copyN(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._internal.io
         };
         if (_written == (_n)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _written = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

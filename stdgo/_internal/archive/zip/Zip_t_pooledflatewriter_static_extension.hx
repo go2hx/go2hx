@@ -94,7 +94,7 @@ package stdgo._internal.archive.zip;
             if (((@:checkr _w ?? throw "null pointer dereference")._fw == null || ((@:checkr _w ?? throw "null pointer dereference")._fw : Dynamic).__nil__)) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -108,12 +108,10 @@ package stdgo._internal.archive.zip;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    final __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._fw.write(_p);
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _n, _1 : _err };
-                };
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = ({
+                    @:assignTranslate final __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._fw.write(_p);
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

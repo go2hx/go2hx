@@ -21,7 +21,7 @@ package stdgo._internal.encoding.hex;
             _p = (_p.__slice__(_chunkSize) : stdgo.Slice<stdgo.GoUInt8>);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _e ?? throw "null pointer dereference")._err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _e ?? throw "null pointer dereference")._err };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

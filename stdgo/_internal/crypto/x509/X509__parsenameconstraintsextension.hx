@@ -6,7 +6,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
         var _havePermitted:Bool = false, _haveExcluded:Bool = false, _haveExcluded__pointer__ = stdgo.Go.pointer(_haveExcluded), _havePermitted__pointer__ = stdgo.Go.pointer(_havePermitted);
         if (((((!@:check2 _outer.readASN1((stdgo.Go.setRef(_toplevel) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag)) || !_outer.empty() : Bool) || !@:check2 _toplevel.readOptionalASN1((stdgo.Go.setRef(_permitted) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _havePermitted__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed()) : Bool) || !@:check2 _toplevel.readOptionalASN1((stdgo.Go.setRef(_excluded) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _haveExcluded__pointer__, (1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.empty() : Bool)) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                 _unhandled = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -14,7 +14,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
         };
         if (((!_havePermitted && !_haveExcluded : Bool) || ((_permitted.length) == ((0 : stdgo.GoInt)) && (_excluded.length) == ((0 : stdgo.GoInt)) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: empty name constraints extension" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: empty name constraints extension" : stdgo.GoString)) };
                 _unhandled = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -27,7 +27,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                 var _tag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag), _tag__pointer__ = stdgo.Go.pointer(_tag);
                 if ((!@:check2 _subtrees.readASN1((stdgo.Go.setRef(_seq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_tag.Tag)) || !@:check2 _seq.readAnyASN1((stdgo.Go.setRef(_value) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_>), _tag__pointer__) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                         _dnsNames = __tmp__._0;
                         _ips = __tmp__._1;
                         _emails = __tmp__._2;
@@ -45,7 +45,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                             var _err = (stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_domain?.__copy__()) : stdgo.Error);
                             if (_err != null) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -63,7 +63,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                             var __tmp__ = stdgo._internal.crypto.x509.X509__domaintoreverselabels._domainToReverseLabels(_trimmedDomain?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse dnsName constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse dnsName constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -87,7 +87,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 _mask = (_value.__slice__((16 : stdgo.GoInt)) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_);
                             } else {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: IP constraint contained value of length %d" : stdgo.GoString), stdgo.Go.toInterface(_l)) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: IP constraint contained value of length %d" : stdgo.GoString), stdgo.Go.toInterface(_l)) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -99,7 +99,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                         };
                         if (!stdgo._internal.crypto.x509.X509__isvalidipmask._isValidIPMask(_mask)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: IP constraint contained invalid mask %x" : stdgo.GoString), stdgo.Go.toInterface(_mask)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: IP constraint contained invalid mask %x" : stdgo.GoString), stdgo.Go.toInterface(_mask)) };
                                 _dnsNames = __tmp__._0;
                                 _ips = __tmp__._1;
                                 _emails = __tmp__._2;
@@ -115,7 +115,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                             var _err = (stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_constraint?.__copy__()) : stdgo.Error);
                             if (_err != null) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -130,7 +130,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 var __tmp__ = stdgo._internal.crypto.x509.X509__parserfc2821mailbox._parseRFC2821Mailbox(_constraint?.__copy__()), __1:stdgo._internal.crypto.x509.X509_t_rfc2821mailbox.T_rfc2821Mailbox = __tmp__._0, _ok:Bool = __tmp__._1;
                                 if (!_ok) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse rfc822Name constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_constraint)) };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse rfc822Name constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_constraint)) };
                                         _dnsNames = __tmp__._0;
                                         _ips = __tmp__._1;
                                         _emails = __tmp__._2;
@@ -149,7 +149,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                                 var __tmp__ = stdgo._internal.crypto.x509.X509__domaintoreverselabels._domainToReverseLabels(_domain?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                                 if (!_ok) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse rfc822Name constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_constraint)) };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse rfc822Name constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_constraint)) };
                                         _dnsNames = __tmp__._0;
                                         _ips = __tmp__._1;
                                         _emails = __tmp__._2;
@@ -167,7 +167,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                             var _err = (stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_domain?.__copy__()) : stdgo.Error);
                             if (_err != null) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.errors.Errors_new_.new_((("x509: invalid constraint value: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -179,7 +179,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                         };
                         if (stdgo._internal.net.Net_parseip.parseIP(_domain?.__copy__()) != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse URI constraint %q: cannot be IP address" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse URI constraint %q: cannot be IP address" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
                                 _dnsNames = __tmp__._0;
                                 _ips = __tmp__._1;
                                 _emails = __tmp__._2;
@@ -196,7 +196,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                             var __tmp__ = stdgo._internal.crypto.x509.X509__domaintoreverselabels._domainToReverseLabels(_trimmedDomain?.__copy__()), __1:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (!_ok) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse URI constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: failed to parse URI constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_domain)) };
                                     _dnsNames = __tmp__._0;
                                     _ips = __tmp__._1;
                                     _emails = __tmp__._2;
@@ -213,7 +213,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : _dnsNames, _1 : _ips, _2 : _emails, _3 : _uriDomains, _4 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_ipnet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : _dnsNames, _1 : _ips, _2 : _emails, _3 : _uriDomains, _4 : (null : stdgo.Error) };
                 _dnsNames = __tmp__._0;
                 _ips = __tmp__._1;
                 _emails = __tmp__._2;
@@ -233,7 +233,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
                     _unhandled = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -251,7 +251,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
                     _unhandled = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -260,7 +260,7 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
         };
         (@:checkr _out ?? throw "null pointer dereference").permittedDNSDomainsCritical = _e.critical;
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _unhandled, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _unhandled, _1 : (null : stdgo.Error) };
             _unhandled = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

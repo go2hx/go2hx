@@ -16,7 +16,7 @@ package stdgo._internal.encoding.base64;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -43,7 +43,7 @@ package stdgo._internal.encoding.base64;
                     _n = (_n + (_ninc) : stdgo.GoInt);
                     if (_err != null) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                             _n = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -71,7 +71,7 @@ package stdgo._internal.encoding.base64;
                     _n = (_n + (_ninc) : stdgo.GoInt);
                     if (_err != null) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                             _n = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -91,7 +91,7 @@ package stdgo._internal.encoding.base64;
             _n = (_n + (_ninc) : stdgo.GoInt);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -99,7 +99,7 @@ package stdgo._internal.encoding.base64;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -127,7 +127,7 @@ package stdgo._internal.encoding.base64;
                 if ((_src.length) == (_si)) {
                     if (_j == ((0 : stdgo.GoInt))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : (null : stdgo.Error) };
                             _nsi = __tmp__._0;
                             _n = __tmp__._1;
                             _err = __tmp__._2;
@@ -135,7 +135,7 @@ package stdgo._internal.encoding.base64;
                         };
                     } else if (_j == ((1 : stdgo.GoInt)) || (@:checkr _enc ?? throw "null pointer dereference")._padChar != ((-1 : stdgo.GoInt32))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - _j : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - _j : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                             _nsi = __tmp__._0;
                             _n = __tmp__._1;
                             _err = __tmp__._2;
@@ -164,7 +164,7 @@ if (((_in == (10 : stdgo.GoUInt8)) || (_in == (13 : stdgo.GoUInt8)) : Bool)) {
                 };
 if ((_in : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference")._padChar)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                         _nsi = __tmp__._0;
                         _n = __tmp__._1;
                         _err = __tmp__._2;
@@ -175,7 +175,7 @@ if ((_in : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference"
                     final __value__ = _j;
                     if (__value__ == ((0 : stdgo.GoInt)) || __value__ == ((1 : stdgo.GoInt))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                             _nsi = __tmp__._0;
                             _n = __tmp__._1;
                             _err = __tmp__._2;
@@ -187,7 +187,7 @@ if ((_in : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference"
                         };
                         if (_si == ((_src.length))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                                 _nsi = __tmp__._0;
                                 _n = __tmp__._1;
                                 _err = __tmp__._2;
@@ -196,7 +196,7 @@ if ((_in : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference"
                         };
                         if ((_src[(_si : stdgo.GoInt)] : stdgo.GoInt32) != ((@:checkr _enc ?? throw "null pointer dereference")._padChar)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                                 _nsi = __tmp__._0;
                                 _n = __tmp__._1;
                                 _err = __tmp__._2;
@@ -252,7 +252,7 @@ break;
                         _dst[(1 : stdgo.GoInt)] = _dbuf[(1 : stdgo.GoInt)];
                         if (((@:checkr _enc ?? throw "null pointer dereference")._strict && (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                                 _nsi = __tmp__._0;
                                 _n = __tmp__._1;
                                 _err = __tmp__._2;
@@ -270,7 +270,7 @@ break;
                         _dst[(0 : stdgo.GoInt)] = _dbuf[(0 : stdgo.GoInt)];
                         if (((@:checkr _enc ?? throw "null pointer dereference")._strict && (((_dbuf[(1 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) || (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_corruptinputerror.CorruptInputError)) };
                                 _nsi = __tmp__._0;
                                 _n = __tmp__._1;
                                 _err = __tmp__._2;
@@ -285,7 +285,7 @@ break;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (_dlen - (1 : stdgo.GoInt) : stdgo.GoInt), _2 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _si, _1 : (_dlen - (1 : stdgo.GoInt) : stdgo.GoInt), _2 : _err };
             _nsi = __tmp__._0;
             _n = __tmp__._1;
             _err = __tmp__._2;

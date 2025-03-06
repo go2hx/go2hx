@@ -18,15 +18,13 @@ package stdgo._internal.math.big;
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (@:check2r _x.isInt()) {
-            return {
-                final __tmp__ = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.marshalText();
-                _text = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _text, _1 : _err };
-            };
+            return ({
+                @:assignTranslate final __tmp__ = @:check2 (@:checkr _x ?? throw "null pointer dereference")._a.marshalText();
+                { _0 : __tmp__._0, _1 : __tmp__._1 };
+            });
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : @:check2r _x._marshal(), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : @:check2r _x._marshal(), _1 : (null : stdgo.Error) };
             _text = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

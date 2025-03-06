@@ -34,7 +34,7 @@ function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _b:
             @:check2r va.set(_temp);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : a, _1 : ua, _2 : va };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : a, _1 : ua, _2 : va };
             _g = __tmp__._0;
             _x = __tmp__._1;
             _y = __tmp__._2;

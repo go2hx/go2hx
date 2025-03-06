@@ -62,12 +62,7 @@ package stdgo._internal.crypto.hmac;
     static public function write( _h:stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _h:stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_t_hmac.T_hmac> = _h;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return {
-            final __tmp__ = (@:checkr _h ?? throw "null pointer dereference")._inner.write(_p);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return (@:checkr _h ?? throw "null pointer dereference")._inner.write(_p);
     }
     @:keep
     @:tdfield

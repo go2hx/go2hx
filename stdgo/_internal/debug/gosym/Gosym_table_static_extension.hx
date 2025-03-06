@@ -54,7 +54,7 @@ package stdgo._internal.debug.gosym;
         var __tmp__ = ((@:checkr _t ?? throw "null pointer dereference").files != null && (@:checkr _t ?? throw "null pointer dereference").files.__exists__(_file?.__copy__()) ? { _0 : (@:checkr _t ?? throw "null pointer dereference").files[_file?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>), _1 : false }), _obj:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((_file : stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((_file : stdgo._internal.debug.gosym.Gosym_unknownfileerror.UnknownFileError)) };
                 _pc = __tmp__._0;
                 _fn = __tmp__._1;
                 _err = __tmp__._2;
@@ -65,7 +65,7 @@ package stdgo._internal.debug.gosym;
             var _pc = (@:check2r (@:checkr _t ?? throw "null pointer dereference")._go12line._go12LineToPC(_file?.__copy__(), _line) : stdgo.GoUInt64);
             if (_pc == ((0i64 : stdgo.GoUInt64))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_file?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_file?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
                     _pc = __tmp__._0;
                     _fn = __tmp__._1;
                     _err = __tmp__._2;
@@ -73,7 +73,7 @@ package stdgo._internal.debug.gosym;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : _pc, _1 : @:check2r _t.pCToFunc(_pc), _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : _pc, _1 : @:check2r _t.pCToFunc(_pc), _2 : (null : stdgo.Error) };
                 _pc = __tmp__._0;
                 _fn = __tmp__._1;
                 _err = __tmp__._2;
@@ -89,7 +89,7 @@ package stdgo._internal.debug.gosym;
             var _pc = (@:check2r (@:checkr _f ?? throw "null pointer dereference").lineTable.lineToPC(_abs, (@:checkr _f ?? throw "null pointer dereference").end) : stdgo.GoUInt64);
             if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : _pc, _1 : _f, _2 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : _pc, _1 : _f, _2 : (null : stdgo.Error) };
                     _pc = __tmp__._0;
                     _fn = __tmp__._1;
                     _err = __tmp__._2;
@@ -98,7 +98,7 @@ package stdgo._internal.debug.gosym;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_file?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : null, _2 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError(_file?.__copy__(), _line) : stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_unknownlineerror.UnknownLineError>)) };
             _pc = __tmp__._0;
             _fn = __tmp__._1;
             _err = __tmp__._2;

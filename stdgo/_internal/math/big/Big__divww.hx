@@ -27,7 +27,7 @@ function _divWW(_x1:stdgo._internal.math.big.Big_word.Word, _x0:stdgo._internal.
             _r0 = (_r0 - (_d) : stdgo.GoUInt);
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.math.big.Big_word.Word; var _1 : stdgo._internal.math.big.Big_word.Word; } = { _0 : (_qq : stdgo._internal.math.big.Big_word.Word), _1 : ((_r0 >> _s : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.math.big.Big_word.Word; var _1 : stdgo._internal.math.big.Big_word.Word; } = { _0 : (_qq : stdgo._internal.math.big.Big_word.Word), _1 : ((_r0 >> _s : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word) };
             _q = __tmp__._0;
             _r = __tmp__._1;
             __tmp__;

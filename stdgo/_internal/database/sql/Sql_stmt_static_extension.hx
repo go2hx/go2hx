@@ -377,7 +377,7 @@ package stdgo._internal.database.sql;
                 return { _0 : _dc, _1 : _releaseConn, _2 : _ds, _3 : _err };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : _releaseConn, _2 : (@:checkr _s ?? throw "null pointer dereference")._cgds, _3 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : _releaseConn, _2 : (@:checkr _s ?? throw "null pointer dereference")._cgds, _3 : (null : stdgo.Error) };
                 _dc = __tmp__._0;
                 _releaseConn = __tmp__._1;
                 _ds = __tmp__._2;
@@ -394,7 +394,7 @@ package stdgo._internal.database.sql;
         };
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : null, _1 : null, _2 : null, _3 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : null, _1 : null, _2 : null, _3 : _err };
                 _dc = __tmp__._0;
                 _releaseConn = __tmp__._1;
                 _ds = __tmp__._2;
@@ -407,7 +407,7 @@ package stdgo._internal.database.sql;
             if (_v._dc == (_dc)) {
                 @:check2 (@:checkr _s ?? throw "null pointer dereference")._mu.unlock();
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : @:check2r _dc._releaseConn, _2 : _v._ds, _3 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : @:check2r _dc._releaseConn, _2 : _v._ds, _3 : (null : stdgo.Error) };
                     _dc = __tmp__._0;
                     _releaseConn = __tmp__._1;
                     _ds = __tmp__._2;
@@ -427,7 +427,7 @@ package stdgo._internal.database.sql;
         if (_err != null) {
             @:check2r _dc._releaseConn(_err);
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : null, _1 : null, _2 : null, _3 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : null, _1 : null, _2 : null, _3 : _err };
                 _dc = __tmp__._0;
                 _releaseConn = __tmp__._1;
                 _ds = __tmp__._2;
@@ -436,7 +436,7 @@ package stdgo._internal.database.sql;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : @:check2r _dc._releaseConn, _2 : _ds, _3 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn>; var _1 : stdgo.Error -> Void; var _2 : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>; var _3 : stdgo.Error; } = { _0 : _dc, _1 : @:check2r _dc._releaseConn, _2 : _ds, _3 : (null : stdgo.Error) };
             _dc = __tmp__._0;
             _releaseConn = __tmp__._1;
             _ds = __tmp__._2;

@@ -7,7 +7,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base2o
                 _err = (null : stdgo.Error);
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : _err };
                 _exp = __tmp__._0;
                 _base = __tmp__._1;
                 _err = __tmp__._2;
@@ -39,7 +39,7 @@ function _scanExponent(_r:stdgo._internal.io.Io_bytescanner.ByteScanner, _base2o
                     } else {
                         _r.unreadByte();
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : (null : stdgo.Error) };
                             _exp = __tmp__._0;
                             _base = __tmp__._1;
                             _err = __tmp__._2;

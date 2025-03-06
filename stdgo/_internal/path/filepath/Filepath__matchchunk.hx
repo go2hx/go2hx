@@ -47,7 +47,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                     };
                                     if (_err != null) {
                                         return {
-                                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
+                                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
                                             _rest = __tmp__._0;
                                             _ok = __tmp__._1;
                                             _err = __tmp__._2;
@@ -66,7 +66,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                         };
                                         if (_err != null) {
                                             return {
-                                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
+                                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : _err };
                                                 _rest = __tmp__._0;
                                                 _ok = __tmp__._1;
                                                 _err = __tmp__._2;
@@ -101,7 +101,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 if ((_chunk.length) == ((0 : stdgo.GoInt))) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
                                         _rest = __tmp__._0;
                                         _ok = __tmp__._1;
                                         _err = __tmp__._2;
@@ -132,7 +132,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
         };
         if (_failed) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
                 _rest = __tmp__._0;
                 _ok = __tmp__._1;
                 _err = __tmp__._2;
@@ -140,7 +140,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
             _rest = __tmp__._0;
             _ok = __tmp__._1;
             _err = __tmp__._2;

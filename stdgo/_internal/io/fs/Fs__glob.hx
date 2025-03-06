@@ -11,7 +11,7 @@ function _glob(_fs:stdgo._internal.io.fs.Fs_fs.FS, _dir:stdgo.GoString, _pattern
             var __tmp__ = stdgo._internal.path.Path_match.match(_pattern?.__copy__(), _n?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _m, _1 : _err };
                     _m = __tmp__._0;
                     _e = __tmp__._1;
                     __tmp__;

@@ -18,7 +18,7 @@ function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._i
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_parts[(2 : stdgo.GoInt)]?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
                         _v = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -26,7 +26,7 @@ function _matchGroupIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._i
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ name : _parts[(0 : stdgo.GoInt)]?.__copy__(), gid : _parts[(2 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_group.Group)) : stdgo.Ref<stdgo._internal.os.user.User_group.Group>))), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(({ name : _parts[(0 : stdgo.GoInt)]?.__copy__(), gid : _parts[(2 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_group.Group)) : stdgo.Ref<stdgo._internal.os.user.User_group.Group>))), _1 : (null : stdgo.Error) };
                 _v = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

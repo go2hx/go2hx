@@ -8,12 +8,10 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._inter
                 { _0 : (null : stdgo._internal.io.Io_writerto.WriterTo), _1 : false };
             }, _wt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return {
-                    final __tmp__ = _wt.writeTo(_dst);
-                    _written = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _written, _1 : _err };
-                };
+                return ({
+                    @:assignTranslate final __tmp__ = _wt.writeTo(_dst);
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
             };
         };
         {
@@ -23,12 +21,10 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._inter
                 { _0 : (null : stdgo._internal.io.Io_readerfrom.ReaderFrom), _1 : false };
             }, _rt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return {
-                    final __tmp__ = _rt.readFrom(_src);
-                    _written = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _written, _1 : _err };
-                };
+                return ({
+                    @:assignTranslate final __tmp__ = _rt.readFrom(_src);
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
             };
         };
         if (_buf == null) {
@@ -77,7 +73,7 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_writer.Writer, _src:stdgo._inter
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _written, _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _written, _1 : _err };
             _written = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

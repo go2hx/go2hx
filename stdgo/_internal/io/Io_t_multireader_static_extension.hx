@@ -31,7 +31,7 @@ package stdgo._internal.io;
             if (_err != null) {
                 (@:checkr _mr ?? throw "null pointer dereference")._readers = ((@:checkr _mr ?? throw "null pointer dereference")._readers.__slice__(_i) : stdgo.Slice<stdgo._internal.io.Io_reader.Reader>);
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : _err };
                     _sum = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -41,7 +41,7 @@ package stdgo._internal.io;
         };
         (@:checkr _mr ?? throw "null pointer dereference")._readers = (null : stdgo.Slice<stdgo._internal.io.Io_reader.Reader>);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : (null : stdgo.Error) };
             _sum = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -52,12 +52,10 @@ package stdgo._internal.io;
     static public function writeTo( _mr:stdgo.Ref<stdgo._internal.io.Io_t_multireader.T_multiReader>, _w:stdgo._internal.io.Io_writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _mr:stdgo.Ref<stdgo._internal.io.Io_t_multireader.T_multiReader> = _mr;
         var _sum = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
-        return {
-            final __tmp__ = @:check2r _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
-            _sum = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _sum, _1 : _err };
-        };
+        return ({
+            @:assignTranslate final __tmp__ = @:check2r _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
+            { _0 : __tmp__._0, _1 : __tmp__._1 };
+        });
     }
     @:keep
     @:tdfield
@@ -95,7 +93,7 @@ package stdgo._internal.io;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

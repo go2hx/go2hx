@@ -8,7 +8,7 @@ function _implementsInterface(_typ:stdgo._internal.reflect.Reflect_type_.Type_, 
         while (true) {
             if (_rt.implements_(_gobEncDecType)) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : true, _1 : _indir };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : true, _1 : _indir };
                     _success = __tmp__._0;
                     _indir = __tmp__._1;
                     __tmp__;
@@ -20,7 +20,7 @@ function _implementsInterface(_typ:stdgo._internal.reflect.Reflect_type_.Type_, 
                     _indir++;
                     if ((_indir > (100 : stdgo.GoInt8) : Bool)) {
                         return {
-                            final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : false, _1 : (0 : stdgo.GoInt8) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : false, _1 : (0 : stdgo.GoInt8) };
                             _success = __tmp__._0;
                             _indir = __tmp__._1;
                             __tmp__;
@@ -35,7 +35,7 @@ function _implementsInterface(_typ:stdgo._internal.reflect.Reflect_type_.Type_, 
         if (_typ.kind() != ((22u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
             if (stdgo._internal.reflect.Reflect_pointerto.pointerTo(_typ).implements_(_gobEncDecType)) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : true, _1 : (-1 : stdgo.GoInt8) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : true, _1 : (-1 : stdgo.GoInt8) };
                     _success = __tmp__._0;
                     _indir = __tmp__._1;
                     __tmp__;
@@ -43,7 +43,7 @@ function _implementsInterface(_typ:stdgo._internal.reflect.Reflect_type_.Type_, 
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : false, _1 : (0 : stdgo.GoInt8) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.GoInt8; } = { _0 : false, _1 : (0 : stdgo.GoInt8) };
             _success = __tmp__._0;
             _indir = __tmp__._1;
             __tmp__;

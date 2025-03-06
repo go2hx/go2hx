@@ -10,7 +10,7 @@ function _scanSign(_r:stdgo._internal.io.Io_bytescanner.ByteScanner):{ var _0 : 
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : _err };
                     _neg = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

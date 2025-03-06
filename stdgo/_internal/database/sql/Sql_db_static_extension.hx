@@ -54,7 +54,7 @@ package stdgo._internal.database.sql;
         if (_err != null) {
             _release(_err);
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                 _tx = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -64,7 +64,7 @@ package stdgo._internal.database.sql;
         _tx = (stdgo.Go.setRef(({ _db : _db, _dc : _dc, _releaseConn : _release, _txi : _txi, _cancel : _cancel, _keepConnOnRollback : _keepConnOnRollback, _ctx : _ctx } : stdgo._internal.database.sql.Sql_tx.Tx)) : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>);
         stdgo.Go.routine(() -> @:check2r _tx._awaitDone());
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : _tx, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : _tx, _1 : (null : stdgo.Error) };
             _tx = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -78,18 +78,16 @@ package stdgo._internal.database.sql;
         var __tmp__ = @:check2r _db._conn(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverconn.T_driverConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                 _tx = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        return {
-            final __tmp__ = @:check2r _db._beginDC(_ctx, _dc, @:check2r _dc._releaseConn, _opts);
-            _tx = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _tx, _1 : _err };
-        };
+        return ({
+            @:assignTranslate final __tmp__ = @:check2r _db._beginDC(_ctx, _dc, @:check2r _dc._releaseConn, _opts);
+            { _0 : __tmp__._0, _1 : __tmp__._1 };
+        });
     }
     @:keep
     @:tdfield
@@ -290,7 +288,7 @@ package stdgo._internal.database.sql;
                     if (_err != null) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
                                 _res = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -305,7 +303,7 @@ package stdgo._internal.database.sql;
                     };
                     {
                         final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((new stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult(stdgo.Go.asInterface(_dc), _resi) : stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult)), _1 : (null : stdgo.Error) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((new stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult(stdgo.Go.asInterface(_dc), _resi) : stdgo._internal.database.sql.Sql_t_driverresult.T_driverResult)), _1 : (null : stdgo.Error) };
                             _res = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -330,7 +328,7 @@ package stdgo._internal.database.sql;
             if (_err != null) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_result.Result), _1 : _err };
                         _res = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -349,12 +347,10 @@ package stdgo._internal.database.sql;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = {
-                    final __tmp__ = stdgo._internal.database.sql.Sql__resultfromstatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
-                    _res = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _res, _1 : _err };
-                };
+                final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_result.Result; var _1 : stdgo.Error; } = ({
+                    @:assignTranslate final __tmp__ = stdgo._internal.database.sql.Sql__resultfromstatement._resultFromStatement(_ctx, (@:checkr _dc ?? throw "null pointer dereference")._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

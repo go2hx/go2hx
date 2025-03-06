@@ -13,7 +13,7 @@ var _j = __1, _i = __0;
         if ((_i > _j : Bool)) {
             _data.swap(_j, _a);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _j, _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _j, _1 : true };
                 _newpivot = __tmp__._0;
                 _alreadyPartitioned = __tmp__._1;
                 __tmp__;
@@ -38,7 +38,7 @@ var _j = __1, _i = __0;
         };
         _data.swap(_j, _a);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _j, _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _j, _1 : false };
             _newpivot = __tmp__._0;
             _alreadyPartitioned = __tmp__._1;
             __tmp__;

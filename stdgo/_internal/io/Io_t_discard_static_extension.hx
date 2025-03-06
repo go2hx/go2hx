@@ -18,7 +18,7 @@ package stdgo._internal.io;
                 @:check2 stdgo._internal.io.Io__blackholepool._blackHolePool.put(stdgo.Go.toInterface(_bufp));
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;

@@ -43,13 +43,6 @@ package stdgo._internal.image;
     static public function rGBA( _c:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.image.Image_uniform.Uniform> = _c;
         var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-        return {
-            final __tmp__ = (@:checkr _c ?? throw "null pointer dereference").c.rGBA();
-            _r = __tmp__._0;
-            _g = __tmp__._1;
-            _b = __tmp__._2;
-            _a = __tmp__._3;
-            { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
-        };
+        return (@:checkr _c ?? throw "null pointer dereference").c.rGBA();
     }
 }

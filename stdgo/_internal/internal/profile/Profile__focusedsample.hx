@@ -23,7 +23,7 @@ function _focusedSample(_s:stdgo.Ref<stdgo._internal.internal.profile.Profile_sa
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _fm, _1 : _im };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _fm, _1 : _im };
             _fm = __tmp__._0;
             _im = __tmp__._1;
             __tmp__;

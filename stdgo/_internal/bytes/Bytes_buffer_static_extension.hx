@@ -7,7 +7,7 @@ package stdgo._internal.bytes;
         var _line = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         var __tmp__ = @:check2r _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (_slice : stdgo.GoString)?.__copy__(), _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (_slice : stdgo.GoString)?.__copy__(), _1 : _err };
             _line = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -28,7 +28,7 @@ package stdgo._internal.bytes;
         (@:checkr _b ?? throw "null pointer dereference")._off = _end;
         (@:checkr _b ?? throw "null pointer dereference")._lastRead = (-1 : stdgo._internal.bytes.Bytes_t_readop.T_readOp);
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
             _line = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -42,7 +42,7 @@ package stdgo._internal.bytes;
         var __tmp__ = @:check2r _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _line = (_line.__append__(...(_slice : Array<stdgo.GoUInt8>)));
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
             _line = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -82,7 +82,7 @@ package stdgo._internal.bytes;
         if (@:check2r _b._empty()) {
             @:check2r _b.reset();
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eOF };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 _err = __tmp__._2;
@@ -94,7 +94,7 @@ package stdgo._internal.bytes;
             (@:checkr _b ?? throw "null pointer dereference")._off++;
             (@:checkr _b ?? throw "null pointer dereference")._lastRead = (1 : stdgo._internal.bytes.Bytes_t_readop.T_readOp);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 _err = __tmp__._2;
@@ -105,7 +105,7 @@ package stdgo._internal.bytes;
         (@:checkr _b ?? throw "null pointer dereference")._off = ((@:checkr _b ?? throw "null pointer dereference")._off + (_n) : stdgo.GoInt);
         (@:checkr _b ?? throw "null pointer dereference")._lastRead = (_n : stdgo._internal.bytes.Bytes_t_readop.T_readOp);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _r, _1 : _n, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _r, _1 : _n, _2 : (null : stdgo.Error) };
             _r = __tmp__._0;
             _size = __tmp__._1;
             _err = __tmp__._2;
@@ -151,14 +151,14 @@ package stdgo._internal.bytes;
             @:check2r _b.reset();
             if ((_p.length) == ((0 : stdgo.GoInt))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -170,7 +170,7 @@ package stdgo._internal.bytes;
             (@:checkr _b ?? throw "null pointer dereference")._lastRead = (-1 : stdgo._internal.bytes.Bytes_t_readop.T_readOp);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -184,7 +184,7 @@ package stdgo._internal.bytes;
         if (((_r : stdgo.GoUInt32) < (128u32 : stdgo.GoUInt32) : Bool)) {
             @:check2r _b.writeByte((_r : stdgo.GoUInt8));
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -197,7 +197,7 @@ package stdgo._internal.bytes;
         };
         (@:checkr _b ?? throw "null pointer dereference")._buf = stdgo._internal.unicode.utf8.Utf8_appendrune.appendRune(((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>), _r);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (((@:checkr _b ?? throw "null pointer dereference")._buf.length) - _m : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (((@:checkr _b ?? throw "null pointer dereference")._buf.length) - _m : stdgo.GoInt), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -232,7 +232,7 @@ package stdgo._internal.bytes;
                 _n = (_m : stdgo.GoInt64);
                 if (_e != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -240,7 +240,7 @@ package stdgo._internal.bytes;
                 };
                 if (_m != (_nBytes)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errshortwrite.errShortWrite };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errshortwrite.errShortWrite };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -250,7 +250,7 @@ package stdgo._internal.bytes;
         };
         @:check2r _b.reset();
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -273,7 +273,7 @@ package stdgo._internal.bytes;
             _n = (_n + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
             if (stdgo.Go.toInterface(_e) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -281,7 +281,7 @@ package stdgo._internal.bytes;
             };
             if (_e != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -300,7 +300,7 @@ package stdgo._internal.bytes;
             _m = @:check2r _b._grow((_s.length));
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -317,7 +317,7 @@ package stdgo._internal.bytes;
             _m = @:check2r _b._grow((_p.length));
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : ((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

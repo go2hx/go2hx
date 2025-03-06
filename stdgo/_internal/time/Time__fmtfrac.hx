@@ -21,7 +21,7 @@ _v = (_v / ((10i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _buf[(_w : stdgo.GoInt)] = (46 : stdgo.GoUInt8);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoUInt64; } = { _0 : _w, _1 : _v };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoUInt64; } = { _0 : _w, _1 : _v };
             _nw = __tmp__._0;
             _nv = __tmp__._1;
             __tmp__;

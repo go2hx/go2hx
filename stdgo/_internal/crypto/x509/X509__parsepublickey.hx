@@ -53,7 +53,10 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_t_p
             if ((_params.fullBytes.length) != ((0 : stdgo.GoInt))) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: X25519 key encoded with illegal parameters" : stdgo.GoString)) };
             };
-            return stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519().newPublicKey(_der);
+            return ({
+                @:assignTranslate final __tmp__ = stdgo._internal.crypto.ecdh.Ecdh_x25519.x25519().newPublicKey(_der);
+                { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(__tmp__._0)), _1 : __tmp__._1 };
+            });
         } else if (_oid.equal(stdgo._internal.crypto.x509.X509__oidpublickeydsa._oidPublicKeyDSA)) {
             var _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
             if (!@:check2 _der.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_y)))) {

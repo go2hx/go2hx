@@ -8,7 +8,7 @@ package stdgo._internal.image.color;
         _a = (_c.a : stdgo.GoUInt32);
         _a = (_a | ((_a << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = { _0 : _a, _1 : _a, _2 : _a, _3 : _a };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = { _0 : _a, _1 : _a, _2 : _a, _3 : _a };
             _r = __tmp__._0;
             _g = __tmp__._1;
             _b = __tmp__._2;

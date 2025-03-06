@@ -55,7 +55,7 @@ package stdgo._internal.io;
                             (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
                             {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._writeCloseError() };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._writeCloseError() };
                                     _n = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -99,7 +99,7 @@ package stdgo._internal.io;
                                     {
                                         {
                                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _p._writeCloseError() };
+                                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _p._writeCloseError() };
                                                 _n = __tmp__._0;
                                                 _err = __tmp__._1;
                                                 __tmp__;
@@ -123,7 +123,7 @@ package stdgo._internal.io;
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -216,7 +216,7 @@ package stdgo._internal.io;
                         (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
                         {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
                                 _n = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -243,7 +243,7 @@ package stdgo._internal.io;
                                 var _nr = (_b.__copyTo__(_bw) : stdgo.GoInt);
                                 (@:checkr _p ?? throw "null pointer dereference")._rdCh.__send__(_nr);
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nr, _1 : (null : stdgo.Error) };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nr, _1 : (null : stdgo.Error) };
                                     _n = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -256,7 +256,7 @@ package stdgo._internal.io;
                             (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
                             {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
                                     _n = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;

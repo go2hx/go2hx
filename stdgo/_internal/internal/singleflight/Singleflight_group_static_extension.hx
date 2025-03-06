@@ -165,7 +165,7 @@ package stdgo._internal.internal.singleflight;
                 @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();
                 @:check2 (@:checkr _c ?? throw "null pointer dereference")._wg.wait_();
                 return {
-                    final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : (@:checkr _c ?? throw "null pointer dereference")._val, _1 : (@:checkr _c ?? throw "null pointer dereference")._err, _2 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : (@:checkr _c ?? throw "null pointer dereference")._val, _1 : (@:checkr _c ?? throw "null pointer dereference")._err, _2 : true };
                     _v = __tmp__._0;
                     _err = __tmp__._1;
                     _shared = __tmp__._2;
@@ -179,7 +179,7 @@ package stdgo._internal.internal.singleflight;
         @:check2 (@:checkr _g ?? throw "null pointer dereference")._mu.unlock();
         @:check2r _g._doCall(_c, _key?.__copy__(), _fn);
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : (@:checkr _c ?? throw "null pointer dereference")._val, _1 : (@:checkr _c ?? throw "null pointer dereference")._err, _2 : ((@:checkr _c ?? throw "null pointer dereference")._dups > (0 : stdgo.GoInt) : Bool) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : (@:checkr _c ?? throw "null pointer dereference")._val, _1 : (@:checkr _c ?? throw "null pointer dereference")._err, _2 : ((@:checkr _c ?? throw "null pointer dereference")._dups > (0 : stdgo.GoInt) : Bool) };
             _v = __tmp__._0;
             _err = __tmp__._1;
             _shared = __tmp__._2;

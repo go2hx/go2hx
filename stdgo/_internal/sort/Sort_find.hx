@@ -12,7 +12,7 @@ var _j = __1, _i = __0;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
             _i = __tmp__._0;
             _found = __tmp__._1;
             __tmp__;

@@ -35,7 +35,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
                         _val = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -50,7 +50,7 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_value.Value, _args:stdgo
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
                     _val = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

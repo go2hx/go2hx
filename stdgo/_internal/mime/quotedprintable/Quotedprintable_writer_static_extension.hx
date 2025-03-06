@@ -136,7 +136,7 @@ package stdgo._internal.mime.quotedprintable;
                     var _err = (@:check2r _w._write((_p.__slice__(_n, _i) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                     if (_err != null) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                             _n = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -149,7 +149,7 @@ package stdgo._internal.mime.quotedprintable;
                 var _err = (@:check2r _w._encode(_b) : stdgo.Error);
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -160,7 +160,7 @@ package stdgo._internal.mime.quotedprintable;
         };
         if (_n == ((_p.length))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -170,7 +170,7 @@ package stdgo._internal.mime.quotedprintable;
             var _err = (@:check2r _w._write((_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -178,7 +178,7 @@ package stdgo._internal.mime.quotedprintable;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

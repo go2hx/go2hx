@@ -13,7 +13,7 @@ package stdgo._internal.archive.zip;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _r ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _r ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _r ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -28,7 +28,7 @@ package stdgo._internal.archive.zip;
         (@:checkr _r ?? throw "null pointer dereference")._nread = ((@:checkr _r ?? throw "null pointer dereference")._nread + ((_n : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if (((@:checkr _r ?? throw "null pointer dereference")._nread > (@:checkr (@:checkr _r ?? throw "null pointer dereference")._f ?? throw "null pointer dereference").fileHeader.uncompressedSize64 : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -40,7 +40,7 @@ package stdgo._internal.archive.zip;
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
             if ((@:checkr _r ?? throw "null pointer dereference")._nread != ((@:checkr (@:checkr _r ?? throw "null pointer dereference")._f ?? throw "null pointer dereference").fileHeader.uncompressedSize64)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

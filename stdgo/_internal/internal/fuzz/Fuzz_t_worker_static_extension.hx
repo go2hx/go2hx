@@ -281,7 +281,7 @@ package stdgo._internal.internal.fuzz;
                 if (((_ctx.err() != null || (@:checkr _w ?? throw "null pointer dereference")._interrupted : Bool) || stdgo._internal.internal.fuzz.Fuzz__isinterrupterror._isInterruptError((@:checkr _w ?? throw "null pointer dereference")._waitErr) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _input._entry?.__copy__(), _crasherMsg : _input._crasherMsg?.__copy__(), _coverageData : _input._keepCoverage, _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _input._entry?.__copy__(), _crasherMsg : _input._crasherMsg?.__copy__(), _coverageData : _input._keepCoverage, _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
                             _min = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -296,7 +296,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : stdgo._internal.fmt.Fmt_sprintf.sprintf(("fuzzing process hung or terminated unexpectedly while minimizing: %v" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__(), _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : stdgo._internal.fmt.Fmt_sprintf.sprintf(("fuzzing process hung or terminated unexpectedly while minimizing: %v" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__(), _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
                         _min = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -312,7 +312,7 @@ package stdgo._internal.internal.fuzz;
             if (((_input._crasherMsg != (stdgo.Go.str() : stdgo.GoString)) && (_resp.err == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("attempted to minimize a crash but could not reproduce" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : (new stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult() : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("attempted to minimize a crash but could not reproduce" : stdgo.GoString)) };
                         _min = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -327,7 +327,7 @@ package stdgo._internal.internal.fuzz;
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult), _1 : (null : stdgo.Error) };
                     _min = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

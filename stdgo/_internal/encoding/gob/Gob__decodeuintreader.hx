@@ -9,7 +9,7 @@ function _decodeUintReader(_r:stdgo._internal.io.Io_reader.Reader, _buf:stdgo.Sl
         var _b = (_buf[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
         if ((_b <= (127 : stdgo.GoUInt8) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_b : stdgo.GoUInt64), _1 : _width, _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_b : stdgo.GoUInt64), _1 : _width, _2 : (null : stdgo.Error) };
                 _x = __tmp__._0;
                 _width = __tmp__._1;
                 _err = __tmp__._2;

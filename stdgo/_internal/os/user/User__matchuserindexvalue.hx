@@ -18,7 +18,7 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_parts[(2 : stdgo.GoInt)]?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
                         _v = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -29,7 +29,7 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_parts[(3 : stdgo.GoInt)]?.__copy__()), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
                         _v = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -42,7 +42,7 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
                 (@:checkr _u ?? throw "null pointer dereference").name = @:tmpset0 __tmp__._0?.__copy__();
             };
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_u)), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_u)), _1 : (null : stdgo.Error) };
                 _v = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

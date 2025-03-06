@@ -20,7 +20,7 @@ package stdgo._internal.hash.adler32;
         var _nn = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _d.value = stdgo._internal.hash.adler32.Adler32__update._update(_d.value, _p);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
             _nn = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

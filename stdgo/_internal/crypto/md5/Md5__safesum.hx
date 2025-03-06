@@ -22,7 +22,7 @@ function _safeSum(_h:stdgo._internal.hash.Hash_hash.Hash):{ var _0 : stdgo.Slice
             };
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
                     _sum = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

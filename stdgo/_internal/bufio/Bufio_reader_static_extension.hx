@@ -36,7 +36,7 @@ package stdgo._internal.bufio;
                 var __tmp__ = _r.writeTo(_w), _m:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _n = (_n + (_m) : stdgo.GoInt64);
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -53,7 +53,7 @@ package stdgo._internal.bufio;
                 var __tmp__ = _w.readFrom((@:checkr _b ?? throw "null pointer dereference")._rd), _m:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _n = (_n + (_m) : stdgo.GoInt64);
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -68,7 +68,7 @@ package stdgo._internal.bufio;
             _n = (_n + (_m) : stdgo.GoInt64);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -80,7 +80,7 @@ package stdgo._internal.bufio;
             (@:checkr _b ?? throw "null pointer dereference")._err = (null : stdgo.Error);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _b._readErr() };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _b._readErr() };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -138,7 +138,7 @@ package stdgo._internal.bufio;
         };
         _totalLen = (_totalLen + ((_frag.length)) : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } = { _0 : _fullBuffers, _1 : _frag, _2 : _totalLen, _3 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } = { _0 : _fullBuffers, _1 : _frag, _2 : _totalLen, _3 : _err };
             _fullBuffers = __tmp__._0;
             _finalFragment = __tmp__._1;
             _totalLen = __tmp__._2;
@@ -165,7 +165,7 @@ package stdgo._internal.bufio;
                 _line = (_line.__slice__(0, ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _line, _1 : true, _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _line, _1 : true, _2 : (null : stdgo.Error) };
                 _line = __tmp__._0;
                 _isPrefix = __tmp__._1;
                 _err = __tmp__._2;
@@ -257,7 +257,7 @@ package stdgo._internal.bufio;
         (@:checkr _b ?? throw "null pointer dereference")._lastRuneSize = (-1 : stdgo.GoInt);
         if ((@:checkr _b ?? throw "null pointer dereference")._r == ((@:checkr _b ?? throw "null pointer dereference")._w)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : @:check2r _b._readErr() };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : @:check2r _b._readErr() };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 _err = __tmp__._2;
@@ -281,7 +281,7 @@ package stdgo._internal.bufio;
         (@:checkr _b ?? throw "null pointer dereference")._lastByte = ((@:checkr _b ?? throw "null pointer dereference")._buf[((@:checkr _b ?? throw "null pointer dereference")._r - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
         (@:checkr _b ?? throw "null pointer dereference")._lastRuneSize = _size;
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _r, _1 : _size, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _r, _1 : _size, _2 : (null : stdgo.Error) };
             _r = __tmp__._0;
             _size = __tmp__._1;
             _err = __tmp__._2;
@@ -330,14 +330,14 @@ package stdgo._internal.bufio;
         if (_n == ((0 : stdgo.GoInt))) {
             if ((@:check2r _b.buffered() > (0 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -346,7 +346,7 @@ package stdgo._internal.bufio;
         if ((@:checkr _b ?? throw "null pointer dereference")._r == ((@:checkr _b ?? throw "null pointer dereference")._w)) {
             if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -366,7 +366,7 @@ package stdgo._internal.bufio;
                     (@:checkr _b ?? throw "null pointer dereference")._lastRuneSize = (-1 : stdgo.GoInt);
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _b._readErr() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : @:check2r _b._readErr() };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -384,7 +384,7 @@ package stdgo._internal.bufio;
             };
             if (_n == ((0 : stdgo.GoInt))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _b._readErr() };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -397,7 +397,7 @@ package stdgo._internal.bufio;
         (@:checkr _b ?? throw "null pointer dereference")._lastByte = ((@:checkr _b ?? throw "null pointer dereference")._buf[((@:checkr _b ?? throw "null pointer dereference")._r - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
         (@:checkr _b ?? throw "null pointer dereference")._lastRuneSize = (-1 : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -410,7 +410,7 @@ package stdgo._internal.bufio;
         var _discarded = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_n < (0 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.bufio.Bufio_errnegativecount.errNegativeCount };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.bufio.Bufio_errnegativecount.errNegativeCount };
                 _discarded = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -435,7 +435,7 @@ package stdgo._internal.bufio;
             _remain = (_remain - (_skip) : stdgo.GoInt);
             if (_remain == ((0 : stdgo.GoInt))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                     _discarded = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -443,7 +443,7 @@ package stdgo._internal.bufio;
             };
             if ((@:checkr _b ?? throw "null pointer dereference")._err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_n - _remain : stdgo.GoInt), _1 : @:check2r _b._readErr() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_n - _remain : stdgo.GoInt), _1 : @:check2r _b._readErr() };
                     _discarded = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

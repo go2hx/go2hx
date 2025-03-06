@@ -11,7 +11,7 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
                 continue;
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : false };
                 _0 = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -19,7 +19,7 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
         };
         if (_noCanon) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
                 _0 = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -40,7 +40,7 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
             var _v = ((stdgo._internal.net.textproto.Textproto__commonheader._commonHeader[(_a : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_v != ((stdgo.Go.str() : stdgo.GoString))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : true };
                     _0 = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -48,7 +48,7 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
             _0 = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

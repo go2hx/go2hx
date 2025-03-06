@@ -126,7 +126,7 @@ package stdgo._internal.archive.tar;
             if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((83 : stdgo.GoUInt8))) {
                 if (stdgo._internal.strings.Strings_hassuffix.hasSuffix(_h.name?.__copy__(), ("/" : stdgo.GoString))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("filename may not have trailing slash" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("filename may not have trailing slash" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
                         _format = __tmp__._0;
                         _paxHdrs = __tmp__._1;
                         _err = __tmp__._2;
@@ -135,7 +135,7 @@ package stdgo._internal.archive.tar;
                 };
             } else if (__value__ == ((120 : stdgo.GoUInt8)) || __value__ == ((76 : stdgo.GoUInt8)) || __value__ == ((75 : stdgo.GoUInt8))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("cannot manually encode TypeXHeader, TypeGNULongName, or TypeGNULongLink headers" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("cannot manually encode TypeXHeader, TypeGNULongName, or TypeGNULongLink headers" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
                     _format = __tmp__._0;
                     _paxHdrs = __tmp__._1;
                     _err = __tmp__._2;
@@ -145,7 +145,7 @@ package stdgo._internal.archive.tar;
                 var _h2 = ({ name : _h.name?.__copy__(), typeflag : _h.typeflag, xattrs : _h.xattrs, pAXRecords : _h.pAXRecords, format : _h.format } : stdgo._internal.archive.tar.Tar_header.Header);
                 if (!stdgo._internal.reflect.Reflect_deepequal.deepEqual(stdgo.Go.toInterface(stdgo.Go.asInterface(_h)), stdgo.Go.toInterface(stdgo.Go.asInterface(_h2)))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("only PAXRecords should be set for TypeXGlobalHeader" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("only PAXRecords should be set for TypeXGlobalHeader" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
                         _format = __tmp__._0;
                         _paxHdrs = __tmp__._1;
                         _err = __tmp__._2;
@@ -158,7 +158,7 @@ package stdgo._internal.archive.tar;
         };
         if ((!stdgo._internal.archive.tar.Tar__isheaderonlytype._isHeaderOnlyType(_h.typeflag) && (_h.size < (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("negative size on header-only type" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("negative size on header-only type" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
                 _format = __tmp__._0;
                 _paxHdrs = __tmp__._1;
                 _err = __tmp__._2;
@@ -191,7 +191,7 @@ package stdgo._internal.archive.tar;
         for (_k => _v in _paxHdrs) {
             if (!stdgo._internal.archive.tar.Tar__validpaxrecord._validPAXRecord(_k?.__copy__(), _v?.__copy__())) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid PAX record: %q" : stdgo.GoString), stdgo.Go.toInterface(((_k + (" = " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)))?.__copy__()]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid PAX record: %q" : stdgo.GoString), stdgo.Go.toInterface(((_k + (" = " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)))?.__copy__()]).__setString__() : stdgo._internal.archive.tar.Tar_t_headererror.T_headerError)) };
                     _format = __tmp__._0;
                     _paxHdrs = __tmp__._1;
                     _err = __tmp__._2;
@@ -223,7 +223,7 @@ package stdgo._internal.archive.tar;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : _format, _1 : _paxHdrs, _2 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : _format, _1 : _paxHdrs, _2 : _err };
             _format = __tmp__._0;
             _paxHdrs = __tmp__._1;
             _err = __tmp__._2;

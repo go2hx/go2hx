@@ -9,7 +9,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_type_.Type_, _rand:stdgo
             }, _m = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _m.generate(_rand, _size)?.__copy__(), _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _m.generate(_rand, _size)?.__copy__(), _1 : true };
                     _value = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -63,7 +63,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_type_.Type_, _rand:stdgo
 var __tmp__ = stdgo._internal.testing.quick.Quick__sizedvalue._sizedValue(_concrete.elem(), _rand, _size), _value:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
 if ((!_ok1 || !_ok2 : Bool)) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                                     _value = __tmp__._0;
                                     _ok = __tmp__._1;
                                     __tmp__;
@@ -80,7 +80,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                         var __tmp__ = stdgo._internal.testing.quick.Quick__sizedvalue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             return {
-                                final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                                 _value = __tmp__._0;
                                 _ok = __tmp__._1;
                                 __tmp__;
@@ -99,7 +99,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedvalue._sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                                     _value = __tmp__._0;
                                     _ok = __tmp__._1;
                                     __tmp__;
@@ -116,7 +116,7 @@ _v.index(_i).set(_elem.__copy__());
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedvalue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                                     _value = __tmp__._0;
                                     _ok = __tmp__._1;
                                     __tmp__;
@@ -151,7 +151,7 @@ _v.index(_i).set(_elem.__copy__());
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedvalue._sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                                     _value = __tmp__._0;
                                     _ok = __tmp__._1;
                                     __tmp__;
@@ -163,7 +163,7 @@ _v.field(_i).set(_elem.__copy__());
                     };
                 } else {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false };
                         _value = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
@@ -172,7 +172,7 @@ _v.field(_i).set(_elem.__copy__());
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : true };
             _value = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

@@ -23,7 +23,7 @@ package stdgo._internal.net.http.httputil;
             if (!_ok) {
                 @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock();
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errpipeline.errPipeline) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errpipeline.errPipeline) };
                     _resp = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -44,7 +44,7 @@ package stdgo._internal.net.http.httputil;
                 };
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _cc ?? throw "null pointer dereference")._re };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _cc ?? throw "null pointer dereference")._re };
                         _resp = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -64,7 +64,7 @@ package stdgo._internal.net.http.httputil;
                 };
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errclosed._errClosed };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errclosed._errClosed };
                         _resp = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -92,7 +92,7 @@ package stdgo._internal.net.http.httputil;
                     (@:checkr _cc ?? throw "null pointer dereference")._re = _err;
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                             _resp = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -120,7 +120,7 @@ package stdgo._internal.net.http.httputil;
                 (@:checkr _cc ?? throw "null pointer dereference")._re = _err;
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
                         _resp = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -139,7 +139,7 @@ package stdgo._internal.net.http.httputil;
                 (@:checkr _cc ?? throw "null pointer dereference")._re = stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errpersisteof.errPersistEOF);
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : (@:checkr _cc ?? throw "null pointer dereference")._re };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : (@:checkr _cc ?? throw "null pointer dereference")._re };
                         _resp = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -154,7 +154,7 @@ package stdgo._internal.net.http.httputil;
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
                     _resp = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

@@ -51,7 +51,7 @@ package stdgo._internal.net.url;
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_url.URL> = _u;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((@:check2r _u.string() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((@:check2r _u.string() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
             _text = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

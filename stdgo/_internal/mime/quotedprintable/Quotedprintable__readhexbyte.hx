@@ -3,7 +3,7 @@ function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; v
         var _b = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
         if (((_v.length) < (2 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
                 _b = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -18,7 +18,7 @@ function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; v
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                     _b = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -33,7 +33,7 @@ function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; v
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                     _b = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -41,7 +41,7 @@ function _readHexByte(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt8; v
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : ((_hb << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) | _lb : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : ((_hb << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) | _lb : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
             _b = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

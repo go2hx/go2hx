@@ -13,7 +13,7 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_off < (0i64 : stdgo.GoInt64) : Bool) || (_off >= ((@:checkr _s ?? throw "null pointer dereference")._limit - (@:checkr _s ?? throw "null pointer dereference")._base : stdgo.GoInt64) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -33,19 +33,14 @@ package stdgo._internal.io;
                     _err = stdgo._internal.io.Io_eof.eOF;
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
         };
-        return {
-            final __tmp__ = (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, _off);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return (@:checkr _s ?? throw "null pointer dereference")._r.readAt(_p, _off);
     }
     @:keep
     @:tdfield
@@ -76,7 +71,7 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((@:checkr _s ?? throw "null pointer dereference")._off >= (@:checkr _s ?? throw "null pointer dereference")._limit : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

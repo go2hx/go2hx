@@ -290,14 +290,14 @@ package stdgo._internal.encoding.hex;
         };
         if ((((@:checkr _d ?? throw "null pointer dereference")._in.length) < (2 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numDec, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

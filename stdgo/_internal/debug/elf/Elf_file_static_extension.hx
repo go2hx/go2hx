@@ -106,7 +106,7 @@ package stdgo._internal.debug.elf;
         };
         var _n = (stdgo.Go.setRef((@:checkr _f ?? throw "null pointer dereference")._gnuNeed[(_j : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_verneed.T_verneed>);
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (@:checkr _n ?? throw "null pointer dereference").file?.__copy__(), _1 : (@:checkr _n ?? throw "null pointer dereference").name?.__copy__() };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (@:checkr _n ?? throw "null pointer dereference").file?.__copy__(), _1 : (@:checkr _n ?? throw "null pointer dereference").name?.__copy__() };
             _library = __tmp__._0;
             _version = __tmp__._1;
             __tmp__;

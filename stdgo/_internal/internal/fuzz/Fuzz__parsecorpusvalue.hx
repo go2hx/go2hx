@@ -178,7 +178,10 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                     if (_kind != ((9 : stdgo._internal.go.token.Token_token.Token))) {
                         return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("string literal value required for type string" : stdgo.GoString)) };
                     };
-                    return stdgo._internal.strconv.Strconv_unquote.unquote(_val?.__copy__());
+                    return ({
+                        @:assignTranslate final __tmp__ = stdgo._internal.strconv.Strconv_unquote.unquote(_val?.__copy__());
+                        { _0 : stdgo.Go.toInterface(__tmp__._0), _1 : __tmp__._1 };
+                    });
                 } else if (__value__ == (("byte" : stdgo.GoString)) || __value__ == (("rune" : stdgo.GoString))) {
                     if (_kind == ((5 : stdgo._internal.go.token.Token_token.Token))) {
                         {
@@ -228,7 +231,10 @@ function _parseCorpusValue(_line:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.An
                     if (((_kind != (6 : stdgo._internal.go.token.Token_token.Token)) && (_kind != (5 : stdgo._internal.go.token.Token_token.Token)) : Bool)) {
                         return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("float or integer literal required for float64 type" : stdgo.GoString)) };
                     };
-                    return stdgo._internal.strconv.Strconv_parsefloat.parseFloat(_val?.__copy__(), (64 : stdgo.GoInt));
+                    return ({
+                        @:assignTranslate final __tmp__ = stdgo._internal.strconv.Strconv_parsefloat.parseFloat(_val?.__copy__(), (64 : stdgo.GoInt));
+                        { _0 : stdgo.Go.toInterface(__tmp__._0), _1 : __tmp__._1 };
+                    });
                 } else if (__value__ == (("float32-bits" : stdgo.GoString))) {
                     if (_kind != ((5 : stdgo._internal.go.token.Token_token.Token))) {
                         return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("integer literal required for math.Float32frombits type" : stdgo.GoString)) };

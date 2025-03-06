@@ -4,7 +4,7 @@ function decodeLastRune(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt32;
         var _end = (_p.length : stdgo.GoInt);
         if (_end == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (65533 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (65533 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt) };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 __tmp__;
@@ -14,7 +14,7 @@ function decodeLastRune(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt32;
         _r = (_p[(_start : stdgo.GoInt)] : stdgo.GoInt32);
         if ((_r < (128 : stdgo.GoInt32) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : (1 : stdgo.GoInt) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : (1 : stdgo.GoInt) };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 __tmp__;
@@ -43,14 +43,14 @@ function decodeLastRune(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt32;
         };
         if ((_start + _size : stdgo.GoInt) != (_end)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (65533 : stdgo.GoInt32), _1 : (1 : stdgo.GoInt) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : (65533 : stdgo.GoInt32), _1 : (1 : stdgo.GoInt) };
                 _r = __tmp__._0;
                 _size = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : _size };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : _size };
             _r = __tmp__._0;
             _size = __tmp__._1;
             __tmp__;

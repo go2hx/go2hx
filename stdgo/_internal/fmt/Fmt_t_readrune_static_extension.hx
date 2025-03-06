@@ -80,14 +80,14 @@ if (_err != null) {
         var __tmp__ = stdgo._internal.io.Io_readfull.readFull((@:checkr _r ?? throw "null pointer dereference")._reader, ((@:checkr _r ?? throw "null pointer dereference")._pendBuf.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_n != ((1 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                 _b = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._pendBuf[(0 : stdgo.GoInt)], _1 : _err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._pendBuf[(0 : stdgo.GoInt)], _1 : _err };
             _b = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

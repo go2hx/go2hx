@@ -1,13 +1,13 @@
 package stdgo._internal.crypto.aes;
 function testExpandKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _j_6:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _v_5:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _j_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _dec_3:stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
         var _enc_2:stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
         var _tt_1:stdgo._internal.crypto.aes.Aes_keytest.KeyTest = ({} : stdgo._internal.crypto.aes.Aes_keytest.KeyTest);
         var _i_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _v_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _j_6:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _v_5:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _j_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _dec_3:stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

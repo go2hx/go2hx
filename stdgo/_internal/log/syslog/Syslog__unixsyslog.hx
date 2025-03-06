@@ -8,7 +8,7 @@ function _unixSyslog():{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn
                 var __tmp__ = stdgo._internal.net.Net_dial.dial(_network?.__copy__(), _path?.__copy__()), _conn:stdgo._internal.net.Net_conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ _conn : _conn, _local : true } : stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn>)), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ _conn : _conn, _local : true } : stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_t_netconn.T_netConn>)), _1 : (null : stdgo.Error) };
                         _conn = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -17,7 +17,7 @@ function _unixSyslog():{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn), _1 : stdgo._internal.errors.Errors_new_.new_(("Unix syslog delivery error" : stdgo.GoString)) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.log.syslog.Syslog_t_serverconn.T_serverConn), _1 : stdgo._internal.errors.Errors_new_.new_(("Unix syslog delivery error" : stdgo.GoString)) };
             _conn = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

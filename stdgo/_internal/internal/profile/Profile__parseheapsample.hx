@@ -4,7 +4,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
         var _sampleData = @:check2r stdgo._internal.internal.profile.Profile__heapsamplere._heapSampleRE.findStringSubmatch(_line?.__copy__());
         if ((_sampleData.length) != ((6 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("unexpected number of sample values: got %d, want 6" : stdgo.GoString), stdgo.Go.toInterface((_sampleData.length))) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("unexpected number of sample values: got %d, want 6" : stdgo.GoString), stdgo.Go.toInterface((_sampleData.length))) };
                 _value = __tmp__._0;
                 _blocksize = __tmp__._1;
                 _addrs = __tmp__._2;
@@ -25,7 +25,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed sample: %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed sample: %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err)) };
                     _value = __tmp__._0;
                     _blocksize = __tmp__._1;
                     _addrs = __tmp__._2;
@@ -42,7 +42,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed sample: %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("malformed sample: %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_err)) };
                     _value = __tmp__._0;
                     _blocksize = __tmp__._1;
                     _addrs = __tmp__._2;
@@ -54,7 +54,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
         if (_v1 == ((0i64 : stdgo.GoInt64))) {
             if (_v2 != ((0i64 : stdgo.GoInt64))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("allocation count was 0 but allocation bytes was %d" : stdgo.GoString), stdgo.Go.toInterface(_v2)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : stdgo._internal.fmt.Fmt_errorf.errorf(("allocation count was 0 but allocation bytes was %d" : stdgo.GoString), stdgo.Go.toInterface(_v2)) };
                     _value = __tmp__._0;
                     _blocksize = __tmp__._1;
                     _addrs = __tmp__._2;
@@ -75,7 +75,7 @@ function _parseHeapSample(_line:stdgo.GoString, _rate:stdgo.GoInt64, _sampling:s
         _value = (new stdgo.Slice<stdgo.GoInt64>(2, 2, ...[_v1, _v2]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
         _addrs = stdgo._internal.internal.profile.Profile__parsehexaddresses._parseHexAddresses(_sampleData[(5 : stdgo.GoInt)]?.__copy__());
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoInt64>; var _1 : stdgo.GoInt64; var _2 : stdgo.Slice<stdgo.GoUInt64>; var _3 : stdgo.Error; } = { _0 : _value, _1 : _blocksize, _2 : _addrs, _3 : (null : stdgo.Error) };
             _value = __tmp__._0;
             _blocksize = __tmp__._1;
             _addrs = __tmp__._2;

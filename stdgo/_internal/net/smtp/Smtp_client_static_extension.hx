@@ -210,7 +210,7 @@ package stdgo._internal.net.smtp;
             return { _0 : _state, _1 : _ok };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState; var _1 : Bool; } = { _0 : @:check2r _tc.connectionState()?.__copy__(), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.crypto.tls.Tls_connectionstate.ConnectionState; var _1 : Bool; } = { _0 : @:check2r _tc.connectionState()?.__copy__(), _1 : true };
             _state = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

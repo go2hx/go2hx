@@ -302,7 +302,7 @@ package stdgo._internal.text.template.parse;
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.text.template.parse.Parse_pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.text.template.parse.Parse_pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; } = { _0 : (@:checkr _pipe ?? throw "null pointer dereference").position(), _1 : (@:checkr _pipe ?? throw "null pointer dereference").line, _2 : _pipe, _3 : _list, _4 : _elseList };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.text.template.parse.Parse_pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; } = { _0 : (@:checkr _pipe ?? throw "null pointer dereference").position(), _1 : (@:checkr _pipe ?? throw "null pointer dereference").line, _2 : _pipe, _3 : _list, _4 : _elseList };
                     _pos = __tmp__._0;
                     _line = __tmp__._1;
                     _pipe = __tmp__._2;
@@ -699,7 +699,7 @@ package stdgo._internal.text.template.parse;
                 final __value__ = _n.type();
                 if (__value__ == ((7 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType)) || __value__ == ((6 : stdgo._internal.text.template.parse.Parse_nodetype.NodeType))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; var _1 : stdgo._internal.text.template.parse.Parse_node.Node; } = { _0 : _list, _1 : _n };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>; var _1 : stdgo._internal.text.template.parse.Parse_node.Node; } = { _0 : _list, _1 : _n };
                         _list = __tmp__._0;
                         _next = __tmp__._1;
                         __tmp__;
@@ -806,7 +806,7 @@ package stdgo._internal.text.template.parse;
             @:check2r _t._stopParse();
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>; var _1 : stdgo.Error; } = { _0 : _t, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>; var _1 : stdgo.Error; } = { _0 : _t, _1 : (null : stdgo.Error) };
                     _tree = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -994,7 +994,7 @@ package stdgo._internal.text.template.parse;
         var _lineNum = ((1 : stdgo.GoInt) + stdgo._internal.strings.Strings_count.count(_text?.__copy__(), ("\n" : stdgo.GoString)) : stdgo.GoInt);
         _context = (_n.string() : stdgo.GoString)?.__copy__();
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%d:%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _tree ?? throw "null pointer dereference").parseName), stdgo.Go.toInterface(_lineNum), stdgo.Go.toInterface(_byteNum))?.__copy__(), _1 : _context?.__copy__() };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%d:%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _tree ?? throw "null pointer dereference").parseName), stdgo.Go.toInterface(_lineNum), stdgo.Go.toInterface(_byteNum))?.__copy__(), _1 : _context?.__copy__() };
             _location = __tmp__._0;
             _context = __tmp__._1;
             __tmp__;

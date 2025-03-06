@@ -4,7 +4,7 @@ function _indirect(_v:stdgo._internal.reflect.Reflect_value.Value):{ var _0 : st
         while (((_v.kind() == (22u32 : stdgo._internal.reflect.Reflect_kind.Kind)) || (_v.kind() == (20u32 : stdgo._internal.reflect.Reflect_kind.Kind)) : Bool)) {
             if (_v.isNil()) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v.__copy__(), _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v.__copy__(), _1 : true };
                     _rv = __tmp__._0;
                     _isNil = __tmp__._1;
                     __tmp__;
@@ -13,7 +13,7 @@ function _indirect(_v:stdgo._internal.reflect.Reflect_value.Value):{ var _0 : st
             _v = _v.elem()?.__copy__();
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : false };
             _rv = __tmp__._0;
             _isNil = __tmp__._1;
             __tmp__;

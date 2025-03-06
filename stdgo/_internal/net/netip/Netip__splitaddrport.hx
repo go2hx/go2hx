@@ -4,7 +4,7 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         var _i = (stdgo._internal.net.netip.Netip__stringslastindexbyte._stringsLastIndexByte(_s?.__copy__(), (58 : stdgo.GoUInt8)) : stdgo.GoInt);
         if (_i == ((-1 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("not an ip:port" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("not an ip:port" : stdgo.GoString)) };
                 _ip = __tmp__._0;
                 _port = __tmp__._1;
                 _v6 = __tmp__._2;
@@ -20,7 +20,7 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         };
         if ((_ip.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("no IP" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("no IP" : stdgo.GoString)) };
                 _ip = __tmp__._0;
                 _port = __tmp__._1;
                 _v6 = __tmp__._2;
@@ -30,7 +30,7 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         };
         if ((_port.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("no port" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("no port" : stdgo.GoString)) };
                 _ip = __tmp__._0;
                 _port = __tmp__._1;
                 _v6 = __tmp__._2;
@@ -41,7 +41,7 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         if (_ip[(0 : stdgo.GoInt)] == ((91 : stdgo.GoUInt8))) {
             if ((((_ip.length) < (2 : stdgo.GoInt) : Bool) || (_ip[((_ip.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] != (93 : stdgo.GoUInt8)) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("missing ]" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false, _3 : stdgo._internal.errors.Errors_new_.new_(("missing ]" : stdgo.GoString)) };
                     _ip = __tmp__._0;
                     _port = __tmp__._1;
                     _v6 = __tmp__._2;
@@ -53,7 +53,7 @@ function _splitAddrPort(_s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             _v6 = true;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _ip?.__copy__(), _1 : _port?.__copy__(), _2 : _v6, _3 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _ip?.__copy__(), _1 : _port?.__copy__(), _2 : _v6, _3 : (null : stdgo.Error) };
             _ip = __tmp__._0;
             _port = __tmp__._1;
             _v6 = __tmp__._2;

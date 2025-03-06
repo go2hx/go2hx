@@ -170,7 +170,7 @@ package stdgo._internal.mime.multipart;
                 if (_err != null) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                             _0 = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -186,7 +186,7 @@ package stdgo._internal.mime.multipart;
                 if ((_maxParts <= (0 : stdgo.GoInt) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
                             _0 = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -211,7 +211,7 @@ package stdgo._internal.mime.multipart;
                 if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
                             _0 = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -230,7 +230,7 @@ package stdgo._internal.mime.multipart;
                     if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF)) : Bool)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -247,7 +247,7 @@ package stdgo._internal.mime.multipart;
                     if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -270,7 +270,7 @@ package stdgo._internal.mime.multipart;
                 if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errmessagetoolarge.errMessageTooLarge };
                             _0 = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -291,7 +291,7 @@ package stdgo._internal.mime.multipart;
                 if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF)) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                             _0 = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -314,7 +314,7 @@ package stdgo._internal.mime.multipart;
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                     _0 = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -334,7 +334,7 @@ package stdgo._internal.mime.multipart;
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                     _0 = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -356,7 +356,7 @@ package stdgo._internal.mime.multipart;
                     if (_err != null) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                 _0 = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -379,7 +379,7 @@ package stdgo._internal.mime.multipart;
                             if (_err != null) {
                                 {
                                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                                         _0 = __tmp__._0;
                                         _err = __tmp__._1;
                                         __tmp__;
@@ -405,7 +405,7 @@ package stdgo._internal.mime.multipart;
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : _form, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_form.Form>; var _1 : stdgo.Error; } = { _0 : _form, _1 : (null : stdgo.Error) };
                     _0 = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

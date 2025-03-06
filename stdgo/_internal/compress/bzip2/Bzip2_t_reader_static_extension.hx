@@ -290,7 +290,7 @@ _bufIndex++;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _bz2 ?? throw "null pointer dereference")._eof) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -304,7 +304,7 @@ _bufIndex++;
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

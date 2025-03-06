@@ -8,18 +8,13 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
                 { _0 : (null : stdgo._internal.crypto.elliptic.Elliptic_t_unmarshaler.T_unmarshaler), _1 : false };
             }, _c = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return {
-                    final __tmp__ = _c.unmarshalCompressed(_data);
-                    _x = __tmp__._0;
-                    _y = __tmp__._1;
-                    { _0 : _x, _1 : _y };
-                };
+                return _c.unmarshalCompressed(_data);
             };
         };
         var _byteLen = (((_curve.params().bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         if ((_data.length) != (((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
                 _y = __tmp__._1;
                 __tmp__;
@@ -27,7 +22,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
         };
         if (((_data[(0 : stdgo.GoInt)] != (2 : stdgo.GoUInt8)) && (_data[(0 : stdgo.GoInt)] != (3 : stdgo.GoUInt8)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
                 _y = __tmp__._1;
                 __tmp__;
@@ -37,7 +32,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
         _x = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         if ((@:check2r _x.cmp(_p) >= (0 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
                 _y = __tmp__._1;
                 __tmp__;
@@ -47,7 +42,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
         _y = @:check2r _y.modSqrt(_y, _p);
         if ((_y == null || (_y : Dynamic).__nil__)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
                 _y = __tmp__._1;
                 __tmp__;
@@ -58,7 +53,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
         };
         if (!_curve.isOnCurve(_x, _y)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;
                 _y = __tmp__._1;
                 __tmp__;

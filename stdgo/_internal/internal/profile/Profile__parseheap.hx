@@ -5,7 +5,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
         var __tmp__ = @:check2r _r.readString((10 : stdgo.GoUInt8)), _l:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
                 _p = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -26,7 +26,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         };
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
                                 _p = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -59,7 +59,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         };
                     } else {
                         return {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
                             _p = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -76,7 +76,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
                         _p = (stdgo.Go.setRef(({ sampleType : (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>>(2, 2, ...[({ type : ("objects" : stdgo.GoString), unit : ("count" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_valuetype_.ValueType_), ({ type : ("space" : stdgo.GoString), unit : ("bytes" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_valuetype_.ValueType_)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>>), periodType : (stdgo.Go.setRef(({ type : ("allocations" : stdgo.GoString), unit : ("count" : stdgo.GoString) } : stdgo._internal.internal.profile.Profile_valuetype_.ValueType_)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>), period : (1i64 : stdgo.GoInt64) } : stdgo._internal.internal.profile.Profile_profile.Profile)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>);
                     } else {
                         return {
-                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.internal.profile.Profile__errunrecognized._errUnrecognized };
                             _p = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -109,7 +109,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
             if (_err != null) {
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                         _p = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -129,7 +129,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
             var __tmp__ = stdgo._internal.internal.profile.Profile__parseheapsample._parseHeapSample(_l?.__copy__(), (@:checkr _p ?? throw "null pointer dereference").period, _sampling?.__copy__()), _value:stdgo.Slice<stdgo.GoInt64> = __tmp__._0, _blocksize:stdgo.GoInt64 = __tmp__._1, _addrs:stdgo.Slice<stdgo.GoUInt64> = __tmp__._2, _err:stdgo.Error = __tmp__._3;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     _p = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -157,7 +157,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
             _err = stdgo._internal.internal.profile.Profile__parseadditionalsections._parseAdditionalSections(_l?.__copy__(), _r, _p);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
                     _p = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -165,7 +165,7 @@ function _parseHeap(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._i
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : _p, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>; var _1 : stdgo.Error; } = { _0 : _p, _1 : (null : stdgo.Error) };
             _p = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

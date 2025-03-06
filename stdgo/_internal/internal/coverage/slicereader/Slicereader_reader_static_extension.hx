@@ -70,7 +70,7 @@ package stdgo._internal.internal.coverage.slicereader;
             if (__value__ == ((0 : stdgo.GoInt))) {
                 if (((_offset < (0i64 : stdgo.GoInt64) : Bool) || (_offset > ((@:checkr _r ?? throw "null pointer dereference")._b.length : stdgo.GoInt64) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_offset), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
                         _ret = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -78,7 +78,7 @@ package stdgo._internal.internal.coverage.slicereader;
                 };
                 (@:checkr _r ?? throw "null pointer dereference")._off = _offset;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _offset, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _offset, _1 : (null : stdgo.Error) };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -87,7 +87,7 @@ package stdgo._internal.internal.coverage.slicereader;
                 var _newoff = ((@:checkr _r ?? throw "null pointer dereference")._off + _offset : stdgo.GoInt64);
                 if (((_newoff < (0i64 : stdgo.GoInt64) : Bool) || (_newoff > ((@:checkr _r ?? throw "null pointer dereference")._b.length : stdgo.GoInt64) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_newoff), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_newoff), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
                         _ret = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -95,7 +95,7 @@ package stdgo._internal.internal.coverage.slicereader;
                 };
                 (@:checkr _r ?? throw "null pointer dereference")._off = _newoff;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._off, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._off, _1 : (null : stdgo.Error) };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -104,7 +104,7 @@ package stdgo._internal.internal.coverage.slicereader;
                 var _newoff = (((@:checkr _r ?? throw "null pointer dereference")._b.length : stdgo.GoInt64) + _offset : stdgo.GoInt64);
                 if (((_newoff < (0i64 : stdgo.GoInt64) : Bool) || (_newoff > ((@:checkr _r ?? throw "null pointer dereference")._b.length : stdgo.GoInt64) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_newoff), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid seek: new offset %d (out of range [0 %d]" : stdgo.GoString), stdgo.Go.toInterface(_newoff), stdgo.Go.toInterface(((@:checkr _r ?? throw "null pointer dereference")._b.length))) };
                         _ret = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -112,7 +112,7 @@ package stdgo._internal.internal.coverage.slicereader;
                 };
                 (@:checkr _r ?? throw "null pointer dereference")._off = _newoff;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._off, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (@:checkr _r ?? throw "null pointer dereference")._off, _1 : (null : stdgo.Error) };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -120,7 +120,7 @@ package stdgo._internal.internal.coverage.slicereader;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported seek mode %d" : stdgo.GoString), stdgo.Go.toInterface(_whence)) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported seek mode %d" : stdgo.GoString), stdgo.Go.toInterface(_whence)) };
             _ret = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

@@ -20,7 +20,7 @@ package stdgo._internal.internal.fuzz;
         } : () -> Bool);
         if (_shouldStop()) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                 _success = __tmp__._0;
                 _retErr = __tmp__._1;
                 __tmp__;
@@ -34,7 +34,7 @@ package stdgo._internal.internal.fuzz;
         if (_keepCoverage != null) {
             if ((!stdgo._internal.internal.fuzz.Fuzz__hascoveragebit._hasCoverageBit(_keepCoverage, stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot) || (_retErr != null) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                     _success = __tmp__._0;
                     _retErr = __tmp__._1;
                     __tmp__;
@@ -42,7 +42,7 @@ package stdgo._internal.internal.fuzz;
             };
         } else if (_retErr == null) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                 _success = __tmp__._0;
                 _retErr = __tmp__._1;
                 __tmp__;
@@ -93,7 +93,7 @@ package stdgo._internal.internal.fuzz;
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : true, _1 : _retErr };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : true, _1 : _retErr };
             _success = __tmp__._0;
             _retErr = __tmp__._1;
             __tmp__;
@@ -311,7 +311,7 @@ package stdgo._internal.internal.fuzz;
                         _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
                         _dur = __tmp__._0;
                         _cov = __tmp__._1;
                         _errMsg = __tmp__._2;
@@ -320,7 +320,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 if ((((@:checkr _ws ?? throw "null pointer dereference")._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countnewcoveragebits._countNewCoverageBits((@:checkr _ws ?? throw "null pointer dereference")._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot, _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot, _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                         _dur = __tmp__._0;
                         _cov = __tmp__._1;
                         _errMsg = __tmp__._2;
@@ -328,7 +328,7 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                     _dur = __tmp__._0;
                     _cov = __tmp__._1;
                     _errMsg = __tmp__._2;

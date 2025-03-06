@@ -14,7 +14,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     if (_fn.isValid()) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                                final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
                                 _v = __tmp__._0;
                                 _isBuiltin = __tmp__._1;
                                 _ok = __tmp__._2;
@@ -35,7 +35,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 if (_fn.isValid()) {
                     {
                         final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                            final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
                             _v = __tmp__._0;
                             _isBuiltin = __tmp__._1;
                             _ok = __tmp__._2;
@@ -52,7 +52,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false, _2 : false };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false, _2 : false };
                     _v = __tmp__._0;
                     _isBuiltin = __tmp__._1;
                     _ok = __tmp__._2;

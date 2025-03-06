@@ -13,7 +13,7 @@ package stdgo._internal.internal.coverage.slicewriter;
         _p.__copyTo__(_toread);
         (@:checkr _sws ?? throw "null pointer dereference")._off = ((@:checkr _sws ?? throw "null pointer dereference")._off + ((_amt : stdgo.GoInt64)) : stdgo.GoInt64);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _amt, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _amt, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -69,7 +69,7 @@ package stdgo._internal.internal.coverage.slicewriter;
         _towrite.__copyTo__(_p);
         (@:checkr _sws ?? throw "null pointer dereference")._off = ((@:checkr _sws ?? throw "null pointer dereference")._off + ((_amt : stdgo.GoInt64)) : stdgo.GoInt64);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _amt, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _amt, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

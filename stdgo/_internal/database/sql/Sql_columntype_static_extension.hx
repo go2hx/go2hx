@@ -12,7 +12,7 @@ package stdgo._internal.database.sql;
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_columntype.ColumnType> = _ci;
         var _nullable = false, _ok = false;
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._nullable, _1 : (@:checkr _ci ?? throw "null pointer dereference")._hasNullable };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._nullable, _1 : (@:checkr _ci ?? throw "null pointer dereference")._hasNullable };
             _nullable = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;
@@ -30,7 +30,7 @@ package stdgo._internal.database.sql;
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_columntype.ColumnType> = _ci;
         var _precision = (0 : stdgo.GoInt64), _scale = (0 : stdgo.GoInt64), _ok = false;
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; var _2 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._precision, _1 : (@:checkr _ci ?? throw "null pointer dereference")._scale, _2 : (@:checkr _ci ?? throw "null pointer dereference")._hasPrecisionScale };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; var _2 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._precision, _1 : (@:checkr _ci ?? throw "null pointer dereference")._scale, _2 : (@:checkr _ci ?? throw "null pointer dereference")._hasPrecisionScale };
             _precision = __tmp__._0;
             _scale = __tmp__._1;
             _ok = __tmp__._2;
@@ -43,7 +43,7 @@ package stdgo._internal.database.sql;
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_columntype.ColumnType> = _ci;
         var _length = (0 : stdgo.GoInt64), _ok = false;
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._length, _1 : (@:checkr _ci ?? throw "null pointer dereference")._hasLength };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : Bool; } = { _0 : (@:checkr _ci ?? throw "null pointer dereference")._length, _1 : (@:checkr _ci ?? throw "null pointer dereference")._hasLength };
             _length = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

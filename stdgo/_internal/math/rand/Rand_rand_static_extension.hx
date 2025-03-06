@@ -9,28 +9,13 @@ package stdgo._internal.math.rand;
             final __type__ = (@:checkr _r ?? throw "null pointer dereference")._src;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>))) {
                 var _src:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>) : __type__.__underlying__().value;
-                return {
-                    final __tmp__ = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _n, _1 : _err };
-                };
+                return @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>))) {
                 var _src:stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.math.rand.Rand_t_fastsource.T_fastSource>) : __type__.__underlying__().value;
-                return {
-                    final __tmp__ = @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
-                    _n = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _n, _1 : _err };
-                };
+                return @:check2r _src._read(_p, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
             };
         };
-        return {
-            final __tmp__ = stdgo._internal.math.rand.Rand__read._read(_p, (@:checkr _r ?? throw "null pointer dereference")._src, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return stdgo._internal.math.rand.Rand__read._read(_p, (@:checkr _r ?? throw "null pointer dereference")._src, stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readVal), stdgo.Go.pointer((@:checkr _r ?? throw "null pointer dereference")._readPos));
     }
     @:keep
     @:tdfield
@@ -78,17 +63,17 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2883387i32;
-                } else if (__value__ == (2883387i32)) {
+                    _gotoNext = 3046442i32;
+                } else if (__value__ == (3046442i32)) {
                     _f_1 = (@:check2r _r.float64() : stdgo.GoFloat32);
                     if (_f_1 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2883432i32;
+                        _gotoNext = 3046487i32;
                     } else {
-                        _gotoNext = 2883500i32;
+                        _gotoNext = 3046555i32;
                     };
-                } else if (__value__ == (2883432i32)) {
-                    _gotoNext = 2883387i32;
-                } else if (__value__ == (2883500i32)) {
+                } else if (__value__ == (3046487i32)) {
+                    _gotoNext = 3046442i32;
+                } else if (__value__ == (3046555i32)) {
                     return _f_1;
                     _gotoNext = -1i32;
                 };
@@ -107,17 +92,17 @@ _m[(_j : stdgo.GoInt)] = _i;
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 2882919i32;
-                } else if (__value__ == (2882919i32)) {
+                    _gotoNext = 3045974i32;
+                } else if (__value__ == (3045974i32)) {
                     _f_0 = ((@:check2r _r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
                     if (_f_0 == (1 : stdgo.GoFloat64)) {
-                        _gotoNext = 2882974i32;
+                        _gotoNext = 3046029i32;
                     } else {
-                        _gotoNext = 2883036i32;
+                        _gotoNext = 3046091i32;
                     };
-                } else if (__value__ == (2882974i32)) {
-                    _gotoNext = 2882919i32;
-                } else if (__value__ == (2883036i32)) {
+                } else if (__value__ == (3046029i32)) {
+                    _gotoNext = 3045974i32;
+                } else if (__value__ == (3046091i32)) {
                     return _f_0;
                     _gotoNext = -1i32;
                 };

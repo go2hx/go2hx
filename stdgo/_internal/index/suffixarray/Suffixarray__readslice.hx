@@ -12,7 +12,7 @@ function _readSlice(_r:stdgo._internal.io.Io_reader.Reader, _buf:stdgo.Slice<std
         };
         if (((((_size64 : stdgo.GoInt) : stdgo.GoInt64) != _size64) || ((_size64 : stdgo.GoInt) < (0 : stdgo.GoInt) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.index.suffixarray.Suffixarray__errtoobig._errTooBig };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.index.suffixarray.Suffixarray__errtoobig._errTooBig };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

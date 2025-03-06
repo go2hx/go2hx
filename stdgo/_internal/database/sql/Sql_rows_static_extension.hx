@@ -583,7 +583,7 @@ package stdgo._internal.database.sql;
         try {
             if ((@:checkr _rs ?? throw "null pointer dereference")._closed) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
                     _doClose = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -602,7 +602,7 @@ package stdgo._internal.database.sql;
                 if (stdgo.Go.toInterface((@:checkr _rs ?? throw "null pointer dereference")._lasterr) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     {
                         final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
                             _doClose = __tmp__._0;
                             _ok = __tmp__._1;
                             __tmp__;
@@ -623,7 +623,7 @@ package stdgo._internal.database.sql;
                 if (!_ok) {
                     {
                         final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
                             _doClose = __tmp__._0;
                             _ok = __tmp__._1;
                             __tmp__;
@@ -641,7 +641,7 @@ package stdgo._internal.database.sql;
                 };
                 {
                     final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                        final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : false };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : false };
                         _doClose = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
@@ -656,7 +656,7 @@ package stdgo._internal.database.sql;
             };
             {
                 final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
                     _doClose = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;

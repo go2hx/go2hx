@@ -336,7 +336,7 @@ package stdgo._internal.compress.flate;
         var _header = ((((((17 : stdgo.GoInt) + (((3 : stdgo.GoInt) * _numCodegens : stdgo.GoInt)) : stdgo.GoInt) + @:check2r (@:checkr _w ?? throw "null pointer dereference")._codegenEncoding._bitLength(((@:checkr _w ?? throw "null pointer dereference")._codegenFreq.__slice__(0) : stdgo.Slice<stdgo.GoInt32>)) : stdgo.GoInt) + (((@:checkr _w ?? throw "null pointer dereference")._codegenFreq[(16 : stdgo.GoInt)] : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (((@:checkr _w ?? throw "null pointer dereference")._codegenFreq[(17 : stdgo.GoInt)] : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (((@:checkr _w ?? throw "null pointer dereference")._codegenFreq[(18 : stdgo.GoInt)] : stdgo.GoInt) * (7 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
         _size = (((_header + @:check2r _litEnc._bitLength((@:checkr _w ?? throw "null pointer dereference")._literalFreq) : stdgo.GoInt) + @:check2r _offEnc._bitLength((@:checkr _w ?? throw "null pointer dereference")._offsetFreq) : stdgo.GoInt) + _extraBits : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _size, _1 : _numCodegens };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _size, _1 : _numCodegens };
             _size = __tmp__._0;
             _numCodegens = __tmp__._1;
             __tmp__;

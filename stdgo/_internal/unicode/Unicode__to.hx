@@ -3,7 +3,7 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoInt32, _caseRange:stdgo.Slice<stdgo.
         var _mappedRune = (0 : stdgo.GoInt32), _foundMapping = false;
         if (((__case < (0 : stdgo.GoInt) : Bool) || ((3 : stdgo.GoInt) <= __case : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : (65533 : stdgo.GoInt32), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : (65533 : stdgo.GoInt32), _1 : false };
                 _mappedRune = __tmp__._0;
                 _foundMapping = __tmp__._1;
                 __tmp__;
@@ -18,14 +18,14 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoInt32, _caseRange:stdgo.Slice<stdgo.
                 var _delta = (_cr.delta[(__case : stdgo.GoInt)] : stdgo.GoInt32);
                 if ((_delta > (1114111 : stdgo.GoInt32) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : ((_cr.lo : stdgo.GoInt32) + (((((_r - (_cr.lo : stdgo.GoInt32) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : ((_cr.lo : stdgo.GoInt32) + (((((_r - (_cr.lo : stdgo.GoInt32) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
                         _mappedRune = __tmp__._0;
                         _foundMapping = __tmp__._1;
                         __tmp__;
                     };
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : (_r + _delta : stdgo.GoInt32), _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : (_r + _delta : stdgo.GoInt32), _1 : true };
                     _mappedRune = __tmp__._0;
                     _foundMapping = __tmp__._1;
                     __tmp__;
@@ -38,7 +38,7 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoInt32, _caseRange:stdgo.Slice<stdgo.
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : _r, _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; } = { _0 : _r, _1 : false };
             _mappedRune = __tmp__._0;
             _foundMapping = __tmp__._1;
             __tmp__;

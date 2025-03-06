@@ -9,7 +9,7 @@ package stdgo._internal.encoding.base64;
             _n = _p.__copyTo__((@:checkr _d ?? throw "null pointer dereference")._out);
             (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -17,7 +17,7 @@ package stdgo._internal.encoding.base64;
         };
         if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -52,7 +52,7 @@ package stdgo._internal.encoding.base64;
                 (@:checkr _d ?? throw "null pointer dereference")._out = ((@:checkr _d ?? throw "null pointer dereference")._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 if (((_n > (0 : stdgo.GoInt) : Bool) || ((_p.length) == ((0 : stdgo.GoInt)) && (((@:checkr _d ?? throw "null pointer dereference")._out.length) > (0 : stdgo.GoInt) : Bool) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -60,7 +60,7 @@ package stdgo._internal.encoding.base64;
                 };
                 if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -72,7 +72,7 @@ package stdgo._internal.encoding.base64;
                 (@:checkr _d ?? throw "null pointer dereference")._err = stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF;
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -99,7 +99,7 @@ package stdgo._internal.encoding.base64;
         (@:checkr _d ?? throw "null pointer dereference")._nbuf = ((@:checkr _d ?? throw "null pointer dereference")._nbuf - (_nr) : stdgo.GoInt);
         ((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__(0, (@:checkr _d ?? throw "null pointer dereference")._nbuf) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _d ?? throw "null pointer dereference")._buf.__slice__(_nr) : stdgo.Slice<stdgo.GoUInt8>));
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

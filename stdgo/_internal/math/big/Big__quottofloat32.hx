@@ -5,7 +5,7 @@ function _quotToFloat32(_a:stdgo._internal.math.big.Big_t_nat.T_nat, _b:stdgo._i
         var _alen = (_a._bitLen() : stdgo.GoInt);
         if (_alen == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : true };
                 _f = __tmp__._0;
                 _exact = __tmp__._1;
                 __tmp__;

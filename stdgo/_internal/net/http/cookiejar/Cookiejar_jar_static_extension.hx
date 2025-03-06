@@ -61,7 +61,7 @@ package stdgo._internal.net.http.cookiejar;
         };
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : _err };
                 _e = __tmp__._0;
                 _remove = __tmp__._1;
                 _err = __tmp__._2;
@@ -70,7 +70,7 @@ package stdgo._internal.net.http.cookiejar;
         };
         if (((@:checkr _c ?? throw "null pointer dereference").maxAge < (0 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
                 _e = __tmp__._0;
                 _remove = __tmp__._1;
                 _err = __tmp__._2;
@@ -86,7 +86,7 @@ package stdgo._internal.net.http.cookiejar;
             } else {
                 if (!(@:checkr _c ?? throw "null pointer dereference").expires.after(_now?.__copy__())) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
                         _e = __tmp__._0;
                         _remove = __tmp__._1;
                         _err = __tmp__._2;
@@ -111,7 +111,7 @@ package stdgo._internal.net.http.cookiejar;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_t_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
             _e = __tmp__._0;
             _remove = __tmp__._1;
             _err = __tmp__._2;

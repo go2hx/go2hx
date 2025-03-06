@@ -18,7 +18,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_reader.Reader, _fn:stdgo._inter
                         _err = (null : stdgo.Error);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : _err };
                         _v = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -51,7 +51,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_reader.Reader, _fn:stdgo._inter
                         _err = (null : stdgo.Error);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : _err };
                         _v = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;

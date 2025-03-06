@@ -8,7 +8,7 @@ package stdgo._internal.encoding.csv;
         while (true) {
             if ((((@:checkr _r ?? throw "null pointer dereference")._n <= (0 : stdgo.GoInt) : Bool) || ((@:checkr _r ?? throw "null pointer dereference")._s == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

@@ -23,7 +23,7 @@ function _unquoteBytes(_s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<std
         };
         if (_r == ((_s.length))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : _s, _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : _s, _1 : true };
                 _t = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -134,7 +134,7 @@ function _unquoteBytes(_s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<std
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : (_b.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : (_b.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>), _1 : true };
             _t = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

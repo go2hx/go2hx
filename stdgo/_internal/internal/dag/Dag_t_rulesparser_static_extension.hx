@@ -93,7 +93,7 @@ package stdgo._internal.internal.dag;
                         if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (__value__ == (stdgo.Go.str() : stdgo.GoString)))) {
                             if ((_list.length) == ((0 : stdgo.GoInt))) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                                     _list = __tmp__._0;
                                     _token = __tmp__._1;
                                     __tmp__;
@@ -118,7 +118,7 @@ package stdgo._internal.internal.dag;
             _tok = @:check2r _p._nextToken()?.__copy__();
             if (_tok != (("," : stdgo.GoString))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : _list, _1 : _tok?.__copy__() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.GoString; } = { _0 : _list, _1 : _tok?.__copy__() };
                     _list = __tmp__._0;
                     _token = __tmp__._1;
                     __tmp__;

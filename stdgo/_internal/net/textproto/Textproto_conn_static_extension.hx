@@ -12,14 +12,14 @@ package stdgo._internal.net.textproto;
         @:check2r _c.endRequest(_id);
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : (0u32 : stdgo.GoUInt), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : (0u32 : stdgo.GoUInt), _1 : _err };
                 _id = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : _id, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : _id, _1 : (null : stdgo.Error) };
             _id = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

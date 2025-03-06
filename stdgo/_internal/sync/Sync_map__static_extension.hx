@@ -189,14 +189,14 @@ package stdgo._internal.sync;
                     if (_ok) {
                         if ((_v == null || (_v : Dynamic).__nil__)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
                                 _previous = __tmp__._0;
                                 _loaded = __tmp__._1;
                                 __tmp__;
                             };
                         };
                         return {
-                            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (_v : stdgo.AnyInterface), _1 : true };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (_v : stdgo.AnyInterface), _1 : true };
                             _previous = __tmp__._0;
                             _loaded = __tmp__._1;
                             __tmp__;
@@ -241,7 +241,7 @@ package stdgo._internal.sync;
         };
         @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock();
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _previous, _1 : _loaded };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _previous, _1 : _loaded };
             _previous = __tmp__._0;
             _loaded = __tmp__._1;
             __tmp__;
@@ -280,15 +280,13 @@ package stdgo._internal.sync;
             @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock();
         };
         if (_ok) {
-            return {
-                final __tmp__ = @:check2r _e._delete();
-                _value = __tmp__._0;
-                _loaded = __tmp__._1;
-                { _0 : _value, _1 : _loaded };
-            };
+            return ({
+                @:assignTranslate final __tmp__ = @:check2r _e._delete();
+                { _0 : stdgo.Go.toInterface(__tmp__._0), _1 : __tmp__._1 };
+            });
         };
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
             _value = __tmp__._0;
             _loaded = __tmp__._1;
             __tmp__;
@@ -306,7 +304,7 @@ package stdgo._internal.sync;
                 var __tmp__ = @:check2r _e._tryLoadOrStore(_value), _actual:stdgo.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1, _ok:Bool = __tmp__._2;
                 if (_ok) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
                         _actual = __tmp__._0;
                         _loaded = __tmp__._1;
                         __tmp__;
@@ -353,7 +351,7 @@ package stdgo._internal.sync;
         };
         @:check2 (@:checkr _m ?? throw "null pointer dereference")._mu.unlock();
         return {
-            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
             _actual = __tmp__._0;
             _loaded = __tmp__._1;
             __tmp__;
@@ -392,18 +390,16 @@ package stdgo._internal.sync;
         };
         if (!_ok) {
             return {
-                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
                 _value = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
             };
         };
-        return {
-            final __tmp__ = @:check2r _e._load();
-            _value = __tmp__._0;
-            _ok = __tmp__._1;
-            { _0 : _value, _1 : _ok };
-        };
+        return ({
+            @:assignTranslate final __tmp__ = @:check2r _e._load();
+            { _0 : stdgo.Go.toInterface(__tmp__._0), _1 : __tmp__._1 };
+        });
     }
     @:keep
     @:tdfield

@@ -31,12 +31,10 @@ package stdgo._internal.archive.tar;
             };
         };
         if (!_ok) {
-            return {
-                final __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(({ writer : stdgo.Go.asInterface(_sw) } : stdgo._internal.archive.tar.Tar_t__struct_1.T__struct_1)), _r);
-                _n = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _n, _1 : _err };
-            };
+            return ({
+                @:assignTranslate final __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(({ writer : stdgo.Go.asInterface(_sw) } : stdgo._internal.archive.tar.Tar_t__struct_1.T__struct_1)), _r);
+                { _0 : __tmp__._0, _1 : __tmp__._1 };
+            });
         };
         var _readLastByte:Bool = false;
         var _pos0 = ((@:checkr _sw ?? throw "null pointer dereference")._pos : stdgo.GoInt64);
@@ -77,35 +75,35 @@ var _dataEnd = __1, _dataStart = __0;
         _n = ((@:checkr _sw ?? throw "null pointer dereference")._pos - _pos0 : stdgo.GoInt64);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.archive.tar.Tar_errwritetoolong.errWriteTooLong))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if ((((@:checkr _sw ?? throw "null pointer dereference")._logicalRemaining() == (0i64 : stdgo.GoInt64)) && ((@:checkr _sw ?? throw "null pointer dereference")._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__ensureeof._ensureEOF(_rs) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__ensureeof._ensureEOF(_rs) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -151,35 +149,35 @@ var _dataEnd = __1, _dataStart = __0;
         _n = ((_b0.length) - (_b.length) : stdgo.GoInt);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.archive.tar.Tar_errwritetoolong.errWriteTooLong))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errmissdata._errMissData };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if ((((@:checkr _sw ?? throw "null pointer dereference")._logicalRemaining() == (0i64 : stdgo.GoInt64)) && ((@:checkr _sw ?? throw "null pointer dereference")._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errunrefdata._errUnrefData };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else if (_overwrite) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar_errwritetoolong.errWriteTooLong };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar_errwritetoolong.errWriteTooLong };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

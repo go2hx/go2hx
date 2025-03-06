@@ -11,7 +11,7 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                     _rest = _after;
                 } else {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
                         _p = __tmp__._0;
                         _rest = __tmp__._1;
                         __tmp__;
@@ -37,7 +37,7 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
             while (true) {
                 if ((_rest.length) == ((0 : stdgo.GoInt))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
                         _p = __tmp__._0;
                         _rest = __tmp__._1;
                         __tmp__;
@@ -92,7 +92,7 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                 _rest = @:tmpset0 __tmp__._1;
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : _p, _1 : _rest };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : _p, _1 : _rest };
                 _p = __tmp__._0;
                 _rest = __tmp__._1;
                 __tmp__;

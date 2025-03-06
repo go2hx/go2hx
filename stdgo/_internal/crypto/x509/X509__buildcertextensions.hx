@@ -11,7 +11,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -27,7 +27,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -43,7 +43,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -115,7 +115,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -141,7 +141,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                         _err = stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_name?.__copy__());
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                                 _der = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -166,7 +166,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                         _err = stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_email?.__copy__());
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                                 _der = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -184,7 +184,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                         _err = stdgo._internal.crypto.x509.X509__isia5string._isIA5String(_uriDomain?.__copy__());
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                                 _der = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -197,17 +197,15 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                         });
                     });
                 };
-                return {
-                    final __tmp__ = @:check2 _b.bytes();
-                    _der = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _der, _1 : _err };
-                };
+                return ({
+                    @:assignTranslate final __tmp__ = @:check2 _b.bytes();
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
             };
             var __tmp__ = _serialiseConstraints((@:checkr _template ?? throw "null pointer dereference").permittedDNSDomains, (@:checkr _template ?? throw "null pointer dereference").permittedIPRanges, (@:checkr _template ?? throw "null pointer dereference").permittedEmailAddresses, (@:checkr _template ?? throw "null pointer dereference").permittedURIDomains), _permitted:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -216,7 +214,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             var __tmp__ = _serialiseConstraints((@:checkr _template ?? throw "null pointer dereference").excludedDNSDomains, (@:checkr _template ?? throw "null pointer dereference").excludedIPRanges, (@:checkr _template ?? throw "null pointer dereference").excludedEmailAddresses, (@:checkr _template ?? throw "null pointer dereference").excludedURIDomains), _excluded:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -242,7 +240,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>), _1 : _err };
                     _ret = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -268,7 +266,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             _n++;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>).__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>))), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>; var _1 : stdgo.Error; } = { _0 : ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>).__append__(...((@:checkr _template ?? throw "null pointer dereference").extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_extension.Extension>))), _1 : (null : stdgo.Error) };
             _ret = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

@@ -6,7 +6,7 @@ function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):{ va
                 _f = stdgo._internal.math.Math_float32frombits.float32frombits((-2147483648u32 : stdgo.GoUInt32));
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : _f, _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : _f, _1 : true };
                 _f = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -14,7 +14,7 @@ function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):{ va
         };
         if (((_exp10 < (-348 : stdgo.GoInt) : Bool) || ((347 : stdgo.GoInt) < _exp10 : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
                 _f = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -34,7 +34,7 @@ var _mergedLo = __1, _mergedHi = __0;
             };
             if ((((_mergedHi & (274877906943i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((274877906943i64 : stdgo.GoUInt64)) && (_mergedLo + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64)) : Bool) && ((_yLo + _man : stdgo.GoUInt64) < _man : Bool) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
                     _f = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -52,7 +52,7 @@ var _mergedLo = __1, _mergedHi = __0;
         _retExp2 = (_retExp2 - (((1i64 : stdgo.GoUInt64) ^ _msb : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if (((_xLo == ((0i64 : stdgo.GoUInt64)) && (_xHi & (274877906943i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64)) : Bool) && ((_retMantissa & (3i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (1i64 : stdgo.GoUInt64)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
                 _f = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -66,7 +66,7 @@ var _mergedLo = __1, _mergedHi = __0;
         };
         if (((_retExp2 - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >= (254i64 : stdgo.GoUInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : false };
                 _f = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -77,7 +77,7 @@ var _mergedLo = __1, _mergedHi = __0;
             _retBits = (_retBits | ((2147483648i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : stdgo._internal.math.Math_float32frombits.float32frombits((_retBits : stdgo.GoUInt32)), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat32; var _1 : Bool; } = { _0 : stdgo._internal.math.Math_float32frombits.float32frombits((_retBits : stdgo.GoUInt32)), _1 : true };
             _f = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

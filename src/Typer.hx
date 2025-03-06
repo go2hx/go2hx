@@ -8774,10 +8774,10 @@ function splitDepFullPathName(name:String, info:Info):String {
 }
 
 function normalizePath(path:String):String {
-	path = StringTools.replace(path, ".", "_dot_");
-	path = StringTools.replace(path, ":", "_colon_");
-	path = StringTools.replace(path, "go-", "_godash_");
-	path = StringTools.replace(path, "-", "_dash_");
+	path = StringTools.replace(path, ".", "dot");
+	path = StringTools.replace(path, ":", "colon");
+	path = StringTools.replace(path, "go-", "godash");
+	path = StringTools.replace(path, "-", "dash");
 	var path = path.split("/");
 	for (i in 0...path.length) {
 		if (reserved.indexOf(path[i]) != -1) {

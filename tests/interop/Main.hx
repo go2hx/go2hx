@@ -1,11 +1,15 @@
 package;
 
 import go4hx.tests.interop.Interop;
-//import go4hx.tests.interop.colorful
+//import go4hx.tests.interop.go_dash_colorful
+import go4hx.tests.interop.a.A;
+import go4hx.tests.interop.godashcolorful.Godashcolorful;
 import stdgo.encoding.binary.Binary;
 import stdgo.crypto.Crypto;
 
 function main() {
+    A.fooB();
+    Godashcolorful.softPaletteEx;
     Binary.appendVarint;
     // float32 arg and return
     final value = Interop.float32(10);

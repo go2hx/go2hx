@@ -169,5 +169,6 @@
  "js|binaryreader",
  "js|heappop",
  "js|ptrrecv1",
- "js|t_4darray"
+ "js|t_4darray",
+ "js|multireturn0"
 ]

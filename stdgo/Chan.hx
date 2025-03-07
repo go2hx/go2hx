@@ -118,6 +118,17 @@ class ChanData<T> {
         mutex.release();
         if (debug)
             trace("__get__ wait for mutex.release0");
+        if (buffered) {
+            if (amount == 0)
+                return defaultValue();
+            mutex.acquire();
+            final value = buffer[bufferRemovePos++];
+            if (bufferRemovePos >= buffer.length)
+                bufferRemovePos = 0;
+            amount--;
+            mutex.release();
+            return value;
+        }
         // block
         while (!getLock.wait(debug ? 0.2 : 0.01)) {
             if (debug)

@@ -930,6 +930,8 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 	var chan = typeExpr(stmt.chan, info);
 	var t = typeof(stmt.chan, info, false);
 	var value = typeExpr(stmt.value, info);
+	final valueType = typeof(stmt.value, info, false);
+	value = assignTranslate(valueType, getElem(t), value, info);
 	return (macro $chan.__send__($value)).expr;
 }
 
@@ -2217,10 +2219,15 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			case refType(_):
 				switch op {
 					case OpEq:
-						return macro ($value == null || ($value : Dynamic).__nil__);
+						return macro ({
+							final value = $value;
+							(value == null || (value : Dynamic).__nil__);
+						});
 					default:
-						return macro ($value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__)))
-							;
+						return macro ({
+							final value = $value;
+							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+						});
 				}
 			default:
 		}
@@ -7114,7 +7121,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final cap = size;
 			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
 			final s = genSlice(p, elem, size, cap, e -> e, info, null);
-			macro $s.__setNil__();
+			s;
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);
@@ -7131,7 +7138,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final ct = toComplexType(elem, info);
 			switch elem {
 				case arrayType(_):
-					defaultValue(elem, info, strict);
+					final s = defaultValue(elem, info, strict);
+					macro $s.__setNil__();
 				default:
 					macro(null : stdgo.Ref<$ct>); // pointer can be nil
 			}

@@ -593,6 +593,20 @@ final list = [
 	"runtime:caller" => macro  return { _0 : new stdgo.GoUIntptr(0), _1 : "", _2 : 0, _3 : false },
 	"runtime:numCPU" => macro return 1,
 	"runtime:compiler" => macro "go2hx",
+	"runtime:setMutexProfileFraction" => macro return 0,
+	"runtime:readMemStats" => macro {},
+	"runtime:setFinalizer" => macro {},
+	"runtime:setBlockProfileRate" => macro {},
+	"runtime:lockOSThread" => macro {},
+	"runtime:unlockOSThread" => macro {},
+	"runtime:startTrace" => macro return null,
+	"runtime:stopTrace" => macro {},
+	"runtime:numCgoCall" => macro return 0,
+	"runtime:keepAlive" => macro {},
+	"runtime:goexit" => macro {},
+	"runtime:gC" => macro {},
+
+
 	"runtime:gOMAXPROCS" => macro return 1,
 	// stdgo/reflect
 	"reflect:typeOf" => macro @:splitdeps {
@@ -1799,6 +1813,8 @@ final skipTests = [
 	"math_test:testNextafter32" => ["interp", "js"],
 	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
 	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
+	"io_test:testMultiWriter_WriteStringSingleAlloc" => [], // checks runtime allocations num
+	"io_test:testMultiReaderFreesExhaustedReaders" => [], // uses runtime.setFinalizer
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync

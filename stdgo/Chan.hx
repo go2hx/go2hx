@@ -118,30 +118,21 @@ class ChanData<T> {
         mutex.release();
         if (debug)
             trace("__get__ wait for mutex.release0");
-        if (buffered) {
-            if (amount == 0)
-                return defaultValue();
-            mutex.acquire();
-            final value = buffer[bufferRemovePos++];
-            if (bufferRemovePos >= buffer.length)
-                bufferRemovePos = 0;
-            amount--;
-            mutex.release();
-            return value;
-        }
         // block
-        while (!getLock.wait(debug ? 0.2 : 0.01)) {
-            if (debug)
-                trace("__get__ wait for !getLock.wait");
-            // set bools
-            mutex.acquire();
-            getBool = false;
-            sendBool = true;
-            mutex.release();
+        if (buffered && amount > 0) {
+            while (!getLock.wait(debug ? 0.2 : 0.01)) {
+                if (debug)
+                    trace("__get__ wait for !getLock.wait");
+                // set bools
+                mutex.acquire();
+                getBool = false;
+                sendBool = true;
+                mutex.release();
 
-            Async.tick();
-            if (closed) {
-                return defaultValue();
+                Async.tick();
+                if (closed) {
+                    return defaultValue();
+                }
             }
         }
         // get value

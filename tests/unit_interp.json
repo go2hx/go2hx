@@ -178,5 +178,7 @@
  "interp|testdash189",
  "interp|closechan",
  "interp|closechanmultireturn",
- "interp|issuedash222"
+ "interp|issuedash222",
+ "interp|chan1",
+ "interp|io0"
 ]

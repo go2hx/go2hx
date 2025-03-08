@@ -36,7 +36,10 @@ package stdgo._internal.html.template;
     static public function string( _c:stdgo._internal.html.template.Template_t_context.T_context):stdgo.GoString {
         @:recv var _c:stdgo._internal.html.template.Template_t_context.T_context = _c?.__copy__();
         var _err:stdgo.Error = (null : stdgo.Error);
-        if ((_c._err != null && ((_c._err : Dynamic).__nil__ == null || !(_c._err : Dynamic).__nil__))) {
+        if (({
+            final value = _c._err;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _err = stdgo.Go.asInterface(_c._err);
         };
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("{%v %v %v %v %v %v %v}" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._state)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._delim)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._urlPart)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._jsCtx)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._attr)), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._element)), stdgo.Go.toInterface(_err))?.__copy__();

@@ -240,7 +240,10 @@ package stdgo._internal.net.http.httputil;
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
                         @:check2 (@:checkr _sc ?? throw "null pointer dereference")._pipe.endRequest(_id);
-                        if ((_req == null || (_req : Dynamic).__nil__)) {
+                        if (({
+                            final value = _req;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._pipe.startResponse(_id);
                             @:check2 (@:checkr _sc ?? throw "null pointer dereference")._pipe.endResponse(_id);
                         } else {
@@ -283,7 +286,10 @@ package stdgo._internal.net.http.httputil;
                     return __ret__;
                 };
             };
-            if (((@:checkr _sc ?? throw "null pointer dereference")._r == null || ((@:checkr _sc ?? throw "null pointer dereference")._r : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _sc ?? throw "null pointer dereference")._r;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 {
                     final __f__ = @:check2 (@:checkr _sc ?? throw "null pointer dereference")._mu.unlock;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });

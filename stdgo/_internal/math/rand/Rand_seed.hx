@@ -1,7 +1,10 @@
 package stdgo._internal.math.rand;
 function seed(_seed:stdgo.GoInt64):Void {
         var _orig = @:check2 stdgo._internal.math.rand.Rand__globalrandgenerator._globalRandGenerator.load();
-        if ((_orig != null && ((_orig : Dynamic).__nil__ == null || !(_orig : Dynamic).__nil__))) {
+        if (({
+            final value = _orig;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _orig ?? throw "null pointer dereference")._src) : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>)) : stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>), _1 : true };

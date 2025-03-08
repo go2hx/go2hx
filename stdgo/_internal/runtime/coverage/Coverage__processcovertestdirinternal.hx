@@ -107,7 +107,10 @@ function _processCoverTestDirInternal(_dir:stdgo.GoString, _cfile:stdgo.GoString
                     };
                 };
             };
-            if ((_tf != null && ((_tf : Dynamic).__nil__ == null || !(_tf : Dynamic).__nil__))) {
+            if (({
+                final value = _tf;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     var _err = (@:check2r (@:checkr _ts ?? throw "null pointer dereference")._cf.emitTextual(stdgo.Go.asInterface(_tf)) : stdgo.Error);
                     if (_err != null) {

@@ -5,7 +5,13 @@ function _checkListPointers(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>,
             return;
         };
         if ((_es.length) == ((0 : stdgo.GoInt))) {
-            if (((((@:checkr _l ?? throw "null pointer dereference")._root._next != null && (((@:checkr _l ?? throw "null pointer dereference")._root._next : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._root._next : Dynamic).__nil__)) && (@:checkr _l ?? throw "null pointer dereference")._root._next != (_root) : Bool) || (((@:checkr _l ?? throw "null pointer dereference")._root._prev != null && (((@:checkr _l ?? throw "null pointer dereference")._root._prev : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._root._prev : Dynamic).__nil__)) && (@:checkr _l ?? throw "null pointer dereference")._root._prev != (_root) : Bool) : Bool)) {
+            if (((({
+                final value = (@:checkr _l ?? throw "null pointer dereference")._root._next;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (@:checkr _l ?? throw "null pointer dereference")._root._next != (_root) : Bool) || (({
+                final value = (@:checkr _l ?? throw "null pointer dereference")._root._prev;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (@:checkr _l ?? throw "null pointer dereference")._root._prev != (_root) : Bool) : Bool)) {
                 @:check2r _t.errorf(("l.root.next = %p, l.root.prev = %p; both should both be nil or %p" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _l ?? throw "null pointer dereference")._root._next)), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _l ?? throw "null pointer dereference")._root._prev)), stdgo.Go.toInterface(stdgo.Go.asInterface(_root)));
             };
             return;

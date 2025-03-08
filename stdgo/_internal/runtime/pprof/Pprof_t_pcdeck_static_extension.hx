@@ -10,7 +10,10 @@ package stdgo._internal.runtime.pprof;
             if ((_existing > (0 : stdgo.GoInt) : Bool)) {
                 var _newFrame = (_frames[(0 : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_frame.Frame);
                 var _last = ((@:checkr _d ?? throw "null pointer dereference")._frames[(_existing - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_frame.Frame);
-                if ((_last.func != null && ((_last.func : Dynamic).__nil__ == null || !(_last.func : Dynamic).__nil__))) {
+                if (({
+                    final value = _last.func;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     return _success = false;
                 };
                 if (((_last.entry == (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) || (_newFrame.entry == (new stdgo.GoUIntptr(0) : stdgo.GoUIntptr)) : Bool)) {

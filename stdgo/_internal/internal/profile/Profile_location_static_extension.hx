@@ -5,13 +5,19 @@ package stdgo._internal.internal.profile;
     static public function _key( _l:stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>):stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey {
         @:recv var _l:stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location> = _l;
         var _key = ({ _addr : (@:checkr _l ?? throw "null pointer dereference").address, _isFolded : (@:checkr _l ?? throw "null pointer dereference").isFolded } : stdgo._internal.internal.profile.Profile_t_locationkey.T_locationKey);
-        if (((@:checkr _l ?? throw "null pointer dereference").mapping != null && (((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _l ?? throw "null pointer dereference").mapping;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _key._addr = (_key._addr - ((@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").start) : stdgo.GoUInt64);
             _key._mappingID = (@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").iD;
         };
         var _lines = (new stdgo.Slice<stdgo.GoString>((((@:checkr _l ?? throw "null pointer dereference").line.length) * (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_i => _line in (@:checkr _l ?? throw "null pointer dereference").line) {
-            if ((_line.function_ != null && ((_line.function_ : Dynamic).__nil__ == null || !(_line.function_ : Dynamic).__nil__))) {
+            if (({
+                final value = _line.function_;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _lines[(_i * (2 : stdgo.GoInt) : stdgo.GoInt)] = stdgo._internal.strconv.Strconv_formatuint.formatUint((@:checkr _line.function_ ?? throw "null pointer dereference").iD, (16 : stdgo.GoInt))?.__copy__();
             };
             _lines[((_i * (2 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = stdgo._internal.strconv.Strconv_formatint.formatInt(_line.line, (16 : stdgo.GoInt))?.__copy__();
@@ -27,7 +33,10 @@ package stdgo._internal.internal.profile;
         for (__0 => _ln in (@:checkr _loc ?? throw "null pointer dereference").line) {
             {
                 var _fn = _ln.function_;
-                if ((_fn != null && ((_fn : Dynamic).__nil__ == null || !(_fn : Dynamic).__nil__))) {
+                if (({
+                    final value = _fn;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     if (@:check2r _re.matchString((@:checkr _fn ?? throw "null pointer dereference").name?.__copy__())) {
                         continue;
                     };
@@ -47,7 +56,10 @@ package stdgo._internal.internal.profile;
         for (__0 => _ln in (@:checkr _loc ?? throw "null pointer dereference").line) {
             {
                 var _fn = _ln.function_;
-                if ((_fn != null && ((_fn : Dynamic).__nil__ == null || !(_fn : Dynamic).__nil__))) {
+                if (({
+                    final value = _fn;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     if (@:check2r _re.matchString((@:checkr _fn ?? throw "null pointer dereference").name?.__copy__())) {
                         return true;
                     };

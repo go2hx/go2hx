@@ -4,7 +4,10 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function string( _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap>):stdgo.GoString {
         @:recv var _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap> = _l;
-        if ((_l == null || (_l : Dynamic).__nil__)) {
+        if (({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _keyVals = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_l : stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap).length)).__setString__() : stdgo.Slice<stdgo.GoString>);

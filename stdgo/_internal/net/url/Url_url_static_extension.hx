@@ -106,7 +106,10 @@ package stdgo._internal.net.url;
         if ((@:checkr _ref ?? throw "null pointer dereference").scheme == ((stdgo.Go.str() : stdgo.GoString))) {
             _url.scheme = (@:checkr _u ?? throw "null pointer dereference").scheme?.__copy__();
         };
-        if ((((@:checkr _ref ?? throw "null pointer dereference").scheme != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _ref ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ((@:checkr _ref ?? throw "null pointer dereference").user != null && (((@:checkr _ref ?? throw "null pointer dereference").user : Dynamic).__nil__ == null || !((@:checkr _ref ?? throw "null pointer dereference").user : Dynamic).__nil__)) : Bool)) {
+        if ((((@:checkr _ref ?? throw "null pointer dereference").scheme != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _ref ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ({
+            final value = (@:checkr _ref ?? throw "null pointer dereference").user;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool)) {
             @:check2 _url._setPath(stdgo._internal.net.url.Url__resolvepath._resolvePath(@:check2r _ref.escapedPath()?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__())?.__copy__());
             return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
         };
@@ -148,7 +151,10 @@ package stdgo._internal.net.url;
     @:tdfield
     static public function redacted( _u:stdgo.Ref<stdgo._internal.net.url.Url_url.URL>):stdgo.GoString {
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_url.URL> = _u;
-        if ((_u == null || (_u : Dynamic).__nil__)) {
+        if (({
+            final value = _u;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var _ru = ((_u : stdgo._internal.net.url.Url_url.URL)?.__copy__() : stdgo._internal.net.url.Url_url.URL);
@@ -172,14 +178,26 @@ package stdgo._internal.net.url;
         if ((@:checkr _u ?? throw "null pointer dereference").opaque != ((stdgo.Go.str() : stdgo.GoString))) {
             @:check2 _buf.writeString((@:checkr _u ?? throw "null pointer dereference").opaque?.__copy__());
         } else {
-            if ((((@:checkr _u ?? throw "null pointer dereference").scheme != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _u ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ((@:checkr _u ?? throw "null pointer dereference").user != null && (((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__ == null || !((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__)) : Bool)) {
-                if ((((@:checkr _u ?? throw "null pointer dereference").omitHost && (@:checkr _u ?? throw "null pointer dereference").host == ((stdgo.Go.str() : stdgo.GoString)) : Bool) && ((@:checkr _u ?? throw "null pointer dereference").user == null || ((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__) : Bool)) {} else {
-                    if ((((@:checkr _u ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _u ?? throw "null pointer dereference").path != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ((@:checkr _u ?? throw "null pointer dereference").user != null && (((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__ == null || !((@:checkr _u ?? throw "null pointer dereference").user : Dynamic).__nil__)) : Bool)) {
+            if ((((@:checkr _u ?? throw "null pointer dereference").scheme != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _u ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ({
+                final value = (@:checkr _u ?? throw "null pointer dereference").user;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) : Bool)) {
+                if ((((@:checkr _u ?? throw "null pointer dereference").omitHost && (@:checkr _u ?? throw "null pointer dereference").host == ((stdgo.Go.str() : stdgo.GoString)) : Bool) && ({
+                    final value = (@:checkr _u ?? throw "null pointer dereference").user;
+                    (value == null || (value : Dynamic).__nil__);
+                }) : Bool)) {} else {
+                    if ((((@:checkr _u ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString)) || (@:checkr _u ?? throw "null pointer dereference").path != ((stdgo.Go.str() : stdgo.GoString)) : Bool) || ({
+                        final value = (@:checkr _u ?? throw "null pointer dereference").user;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }) : Bool)) {
                         @:check2 _buf.writeString(("//" : stdgo.GoString));
                     };
                     {
                         var _ui = (@:checkr _u ?? throw "null pointer dereference").user;
-                        if ((_ui != null && ((_ui : Dynamic).__nil__ == null || !(_ui : Dynamic).__nil__))) {
+                        if (({
+                            final value = _ui;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        })) {
                             @:check2 _buf.writeString((@:check2r _ui.string() : stdgo.GoString)?.__copy__());
                             @:check2 _buf.writeByte((64 : stdgo.GoUInt8));
                         };

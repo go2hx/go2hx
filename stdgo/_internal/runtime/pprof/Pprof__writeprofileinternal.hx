@@ -39,7 +39,10 @@ function _writeProfileInternal(_w:stdgo._internal.io.Io_writer.Writer, _debug:st
                 stdgo._internal.runtime.pprof.Pprof__printstackrecord._printStackRecord(_w, @:check2r _r.stack(), true);
             };
         };
-        if ((_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__))) {
+        if (({
+            final value = _tw;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _tw.flush();
         };
         return @:check2r _b.flush();

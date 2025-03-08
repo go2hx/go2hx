@@ -56,7 +56,10 @@ package stdgo._internal.net.rpc;
             var _call = ((@:checkr _client ?? throw "null pointer dereference")._pending[_seq] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>));
             if ((@:checkr _client ?? throw "null pointer dereference")._pending != null) (@:checkr _client ?? throw "null pointer dereference")._pending.__remove__(_seq);
             @:check2 (@:checkr _client ?? throw "null pointer dereference")._mutex.unlock();
-            if ((_call == null || (_call : Dynamic).__nil__)) {
+            if (({
+                final value = _call;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _err = (@:checkr _client ?? throw "null pointer dereference")._codec.readResponseBody((null : stdgo.AnyInterface));
                 if (_err != null) {
                     _err = stdgo._internal.errors.Errors_new_.new_((("reading error body: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__());
@@ -134,7 +137,10 @@ package stdgo._internal.net.rpc;
                 _call = ((@:checkr _client ?? throw "null pointer dereference")._pending[_seq] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call>));
                 if ((@:checkr _client ?? throw "null pointer dereference")._pending != null) (@:checkr _client ?? throw "null pointer dereference")._pending.__remove__(_seq);
                 @:check2 (@:checkr _client ?? throw "null pointer dereference")._mutex.unlock();
-                if ((_call != null && ((_call : Dynamic).__nil__ == null || !(_call : Dynamic).__nil__))) {
+                if (({
+                    final value = _call;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     (@:checkr _call ?? throw "null pointer dereference").error = _err;
                     @:check2r _call._done();
                 };

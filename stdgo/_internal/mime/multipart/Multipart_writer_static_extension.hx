@@ -4,7 +4,10 @@ package stdgo._internal.mime.multipart;
     @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer> = _w;
-        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._lastpart;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             {
                 var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._lastpart._close() : stdgo.Error);
                 if (_err != null) {
@@ -61,7 +64,10 @@ package stdgo._internal.mime.multipart;
     @:tdfield
     static public function createPart( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>, _header:stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader):{ var _0 : stdgo._internal.io.Io_writer.Writer; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer> = _w;
-        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._lastpart;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             {
                 var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._lastpart._close() : stdgo.Error);
                 if (_err != null) {
@@ -70,7 +76,10 @@ package stdgo._internal.mime.multipart;
             };
         };
         var _b:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
-        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._lastpart;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._boundary));
         } else {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._boundary));
@@ -108,7 +117,10 @@ package stdgo._internal.mime.multipart;
     @:tdfield
     static public function setBoundary( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer>, _boundary:stdgo.GoString):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_writer.Writer> = _w;
-        if (((@:checkr _w ?? throw "null pointer dereference")._lastpart != null && (((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._lastpart : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._lastpart;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return stdgo._internal.errors.Errors_new_.new_(("mime: SetBoundary called after write" : stdgo.GoString));
         };
         if ((((_boundary.length) < (1 : stdgo.GoInt) : Bool) || ((_boundary.length) > (70 : stdgo.GoInt) : Bool) : Bool)) {

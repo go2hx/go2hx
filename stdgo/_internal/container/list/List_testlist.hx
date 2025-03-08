@@ -51,7 +51,10 @@ function testList(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var _sum = (0 : stdgo.GoInt);
         {
             var _e = @:check2r _l.front();
-            while ((_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__))) {
+            while (({
+                final value = _e;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert(((@:checkr _e ?? throw "null pointer dereference").value : stdgo.GoInt)) : stdgo.GoInt), _1 : true };
@@ -71,7 +74,10 @@ function testList(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var _next:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = (null : stdgo.Ref<stdgo._internal.container.list.List_element.Element>);
         {
             var _e = @:check2r _l.front();
-            while ((_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__))) {
+            while (({
+                final value = _e;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _next = @:check2r _e.next();
 @:check2r _l.remove(_e);
                 _e = _next;

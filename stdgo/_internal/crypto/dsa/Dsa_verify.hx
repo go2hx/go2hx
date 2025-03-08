@@ -10,7 +10,10 @@ function verify(_pub:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_publickey.PublicKe
             return false;
         };
         var _w = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).modInverse(_s, (@:checkr _pub ?? throw "null pointer dereference").parameters.q);
-        if ((_w == null || (_w : Dynamic).__nil__)) {
+        if (({
+            final value = _w;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return false;
         };
         var _n = (@:check2r (@:checkr _pub ?? throw "null pointer dereference").parameters.q.bitLen() : stdgo.GoInt);

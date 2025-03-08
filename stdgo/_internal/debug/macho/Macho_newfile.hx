@@ -138,7 +138,10 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_segment.Segment> = (null : st
                                 return { _0 : null, _1 : _err };
                             };
                         };
-                        if (((@:checkr _f ?? throw "null pointer dereference").symtab == null || ((@:checkr _f ?? throw "null pointer dereference").symtab : Dynamic).__nil__)) {
+                        if (({
+                            final value = (@:checkr _f ?? throw "null pointer dereference").symtab;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, ("dynamic symbol table seen before any ordinary symbol table" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
                         } else if ((_hdr.iundefsym > ((@:checkr (@:checkr _f ?? throw "null pointer dereference").symtab ?? throw "null pointer dereference").syms.length : stdgo.GoUInt32) : Bool)) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("undefined symbols index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface(_hdr.iundefsym), stdgo.Go.toInterface(((@:checkr (@:checkr _f ?? throw "null pointer dereference").symtab ?? throw "null pointer dereference").syms.length))).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
@@ -270,7 +273,10 @@ var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_section.Secti
                         (@:checkr _f ?? throw "null pointer dereference").loads = ((@:checkr _f ?? throw "null pointer dereference").loads.__append__(stdgo.Go.asInterface((_cmddat : stdgo._internal.debug.macho.Macho_loadbytes.LoadBytes))));
                     };
                 };
-if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
+if (({
+                    final value = _s;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     if ((((@:checkr _s ?? throw "null pointer dereference").segmentHeader.offset : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                         return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError(_offset, ("invalid section offset" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _s ?? throw "null pointer dereference").segmentHeader.offset)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
                     };

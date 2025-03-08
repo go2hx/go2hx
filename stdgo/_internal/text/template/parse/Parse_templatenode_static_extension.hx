@@ -18,7 +18,10 @@ package stdgo._internal.text.template.parse;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_templatenode.TemplateNode> = _t;
         @:check2r _sb.writeString(("{{template " : stdgo.GoString));
         @:check2r _sb.writeString(stdgo._internal.strconv.Strconv_quote.quote((@:checkr _t ?? throw "null pointer dereference").name?.__copy__())?.__copy__());
-        if (((@:checkr _t ?? throw "null pointer dereference").pipe != null && (((@:checkr _t ?? throw "null pointer dereference").pipe : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference").pipe : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _t ?? throw "null pointer dereference").pipe;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _sb.writeByte((32 : stdgo.GoUInt8));
             @:check2r (@:checkr _t ?? throw "null pointer dereference").pipe._writeTo(_sb);
         };

@@ -31,7 +31,10 @@ package stdgo._internal.mime.multipart;
     @:tdfield
     static public function _nextPart( _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader>, _rawPart:Bool, _maxMIMEHeaderSize:stdgo.GoInt64, _maxMIMEHeaders:stdgo.GoInt64):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_reader.Reader> = _r;
-        if (((@:checkr _r ?? throw "null pointer dereference")._currentPart != null && (((@:checkr _r ?? throw "null pointer dereference")._currentPart : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference")._currentPart : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._currentPart;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _r ?? throw "null pointer dereference")._currentPart.close();
         };
         if (((@:checkr _r ?? throw "null pointer dereference")._dashBoundary : stdgo.GoString) == (("--" : stdgo.GoString))) {
@@ -124,7 +127,10 @@ package stdgo._internal.mime.multipart;
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
-                        if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
+                        if (({
+                            final value = _file;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        })) {
                             {
                                 var _cerr = (@:check2r _file.close() : stdgo.Error);
                                 if (_err == null) {
@@ -141,7 +147,10 @@ package stdgo._internal.mime.multipart;
                         };
                         if (_err != null) {
                             @:check2r _form.removeAll();
-                            if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
+                            if (({
+                                final value = _file;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 stdgo._internal.os.Os_remove.remove(@:check2r _file.name()?.__copy__());
                             };
                         };
@@ -305,7 +314,10 @@ package stdgo._internal.mime.multipart;
                     };
                 };
                 if ((_n > _maxFileMemoryBytes : Bool)) {
-                    if ((_file == null || (_file : Dynamic).__nil__)) {
+                    if (({
+                        final value = _file;
+                        (value == null || (value : Dynamic).__nil__);
+                    })) {
                         {
                             var __tmp__ = stdgo._internal.os.Os_createtemp.createTemp((@:checkr _r ?? throw "null pointer dereference")._tempDir?.__copy__(), ("multipart-" : stdgo.GoString));
                             _file = @:tmpset0 __tmp__._0;

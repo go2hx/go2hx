@@ -14,7 +14,10 @@ function testMultiParse(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                 };
                 continue;
             };
-            if ((_template == null || (_template : Dynamic).__nil__)) {
+            if (({
+                final value = _template;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 continue;
             };
             if (((@:checkr _template ?? throw "null pointer dereference")._common._tmpl.length) != (((_test._names.length) + (1 : stdgo.GoInt) : stdgo.GoInt))) {

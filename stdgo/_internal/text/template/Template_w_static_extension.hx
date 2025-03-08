@@ -4,7 +4,10 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function error( _w:stdgo.Ref<stdgo._internal.text.template.Template_w.W>):stdgo.GoString {
         @:recv var _w:stdgo.Ref<stdgo._internal.text.template.Template_w.W> = _w;
-        if ((_w == null || (_w : Dynamic).__nil__)) {
+        if (({
+            final value = _w;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return ("nilW" : stdgo.GoString);
         };
         return stdgo._internal.fmt.Fmt_sprintf.sprintf(("[%d]" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _w ?? throw "null pointer dereference")._k))?.__copy__();

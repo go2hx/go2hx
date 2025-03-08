@@ -61,7 +61,13 @@ function commandContext(_t:stdgo._internal.testing.Testing_tb.TB, _ctx:stdgo._in
             if (_cancelCtx != null) {
                 _cancelCtx();
             };
-            if ((((@:checkr _cmd ?? throw "null pointer dereference").process != null && (((@:checkr _cmd ?? throw "null pointer dereference").process : Dynamic).__nil__ == null || !((@:checkr _cmd ?? throw "null pointer dereference").process : Dynamic).__nil__)) && ((@:checkr _cmd ?? throw "null pointer dereference").processState == null || ((@:checkr _cmd ?? throw "null pointer dereference").processState : Dynamic).__nil__) : Bool)) {
+            if ((({
+                final value = (@:checkr _cmd ?? throw "null pointer dereference").process;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ({
+                final value = (@:checkr _cmd ?? throw "null pointer dereference").processState;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
         });

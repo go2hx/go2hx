@@ -11,7 +11,10 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_type
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _enc = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encoder.load();
-            if ((_enc == null || (_enc : Dynamic).__nil__)) {
+            if (({
+                final value = _enc;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 if (_building == null) {
                     _building = ({
                         final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_typeinfo.T_typeInfo>, Bool>();

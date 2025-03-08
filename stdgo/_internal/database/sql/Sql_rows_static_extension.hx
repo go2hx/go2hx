@@ -38,7 +38,10 @@ package stdgo._internal.database.sql;
             if ((@:checkr _rs ?? throw "null pointer dereference")._cancel != null) {
                 (@:checkr _rs ?? throw "null pointer dereference")._cancel();
             };
-            if (((@:checkr _rs ?? throw "null pointer dereference")._closeStmt != null && (((@:checkr _rs ?? throw "null pointer dereference")._closeStmt : Dynamic).__nil__ == null || !((@:checkr _rs ?? throw "null pointer dereference")._closeStmt : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _rs ?? throw "null pointer dereference")._closeStmt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _rs ?? throw "null pointer dereference")._closeStmt.close();
             };
             (@:checkr _rs ?? throw "null pointer dereference")._releaseConn(_err);
@@ -372,7 +375,10 @@ package stdgo._internal.database.sql;
             if (!(@:checkr _rs ?? throw "null pointer dereference")._hitEOF) {
                 {
                     var _errp = @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load();
-                    if ((_errp != null && ((_errp : Dynamic).__nil__ == null || !(_errp : Dynamic).__nil__))) {
+                    if (({
+                        final value = _errp;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         return (_errp : stdgo.Error);
                     };
                 };
@@ -727,7 +733,10 @@ package stdgo._internal.database.sql;
     static public function next( _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>):Bool {
         @:recv var _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows> = _rs;
         @:check2r _rs._closemuRUnlockIfHeldByScan();
-        if ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() != null && ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__ == null || !(@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__))) {
+        if (({
+            final value = @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load();
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return false;
         };
         var _doClose:Bool = false, _ok:Bool = false;

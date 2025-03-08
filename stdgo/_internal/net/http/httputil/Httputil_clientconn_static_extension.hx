@@ -57,7 +57,10 @@ package stdgo._internal.net.http.httputil;
                     return __ret__;
                 };
             };
-            if (((@:checkr _cc ?? throw "null pointer dereference")._r == null || ((@:checkr _cc ?? throw "null pointer dereference")._r : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _cc ?? throw "null pointer dereference")._r;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 {
                     final __f__ = @:check2 (@:checkr _cc ?? throw "null pointer dereference")._mu.unlock;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });

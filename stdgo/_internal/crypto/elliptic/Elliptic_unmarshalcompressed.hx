@@ -40,7 +40,10 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_cur
         };
         _y = @:check2r _curve.params()._polynomial(_x);
         _y = @:check2r _y.modSqrt(_y, _p);
-        if ((_y == null || (_y : Dynamic).__nil__)) {
+        if (({
+            final value = _y;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : null, _1 : null };
                 _x = __tmp__._0;

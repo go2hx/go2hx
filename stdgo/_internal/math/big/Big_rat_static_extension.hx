@@ -68,7 +68,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function gobEncode( _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((5 : stdgo.GoInt) + (((((@:checkr _x ?? throw "null pointer dereference")._a._abs.length) + ((@:checkr _x ?? throw "null pointer dereference")._b._abs.length) : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

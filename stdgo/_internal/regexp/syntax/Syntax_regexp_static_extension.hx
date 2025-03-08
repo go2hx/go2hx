@@ -4,7 +4,10 @@ package stdgo._internal.regexp.syntax;
     @:tdfield
     static public function simplify( _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>):stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = _re;
-        if ((_re == null || (_re : Dynamic).__nil__)) {
+        if (({
+            final value = _re;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return null;
         };
         {
@@ -90,12 +93,18 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
                             _i++;
                         };
                     };
-                    if ((_prefix == null || (_prefix : Dynamic).__nil__)) {
+                    if (({
+                        final value = _prefix;
+                        (value == null || (value : Dynamic).__nil__);
+                    })) {
                         return _suffix;
                     };
                     (@:checkr _prefix ?? throw "null pointer dereference").sub = ((@:checkr _prefix ?? throw "null pointer dereference").sub.__append__(_suffix));
                 };
-                if ((_prefix != null && ((_prefix : Dynamic).__nil__ == null || !(_prefix : Dynamic).__nil__))) {
+                if (({
+                    final value = _prefix;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     return _prefix;
                 };
                 return (stdgo.Go.setRef(({ op : (1 : stdgo._internal.regexp.syntax.Syntax_op.Op) } : stdgo._internal.regexp.syntax.Syntax_regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>);
@@ -152,7 +161,13 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
     @:tdfield
     static public function equal( _x:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>, _y:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp>):Bool {
         @:recv var _x:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_regexp.Regexp> = _x;
-        if (((_x == null || (_x : Dynamic).__nil__) || (_y == null || (_y : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = _y;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return _x == (_y);
         };
         if ((@:checkr _x ?? throw "null pointer dereference").op != ((@:checkr _y ?? throw "null pointer dereference").op)) {

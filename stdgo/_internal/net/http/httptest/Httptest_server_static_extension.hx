@@ -439,7 +439,10 @@ package stdgo._internal.net.http.httptest;
                     _t.closeIdleConnections();
                 };
             };
-            if (((@:checkr _s ?? throw "null pointer dereference")._client != null && (((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _s ?? throw "null pointer dereference")._client;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr (@:checkr _s ?? throw "null pointer dereference")._client ?? throw "null pointer dereference").transport) : stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport)) : stdgo._internal.net.http.httptest.Httptest_t_closeidletransport.T_closeIdleTransport), _1 : true };
@@ -513,7 +516,10 @@ package stdgo._internal.net.http.httptest;
         if ((@:checkr _s ?? throw "null pointer dereference").uRL != ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
-        if (((@:checkr _s ?? throw "null pointer dereference")._client == null || ((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._client;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             (@:checkr _s ?? throw "null pointer dereference")._client = (stdgo.Go.setRef(({ transport : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.Http_transport.Transport() : stdgo._internal.net.http.Http_transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_transport.Transport>)) } : stdgo._internal.net.http.Http_client.Client)) : stdgo.Ref<stdgo._internal.net.http.Http_client.Client>);
         };
         var __tmp__ = stdgo._internal.crypto.tls.Tls_x509keypair.x509KeyPair(stdgo._internal.net.http.internal.testcert.Testcert_localhostcert.localhostCert, stdgo._internal.net.http.internal.testcert.Testcert_localhostkey.localhostKey), _cert:stdgo._internal.crypto.tls.Tls_certificate.Certificate = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -521,7 +527,10 @@ package stdgo._internal.net.http.httptest;
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("httptest: NewTLSServer: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
         };
         var _existingConfig = (@:checkr _s ?? throw "null pointer dereference").tLS;
-        if ((_existingConfig != null && ((_existingConfig : Dynamic).__nil__ == null || !(_existingConfig : Dynamic).__nil__))) {
+        if (({
+            final value = _existingConfig;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             (@:checkr _s ?? throw "null pointer dereference").tLS = @:check2r _existingConfig.clone();
         } else {
             (@:checkr _s ?? throw "null pointer dereference").tLS = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>);
@@ -559,7 +568,10 @@ package stdgo._internal.net.http.httptest;
         if ((@:checkr _s ?? throw "null pointer dereference").uRL != ((stdgo.Go.str() : stdgo.GoString))) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
-        if (((@:checkr _s ?? throw "null pointer dereference")._client == null || ((@:checkr _s ?? throw "null pointer dereference")._client : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._client;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             (@:checkr _s ?? throw "null pointer dereference")._client = (stdgo.Go.setRef(({ transport : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.Http_transport.Transport() : stdgo._internal.net.http.Http_transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_transport.Transport>)) } : stdgo._internal.net.http.Http_client.Client)) : stdgo.Ref<stdgo._internal.net.http.Http_client.Client>);
         };
         (@:checkr _s ?? throw "null pointer dereference").uRL = (("http://" : stdgo.GoString) + ((@:checkr _s ?? throw "null pointer dereference").listener.addr().string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();

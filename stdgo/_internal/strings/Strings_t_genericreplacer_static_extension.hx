@@ -13,7 +13,10 @@ package stdgo._internal.strings;
             while ((_i <= (_s.length) : Bool)) {
                 if (((_i != (_s.length)) && ((@:checkr _r ?? throw "null pointer dereference")._root._priority == (0 : stdgo.GoInt)) : Bool)) {
                     var _index = ((@:checkr _r ?? throw "null pointer dereference")._mapping[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoInt);
-                    if (((_index == (@:checkr _r ?? throw "null pointer dereference")._tableSize) || ((@:checkr _r ?? throw "null pointer dereference")._root._table[(_index : stdgo.GoInt)] == null || ((@:checkr _r ?? throw "null pointer dereference")._root._table[(_index : stdgo.GoInt)] : Dynamic).__nil__) : Bool)) {
+                    if (((_index == (@:checkr _r ?? throw "null pointer dereference")._tableSize) || ({
+                        final value = (@:checkr _r ?? throw "null pointer dereference")._root._table[(_index : stdgo.GoInt)];
+                        (value == null || (value : Dynamic).__nil__);
+                    }) : Bool)) {
                         _i++;
                         continue;
                     };
@@ -72,7 +75,10 @@ package stdgo._internal.strings;
         var _bestPriority = (0 : stdgo.GoInt);
         var _node = (stdgo.Go.setRef((@:checkr _r ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.strings.Strings_t_trienode.T_trieNode>);
         var _n = (0 : stdgo.GoInt);
-        while ((_node != null && ((_node : Dynamic).__nil__ == null || !(_node : Dynamic).__nil__))) {
+        while (({
+            final value = _node;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if ((((@:checkr _node ?? throw "null pointer dereference")._priority > _bestPriority : Bool) && !((_ignoreRoot && (_node == (stdgo.Go.setRef((@:checkr _r ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.strings.Strings_t_trienode.T_trieNode>)) : Bool)) : Bool)) {
                 _bestPriority = (@:checkr _node ?? throw "null pointer dereference")._priority;
                 _val = (@:checkr _node ?? throw "null pointer dereference")._value?.__copy__();
@@ -116,7 +122,10 @@ package stdgo._internal.strings;
             _s = (_s + (@:check2r _r._printNode((@:checkr _t ?? throw "null pointer dereference")._next, (_depth + ((@:checkr _t ?? throw "null pointer dereference")._prefix.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         } else if ((@:checkr _t ?? throw "null pointer dereference")._table != null) {
             for (_b => _m in (@:checkr _r ?? throw "null pointer dereference")._mapping) {
-                if ((((_m : stdgo.GoInt) != (@:checkr _r ?? throw "null pointer dereference")._tableSize) && ((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] != null && (((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) : Bool)) {
+                if ((((_m : stdgo.GoInt) != (@:checkr _r ?? throw "null pointer dereference")._tableSize) && ({
+                    final value = (@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)];
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                }) : Bool)) {
                     _s = (_s + ((stdgo._internal.strings.Strings_repeat.repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_b : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     _s = (_s + (@:check2r _r._printNode((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)], (_depth + (1 : stdgo.GoInt) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
                 };

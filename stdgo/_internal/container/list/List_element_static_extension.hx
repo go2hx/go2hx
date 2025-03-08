@@ -6,7 +6,10 @@ package stdgo._internal.container.list;
         @:recv var _e:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = _e;
         {
             var _p = (@:checkr _e ?? throw "null pointer dereference")._prev;
-            if ((((@:checkr _e ?? throw "null pointer dereference")._list != null && (((@:checkr _e ?? throw "null pointer dereference")._list : Dynamic).__nil__ == null || !((@:checkr _e ?? throw "null pointer dereference")._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef((@:checkr (@:checkr _e ?? throw "null pointer dereference")._list ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_element.Element>)) : Bool)) {
+            if ((({
+                final value = (@:checkr _e ?? throw "null pointer dereference")._list;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (_p != (stdgo.Go.setRef((@:checkr (@:checkr _e ?? throw "null pointer dereference")._list ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_element.Element>)) : Bool)) {
                 return _p;
             };
         };
@@ -18,7 +21,10 @@ package stdgo._internal.container.list;
         @:recv var _e:stdgo.Ref<stdgo._internal.container.list.List_element.Element> = _e;
         {
             var _p = (@:checkr _e ?? throw "null pointer dereference")._next;
-            if ((((@:checkr _e ?? throw "null pointer dereference")._list != null && (((@:checkr _e ?? throw "null pointer dereference")._list : Dynamic).__nil__ == null || !((@:checkr _e ?? throw "null pointer dereference")._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef((@:checkr (@:checkr _e ?? throw "null pointer dereference")._list ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_element.Element>)) : Bool)) {
+            if ((({
+                final value = (@:checkr _e ?? throw "null pointer dereference")._list;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (_p != (stdgo.Go.setRef((@:checkr (@:checkr _e ?? throw "null pointer dereference")._list ?? throw "null pointer dereference")._root) : stdgo.Ref<stdgo._internal.container.list.List_element.Element>)) : Bool)) {
                 return _p;
             };
         };

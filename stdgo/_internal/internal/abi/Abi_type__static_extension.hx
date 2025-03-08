@@ -79,7 +79,10 @@ package stdgo._internal.internal.abi;
     static public function exportedMethods( _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>):stdgo.Slice<stdgo._internal.internal.abi.Abi_method.Method> {
         @:recv var _t:stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_> = _t;
         var _ut = @:check2r _t.uncommon();
-        if ((_ut == null || (_ut : Dynamic).__nil__)) {
+        if (({
+            final value = _ut;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (null : stdgo.Slice<stdgo._internal.internal.abi.Abi_method.Method>);
         };
         return @:check2r _ut.exportedMethods();

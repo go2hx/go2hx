@@ -140,7 +140,10 @@ package stdgo._internal.database.sql;
                 _parentStmt = _stmt;
             };
             var _txs = (stdgo.Go.setRef(({ _db : (@:checkr _tx ?? throw "null pointer dereference")._db, _cg : stdgo.Go.asInterface(_tx), _cgds : (stdgo.Go.setRef(({ locker : stdgo.Go.asInterface(_dc), _si : _si } : stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>), _parentStmt : _parentStmt, _query : (@:checkr _stmt ?? throw "null pointer dereference")._query?.__copy__() } : stdgo._internal.database.sql.Sql_stmt.Stmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>);
-            if ((_parentStmt != null && ((_parentStmt : Dynamic).__nil__ == null || !(_parentStmt : Dynamic).__nil__))) {
+            if (({
+                final value = _parentStmt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _tx ?? throw "null pointer dereference")._db._addDep(stdgo.Go.asInterface(_parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_txs)));
             };
             (@:checkr _tx ?? throw "null pointer dereference")._stmts.lock();

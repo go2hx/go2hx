@@ -73,11 +73,17 @@ package stdgo._internal.net.textproto;
     @:tdfield
     static public function _closeDot( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        if (((@:checkr _r ?? throw "null pointer dereference")._dot == null || ((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return;
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        while (((@:checkr _r ?? throw "null pointer dereference")._dot != null && (((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__))) {
+        while (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _r ?? throw "null pointer dereference")._dot.read(_buf);
         };
     }

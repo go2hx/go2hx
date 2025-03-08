@@ -70,7 +70,10 @@ package stdgo._internal.sync;
         };
         while (_ok) {
             var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-            if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
+            if (((({
+                final value = _p;
+                (value == null || (value : Dynamic).__nil__);
+            }) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
                 return _deleted = false;
             };
             if (@:check2 (@:checkr _e ?? throw "null pointer dereference")._p.compareAndSwap(_p, (null : stdgo.Ref<stdgo.AnyInterface>))) {
@@ -187,7 +190,10 @@ package stdgo._internal.sync;
                 {
                     var __tmp__ = @:check2r _e._trySwap((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>)), _v:stdgo.Ref<stdgo.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
-                        if ((_v == null || (_v : Dynamic).__nil__)) {
+                        if (({
+                            final value = _v;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return {
                                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
                                 _previous = __tmp__._0;
@@ -215,7 +221,10 @@ package stdgo._internal.sync;
                 };
                 {
                     var _v = @:check2r _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>));
-                    if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
+                    if (({
+                        final value = _v;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _loaded = true;
                         _previous = (_v : stdgo.AnyInterface);
                     };
@@ -225,7 +234,10 @@ package stdgo._internal.sync;
                 if (_ok) {
                     {
                         var _v = @:check2r _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>));
-                        if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
+                        if (({
+                            final value = _v;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        })) {
                             _loaded = true;
                             _previous = (_v : stdgo.AnyInterface);
                         };
@@ -407,7 +419,10 @@ package stdgo._internal.sync;
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_> = _m;
         {
             var _p = @:check2 (@:checkr _m ?? throw "null pointer dereference")._read.load();
-            if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
+            if (({
+                final value = _p;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return (_p : stdgo._internal.sync.Sync_t_readonly.T_readOnly)?.__copy__();
             };
         };

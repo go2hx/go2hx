@@ -28,7 +28,10 @@ function _clip(_dst:stdgo._internal.image.draw.Draw_image.Image, _r:stdgo.Ref<st
         };
         (@:checkr _sp ?? throw "null pointer dereference").x = ((@:checkr _sp ?? throw "null pointer dereference").x + (_dx) : stdgo.GoInt);
         (@:checkr _sp ?? throw "null pointer dereference").y = ((@:checkr _sp ?? throw "null pointer dereference").y + (_dy) : stdgo.GoInt);
-        if ((_mp != null && ((_mp : Dynamic).__nil__ == null || !(_mp : Dynamic).__nil__))) {
+        if (({
+            final value = _mp;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             (@:checkr _mp ?? throw "null pointer dereference").x = ((@:checkr _mp ?? throw "null pointer dereference").x + (_dx) : stdgo.GoInt);
             (@:checkr _mp ?? throw "null pointer dereference").y = ((@:checkr _mp ?? throw "null pointer dereference").y + (_dy) : stdgo.GoInt);
         };

@@ -576,7 +576,10 @@ package stdgo._internal.text.template;
     static public function _evalPipeline( _s:stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state>, _dot:stdgo._internal.reflect.Reflect_value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>):stdgo._internal.reflect.Reflect_value.Value {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state> = _s;
         var _value = ({} : stdgo._internal.reflect.Reflect_value.Value);
-        if ((_pipe == null || (_pipe : Dynamic).__nil__)) {
+        if (({
+            final value = _pipe;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return _value;
         };
         @:check2r _s._at(stdgo.Go.asInterface(_pipe));
@@ -602,7 +605,10 @@ package stdgo._internal.text.template;
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state> = _s;
         @:check2r _s._at(stdgo.Go.asInterface(_t));
         var _tmpl = @:check2r (@:checkr _s ?? throw "null pointer dereference")._tmpl.lookup((@:checkr _t ?? throw "null pointer dereference").name?.__copy__());
-        if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
+        if (({
+            final value = _tmpl;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             @:check2r _s._errorf(("template %q not defined" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference").name));
         };
         if ((@:checkr _s ?? throw "null pointer dereference")._depth == (stdgo._internal.text.template.Template__maxexecdepth._maxExecDepth)) {
@@ -827,7 +833,10 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterfa
                     break;
                 };
             };
-            if (((@:checkr _r ?? throw "null pointer dereference").branchNode.elseList != null && (((@:checkr _r ?? throw "null pointer dereference").branchNode.elseList : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference").branchNode.elseList : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _r ?? throw "null pointer dereference").branchNode.elseList;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r _s._walk(_dot?.__copy__(), stdgo.Go.asInterface((@:checkr _r ?? throw "null pointer dereference").branchNode.elseList));
             };
             {
@@ -906,7 +915,10 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterfa
                 } else {
                     @:check2r _s._walk(_dot?.__copy__(), stdgo.Go.asInterface(_list));
                 };
-            } else if ((_elseList != null && ((_elseList : Dynamic).__nil__ == null || !(_elseList : Dynamic).__nil__))) {
+            } else if (({
+                final value = _elseList;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r _s._walk(_dot?.__copy__(), stdgo.Go.asInterface(_elseList));
             };
             {

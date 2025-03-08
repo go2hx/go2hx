@@ -23,7 +23,13 @@ package stdgo._internal.debug.macho;
     @:tdfield
     static public function importedSymbols( _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File> = _f;
-        if ((((@:checkr _f ?? throw "null pointer dereference").dysymtab == null || ((@:checkr _f ?? throw "null pointer dereference").dysymtab : Dynamic).__nil__) || ((@:checkr _f ?? throw "null pointer dereference").symtab == null || ((@:checkr _f ?? throw "null pointer dereference").symtab : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = (@:checkr _f ?? throw "null pointer dereference").dysymtab;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = (@:checkr _f ?? throw "null pointer dereference").symtab;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError((0i64 : stdgo.GoInt64), ("missing symbol table" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
         };
         var _st = (@:checkr _f ?? throw "null pointer dereference").symtab;

@@ -4,7 +4,10 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _update( _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>, _instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encinstr.T_encInstr>):Void {
         @:recv var _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState> = _state;
-        if ((_instr != null && ((_instr : Dynamic).__nil__ == null || !(_instr : Dynamic).__nil__))) {
+        if (({
+            final value = _instr;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _state._encodeUint((((@:checkr _instr ?? throw "null pointer dereference")._field - (@:checkr _state ?? throw "null pointer dereference")._fieldnum : stdgo.GoInt) : stdgo.GoUInt64));
             (@:checkr _state ?? throw "null pointer dereference")._fieldnum = (@:checkr _instr ?? throw "null pointer dereference")._field;
         };

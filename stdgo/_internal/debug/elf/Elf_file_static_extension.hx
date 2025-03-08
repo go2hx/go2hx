@@ -5,7 +5,10 @@ package stdgo._internal.debug.elf;
     static public function dynValue( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>, _tag:stdgo._internal.debug.elf.Elf_dyntag.DynTag):{ var _0 : stdgo.Slice<stdgo.GoUInt64>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File> = _f;
         var _ds = @:check2r _f.sectionByType((6u32 : stdgo._internal.debug.elf.Elf_sectiontype.SectionType));
-        if ((_ds == null || (_ds : Dynamic).__nil__)) {
+        if (({
+            final value = _ds;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt64>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = @:check2r _ds.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -45,7 +48,10 @@ package stdgo._internal.debug.elf;
             };
         };
         var _ds = @:check2r _f.sectionByType((6u32 : stdgo._internal.debug.elf.Elf_sectiontype.SectionType));
-        if ((_ds == null || (_ds : Dynamic).__nil__)) {
+        if (({
+            final value = _ds;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = @:check2r _ds.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -120,7 +126,10 @@ package stdgo._internal.debug.elf;
             return true;
         };
         var _vn = @:check2r _f.sectionByType((1879048190u32 : stdgo._internal.debug.elf.Elf_sectiontype.SectionType));
-        if ((_vn == null || (_vn : Dynamic).__nil__)) {
+        if (({
+            final value = _vn;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return false;
         };
         var __tmp__ = @:check2r _vn.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __2:stdgo.Error = __tmp__._1;
@@ -174,7 +183,10 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
             _i = (_i + ((_next : stdgo.GoInt)) : stdgo.GoInt);
         };
         var _vs = @:check2r _f.sectionByType((1879048191u32 : stdgo._internal.debug.elf.Elf_sectiontype.SectionType));
-        if ((_vs == null || (_vs : Dynamic).__nil__)) {
+        if (({
+            final value = _vs;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return false;
         };
         {
@@ -877,7 +889,10 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     static public function _getSymbols64( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>, _typ:stdgo._internal.debug.elf.Elf_sectiontype.SectionType):{ var _0 : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File> = _f;
         var _symtabSection = @:check2r _f.sectionByType(_typ);
-        if ((_symtabSection == null || (_symtabSection : Dynamic).__nil__)) {
+        if (({
+            final value = _symtabSection;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.debug.elf.Elf_errnosymbols.errNoSymbols };
         };
         var __tmp__ = @:check2r _symtabSection.data(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -915,7 +930,10 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     static public function _getSymbols32( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File>, _typ:stdgo._internal.debug.elf.Elf_sectiontype.SectionType):{ var _0 : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File> = _f;
         var _symtabSection = @:check2r _f.sectionByType(_typ);
-        if ((_symtabSection == null || (_symtabSection : Dynamic).__nil__)) {
+        if (({
+            final value = _symtabSection;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.debug.elf.Elf_errnosymbols.errNoSymbols };
         };
         var __tmp__ = @:check2r _symtabSection.data(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

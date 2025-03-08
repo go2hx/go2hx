@@ -6,7 +6,10 @@ package stdgo._internal.net.internal.socktest;
         @:recv var _sw:stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch> = _sw;
         var _soerr = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _so = @:check2r _sw._sockso(_s);
-        if ((_so == null || (_so : Dynamic).__nil__)) {
+        if (({
+            final value = _so;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.syscall.Syscall_getsockoptint.getsockoptInt(_s, _level, _opt);
         };
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -66,7 +69,10 @@ package stdgo._internal.net.internal.socktest;
         var _ns = (0 : stdgo.GoInt), _sa = (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return stdgo._internal.syscall.Syscall_accept.accept(_s);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -205,7 +211,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_listen.listen(_s, _backlog);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -311,7 +320,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_connect.connect(_s, _sa);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -417,7 +429,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_close.close(_s);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();

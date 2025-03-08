@@ -15,14 +15,20 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) {
                         var _d:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.Slice<stdgo.GoUInt8>).__setData__((_s : stdgo.Slice<stdgo.GoUInt8>));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>))) {
                         var _d:stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(((((_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes)).__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__append__(...(_s : Array<stdgo.GoUInt8>))));
@@ -42,21 +48,30 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.AnyInterface>))) {
                         var _d:stdgo.Ref<stdgo.AnyInterface> = __type__ == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__ == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.AnyInterface).__setData__(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes_clone.clone(_s)));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) {
                         var _d:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.Slice<stdgo.GoUInt8>).__setData__(stdgo._internal.bytes.Bytes_clone.clone(_s));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>))) {
                         var _d:stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(_s);
@@ -83,14 +98,20 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) {
                         var _d:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.Slice<stdgo.GoUInt8>).__setData__((_s.format(("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString)) : stdgo.Slice<stdgo.GoUInt8>));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>))) {
                         var _d:stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(_s.appendFormat((((_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes)).__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.database.sql.Sql_rawbytes.RawBytes), ("2006-01-02T15:04:05.999999999Z07:00" : stdgo.GoString)));
@@ -116,21 +137,30 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                     final __type__ = _dest;
                     if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.AnyInterface>))) {
                         var _d:stdgo.Ref<stdgo.AnyInterface> = __type__ == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__ == null ? (null : stdgo.Ref<stdgo.AnyInterface>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.AnyInterface).__setData__((null : stdgo.AnyInterface));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))) {
                         var _d:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo.Slice<stdgo.GoUInt8>).__setData__((null : stdgo.Slice<stdgo.GoUInt8>));
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>))) {
                         var _d:stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rawbytes.RawBytes>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
                         (_d : stdgo._internal.database.sql.Sql_rawbytes.RawBytes).__setData__(null);
@@ -143,10 +173,16 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                     final __type__ = _dest;
                     if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>))) {
                         var _d:stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>) : __type__.__underlying__().value;
-                        if ((_d == null || (_d : Dynamic).__nil__)) {
+                        if (({
+                            final value = _d;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.database.sql.Sql__errnilptr._errNilPtr;
                         };
-                        if ((_rows == null || (_rows : Dynamic).__nil__)) {
+                        if (({
+                            final value = _rows;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.errors.Errors_new_.new_(("invalid context to convert cursor rows, missing parent *Rows" : stdgo.GoString));
                         };
                         @:check2 (@:checkr _rows ?? throw "null pointer dereference")._closemu.lock();

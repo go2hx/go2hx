@@ -16,7 +16,10 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Synt
             _matchcap = (2 : stdgo.GoInt);
         };
         var _regexp = (stdgo.Go.setRef(({ _expr : _expr?.__copy__(), _prog : _prog, _onepass : stdgo._internal.regexp.Regexp__compileonepass._compileOnePass(_prog), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : @:check2r _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : stdgo._internal.regexp.Regexp__mininputlen._minInputLen(_re) } : stdgo._internal.regexp.Regexp_regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>);
-        if (((@:checkr _regexp ?? throw "null pointer dereference")._onepass == null || ((@:checkr _regexp ?? throw "null pointer dereference")._onepass : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _regexp ?? throw "null pointer dereference")._onepass;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             {
                 var __tmp__ = @:check2r _prog.prefix();
                 (@:checkr _regexp ?? throw "null pointer dereference")._prefix = @:tmpset0 __tmp__._0?.__copy__();

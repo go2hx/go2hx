@@ -16,7 +16,10 @@ package stdgo._internal.debug.plan9obj;
     static public function symbols( _f:stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File>):{ var _0 : stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File> = _f;
         var _symtabSection = @:check2r _f.section(("syms" : stdgo.GoString));
-        if ((_symtabSection == null || (_symtabSection : Dynamic).__nil__)) {
+        if (({
+            final value = _symtabSection;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.plan9obj.Plan9obj_sym.Sym>), _1 : stdgo._internal.debug.plan9obj.Plan9obj_errnosymbols.errNoSymbols };
         };
         var __tmp__ = @:check2r _symtabSection.data(), _symtab:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

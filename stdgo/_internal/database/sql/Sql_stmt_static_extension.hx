@@ -131,7 +131,10 @@ package stdgo._internal.database.sql;
                     return __ret__;
                 };
             };
-            if (((@:checkr _s ?? throw "null pointer dereference")._parentStmt != null && (((@:checkr _s ?? throw "null pointer dereference")._parentStmt : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._parentStmt : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _s ?? throw "null pointer dereference")._parentStmt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     final __ret__:stdgo.Error = @:check2r (@:checkr _s ?? throw "null pointer dereference")._db._removeDep(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
                     for (defer in __deferstack__) {

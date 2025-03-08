@@ -292,7 +292,10 @@ package stdgo._internal.internal.coverage.cformat;
     @:tdfield
     static public function addUnit( _fm:stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter>, _file:stdgo.GoString, _fname:stdgo.GoString, _isfnlit:Bool, _unit:stdgo._internal.internal.coverage.Coverage_coverableunit.CoverableUnit, _count:stdgo.GoUInt32):Void {
         @:recv var _fm:stdgo.Ref<stdgo._internal.internal.coverage.cformat.Cformat_formatter.Formatter> = _fm;
-        if (((@:checkr _fm ?? throw "null pointer dereference")._p == null || ((@:checkr _fm ?? throw "null pointer dereference")._p : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _fm ?? throw "null pointer dereference")._p;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             throw stdgo.Go.toInterface(("AddUnit invoked before SetPackage" : stdgo.GoString));
         };
         var _fkey = ({ _file : _file?.__copy__(), _fname : _fname?.__copy__(), _lit : _isfnlit } : stdgo._internal.internal.coverage.cformat.Cformat_t_fnfile.T_fnfile);

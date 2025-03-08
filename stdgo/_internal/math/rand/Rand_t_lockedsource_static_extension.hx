@@ -18,7 +18,10 @@ package stdgo._internal.math.rand;
     @:tdfield
     static public function _seed( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_t_lockedsource.T_lockedSource> = _r;
-        if (((@:checkr _r ?? throw "null pointer dereference")._s == null || ((@:checkr _r ?? throw "null pointer dereference")._s : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._s;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             (@:checkr _r ?? throw "null pointer dereference")._s = stdgo._internal.math.rand.Rand__newsource._newSource(_seed);
         } else {
             @:check2r (@:checkr _r ?? throw "null pointer dereference")._s.seed(_seed);

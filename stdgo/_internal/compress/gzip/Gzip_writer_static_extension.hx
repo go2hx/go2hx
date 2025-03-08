@@ -108,7 +108,10 @@ package stdgo._internal.compress.gzip;
                     return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                 };
             };
-            if (((@:checkr _z ?? throw "null pointer dereference")._compressor == null || ((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _z ?? throw "null pointer dereference")._compressor;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 {
                     var __tmp__ = stdgo._internal.compress.flate.Flate_newwriter.newWriter((@:checkr _z ?? throw "null pointer dereference")._w, (@:checkr _z ?? throw "null pointer dereference")._level);
                     (@:checkr _z ?? throw "null pointer dereference")._compressor = @:tmpset0 __tmp__._0;
@@ -192,7 +195,10 @@ package stdgo._internal.compress.gzip;
     static public function _init( _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer>, _w:stdgo._internal.io.Io_writer.Writer, _level:stdgo.GoInt):Void {
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_writer.Writer> = _z;
         var _compressor = (@:checkr _z ?? throw "null pointer dereference")._compressor;
-        if ((_compressor != null && ((_compressor : Dynamic).__nil__ == null || !(_compressor : Dynamic).__nil__))) {
+        if (({
+            final value = _compressor;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _compressor.reset(_w);
         };
         {

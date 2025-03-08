@@ -68,7 +68,10 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({
                     var a = function():Void {
-                        if ((((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
+                        if ((({
+                            final value = (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing;
+                            (value == null || (value : Dynamic).__nil__);
+                        }) || _crashWritten : Bool)) {
                             return;
                         };
                         var _werr = (stdgo._internal.internal.fuzz.Fuzz__writetocorpus._writeToCorpus((stdgo.Go.setRef((@:checkr (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing ?? throw "null pointer dereference")._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
@@ -141,7 +144,10 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                 };
                 var _inputC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_fuzzinput.T_fuzzInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_fuzzinput.T_fuzzInput>);
                 var __tmp__ = @:check2r _c._peekInput(), _input:stdgo._internal.internal.fuzz.Fuzz_t_fuzzinput.T_fuzzInput = __tmp__._0, _ok:Bool = __tmp__._1;
-                if (((_ok && ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) : Bool) && !_stopping : Bool)) {
+                if (((_ok && ({
+                    final value = (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing;
+                    (value == null || (value : Dynamic).__nil__);
+                }) : Bool) && !_stopping : Bool)) {
                     _inputC = (@:checkr _c ?? throw "null pointer dereference")._inputC;
                 };
                 var _minimizeC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_fuzzminimizeinput.T_fuzzMinimizeInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_fuzzminimizeinput.T_fuzzMinimizeInput>);
@@ -197,7 +203,10 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                             break;
                                         };
                                         if ((@:check2r _c._canMinimize() && _result._canMinimize : Bool)) {
-                                            if (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing != null && (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__))) {
+                                            if (({
+                                                final value = (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing;
+                                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                                            })) {
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldprintdebuginfo._shouldPrintDebugInfo()) {
                                                     @:check2r _c._debugLogf(("found unminimized crasher, skipping in favor of minimizable crasher" : stdgo.GoString));
                                                 };
@@ -233,7 +242,10 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                         } else {
                                             var _keepCoverage = stdgo._internal.internal.fuzz.Fuzz__diffcoverage._diffCoverage((@:checkr _c ?? throw "null pointer dereference")._coverageMask, _result._coverageData);
                                             if (_keepCoverage != null) {
-                                                if (((@:check2r _c._canMinimize() && _result._canMinimize : Bool) && ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing == null || ((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__) : Bool)) {
+                                                if (((@:check2r _c._canMinimize() && _result._canMinimize : Bool) && ({
+                                                    final value = (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing;
+                                                    (value == null || (value : Dynamic).__nil__);
+                                                }) : Bool)) {
                                                     @:check2r _c._queueForMinimization(_result?.__copy__(), _keepCoverage);
                                                 } else {
                                                     var _inputSize = (_result._entry.data.length : stdgo.GoInt);

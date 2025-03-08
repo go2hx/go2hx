@@ -44,7 +44,10 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
             };
         };
         var _curve:stdgo._internal.crypto.elliptic.Elliptic_curve.Curve = (null : stdgo._internal.crypto.elliptic.Elliptic_curve.Curve);
-        if ((_namedCurveOID != null && ((_namedCurveOID : Dynamic).__nil__ == null || !(_namedCurveOID : Dynamic).__nil__))) {
+        if (({
+            final value = _namedCurveOID;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _curve = stdgo._internal.crypto.x509.X509__namedcurvefromoid._namedCurveFromOID((_namedCurveOID : stdgo._internal.encoding.asn1.Asn1_objectidentifier.ObjectIdentifier));
         } else {
             _curve = stdgo._internal.crypto.x509.X509__namedcurvefromoid._namedCurveFromOID(_privKey.namedCurveOID);

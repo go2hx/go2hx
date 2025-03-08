@@ -9,7 +9,7 @@ function _count(_n:stdgo.GoInt):stdgo.Chan<stdgo.GoString> {
                 {
                     var _i = (0 : stdgo.GoInt);
                     while ((_i < _n : Bool)) {
-                        _c.__send__((("abcdefghijklmnop" : stdgo.GoString).__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString));
+                        _c.__send__((("abcdefghijklmnop" : stdgo.GoString).__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__());
                         _i++;
                     };
                 };

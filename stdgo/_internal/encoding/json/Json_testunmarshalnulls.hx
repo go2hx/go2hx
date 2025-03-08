@@ -27,22 +27,40 @@ function testUnmarshalNulls(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
         if (_nulls.interface_ != null) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.Interface" : stdgo.GoString));
         };
-        if ((_nulls.pRaw != null && ((_nulls.pRaw : Dynamic).__nil__ == null || !(_nulls.pRaw : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pRaw;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PRaw" : stdgo.GoString));
         };
-        if ((_nulls.pTime != null && ((_nulls.pTime : Dynamic).__nil__ == null || !(_nulls.pTime : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pTime;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PTime" : stdgo.GoString));
         };
-        if ((_nulls.pBigInt != null && ((_nulls.pBigInt : Dynamic).__nil__ == null || !(_nulls.pBigInt : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pBigInt;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PBigInt" : stdgo.GoString));
         };
-        if ((_nulls.pText != null && ((_nulls.pText : Dynamic).__nil__ == null || !(_nulls.pText : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pText;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PText" : stdgo.GoString));
         };
-        if ((_nulls.pBuffer != null && ((_nulls.pBuffer : Dynamic).__nil__ == null || !(_nulls.pBuffer : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pBuffer;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PBuffer" : stdgo.GoString));
         };
-        if ((_nulls.pStruct != null && ((_nulls.pStruct : Dynamic).__nil__ == null || !(_nulls.pStruct : Dynamic).__nil__))) {
+        if (({
+            final value = _nulls.pStruct;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("Unmarshal of null did not clear nulls.PStruct" : stdgo.GoString));
         };
         if ((_nulls.raw : stdgo.GoString) != (("null" : stdgo.GoString))) {

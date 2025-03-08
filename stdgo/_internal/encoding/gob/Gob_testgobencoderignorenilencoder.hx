@@ -15,7 +15,10 @@ function testGobEncoderIgnoreNilEncoder(_t:stdgo.Ref<stdgo._internal.testing.Tes
         if ((@:checkr _x ?? throw "null pointer dereference").x != ((18 : stdgo.GoInt))) {
             @:check2r _t.errorf(("expected x.X = 18, got %v" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").x));
         };
-        if (((@:checkr _x ?? throw "null pointer dereference").g != null && (((@:checkr _x ?? throw "null pointer dereference").g : Dynamic).__nil__ == null || !((@:checkr _x ?? throw "null pointer dereference").g : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _x ?? throw "null pointer dereference").g;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.errorf(("expected x.G = nil, got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _x ?? throw "null pointer dereference").g)));
         };
     }

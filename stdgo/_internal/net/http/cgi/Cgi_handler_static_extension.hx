@@ -23,7 +23,10 @@ package stdgo._internal.net.http.cgi;
     static public function _printf( _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_handler.Handler> = _h;
-        if (((@:checkr _h ?? throw "null pointer dereference").logger != null && (((@:checkr _h ?? throw "null pointer dereference").logger : Dynamic).__nil__ == null || !((@:checkr _h ?? throw "null pointer dereference").logger : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _h ?? throw "null pointer dereference").logger;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _h ?? throw "null pointer dereference").logger.printf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
@@ -83,7 +86,10 @@ package stdgo._internal.net.http.cgi;
                     _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString)?.__copy__()));
                 };
             };
-            if (((@:checkr _req ?? throw "null pointer dereference").tLS != null && (((@:checkr _req ?? throw "null pointer dereference").tLS : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").tLS : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _req ?? throw "null pointer dereference").tLS;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _env = (_env.__append__((("HTTPS=on" : stdgo.GoString) : stdgo.GoString)));
             };
             for (_k => _v in (@:checkr _req ?? throw "null pointer dereference").header) {

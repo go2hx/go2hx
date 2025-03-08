@@ -6,7 +6,10 @@ function testRunOnePass(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Voi
                 @:check2r _t.errorf(("Compile(%q): got err: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (((@:checkr _re ?? throw "null pointer dereference")._onepass == null || ((@:checkr _re ?? throw "null pointer dereference")._onepass : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _re ?? throw "null pointer dereference")._onepass;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 @:check2r _t.errorf(("Compile(%q): got nil, want one-pass" : stdgo.GoString), stdgo.Go.toInterface(_test._re));
                 continue;
             };

@@ -176,7 +176,10 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_t_onepassprog.T
                 break;
             };
         };
-        if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
+        if (({
+            final value = _p;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             for (_i => _ in (@:checkr _p ?? throw "null pointer dereference").inst) {
                 (@:checkr _p ?? throw "null pointer dereference").inst[(_i : stdgo.GoInt)].inst.rune = _onePassRunes[(_i : stdgo.GoInt)];
             };

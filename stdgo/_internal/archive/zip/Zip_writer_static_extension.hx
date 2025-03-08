@@ -148,7 +148,10 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function _prepare( _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_writer.Writer>, _fh:stdgo.Ref<stdgo._internal.archive.zip.Zip_fileheader.FileHeader>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_writer.Writer> = _w;
-        if ((((@:checkr _w ?? throw "null pointer dereference")._last != null && (((@:checkr _w ?? throw "null pointer dereference")._last : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._last : Dynamic).__nil__)) && !(@:checkr (@:checkr _w ?? throw "null pointer dereference")._last ?? throw "null pointer dereference")._closed : Bool)) {
+        if ((({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._last;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && !(@:checkr (@:checkr _w ?? throw "null pointer dereference")._last ?? throw "null pointer dereference")._closed : Bool)) {
             {
                 var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._last._close() : stdgo.Error);
                 if (_err != null) {
@@ -172,7 +175,10 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function close( _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_writer.Writer> = _w;
-        if ((((@:checkr _w ?? throw "null pointer dereference")._last != null && (((@:checkr _w ?? throw "null pointer dereference")._last : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._last : Dynamic).__nil__)) && !(@:checkr (@:checkr _w ?? throw "null pointer dereference")._last ?? throw "null pointer dereference")._closed : Bool)) {
+        if ((({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._last;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && !(@:checkr (@:checkr _w ?? throw "null pointer dereference")._last ?? throw "null pointer dereference")._closed : Bool)) {
             {
                 var _err = (@:check2r (@:checkr _w ?? throw "null pointer dereference")._last._close() : stdgo.Error);
                 if (_err != null) {

@@ -8,7 +8,10 @@ function createCertificate(_rand:stdgo._internal.io.Io_reader.Reader, _template:
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
         };
-        if (((@:checkr _template ?? throw "null pointer dereference").serialNumber == null || ((@:checkr _template ?? throw "null pointer dereference").serialNumber : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _template ?? throw "null pointer dereference").serialNumber;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: no SerialNumber given" : stdgo.GoString)) };
         };
         if (@:check2r (@:checkr _template ?? throw "null pointer dereference").serialNumber.sign() == ((-1 : stdgo.GoInt))) {

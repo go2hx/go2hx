@@ -6,7 +6,10 @@ package stdgo._internal.net.rpc;
         @:recv var _s:stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service> = _s;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if ((_wg != null && ((_wg : Dynamic).__nil__ == null || !(_wg : Dynamic).__nil__))) {
+            if (({
+                final value = _wg;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     final __f__ = @:check2r _wg.done;
                     __deferstack__.unshift({ ran : false, f : () -> __f__() });

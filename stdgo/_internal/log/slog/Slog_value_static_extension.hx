@@ -212,7 +212,10 @@ _v = _v.logValuer().logValue().__copy__();
     static public function _time( _v:stdgo._internal.log.slog.Slog_value.Value):stdgo._internal.time.Time_time.Time {
         @:recv var _v:stdgo._internal.log.slog.Slog_value.Value = _v?.__copy__();
         var _loc = (stdgo.Go.typeAssert((_v._any : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation)) : stdgo._internal.log.slog.Slog_t_timelocation.T_timeLocation);
-        if ((_loc == null || (_loc : Dynamic).__nil__)) {
+        if (({
+            final value = _loc;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
         };
         return stdgo._internal.time.Time_unix.unix((0i64 : stdgo.GoInt64), (_v._num : stdgo.GoInt64)).in_((({

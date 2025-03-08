@@ -8,7 +8,10 @@ function signPSS(_rand:stdgo._internal.io.Io_reader.Reader, _priv:stdgo.Ref<stdg
             return stdgo._internal.crypto.internal.boring.Boring_signrsapss.signRSAPSS(_bkey, _hash, _digest, @:check2r _opts._saltLength());
         };
         stdgo._internal.crypto.internal.boring.Boring_unreachableexcepttests.unreachableExceptTests();
-        if (((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__)) && ((@:checkr _opts ?? throw "null pointer dereference").hash != (0u32 : stdgo._internal.crypto.Crypto_hash.Hash)) : Bool)) {
+        if ((({
+            final value = _opts;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && ((@:checkr _opts ?? throw "null pointer dereference").hash != (0u32 : stdgo._internal.crypto.Crypto_hash.Hash)) : Bool)) {
             _hash = (@:checkr _opts ?? throw "null pointer dereference").hash;
         };
         var _saltLength = (@:check2r _opts._saltLength() : stdgo.GoInt);

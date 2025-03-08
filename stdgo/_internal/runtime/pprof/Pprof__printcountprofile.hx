@@ -7,7 +7,10 @@ function _printCountProfile(_w:stdgo._internal.io.Io_writer.Writer, _debug:stdgo
             for (__0 => _pc in _stk) {
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_builder.Builder>)), (" %#x" : stdgo.GoString), stdgo.Go.toInterface(_pc));
             };
-            if ((_lbls != null && ((_lbls : Dynamic).__nil__ == null || !(_lbls : Dynamic).__nil__))) {
+            if (({
+                final value = _lbls;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2 _buf.writeString(("\n# labels: " : stdgo.GoString));
                 @:check2 _buf.writeString((@:check2r _lbls.string() : stdgo.GoString)?.__copy__());
             };
@@ -60,7 +63,10 @@ if ((_count[_k] ?? (0 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
             _locs = @:check2r _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt64>), _p.stack((_index[_k] ?? (0 : stdgo.GoInt))));
             var _idx = (_index[_k] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
             var _labels:() -> Void = null;
-            if ((_p.label(_idx) != null && ((_p.label(_idx) : Dynamic).__nil__ == null || !(_p.label(_idx) : Dynamic).__nil__))) {
+            if (({
+                final value = _p.label(_idx);
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _labels = function():Void {
                     for (_k => _v in (_p.label(_idx) : stdgo._internal.runtime.pprof.Pprof_t_labelmap.T_labelMap)) {
                         @:check2r _b._pbLabel((3 : stdgo.GoInt), _k?.__copy__(), _v?.__copy__(), (0i64 : stdgo.GoInt64));

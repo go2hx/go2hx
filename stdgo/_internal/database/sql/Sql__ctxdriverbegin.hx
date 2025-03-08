@@ -8,14 +8,20 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
             }, _ciCtx = __tmp__._0, _is = __tmp__._1;
             if (_is) {
                 var _dopts = (new stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions() : stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions);
-                if ((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__))) {
+                if (({
+                    final value = _opts;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     _dopts.isolation = ((@:checkr _opts ?? throw "null pointer dereference").isolation : stdgo._internal.database.sql.driver.Driver_isolationlevel.IsolationLevel);
                     _dopts.readOnly = (@:checkr _opts ?? throw "null pointer dereference").readOnly;
                 };
                 return _ciCtx.beginTx(_ctx, _dopts?.__copy__());
             };
         };
-        if ((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__))) {
+        if (({
+            final value = _opts;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if ((@:checkr _opts ?? throw "null pointer dereference").isolation != ((0 : stdgo._internal.database.sql.Sql_isolationlevel.IsolationLevel))) {
                 return { _0 : (null : stdgo._internal.database.sql.driver.Driver_tx.Tx), _1 : stdgo._internal.errors.Errors_new_.new_(("sql: driver does not support non-default isolation level" : stdgo.GoString)) };
             };

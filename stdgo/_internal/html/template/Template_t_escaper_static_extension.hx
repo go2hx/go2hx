@@ -14,7 +14,10 @@ package stdgo._internal.html.template;
     static public function _template( _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_template.Template> {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper> = _e;
         var _t = @:check2r @:check2r _e._arbitraryTemplate()._text.lookup(_name?.__copy__());
-        if ((_t == null || (_t : Dynamic).__nil__)) {
+        if (({
+            final value = _t;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _t = ((@:checkr _e ?? throw "null pointer dereference")._derived[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
         };
         return _t;
@@ -236,15 +239,24 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             };
         };
         var _t = @:check2r _e._template(_name?.__copy__());
-        if ((_t == null || (_t : Dynamic).__nil__)) {
-            if ((((@:checkr (@:checkr _e ?? throw "null pointer dereference")._ns ?? throw "null pointer dereference")._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>)) != null && (((@:checkr (@:checkr _e ?? throw "null pointer dereference")._ns ?? throw "null pointer dereference")._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>) : Dynamic).__nil__ == null || !((@:checkr (@:checkr _e ?? throw "null pointer dereference")._ns ?? throw "null pointer dereference")._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>) : Dynamic).__nil__))) {
+        if (({
+            final value = _t;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
+            if (({
+                final value = ((@:checkr (@:checkr _e ?? throw "null pointer dereference")._ns ?? throw "null pointer dereference")._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return { _0 : ({ _state : (27 : stdgo._internal.html.template.Template_t_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((5 : stdgo._internal.html.template.Template_errorcode.ErrorCode), _node, _line, ("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_name)) } : stdgo._internal.html.template.Template_t_context.T_context), _1 : _dname?.__copy__() };
             };
             return { _0 : ({ _state : (27 : stdgo._internal.html.template.Template_t_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((5 : stdgo._internal.html.template.Template_errorcode.ErrorCode), _node, _line, ("no such template %q" : stdgo.GoString), stdgo.Go.toInterface(_name)) } : stdgo._internal.html.template.Template_t_context.T_context), _1 : _dname?.__copy__() };
         };
         if (_dname != (_name)) {
             var _dt = @:check2r _e._template(_dname?.__copy__());
-            if ((_dt == null || (_dt : Dynamic).__nil__)) {
+            if (({
+                final value = _dt;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _dt = stdgo._internal.text.template.Template_new_.new_(_dname?.__copy__());
                 (@:checkr _dt ?? throw "null pointer dereference").tree = (stdgo.Go.setRef(({ name : _dname?.__copy__(), root : @:check2r (@:checkr _t ?? throw "null pointer dereference").tree.root.copyList() } : stdgo._internal.text.template.parse.Parse_tree.Tree)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);
                 (@:checkr _e ?? throw "null pointer dereference")._derived[_dname] = _dt;
@@ -300,7 +312,10 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
     @:tdfield
     static public function _escapeList( _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper>, _c:stdgo._internal.html.template.Template_t_context.T_context, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>):stdgo._internal.html.template.Template_t_context.T_context {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_t_escaper.T_escaper> = _e;
-        if ((_n == null || (_n : Dynamic).__nil__)) {
+        if (({
+            final value = _n;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return _c?.__copy__();
         };
         for (__6 => _m in (@:checkr _n ?? throw "null pointer dereference").nodes) {

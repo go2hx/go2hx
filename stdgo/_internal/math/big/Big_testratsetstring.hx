@@ -14,7 +14,10 @@ function testRatSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
             } else {
                 if (_test._ok) {
                     @:check2r _t.errorf(("#%d SetString(%q) expected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in));
-                } else if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
+                } else if (({
+                    final value = _x;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     @:check2r _t.errorf(("#%d SetString(%q) got %p want nil" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                 };
             };

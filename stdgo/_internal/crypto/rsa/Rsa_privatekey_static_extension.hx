@@ -4,7 +4,10 @@ package stdgo._internal.crypto.rsa;
     @:tdfield
     static public function precompute( _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey>):Void {
         @:recv var _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey> = _priv;
-        if ((((@:checkr _priv ?? throw "null pointer dereference").precomputed._n == null || ((@:checkr _priv ?? throw "null pointer dereference").precomputed._n : Dynamic).__nil__) && ((@:checkr _priv ?? throw "null pointer dereference").primes.length == (2 : stdgo.GoInt)) : Bool)) {
+        if ((({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").precomputed._n;
+            (value == null || (value : Dynamic).__nil__);
+        }) && ((@:checkr _priv ?? throw "null pointer dereference").primes.length == (2 : stdgo.GoInt)) : Bool)) {
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newmodulusfrombig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").publicKey.n);
@@ -38,7 +41,10 @@ package stdgo._internal.crypto.rsa;
                 return;
             };
         };
-        if (((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp != null && (((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp : Dynamic).__nil__ == null || !((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").precomputed.dp;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return;
         };
         (@:checkr _priv ?? throw "null pointer dereference").precomputed.dp = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).sub((@:checkr _priv ?? throw "null pointer dereference").primes[(0 : stdgo.GoInt)], stdgo._internal.crypto.rsa.Rsa__bigone._bigOne);

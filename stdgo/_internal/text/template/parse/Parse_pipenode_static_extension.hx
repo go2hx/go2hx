@@ -10,7 +10,10 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copyPipe( _p:stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode> {
         @:recv var _p:stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode> = _p;
-        if ((_p == null || (_p : Dynamic).__nil__)) {
+        if (({
+            final value = _p;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return _p;
         };
         var _vars = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>(((@:checkr _p ?? throw "null pointer dereference").decl.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_variablenode.VariableNode>>);

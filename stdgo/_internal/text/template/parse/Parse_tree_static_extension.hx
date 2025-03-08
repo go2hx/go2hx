@@ -392,11 +392,11 @@ package stdgo._internal.text.template.parse;
     static public function _pipeline( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>, _context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_t_itemtype.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_pipenode.PipeNode>);
-        var _token_2:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _token_6:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _next_5:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _tokenAfterVariable_4:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _v_3:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
+        var _token_2:stdgo._internal.text.template.parse.Parse_t_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_t_item.T_item);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -776,7 +776,10 @@ package stdgo._internal.text.template.parse;
     static public function _add( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
         var _tree = ((@:checkr _t ?? throw "null pointer dereference")._treeSet[(@:checkr _t ?? throw "null pointer dereference").name] ?? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>));
-        if (((_tree == null || (_tree : Dynamic).__nil__) || stdgo._internal.text.template.parse.Parse_isemptytree.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool)) {
+        if ((({
+            final value = _tree;
+            (value == null || (value : Dynamic).__nil__);
+        }) || stdgo._internal.text.template.parse.Parse_isemptytree.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool)) {
             (@:checkr _t ?? throw "null pointer dereference")._treeSet[(@:checkr _t ?? throw "null pointer dereference").name] = _t;
             return;
         };
@@ -912,7 +915,10 @@ package stdgo._internal.text.template.parse;
                     throw stdgo.Go.toInterface(_e);
                 };
             };
-            if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
+            if (({
+                final value = _t;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r _t._stopParse();
             };
             {
@@ -980,7 +986,10 @@ package stdgo._internal.text.template.parse;
         var _location = ("" : stdgo.GoString), _context = ("" : stdgo.GoString);
         var _pos = (_n.position() : stdgo.GoInt);
         var _tree = _n._tree();
-        if ((_tree == null || (_tree : Dynamic).__nil__)) {
+        if (({
+            final value = _tree;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _tree = _t;
         };
         var _text = (((@:checkr _tree ?? throw "null pointer dereference")._text.__slice__(0, _pos) : stdgo.GoString)?.__copy__() : stdgo.GoString);
@@ -1068,7 +1077,10 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree> = _t;
-        if ((_t == null || (_t : Dynamic).__nil__)) {
+        if (({
+            final value = _t;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return null;
         };
         return (stdgo.Go.setRef(({ name : (@:checkr _t ?? throw "null pointer dereference").name?.__copy__(), parseName : (@:checkr _t ?? throw "null pointer dereference").parseName?.__copy__(), root : @:check2r (@:checkr _t ?? throw "null pointer dereference").root.copyList(), _text : (@:checkr _t ?? throw "null pointer dereference")._text?.__copy__() } : stdgo._internal.text.template.parse.Parse_tree.Tree)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_tree.Tree>);

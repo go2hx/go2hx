@@ -17,7 +17,10 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_templat
             };
             var _s = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
             var _tmpl:stdgo.Ref<stdgo._internal.html.template.Template_template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>);
-            if ((_t == null || (_t : Dynamic).__nil__)) {
+            if (({
+                final value = _t;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _t = stdgo._internal.html.template.Template_new_.new_(_name?.__copy__());
             };
             if (_name == (@:check2r _t.name())) {

@@ -18,7 +18,10 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
             };
         };
         var _quality = (75 : stdgo.GoInt);
-        if ((_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__))) {
+        if (({
+            final value = _o;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _quality = (@:checkr _o ?? throw "null pointer dereference").quality;
             if ((_quality < (1 : stdgo.GoInt) : Bool)) {
                 _quality = (1 : stdgo.GoInt);

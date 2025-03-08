@@ -9,7 +9,10 @@ function decryptPEMBlock(_b:stdgo.Ref<stdgo._internal.encoding.pem.Pem_block.Blo
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: malformed DEK-Info header" : stdgo.GoString)) };
         };
         var _ciph = stdgo._internal.crypto.x509.X509__cipherbyname._cipherByName(_mode?.__copy__());
-        if ((_ciph == null || (_ciph : Dynamic).__nil__)) {
+        if (({
+            final value = _ciph;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: unknown encryption mode" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.encoding.hex.Hex_decodestring.decodeString(_hexIV?.__copy__()), _iv:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

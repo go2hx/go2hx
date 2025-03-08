@@ -3,7 +3,13 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_value.Value), _isBuiltin = false, _ok = false;
         try {
-            if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && ((@:checkr _tmpl ?? throw "null pointer dereference")._common != null && (((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__ == null || !((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__)) : Bool)) {
+            if ((({
+                final value = _tmpl;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ({
+                final value = (@:checkr _tmpl ?? throw "null pointer dereference")._common;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) : Bool)) {
                 @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
                 {
                     final __f__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;

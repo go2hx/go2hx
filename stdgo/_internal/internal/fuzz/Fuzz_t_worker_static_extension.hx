@@ -15,7 +15,10 @@ package stdgo._internal.internal.fuzz;
                     {
                         (@:checkr _w ?? throw "null pointer dereference")._termC.__get__();
                         {
-                            if (((@:checkr _w ?? throw "null pointer dereference")._client == null || ((@:checkr _w ?? throw "null pointer dereference")._client : Dynamic).__nil__)) {
+                            if (({
+                                final value = (@:checkr _w ?? throw "null pointer dereference")._client;
+                                (value == null || (value : Dynamic).__nil__);
+                            })) {
                                 return (@:checkr _w ?? throw "null pointer dereference")._waitErr;
                             };
                             @:check2r (@:checkr _w ?? throw "null pointer dereference")._client.close();
@@ -253,7 +256,10 @@ package stdgo._internal.internal.fuzz;
     @:tdfield
     static public function _isRunning( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker>):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker> = _w;
-        return ((@:checkr _w ?? throw "null pointer dereference")._cmd != null && (((@:checkr _w ?? throw "null pointer dereference")._cmd : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._cmd : Dynamic).__nil__));
+        return ({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._cmd;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        });
     }
     @:keep
     @:tdfield
@@ -475,7 +481,7 @@ package stdgo._internal.internal.fuzz;
                                     _canMinimize = false;
                                 };
                                 var _result = ({ _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.totalDuration, _entryDuration : _resp.interestingDuration, _entry : _entry?.__copy__(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : _canMinimize } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult);
-                                (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result);
+                                (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result?.__copy__());
                             };
                         };
                     } else if ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC != null && (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC.__isGet__()) {
@@ -493,7 +499,7 @@ package stdgo._internal.internal.fuzz;
                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldprintdebuginfo._shouldPrintDebugInfo()) {
                                     @:check2r (@:checkr _w ?? throw "null pointer dereference")._coordinator._debugLogf(("input minimized, id: %s, original id: %s, crasher: %t, originally crasher: %t, minimizing took: %s" : stdgo.GoString), stdgo.Go.toInterface(_result._entry.path), stdgo.Go.toInterface(_input._entry.path), stdgo.Go.toInterface(_result._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))), stdgo.Go.toInterface(_input._crasherMsg != ((stdgo.Go.str() : stdgo.GoString))), stdgo.Go.toInterface(stdgo.Go.asInterface(_result._totalDuration)));
                                 };
-                                (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result);
+                                (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result?.__copy__());
                             };
                         };
                     };
@@ -508,7 +514,10 @@ package stdgo._internal.internal.fuzz;
     static public function _cleanup( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_t_worker.T_worker> = _w;
         var _mem = (@:checkr _w ?? throw "null pointer dereference")._memMu.__get__();
-        if ((_mem == null || (_mem : Dynamic).__nil__)) {
+        if (({
+            final value = _mem;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (null : stdgo.Error);
         };
         if ((@:checkr _w ?? throw "null pointer dereference")._memMu != null) (@:checkr _w ?? throw "null pointer dereference")._memMu.__close__();

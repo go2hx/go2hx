@@ -63,7 +63,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function marshalJSON( _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : ((("null" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         return { _0 : (@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, (10 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
@@ -85,7 +88,10 @@ package stdgo._internal.math.big;
     static public function marshalText( _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((("<nil>" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 _text = __tmp__._0;
@@ -125,7 +131,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function gobEncode( _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((1 : stdgo.GoInt) + (((@:checkr _x ?? throw "null pointer dereference")._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -200,7 +209,10 @@ package stdgo._internal.math.big;
                 return;
             };
         };
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             stdgo._internal.fmt.Fmt_fprint.fprint(_s, stdgo.Go.toInterface(("<nil>" : stdgo.GoString)));
             return;
         };
@@ -282,7 +294,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function append( _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (_buf.__append__(...((("<nil>" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         return (_buf.__append__(...((@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, _base) : Array<stdgo.GoUInt8>)));
@@ -291,7 +306,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function text( _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>, _base:stdgo.GoInt):stdgo.GoString {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return ("<nil>" : stdgo.GoString);
         };
         return ((@:checkr _x ?? throw "null pointer dereference")._abs._itoa((@:checkr _x ?? throw "null pointer dereference")._neg, _base) : stdgo.GoString)?.__copy__();
@@ -638,7 +656,13 @@ package stdgo._internal.math.big;
         var a:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), b:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), ua:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), ub:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         a = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).abs(_a);
         b = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).abs(_b);
-        var _extended = ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) || (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) : Bool);
+        var _extended = (({
+            final value = _x;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) || ({
+            final value = _y;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool);
         if (_extended) {
             ua = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
             ub = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
@@ -758,7 +782,10 @@ var _r = __1, _q = __0;
             };
         };
         var _negA = ((@:checkr _a ?? throw "null pointer dereference")._neg : Bool);
-        if ((_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__))) {
+        if (({
+            final value = _y;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if (_y == (_b)) {
                 @:check2r b.set(_b);
             } else {
@@ -771,7 +798,10 @@ var _r = __1, _q = __0;
             @:check2r _y.sub(a, _y);
             @:check2r _y.div(_y, b);
         };
-        if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
+        if (({
+            final value = _x;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             {
                 var __tmp__ = (ua : stdgo._internal.math.big.Big_int_.Int_)?.__copy__();
                 var x = (_x : stdgo._internal.math.big.Big_int_.Int_);
@@ -803,7 +833,10 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
                 @:check2r _z.set(_a);
             };
             (@:checkr _z ?? throw "null pointer dereference")._neg = false;
-            if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
+            if (({
+                final value = _x;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 if (_lenA == ((0 : stdgo.GoInt))) {
                     @:check2r _x.setUint64((0i64 : stdgo.GoUInt64));
                 } else {
@@ -811,7 +844,10 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
                     (@:checkr _x ?? throw "null pointer dereference")._neg = _negA;
                 };
             };
-            if ((_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__))) {
+            if (({
+                final value = _y;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 if (_lenB == ((0 : stdgo.GoInt))) {
                     @:check2r _y.setUint64((0i64 : stdgo.GoUInt64));
                 } else {
@@ -829,18 +865,27 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = _z;
         var _xWords = ((@:checkr _x ?? throw "null pointer dereference")._abs : stdgo._internal.math.big.Big_t_nat.T_nat);
         if ((@:checkr _y ?? throw "null pointer dereference")._neg) {
-            if (((_m == null || (_m : Dynamic).__nil__) || ((@:checkr _m ?? throw "null pointer dereference")._abs.length == (0 : stdgo.GoInt)) : Bool)) {
+            if ((({
+                final value = _m;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ((@:checkr _m ?? throw "null pointer dereference")._abs.length == (0 : stdgo.GoInt)) : Bool)) {
                 return @:check2r _z.setInt64((1i64 : stdgo.GoInt64));
             };
             var _inverse = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).modInverse(_x, _m);
-            if ((_inverse == null || (_inverse : Dynamic).__nil__)) {
+            if (({
+                final value = _inverse;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return null;
             };
             _xWords = (@:checkr _inverse ?? throw "null pointer dereference")._abs;
         };
         var _yWords = ((@:checkr _y ?? throw "null pointer dereference")._abs : stdgo._internal.math.big.Big_t_nat.T_nat);
         var _mWords:stdgo._internal.math.big.Big_t_nat.T_nat = (new stdgo._internal.math.big.Big_t_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_t_nat.T_nat);
-        if ((_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__))) {
+        if (({
+            final value = _m;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if (((_z == _m) || stdgo._internal.math.big.Big__alias._alias((@:checkr _z ?? throw "null pointer dereference")._abs, (@:checkr _m ?? throw "null pointer dereference")._abs) : Bool)) {
                 _m = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).set(_m);
             };

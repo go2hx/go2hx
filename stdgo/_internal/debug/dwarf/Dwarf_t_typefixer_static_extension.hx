@@ -15,7 +15,10 @@ package stdgo._internal.debug.dwarf;
     @:tdfield
     static public function _recordArrayType( _tf:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer>, _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_type_.Type_>):Void {
         @:recv var _tf:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_t_typefixer.T_typeFixer> = _tf;
-        if ((_t == null || (_t : Dynamic).__nil__)) {
+        if (({
+            final value = _t;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return;
         };
         var __tmp__ = try {

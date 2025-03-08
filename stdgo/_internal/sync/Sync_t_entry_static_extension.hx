@@ -6,7 +6,10 @@ package stdgo._internal.sync;
         @:recv var _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = _e;
         var _isExpunged = false;
         var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-        while ((_p == null || (_p : Dynamic).__nil__)) {
+        while (({
+            final value = _p;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             if (@:check2 (@:checkr _e ?? throw "null pointer dereference")._p.compareAndSwap((null : stdgo.Ref<stdgo.AnyInterface>), stdgo._internal.sync.Sync__expunged._expunged)) {
                 return _isExpunged = true;
             };
@@ -35,7 +38,10 @@ package stdgo._internal.sync;
         var _value = (null : stdgo.AnyInterface), _ok = false;
         while (true) {
             var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-            if (((_p == null || (_p : Dynamic).__nil__) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
+            if ((({
+                final value = _p;
+                (value == null || (value : Dynamic).__nil__);
+            }) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
                     _value = __tmp__._0;
@@ -68,7 +74,10 @@ package stdgo._internal.sync;
                 __tmp__;
             };
         };
-        if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
+        if (({
+            final value = _p;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; var _2 : Bool; } = { _0 : (_p : stdgo.AnyInterface), _1 : true, _2 : true };
                 _actual = __tmp__._0;
@@ -98,7 +107,10 @@ package stdgo._internal.sync;
                     __tmp__;
                 };
             };
-            if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
+            if (({
+                final value = _p;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; var _2 : Bool; } = { _0 : (_p : stdgo.AnyInterface), _1 : true, _2 : true };
                     _actual = __tmp__._0;
@@ -127,7 +139,10 @@ package stdgo._internal.sync;
     static public function _tryCompareAndSwap( _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry>, _old:stdgo.AnyInterface, _new_:stdgo.AnyInterface):Bool {
         @:recv var _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = _e;
         var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-        if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
+        if (((({
+            final value = _p;
+            (value == null || (value : Dynamic).__nil__);
+        }) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
             return false;
         };
         var _nc = (_new_ : stdgo.AnyInterface);
@@ -136,7 +151,10 @@ package stdgo._internal.sync;
                 return true;
             };
             _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-            if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
+            if (((({
+                final value = _p;
+                (value == null || (value : Dynamic).__nil__);
+            }) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
                 return false;
             };
         };
@@ -147,7 +165,10 @@ package stdgo._internal.sync;
         @:recv var _e:stdgo.Ref<stdgo._internal.sync.Sync_t_entry.T_entry> = _e;
         var _value = (null : stdgo.AnyInterface), _ok = false;
         var _p = @:check2 (@:checkr _e ?? throw "null pointer dereference")._p.load();
-        if (((_p == null || (_p : Dynamic).__nil__) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
+        if ((({
+            final value = _p;
+            (value == null || (value : Dynamic).__nil__);
+        }) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
             return {
                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
                 _value = __tmp__._0;

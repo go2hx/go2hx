@@ -25,7 +25,10 @@ function testCompileOnePass(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>)
                     continue;
                 };
             };
-            var _isOnePass = (stdgo._internal.regexp.Regexp__compileonepass._compileOnePass(_p) != null && ((stdgo._internal.regexp.Regexp__compileonepass._compileOnePass(_p) : Dynamic).__nil__ == null || !(stdgo._internal.regexp.Regexp__compileonepass._compileOnePass(_p) : Dynamic).__nil__) : Bool);
+            var _isOnePass = ({
+                final value = stdgo._internal.regexp.Regexp__compileonepass._compileOnePass(_p);
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            } : Bool);
             if (_isOnePass != (_test._isOnePass)) {
                 @:check2r _t.errorf(("CompileOnePass(%q) got isOnePass=%v, expected %v" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_isOnePass), stdgo.Go.toInterface(_test._isOnePass));
             };

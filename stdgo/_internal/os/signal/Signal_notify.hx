@@ -12,7 +12,10 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>, _sig:haxe.Re
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>));
-            if ((_h == null || (_h : Dynamic).__nil__)) {
+            if (({
+                final value = _h;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 if (stdgo._internal.os.signal.Signal__handlers._handlers._m == null) {
                     stdgo._internal.os.signal.Signal__handlers._handlers._m = ({
                         final x = new stdgo.GoMap.GoChanMap<stdgo.Chan<stdgo._internal.os.Os_signal.Signal>, stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>>();

@@ -61,7 +61,10 @@ package stdgo._internal.debug.gosym;
                 __tmp__;
             };
         };
-        if (((@:checkr _t ?? throw "null pointer dereference")._go12line != null && (((@:checkr _t ?? throw "null pointer dereference")._go12line : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference")._go12line : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _t ?? throw "null pointer dereference")._go12line;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             var _pc = (@:check2r (@:checkr _t ?? throw "null pointer dereference")._go12line._go12LineToPC(_file?.__copy__(), _line) : stdgo.GoUInt64);
             if (_pc == ((0i64 : stdgo.GoUInt64))) {
                 return {
@@ -112,11 +115,17 @@ package stdgo._internal.debug.gosym;
         var _file = ("" : stdgo.GoString), _line = (0 : stdgo.GoInt), _fn = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>);
         {
             _fn = @:check2r _t.pCToFunc(_pc);
-            if ((_fn == null || (_fn : Dynamic).__nil__)) {
+            if (({
+                final value = _fn;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return { _0 : _file, _1 : _line, _2 : _fn };
             };
         };
-        if (((@:checkr _t ?? throw "null pointer dereference")._go12line != null && (((@:checkr _t ?? throw "null pointer dereference")._go12line : Dynamic).__nil__ == null || !((@:checkr _t ?? throw "null pointer dereference")._go12line : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _t ?? throw "null pointer dereference")._go12line;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _file = @:check2r (@:checkr _t ?? throw "null pointer dereference")._go12line._go12PCToFile(_pc)?.__copy__();
             _line = @:check2r (@:checkr _t ?? throw "null pointer dereference")._go12line._go12PCToLine(_pc);
         } else {

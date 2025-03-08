@@ -18,7 +18,10 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
             var _x = @:check2r stdgo._internal.math.big.Big__makefloat._makeFloat(_test._x?.__copy__()).setPrec((64u32 : stdgo.GoUInt));
             var __tmp__ = @:check2r _x.rat(null), _res:stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat> = __tmp__._0, _acc:stdgo._internal.math.big.Big_accuracy.Accuracy = __tmp__._1;
             var _got = (("nil" : stdgo.GoString) : stdgo.GoString);
-            if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
+            if (({
+                final value = _res;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _got = (@:check2r _res.string() : stdgo.GoString)?.__copy__();
             };
             if (_got != (_test._want)) {
@@ -29,7 +32,10 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
                 @:check2r _t.errorf(("%s: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._acc)));
                 continue;
             };
-            if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
+            if (({
+                final value = _res;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var _got = @:check2r @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>).setPrec((64u32 : stdgo.GoUInt)).setRat(_res);
                 if (@:check2r _got.cmp(_x) != ((0 : stdgo.GoInt))) {
                     @:check2r _t.errorf(("%s: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));

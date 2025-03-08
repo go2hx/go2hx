@@ -46,7 +46,10 @@ package stdgo._internal.text.template.parse;
         @:check2r (@:checkr _b ?? throw "null pointer dereference").pipe._writeTo(_sb);
         @:check2r _sb.writeString(("}}" : stdgo.GoString));
         @:check2r (@:checkr _b ?? throw "null pointer dereference").list._writeTo(_sb);
-        if (((@:checkr _b ?? throw "null pointer dereference").elseList != null && (((@:checkr _b ?? throw "null pointer dereference").elseList : Dynamic).__nil__ == null || !((@:checkr _b ?? throw "null pointer dereference").elseList : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _b ?? throw "null pointer dereference").elseList;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _sb.writeString(("{{else}}" : stdgo.GoString));
             @:check2r (@:checkr _b ?? throw "null pointer dereference").elseList._writeTo(_sb);
         };

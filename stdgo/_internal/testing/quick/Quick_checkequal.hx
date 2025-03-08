@@ -1,6 +1,9 @@
 package stdgo._internal.testing.quick;
 function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.Ref<stdgo._internal.testing.quick.Quick_config.Config>):stdgo.Error {
-        if ((_config == null || (_config : Dynamic).__nil__)) {
+        if (({
+            final value = _config;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _config = (stdgo.Go.setRef(stdgo._internal.testing.quick.Quick__defaultconfig._defaultConfig) : stdgo.Ref<stdgo._internal.testing.quick.Quick_config.Config>);
         };
         var __tmp__ = stdgo._internal.testing.quick.Quick__functionandtype._functionAndType(_f), _x:stdgo._internal.reflect.Reflect_value.Value = __tmp__._0, _xType:stdgo._internal.reflect.Reflect_type_.Type_ = __tmp__._1, _ok:Bool = __tmp__._2;

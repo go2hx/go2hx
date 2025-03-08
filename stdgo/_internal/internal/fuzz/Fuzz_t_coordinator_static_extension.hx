@@ -191,7 +191,10 @@ package stdgo._internal.internal.fuzz;
             } else {
                 stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("fuzz: elapsed: %s, testing seed corpus: %d/%d completed\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _c._elapsed())), stdgo.Go.toInterface(_runSoFar), stdgo.Go.toInterface((@:checkr _c ?? throw "null pointer dereference")._warmupInputCount));
             };
-        } else if (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing != null && (((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__ == null || !((@:checkr _c ?? throw "null pointer dereference")._crashMinimizing : Dynamic).__nil__))) {
+        } else if (({
+            final value = (@:checkr _c ?? throw "null pointer dereference")._crashMinimizing;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf((@:checkr _c ?? throw "null pointer dereference")._opts.log, ("fuzz: elapsed: %s, minimizing\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _c._elapsed())));
         } else {
             var _rate = ((((@:checkr _c ?? throw "null pointer dereference")._count - (@:checkr _c ?? throw "null pointer dereference")._countLastLog : stdgo.GoInt64) : stdgo.GoFloat64) / _now.sub((@:checkr _c ?? throw "null pointer dereference")._timeLastLog?.__copy__()).seconds() : stdgo.GoFloat64);

@@ -4,7 +4,10 @@ package stdgo._internal.net.textproto;
     @:tdfield
     static public function _closeDot( _w:stdgo.Ref<stdgo._internal.net.textproto.Textproto_writer.Writer>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.textproto.Textproto_writer.Writer> = _w;
-        if (((@:checkr _w ?? throw "null pointer dereference")._dot != null && (((@:checkr _w ?? throw "null pointer dereference")._dot : Dynamic).__nil__ == null || !((@:checkr _w ?? throw "null pointer dereference")._dot : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _w ?? throw "null pointer dereference")._dot;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _w ?? throw "null pointer dereference")._dot.close();
         };
     }

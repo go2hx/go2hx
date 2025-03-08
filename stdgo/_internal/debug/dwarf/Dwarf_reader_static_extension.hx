@@ -21,7 +21,10 @@ var __tmp__ = @:check2r _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwar
 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
-if (((_e == null || (_e : Dynamic).__nil__) || ((@:checkr _e ?? throw "null pointer dereference").tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag)) : Bool)) {
+if ((({
+                    final value = _e;
+                    (value == null || (value : Dynamic).__nil__);
+                }) || ((@:checkr _e ?? throw "null pointer dereference").tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag)) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.debug.dwarf.Dwarf_errunknownpc.errUnknownPC };
                 };
 var __tmp__ = @:check2r (@:checkr _r ?? throw "null pointer dereference")._d.ranges(_e), _ranges:stdgo.Slice<stdgo.GoArray<stdgo.GoUInt64>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -68,7 +71,10 @@ _unit++;
         };
         while (true) {
             var __tmp__ = @:check2r _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_entry.Entry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (((_err != null || (_e == null || (_e : Dynamic).__nil__) : Bool) || ((@:checkr _e ?? throw "null pointer dereference").tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag)) : Bool)) {
+            if (((_err != null || ({
+                final value = _e;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool) || ((@:checkr _e ?? throw "null pointer dereference").tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_tag.Tag)) : Bool)) {
                 break;
             };
             if ((@:checkr _e ?? throw "null pointer dereference").children) {
@@ -94,7 +100,10 @@ _unit++;
             return { _0 : null, _1 : (@:checkr _r ?? throw "null pointer dereference")._err };
         };
         (@:checkr _r ?? throw "null pointer dereference")._lastUnit = false;
-        if ((_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__))) {
+        if (({
+            final value = _e;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             (@:checkr _r ?? throw "null pointer dereference")._lastChildren = (@:checkr _e ?? throw "null pointer dereference").children;
             if ((@:checkr _r ?? throw "null pointer dereference")._lastChildren) {
                 {

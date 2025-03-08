@@ -4,7 +4,13 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function equal( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>):Bool {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> = _s;
-        if (((_s == null || (_s : Dynamic).__nil__) || (_other == null || (_other : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = _s;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = _other;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return _s == (_other);
         };
         if ((((@:checkr _s ?? throw "null pointer dereference")._systemPool != (@:checkr _other ?? throw "null pointer dereference")._systemPool) || ((@:checkr _s ?? throw "null pointer dereference")._haveSum.length != ((@:checkr _other ?? throw "null pointer dereference")._haveSum.length)) : Bool)) {
@@ -39,7 +45,10 @@ package stdgo._internal.crypto.x509;
                 _block = @:tmpset0 __tmp__._0;
                 _pemCerts = @:tmpset0 __tmp__._1;
             };
-            if ((_block == null || (_block : Dynamic).__nil__)) {
+            if (({
+                final value = _block;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 break;
             };
             if ((((@:checkr _block ?? throw "null pointer dereference").type != ("CERTIFICATE" : stdgo.GoString)) || ((@:checkr _block ?? throw "null pointer dereference").headers.length != (0 : stdgo.GoInt)) : Bool)) {
@@ -83,7 +92,10 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function addCert( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> = _s;
-        if ((_cert == null || (_cert : Dynamic).__nil__)) {
+        if (({
+            final value = _cert;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             throw stdgo.Go.toInterface(("adding nil Certificate to CertPool" : stdgo.GoString));
         };
         @:check2r _s._addCertFunc(stdgo._internal.crypto.sha256.Sha256_sum224.sum224((@:checkr _cert ?? throw "null pointer dereference").raw)?.__copy__(), ((@:checkr _cert ?? throw "null pointer dereference").rawSubject : stdgo.GoString)?.__copy__(), function():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>; var _1 : stdgo.Error; } {
@@ -94,7 +106,10 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function _contains( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Bool {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> = _s;
-        if ((_s == null || (_s : Dynamic).__nil__)) {
+        if (({
+            final value = _s;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return false;
         };
         return ((@:checkr _s ?? throw "null pointer dereference")._haveSum[stdgo._internal.crypto.sha256.Sha256_sum224.sum224((@:checkr _cert ?? throw "null pointer dereference").raw)] ?? false);
@@ -103,7 +118,10 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function _findPotentialParents( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>> {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> = _s;
-        if ((_s == null || (_s : Dynamic).__nil__)) {
+        if (({
+            final value = _s;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
         };
         var _matchingKeyID:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>), _oneKeyID:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>), _mismatchKeyID:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>);
@@ -168,7 +186,10 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function _len( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>):stdgo.GoInt {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool> = _s;
-        if ((_s == null || (_s : Dynamic).__nil__)) {
+        if (({
+            final value = _s;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (0 : stdgo.GoInt);
         };
         return ((@:checkr _s ?? throw "null pointer dereference")._lazyCerts.length);

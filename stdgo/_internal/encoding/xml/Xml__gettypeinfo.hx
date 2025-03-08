@@ -29,7 +29,10 @@ if (_f.anonymous) {
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
-                            if (((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname == null || ((@:checkr _tinfo ?? throw "null pointer dereference")._xmlname : Dynamic).__nil__)) {
+                            if (({
+                                final value = (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname;
+                                (value == null || (value : Dynamic).__nil__);
+                            })) {
                                 (@:checkr _tinfo ?? throw "null pointer dereference")._xmlname = (@:checkr _inner ?? throw "null pointer dereference")._xmlname;
                             };
                             for (__0 => _finfo in (@:checkr _inner ?? throw "null pointer dereference")._fields) {

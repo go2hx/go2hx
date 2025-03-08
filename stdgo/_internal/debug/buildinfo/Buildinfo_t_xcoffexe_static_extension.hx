@@ -6,7 +6,10 @@ package stdgo._internal.debug.buildinfo;
         @:recv var _x:stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_xcoffexe.T_xcoffExe> = _x;
         {
             var _s = @:check2r (@:checkr _x ?? throw "null pointer dereference")._f.sectionByType((64u32 : stdgo.GoUInt32));
-            if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
+            if (({
+                final value = _s;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return (@:checkr _s ?? throw "null pointer dereference").sectionHeader.virtualAddress;
             };
         };

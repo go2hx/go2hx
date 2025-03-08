@@ -117,7 +117,10 @@ package stdgo._internal.compress.zlib;
                 };
             };
         };
-        if (((@:checkr _z ?? throw "null pointer dereference")._compressor == null || ((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _z ?? throw "null pointer dereference")._compressor;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             {
                 var __tmp__ = stdgo._internal.compress.flate.Flate_newwriterdict.newWriterDict((@:checkr _z ?? throw "null pointer dereference")._w, (@:checkr _z ?? throw "null pointer dereference")._level, (@:checkr _z ?? throw "null pointer dereference")._dict);
                 (@:checkr _z ?? throw "null pointer dereference")._compressor = @:tmpset0 __tmp__._0;
@@ -135,7 +138,10 @@ package stdgo._internal.compress.zlib;
     static public function reset( _z:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_writer.Writer>, _w:stdgo._internal.io.Io_writer.Writer):Void {
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_writer.Writer> = _z;
         (@:checkr _z ?? throw "null pointer dereference")._w = _w;
-        if (((@:checkr _z ?? throw "null pointer dereference")._compressor != null && (((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__ == null || !((@:checkr _z ?? throw "null pointer dereference")._compressor : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _z ?? throw "null pointer dereference")._compressor;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _z ?? throw "null pointer dereference")._compressor.reset(_w);
         };
         if ((@:checkr _z ?? throw "null pointer dereference")._digest != null) {

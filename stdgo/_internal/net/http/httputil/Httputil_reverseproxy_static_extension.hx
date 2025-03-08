@@ -171,7 +171,10 @@ package stdgo._internal.net.http.httputil;
     static public function _logf( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy> = _p;
-        if (((@:checkr _p ?? throw "null pointer dereference").errorLog != null && (((@:checkr _p ?? throw "null pointer dereference").errorLog : Dynamic).__nil__ == null || !((@:checkr _p ?? throw "null pointer dereference").errorLog : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _p ?? throw "null pointer dereference").errorLog;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _p ?? throw "null pointer dereference").errorLog.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));

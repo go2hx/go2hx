@@ -1,6 +1,9 @@
 package stdgo._internal.crypto.internal.boring.bbig;
 function enc(_b:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>):stdgo._internal.crypto.internal.boring.Boring_bigint.BigInt {
-        if ((_b == null || (_b : Dynamic).__nil__)) {
+        if (({
+            final value = _b;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return null;
         };
         var _x = @:check2r _b.bits();

@@ -426,7 +426,10 @@ package stdgo._internal.bytes;
     @:tdfield
     static public function string( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>):stdgo.GoString {
         @:recv var _b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer> = _b;
-        if ((_b == null || (_b : Dynamic).__nil__)) {
+        if (({
+            final value = _b;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return ("<nil>" : stdgo.GoString);
         };
         return (((@:checkr _b ?? throw "null pointer dereference")._buf.__slice__((@:checkr _b ?? throw "null pointer dereference")._off) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();

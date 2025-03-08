@@ -4,7 +4,10 @@ package stdgo._internal.encoding.json;
     @:tdfield
     static public function unmarshalJSON( _m:stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _m:stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage> = _m;
-        if ((_m == null || (_m : Dynamic).__nil__)) {
+        if (({
+            final value = _m;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.errors.Errors_new_.new_(("json.RawMessage: UnmarshalJSON on nil pointer" : stdgo.GoString));
         };
         (_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__setData__(((((_m : stdgo._internal.encoding.json.Json_rawmessage.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json_rawmessage.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>))));

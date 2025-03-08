@@ -16,7 +16,10 @@ function testNesting(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         if (_drt.a != ((@:checkr _rt ?? throw "null pointer dereference").a)) {
             @:check2r _t.errorf(("nesting: encode expected %v got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((_rt : stdgo._internal.encoding.gob.Gob_t_testnesting___localname___rt_19135.T_testNesting___localname___RT_19135))), stdgo.Go.toInterface(stdgo.Go.asInterface(_drt)));
         };
-        if ((_drt.next == null || (_drt.next : Dynamic).__nil__)) {
+        if (({
+            final value = _drt.next;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             @:check2r _t.errorf(("nesting: recursion failed" : stdgo.GoString));
         };
         if ((@:checkr _drt.next ?? throw "null pointer dereference").a != ((@:checkr (@:checkr _rt ?? throw "null pointer dereference").next ?? throw "null pointer dereference").a)) {

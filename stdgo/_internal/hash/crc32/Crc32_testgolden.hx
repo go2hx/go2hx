@@ -18,7 +18,10 @@ function testGolden(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             };
         };
         var _castagnoliTab = stdgo._internal.hash.crc32.Crc32_maketable.makeTable((-2097792136u32 : stdgo.GoUInt32));
-        if ((_castagnoliTab == null || (_castagnoliTab : Dynamic).__nil__)) {
+        if (({
+            final value = _castagnoliTab;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             @:check2r _t.errorf(("nil Castagnoli Table" : stdgo.GoString));
         };
         stdgo._internal.hash.crc32.Crc32__testgoldencastagnoli._testGoldenCastagnoli(_t, function(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32 {

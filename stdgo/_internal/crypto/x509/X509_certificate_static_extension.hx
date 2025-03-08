@@ -125,7 +125,13 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function equal( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Bool {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = _c;
-        if (((_c == null || (_c : Dynamic).__nil__) || (_other == null || (_other : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = _c;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = _other;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return _c == (_other);
         };
         return stdgo._internal.bytes.Bytes_equal.equal((@:checkr _c ?? throw "null pointer dereference").raw, (@:checkr _other ?? throw "null pointer dereference").raw);
@@ -267,10 +273,19 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         };
         if (false) {
             var _systemPool = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
-            if (((_opts.roots == null || (_opts.roots : Dynamic).__nil__) && (((_systemPool == null || (_systemPool : Dynamic).__nil__) || (@:checkr _systemPool ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
+            if ((({
+                final value = _opts.roots;
+                (value == null || (value : Dynamic).__nil__);
+            }) && ((({
+                final value = _systemPool;
+                (value == null || (value : Dynamic).__nil__);
+            }) || (@:checkr _systemPool ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
                 return @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>));
             };
-            if (((_opts.roots != null && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && (@:checkr _opts.roots ?? throw "null pointer dereference")._systemPool : Bool)) {
+            if ((({
+                final value = _opts.roots;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (@:checkr _opts.roots ?? throw "null pointer dereference")._systemPool : Bool)) {
                 var __tmp__ = @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>)), _platformChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) || (@:check2r _opts.roots._len() == (0 : stdgo.GoInt)) : Bool)) {
                     return {
@@ -282,9 +297,15 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
                 };
             };
         };
-        if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
+        if (({
+            final value = _opts.roots;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _opts.roots = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
-            if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
+            if (({
+                final value = _opts.roots;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return {
                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError(stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr) : stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError)) };
                     _chains = __tmp__._0;

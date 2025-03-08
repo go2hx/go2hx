@@ -85,7 +85,10 @@ package stdgo._internal.time;
         };
         {
             var _zone = (@:checkr _l ?? throw "null pointer dereference")._cacheZone;
-            if ((((_zone != null && ((_zone : Dynamic).__nil__ == null || !(_zone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+            if (((({
+                final value = _zone;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
                 _name = (@:checkr _zone ?? throw "null pointer dereference")._name?.__copy__();
                 _offset = (@:checkr _zone ?? throw "null pointer dereference")._offset;
                 _start = (@:checkr _l ?? throw "null pointer dereference")._cacheStart;
@@ -154,7 +157,10 @@ package stdgo._internal.time;
     @:tdfield
     static public function _get( _l:stdgo.Ref<stdgo._internal.time.Time_location.Location>):stdgo.Ref<stdgo._internal.time.Time_location.Location> {
         @:recv var _l:stdgo.Ref<stdgo._internal.time.Time_location.Location> = _l;
-        if ((_l == null || (_l : Dynamic).__nil__)) {
+        if (({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (stdgo.Go.setRef(stdgo._internal.time.Time__utcloc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         };
         if (_l == ((stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>))) {

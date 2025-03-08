@@ -73,7 +73,10 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
         };
         if ((@:checkr _r ?? throw "null pointer dereference").host != ((stdgo.Go.str() : stdgo.GoString))) {
             var _rawurl = (((@:checkr _r ?? throw "null pointer dereference").host + _uriStr?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            if (((@:checkr _r ?? throw "null pointer dereference").tLS == null || ((@:checkr _r ?? throw "null pointer dereference").tLS : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _r ?? throw "null pointer dereference").tLS;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _rawurl = (("http://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();
             } else {
                 _rawurl = (("https://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();
@@ -84,7 +87,10 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
             };
             (@:checkr _r ?? throw "null pointer dereference").uRL = _url;
         };
-        if (((@:checkr _r ?? throw "null pointer dereference").uRL == null || ((@:checkr _r ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference").uRL;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_uriStr?.__copy__()), _url:stdgo.Ref<stdgo._internal.net.url.Url_url.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((("cgi: failed to parse REQUEST_URI into a URL: " : stdgo.GoString) + _uriStr?.__copy__() : stdgo.GoString)?.__copy__()) };

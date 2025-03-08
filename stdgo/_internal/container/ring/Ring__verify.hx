@@ -18,15 +18,27 @@ function _verify(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _r:stdgo.R
         if (((_sum >= (0 : stdgo.GoInt) : Bool) && (_s != _sum) : Bool)) {
             @:check2r _t.errorf(("forward ring sum = %d; expected %d" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sum));
         };
-        if ((_r == null || (_r : Dynamic).__nil__)) {
+        if (({
+            final value = _r;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return;
         };
-        if (((@:checkr _r ?? throw "null pointer dereference")._next != null && (((@:checkr _r ?? throw "null pointer dereference")._next : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference")._next : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._next;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             var _p:stdgo.Ref<stdgo._internal.container.ring.Ring_ring.Ring> = (null : stdgo.Ref<stdgo._internal.container.ring.Ring_ring.Ring>);
             {
                 var _q = _r;
-                while (((_p == null || (_p : Dynamic).__nil__) || (_q != _r) : Bool)) {
-                    if (((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) && (_p != (@:checkr _q ?? throw "null pointer dereference")._prev) : Bool)) {
+                while ((({
+                    final value = _p;
+                    (value == null || (value : Dynamic).__nil__);
+                }) || (_q != _r) : Bool)) {
+                    if ((({
+                        final value = _p;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }) && (_p != (@:checkr _q ?? throw "null pointer dereference")._prev) : Bool)) {
                         @:check2r _t.errorf(("prev = %p, expected q.prev = %p\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _q ?? throw "null pointer dereference")._prev)));
                     };
 _p = _q;

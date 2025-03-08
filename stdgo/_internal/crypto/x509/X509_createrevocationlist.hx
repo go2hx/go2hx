@@ -1,9 +1,15 @@
 package stdgo._internal.crypto.x509;
 function createRevocationList(_rand:stdgo._internal.io.Io_reader.Reader, _template:stdgo.Ref<stdgo._internal.crypto.x509.X509_revocationlist.RevocationList>, _issuer:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>, _priv:stdgo._internal.crypto.Crypto_signer.Signer):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
-        if ((_template == null || (_template : Dynamic).__nil__)) {
+        if (({
+            final value = _template;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template can not be nil" : stdgo.GoString)) };
         };
-        if ((_issuer == null || (_issuer : Dynamic).__nil__)) {
+        if (({
+            final value = _issuer;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: issuer can not be nil" : stdgo.GoString)) };
         };
         if ((((@:checkr _issuer ?? throw "null pointer dereference").keyUsage & (64 : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage) : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage)) == ((0 : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage))) {
@@ -15,7 +21,10 @@ function createRevocationList(_rand:stdgo._internal.io.Io_reader.Reader, _templa
         if ((@:checkr _template ?? throw "null pointer dereference").nextUpdate.before((@:checkr _template ?? throw "null pointer dereference").thisUpdate?.__copy__())) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template.ThisUpdate is after template.NextUpdate" : stdgo.GoString)) };
         };
-        if (((@:checkr _template ?? throw "null pointer dereference").number == null || ((@:checkr _template ?? throw "null pointer dereference").number : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _template ?? throw "null pointer dereference").number;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template contains nil Number field" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.crypto.x509.X509__signingparamsforpublickey._signingParamsForPublicKey(stdgo.Go.toInterface(_priv.public_()), (@:checkr _template ?? throw "null pointer dereference").signatureAlgorithm), _hashFunc:stdgo._internal.crypto.Crypto_hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -32,7 +41,10 @@ function createRevocationList(_rand:stdgo._internal.io.Io_reader.Reader, _templa
         } else {
             _revokedCerts = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate>(((@:checkr _template ?? throw "null pointer dereference").revokedCertificateEntries.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((@:checkr _template ?? throw "null pointer dereference").revokedCertificateEntries.length : stdgo.GoInt).toBasic() > 0 ? ((@:checkr _template ?? throw "null pointer dereference").revokedCertificateEntries.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_revokedcertificate.RevokedCertificate>);
             for (_i => _rce in (@:checkr _template ?? throw "null pointer dereference").revokedCertificateEntries) {
-                if ((_rce.serialNumber == null || (_rce.serialNumber : Dynamic).__nil__)) {
+                if (({
+                    final value = _rce.serialNumber;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template contains entry with nil SerialNumber field" : stdgo.GoString)) };
                 };
                 if (_rce.revocationTime.isZero()) {

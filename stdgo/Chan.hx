@@ -1,13 +1,10 @@
 package stdgo;
 
 #if (target.threaded)
-import haxe.ds.Vector;
 import stdgo.GoInt;
 import stdgo._internal.internal.Async;
-import sys.thread.Deque;
 import sys.thread.Lock;
 import sys.thread.Mutex;
-import sys.thread.Thread;
 
 @:forward(
     length,
@@ -38,8 +35,6 @@ abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
 @:dox(hide)
 class ChanData<T> {
     private var buffer:Array<T> = [];
-    public var bufferAddPos:Int = 0;
-    public var bufferRemovePos:Int = 0;
 
     var defaultValue:Void->T = null;
 
@@ -69,15 +64,28 @@ class ChanData<T> {
     }
 
     public function __isSend__():Bool {
+        mutex.acquire();
+        if (buffered && length < capacity) {
+            mutex.release();
+            return true;
+        }
         if (debug)
             trace("__isSend__ " + sendBool);
-        return sendBool || buffered && length < capacity;
+        final b = sendBool || buffered && length < capacity;
+        mutex.release();
+        return b;
     }
 
     public function __isGet__():Bool {
+        mutex.acquire();
+        if (buffered && length > 0) {
+            mutex.release();
+            return true;
+        }
         final b = getBool || (buffered && length > 0) || closed;
         if (debug)
             trace("__isGet__ " + b, buffer.length);
+        mutex.release();
         return b;
     }
 
@@ -87,12 +95,12 @@ class ChanData<T> {
         if (getLock.wait(0)) {
             // released
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutext.acquire wait");
+                trace("__smartGet__ getLock.wait release, mutex.acquire wait");
             mutex.acquire();
             final value = buffer.shift();
             mutex.release();
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutext.acquire release");
+                trace("__smartGet__ getLock.wait release, mutex.acquire release");
             return {_0: value, _1: true};
         }else{
             if (debug)
@@ -102,12 +110,14 @@ class ChanData<T> {
     }
 
     public function __get__():T {
-        if (closed)
+        mutex.acquire();
+        if (closed) {
+            mutex.release();
             return defaultValue();
+        }
         // set bools
         if (debug)
             trace("__get__ wait for mutex.acquire0");
-        mutex.acquire();
         mutex.release();
         if (debug)
             trace("__get__ wait for mutex.release0");
@@ -124,12 +134,12 @@ class ChanData<T> {
                 mutex.release();
                 break;
             }
-            mutex.release();
-
             Async.tick();
             if (closed) {
+                mutex.release();
                 return defaultValue();
             }
+            mutex.release();
         }
         // get value
         if (debug)
@@ -144,25 +154,31 @@ class ChanData<T> {
     }
 
     public function __send__(value:T) {
-        if (closed)
-            throw "send to closed channel";
         if (debug)
             trace("__send__ wait for mutex.acquire0");
         mutex.acquire();
+        if (closed) {
+            mutex.release();
+            throw "send to closed channel";
+        }
         // send value
         buffer.push(value);
         mutex.release();
         if (debug)
             trace("__send__ wait for mutex.release0");
         getLock.release();
-        while (!sendLock.wait(debug ? 0.2 : 0.01) && !closed) {
-            if (debug)
-                trace("__send__ wait for !sendLock.wait", buffered, buffer.length, capacity);
-            // set bools
+        while (!sendLock.wait(debug ? 0.2 : 0.01)) {
             mutex.acquire();
+            if (closed) {
+                mutex.release();
+                break;
+            }
+            if (debug)
+                trace("__send__ wait for !sendLock.wait", buffered, length, capacity);
+            // set bools
             getBool = true;
             sendBool = false;
-            if (buffered && length < capacity) {
+            if (buffered && length <= capacity) {
                 mutex.release();
                 break;
             }

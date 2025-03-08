@@ -6784,13 +6784,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		info.global.renameClasses[name] = name;
 	}
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-		var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 
 		final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
 		macro throw ${makeString(recvName + ":" +info.global.path + "." + name + " is not yet implemented")};
 	} else {
-		final block = toExpr(typeBlockStmt(decl.body, info, true));
+		var block = toExpr(typeBlockStmt(decl.body, info, true));
 		final cond = Patch.skipTests[patchName];
 		if (cond != null) {
 			switch block.expr {
@@ -6800,17 +6800,20 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
 					info.global.deferBool = deferBool;
 					if (cond.length == 0) {
-						exprs.unshift(e);
-						exprs.unshift(macro stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)}));
+						block = macro {
+							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
+							$e;
+						};
 					} else {
 						final targets = makeString("(" + cond.join(" || ") + ")");
-						exprs.unshift(macro @:define($targets) {
+						block = macro @:define($targets) {
 							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
 							stdgo.Go.println(" skip targets: " + $e{makeString(cond.join(", "))});
 							$e;
-						});
+						};
 					}
 				default:
+					throw "not a block expr";
 			}
 		}
 		macro $block;
@@ -7121,7 +7124,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final cap = size;
 			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
 			final s = genSlice(p, elem, size, cap, e -> e, info, null);
-			s;
+			macro $s.__setNil__();
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);

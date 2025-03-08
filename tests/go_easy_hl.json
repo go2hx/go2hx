@@ -359,5 +359,8 @@
  "hl|reorder2",
  "hl|stack",
  "hl|t_235",
- "hl|struct0"
+ "hl|struct0",
+ "hl|bug230",
+ "hl|issue13169",
+ "hl|issue43292"
 ]

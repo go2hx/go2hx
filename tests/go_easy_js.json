@@ -345,5 +345,8 @@
  "js|issue8039",
  "js|issue8336",
  "js|issue8347",
- "js|reorder2"
+ "js|reorder2",
+ "js|bug230",
+ "js|issue13169",
+ "js|struct0"
 ]

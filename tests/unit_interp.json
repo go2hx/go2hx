@@ -180,5 +180,6 @@
  "interp|closechanmultireturn",
  "interp|issuedash222",
  "interp|chan1",
- "interp|io0"
+ "interp|io0",
+ "interp|chan2"
 ]

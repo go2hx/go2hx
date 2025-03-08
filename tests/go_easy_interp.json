@@ -353,5 +353,7 @@
  "interp|reorder2",
  "interp|stack",
  "interp|t_235",
- "interp|struct0"
+ "interp|struct0",
+ "interp|bug230",
+ "interp|issue43292"
 ]

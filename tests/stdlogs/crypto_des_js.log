@@ -55,10 +55,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testencrypttripledes_testEncryptTripleDES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16244:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestEncryptTripleDES
@@ -68,10 +68,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testdecrypttripledes_testDecryptTripleDES [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16354:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestDecryptTripleDES
@@ -81,10 +81,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariableplaintextknownanswer_testVariablePlaintextKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16374:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariablePlaintextKnownAnswer
@@ -94,10 +94,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariableciphertextknownanswer_testVariableCiphertextKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16394:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableCiphertextKnownAnswer
@@ -107,10 +107,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testinversepermutationknownanswer_testInversePermutationKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16414:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestInversePermutationKnownAnswer
@@ -120,10 +120,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testinitialpermutationknownanswer_testInitialPermutationKnownAnswer [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16434:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestInitialPermutationKnownAnswer
@@ -133,10 +133,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariablekeyknownanswerencrypt_testVariableKeyKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16454:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableKeyKnownAnswerEncrypt
@@ -146,10 +146,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testvariablekeyknownanswerdecrypt_testVariableKeyKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16474:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestVariableKeyKnownAnswerDecrypt
@@ -159,10 +159,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testpermutationoperationknownanswerencrypt_testPermutationOperationKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16494:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestPermutationOperationKnownAnswerEncrypt
@@ -172,10 +172,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testpermutationoperationknownanswerdecrypt_testPermutationOperationKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16514:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestPermutationOperationKnownAnswerDecrypt
@@ -185,10 +185,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21302 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.encrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16334 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testsubstitutiontableknownanswerencrypt_testSubstitutionTableKnownAnswerEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16534:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSubstitutionTableKnownAnswerEncrypt
@@ -198,10 +198,10 @@ Exception: crypto/des: invalid buffer overlap
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$static_$extension.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 21212 column 24)
 Called from stdgo__$internal_crypto_des_T_$tripleDESCipher_$asInterface.decrypt (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 16331 column 69)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_des_Des_$testsubstitutiontableknownanswerdecrypt_testSubstitutionTableKnownAnswerDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_des.js:16554:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38862 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 38869 column 9)
 Called from ._$internal_crypto_desdottest_Desdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_des.js line 17009 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48356:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48357:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_des.js:48332:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_des.js:48333:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSubstitutionTableKnownAnswerDecrypt

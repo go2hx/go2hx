@@ -1,32 +1,32 @@
 === RUN  TestLittleEndianRead
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22549 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22542 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22499 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22402 column 59)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22554 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22547 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22503 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22406 column 59)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21409 column 64)
 Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13638 column 11)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testread__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12654 column 14)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testlittleendianread_testLittleEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:12619:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52658 column 9)
-Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45237 column 59)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52685 column 9)
+Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45257 column 59)
 
 -- FAIL: TestLittleEndianRead
 
 === RUN  TestLittleEndianWrite
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22549 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22542 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22499 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22402 column 59)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22554 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22547 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22503 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22406 column 59)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21409 column 64)
-Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 25328 column 14)
-Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24105 column 13)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testlittleendianwrite_testLittleEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:24089:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52658 column 9)
-Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45237 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 25343 column 14)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24120 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testlittleendianwrite_testLittleEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:24104:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52685 column 9)
+Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45257 column 59)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -38,32 +38,32 @@ Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/
 === RUN  TestBigEndianRead
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22549 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22542 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22499 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22402 column 59)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22554 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22547 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22503 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22406 column 59)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21409 column 64)
 Called from .stdgo__$internal_encoding_binary_Binary_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 13638 column 11)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$testread__testRead (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 12654 column 14)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianread_testBigEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27031:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52658 column 9)
-Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45237 column 59)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianread_testBigEndianRead [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27047:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52685 column 9)
+Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45257 column 59)
 
 -- FAIL: TestBigEndianRead
 
 === RUN  TestBigEndianWrite
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22549 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22542 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22499 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22402 column 59)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22554 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22547 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22503 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 22406 column 59)
 Called from .stdgo__$internal_encoding_binary_Binary_$_$datasize__dataSize (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 21409 column 64)
-Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 25328 column 14)
-Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24105 column 13)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianwrite_testBigEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27110:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52658 column 9)
-Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45237 column 59)
+Called from .stdgo__$internal_encoding_binary_Binary_$write_write (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 25343 column 14)
+Called from .stdgo__$internal_encoding_binary_Binary_$_$testwrite__testWrite (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 24120 column 13)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testbigendianwrite_testBigEndianWrite [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27126:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52685 column 9)
+Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45257 column 59)
 
 -- FAIL: TestBigEndianWrite
 
@@ -91,13 +91,13 @@ Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/
 === RUN  TestSliceRoundTrip
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53411 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53315 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:52845:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testsliceroundtrip_testSliceRoundTrip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27413:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52658 column 9)
-Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45237 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61305:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61306:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53438 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53342 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:52872:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testsliceroundtrip_testSliceRoundTrip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27429:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52685 column 9)
+Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45257 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61301:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61302:3)
 
 -- FAIL: TestSliceRoundTrip

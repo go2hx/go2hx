@@ -12,13 +12,13 @@
 
 === RUN  TestParseComplex
 ParseComplex(<invalid reflect.Value>, 64) = %!v(MISSING), %!v(MISSING); want %!v(MISSING), %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58981 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58870 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:58424:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:30532:5)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 58228 column 9)
-Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 51619 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65969:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:65970:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57193 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57082 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:56636:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:29992:5)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 56440 column 9)
+Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 49648 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64354:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64355:3)
 
 -- FAIL: TestParseComplex

@@ -352,5 +352,6 @@
  "interp|issue8347",
  "interp|reorder2",
  "interp|stack",
- "interp|t_235"
+ "interp|t_235",
+ "interp|struct0"
 ]

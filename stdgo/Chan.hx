@@ -37,10 +37,9 @@ abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
 
 @:dox(hide)
 class ChanData<T> {
-    private var buffer:Vector<T> = null;
+    private var buffer:Array<T> = [];
     public var bufferAddPos:Int = 0;
     public var bufferRemovePos:Int = 0;
-	public var amount = 0;
 
     var defaultValue:Void->T = null;
 
@@ -54,7 +53,7 @@ class ChanData<T> {
     var buffered:Bool = false;
 
     public var length(get, never):GoInt;
-    public var capacity(get, never):GoInt;
+    public var capacity:GoInt;
 
     public static inline var debug = false;
 
@@ -62,26 +61,23 @@ class ChanData<T> {
         return buffer.length;
     }
 
-    function get_capacity():GoInt
-        return buffer.length;
-
     public function new(length:GoInt, defaultValue) {
         // TODO: not handling length and capacity
         buffered = length > 0;
-        buffer = new Vector<T>(length);
+        this.capacity = length;
         this.defaultValue = defaultValue;
     }
 
     public function __isSend__():Bool {
         if (debug)
             trace("__isSend__ " + sendBool);
-        return sendBool || buffered && amount < buffer.length;
+        return sendBool || buffered && length < capacity;
     }
 
     public function __isGet__():Bool {
-        final b = getBool || amount > 0 || closed;
+        final b = getBool || (buffered && length > 0) || closed;
         if (debug)
-            trace("__isGet__ " + b, amount);
+            trace("__isGet__ " + b, buffer.length);
         return b;
     }
 
@@ -93,10 +89,7 @@ class ChanData<T> {
             if (debug)
                 trace("__smartGet__ getLock.wait release, mutext.acquire wait");
             mutex.acquire();
-			amount--;
-            final value = buffer[bufferRemovePos++];
-			if (bufferRemovePos >= buffer.length)
-				bufferRemovePos = 0;
+            final value = buffer.shift();
             mutex.release();
             if (debug)
                 trace("__smartGet__ getLock.wait release, mutext.acquire release");
@@ -119,30 +112,28 @@ class ChanData<T> {
         if (debug)
             trace("__get__ wait for mutex.release0");
         // block
-        if (buffered && amount > 0) {
-            while (!getLock.wait(debug ? 0.2 : 0.01)) {
-                if (debug)
-                    trace("__get__ wait for !getLock.wait");
-                // set bools
-                mutex.acquire();
-                getBool = false;
-                sendBool = true;
-                mutex.release();
+        while (!getLock.wait(debug ? 0.2 : 0.01)) {
+            if (debug)
+                trace("__get__ wait for !getLock.wait");
+            // set bools
+            mutex.acquire();
+            getBool = false;
+            sendBool = true;
+            mutex.release();
 
-                Async.tick();
-                if (closed) {
-                    return defaultValue();
-                }
+            Async.tick();
+            if (closed) {
+                return defaultValue();
+            }
+            if (buffered && length > 0) {
+                break;
             }
         }
         // get value
         if (debug)
             trace("__get__ wait for mutex.acquire1");
         mutex.acquire();
-		amount--;
-        final value = buffer[bufferRemovePos++];
-		if (bufferRemovePos >= buffer.length)
-			bufferRemovePos = 0;
+        final value = buffer.shift();
         mutex.release();
         sendLock.release();
         if (debug)
@@ -157,24 +148,22 @@ class ChanData<T> {
             trace("__send__ wait for mutex.acquire0");
         mutex.acquire();
         // send value
-		amount++;
-        buffer[bufferAddPos++] = value;
-		if (bufferAddPos >= buffer.length)
-			bufferAddPos = 0;
-
+        buffer.push(value);
         mutex.release();
         if (debug)
             trace("__send__ wait for mutex.release0");
         getLock.release();
-        while (!sendLock.wait(debug ? 0.2 : 0.01) && !buffered && !closed) {
+        while (!sendLock.wait(debug ? 0.2 : 0.01) && !closed) {
             if (debug)
-                trace("__send__ wait for !sendLock.wait");
+                trace("__send__ wait for !sendLock.wait", buffered, buffer.length, capacity);
             // set bools
             mutex.acquire();
             getBool = true;
             sendBool = false;
             mutex.release();
             Async.tick();
+            if (buffered && length < capacity)
+                break;
         }
         if (debug)
             trace("end of __send__");
@@ -205,7 +194,7 @@ private class ChanKeyValueIterator<T> {
     }
 
     public inline function hasNext()
-        return chan.amount > 0;
+        return chan.length > 0;
 
     public inline function next():{key:T, value:Bool} {
         final tmp = chan.__smartGet__();

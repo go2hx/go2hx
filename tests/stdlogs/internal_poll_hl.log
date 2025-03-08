@@ -47,6 +47,9 @@ Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.mai
 -- FAIL: TestMutexOverflowPanic
 
 === RUN  TestMutexStress
+Uncaught exception: Null access .value
+Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
+Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from _internal.internal.poll_test._Poll_test_testmutexstress.$Poll_test_testmutexstress_Fields_.testMutexStress (_internal/internal/poll_test/Poll_test_testmutexstress.hx line 263)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
@@ -61,6 +64,7 @@ Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.mai
 === RUN  TestConsume
 Exception: Null access
 Called from _internal.internal.poll_test._Poll_test_testconsume.$Poll_test_testconsume_Fields_.testConsume (_internal/internal/poll_test/Poll_test_testconsume.hx line 6)
+Called from local function #6181 (_internal/internal/poll_test/Poll_test_testmutexoverflowpanic.hx line 25)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 

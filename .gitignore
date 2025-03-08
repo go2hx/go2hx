@@ -79,3 +79,4 @@ analysis/tests/unitmod/*
 analysis/tests/gotomod/*
 analysis/tests/pointermod/*
 !tests/stdlogs/*.log
+tests/stdlogs/*.md

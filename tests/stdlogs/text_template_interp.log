@@ -10,9 +10,9 @@
         |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 
-    ->  ./stdgo/_internal/text/template/Template_template_static_extension.hx:24: characters 18-92
+    ->  ./stdgo/_internal/text/template/Template_template_static_extension.hx:30: characters 18-92
 
-     24 |         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
+     30 |         @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muFuncs.rLock();
         |                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         | Called from here
 

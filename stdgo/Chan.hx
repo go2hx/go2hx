@@ -119,14 +119,16 @@ class ChanData<T> {
             mutex.acquire();
             getBool = false;
             sendBool = true;
+            if (buffered && length > 0) {
+                trace(length);
+                mutex.release();
+                break;
+            }
             mutex.release();
 
             Async.tick();
             if (closed) {
                 return defaultValue();
-            }
-            if (buffered && length > 0) {
-                break;
             }
         }
         // get value
@@ -160,10 +162,12 @@ class ChanData<T> {
             mutex.acquire();
             getBool = true;
             sendBool = false;
+            if (buffered && length < capacity) {
+                mutex.release();
+                break;
+            }
             mutex.release();
             Async.tick();
-            if (buffered && length < capacity)
-                break;
         }
         if (debug)
             trace("end of __send__");

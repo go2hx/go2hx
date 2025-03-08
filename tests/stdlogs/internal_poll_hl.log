@@ -64,6 +64,7 @@ Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.mai
 === RUN  TestConsume
 Exception: Null access
 Called from _internal.internal.poll_test._Poll_test_testconsume.$Poll_test_testconsume_Fields_.testConsume (_internal/internal/poll_test/Poll_test_testconsume.hx line 6)
+Called from local function #6181 (_internal/internal/poll_test/Poll_test_testmutexoverflowpanic.hx line 25)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 

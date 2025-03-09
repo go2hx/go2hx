@@ -65,26 +65,26 @@ class ChanData<T> {
 
     public function __isSend__():Bool {
         mutex.acquire();
-        if (buffered && length < capacity) {
+        if (buffered) {
             mutex.release();
-            return true;
+            return length < capacity;
         }
         if (debug)
             trace("__isSend__ " + sendBool);
-        final b = sendBool || buffered && length < capacity;
+        final b = sendBool;
         mutex.release();
         return b;
     }
 
     public function __isGet__():Bool {
         mutex.acquire();
-        if (buffered && length > 0) {
+        if (buffered) {
             mutex.release();
-            return true;
+            return length > 0;
         }
-        final b = getBool || (buffered && length > 0) || closed;
+        final b = getBool || closed;
         if (debug)
-            trace("__isGet__ " + b, buffer.length);
+            trace("__isGet__ " + b, length);
         mutex.release();
         return b;
     }

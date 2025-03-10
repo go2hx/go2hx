@@ -11,6 +11,7 @@ import sys.thread.Mutex;
     capacity,
     __isSend__,
     __isGet__,
+    __reset__,
     __smartGet__,
     __get__,
     __send__,
@@ -63,12 +64,14 @@ class ChanData<T> {
         this.defaultValue = defaultValue;
     }
 
-    public function __isSend__():Bool {
+    public function __isSend__(selectBool:Bool=false):Bool {
         mutex.acquire();
         if (buffered) {
             mutex.release();
             return length < capacity;
         }
+        if (selectBool)
+            getBool = true;
         if (debug)
             trace("__isSend__ " + sendBool);
         final b = sendBool;
@@ -76,16 +79,25 @@ class ChanData<T> {
         return b;
     }
 
-    public function __isGet__():Bool {
+    public function __reset__() {
+        mutex.acquire();
+        getBool = sendBool = false;
+        mutex.release();
+    }
+
+    public function __isGet__(selectBool:Bool=false):Bool {
         mutex.acquire();
         if (buffered) {
             mutex.release();
             return length > 0;
         }
         final b = getBool || closed;
+        if (selectBool)
+            sendBool = true;
         if (debug)
             trace("__isGet__ " + b, length);
         mutex.release();
+
         return b;
     }
 
@@ -108,32 +120,39 @@ class ChanData<T> {
             return {_0: defaultValue(), _1: false};
         }
     }
+    /*
+    send <-
+    :
+    sendLock.wait()
+    push
+    getLock.release()
 
+
+    <- get
+    :
+    sendLock.release()
+    getLock.wait()
+    shift
+    */
     public function __get__():T {
         mutex.acquire();
         if (closed) {
             mutex.release();
             return defaultValue();
         }
-        // set bools
         if (debug)
-            trace("__get__ wait for mutex.acquire0");
+            trace("__get__ wait");
+        sendLock.release();
         mutex.release();
-        if (debug)
-            trace("__get__ wait for mutex.release0");
         // block
         while (!getLock.wait(debug ? 0.2 : 0.01)) {
-            if (debug)
-                trace("__get__ wait for !getLock.wait");
             // set bools
             mutex.acquire();
-            getBool = false;
-            sendBool = true;
             if (buffered && length > 0) {
-                trace(length);
                 mutex.release();
                 break;
             }
+            sendBool = true;
             Async.tick();
             if (closed) {
                 mutex.release();
@@ -142,39 +161,31 @@ class ChanData<T> {
             mutex.release();
         }
         // get value
-        if (debug)
-            trace("__get__ wait for mutex.acquire1");
         mutex.acquire();
+        sendBool = false;
+        if (debug)
+            trace("__get__ get value");
         final value = buffer.shift();
         mutex.release();
         sendLock.release();
-        if (debug)
-            trace("__get__ wait for mutex.release1");
         return value;
     }
 
     public function __send__(value:T) {
-        if (debug)
-            trace("__send__ wait for mutex.acquire0");
         mutex.acquire();
         if (closed) {
             mutex.release();
             throw "send to closed channel";
         }
-        // send value
-        buffer.push(value);
         mutex.release();
         if (debug)
-            trace("__send__ wait for mutex.release0");
-        getLock.release();
+            trace("__send__ wait");
         while (!sendLock.wait(debug ? 0.2 : 0.01)) {
             mutex.acquire();
             if (closed) {
                 mutex.release();
                 break;
             }
-            if (debug)
-                trace("__send__ wait for !sendLock.wait", buffered, length, capacity);
             // set bools
             getBool = true;
             sendBool = false;
@@ -185,6 +196,17 @@ class ChanData<T> {
             mutex.release();
             Async.tick();
         }
+        if (debug)
+            trace("end loop __send__");
+        mutex.acquire();
+        trace("get mutex __send__");
+        // send value
+        if (debug)
+            trace("__send__ send value");
+        buffer.push(value);
+        getBool = false;
+        mutex.release();
+        getLock.release();
         if (debug)
             trace("end of __send__");
     }

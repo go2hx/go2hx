@@ -941,6 +941,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	if (stmt.body.list == null)
 		return (macro @:null_select {}).expr;
 	var needsReturn = true;
+	final resets:Array<Expr> = [];
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
@@ -974,7 +975,8 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			if (comm.id == "UnaryExpr") { // get
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
-				cond = macro $e != null && $e.__isGet__();
+				cond = macro $e != null && $e.__isGet__(true);
+				resets.push(macro $e.__reset__());
 				e = macro $e.__get__();
 				if (varName != "")
 					e = macro var $varName = $e;
@@ -983,7 +985,8 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				var stmt:Ast.SendStmt = comm;
 				final value = typeExpr(stmt.value, info);
 				var e = typeExpr(stmt.chan, info);
-				cond = macro $e != null && $e.__isSend__();
+				cond = macro $e != null && $e.__isSend__(true);
+				resets.push(macro $e.__reset__());
 				e = macro $e.__send__($value);
 				block = macro $b{[e, block]};
 			}
@@ -1014,9 +1017,10 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		var __select__ = true;
 		while(__select__) {
 			$e;
-			@:define("!js") Sys.sleep(0.01);
+			@:define("(sys || hxnodejs)") Sys.sleep(0.01);
 			stdgo._internal.internal.Async.tick();
 		}
+		@:mergeBlock $b{resets};
 	};
 	if (needsReturn) {
 		e = macro $b{[e, toExpr(typeReturnStmt({results: [], returnPos: 0}, info))]};
@@ -1770,6 +1774,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 										exprType = toComplexType(specType, info);
 								default:
 							}
+							if (isInvalidComplexType(exprType))
+								exprType = null;
 							vars.push({
 								name: name,
 								type: exprType,

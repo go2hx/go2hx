@@ -37,7 +37,7 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                    if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                         __select__ = false;
                         {
                             _ctx.done().__get__();
@@ -50,9 +50,10 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
                         __select__ = false;
                         {};
                     };
-                    #if !js Sys.sleep(0.01) #else null #end;
+                    #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
+                _ctx.done().__reset__();
             };
         };
         return { _0 : _txi, _1 : _err };

@@ -16,7 +16,7 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (_c != null && _c.__isSend__()) {
+                            if (_c != null && _c.__isSend__(true)) {
                                 __select__ = false;
                                 {
                                     _c.__send__(_sig);
@@ -26,9 +26,10 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                                 __select__ = false;
                                 {};
                             };
-                            #if !js Sys.sleep(0.01) #else null #end;
+                            #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
+                        _c.__reset__();
                     };
                 };
             };
@@ -37,7 +38,7 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (_d._c != null && _d._c.__isSend__()) {
+                            if (_d._c != null && _d._c.__isSend__(true)) {
                                 __select__ = false;
                                 {
                                     _d._c.__send__(_sig);
@@ -47,9 +48,10 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                                 __select__ = false;
                                 {};
                             };
-                            #if !js Sys.sleep(0.01) #else null #end;
+                            #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
+                        _d._c.__reset__();
                     };
                 };
             };

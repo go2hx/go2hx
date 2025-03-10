@@ -36,22 +36,24 @@ package stdgo._internal.net.http.httputil;
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (@:check2r _req.context().done() != null && @:check2r _req.context().done().__isGet__()) {
+                            if (@:check2r _req.context().done() != null && @:check2r _req.context().done().__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     @:check2r _req.context().done().__get__();
                                     {};
                                 };
-                            } else if (_backConnCloseCh != null && _backConnCloseCh.__isGet__()) {
+                            } else if (_backConnCloseCh != null && _backConnCloseCh.__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     _backConnCloseCh.__get__();
                                     {};
                                 };
                             };
-                            #if !js Sys.sleep(0.01) #else null #end;
+                            #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
+                        @:check2r _req.context().done().__reset__();
+_backConnCloseCh.__reset__();
                     };
                     _backConn.close();
                 };
@@ -352,7 +354,7 @@ package stdgo._internal.net.http.httputil;
                             {
                                 var __select__ = true;
                                 while (__select__) {
-                                    if (_notifyChan != null && _notifyChan.__isGet__()) {
+                                    if (_notifyChan != null && _notifyChan.__isGet__(true)) {
                                         __select__ = false;
                                         {
                                             _notifyChan.__get__();
@@ -360,16 +362,18 @@ package stdgo._internal.net.http.httputil;
                                                 _cancel();
                                             };
                                         };
-                                    } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                                    } else if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                                         __select__ = false;
                                         {
                                             _ctx.done().__get__();
                                             {};
                                         };
                                     };
-                                    #if !js Sys.sleep(0.01) #else null #end;
+                                    #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                                     stdgo._internal.internal.Async.tick();
                                 };
+                                _notifyChan.__reset__();
+_ctx.done().__reset__();
                             };
                         };
                         a();

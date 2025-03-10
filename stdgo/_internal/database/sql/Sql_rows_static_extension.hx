@@ -766,7 +766,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _ctx.done().__get__();
@@ -775,7 +775,7 @@ package stdgo._internal.database.sql;
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_txctxDone != null && _txctxDone.__isGet__()) {
+                } else if (_txctxDone != null && _txctxDone.__isGet__(true)) {
                     __select__ = false;
                     {
                         _txctxDone.__get__();
@@ -784,16 +784,19 @@ package stdgo._internal.database.sql;
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_closectx.done() != null && _closectx.done().__isGet__()) {
+                } else if (_closectx.done() != null && _closectx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _closectx.done().__get__();
                         {};
                     };
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            _ctx.done().__reset__();
+_txctxDone.__reset__();
+_closectx.done().__reset__();
         };
         @:check2r _rs._close(_ctx.err());
     }

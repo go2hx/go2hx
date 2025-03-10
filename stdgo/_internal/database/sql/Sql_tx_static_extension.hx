@@ -273,7 +273,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if ((@:checkr _tx ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__isGet__()) {
+                if ((@:checkr _tx ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__get__();
@@ -288,9 +288,10 @@ package stdgo._internal.database.sql;
                     __select__ = false;
                     {};
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__reset__();
         };
         if (!@:check2 (@:checkr _tx ?? throw "null pointer dereference")._done.compareAndSwap(false, true)) {
             return stdgo._internal.database.sql.Sql_errtxdone.errTxDone;
@@ -395,7 +396,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _ctx.done().__get__();
@@ -407,9 +408,10 @@ package stdgo._internal.database.sql;
                     __select__ = false;
                     {};
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            _ctx.done().__reset__();
         };
         @:check2 (@:checkr _tx ?? throw "null pointer dereference")._closemu.rLock();
         if (@:check2r _tx._isDone()) {

@@ -158,7 +158,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                 {
                     var __select__ = true;
                     while (__select__) {
-                        if (_doneC != null && _doneC.__isGet__()) {
+                        if (_doneC != null && _doneC.__isGet__(true)) {
                             __select__ = false;
                             {
                                 _doneC.__get__();
@@ -166,7 +166,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                     _stop(_ctx.err());
                                 };
                             };
-                        } else if (_errC != null && _errC.__isGet__()) {
+                        } else if (_errC != null && _errC.__isGet__(true)) {
                             __select__ = false;
                             {
                                 var _err = _errC.__get__();
@@ -186,7 +186,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                     };
                                 };
                             };
-                        } else if ((@:checkr _c ?? throw "null pointer dereference")._resultC != null && (@:checkr _c ?? throw "null pointer dereference")._resultC.__isGet__()) {
+                        } else if ((@:checkr _c ?? throw "null pointer dereference")._resultC != null && (@:checkr _c ?? throw "null pointer dereference")._resultC.__isGet__(true)) {
                             __select__ = false;
                             {
                                 var _result = (@:checkr _c ?? throw "null pointer dereference")._resultC.__get__();
@@ -284,7 +284,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                     };
                                 };
                             };
-                        } else if (_inputC != null && _inputC.__isSend__()) {
+                        } else if (_inputC != null && _inputC.__isSend__(true)) {
                             __select__ = false;
                             {
                                 _inputC.__send__(_input);
@@ -292,7 +292,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                     @:check2r _c._sentInput(_input?.__copy__());
                                 };
                             };
-                        } else if (_minimizeC != null && _minimizeC.__isSend__()) {
+                        } else if (_minimizeC != null && _minimizeC.__isSend__(true)) {
                             __select__ = false;
                             {
                                 _minimizeC.__send__(_minimizeInput);
@@ -300,7 +300,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                     @:check2r _c._sentMinimizeInput(_minimizeInput?.__copy__());
                                 };
                             };
-                        } else if ((@:checkr _statTicker ?? throw "null pointer dereference").c != null && (@:checkr _statTicker ?? throw "null pointer dereference").c.__isGet__()) {
+                        } else if ((@:checkr _statTicker ?? throw "null pointer dereference").c != null && (@:checkr _statTicker ?? throw "null pointer dereference").c.__isGet__(true)) {
                             __select__ = false;
                             {
                                 (@:checkr _statTicker ?? throw "null pointer dereference").c.__get__();
@@ -309,9 +309,15 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_context.Context,
                                 };
                             };
                         };
-                        #if !js Sys.sleep(0.01) #else null #end;
+                        #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                         stdgo._internal.internal.Async.tick();
                     };
+                    _doneC.__reset__();
+_errC.__reset__();
+(@:checkr _c ?? throw "null pointer dereference")._resultC.__reset__();
+_inputC.__reset__();
+_minimizeC.__reset__();
+(@:checkr _statTicker ?? throw "null pointer dereference").c.__reset__();
                 };
             };
             {

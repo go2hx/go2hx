@@ -1,0 +1,3 @@
+-m Unsafe
+-lib hxcpp
+--cpp bin/cpp

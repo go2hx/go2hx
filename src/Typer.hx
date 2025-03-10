@@ -7130,7 +7130,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final cap = size;
 			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
 			final s = genSlice(p, elem, size, cap, e -> e, info, null);
-			macro $s.__setNil__();
+			s;
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);

@@ -1,12 +1,6 @@
-[ERROR] ./stdgo/_internal/go/printer/Printer__identcount.hx:4: characters 24-78
+[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
 
-  4 |         for (_ => _ in stdgo._internal.go.printer.Printer__idents._idents(_f)) {
-    |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field keyValueIterator
-
-[ERROR] ./stdgo/_internal/go/printer/Printer_testsourcepos.hx:26: characters 26-81
-
- 26 |         for (_i1 => _ in stdgo._internal.go.printer.Printer__idents._idents(_f1)) {
-    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | stdgo.Chan<stdgo.Ref<stdgo._internal.go.ast.Ident>> has no field keyValueIterator
+ 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
+    |                                                                                                                                             ^^^^^^^^^
+    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
 

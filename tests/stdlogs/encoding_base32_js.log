@@ -1,127 +1,36 @@
-=== RUN  TestEncode
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:78: characters 73-82
 
--- PASS: TestEncode
+  78 |                 (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+     |                                                                         ^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestEncoder
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:121: characters 81-90
 
--- PASS: TestEncoder
+ 121 |                         (@:checkr _p ?? throw "null pointer dereference")._wrCh.__reset__();
+     |                                                                                 ^^^^^^^^^
+     | stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestEncoderBuffering
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:122: characters 57-66
 
--- PASS: TestEncoderBuffering
+ 122 | (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+     |                                                         ^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestDecode
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:236: characters 69-78
 
--- PASS: TestDecode
+ 236 |             (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+     |                                                                     ^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestDecoder
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:274: characters 73-82
 
--- PASS: TestDecoder
+ 274 |                 (@:checkr _p ?? throw "null pointer dereference")._wrCh.__reset__();
+     |                                                                         ^^^^^^^^^
+     | stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestIssue20044
+[ERROR] ./stdgo/_internal/io/Io_t_pipe_static_extension.hx:275: characters 57-66
 
--- PASS: TestIssue20044
-
-=== RUN  TestDecoderError
-
--- PASS: TestDecoderError
-
-=== RUN  TestReaderEOF
-
--- PASS: TestReaderEOF
-
-=== RUN  TestDecoderBuffering
-
--- PASS: TestDecoderBuffering
-
-=== RUN  TestDecodeCorrupt
-
--- PASS: TestDecodeCorrupt
-
-=== RUN  TestBig
-
--- PASS: TestBig
-
-=== RUN  TestNewLineCharacters
-
--- PASS: TestNewLineCharacters
-
-=== RUN  TestDecoderIssue4779
-
--- PASS: TestDecoderIssue4779
-
-=== RUN  TestWithCustomPadding
-
--- PASS: TestWithCustomPadding
-
-=== RUN  TestWithoutPadding
-
--- PASS: TestWithoutPadding
-
-=== RUN  TestDecodeWithPadding
-
--- PASS: TestDecodeWithPadding
-
-=== RUN  TestDecodeWithWrongPadding
-
--- PASS: TestDecodeWithWrongPadding
-
-=== RUN  TestBufferedDecodingSameError
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-Expected <invalid reflect.Value>, got %!v(MISSING); case %!s(MISSING) %!v(MISSING)
-
--- FAIL: TestBufferedDecodingSameError
-
-=== RUN  TestBufferedDecodingPadding
-case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
-case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
-case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
-case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
-case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
-
--- FAIL: TestBufferedDecodingPadding
-
-=== RUN  TestEncodedDecodedLen
-
--- PASS: TestEncodedDecodedLen
-
-=== RUN  TestWithoutPaddingClose
-
--- PASS: TestWithoutPaddingClose
-
-=== RUN  TestDecodeReadAll
-
--- PASS: TestDecodeReadAll
-
-=== RUN  TestDecodeSmallBuffer
-
--- PASS: TestDecodeSmallBuffer
+ 275 | (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+     |                                                         ^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.io.T_discard> has no field __reset__ (Suggestion: __isGet__)
 

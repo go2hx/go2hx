@@ -1,81 +1,12 @@
-=== RUN  TestReadError
+[ERROR] ./_internal/internal/poll_test/Poll_test_testmutexcloseunblock.hx:41: characters 16-25
 
--- PASS: TestReadError
+ 41 |             _c.__reset__();
+    |                ^^^^^^^^^
+    | stdgo.Chan<Bool> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestMutexLock
-Exception: XFDMutex:internal.poll.incref is not yet implemented
-Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.incref (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 32736 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexlock_testMutexLock [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:11991:65)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
 
--- FAIL: TestMutexLock
+ 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
+    |                                                                                                                                             ^^^^^^^^^
+    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
 
-=== RUN  TestMutexClose
-Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
-Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.increfAndClose (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 32733 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexclose_testMutexClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:11917:65)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestMutexClose
-
-=== RUN  TestMutexCloseUnblock
-Exception: XFDMutex:internal.poll.rWLock is not yet implemented
-Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.rWLock (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 32727 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexcloseunblock_testMutexCloseUnblock [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:11938:61)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestMutexCloseUnblock
-
-=== RUN  TestMutexPanic
-Exception: XFDMutex:internal.poll.incref is not yet implemented
-Called from stdgo__$internal_internal_poll_XFDMutex_$static_$extension.incref (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 32736 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexpanic_testMutexPanic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12272:61)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-
--- FAIL: TestMutexPanic
-
-=== RUN  TestMutexOverflowPanic
-wrong panic message <invalid reflect.Value>Exception: XFDMutex:internal.poll.incref is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexoverflowpanic_testMutexOverflowPanic [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12160:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestMutexOverflowPanic
-
-=== RUN  TestMutexStress
-Exception: __fail__
-Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_poll_$test_Poll_$test_$testmutexstress_testMutexStress [as f] (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:12595:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 43853 column 9)
-Called from ._$internal_internal_polldottest_Polldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_poll.js line 36247 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_poll.js:52012:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_poll.js:52013:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
-
--- FAIL: TestMutexStress

@@ -978,8 +978,14 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				cond = macro $e != null && $e.__isGet__(true);
 				resets.push(macro $e.__reset__());
 				e = macro $e.__get__();
-				if (varName != "")
-					e = macro var $varName = $e;
+				if (varName != "") {
+					if (obj.comm.tok == Ast.Token.DEFINE) {
+						e = macro var $varName = $e;
+					}else{
+						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
+						e = macro $i{varName} = $e;
+					}
+				}
 				block = macro $b{[e, block]};
 			} else { // send
 				var stmt:Ast.SendStmt = comm;
@@ -5283,7 +5289,10 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath(p);
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "Slice", params: [TPType(ct)]});
+			var params = [TPType(ct)];
+			if (isInvalidComplexType(ct))
+				params = [TPType(TPath({name: "Dynamic", pack: []}))];
+			TPath({pack: ["stdgo"], name: "Slice", params: params});
 		case arrayType(_.get() => elem, len):
 			final ct = toComplexType(elem, info);
 			TPath({pack: ["stdgo"], name: "GoArray", params: [TPType(ct)]});

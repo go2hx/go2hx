@@ -1,30 +1,6 @@
-[ERROR] ./_internal/context_test/Context_test_testbackground.hx:25: characters 23-32
+[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:48: characters 29-39
 
- 25 |             _c.done().__reset__();
-    |                       ^^^^^^^^^
-    | stdgo.Chan<{ }> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/context_test/Context_test_testtodo.hx:25: characters 23-32
-
- 25 |             _c.done().__reset__();
-    |                       ^^^^^^^^^
-    | stdgo.Chan<{ }> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/context_test/Context_test_testwithcancel.hx:45: characters 27-36
-
- 45 |                 _c.done().__reset__();
-    |                           ^^^^^^^^^
-    | stdgo.Chan<{ }> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/context_test/Context_test_testwithcancel.hx:68: characters 27-36
-
- 68 |                 _c.done().__reset__();
-    |                           ^^^^^^^^^
-    | stdgo.Chan<{ }> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
-
- 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
-    |                                                                                                                                             ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
+ 48 |             for (_n => _ in _gen(_ctx)) {
+    |                             ^^^^^^^^^^
+    | stdgo.Chan<stdgo.GoInt> has no field keyValueIterator
 

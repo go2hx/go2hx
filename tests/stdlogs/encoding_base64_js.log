@@ -1,6 +1,69 @@
-[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
+=== RUN  TestEncode
 
- 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
-    |                                                                                                                                             ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
+-- PASS: TestEncode
+
+=== RUN  TestEncoder
+
+-- PASS: TestEncoder
+
+=== RUN  TestEncoderBuffering
+
+-- PASS: TestEncoderBuffering
+
+=== RUN  TestDecode
+
+-- PASS: TestDecode
+
+=== RUN  TestDecoder
+
+-- PASS: TestDecoder
+
+=== RUN  TestDecoderBuffering
+
+-- PASS: TestDecoderBuffering
+
+=== RUN  TestDecodeCorrupt
+
+-- PASS: TestDecodeCorrupt
+
+=== RUN  TestDecodeBounds
+
+-- PASS: TestDecodeBounds
+
+=== RUN  TestEncodedLen
+
+-- PASS: TestEncodedLen
+
+=== RUN  TestDecodedLen
+
+-- PASS: TestDecodedLen
+
+=== RUN  TestBig
+
+-- PASS: TestBig
+
+=== RUN  TestNewLineCharacters
+
+-- PASS: TestNewLineCharacters
+
+=== RUN  TestDecoderIssue3577
+got error <invalid reflect.Value>; want %!v(MISSING)
+
+-- FAIL: TestDecoderIssue3577
+
+=== RUN  TestDecoderIssue4779
+
+-- PASS: TestDecoderIssue4779
+
+=== RUN  TestDecoderIssue7733
+
+-- PASS: TestDecoderIssue7733
+
+=== RUN  TestDecoderIssue15656
+
+-- PASS: TestDecoderIssue15656
+
+=== RUN  TestDecoderRaw
+
+-- PASS: TestDecoderRaw
 

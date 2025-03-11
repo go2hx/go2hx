@@ -1,6 +1,127 @@
-[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
+[ERROR] ./_internal/os/exec_test/Exec_test__cmdhang.hx:73: characters 36-92
 
- 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
-    |                                                                                                                                             ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
+  73 |                     for (_ => _ in (@:checkr _ticker ?? throw "null pointer dereference").c) {
+     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.time.Time> has no field keyValueIterator
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+
+   3 |         _stopTimer(_t);
+     |         ^^^^^^^^^^
+     | Unknown identifier : _stopTimer
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+
+   9 |         _startTimer(_t);
+     |         ^^^^^^^^^^^
+     | Unknown identifier : _startTimer
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:52: characters 68-71
+
+  52 |     public function get__ok():() -> Bool return @:check32 this.new._ok;
+     |                                                                    ^^^
+     | () -> Void has no field _ok
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:48: characters 137-142
+
+  48 |     public function get_write():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.new.write;
+     |                                                                                                                                         ^^^^^
+     | () -> Void has no field write
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:44: characters 121-137
+
+  44 |     public function get_setWriteDeadline():stdgo._internal.time.Time_time.Time -> stdgo.Error return @:check32 this.new.setWriteDeadline;
+     |                                                                                                                         ^^^^^^^^^^^^^^^^
+     | () -> Void has no field setWriteDeadline
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:40: characters 95-109
+
+  40 |     public function get_setWriteBuffer():stdgo.GoInt -> stdgo.Error return @:check32 this.new.setWriteBuffer;
+     |                                                                                               ^^^^^^^^^^^^^^
+     | () -> Void has no field setWriteBuffer
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:36: characters 120-135
+
+  36 |     public function get_setReadDeadline():stdgo._internal.time.Time_time.Time -> stdgo.Error return @:check32 this.new.setReadDeadline;
+     |                                                                                                                        ^^^^^^^^^^^^^^^
+     | () -> Void has no field setReadDeadline
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:32: characters 94-107
+
+  32 |     public function get_setReadBuffer():stdgo.GoInt -> stdgo.Error return @:check32 this.new.setReadBuffer;
+     |                                                                                              ^^^^^^^^^^^^^
+     | () -> Void has no field setReadBuffer
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:28: characters 116-127
+
+  28 |     public function get_setDeadline():stdgo._internal.time.Time_time.Time -> stdgo.Error return @:check32 this.new.setDeadline;
+     |                                                                                                                    ^^^^^^^^^^^
+     | () -> Void has no field setDeadline
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:24: characters 104-114
+
+  24 |     public function get_remoteAddr():() -> stdgo._internal.net.Net_addr.Addr return @:check32 this.new.remoteAddr;
+     |                                                                                                        ^^^^^^^^^^
+     | () -> Void has no field remoteAddr
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:20: characters 136-140
+
+  20 |     public function get_read():stdgo.Slice<stdgo.GoUInt8> -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return @:check32 this.new.read;
+     |                                                                                                                                        ^^^^
+     | () -> Void has no field read
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:16: characters 103-112
+
+  16 |     public function get_localAddr():() -> stdgo._internal.net.Net_addr.Addr return @:check32 this.new.localAddr;
+     |                                                                                                       ^^^^^^^^^
+     | () -> Void has no field localAddr
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:12: characters 143-147
+
+  12 |     public function get_file():() -> { var _0 : stdgo.Ref<stdgo._internal.os.Os_file.File>; var _1 : stdgo.Error; } return @:check32 this.new.file;
+     |                                                                                                                                               ^^^^
+     | () -> Void has no field file
+
+[ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:8: characters 77-82
+
+   8 |     public function get_close():() -> stdgo.Error return @:check32 this.new.close;
+     |                                                                             ^^^^^
+     | () -> Void has no field close
+
+[ERROR] /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
+
+ 329 |   return load("get_type", 1)(name);
+     |          ^^^^^^^^^^^^^^^^^^^^^^^^^
+     | Uncaught exception Type not found 'stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240_asinterface.T__readForm___localname___writerOnly_5240_asInterface'
+
+      ->  stdgo/Go.macro.hx:352: characters 14-55
+
+      352 |    final t = Context.getType(printer.printTypePath(p));
+          |              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+      439 |      f(ct, params);
+          |      ^^^^^^^^^^^^^
+          | Called from here
+
+      465 |   return run();
+          |          ^^^^^
+          | Called from here
+
+      ->  ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:367: characters 79-387
+
+      367 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+          |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          | Called from here
+
+          | For function argument '_dst'
+
+[ERROR] (macro) ./stdgo/_internal/crypto/elliptic/Elliptic__matchesspecificcurve.hx:3: characters 129-181
+
+   3 |         for (__1 => _c in (new stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>(4, 4, ...[stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p224._p224), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p256._p256), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p384._p384), stdgo.Go.asInterface(stdgo._internal.crypto.elliptic.Elliptic__p521._p521)]) : stdgo.Slice<stdgo._internal.crypto.elliptic.Elliptic_curve.Curve>)) {
+     |                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.Ref<stdgo._internal.crypto.elliptic.T_nistCurve<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>> should be stdgo._internal.crypto.elliptic.T_nistCurvePointer<stdgo.Ref<stdgo._internal.crypto.internal.nistec.P224Point>>
+     | For function argument '__self__'
+
+          | For function argument 'args'
 

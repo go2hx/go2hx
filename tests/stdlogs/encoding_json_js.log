@@ -1,11 +1,11 @@
 === RUN  TestMarshal
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshal_testMarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:25722:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshal_testMarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:25732:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -13,12 +13,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestMarshalBadUTF8
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalbadutf8_testMarshalBadUTF8 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56661:17)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalbadutf8_testMarshalBadUTF8 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56671:17)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -26,12 +26,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestMarshalNumberZeroVal
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalnumberzeroval_testMarshalNumberZeroVal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56673:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalnumberzeroval_testMarshalNumberZeroVal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56683:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -39,12 +39,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestMarshalEmbeds
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalembeds_testMarshalEmbeds [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56697:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testmarshalembeds_testMarshalEmbeds [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:56707:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -56,30 +56,30 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
 Exception: reflect.NumMethod not implemented for bool
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26962 column 24)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27100 column 70)
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26958 column 78)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27100 column 70)
-Called from .stdgo__$internal_encoding_json_Json_$_$indirect__indirect (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65317 column 82)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._literalStore (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63229 column 16)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64533 column 81)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26972 column 24)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27110 column 70)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26968 column 78)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27110 column 70)
+Called from .stdgo__$internal_encoding_json_Json_$_$indirect__indirect (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65327 column 82)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._literalStore (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63239 column 16)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64543 column 81)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
 
 -- FAIL: TestUnmarshal
 
 === RUN  TestUnmarshalMarshal
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 68647 column 71)
-Called from .stdgo__$internal_math_rand_Rand_$normfloat64_normFloat64 (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 68024 column 72)
-Called from .stdgo__$internal_encoding_json_Json_$_$genarray__genArray (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 67993 column 47)
-Called from .stdgo__$internal_encoding_json_Json_$_$genvalue__genValue (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 67968 column 38)
-Called from .stdgo__$internal_encoding_json_Json_$_$initbig__initBig (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 67953 column 69)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalmarshal_testUnmarshalMarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:67928:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from .stdgo__$internal_math_rand_Rand_$_$globalrand__globalRand (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 68657 column 71)
+Called from .stdgo__$internal_math_rand_Rand_$normfloat64_normFloat64 (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 68034 column 72)
+Called from .stdgo__$internal_encoding_json_Json_$_$genarray__genArray (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 68003 column 47)
+Called from .stdgo__$internal_encoding_json_Json_$_$genvalue__genValue (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 67978 column 38)
+Called from .stdgo__$internal_encoding_json_Json_$_$initbig__initBig (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 67963 column 69)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalmarshal_testUnmarshalMarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:67938:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
 
 -- FAIL: TestUnmarshalMarshal
 
@@ -89,12 +89,12 @@ Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work
 
 === RUN  TestLargeByteSlice
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testlargebyteslice_testLargeByteSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69576:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testlargebyteslice_testLargeByteSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69586:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -103,43 +103,43 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestUnmarshalInterface
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalinterface_testUnmarshalInterface [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69617:13)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalinterface_testUnmarshalInterface [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69627:13)
 
 -- FAIL: TestUnmarshalInterface
 
 === RUN  TestUnmarshalPtrPtr
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalptrptr_testUnmarshalPtrPtr [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69659:13)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalptrptr_testUnmarshalPtrPtr [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69669:13)
 
 -- FAIL: TestUnmarshalPtrPtr
 
 === RUN  TestEscape
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testescape_testEscape [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69672:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testescape_testEscape [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69682:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -148,104 +148,104 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestErrorMessageFromMisusedString
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from stdgo__$internal_encoding_json_Decoder_$static_$extension.decode (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 62959 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testerrormessagefrommisusedstring_testErrorMessageFromMisusedString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69699:72)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from stdgo__$internal_encoding_json_Decoder_$static_$extension.decode (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 62969 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testerrormessagefrommisusedstring_testErrorMessageFromMisusedString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69709:72)
 
 -- FAIL: TestErrorMessageFromMisusedString
 
 === RUN  TestRefUnmarshal
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testrefunmarshal_testRefUnmarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69906:14)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testrefunmarshal_testRefUnmarshal [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:69916:14)
 
 -- FAIL: TestRefUnmarshal
 
 === RUN  TestEmptyString
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from stdgo__$internal_encoding_json_Decoder_$static_$extension.decode (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 62959 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testemptystring_testEmptyString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70016:71)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from stdgo__$internal_encoding_json_Decoder_$static_$extension.decode (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 62969 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testemptystring_testEmptyString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70026:71)
 
 -- FAIL: TestEmptyString
 
 === RUN  TestNullString
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testnullstring_testNullString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70091:13)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testnullstring_testNullString [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70101:13)
 
 -- FAIL: TestNullString
 
 === RUN  TestInterfaceSet
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testinterfaceset_testInterfaceSet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70185:15)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testinterfaceset_testInterfaceSet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70195:15)
 
 -- FAIL: TestInterfaceSet
 
 === RUN  TestUnmarshalNulls
 Exception: generic function is not supported
-Called from .stdgo__$internal_time_Time_$_$isdigit__isDigit (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 70969 column 23)
-Called from .stdgo__$internal_time_Time_$_$nextstdchunk__nextStdChunk (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 70932 column 9)
-Called from stdgo__$internal_time_Time_$static_$extension._appendFormat (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 60792 column 17)
-Called from stdgo__$internal_time_Time_$static_$extension.appendFormat (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61019 column 56)
-Called from stdgo__$internal_time_Time_$static_$extension.format (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61066 column 53)
-Called from stdgo__$internal_time_Time_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61157 column 58)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalnulls_testUnmarshalNulls [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70299:58)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
+Called from .stdgo__$internal_time_Time_$_$isdigit__isDigit (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 70979 column 23)
+Called from .stdgo__$internal_time_Time_$_$nextstdchunk__nextStdChunk (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 70942 column 9)
+Called from stdgo__$internal_time_Time_$static_$extension._appendFormat (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 60802 column 17)
+Called from stdgo__$internal_time_Time_$static_$extension.appendFormat (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61029 column 56)
+Called from stdgo__$internal_time_Time_$static_$extension.format (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61076 column 53)
+Called from stdgo__$internal_time_Time_$static_$extension.string (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 61167 column 58)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalnulls_testUnmarshalNulls [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:70309:58)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
 
 -- FAIL: TestUnmarshalNulls
 
 === RUN  TestStringKind
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$teststringkind_testStringKind [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78434:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$teststringkind_testStringKind [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78444:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -253,12 +253,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestByteKind
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testbytekind_testByteKind [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78468:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testbytekind_testByteKind [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78478:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -266,12 +266,12 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestSliceOfCustomByte
 Exception: Cannot read properties of null (reading 'value')
-Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25867 column 25)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testsliceofcustombyte_testSliceOfCustomByte [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78487:16)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from .stdgo__$internal_encoding_json_Json_$marshal_marshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 25877 column 25)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testsliceofcustombyte_testSliceOfCustomByte [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78497:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -281,14 +281,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
 ./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
 Exception: reflect.NumMethod not implemented for string
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26962 column 24)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27100 column 70)
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26958 column 78)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27100 column 70)
-Called from .stdgo__$internal_encoding_json_Json_$_$indirect__indirect (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65317 column 82)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63661 column 16)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26972 column 24)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27110 column 70)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 26968 column 78)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numMethod (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 27110 column 70)
+Called from .stdgo__$internal_encoding_json_Json_$_$indirect__indirect (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65327 column 82)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63671 column 16)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
 
 -- FAIL: TestUnmarshalTypeError
 
@@ -299,28 +299,28 @@ Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._un
 === RUN  TestUnmarshalUnexported
 Exception: Cannot read properties of null (reading 'value')
 Called from module TypeError: Cannot read properties of null (reading 'value')
-Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32270 column 15)
-Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32263 column 47)
-Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32219 column 72)
-Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32122 column 59)
-Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51815 column 63)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63751 column 13)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64514 column 80)
-Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65231 column 78)
-Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69435 column 74)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalunexported_testUnmarshalUnexported [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78693:13)
+Called from stdgo__$internal_unsafe_UnsafePointer.__toRef__ (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32280 column 15)
+Called from stdgo__$internal_sync_atomic_$_Pointer_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32273 column 47)
+Called from stdgo__$internal_sync_Map_$_$static_$extension._loadReadOnly (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32229 column 72)
+Called from stdgo__$internal_sync_Map_$_$static_$extension.load (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 32132 column 59)
+Called from .stdgo__$internal_encoding_json_Json_$_$cachedtypefields__cachedTypeFields (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 51825 column 63)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._object (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 63761 column 13)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._value (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 64524 column 80)
+Called from stdgo__$internal_encoding_json_T_$decodeState_$static_$extension._unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 65241 column 78)
+Called from .stdgo__$internal_encoding_json_Json_$unmarshal_unmarshal (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 69445 column 74)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshalunexported_testUnmarshalUnexported [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78703:13)
 
 -- FAIL: TestUnmarshalUnexported
 
 === RUN  TestUnmarshalJSONLiteralError
 expected error; got time <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 141252 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 141141 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:140695:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshaljsonliteralerror_testUnmarshalJSONLiteralError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78874:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140505 column 9)
-Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119534 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157211:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157212:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 141264 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 141153 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:140707:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_json_Json_$testunmarshaljsonliteralerror_testUnmarshalJSONLiteralError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_json.js:78884:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 140517 column 9)
+Called from ._$internal_encoding_jsondottest_Jsondottest_main (/home/runner/work/go2hx/go2hx/golibs/std_json.js line 119544 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_json.js:157223:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_json.js:157224:3)
 
 -- FAIL: TestUnmarshalJSONLiteralError

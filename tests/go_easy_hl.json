@@ -362,5 +362,7 @@
  "hl|struct0",
  "hl|bug230",
  "hl|issue13169",
- "hl|issue43292"
+ "hl|issue43292",
+ "hl|bug312",
+ "hl|const4"
 ]

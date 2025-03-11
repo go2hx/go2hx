@@ -87,43 +87,25 @@
 -- PASS: TestNopCloserWriterToForwarding
 
 === RUN  TestOffsetWriter_Seek
-Exception: :os.createTemp is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$seek_testOffsetWriter_Seek [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:18882:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 
--- FAIL: TestOffsetWriter_Seek
+-- PASS: TestOffsetWriter_Seek
 
 === RUN  TestOffsetWriter_WriteAt
-Exception: :os.createTemp is not yet implemented
-Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 19387 column 26)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19396:4)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
+Exception: File:os.readAt is not yet implemented
+Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 19282 column 26)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19291:4)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60444 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52745 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65937:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65938:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestOffsetWriter_WriteAt
 
 === RUN  TestWriteAt_PositionPriorToBase
-Exception: :os.createTemp is not yet implemented
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteat_$positionpriortobase_testWriteAt_PositionPriorToBase [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:20487:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
-Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 
--- FAIL: TestWriteAt_PositionPriorToBase
+-- PASS: TestWriteAt_PositionPriorToBase
 
 === RUN  TestOffsetWriter_Write
 
@@ -155,17 +137,9 @@ Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 -- PASS: TestMultiWriter_StringCheckCall
 
 === RUN  TestMultiWriterSingleChainFlatten
-Exception: :runtime.callers is not yet implemented
-Called from .stdgo__$internal_runtime_Runtime_$callers_callers (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 46550 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testmultiwritersinglechainflatten_testMultiWriterSingleChainFlatten [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:18518:11)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+-- SKIP: testMultiWriterSingleChainFlatten
 
--- FAIL: TestMultiWriterSingleChainFlatten
+-- PASS: TestMultiWriterSingleChainFlatten
 
 === RUN  TestMultiWriterError
 
@@ -180,17 +154,9 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestMultiWriterCopy
 
 === RUN  TestMultiReaderFlatten
-Exception: :runtime.callers is not yet implemented
-Called from .stdgo__$internal_runtime_Runtime_$callers_callers (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 46550 column 23)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testmultireaderflatten_testMultiReaderFlatten [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:18352:11)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
-Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
-Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
+-- SKIP: testMultiReaderFlatten
 
--- FAIL: TestMultiReaderFlatten
+-- PASS: TestMultiReaderFlatten
 
 === RUN  TestMultiReaderSingleByteWithEOF
 
@@ -236,13 +202,13 @@ final read got <invalid reflect.Value>
 
 === RUN  TestPipe3
 read: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61090 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60979 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60533:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19521:21)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60337 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52630 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65951:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65952:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61197 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61086 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60640:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19416:21)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60444 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52745 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65937:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65938:3)
 
 -- FAIL: TestPipe3

@@ -4,10 +4,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscan_testScan [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:11780:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestScan
 
@@ -22,9 +22,9 @@ Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from .stdgo__$internal_go_scanner_Scanner_$_$checksemi__checkSemi (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37739 column 215)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testsemicolons_testSemicolons [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37708:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
 
 -- FAIL: TestSemicolons
 
@@ -35,9 +35,9 @@ Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from .stdgo__$internal_go_scanner_Scanner_$_$testsegments__testSegments (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 37784 column 240)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testlinedirectives_testLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37769:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
 
 -- FAIL: TestLineDirectives
 
@@ -47,10 +47,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinvalidlinedirectives_testInvalidLineDirectives [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37901:185)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestInvalidLineDirectives
 
@@ -60,10 +60,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testinit_testInit [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:37925:208)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestInit
 
@@ -73,10 +73,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$teststderrorhandler_testStdErrorHandler [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:38004:262)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestStdErrorHandler
 
@@ -87,9 +87,9 @@ Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from .stdgo__$internal_go_scanner_Scanner_$_$checkerror__checkError (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 39158 column 235)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testscanerrors_testScanErrors [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39142:3)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
 
 -- FAIL: TestScanErrors
 
@@ -99,10 +99,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue10213_testIssue10213 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39234:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestIssue10213
 
@@ -112,10 +112,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testissue28112_testIssue28112 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39311:235)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestIssue28112
 
@@ -125,10 +125,10 @@ Called from stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/r
 Called from stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35962 column 78)
 Called from stdgo__$internal_go_token_FileSet_$static_$extension.base (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 35628 column 51)
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_go_scanner_Scanner_$testnumbers_testNumbers [as f] (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:39829:236)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47725 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 47764 column 9)
 Called from ._$internal_go_scannerdottest_Scannerdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js line 40526 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57234:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57235:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57273:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_scanner.js:57274:3)
 
 -- FAIL: TestNumbers
 

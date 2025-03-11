@@ -7,6 +7,7 @@
         "TestNonStandardNormalValues",
         "TestNormTables",
         "TestExpTables",
+        "testFloat32",
         "TestFloat32",
         "TestReadEmpty",
         "TestReadByOneByte",

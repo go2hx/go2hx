@@ -3225,7 +3225,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					exprs.push(macro var __blank__ = $e);
 				}
 				if (exprs.length == 1)
-					return e;
+					return e.expr;
 				return (macro $b{exprs}).expr;
 			}
 

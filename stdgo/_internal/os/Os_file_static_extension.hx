@@ -104,7 +104,20 @@ package stdgo._internal.os;
     }
     @:keep
     @:tdfield
-    static public function writeAt( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.writeAt is not yet implemented";
+    static public function writeAt( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        #if (sys || hxnodejs) {
+            if (_b.length == 0) return { _0 : 0, _1 : null };
+            try {
+                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), _off.toBasic().low, _b.length.toBasic());
+                return { _0 : i, _1 : null };
+            } catch(e) {
+                return { _0 : 0, _1 : stdgo._internal.errors.Errors_new_.new_("File.writeAt failed") };
+            };
+        } #else null #end;
+        trace("not supported on non sys target");
+        return { _0 : 0, _1 : null };
+    }
     @:keep
     @:tdfield
     static public function write( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {

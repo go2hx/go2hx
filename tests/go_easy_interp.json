@@ -355,5 +355,7 @@
  "interp|t_235",
  "interp|struct0",
  "interp|bug230",
- "interp|issue43292"
+ "interp|issue43292",
+ "interp|bug312",
+ "interp|const4"
 ]

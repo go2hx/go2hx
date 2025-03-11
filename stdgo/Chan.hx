@@ -199,7 +199,8 @@ class ChanData<T> {
         if (debug)
             trace("end loop __send__");
         mutex.acquire();
-        trace("get mutex __send__");
+        if (debug)
+            trace("get mutex __send__");
         // send value
         if (debug)
             trace("__send__ send value");
@@ -287,6 +288,8 @@ class Chan<T> {
         return true;
 
     public function acquire() {}
+
+    public function __reset__() {}
 }
 #end
 

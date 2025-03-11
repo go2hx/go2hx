@@ -1524,7 +1524,7 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 			x = macro if ($econd)
 				$eif;
 		case EBinop(OpNullCoal, e1, e2):
-			return (macro (${e1} != null ? ${setTok(e1)} : ${e2})).expr;
+			return (macro (@:typeIncDecStmt_escapeParens ${e1} != null ? ${setTok(e1)} : ${e2})).expr;
 		default:
 	}
 	return setTok(x).expr;
@@ -3225,7 +3225,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					exprs.push(macro var __blank__ = $e);
 				}
 				if (exprs.length == 1)
-					return exprs[0].expr;
+					return e;
 				return (macro $b{exprs}).expr;
 			}
 

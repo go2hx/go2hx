@@ -264,7 +264,10 @@ class RoundTripper_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function roundTrip(_0:Request):stdgo.Tuple<Response, stdgo.Error>; }):RoundTripper {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:RoundTripper = { roundTrip : _0 -> x.roundTrip(_0), __underlying__ : () -> __f__() };
+        final y:RoundTripper = { roundTrip : _0 -> {
+            final obj = x.roundTrip(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -282,7 +285,10 @@ class FileSystem_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function open(_name:String):stdgo.Tuple<File, stdgo.Error>; }):FileSystem {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:FileSystem = { open : _0 -> x.open(_0), __underlying__ : () -> __f__() };
+        final y:FileSystem = { open : _0 -> {
+            final obj = x.open(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -306,7 +312,19 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readdir(_count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>, stdgo.Error>; function stat():stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>; function close():stdgo.Error; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function seek(_0:haxe.Int64, _1:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error>; }):File {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:File = { readdir : _0 -> x.readdir(_0), stat : () -> x.stat(), close : () -> x.close(), read : _0 -> x.read([for (i in _0) i]), seek : (_0, _1) -> x.seek(_0, _1), __underlying__ : () -> __f__() };
+        final y:File = { readdir : _0 -> {
+            final obj = x.readdir(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, stat : () -> {
+            final obj = x.stat();
+            { _0 : obj._0, _1 : obj._1 };
+        }, close : () -> x.close(), read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, seek : (_0, _1) -> {
+            final obj = x.seek(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -341,7 +359,10 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function getClientConn(_req:Request, _addr:String):stdgo.Tuple<T_http2ClientConn, stdgo.Error>; function markDead(_0:T_http2ClientConn):Void; }):T_http2ClientConnPool {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2ClientConnPool = { getClientConn : (_0, _1) -> x.getClientConn(_0, _1), markDead : _0 -> x.markDead(_0), __underlying__ : () -> __f__() };
+        final y:T_http2ClientConnPool = { getClientConn : (_0, _1) -> {
+            final obj = x.getClientConn(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, markDead : _0 -> x.markDead(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -409,7 +430,7 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function headerBlockFragment():Array<std.UInt>; }):T_http2headersOrContinuation {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2headersOrContinuation = { headerBlockFragment : () -> x.headerBlockFragment(), __underlying__ : () -> __f__() };
+        final y:T_http2headersOrContinuation = { headerBlockFragment : () -> [for (i in x.headerBlockFragment()) i], __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -427,7 +448,10 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function writeString(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_http2stringWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2stringWriter = { writeString : _0 -> x.writeString(_0), __underlying__ : () -> __f__() };
+        final y:T_http2stringWriter = { writeString : _0 -> {
+            final obj = x.writeString(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -455,7 +479,13 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function len():StdTypes.Int; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_http2pipeBuffer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2pipeBuffer = { len : () -> x.len(), write : _0 -> x.write([for (i in _0) i]), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_http2pipeBuffer = { len : () -> x.len(), write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -473,7 +503,7 @@ class File_static_extension {
     }
 }
 @:dox(hide) class T_http2writeContext_static_extension {
-    static public function headerEncoder(t:stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext):stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
+    static public function headerEncoder(t:stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext):stdgo.Tuple<x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
         return {
             final obj = stdgo._internal.net.http.Http_t_http2writecontext_static_extension.T_http2writeContext_static_extension.headerEncoder(t);
             { _0 : obj._0, _1 : obj._1 };
@@ -491,9 +521,12 @@ class File_static_extension {
 }
 @:interface @:dox(hide) @:forward abstract T_http2writeContext(stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext) from stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext to stdgo._internal.net.http.Http_t_http2writecontext.T_http2writeContext {
     @:from
-    static function fromHaxeInterface(x:{ function framer():T_http2Framer; function flush():stdgo.Error; function closeConn():stdgo.Error; function headerEncoder():stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer>; }):T_http2writeContext {
+    static function fromHaxeInterface(x:{ function framer():T_http2Framer; function flush():stdgo.Error; function closeConn():stdgo.Error; function headerEncoder():stdgo.Tuple<x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer>; }):T_http2writeContext {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2writeContext = { framer : () -> x.framer(), flush : () -> x.flush(), closeConn : () -> x.closeConn(), headerEncoder : () -> x.headerEncoder(), __underlying__ : () -> __f__() };
+        final y:T_http2writeContext = { framer : () -> x.framer(), flush : () -> x.flush(), closeConn : () -> x.closeConn(), headerEncoder : () -> {
+            final obj = x.headerEncoder();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -525,7 +558,10 @@ class File_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function openStream(_streamID:std.UInt, _options:T_http2OpenStreamOptions):Void; function closeStream(_streamID:std.UInt):Void; function adjustStream(_streamID:std.UInt, _priority:T_http2PriorityParam):Void; function push(_wr:T_http2FrameWriteRequest):Void; function pop():stdgo.Tuple<T_http2FrameWriteRequest, Bool>; }):T_http2WriteScheduler {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_http2WriteScheduler = { openStream : (_0, _1) -> x.openStream(_0, _1), closeStream : _0 -> x.closeStream(_0), adjustStream : (_0, _1) -> x.adjustStream(_0, _1), push : _0 -> x.push(_0), pop : () -> x.pop(), __underlying__ : () -> __f__() };
+        final y:T_http2WriteScheduler = { openStream : (_0, _1) -> x.openStream(_0, _1), closeStream : _0 -> x.closeStream(_0), adjustStream : (_0, _1) -> x.adjustStream(_0, _1), push : _0 -> x.push(_0), pop : () -> {
+            final obj = x.pop();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -561,7 +597,7 @@ class CookieJar_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function setCookies(_u:stdgo._internal.net.url.Url_url.URL, _cookies:Array<Cookie>):Void; function cookies(_u:stdgo._internal.net.url.Url_url.URL):Array<Cookie>; }):CookieJar {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:CookieJar = { setCookies : (_0, _1) -> x.setCookies(_0, [for (i in _1) i]), cookies : _0 -> x.cookies(_0), __underlying__ : () -> __f__() };
+        final y:CookieJar = { setCookies : (_0, _1) -> x.setCookies(_0, [for (i in _1) i]), cookies : _0 -> [for (i in x.cookies(_0)) i], __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -615,7 +651,10 @@ class ResponseWriter_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function header():Header; function write(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function writeHeader(_statusCode:StdTypes.Int):Void; }):ResponseWriter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ResponseWriter = { header : () -> x.header(), write : _0 -> x.write([for (i in _0) i]), writeHeader : _0 -> x.writeHeader(_0), __underlying__ : () -> __f__() };
+        final y:ResponseWriter = { header : () -> x.header(), write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, writeHeader : _0 -> x.writeHeader(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -646,7 +685,10 @@ class Hijacker_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function hijack():stdgo.Tuple.Tuple3<stdgo._internal.net.Net_conn.Conn, stdgo._internal.bufio.Bufio_readwriter.ReadWriter, stdgo.Error>; }):Hijacker {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Hijacker = { hijack : () -> x.hijack(), __underlying__ : () -> __f__() };
+        final y:Hijacker = { hijack : () -> {
+            final obj = x.hijack();
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -729,7 +771,7 @@ class CloseNotifier_static_extension {
     public var checkRedirect(get, set) : (Request, Array<Request>) -> stdgo.Error;
     function get_checkRedirect():(Request, Array<Request>) -> stdgo.Error return (_0, _1) -> this.checkRedirect(_0, [for (i in _1) i]);
     function set_checkRedirect(v:(Request, Array<Request>) -> stdgo.Error):(Request, Array<Request>) -> stdgo.Error {
-        this.checkRedirect = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), ([for (i in _1) (i : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>));
+        this.checkRedirect = (_0, _1) -> (v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), ([for (i in _1) (i : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>)) : stdgo.Error);
         return v;
     }
     public var jar(get, set) : CookieJar;
@@ -744,7 +786,7 @@ class CloseNotifier_static_extension {
         this.timeout = v;
         return v;
     }
-    public function new(?transport:RoundTripper, ?checkRedirect:(Request, Array<Request>) -> stdgo.Error, ?jar:CookieJar, ?timeout:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.http.Http_client.Client(transport, (_0, _1) -> checkRedirect((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), ([for (i in _1) (i : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>)), jar, timeout);
+    public function new(?transport:RoundTripper, ?checkRedirect:(Request, Array<Request>) -> stdgo.Error, ?jar:CookieJar, ?timeout:stdgo._internal.time.Time_duration.Duration) this = new stdgo._internal.net.http.Http_client.Client(transport, (_0, _1) -> (checkRedirect((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), ([for (i in _1) (i : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)] : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_request.Request>>)) : stdgo.Error), jar, timeout);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -994,10 +1036,10 @@ sameSite,
         this.allowIllegalReads = v;
         return v;
     }
-    public var readMetaHeaders(get, set) : vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder;
-    function get_readMetaHeaders():vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder return this.readMetaHeaders;
-    function set_readMetaHeaders(v:vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder):vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder {
-        this.readMetaHeaders = (v : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>);
+    public var readMetaHeaders(get, set) : x.net.http2.hpack.Hpack.Decoder;
+    function get_readMetaHeaders():x.net.http2.hpack.Hpack.Decoder return this.readMetaHeaders;
+    function set_readMetaHeaders(v:x.net.http2.hpack.Hpack.Decoder):x.net.http2.hpack.Hpack.Decoder {
+        this.readMetaHeaders = (v : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_decoder.Decoder>);
         return v;
     }
     public var maxHeaderListSize(get, set) : std.UInt;
@@ -1006,7 +1048,7 @@ sameSite,
         this.maxHeaderListSize = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:vendor.golang_dot_org.x.net.http2.hpack.Hpack.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
+    public function new(?allowIllegalWrites:Bool, ?allowIllegalReads:Bool, ?readMetaHeaders:x.net.http2.hpack.Hpack.Decoder, ?maxHeaderListSize:std.UInt) this = new stdgo._internal.net.http.Http_t_http2framer.T_http2Framer(allowIllegalWrites, allowIllegalReads, (readMetaHeaders : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_decoder.Decoder>), (maxHeaderListSize : stdgo.GoUInt32));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1212,10 +1254,10 @@ sameSite,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.net.http.Http.T_http2MetaHeadersFrame_static_extension) @:dox(hide) abstract T_http2MetaHeadersFrame(stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame) from stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame to stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame {
-    public var fields(get, set) : Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>;
-    function get_fields():Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> return [for (i in this.fields) i];
-    function set_fields(v:Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
-        this.fields = ([for (i in v) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
+    public var fields(get, set) : Array<x.net.http2.hpack.Hpack.HeaderField>;
+    function get_fields():Array<x.net.http2.hpack.Hpack.HeaderField> return [for (i in this.fields) i];
+    function set_fields(v:Array<x.net.http2.hpack.Hpack.HeaderField>):Array<x.net.http2.hpack.Hpack.HeaderField> {
+        this.fields = ([for (i in v) i] : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
         return v;
     }
     public var truncated(get, set) : Bool;
@@ -1224,7 +1266,7 @@ sameSite,
         this.truncated = v;
         return v;
     }
-    public function new(?fields:Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
+    public function new(?fields:Array<x.net.http2.hpack.Hpack.HeaderField>, ?truncated:Bool) this = new stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame(([for (i in fields) i] : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>), truncated);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1455,15 +1497,27 @@ _0 -> countError((_0 : stdgo.GoString)));
 }
 @:structInit @:using(stdgo.net.http.Http.T_http2Transport_static_extension) @:dox(hide) abstract T_http2Transport(stdgo._internal.net.http.Http_t_http2transport.T_http2Transport) from stdgo._internal.net.http.Http_t_http2transport.T_http2Transport to stdgo._internal.net.http.Http_t_http2transport.T_http2Transport {
     public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2, _3) -> this.dialTLSContext(_0, _1, _2, _3);
+    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2, _3) -> {
+        final obj = this.dialTLSContext(_0, _1, _2, _3);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dialTLSContext = (_0, _1, _2, _3) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), (_3 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+        this.dialTLSContext = (_0, _1, _2, _3) -> {
+            final obj = v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), (_3 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var dialTLS(get, set) : (String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dialTLS():(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialTLS(_0, _1, _2);
+    function get_dialTLS():(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.dialTLS(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dialTLS(v:(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dialTLS = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+        this.dialTLS = (_0, _1, _2) -> {
+            final obj = v((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var tLSClientConfig(get, set) : stdgo._internal.crypto.tls.Tls_config.Config;
@@ -1545,8 +1599,14 @@ _0 -> countError((_0 : stdgo.GoString)));
         return v;
     }
     public function new(?dialTLSContext:(stdgo._internal.context.Context_context.Context, String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLS:(String, String, stdgo._internal.crypto.tls.Tls_config.Config) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?connPool:T_http2ClientConnPool, ?disableCompression:Bool, ?allowHTTP:Bool, ?maxHeaderListSize:std.UInt, ?maxReadFrameSize:std.UInt, ?maxDecoderHeaderTableSize:std.UInt, ?maxEncoderHeaderTableSize:std.UInt, ?strictMaxConcurrentStreams:Bool, ?readIdleTimeout:stdgo._internal.time.Time_duration.Duration, ?pingTimeout:stdgo._internal.time.Time_duration.Duration, ?writeByteTimeout:stdgo._internal.time.Time_duration.Duration, ?countError:String -> Void) this = new stdgo._internal.net.http.Http_t_http2transport.T_http2Transport(
-(_0, _1, _2, _3) -> dialTLSContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), (_3 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>)),
-(_0, _1, _2) -> dialTLS((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>)),
+(_0, _1, _2, _3) -> {
+        final obj = dialTLSContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString), (_3 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
+(_0, _1, _2) -> {
+        final obj = dialTLS((_0 : stdgo.GoString), (_1 : stdgo.GoString), (_2 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
 (tLSClientConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>),
 connPool,
 disableCompression,
@@ -1937,9 +1997,15 @@ _0 -> countError((_0 : stdgo.GoString)));
         return v;
     }
     public var getBody(get, set) : () -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error>;
-    function get_getBody():() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error> return () -> this.getBody();
+    function get_getBody():() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error> return () -> {
+        final obj = this.getBody();
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_getBody(v:() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error>):() -> stdgo.Tuple<stdgo._internal.io.Io_readcloser.ReadCloser, stdgo.Error> {
-        this.getBody = () -> v();
+        this.getBody = () -> {
+            final obj = v();
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var contentLength(get, set) : haxe.Int64;
@@ -2028,7 +2094,10 @@ _0 -> countError((_0 : stdgo.GoString)));
 (protoMinor : stdgo.GoInt),
 header,
 body,
-() -> getBody(),
+() -> {
+        final obj = getBody();
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
 (contentLength : stdgo.GoInt64),
 ([for (i in transferEncoding) (i : stdgo.GoString)] : stdgo.Slice<stdgo.GoString>),
 close,
@@ -2479,9 +2548,15 @@ _0 -> baseContext(_0),
 }
 @:structInit @:using(stdgo.net.http.Http.T_socksDialer_static_extension) @:dox(hide) abstract T_socksDialer(stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer) from stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer to stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer {
     public var proxyDial(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_proxyDial():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.proxyDial(_0, _1, _2);
+    function get_proxyDial():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.proxyDial(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_proxyDial(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.proxyDial = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        this.proxyDial = (_0, _1, _2) -> {
+            final obj = v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var authMethods(get, set) : Array<T_socksAuthMethod>;
@@ -2493,10 +2568,13 @@ _0 -> baseContext(_0),
     public var authenticate(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error;
     function get_authenticate():(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error return (_0, _1, _2) -> this.authenticate(_0, _1, _2);
     function set_authenticate(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error {
-        this.authenticate = (_0, _1, _2) -> v(_0, _1, _2);
+        this.authenticate = (_0, _1, _2) -> (v(_0, _1, _2) : stdgo.Error);
         return v;
     }
-    public function new(?proxyDial:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?authMethods:Array<T_socksAuthMethod>, ?authenticate:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error) this = new stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer((_0, _1, _2) -> proxyDial(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString)), ([for (i in authMethods) i] : stdgo.Slice<stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod>), (_0, _1, _2) -> authenticate(_0, _1, _2));
+    public function new(?proxyDial:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?authMethods:Array<T_socksAuthMethod>, ?authenticate:(stdgo._internal.context.Context_context.Context, stdgo._internal.io.Io_readwriter.ReadWriter, T_socksAuthMethod) -> stdgo.Error) this = new stdgo._internal.net.http.Http_t_socksdialer.T_socksDialer((_0, _1, _2) -> {
+        final obj = proxyDial(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    }, ([for (i in authMethods) i] : stdgo.Slice<stdgo._internal.net.http.Http_t_socksauthmethod.T_socksAuthMethod>), (_0, _1, _2) -> (authenticate(_0, _1, _2) : stdgo.Error));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2708,39 +2786,69 @@ flushHeaders,
 }
 @:structInit @:using(stdgo.net.http.Http.Transport_static_extension) abstract Transport(stdgo._internal.net.http.Http_transport.Transport) from stdgo._internal.net.http.Http_transport.Transport to stdgo._internal.net.http.Http_transport.Transport {
     public var proxy(get, set) : Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>;
-    function get_proxy():Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> return _0 -> this.proxy(_0);
+    function get_proxy():Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> return _0 -> {
+        final obj = this.proxy(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_proxy(v:Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>):Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> {
-        this.proxy = _0 -> v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>));
+        this.proxy = _0 -> {
+            final obj = v((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>));
+            { _0 : (obj._0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var onProxyConnectResponse(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error;
     function get_onProxyConnectResponse():(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error return (_0, _1, _2, _3) -> this.onProxyConnectResponse(_0, _1, _2, _3);
     function set_onProxyConnectResponse(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error):(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error {
-        this.onProxyConnectResponse = (_0, _1, _2, _3) -> v(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_3 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>));
+        this.onProxyConnectResponse = (_0, _1, _2, _3) -> (v(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_3 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)) : stdgo.Error);
         return v;
     }
     public var dialContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dialContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialContext(_0, _1, _2);
+    function get_dialContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.dialContext(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dialContext(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dialContext = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        this.dialContext = (_0, _1, _2) -> {
+            final obj = v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var dial(get, set) : (String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dial():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> this.dial(_0, _1);
+    function get_dial():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> {
+        final obj = this.dial(_0, _1);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dial(v:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dial = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        this.dial = (_0, _1) -> {
+            final obj = v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var dialTLSContext(get, set) : (stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> this.dialTLSContext(_0, _1, _2);
+    function get_dialTLSContext():(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.dialTLSContext(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dialTLSContext(v:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dialTLSContext = (_0, _1, _2) -> v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        this.dialTLSContext = (_0, _1, _2) -> {
+            final obj = v(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var dialTLS(get, set) : (String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>;
-    function get_dialTLS():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> this.dialTLS(_0, _1);
+    function get_dialTLS():(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> return (_0, _1) -> {
+        final obj = this.dialTLS(_0, _1);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_dialTLS(v:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>):(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error> {
-        this.dialTLS = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        this.dialTLS = (_0, _1) -> {
+            final obj = v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var tLSClientConfig(get, set) : stdgo._internal.crypto.tls.Tls_config.Config;
@@ -2828,9 +2936,15 @@ flushHeaders,
         return v;
     }
     public var getProxyConnectHeader(get, set) : (stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>;
-    function get_getProxyConnectHeader():(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error> return (_0, _1, _2) -> this.getProxyConnectHeader(_0, _1, _2);
+    function get_getProxyConnectHeader():(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error> return (_0, _1, _2) -> {
+        final obj = this.getProxyConnectHeader(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_getProxyConnectHeader(v:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>):(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error> {
-        this.getProxyConnectHeader = (_0, _1, _2) -> v(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.GoString));
+        this.getProxyConnectHeader = (_0, _1, _2) -> {
+            final obj = v(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.GoString));
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var maxResponseHeaderBytes(get, set) : haxe.Int64;
@@ -2858,12 +2972,27 @@ flushHeaders,
         return v;
     }
     public function new(?proxy:Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error>, ?onProxyConnectResponse:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, Request, Response) -> stdgo.Error, ?dialContext:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dial:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLSContext:(stdgo._internal.context.Context_context.Context, String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?dialTLS:(String, String) -> stdgo.Tuple<stdgo._internal.net.Net_conn.Conn, stdgo.Error>, ?tLSClientConfig:stdgo._internal.crypto.tls.Tls_config.Config, ?tLSHandshakeTimeout:stdgo._internal.time.Time_duration.Duration, ?disableKeepAlives:Bool, ?disableCompression:Bool, ?maxIdleConns:StdTypes.Int, ?maxIdleConnsPerHost:StdTypes.Int, ?maxConnsPerHost:StdTypes.Int, ?idleConnTimeout:stdgo._internal.time.Time_duration.Duration, ?responseHeaderTimeout:stdgo._internal.time.Time_duration.Duration, ?expectContinueTimeout:stdgo._internal.time.Time_duration.Duration, ?tLSNextProto:Map<String, (String, stdgo._internal.crypto.tls.Tls_conn.Conn) -> RoundTripper>, ?proxyConnectHeader:Header, ?getProxyConnectHeader:(stdgo._internal.context.Context_context.Context, stdgo._internal.net.url.Url_url.URL, String) -> stdgo.Tuple<Header, stdgo.Error>, ?maxResponseHeaderBytes:haxe.Int64, ?writeBufferSize:StdTypes.Int, ?readBufferSize:StdTypes.Int, ?forceAttemptHTTP2:Bool) this = new stdgo._internal.net.http.Http_transport.Transport(
-_0 -> proxy((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>)),
-(_0, _1, _2, _3) -> onProxyConnectResponse(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_3 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)),
-(_0, _1, _2) -> dialContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString)),
-(_0, _1) -> dial((_0 : stdgo.GoString), (_1 : stdgo.GoString)),
-(_0, _1, _2) -> dialTLSContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString)),
-(_0, _1) -> dialTLS((_0 : stdgo.GoString), (_1 : stdgo.GoString)),
+_0 -> {
+        final obj = proxy((_0 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>));
+        { _0 : (obj._0 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), _1 : (obj._1 : stdgo.Error) };
+    },
+(_0, _1, _2, _3) -> (onProxyConnectResponse(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.Ref<stdgo._internal.net.http.Http_request.Request>), (_3 : stdgo.Ref<stdgo._internal.net.http.Http_response.Response>)) : stdgo.Error),
+(_0, _1, _2) -> {
+        final obj = dialContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
+(_0, _1) -> {
+        final obj = dial((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
+(_0, _1, _2) -> {
+        final obj = dialTLSContext(_0, (_1 : stdgo.GoString), (_2 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
+(_0, _1) -> {
+        final obj = dialTLS((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
 (tLSClientConfig : stdgo.Ref<stdgo._internal.crypto.tls.Tls_config.Config>),
 tLSHandshakeTimeout,
 disableKeepAlives,
@@ -2882,7 +3011,10 @@ expectContinueTimeout,
         __obj__;
     },
 proxyConnectHeader,
-(_0, _1, _2) -> getProxyConnectHeader(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.GoString)),
+(_0, _1, _2) -> {
+        final obj = getProxyConnectHeader(_0, (_1 : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>), (_2 : stdgo.GoString));
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
 (maxResponseHeaderBytes : stdgo.GoInt64),
 (writeBufferSize : stdgo.GoInt),
 (readBufferSize : stdgo.GoInt),
@@ -3481,7 +3613,7 @@ class Cookie_static_extension {
 @:dox(hide) class T_http2SettingsFrame_static_extension {
     static public function foreachSetting(_f:T_http2SettingsFrame, _fn:T_http2Setting -> stdgo.Error):stdgo.Error {
         final _f = (_f : stdgo.Ref<stdgo._internal.net.http.Http_t_http2settingsframe.T_http2SettingsFrame>);
-        final _fn = _0 -> _fn(_0);
+        final _fn = _0 -> (_fn(_0) : stdgo.Error);
         return stdgo._internal.net.http.Http_t_http2settingsframe_static_extension.T_http2SettingsFrame_static_extension.foreachSetting(_f, _fn);
     }
     static public function hasDuplicates(_f:T_http2SettingsFrame):Bool {
@@ -3759,11 +3891,11 @@ class Cookie_static_extension {
 }
 @:dox(hide) typedef T_http2MetaHeadersFramePointer = stdgo._internal.net.http.Http_t_http2metaheadersframepointer.T_http2MetaHeadersFramePointer;
 @:dox(hide) class T_http2MetaHeadersFrame_static_extension {
-    static public function pseudoFields(_mh:T_http2MetaHeadersFrame):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
+    static public function pseudoFields(_mh:T_http2MetaHeadersFrame):Array<x.net.http2.hpack.Hpack.HeaderField> {
         final _mh = (_mh : stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>);
         return [for (i in stdgo._internal.net.http.Http_t_http2metaheadersframe_static_extension.T_http2MetaHeadersFrame_static_extension.pseudoFields(_mh)) i];
     }
-    static public function regularFields(_mh:T_http2MetaHeadersFrame):Array<vendor.golang_dot_org.x.net.http2.hpack.Hpack.HeaderField> {
+    static public function regularFields(_mh:T_http2MetaHeadersFrame):Array<x.net.http2.hpack.Hpack.HeaderField> {
         final _mh = (_mh : stdgo.Ref<stdgo._internal.net.http.Http_t_http2metaheadersframe.T_http2MetaHeadersFrame>);
         return [for (i in stdgo._internal.net.http.Http_t_http2metaheadersframe_static_extension.T_http2MetaHeadersFrame_static_extension.regularFields(_mh)) i];
     }
@@ -3931,7 +4063,7 @@ class Cookie_static_extension {
 }
 @:dox(hide) typedef T_http2serverConnPointer = stdgo._internal.net.http.Http_t_http2serverconnpointer.T_http2serverConnPointer;
 @:dox(hide) class T_http2serverConn_static_extension {
-    static public function headerEncoder(_sc:T_http2serverConn):stdgo.Tuple<vendor.golang_dot_org.x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
+    static public function headerEncoder(_sc:T_http2serverConn):stdgo.Tuple<x.net.http2.hpack.Hpack.Encoder, stdgo._internal.bytes.Bytes_buffer.Buffer> {
         final _sc = (_sc : stdgo.Ref<stdgo._internal.net.http.Http_t_http2serverconn.T_http2serverConn>);
         return {
             final obj = stdgo._internal.net.http.Http_t_http2serverconn_static_extension.T_http2serverConn_static_extension.headerEncoder(_sc);
@@ -6629,6 +6761,9 @@ class Http {
     **/
     static public inline function proxyURL(_fixedURL:stdgo._internal.net.url.Url_url.URL):Request -> stdgo.Tuple<stdgo._internal.net.url.Url_url.URL, stdgo.Error> {
         final _fixedURL = (_fixedURL : stdgo.Ref<stdgo._internal.net.url.Url_url.URL>);
-        return _0 -> stdgo._internal.net.http.Http_proxyurl.proxyURL(_fixedURL)(_0);
+        return _0 -> {
+            final obj = stdgo._internal.net.http.Http_proxyurl.proxyURL(_fixedURL)(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        };
     }
 }

@@ -17,7 +17,10 @@ package stdgo._internal.debug.dwarf;
         @:recv var _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_entry.Entry> = _e;
         {
             var _f = @:check2r _e.attrField(_a);
-            if ((_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__))) {
+            if (({
+                final value = _f;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return (@:checkr _f ?? throw "null pointer dereference").val;
             };
         };

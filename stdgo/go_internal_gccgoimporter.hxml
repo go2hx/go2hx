@@ -1,3 +1,3 @@
--m _internal.go.internal.gccgoimporter_dot_test.Gccgoimporter_dot_test
+-m _internal.go.internal.gccgoimporterdottest.Gccgoimporterdottest
 -lib go2hx
 -cp .

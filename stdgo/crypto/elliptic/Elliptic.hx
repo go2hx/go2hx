@@ -47,7 +47,19 @@ class Curve_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function params():CurveParams; function isOnCurve(_x:stdgo._internal.math.big.Big_int_.Int_, _y:stdgo._internal.math.big.Big_int_.Int_):Bool; function add(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_, _x2:stdgo._internal.math.big.Big_int_.Int_, _y2:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function double(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function scalarMult(_x1:stdgo._internal.math.big.Big_int_.Int_, _y1:stdgo._internal.math.big.Big_int_.Int_, _k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function scalarBaseMult(_k:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; }):Curve {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Curve = { params : () -> x.params(), isOnCurve : (_0, _1) -> x.isOnCurve(_0, _1), add : (_0, _1, _2, _3) -> x.add(_0, _1, _2, _3), double : (_0, _1) -> x.double(_0, _1), scalarMult : (_0, _1, _2) -> x.scalarMult(_0, _1, [for (i in _2) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:Curve = { params : () -> x.params(), isOnCurve : (_0, _1) -> x.isOnCurve(_0, _1), add : (_0, _1, _2, _3) -> {
+            final obj = x.add(_0, _1, _2, _3);
+            { _0 : obj._0, _1 : obj._1 };
+        }, double : (_0, _1) -> {
+            final obj = x.double(_0, _1);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarMult : (_0, _1, _2) -> {
+            final obj = x.scalarMult(_0, _1, [for (i in _2) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarBaseMult : _0 -> {
+            final obj = x.scalarBaseMult([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -72,7 +84,13 @@ class Curve_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function unmarshal(_0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; function unmarshalCompressed(_0:Array<std.UInt>):stdgo.Tuple<stdgo._internal.math.big.Big_int_.Int_, stdgo._internal.math.big.Big_int_.Int_>; }):T_unmarshaler {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_unmarshaler = { unmarshal : _0 -> x.unmarshal([for (i in _0) i]), unmarshalCompressed : _0 -> x.unmarshalCompressed([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_unmarshaler = { unmarshal : _0 -> {
+            final obj = x.unmarshal([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, unmarshalCompressed : _0 -> {
+            final obj = x.unmarshalCompressed([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -113,7 +131,16 @@ class Curve_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function add(_0:Dynamic, _1:Dynamic):Dynamic; function double(_0:Dynamic):Dynamic; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_nistPoint = { bytes : () -> x.bytes(), setBytes : _0 -> x.setBytes([for (i in _0) i]), add : (_0, _1) -> x.add(_0, _1), double : _0 -> x.double(_0), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_nistPoint = { bytes : () -> [for (i in x.bytes()) i], setBytes : _0 -> {
+            final obj = x.setBytes([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, add : (_0, _1) -> x.add(_0, _1), double : _0 -> x.double(_0), scalarMult : (_0, _1) -> {
+            final obj = x.scalarMult(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarBaseMult : _0 -> {
+            final obj = x.scalarBaseMult([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

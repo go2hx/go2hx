@@ -45,7 +45,10 @@ package stdgo._internal.log.slog;
     static public function _appendKey( _s:stdgo.Ref<stdgo._internal.log.slog.Slog_t_handlestate.T_handleState>, _key:stdgo.GoString):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.log.slog.Slog_t_handlestate.T_handleState> = _s;
         @:check2r (@:checkr _s ?? throw "null pointer dereference")._buf.writeString((@:checkr _s ?? throw "null pointer dereference")._sep?.__copy__());
-        if ((((@:checkr _s ?? throw "null pointer dereference")._prefix != null && (((@:checkr _s ?? throw "null pointer dereference")._prefix : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._prefix : Dynamic).__nil__)) && ((((@:checkr _s ?? throw "null pointer dereference")._prefix : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+        if ((({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._prefix;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && ((((@:checkr _s ?? throw "null pointer dereference")._prefix : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             @:check2r _s._appendString(((((@:checkr _s ?? throw "null pointer dereference")._prefix : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer) : stdgo.GoString) + _key?.__copy__() : stdgo.GoString)?.__copy__());
         } else {
             @:check2r _s._appendString(_key?.__copy__());
@@ -71,7 +74,10 @@ package stdgo._internal.log.slog;
             var _rep = (@:checkr (@:checkr _s ?? throw "null pointer dereference")._h ?? throw "null pointer dereference")._opts.replaceAttr;
             if (((_rep != null) && (_a.value.kind() != (8 : stdgo._internal.log.slog.Slog_kind.Kind)) : Bool)) {
                 var _gs:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-                if (((@:checkr _s ?? throw "null pointer dereference")._groups != null && (((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__))) {
+                if (({
+                    final value = (@:checkr _s ?? throw "null pointer dereference")._groups;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     _gs = ((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>);
                 };
                 _a.value = _a.value.resolve()?.__copy__();
@@ -129,7 +135,10 @@ package stdgo._internal.log.slog;
             (@:checkr _s ?? throw "null pointer dereference")._prefix = ((((@:checkr _s ?? throw "null pointer dereference")._prefix : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer)).__slice__(0, (((((@:checkr _s ?? throw "null pointer dereference")._prefix : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer).length) - (_name.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.log.slog.internal.buffer.Buffer_buffer.Buffer);
         };
         (@:checkr _s ?? throw "null pointer dereference")._sep = @:check2r (@:checkr _s ?? throw "null pointer dereference")._h._attrSep()?.__copy__();
-        if (((@:checkr _s ?? throw "null pointer dereference")._groups != null && (((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._groups;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             ((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__setData__(((((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>)).__slice__(0, ((((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>));
         };
     }
@@ -145,7 +154,10 @@ package stdgo._internal.log.slog;
             @:check2r (@:checkr _s ?? throw "null pointer dereference")._prefix.writeString(_name?.__copy__());
             @:check2r (@:checkr _s ?? throw "null pointer dereference")._prefix.writeByte((46 : stdgo.GoUInt8));
         };
-        if (((@:checkr _s ?? throw "null pointer dereference")._groups != null && (((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._groups : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._groups;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             ((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__setData__((((@:checkr _s ?? throw "null pointer dereference")._groups : stdgo.Slice<stdgo.GoString>).__append__(_name?.__copy__())));
         };
     }
@@ -166,7 +178,10 @@ package stdgo._internal.log.slog;
         };
         {
             var _gs = (@:checkr _s ?? throw "null pointer dereference")._groups;
-            if ((_gs != null && ((_gs : Dynamic).__nil__ == null || !(_gs : Dynamic).__nil__))) {
+            if (({
+                final value = _gs;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 (_gs : stdgo.Slice<stdgo.GoString>).__setData__((((_gs : stdgo.Slice<stdgo.GoString>)).__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>));
                 @:check2 stdgo._internal.log.slog.Slog__grouppool._groupPool.put(stdgo.Go.toInterface(_gs));
             };

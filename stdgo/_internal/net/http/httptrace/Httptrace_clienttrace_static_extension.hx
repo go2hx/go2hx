@@ -4,7 +4,10 @@ package stdgo._internal.net.http.httptrace;
     @:tdfield
     static public function _hasNetHooks( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace> = _t;
-        if ((_t == null || (_t : Dynamic).__nil__)) {
+        if (({
+            final value = _t;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return false;
         };
         return ((((@:checkr _t ?? throw "null pointer dereference").dNSStart != null || (@:checkr _t ?? throw "null pointer dereference").dNSDone != null : Bool) || (@:checkr _t ?? throw "null pointer dereference").connectStart != null : Bool) || ((@:checkr _t ?? throw "null pointer dereference").connectDone != null) : Bool);
@@ -13,7 +16,10 @@ package stdgo._internal.net.http.httptrace;
     @:tdfield
     static public function _compose( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace>, _old:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_clienttrace.ClientTrace> = _t;
-        if ((_old == null || (_old : Dynamic).__nil__)) {
+        if (({
+            final value = _old;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return;
         };
         var _tv = (stdgo._internal.reflect.Reflect_valueof.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_t))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_value.Value);

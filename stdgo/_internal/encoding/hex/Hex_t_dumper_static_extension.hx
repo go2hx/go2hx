@@ -49,7 +49,7 @@ package stdgo._internal.encoding.hex;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _h ?? throw "null pointer dereference")._closed) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

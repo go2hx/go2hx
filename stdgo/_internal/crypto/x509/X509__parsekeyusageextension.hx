@@ -1,5 +1,5 @@
 package stdgo._internal.crypto.x509;
-function _parseKeyUsageExtension(_der:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_string_.String_):{ var _0 : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage; var _1 : stdgo.Error; } {
+function _parseKeyUsageExtension(_der:_internal.vendor.golangdotorg.x.crypto.cryptobyte.Cryptobyte_string_.String_):{ var _0 : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage; var _1 : stdgo.Error; } {
         var _usageBits:stdgo._internal.encoding.asn1.Asn1_bitstring.BitString = ({} : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString);
         if (!@:check2 _der.readASN1BitString((stdgo.Go.setRef(_usageBits) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_bitstring.BitString>))) {
             return { _0 : (0 : stdgo._internal.crypto.x509.X509_keyusage.KeyUsage), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid key usage" : stdgo.GoString)) };

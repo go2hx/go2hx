@@ -40,15 +40,15 @@ private function set_callGC(v:stdgo.Pointer<Bool>):stdgo.Pointer<Bool> {
         return v;
     }
 var gCBits(get, set) : stdgo.AnyInterface -> Array<std.UInt>;
-private function get_gCBits():stdgo.AnyInterface -> Array<std.UInt> return _0 -> stdgo._internal.reflect.Reflect_gcbits.gCBits(_0);
+private function get_gCBits():stdgo.AnyInterface -> Array<std.UInt> return _0 -> [for (i in stdgo._internal.reflect.Reflect_gcbits.gCBits(_0)) i];
 private function set_gCBits(v:stdgo.AnyInterface -> Array<std.UInt>):stdgo.AnyInterface -> Array<std.UInt> {
-        stdgo._internal.reflect.Reflect_gcbits.gCBits = _0 -> v((_0 : stdgo.AnyInterface));
+        stdgo._internal.reflect.Reflect_gcbits.gCBits = _0 -> ([for (i in v((_0 : stdgo.AnyInterface))) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
 var methodValueCallCodePtr(get, set) : () -> stdgo.GoUIntptr;
 private function get_methodValueCallCodePtr():() -> stdgo.GoUIntptr return () -> stdgo._internal.reflect.Reflect_methodvaluecallcodeptr.methodValueCallCodePtr();
 private function set_methodValueCallCodePtr(v:() -> stdgo.GoUIntptr):() -> stdgo.GoUIntptr {
-        stdgo._internal.reflect.Reflect_methodvaluecallcodeptr.methodValueCallCodePtr = () -> v();
+        stdgo._internal.reflect.Reflect_methodvaluecallcodeptr.methodValueCallCodePtr = () -> (v() : stdgo.GoUIntptr);
         return v;
     }
 @:dox(hide) class T_pinUnexpMeth_static_extension {
@@ -173,7 +173,16 @@ class Type__static_extension {
     @:from
     static function fromHaxeInterface(x:{ function align():StdTypes.Int; function fieldAlign():StdTypes.Int; function method(_0:StdTypes.Int):Method; function methodByName(_0:String):stdgo.Tuple<Method, Bool>; function numMethod():StdTypes.Int; function name():String; function pkgPath():String; function size():stdgo.GoUIntptr; function string():String; function kind():Kind; function implements_(_u:Type_):Bool; function assignableTo(_u:Type_):Bool; function convertibleTo(_u:Type_):Bool; function comparable_():Bool; function bits():StdTypes.Int; function chanDir():ChanDir; function isVariadic():Bool; function elem():Type_; function field(_i:StdTypes.Int):StructField; function fieldByIndex(_index:Array<StdTypes.Int>):StructField; function fieldByName(_name:String):stdgo.Tuple<StructField, Bool>; function fieldByNameFunc(_match:String -> Bool):stdgo.Tuple<StructField, Bool>; function in_(_i:StdTypes.Int):Type_; function key():Type_; function len():StdTypes.Int; function numField():StdTypes.Int; function numIn():StdTypes.Int; function numOut():StdTypes.Int; function out(_i:StdTypes.Int):Type_; }):Type_ {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Type_ = { align : () -> x.align(), fieldAlign : () -> x.fieldAlign(), method : _0 -> x.method(_0), methodByName : _0 -> x.methodByName(_0), numMethod : () -> x.numMethod(), name : () -> x.name(), pkgPath : () -> x.pkgPath(), size : () -> x.size(), string : () -> x.string(), kind : () -> x.kind(), implements_ : _0 -> x.implements_(_0), assignableTo : _0 -> x.assignableTo(_0), convertibleTo : _0 -> x.convertibleTo(_0), comparable_ : () -> x.comparable_(), bits : () -> x.bits(), chanDir : () -> x.chanDir(), isVariadic : () -> x.isVariadic(), elem : () -> x.elem(), field : _0 -> x.field(_0), fieldByIndex : _0 -> x.fieldByIndex([for (i in _0) i]), fieldByName : _0 -> x.fieldByName(_0), fieldByNameFunc : _0 -> x.fieldByNameFunc(_0 -> _0(_0)), in_ : _0 -> x.in_(_0), key : () -> x.key(), len : () -> x.len(), numField : () -> x.numField(), numIn : () -> x.numIn(), numOut : () -> x.numOut(), out : _0 -> x.out(_0), __underlying__ : () -> __f__() };
+        final y:Type_ = { align : () -> x.align(), fieldAlign : () -> x.fieldAlign(), method : _0 -> x.method(_0), methodByName : _0 -> {
+            final obj = x.methodByName(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, numMethod : () -> x.numMethod(), name : () -> x.name(), pkgPath : () -> x.pkgPath(), size : () -> x.size(), string : () -> x.string(), kind : () -> x.kind(), implements_ : _0 -> x.implements_(_0), assignableTo : _0 -> x.assignableTo(_0), convertibleTo : _0 -> x.convertibleTo(_0), comparable_ : () -> x.comparable_(), bits : () -> x.bits(), chanDir : () -> x.chanDir(), isVariadic : () -> x.isVariadic(), elem : () -> x.elem(), field : _0 -> x.field(_0), fieldByIndex : _0 -> x.fieldByIndex([for (i in _0) i]), fieldByName : _0 -> {
+            final obj = x.fieldByName(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, fieldByNameFunc : _0 -> {
+            final obj = x.fieldByNameFunc(_0 -> _0(_0));
+            { _0 : obj._0, _1 : obj._1 };
+        }, in_ : _0 -> x.in_(_0), key : () -> x.key(), len : () -> x.len(), numField : () -> x.numField(), numIn : () -> x.numIn(), numOut : () -> x.numOut(), out : _0 -> x.out(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -1854,7 +1863,7 @@ class Reflect {
         * of how to use MakeFunc to build a swap function for different types.
     **/
     static public inline function makeFunc(_typ:Type_, _fn:Array<Value> -> Array<Value>):Value {
-        final _fn = _0 -> _fn(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>));
+        final _fn = _0 -> ([for (i in _fn(([for (i in _0) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>))) i] : stdgo.Slice<stdgo._internal.reflect.Reflect_value.Value>);
         return stdgo._internal.reflect.Reflect_makefunc.makeFunc(_typ, _fn);
     }
     /**

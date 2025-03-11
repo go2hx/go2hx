@@ -50,7 +50,7 @@ if (@:check2r _s.sign() != ((0 : stdgo.GoInt))) {
         };
         if (_attempts == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Error; } = { _0 : null, _1 : null, _2 : stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _2 : stdgo.Error; } = { _0 : null, _1 : null, _2 : stdgo._internal.crypto.dsa.Dsa_errinvalidpublickey.errInvalidPublicKey };
                 _r = __tmp__._0;
                 _s = __tmp__._1;
                 _err = __tmp__._2;

@@ -256,7 +256,10 @@ package stdgo._internal.html.template;
             for (__30 => _x in @:check2r _textClone.templates()) {
                 var _name = (@:check2r _x.name()?.__copy__() : stdgo.GoString);
                 var _src = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
-                if (((_src == null || (_src : Dynamic).__nil__) || ((@:checkr _src ?? throw "null pointer dereference")._escapeErr != null) : Bool)) {
+                if ((({
+                    final value = _src;
+                    (value == null || (value : Dynamic).__nil__);
+                }) || ((@:checkr _src ?? throw "null pointer dereference")._escapeErr != null) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(@:check2r _t.name())) };
                         for (defer in __deferstack__) {
@@ -451,7 +454,10 @@ package stdgo._internal.html.template;
             for (__22 => _v in @:check2r _ret.templates()) {
                 var _name = (@:check2r _v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
-                if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
+                if (({
+                    final value = _tmpl;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     _tmpl = @:check2r _t._new_(_name?.__copy__());
                 };
                 (@:checkr _tmpl ?? throw "null pointer dereference")._text = _v;
@@ -540,10 +546,13 @@ package stdgo._internal.html.template;
             };
             (@:checkr (@:checkr _t ?? throw "null pointer dereference")._nameSpace ?? throw "null pointer dereference")._escaped = true;
             _tmpl = ((@:checkr _t ?? throw "null pointer dereference")._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>));
-            if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
+            if (({
+                final value = _tmpl;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -559,7 +568,7 @@ package stdgo._internal.html.template;
             if ((((@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr != null) && (stdgo.Go.toInterface((@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr) != stdgo.Go.toInterface(stdgo._internal.html.template.Template__escapeok._escapeOK)) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : (@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -572,10 +581,16 @@ package stdgo._internal.html.template;
                     return __ret__;
                 };
             };
-            if ((((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree == null || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree : Dynamic).__nil__) || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree.root == null || ((@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree.root : Dynamic).__nil__) : Bool)) {
+            if ((({
+                final value = (@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ({
+                final value = (@:checkr (@:checkr _tmpl ?? throw "null pointer dereference")._text ?? throw "null pointer dereference").tree.root;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                         _tmpl = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -588,7 +603,10 @@ package stdgo._internal.html.template;
                     return __ret__;
                 };
             };
-            if ((@:check2r (@:checkr _t ?? throw "null pointer dereference")._text.lookup(_name?.__copy__()) == null || (@:check2r (@:checkr _t ?? throw "null pointer dereference")._text.lookup(_name?.__copy__()) : Dynamic).__nil__)) {
+            if (({
+                final value = @:check2r (@:checkr _t ?? throw "null pointer dereference")._text.lookup(_name?.__copy__());
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 throw stdgo.Go.toInterface(("html/template internal error: template escaping out of sync" : stdgo.GoString));
             };
             if ((@:checkr _tmpl ?? throw "null pointer dereference")._escapeErr == null) {
@@ -596,7 +614,7 @@ package stdgo._internal.html.template;
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
                     _tmpl = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -697,7 +715,10 @@ package stdgo._internal.html.template;
             };
             (@:checkr (@:checkr _t ?? throw "null pointer dereference")._nameSpace ?? throw "null pointer dereference")._escaped = true;
             if ((@:checkr _t ?? throw "null pointer dereference")._escapeErr == null) {
-                if (((@:checkr _t ?? throw "null pointer dereference").tree == null || ((@:checkr _t ?? throw "null pointer dereference").tree : Dynamic).__nil__)) {
+                if (({
+                    final value = (@:checkr _t ?? throw "null pointer dereference").tree;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     {
                         final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("template: %q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(@:check2r _t.name()));
                         for (defer in __deferstack__) {
@@ -801,7 +822,10 @@ package stdgo._internal.html.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.html.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if ((_t == null || (_t : Dynamic).__nil__)) {
+            if (({
+                final value = _t;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return (null : stdgo.Error);
             };
             @:check2 (@:checkr (@:checkr _t ?? throw "null pointer dereference")._nameSpace ?? throw "null pointer dereference")._mu.lock();

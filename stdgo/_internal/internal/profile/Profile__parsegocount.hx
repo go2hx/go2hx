@@ -63,7 +63,10 @@ function _parseGoCount(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo
                 };
                 _addr--;
                 var _loc = (_locations[_addr] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>));
-                if ((_loc == null || (_loc : Dynamic).__nil__)) {
+                if (({
+                    final value = _loc;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     _loc = (stdgo.Go.setRef(({ address : _addr } : stdgo._internal.internal.profile.Profile_location.Location)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>);
                     _locations[_addr] = _loc;
                     (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc));

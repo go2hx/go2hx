@@ -19,9 +19,7 @@ func main() {
 	var zps t2
 	if zps.val() != 2 {
 		println("zps.val:", zps.val())
-		panic("fail")aqQconst
+		panic("fail")
 
-
-		
 	}
 }

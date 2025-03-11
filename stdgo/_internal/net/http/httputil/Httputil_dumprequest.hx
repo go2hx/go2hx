@@ -24,7 +24,10 @@ function dumpRequest(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Reques
         var _absRequestURI = (stdgo._internal.strings.Strings_hasprefix.hasPrefix((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__(), ("http://" : stdgo.GoString)) || stdgo._internal.strings.Strings_hasprefix.hasPrefix((@:checkr _req ?? throw "null pointer dereference").requestURI?.__copy__(), ("https://" : stdgo.GoString)) : Bool);
         if (!_absRequestURI) {
             var _host = ((@:checkr _req ?? throw "null pointer dereference").host?.__copy__() : stdgo.GoString);
-            if (((_host == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _req ?? throw "null pointer dereference").uRL != null && (((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference").uRL : Dynamic).__nil__)) : Bool)) {
+            if (((_host == (stdgo.Go.str() : stdgo.GoString)) && ({
+                final value = (@:checkr _req ?? throw "null pointer dereference").uRL;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) : Bool)) {
                 _host = (@:checkr (@:checkr _req ?? throw "null pointer dereference").uRL ?? throw "null pointer dereference").host?.__copy__();
             };
             if (_host != ((stdgo.Go.str() : stdgo.GoString))) {

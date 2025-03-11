@@ -2,14 +2,14 @@
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianread.$Binary_testlittleendianread_Fields_.testLittleEndianRead (stdgo/_internal/encoding/binary/Binary_testlittleendianread.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestLittleEndianRead
 
@@ -17,19 +17,19 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testlittleendianwrite.$Binary_testlittleendianwrite_Fields_.testLittleEndianWrite (stdgo/_internal/encoding/binary/Binary_testlittleendianwrite.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestLittleEndianWrite
 
@@ -42,14 +42,14 @@ Write LittleEndian: binary.Write: some values are not fixed-sized in type *.enco
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
 Called from stdgo._internal.encoding.binary._Binary__testread.$Binary__testread_Fields_._testRead (stdgo/_internal/encoding/binary/Binary__testread.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianread.$Binary_testbigendianread_Fields_.testBigEndianRead (stdgo/_internal/encoding/binary/Binary_testbigendianread.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestBigEndianRead
 
@@ -57,19 +57,19 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary__testwrite.$Binary__testwrite_Fields_._testWrite (stdgo/_internal/encoding/binary/Binary__testwrite.hx line 4)
 Called from stdgo._internal.encoding.binary._Binary_testbigendianwrite.$Binary_testbigendianwrite_Fields_.testBigEndianWrite (stdgo/_internal/encoding/binary/Binary_testbigendianwrite.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestBigEndianWrite
 
@@ -99,7 +99,7 @@ Exception: Can't cast hl.types.ArrayDyn to i32
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 63)
 Called from stdgo._internal.encoding.binary._Binary_testsliceroundtrip.$Binary_testsliceroundtrip_Fields_.testSliceRoundTrip (stdgo/_internal/encoding/binary/Binary_testsliceroundtrip.hx line 32)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestSliceRoundTrip
 
@@ -107,13 +107,13 @@ Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_write.$Binary_write_Fields_.write (stdgo/_internal/encoding/binary/Binary_write.hx line 147)
 Called from stdgo._internal.encoding.binary._Binary_testwritet.$Binary_testwritet_Fields_.testWriteT (stdgo/_internal/encoding/binary/Binary_testwritet.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestWriteT
 
@@ -122,13 +122,13 @@ binary.Write: some values are not fixed-sized in type *.encoding.binary.BlankFie
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
-Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 413)
-Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 373)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
 Called from stdgo._internal.encoding.binary._Binary__datasize.$Binary__datasize_Fields_._dataSize (stdgo/_internal/encoding/binary/Binary__datasize.hx line 15)
 Called from stdgo._internal.encoding.binary._Binary_read.$Binary_read_Fields_.read (stdgo/_internal/encoding/binary/Binary_read.hx line 117)
 Called from stdgo._internal.encoding.binary._Binary_testblankfields.$Binary_testblankfields_Fields_.testBlankFields (stdgo/_internal/encoding/binary/Binary_testblankfields.hx line 13)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestBlankFields
 
@@ -139,6 +139,6 @@ Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_in
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from stdgo._internal.encoding.binary._Binary_testsizestructcache.$Binary_testsizestructcache_Fields_.testSizeStructCache (stdgo/_internal/encoding/binary/Binary_testsizestructcache.hx line 23)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.encoding.binary_dot_test._Binary_dot_test.$Binary_dot_test_Fields_.main (_internal/encoding/binary_dot_test/Binary_dot_test.hx line 4)
+Called from _internal.encoding.binarydottest._Binarydottest.$Binarydottest_Fields_.main (_internal/encoding/binarydottest/Binarydottest.hx line 8)
 
 -- FAIL: TestSizeStructCache

@@ -1,3 +1,21 @@
+[ERROR] ./_internal/os/exec_test/Exec_test__cmdhang.hx:73: characters 36-92
+
+  73 |                     for (_ => _ in (@:checkr _ticker ?? throw "null pointer dereference").c) {
+     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.time.Time> has no field keyValueIterator
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
+
+   3 |         _stopTimer(_t);
+     |         ^^^^^^^^^^
+     | Unknown identifier : _stopTimer
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+
+   9 |         _startTimer(_t);
+     |         ^^^^^^^^^^^
+     | Unknown identifier : _startTimer
+
 [ERROR] ./stdgo/_internal/net/Net_tcpconn.hx:52: characters 68-71
 
   52 |     public function get__ok():() -> Bool return @:check32 this.new._ok;
@@ -70,14 +88,6 @@
      |                                                                             ^^^^^
      | () -> Void has no field close
 
-[ERROR] ./stdgo/_internal/mime/multipart/Multipart_fileheader_static_extension.hx:22: characters 9-120
-
-  22 |         return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
-     |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | error: stdgo.Ref<stdgo._internal.os.File> should be stdgo._internal.mime.multipart.File
-     | have: { _0: stdgo.Ref<...> }
-     | want: { _0: stdgo._internal.mime.multipart.File }
-
 [ERROR] /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:329: characters 10-35
 
  329 |   return load("get_type", 1)(name);
@@ -98,9 +108,9 @@
           |          ^^^^^
           | Called from here
 
-      ->  ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:355: characters 79-387
+      ->  ./stdgo/_internal/mime/multipart/Multipart_reader_static_extension.hx:367: characters 79-387
 
-      355 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+      367 |                     var __tmp__ = stdgo._internal.io.Io_copybuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_t__readform___localname___writeronly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
           |                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           | Called from here
 

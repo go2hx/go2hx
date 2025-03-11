@@ -12,7 +12,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
                 var __tmp__ = _r.readAt(_buf, (_size - _bLen : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF)) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : _err };
                         _dir = __tmp__._0;
                         _baseOffset = __tmp__._1;
                         _err = __tmp__._2;
@@ -30,7 +30,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
             };
             if (((_i == (1 : stdgo.GoInt)) || (_bLen == _size) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
                     _dir = __tmp__._0;
                     _baseOffset = __tmp__._1;
                     _err = __tmp__._2;
@@ -43,7 +43,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
         var _l = ((@:checkr _d ?? throw "null pointer dereference")._commentLen : stdgo.GoInt);
         if ((_l > (_b.length) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.errors.Errors_new_.new_(("zip: invalid comment length" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.errors.Errors_new_.new_(("zip: invalid comment length" : stdgo.GoString)) };
                 _dir = __tmp__._0;
                 _baseOffset = __tmp__._1;
                 _err = __tmp__._2;
@@ -59,7 +59,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : _err };
                     _dir = __tmp__._0;
                     _baseOffset = __tmp__._1;
                     _err = __tmp__._2;
@@ -70,7 +70,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
         var _maxInt64 = ((9223372036854775807i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         if ((((@:checkr _d ?? throw "null pointer dereference")._directorySize > _maxInt64 : Bool) || ((@:checkr _d ?? throw "null pointer dereference")._directoryOffset > _maxInt64 : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
                 _dir = __tmp__._0;
                 _baseOffset = __tmp__._1;
                 _err = __tmp__._2;
@@ -82,7 +82,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
             var _o = (_baseOffset + ((@:checkr _d ?? throw "null pointer dereference")._directoryOffset : stdgo.GoInt64) : stdgo.GoInt64);
             if (((_o < (0i64 : stdgo.GoInt64) : Bool) || (_o >= _size : Bool) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : null, _1 : (0i64 : stdgo.GoInt64), _2 : stdgo._internal.archive.zip.Zip_errformat.errFormat };
                     _dir = __tmp__._0;
                     _baseOffset = __tmp__._1;
                     _err = __tmp__._2;
@@ -98,7 +98,7 @@ function _readDirectoryEnd(_r:stdgo._internal.io.Io_readerat.ReaderAt, _size:std
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : _d, _1 : _baseOffset, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.archive.zip.Zip_t_directoryend.T_directoryEnd>; var _1 : stdgo.GoInt64; var _2 : stdgo.Error; } = { _0 : _d, _1 : _baseOffset, _2 : (null : stdgo.Error) };
             _dir = __tmp__._0;
             _baseOffset = __tmp__._1;
             _err = __tmp__._2;

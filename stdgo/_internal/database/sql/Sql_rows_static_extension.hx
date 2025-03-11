@@ -38,7 +38,10 @@ package stdgo._internal.database.sql;
             if ((@:checkr _rs ?? throw "null pointer dereference")._cancel != null) {
                 (@:checkr _rs ?? throw "null pointer dereference")._cancel();
             };
-            if (((@:checkr _rs ?? throw "null pointer dereference")._closeStmt != null && (((@:checkr _rs ?? throw "null pointer dereference")._closeStmt : Dynamic).__nil__ == null || !((@:checkr _rs ?? throw "null pointer dereference")._closeStmt : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _rs ?? throw "null pointer dereference")._closeStmt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _rs ?? throw "null pointer dereference")._closeStmt.close();
             };
             (@:checkr _rs ?? throw "null pointer dereference")._releaseConn(_err);
@@ -372,7 +375,10 @@ package stdgo._internal.database.sql;
             if (!(@:checkr _rs ?? throw "null pointer dereference")._hitEOF) {
                 {
                     var _errp = @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load();
-                    if ((_errp != null && ((_errp : Dynamic).__nil__ == null || !(_errp : Dynamic).__nil__))) {
+                    if (({
+                        final value = _errp;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         return (_errp : stdgo.Error);
                     };
                 };
@@ -583,7 +589,7 @@ package stdgo._internal.database.sql;
         try {
             if ((@:checkr _rs ?? throw "null pointer dereference")._closed) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
                     _doClose = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -602,7 +608,7 @@ package stdgo._internal.database.sql;
                 if (stdgo.Go.toInterface((@:checkr _rs ?? throw "null pointer dereference")._lasterr) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                     {
                         final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
                             _doClose = __tmp__._0;
                             _ok = __tmp__._1;
                             __tmp__;
@@ -623,7 +629,7 @@ package stdgo._internal.database.sql;
                 if (!_ok) {
                     {
                         final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
                             _doClose = __tmp__._0;
                             _ok = __tmp__._1;
                             __tmp__;
@@ -641,7 +647,7 @@ package stdgo._internal.database.sql;
                 };
                 {
                     final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                        final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : false };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : false };
                         _doClose = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
@@ -656,7 +662,7 @@ package stdgo._internal.database.sql;
             };
             {
                 final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
-                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
                     _doClose = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -727,7 +733,10 @@ package stdgo._internal.database.sql;
     static public function next( _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows>):Bool {
         @:recv var _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_rows.Rows> = _rs;
         @:check2r _rs._closemuRUnlockIfHeldByScan();
-        if ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() != null && ((@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__ == null || !(@:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load() : Dynamic).__nil__))) {
+        if (({
+            final value = @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.load();
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return false;
         };
         var _doClose:Bool = false, _ok:Bool = false;
@@ -757,7 +766,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _ctx.done().__get__();
@@ -766,7 +775,7 @@ package stdgo._internal.database.sql;
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_txctxDone != null && _txctxDone.__isGet__()) {
+                } else if (_txctxDone != null && _txctxDone.__isGet__(true)) {
                     __select__ = false;
                     {
                         _txctxDone.__get__();
@@ -775,16 +784,19 @@ package stdgo._internal.database.sql;
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_closectx.done() != null && _closectx.done().__isGet__()) {
+                } else if (_closectx.done() != null && _closectx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _closectx.done().__get__();
                         {};
                     };
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            _ctx.done().__reset__();
+_txctxDone.__reset__();
+_closectx.done().__reset__();
         };
         @:check2r _rs._close(_ctx.err());
     }

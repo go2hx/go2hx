@@ -2,7 +2,10 @@ package stdgo._internal.crypto.x509;
 function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_certpool.CertPool>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if ((_roots == null || (_roots : Dynamic).__nil__)) {
+            if (({
+                final value = _roots;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 throw stdgo.Go.toInterface(("roots must be non-nil" : stdgo.GoString));
             };
             var __blank__ = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
@@ -15,7 +18,10 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
                 throw stdgo.Go.toInterface(("SetFallbackRoots has already been called" : stdgo.GoString));
             };
             stdgo._internal.crypto.x509.X509__fallbacksset._fallbacksSet = true;
-            if (((stdgo._internal.crypto.x509.X509__systemroots._systemRoots != null && ((stdgo._internal.crypto.x509.X509__systemroots._systemRoots : Dynamic).__nil__ == null || !(stdgo._internal.crypto.x509.X509__systemroots._systemRoots : Dynamic).__nil__)) && (((@:check2r stdgo._internal.crypto.x509.X509__systemroots._systemRoots._len() > (0 : stdgo.GoInt) : Bool) || (@:checkr stdgo._internal.crypto.x509.X509__systemroots._systemRoots ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
+            if ((({
+                final value = stdgo._internal.crypto.x509.X509__systemroots._systemRoots;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (((@:check2r stdgo._internal.crypto.x509.X509__systemroots._systemRoots._len() > (0 : stdgo.GoInt) : Bool) || (@:checkr stdgo._internal.crypto.x509.X509__systemroots._systemRoots ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
                 if (@:check2r stdgo._internal.crypto.x509.X509__x509usefallbackroots._x509usefallbackroots.value() != (("1" : stdgo.GoString))) {
                     {
                         for (defer in __deferstack__) {

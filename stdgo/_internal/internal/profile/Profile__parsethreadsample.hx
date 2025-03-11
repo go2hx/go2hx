@@ -13,7 +13,7 @@ function _parseThreadSample(_b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buff
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : _err };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : _err };
                             _nextl = __tmp__._0;
                             _addrs = __tmp__._1;
                             _err = __tmp__._2;
@@ -42,7 +42,7 @@ function _parseThreadSample(_b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buff
         };
         if (_sameAsPrevious) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : _l?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : _l?.__copy__(), _1 : (null : stdgo.Slice<stdgo.GoUInt64>), _2 : (null : stdgo.Error) };
                 _nextl = __tmp__._0;
                 _addrs = __tmp__._1;
                 _err = __tmp__._2;
@@ -50,7 +50,7 @@ function _parseThreadSample(_b:stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buff
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : _l?.__copy__(), _1 : _addrs, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Slice<stdgo.GoUInt64>; var _2 : stdgo.Error; } = { _0 : _l?.__copy__(), _1 : _addrs, _2 : (null : stdgo.Error) };
             _nextl = __tmp__._0;
             _addrs = __tmp__._1;
             _err = __tmp__._2;

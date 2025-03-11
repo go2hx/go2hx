@@ -18,7 +18,10 @@ package stdgo._internal.net.rpc.jsonrpc;
         };
         if ((@:checkr _c ?? throw "null pointer dereference")._pending != null) (@:checkr _c ?? throw "null pointer dereference")._pending.__remove__((@:checkr _r ?? throw "null pointer dereference").seq);
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
-        if ((_b == null || (_b : Dynamic).__nil__)) {
+        if (({
+            final value = _b;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _b = (stdgo.Go.setRef(nil) : stdgo.Ref<stdgo._internal.encoding.json.Json_rawmessage.RawMessage>);
         };
         var _resp = ({ id : _b } : stdgo._internal.net.rpc.jsonrpc.Jsonrpc_t_serverresponse.T_serverResponse);
@@ -36,7 +39,10 @@ package stdgo._internal.net.rpc.jsonrpc;
         if (_x == null) {
             return (null : stdgo.Error);
         };
-        if (((@:checkr _c ?? throw "null pointer dereference")._req.params == null || ((@:checkr _c ?? throw "null pointer dereference")._req.params : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _c ?? throw "null pointer dereference")._req.params;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.net.rpc.jsonrpc.Jsonrpc__errmissingparams._errMissingParams;
         };
         var _params:stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1);

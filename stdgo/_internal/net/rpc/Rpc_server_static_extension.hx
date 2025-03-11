@@ -68,7 +68,10 @@ package stdgo._internal.net.rpc;
         };
         _svc = (stdgo.Go.typeAssert((_svci : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service>)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_service.T_service>);
         _mtype = ((@:checkr _svc ?? throw "null pointer dereference")._method[_methodName] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_t_methodtype.T_methodType>));
-        if ((_mtype == null || (_mtype : Dynamic).__nil__)) {
+        if (({
+            final value = _mtype;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _err = stdgo._internal.errors.Errors_new_.new_((("rpc: can\'t find method " : stdgo.GoString) + (@:checkr _req ?? throw "null pointer dereference").serviceMethod?.__copy__() : stdgo.GoString)?.__copy__());
         };
         return { _0 : _svc, _1 : _mtype, _2 : _req, _3 : _keepReading, _4 : _err };
@@ -135,7 +138,10 @@ package stdgo._internal.net.rpc;
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_server.Server> = _server;
         @:check2 (@:checkr _server ?? throw "null pointer dereference")._respLock.lock();
         var _resp = (@:checkr _server ?? throw "null pointer dereference")._freeResp;
-        if ((_resp == null || (_resp : Dynamic).__nil__)) {
+        if (({
+            final value = _resp;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _resp = (stdgo.Go.setRef(({} : stdgo._internal.net.rpc.Rpc_response.Response)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_response.Response>);
         } else {
             (@:checkr _server ?? throw "null pointer dereference")._freeResp = (@:checkr _resp ?? throw "null pointer dereference")._next;
@@ -166,7 +172,10 @@ package stdgo._internal.net.rpc;
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_server.Server> = _server;
         @:check2 (@:checkr _server ?? throw "null pointer dereference")._reqLock.lock();
         var _req = (@:checkr _server ?? throw "null pointer dereference")._freeReq;
-        if ((_req == null || (_req : Dynamic).__nil__)) {
+        if (({
+            final value = _req;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _req = (stdgo.Go.setRef(({} : stdgo._internal.net.rpc.Rpc_request.Request)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_request.Request>);
         } else {
             (@:checkr _server ?? throw "null pointer dereference")._freeReq = (@:checkr _req ?? throw "null pointer dereference")._next;
@@ -191,7 +200,10 @@ package stdgo._internal.net.rpc;
             if (!_keepReading) {
                 return _err;
             };
-            if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
+            if (({
+                final value = _req;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r _server._sendResponse(_sending, _req, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.rpc.Rpc__invalidrequest._invalidRequest)), _codec, _err.error()?.__copy__());
                 @:check2r _server._freeRequest(_req);
             };
@@ -215,7 +227,10 @@ package stdgo._internal.net.rpc;
                 if (!_keepReading) {
                     break;
                 };
-                if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
+                if (({
+                    final value = _req;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     @:check2r _server._sendResponse(_sending, _req, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.rpc.Rpc__invalidrequest._invalidRequest)), _codec, _err.error()?.__copy__());
                     @:check2r _server._freeRequest(_req);
                 };

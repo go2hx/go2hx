@@ -110,7 +110,10 @@ _i = (_i + ((((3 : stdgo.GoInt) + (_nCtrs : stdgo.GoInt) : stdgo.GoInt) - (1 : s
     @:tdfield
     static public function _needMetaDataFile( _s:stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState>):Bool {
         @:recv var _s:stdgo.Ref<stdgo._internal.runtime.coverage.Coverage_t_emitstate.T_emitState> = _s;
-        return ((@:checkr _s ?? throw "null pointer dereference")._mf != null && (((@:checkr _s ?? throw "null pointer dereference")._mf : Dynamic).__nil__ == null || !((@:checkr _s ?? throw "null pointer dereference")._mf : Dynamic).__nil__));
+        return ({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._mf;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        });
     }
     @:keep
     @:tdfield

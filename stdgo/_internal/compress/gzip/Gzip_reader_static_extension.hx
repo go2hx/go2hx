@@ -13,7 +13,7 @@ package stdgo._internal.compress.gzip;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -29,7 +29,7 @@ package stdgo._internal.compress.gzip;
             (@:checkr _z ?? throw "null pointer dereference")._size = ((@:checkr _z ?? throw "null pointer dereference")._size + ((_n : stdgo.GoUInt32)) : stdgo.GoUInt32);
             if (stdgo.Go.toInterface((@:checkr _z ?? throw "null pointer dereference")._err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -40,7 +40,7 @@ package stdgo._internal.compress.gzip;
                 if (_err != null) {
                     (@:checkr _z ?? throw "null pointer dereference")._err = stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -52,7 +52,7 @@ package stdgo._internal.compress.gzip;
             if (((_digest != (@:checkr _z ?? throw "null pointer dereference")._digest) || (_size != (@:checkr _z ?? throw "null pointer dereference")._size) : Bool)) {
                 (@:checkr _z ?? throw "null pointer dereference")._err = stdgo._internal.compress.gzip.Gzip_errchecksum.errChecksum;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -66,7 +66,7 @@ package stdgo._internal.compress.gzip;
             };
             if (!(@:checkr _z ?? throw "null pointer dereference")._multistream) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_eof.eOF };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -80,7 +80,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if ((@:checkr _z ?? throw "null pointer dereference")._err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _z ?? throw "null pointer dereference")._err };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -89,7 +89,7 @@ package stdgo._internal.compress.gzip;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -107,7 +107,7 @@ package stdgo._internal.compress.gzip;
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : _err };
                     _hdr = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -116,7 +116,7 @@ package stdgo._internal.compress.gzip;
         };
         if ((((@:checkr _z ?? throw "null pointer dereference")._buf[(0 : stdgo.GoInt)] != ((31 : stdgo.GoUInt8)) || (@:checkr _z ?? throw "null pointer dereference")._buf[(1 : stdgo.GoInt)] != ((139 : stdgo.GoUInt8)) : Bool) || ((@:checkr _z ?? throw "null pointer dereference")._buf[(2 : stdgo.GoInt)] != (8 : stdgo.GoUInt8)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errheader.errHeader };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errheader.errHeader };
                 _hdr = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -139,7 +139,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
                         _hdr = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -155,7 +155,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
                         _hdr = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -175,7 +175,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
                         _hdr = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -193,7 +193,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
                         _hdr = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -210,7 +210,7 @@ package stdgo._internal.compress.gzip;
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noeof._noEOF(_err) };
                         _hdr = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -220,7 +220,7 @@ package stdgo._internal.compress.gzip;
             var _digest = (stdgo._internal.compress.gzip.Gzip__le._le.uint16(((@:checkr _z ?? throw "null pointer dereference")._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
             if (_digest != (((@:checkr _z ?? throw "null pointer dereference")._digest : stdgo.GoUInt16))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errheader.errHeader };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errheader.errHeader };
                     _hdr = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -234,7 +234,7 @@ package stdgo._internal.compress.gzip;
             (stdgo.Go.typeAssert((stdgo.Go.toInterface((@:checkr _z ?? throw "null pointer dereference")._decompressor) : stdgo._internal.compress.flate.Flate_resetter.Resetter)) : stdgo._internal.compress.flate.Flate_resetter.Resetter).reset((@:checkr _z ?? throw "null pointer dereference")._r, (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.compress.gzip.Gzip_header.Header; var _1 : stdgo.Error; } = { _0 : _hdr?.__copy__(), _1 : (null : stdgo.Error) };
             _hdr = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

@@ -1,3 +1,3 @@
--m _internal.hash_dot_test.Hash_dot_test
+-m _internal.hashdottest.Hashdottest
 -lib go2hx
 -cp .

@@ -1,6 +1,9 @@
 package stdgo._internal.container.ring;
 function _dump(_r:stdgo.Ref<stdgo._internal.container.ring.Ring_ring.Ring>):Void {
-        if ((_r == null || (_r : Dynamic).__nil__)) {
+        if (({
+            final value = _r;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(("empty" : stdgo.GoString)));
             return;
         };

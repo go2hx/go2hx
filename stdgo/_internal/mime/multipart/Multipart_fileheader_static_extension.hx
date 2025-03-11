@@ -19,6 +19,9 @@ package stdgo._internal.mime.multipart;
             var _r = stdgo._internal.io.Io_newsectionreader.newSectionReader(stdgo.Go.asInterface(_f), (@:checkr _fh ?? throw "null pointer dereference")._tmpoff, (@:checkr _fh ?? throw "null pointer dereference").size);
             return { _0 : stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser(_r, stdgo.Go.asInterface(_f)) : stdgo._internal.mime.multipart.Multipart_t_sectionreadcloser.T_sectionReadCloser)), _1 : (null : stdgo.Error) };
         };
-        return stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
+        return ({
+            @:assignTranslate final __tmp__ = stdgo._internal.os.Os_open.open((@:checkr _fh ?? throw "null pointer dereference")._tmpfile?.__copy__());
+            { _0 : stdgo.Go.asInterface(__tmp__._0), _1 : __tmp__._1 };
+        });
     }
 }

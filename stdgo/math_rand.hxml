@@ -1,3 +1,3 @@
--m _internal.math.rand_dot_test.Rand_dot_test
+-m _internal.math.randdottest.Randdottest
 -lib go2hx
 -cp .

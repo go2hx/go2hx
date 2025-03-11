@@ -10,7 +10,10 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copyList( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode> {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_listnode.ListNode> = _l;
-        if ((_l == null || (_l : Dynamic).__nil__)) {
+        if (({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return _l;
         };
         var _n = @:check2r (@:checkr _l ?? throw "null pointer dereference")._tr._newList((@:checkr _l ?? throw "null pointer dereference").pos);

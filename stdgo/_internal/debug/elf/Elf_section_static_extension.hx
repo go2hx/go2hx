@@ -39,7 +39,10 @@ package stdgo._internal.debug.elf;
         };
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ _reset : function():{ var _0 : stdgo._internal.io.Io_reader.Reader; var _1 : stdgo.Error; } {
             var _fr = stdgo._internal.io.Io_newsectionreader.newSectionReader(stdgo.Go.asInterface((@:checkr _s ?? throw "null pointer dereference")._sr), (@:checkr _s ?? throw "null pointer dereference")._compressionOffset, (((@:checkr _s ?? throw "null pointer dereference").sectionHeader.fileSize : stdgo.GoInt64) - (@:checkr _s ?? throw "null pointer dereference")._compressionOffset : stdgo.GoInt64));
-            return _zrd(stdgo.Go.asInterface(_fr));
+            return ({
+                @:assignTranslate final __tmp__ = _zrd(stdgo.Go.asInterface(_fr));
+                { _0 : __tmp__._0, _1 : __tmp__._1 };
+            });
         }, _size : ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.size : stdgo.GoInt64) } : stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_t_readseekerfromreader.T_readSeekerFromReader>));
     }
     @:keep

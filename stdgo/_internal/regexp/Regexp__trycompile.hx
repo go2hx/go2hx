@@ -21,12 +21,10 @@ function _tryCompile(_s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.reg
                 }) });
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>; var _1 : stdgo.Error; } = {
-                    final __tmp__ = stdgo._internal.regexp.Regexp_compile.compile(_s?.__copy__());
-                    _re = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _re, _1 : _err };
-                };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.Regexp_regexp.Regexp>; var _1 : stdgo.Error; } = ({
+                    @:assignTranslate final __tmp__ = stdgo._internal.regexp.Regexp_compile.compile(_s?.__copy__());
+                    { _0 : __tmp__._0, _1 : __tmp__._1 };
+                });
                 for (defer in __deferstack__) {
                     if (defer.ran) continue;
                     defer.ran = true;

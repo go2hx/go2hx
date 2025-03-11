@@ -1,3 +1,3 @@
--m _internal.go.token_dot_test.Token_dot_test
+-m _internal.go.tokendottest.Tokendottest
 -lib go2hx
 -cp .

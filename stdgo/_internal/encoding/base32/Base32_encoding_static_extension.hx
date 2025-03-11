@@ -49,7 +49,7 @@ package stdgo._internal.encoding.base32;
                     if ((_src.length) == ((0 : stdgo.GoInt))) {
                         if ((@:checkr _enc ?? throw "null pointer dereference")._padChar != ((-1 : stdgo.GoInt32))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - _j : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - _j : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
                                 _n = __tmp__._0;
                                 _end = __tmp__._1;
                                 _err = __tmp__._2;
@@ -69,7 +69,7 @@ package stdgo._internal.encoding.base32;
                     if (((_in == (((@:checkr _enc ?? throw "null pointer dereference")._padChar : stdgo.GoUInt8)) && (_j >= (2 : stdgo.GoInt) : Bool) : Bool) && ((_src.length) < (8 : stdgo.GoInt) : Bool) : Bool)) {
                         if ((((_src.length) + _j : stdgo.GoInt) < (7 : stdgo.GoInt) : Bool)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((_olen : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((_olen : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
                                 _n = __tmp__._0;
                                 _end = __tmp__._1;
                                 _err = __tmp__._2;
@@ -81,7 +81,7 @@ package stdgo._internal.encoding.base32;
                             while ((_k < ((7 : stdgo.GoInt) - _j : stdgo.GoInt) : Bool)) {
                                 if ((((_src.length) > _k : Bool) && (_src[(_k : stdgo.GoInt)] != ((@:checkr _enc ?? throw "null pointer dereference")._padChar : stdgo.GoUInt8)) : Bool)) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface(((((_olen - (_src.length) : stdgo.GoInt) + _k : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface(((((_olen - (_src.length) : stdgo.GoInt) + _k : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
                                         _n = __tmp__._0;
                                         _end = __tmp__._1;
                                         _err = __tmp__._2;
@@ -99,7 +99,7 @@ package stdgo._internal.encoding.base32;
                         };
                         if (((_dlen == ((1 : stdgo.GoInt)) || _dlen == ((3 : stdgo.GoInt)) : Bool) || (_dlen == (6 : stdgo.GoInt)) : Bool)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
                                 _n = __tmp__._0;
                                 _end = __tmp__._1;
                                 _err = __tmp__._2;
@@ -111,7 +111,7 @@ package stdgo._internal.encoding.base32;
                     _dbuf[(_j : stdgo.GoInt)] = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap[(_in : stdgo.GoInt)];
                     if (_dbuf[(_j : stdgo.GoInt)] == ((255 : stdgo.GoUInt8))) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_corruptinputerror.CorruptInputError)) };
                             _n = __tmp__._0;
                             _end = __tmp__._1;
                             _err = __tmp__._2;
@@ -177,7 +177,7 @@ package stdgo._internal.encoding.base32;
             _dsti = (_dsti + ((5 : stdgo.GoInt)) : stdgo.GoInt);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : _end, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _n, _1 : _end, _2 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _end = __tmp__._1;
             _err = __tmp__._2;

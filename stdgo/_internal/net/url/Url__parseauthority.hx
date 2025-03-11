@@ -17,7 +17,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
         };
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                 _user = __tmp__._0;
                 _host = __tmp__._1;
                 _err = __tmp__._2;
@@ -26,7 +26,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
         };
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
                 _user = __tmp__._0;
                 _host = __tmp__._1;
                 _err = __tmp__._2;
@@ -36,7 +36,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
         var _userinfo = ((_authority.__slice__(0, _i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (!stdgo._internal.net.url.Url__validuserinfo._validUserinfo(_userinfo?.__copy__())) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.errors.Errors_new_.new_(("net/url: invalid userinfo" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.errors.Errors_new_.new_(("net/url: invalid userinfo" : stdgo.GoString)) };
                 _user = __tmp__._0;
                 _host = __tmp__._1;
                 _err = __tmp__._2;
@@ -52,7 +52,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                         _user = __tmp__._0;
                         _host = __tmp__._1;
                         _err = __tmp__._2;
@@ -71,7 +71,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                         _user = __tmp__._0;
                         _host = __tmp__._1;
                         _err = __tmp__._2;
@@ -87,7 +87,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                         _user = __tmp__._0;
                         _host = __tmp__._1;
                         _err = __tmp__._2;
@@ -98,7 +98,7 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
             _user = stdgo._internal.net.url.Url_userpassword.userPassword(_username?.__copy__(), _password?.__copy__());
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _user, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _user, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
             _user = __tmp__._0;
             _host = __tmp__._1;
             _err = __tmp__._2;

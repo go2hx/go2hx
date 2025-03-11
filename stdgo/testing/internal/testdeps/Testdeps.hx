@@ -58,10 +58,10 @@ class TestDeps_static_extension {
         };
     }
     static public function runFuzzWorker(_:TestDeps, _fn:({ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }) -> stdgo.Error):stdgo.Error {
-        final _fn = _0 -> _fn({
+        final _fn = _0 -> (_fn({
             final obj = _0;
             { parent : (obj.parent : stdgo.GoString), path : (obj.path : stdgo.GoString), data : ([for (i in obj.data) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), values : ([for (i in obj.values) (i : stdgo.AnyInterface)] : stdgo.Slice<stdgo.AnyInterface>), generation : (obj.generation : stdgo.GoInt), isSeed : obj.isSeed };
-        });
+        }) : stdgo.Error);
         return stdgo._internal.testing.internal.testdeps.Testdeps_testdeps_static_extension.TestDeps_static_extension.runFuzzWorker(_, _fn);
     }
     static public function coordinateFuzzing(_:TestDeps, _timeout:stdgo._internal.time.Time_duration.Duration, _limit:haxe.Int64, _minimizeTimeout:stdgo._internal.time.Time_duration.Duration, _minimizeLimit:haxe.Int64, _parallel:StdTypes.Int, _seed:Array<{ var parent : String; var path : String; var data : Array<std.UInt>; var values : Array<stdgo.AnyInterface>; var generation : StdTypes.Int; var isSeed : Bool; }>, _types:Array<stdgo._internal.reflect.Reflect_type_.Type_>, _corpusDir:String, _cacheDir:String):stdgo.Error {

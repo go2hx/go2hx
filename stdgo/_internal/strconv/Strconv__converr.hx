@@ -12,7 +12,7 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
                 (@:checkr _x ?? throw "null pointer dereference").num = stdgo._internal.strconv.Strconv__clonestring._cloneString(_s?.__copy__())?.__copy__();
                 if (stdgo.Go.toInterface((@:checkr _x ?? throw "null pointer dereference").err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errrange.errRange))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Error), _1 : stdgo.Go.asInterface(_x) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Error), _1 : stdgo.Go.asInterface(_x) };
                         _syntax = __tmp__._0;
                         _range_ = __tmp__._1;
                         __tmp__;
@@ -21,7 +21,7 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _err, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _err, _1 : (null : stdgo.Error) };
             _syntax = __tmp__._0;
             _range_ = __tmp__._1;
             __tmp__;

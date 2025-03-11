@@ -3,7 +3,7 @@ function _isTrue(_val:stdgo._internal.reflect.Reflect_value.Value):{ var _0 : Bo
         var _truth = false, _ok = false;
         if (!_val.isValid()) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
                 _truth = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -32,7 +32,7 @@ function _isTrue(_val:stdgo._internal.reflect.Reflect_value.Value):{ var _0 : Bo
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _truth, _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _truth, _1 : true };
             _truth = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

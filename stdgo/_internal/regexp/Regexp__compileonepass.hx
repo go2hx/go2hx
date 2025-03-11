@@ -31,7 +31,10 @@ function _compileOnePass(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_pr
         };
         _p = stdgo._internal.regexp.Regexp__onepasscopy._onePassCopy(_prog);
         _p = stdgo._internal.regexp.Regexp__makeonepass._makeOnePass(_p);
-        if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
+        if (({
+            final value = _p;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             stdgo._internal.regexp.Regexp__cleanuponepass._cleanupOnePass(_p, _prog);
         };
         return _p;

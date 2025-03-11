@@ -38,13 +38,19 @@ private function set_testHookDidWritev(v:StdTypes.Int -> Void):StdTypes.Int -> V
 var closeFunc(get, set) : StdTypes.Int -> stdgo.Error;
 private function get_closeFunc():StdTypes.Int -> stdgo.Error return _0 -> stdgo._internal.internal.poll.Poll_closefunc.closeFunc(_0);
 private function set_closeFunc(v:StdTypes.Int -> stdgo.Error):StdTypes.Int -> stdgo.Error {
-        stdgo._internal.internal.poll.Poll_closefunc.closeFunc = _0 -> v((_0 : stdgo.GoInt));
+        stdgo._internal.internal.poll.Poll_closefunc.closeFunc = _0 -> (v((_0 : stdgo.GoInt)) : stdgo.Error);
         return v;
     }
 var acceptFunc(get, set) : StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>;
-private function get_acceptFunc():StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> return _0 -> stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc(_0);
+private function get_acceptFunc():StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> return _0 -> {
+        final obj = stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc(_0);
+        { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+    };
 private function set_acceptFunc(v:StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error>):StdTypes.Int -> stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall_sockaddr.Sockaddr, stdgo.Error> {
-        stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc = _0 -> v((_0 : stdgo.GoInt));
+        stdgo._internal.internal.poll.Poll_acceptfunc.acceptFunc = _0 -> {
+            final obj = v((_0 : stdgo.GoInt));
+            { _0 : (obj._0 : stdgo.GoInt), _1 : obj._1, _2 : (obj._2 : stdgo.Error) };
+        };
         return v;
     }
 var consume(get, set) : (Array<Array<std.UInt>>, haxe.Int64) -> Void;

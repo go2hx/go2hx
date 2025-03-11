@@ -114,7 +114,10 @@ package stdgo._internal.debug.dwarf;
                                 return null;
                             };
                             var _addrBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
+                            if (({
+                                final value = _cu;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((@:check2r _cu.val((115u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
@@ -282,7 +285,10 @@ package stdgo._internal.debug.dwarf;
                                 _off = (_off * ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
                             };
                             var _strBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
+                            if (({
+                                final value = _cu;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((@:check2r _cu.val((114u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
@@ -335,7 +341,10 @@ package stdgo._internal.debug.dwarf;
                         } else if (__value__ == ((35u32 : stdgo._internal.debug.dwarf.Dwarf_t_format.T_format))) {
                             var _off = (@:check2r _b._uint() : stdgo.GoUInt64);
                             var _rnglistsBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
+                            if (({
+                                final value = _cu;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((@:check2r _cu.val((116u32 : stdgo._internal.debug.dwarf.Dwarf_attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
@@ -477,7 +486,7 @@ if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     (@:checkr _b ?? throw "null pointer dereference")._off = ((@:checkr _b ?? throw "null pointer dereference")._off + (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_offset.Offset)) : stdgo._internal.debug.dwarf.Dwarf_offset.Offset);
                     (@:checkr _b ?? throw "null pointer dereference")._data = ((@:checkr _b ?? throw "null pointer dereference")._data.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : _c, _1 : _bits };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : _c, _1 : _bits };
                         _c = __tmp__._0;
                         _bits = __tmp__._1;
                         __tmp__;
@@ -487,7 +496,7 @@ if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : (0u32 : stdgo.GoUInt) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : (0u32 : stdgo.GoUInt) };
             _c = __tmp__._0;
             _bits = __tmp__._1;
             __tmp__;

@@ -19,7 +19,7 @@ package stdgo._internal.archive.tar;
             _signed = (_signed + (((_c : stdgo.GoInt8) : stdgo.GoInt64)) : stdgo.GoInt64);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; } = { _0 : _unsigned, _1 : _signed };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; } = { _0 : _unsigned, _1 : _signed };
             _unsigned = __tmp__._0;
             _signed = __tmp__._1;
             __tmp__;

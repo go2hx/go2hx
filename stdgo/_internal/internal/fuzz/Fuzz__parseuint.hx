@@ -15,7 +15,10 @@ function _parseUint(_val:stdgo.GoString, _typ:stdgo.GoString):{ var _0 : stdgo.A
                 var __tmp__ = stdgo._internal.strconv.Strconv_parseuint.parseUint(_val?.__copy__(), (0 : stdgo.GoInt), (32 : stdgo.GoInt)), _i:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 return { _0 : stdgo.Go.toInterface((_i : stdgo.GoUInt32)), _1 : _err };
             } else if (__value__ == (("uint64" : stdgo.GoString))) {
-                return stdgo._internal.strconv.Strconv_parseuint.parseUint(_val?.__copy__(), (0 : stdgo.GoInt), (64 : stdgo.GoInt));
+                return ({
+                    @:assignTranslate final __tmp__ = stdgo._internal.strconv.Strconv_parseuint.parseUint(_val?.__copy__(), (0 : stdgo.GoInt), (64 : stdgo.GoInt));
+                    { _0 : stdgo.Go.toInterface(__tmp__._0), _1 : __tmp__._1 };
+                });
             } else {
                 throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
             };

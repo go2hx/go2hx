@@ -1,8 +1,8 @@
 package stdgo._internal.net.http;
 @:structInit @:using(stdgo._internal.net.http.Http_t_http2metaheadersframe_static_extension.T_http2MetaHeadersFrame_static_extension) class T_http2MetaHeadersFrame {
-    public var fields : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField> = (null : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
+    public var fields : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField> = (null : stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>);
     public var truncated : Bool = false;
-    public function new(?fields:stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_headerfield.HeaderField>, ?truncated:Bool) {
+    public function new(?fields:stdgo.Slice<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_headerfield.HeaderField>, ?truncated:Bool) {
         if (fields != null) this.fields = fields;
         if (truncated != null) this.truncated = truncated;
     }

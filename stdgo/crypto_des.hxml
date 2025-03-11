@@ -1,3 +1,3 @@
--m _internal.crypto.des_dot_test.Des_dot_test
+-m _internal.crypto.desdottest.Desdottest
 -lib go2hx
 -cp .

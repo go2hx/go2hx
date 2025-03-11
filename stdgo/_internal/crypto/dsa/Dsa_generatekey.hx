@@ -1,6 +1,15 @@
 package stdgo._internal.crypto.dsa;
 function generateKey(_priv:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_privatekey.PrivateKey>, _rand:stdgo._internal.io.Io_reader.Reader):stdgo.Error {
-        if (((((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.p == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.p : Dynamic).__nil__) || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.q == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.q : Dynamic).__nil__) : Bool) || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.g == null || ((@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.g : Dynamic).__nil__) : Bool)) {
+        if (((({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.p;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.q;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool) || ({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").publicKey.parameters.g;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/dsa: parameters not set up before generating key" : stdgo.GoString));
         };
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);

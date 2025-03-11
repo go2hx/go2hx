@@ -151,7 +151,7 @@ package stdgo._internal.compress.flate;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -163,7 +163,7 @@ package stdgo._internal.compress.flate;
             _b = (_b.__slice__((@:checkr _d ?? throw "null pointer dereference")._fill(_d, _b)) : stdgo.Slice<stdgo.GoUInt8>);
             if ((@:checkr _d ?? throw "null pointer dereference")._err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _d ?? throw "null pointer dereference")._err };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -171,7 +171,7 @@ package stdgo._internal.compress.flate;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -209,21 +209,21 @@ package stdgo._internal.compress.flate;
     @:tdfield
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor> = _d;
-        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ok_8:Bool = false;
-        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newOffset_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newLength_6:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var loopBreak = false;
-        var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevLength_3:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _hash_11:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _i_13:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hh_12:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _minIndex_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevLength_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lookahead_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevOffset_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_2:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _hash_1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _index_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _newIndex_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_8:Bool = false;
+        var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

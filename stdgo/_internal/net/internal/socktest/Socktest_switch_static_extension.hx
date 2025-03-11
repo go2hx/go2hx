@@ -6,13 +6,11 @@ package stdgo._internal.net.internal.socktest;
         @:recv var _sw:stdgo.Ref<stdgo._internal.net.internal.socktest.Socktest_switch.Switch> = _sw;
         var _soerr = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _so = @:check2r _sw._sockso(_s);
-        if ((_so == null || (_so : Dynamic).__nil__)) {
-            return {
-                final __tmp__ = stdgo._internal.syscall.Syscall_getsockoptint.getsockoptInt(_s, _level, _opt);
-                _soerr = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _soerr, _1 : _err };
-            };
+        if (({
+            final value = _so;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
+            return stdgo._internal.syscall.Syscall_getsockoptint.getsockoptInt(_s, _level, _opt);
         };
         @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
         var _f = ((@:checkr _sw ?? throw "null pointer dereference")._fltab[(4 : stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType)] ?? (null : stdgo._internal.net.internal.socktest.Socktest_filter.Filter) : stdgo._internal.net.internal.socktest.Socktest_filter.Filter);
@@ -20,7 +18,7 @@ package stdgo._internal.net.internal.socktest;
         var __tmp__ = _f._apply(_so), _af:stdgo._internal.net.internal.socktest.Socktest_afterfilter.AfterFilter = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
                 _soerr = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -36,7 +34,7 @@ package stdgo._internal.net.internal.socktest;
             _err = _af._apply(_so);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
                     _soerr = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -45,7 +43,7 @@ package stdgo._internal.net.internal.socktest;
         };
         if ((@:checkr _so ?? throw "null pointer dereference").err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (@:checkr _so ?? throw "null pointer dereference").err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (@:checkr _so ?? throw "null pointer dereference").err };
                 _soerr = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -57,7 +55,7 @@ package stdgo._internal.net.internal.socktest;
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._smu.unlock();
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _soerr, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _soerr, _1 : (null : stdgo.Error) };
             _soerr = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -71,14 +69,11 @@ package stdgo._internal.net.internal.socktest;
         var _ns = (0 : stdgo.GoInt), _sa = (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
-                return {
-                    final __tmp__ = stdgo._internal.syscall.Syscall_accept.accept(_s);
-                    _ns = __tmp__._0;
-                    _sa = __tmp__._1;
-                    _err = __tmp__._2;
-                    { _0 : _ns, _1 : _sa, _2 : _err };
-                };
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
+                return stdgo._internal.syscall.Syscall_accept.accept(_s);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
             var _f = ((@:checkr _sw ?? throw "null pointer dereference")._fltab[(3 : stdgo._internal.net.internal.socktest.Socktest_filtertype.FilterType)] ?? (null : stdgo._internal.net.internal.socktest.Socktest_filter.Filter) : stdgo._internal.net.internal.socktest.Socktest_filter.Filter);
@@ -86,7 +81,7 @@ package stdgo._internal.net.internal.socktest;
             var __tmp__ = _f._apply(_so), _af:stdgo._internal.net.internal.socktest.Socktest_afterfilter.AfterFilter = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : _err };
                     _ns = __tmp__._0;
                     _sa = __tmp__._1;
                     _err = __tmp__._2;
@@ -106,7 +101,7 @@ package stdgo._internal.net.internal.socktest;
                         stdgo._internal.syscall.Syscall_close.close(_ns);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : _err };
                         _ns = __tmp__._0;
                         _sa = __tmp__._1;
                         _err = __tmp__._2;
@@ -123,7 +118,7 @@ package stdgo._internal.net.internal.socktest;
                 (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _so ?? throw "null pointer dereference").cookie).acceptFailed++;
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : (@:checkr _so ?? throw "null pointer dereference").err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (null : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr), _2 : (@:checkr _so ?? throw "null pointer dereference").err };
                         _ns = __tmp__._0;
                         _sa = __tmp__._1;
                         _err = __tmp__._2;
@@ -141,7 +136,7 @@ package stdgo._internal.net.internal.socktest;
             (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _nso ?? throw "null pointer dereference").cookie).accepted++;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : _ns, _1 : _sa, _2 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.syscall.Syscall_sockaddr.Sockaddr; var _2 : stdgo.Error; } = { _0 : _ns, _1 : _sa, _2 : (null : stdgo.Error) };
                     _ns = __tmp__._0;
                     _sa = __tmp__._1;
                     _err = __tmp__._2;
@@ -216,7 +211,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_listen.listen(_s, _backlog);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -322,7 +320,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_connect.connect(_s, _sa);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -428,7 +429,10 @@ package stdgo._internal.net.internal.socktest;
         var _err = (null : stdgo.Error);
         try {
             var _so = @:check2r _sw._sockso(_s);
-            if ((_so == null || (_so : Dynamic).__nil__)) {
+            if (({
+                final value = _so;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return _err = stdgo._internal.syscall.Syscall_close.close(_s);
             };
             @:check2 (@:checkr _sw ?? throw "null pointer dereference")._fmu.rLock();
@@ -542,7 +546,7 @@ package stdgo._internal.net.internal.socktest;
             var __tmp__ = _f._apply(_so), _af:stdgo._internal.net.internal.socktest.Socktest_afterfilter.AfterFilter = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
                     _s = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -560,7 +564,7 @@ package stdgo._internal.net.internal.socktest;
                         stdgo._internal.syscall.Syscall_close.close(_s);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : _err };
                         _s = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -576,7 +580,7 @@ package stdgo._internal.net.internal.socktest;
                 (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _so ?? throw "null pointer dereference").cookie).openFailed++;
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (@:checkr _so ?? throw "null pointer dereference").err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (-1 : stdgo.GoInt), _1 : (@:checkr _so ?? throw "null pointer dereference").err };
                         _s = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -593,7 +597,7 @@ package stdgo._internal.net.internal.socktest;
             (@:checkr _sw ?? throw "null pointer dereference")._stats._getLocked((@:checkr _nso ?? throw "null pointer dereference").cookie).opened++;
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _s, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _s, _1 : (null : stdgo.Error) };
                     _s = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

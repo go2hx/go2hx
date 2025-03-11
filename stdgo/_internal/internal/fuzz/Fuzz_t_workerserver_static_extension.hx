@@ -20,7 +20,7 @@ package stdgo._internal.internal.fuzz;
         } : () -> Bool);
         if (_shouldStop()) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                 _success = __tmp__._0;
                 _retErr = __tmp__._1;
                 __tmp__;
@@ -34,7 +34,7 @@ package stdgo._internal.internal.fuzz;
         if (_keepCoverage != null) {
             if ((!stdgo._internal.internal.fuzz.Fuzz__hascoveragebit._hasCoverageBit(_keepCoverage, stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot) || (_retErr != null) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                     _success = __tmp__._0;
                     _retErr = __tmp__._1;
                     __tmp__;
@@ -42,7 +42,7 @@ package stdgo._internal.internal.fuzz;
             };
         } else if (_retErr == null) {
             return {
-                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
                 _success = __tmp__._0;
                 _retErr = __tmp__._1;
                 __tmp__;
@@ -93,7 +93,7 @@ package stdgo._internal.internal.fuzz;
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : true, _1 : _retErr };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : true, _1 : _retErr };
             _success = __tmp__._0;
             _retErr = __tmp__._1;
             __tmp__;
@@ -311,7 +311,7 @@ package stdgo._internal.internal.fuzz;
                         _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
                     };
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
                         _dur = __tmp__._0;
                         _cov = __tmp__._1;
                         _errMsg = __tmp__._2;
@@ -320,7 +320,7 @@ package stdgo._internal.internal.fuzz;
                 };
                 if ((((@:checkr _ws ?? throw "null pointer dereference")._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countnewcoveragebits._countNewCoverageBits((@:checkr _ws ?? throw "null pointer dereference")._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot, _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coveragesnapshot._coverageSnapshot, _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                         _dur = __tmp__._0;
                         _cov = __tmp__._1;
                         _errMsg = __tmp__._2;
@@ -328,7 +328,7 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
                 return {
-                    final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.time.Time_duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (stdgo.Go.str() : stdgo.GoString)?.__copy__() };
                     _dur = __tmp__._0;
                     _cov = __tmp__._1;
                     _errMsg = __tmp__._2;
@@ -367,7 +367,7 @@ package stdgo._internal.internal.fuzz;
                 {
                     var __select__ = true;
                     while (__select__) {
-                        if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                        if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                             __select__ = false;
                             {
                                 _ctx.done().__get__();
@@ -431,9 +431,10 @@ package stdgo._internal.internal.fuzz;
                                 };
                             };
                         };
-                        #if !js Sys.sleep(0.01) #else null #end;
+                        #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                         stdgo._internal.internal.Async.tick();
                     };
+                    _ctx.done().__reset__();
                 };
             };
             {
@@ -509,11 +510,20 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             var _resp:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-            if ((_c.fuzz != null && ((_c.fuzz : Dynamic).__nil__ == null || !(_c.fuzz : Dynamic).__nil__))) {
+            if (({
+                final value = _c.fuzz;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _resp = stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _ws._fuzz(_ctx, (_c.fuzz : stdgo._internal.internal.fuzz.Fuzz_t_fuzzargs.T_fuzzArgs)?.__copy__())));
-            } else if ((_c.minimize != null && ((_c.minimize : Dynamic).__nil__ == null || !(_c.minimize : Dynamic).__nil__))) {
+            } else if (({
+                final value = _c.minimize;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _resp = stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _ws._minimize(_ctx, (_c.minimize : stdgo._internal.internal.fuzz.Fuzz_t_minimizeargs.T_minimizeArgs)?.__copy__())));
-            } else if ((_c.ping != null && ((_c.ping : Dynamic).__nil__ == null || !(_c.ping : Dynamic).__nil__))) {
+            } else if (({
+                final value = _c.ping;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _resp = stdgo.Go.toInterface(stdgo.Go.asInterface(@:check2r _ws._ping(_ctx, (_c.ping : stdgo._internal.internal.fuzz.Fuzz_t_pingargs.T_pingArgs)?.__copy__())));
             } else {
                 return stdgo._internal.errors.Errors_new_.new_(("no arguments provided for any call" : stdgo.GoString));

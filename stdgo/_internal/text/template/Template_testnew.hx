@@ -5,10 +5,16 @@ function testNew(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         if ((@:checkr _t1 ?? throw "null pointer dereference")._common != ((@:checkr _t2 ?? throw "null pointer dereference")._common)) {
             @:check2r _t.errorf(("t1 & t2 didn\'t share common struct; got %v != %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _t1 ?? throw "null pointer dereference")._common)), stdgo.Go.toInterface(stdgo.Go.asInterface((@:checkr _t2 ?? throw "null pointer dereference")._common)));
         };
-        if (((@:checkr _t1 ?? throw "null pointer dereference").tree == null || ((@:checkr _t1 ?? throw "null pointer dereference").tree : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _t1 ?? throw "null pointer dereference").tree;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             @:check2r _t.error(stdgo.Go.toInterface(("defined template got nil Tree" : stdgo.GoString)));
         };
-        if (((@:checkr _t2 ?? throw "null pointer dereference").tree != null && (((@:checkr _t2 ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _t2 ?? throw "null pointer dereference").tree : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _t2 ?? throw "null pointer dereference").tree;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _t.error(stdgo.Go.toInterface(("undefined template got non-nil Tree" : stdgo.GoString)));
         };
         var _containsT1 = (false : Bool);

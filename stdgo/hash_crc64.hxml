@@ -1,3 +1,3 @@
--m _internal.hash.crc64_dot_test.Crc64_dot_test
+-m _internal.hash.crc64dottest.Crc64dottest
 -lib go2hx
 -cp .

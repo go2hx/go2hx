@@ -2,7 +2,7 @@ package stdgo._internal.net.http;
 class T_http2serverConn_asInterface {
     @:keep
     @:tdfield
-    public dynamic function headerEncoder():{ var _0 : stdgo.Ref<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_encoder.Encoder>; var _1 : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>; } return @:_0 __self__.value.headerEncoder();
+    public dynamic function headerEncoder():{ var _0 : stdgo.Ref<_internal.vendor.golangdotorg.x.net.http2.hpack.Hpack_encoder.Encoder>; var _1 : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>; } return @:_0 __self__.value.headerEncoder();
     @:keep
     @:tdfield
     public dynamic function flush():stdgo.Error return @:_0 __self__.value.flush();

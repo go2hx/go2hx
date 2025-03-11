@@ -15,7 +15,10 @@ package stdgo._internal.net.http.httputil;
             (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").header.del(("X-Forwarded-For" : stdgo.GoString));
         };
         (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").header.set(("X-Forwarded-Host" : stdgo.GoString), (@:checkr (@:checkr _r ?? throw "null pointer dereference").in_ ?? throw "null pointer dereference").host?.__copy__());
-        if (((@:checkr (@:checkr _r ?? throw "null pointer dereference").in_ ?? throw "null pointer dereference").tLS == null || ((@:checkr (@:checkr _r ?? throw "null pointer dereference").in_ ?? throw "null pointer dereference").tLS : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr (@:checkr _r ?? throw "null pointer dereference").in_ ?? throw "null pointer dereference").tLS;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").header.set(("X-Forwarded-Proto" : stdgo.GoString), ("http" : stdgo.GoString));
         } else {
             (@:checkr (@:checkr _r ?? throw "null pointer dereference").out ?? throw "null pointer dereference").header.set(("X-Forwarded-Proto" : stdgo.GoString), ("https" : stdgo.GoString));

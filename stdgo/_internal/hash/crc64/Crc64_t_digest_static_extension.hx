@@ -20,7 +20,7 @@ package stdgo._internal.hash.crc64;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         (@:checkr _d ?? throw "null pointer dereference")._crc = stdgo._internal.hash.crc64.Crc64__update._update((@:checkr _d ?? throw "null pointer dereference")._crc, (@:checkr _d ?? throw "null pointer dereference")._tab, _p);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

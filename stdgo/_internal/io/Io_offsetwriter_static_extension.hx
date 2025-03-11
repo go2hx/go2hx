@@ -27,19 +27,14 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_off < (0i64 : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io__erroffset._errOffset };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io__erroffset._errOffset };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         _off = (_off + ((@:checkr _o ?? throw "null pointer dereference")._base) : stdgo.GoInt64);
-        return {
-            final __tmp__ = (@:checkr _o ?? throw "null pointer dereference")._w.writeAt(_p, _off);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return (@:checkr _o ?? throw "null pointer dereference")._w.writeAt(_p, _off);
     }
     @:keep
     @:tdfield

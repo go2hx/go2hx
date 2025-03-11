@@ -41,7 +41,7 @@ package stdgo._internal.crypto.internal.edwards25519.field;
         @:check2r _rr.select(_rPrime, _rr, (_flippedSignSqrt | _flippedSignSqrtI : stdgo.GoInt));
         @:check2r _r.absolute(_rr);
         return {
-            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element>; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : (_correctSignSqrt | _flippedSignSqrt : stdgo.GoInt) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element>; var _1 : stdgo.GoInt; } = { _0 : _r, _1 : (_correctSignSqrt | _flippedSignSqrt : stdgo.GoInt) };
             r = __tmp__._0;
             _wasSquare = __tmp__._1;
             __tmp__;

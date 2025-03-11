@@ -41,9 +41,15 @@ final mSB = stdgo._internal.compress.lzw.Lzw_msb.mSB;
         return v;
     }
     public var _read(get, set) : Reader -> stdgo.Tuple<std.UInt, stdgo.Error>;
-    function get__read():Reader -> stdgo.Tuple<std.UInt, stdgo.Error> return _0 -> this._read(_0);
+    function get__read():Reader -> stdgo.Tuple<std.UInt, stdgo.Error> return _0 -> {
+        final obj = this._read(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set__read(v:Reader -> stdgo.Tuple<std.UInt, stdgo.Error>):Reader -> stdgo.Tuple<std.UInt, stdgo.Error> {
-        this._read = _0 -> v((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>));
+        this._read = _0 -> {
+            final obj = v((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>));
+            { _0 : (obj._0 : stdgo.GoUInt16), _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var _litWidth(get, set) : StdTypes.Int;
@@ -123,7 +129,10 @@ _r,
 (_bits : stdgo.GoUInt32),
 (_nBits : stdgo.GoUInt),
 (_width : stdgo.GoUInt),
-_0 -> _read((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>)),
+_0 -> {
+        final obj = _read((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>));
+        { _0 : (obj._0 : stdgo.GoUInt16), _1 : (obj._1 : stdgo.Error) };
+    },
 (_litWidth : stdgo.GoInt),
 (_err : stdgo.Error),
 (_clear : stdgo.GoUInt16),
@@ -155,7 +164,7 @@ _0 -> _read((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>)),
     public var _write(get, set) : (Writer, std.UInt) -> stdgo.Error;
     function get__write():(Writer, std.UInt) -> stdgo.Error return (_0, _1) -> this._write(_0, _1);
     function set__write(v:(Writer, std.UInt) -> stdgo.Error):(Writer, std.UInt) -> stdgo.Error {
-        this._write = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>), (_1 : stdgo.GoUInt32));
+        this._write = (_0, _1) -> (v((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>), (_1 : stdgo.GoUInt32)) : stdgo.Error);
         return v;
     }
     public var _bits(get, set) : std.UInt;
@@ -215,7 +224,7 @@ _0 -> _read((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_reader.Reader>)),
     public function new(?_w:T_writer, ?_order:Order, ?_write:(Writer, std.UInt) -> stdgo.Error, ?_bits:std.UInt, ?_nBits:std.UInt, ?_width:std.UInt, ?_litWidth:std.UInt, ?_hi:std.UInt, ?_overflow:std.UInt, ?_savedCode:std.UInt, ?_err:stdgo.Error, ?_table:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.compress.lzw.Lzw_writer.Writer(
 _w,
 _order,
-(_0, _1) -> _write((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>), (_1 : stdgo.GoUInt32)),
+(_0, _1) -> (_write((_0 : stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>), (_1 : stdgo.GoUInt32)) : stdgo.Error),
 (_bits : stdgo.GoUInt32),
 (_nBits : stdgo.GoUInt),
 (_width : stdgo.GoUInt),

@@ -6,9 +6,15 @@ private function set_isSpace(v:StdTypes.Int -> Bool):StdTypes.Int -> Bool {
         return v;
     }
 var parsenum(get, set) : (String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int>;
-private function get_parsenum():(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int> return (_0, _1, _2) -> stdgo._internal.fmt.Fmt_parsenum.parsenum(_0, _1, _2);
+private function get_parsenum():(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int> return (_0, _1, _2) -> {
+        final obj = stdgo._internal.fmt.Fmt_parsenum.parsenum(_0, _1, _2);
+        { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+    };
 private function set_parsenum(v:(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int>):(String, StdTypes.Int, StdTypes.Int) -> stdgo.Tuple.Tuple3<StdTypes.Int, Bool, StdTypes.Int> {
-        stdgo._internal.fmt.Fmt_parsenum.parsenum = (_0, _1, _2) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoInt), (_2 : stdgo.GoInt));
+        stdgo._internal.fmt.Fmt_parsenum.parsenum = (_0, _1, _2) -> {
+            final obj = v((_0 : stdgo.GoString), (_1 : stdgo.GoInt), (_2 : stdgo.GoInt));
+            { _0 : (obj._0 : stdgo.GoInt), _1 : obj._1, _2 : (obj._2 : stdgo.GoInt) };
+        };
         return v;
     }
 class State_static_extension {
@@ -40,7 +46,16 @@ class State_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function write(_b:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function width():stdgo.Tuple<StdTypes.Int, Bool>; function precision():stdgo.Tuple<StdTypes.Int, Bool>; function flag(_c:StdTypes.Int):Bool; }):State {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:State = { write : _0 -> x.write([for (i in _0) i]), width : () -> x.width(), precision : () -> x.precision(), flag : _0 -> x.flag(_0), __underlying__ : () -> __f__() };
+        final y:State = { write : _0 -> {
+            final obj = x.write([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, width : () -> {
+            final obj = x.width();
+            { _0 : obj._0, _1 : obj._1 };
+        }, precision : () -> {
+            final obj = x.precision();
+            { _0 : obj._0, _1 : obj._1 };
+        }, flag : _0 -> x.flag(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -126,7 +141,19 @@ class ScanState_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function readRune():stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error>; function unreadRune():stdgo.Error; function skipSpace():Void; function token(_skipSpace:Bool, _f:StdTypes.Int -> Bool):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function width():stdgo.Tuple<StdTypes.Int, Bool>; function read(_buf:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):ScanState {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:ScanState = { readRune : () -> x.readRune(), unreadRune : () -> x.unreadRune(), skipSpace : () -> x.skipSpace(), token : (_0, _1) -> x.token(_0, _0 -> _1(_0)), width : () -> x.width(), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:ScanState = { readRune : () -> {
+            final obj = x.readRune();
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        }, unreadRune : () -> x.unreadRune(), skipSpace : () -> x.skipSpace(), token : (_0, _1) -> {
+            final obj = x.token(_0, _0 -> _1(_0));
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, width : () -> {
+            final obj = x.width();
+            { _0 : obj._0, _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

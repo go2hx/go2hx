@@ -7,7 +7,7 @@ package stdgo._internal.net.rpc;
         {
             var __select__ = true;
             while (__select__) {
-                if ((@:checkr _call ?? throw "null pointer dereference").done != null && (@:checkr _call ?? throw "null pointer dereference").done.__isSend__()) {
+                if ((@:checkr _call ?? throw "null pointer dereference").done != null && (@:checkr _call ?? throw "null pointer dereference").done.__isSend__(true)) {
                     __select__ = false;
                     {
                         (@:checkr _call ?? throw "null pointer dereference").done.__send__(_call);
@@ -21,9 +21,10 @@ package stdgo._internal.net.rpc;
                         };
                     };
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            (@:checkr _call ?? throw "null pointer dereference").done.__reset__();
         };
     }
 }

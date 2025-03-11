@@ -255,7 +255,10 @@ _version,
     static public function location( _t:stdgo._internal.time.Time_time.Time):stdgo.Ref<stdgo._internal.time.Time_location.Location> {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _l = _t._loc;
-        if ((_l == null || (_l : Dynamic).__nil__)) {
+        if (({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _l = stdgo._internal.time.Time_utc.uTC;
         };
         return _l;
@@ -264,7 +267,10 @@ _version,
     @:tdfield
     static public function in_( _t:stdgo._internal.time.Time_time.Time, _loc:stdgo.Ref<stdgo._internal.time.Time_location.Location>):stdgo._internal.time.Time_time.Time {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
-        if ((_loc == null || (_loc : Dynamic).__nil__)) {
+        if (({
+            final value = _loc;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             throw stdgo.Go.toInterface(("time: missing Location in call to Time.In" : stdgo.GoString));
         };
         @:check2 _t._setLoc(_loc);
@@ -289,14 +295,7 @@ _version,
     static public function _date( _t:stdgo._internal.time.Time_time.Time, _full:Bool):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_month.Month; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_month.Month), _day = (0 : stdgo.GoInt), _yday = (0 : stdgo.GoInt);
-        return {
-            final __tmp__ = stdgo._internal.time.Time__absdate._absDate(_t._abs(), _full);
-            _year = __tmp__._0;
-            _month = __tmp__._1;
-            _day = __tmp__._2;
-            _yday = __tmp__._3;
-            { _0 : _year, _1 : _month, _2 : _day, _3 : _yday };
-        };
+        return stdgo._internal.time.Time__absdate._absDate(_t._abs(), _full);
     }
     @:keep
     @:tdfield
@@ -392,13 +391,7 @@ _version,
     static public function clock( _t:stdgo._internal.time.Time_time.Time):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _hour = (0 : stdgo.GoInt), _min = (0 : stdgo.GoInt), _sec = (0 : stdgo.GoInt);
-        return {
-            final __tmp__ = stdgo._internal.time.Time__absclock._absClock(_t._abs());
-            _hour = __tmp__._0;
-            _min = __tmp__._1;
-            _sec = __tmp__._2;
-            { _0 : _hour, _1 : _min, _2 : _sec };
-        };
+        return stdgo._internal.time.Time__absclock._absClock(_t._abs());
     }
     @:keep
     @:tdfield
@@ -413,7 +406,7 @@ _version,
         _abs = (_abs + (((_d : stdgo.GoUInt64) * (86400i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         var __tmp__ = stdgo._internal.time.Time__absdate._absDate(_abs, false), _year:stdgo.GoInt = __tmp__._0, __1:stdgo._internal.time.Time_month.Month = __tmp__._1, __2:stdgo.GoInt = __tmp__._2, _yday:stdgo.GoInt = __tmp__._3;
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _year, _1 : ((_yday / (7 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _year, _1 : ((_yday / (7 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
             _year = __tmp__._0;
             _week = __tmp__._1;
             __tmp__;
@@ -465,12 +458,18 @@ _version,
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _name = ("" : stdgo.GoString), _offset = (0 : stdgo.GoInt), _abs = (0 : stdgo.GoUInt64);
         var _l = _t._loc;
-        if (((_l == null || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>)) : Bool)) {
+        if ((({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        }) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>)) : Bool)) {
             _l = @:check2r _l._get();
         };
         var _sec = (@:check2 _t._unixSec() : stdgo.GoInt64);
         if (_l != ((stdgo.Go.setRef(stdgo._internal.time.Time__utcloc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>))) {
-            if (((((@:checkr _l ?? throw "null pointer dereference")._cacheZone != null && (((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+            if (((({
+                final value = (@:checkr _l ?? throw "null pointer dereference")._cacheZone;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
                 _name = (@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._name?.__copy__();
                 _offset = (@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._offset;
             } else {
@@ -492,12 +491,18 @@ _version,
     static public function _abs( _t:stdgo._internal.time.Time_time.Time):stdgo.GoUInt64 {
         @:recv var _t:stdgo._internal.time.Time_time.Time = _t?.__copy__();
         var _l = _t._loc;
-        if (((_l == null || (_l : Dynamic).__nil__) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>)) : Bool)) {
+        if ((({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        }) || (_l == (stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>)) : Bool)) {
             _l = @:check2r _l._get();
         };
         var _sec = (@:check2 _t._unixSec() : stdgo.GoInt64);
         if (_l != ((stdgo.Go.setRef(stdgo._internal.time.Time__utcloc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>))) {
-            if (((((@:checkr _l ?? throw "null pointer dereference")._cacheZone != null && (((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference")._cacheZone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+            if (((({
+                final value = (@:checkr _l ?? throw "null pointer dereference")._cacheZone;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
                 _sec = (_sec + (((@:checkr (@:checkr _l ?? throw "null pointer dereference")._cacheZone ?? throw "null pointer dereference")._offset : stdgo.GoInt64)) : stdgo.GoInt64);
             } else {
                 var __tmp__ = @:check2r _l._lookup(_sec), __1:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, __2:stdgo.GoInt64 = __tmp__._2, __3:stdgo.GoInt64 = __tmp__._3, __4:Bool = __tmp__._4;
@@ -971,7 +976,10 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
             var _loc = _t.location();
             {
                 final __value__ = _loc;
-                if (__value__ == (stdgo._internal.time.Time_utc.uTC) || (__value__ == null || (__value__ : Dynamic).__nil__)) {
+                if (__value__ == (stdgo._internal.time.Time_utc.uTC) || ({
+                    final value = __value__;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     _buf = (_buf.__append__(...((("time.UTC" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                 } else if (__value__ == (stdgo._internal.time.Time_local.local)) {
                     _buf = (_buf.__append__(...((("time.Local" : stdgo.GoString) : stdgo.GoString) : Array<stdgo.GoUInt8>)));

@@ -4,7 +4,10 @@ package stdgo._internal.net.http.httptest;
     @:tdfield
     static public function result( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>):stdgo.Ref<stdgo._internal.net.http.Http_response.Response> {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder> = _rw;
-        if (((@:checkr _rw ?? throw "null pointer dereference")._result != null && (((@:checkr _rw ?? throw "null pointer dereference")._result : Dynamic).__nil__ == null || !((@:checkr _rw ?? throw "null pointer dereference")._result : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _rw ?? throw "null pointer dereference")._result;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return (@:checkr _rw ?? throw "null pointer dereference")._result;
         };
         if ((@:checkr _rw ?? throw "null pointer dereference")._snapHeader == null) {
@@ -16,7 +19,10 @@ package stdgo._internal.net.http.httptest;
             (@:checkr _res ?? throw "null pointer dereference").statusCode = (200 : stdgo.GoInt);
         };
         (@:checkr _res ?? throw "null pointer dereference").status = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%03d %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _res ?? throw "null pointer dereference").statusCode), stdgo.Go.toInterface(stdgo._internal.net.http.Http_statustext.statusText((@:checkr _res ?? throw "null pointer dereference").statusCode)))?.__copy__();
-        if (((@:checkr _rw ?? throw "null pointer dereference").body != null && (((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__ == null || !((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _rw ?? throw "null pointer dereference").body;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             (@:checkr _res ?? throw "null pointer dereference").body = stdgo._internal.io.Io_nopcloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newreader.newReader(@:check2r (@:checkr _rw ?? throw "null pointer dereference").body.bytes())));
         } else {
             (@:checkr _res ?? throw "null pointer dereference").body = stdgo.Go.asInterface(stdgo._internal.net.http.Http_nobody.noBody);
@@ -34,7 +40,7 @@ package stdgo._internal.net.http.httptest;
                 for (__0 => _k in _trailers) {
                     for (__1 => _k in stdgo._internal.strings.Strings_split.split(_k?.__copy__(), ("," : stdgo.GoString))) {
                         _k = stdgo._internal.net.http.Http_canonicalheaderkey.canonicalHeaderKey(stdgo._internal.net.textproto.Textproto_trimstring.trimString(_k?.__copy__())?.__copy__())?.__copy__();
-                        if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validtrailerheader.validTrailerHeader(_k?.__copy__())) {
+                        if (!_internal.golangdotorg.x.net.http.httpguts.Httpguts_validtrailerheader.validTrailerHeader(_k?.__copy__())) {
                             continue;
                         };
                         var __tmp__ = ((@:checkr _rw ?? throw "null pointer dereference").headerMap != null && (@:checkr _rw ?? throw "null pointer dereference").headerMap.__exists__(_k?.__copy__()) ? { _0 : (@:checkr _rw ?? throw "null pointer dereference").headerMap[_k?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), _vv:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -100,7 +106,10 @@ package stdgo._internal.net.http.httptest;
     static public function writeString( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>, _str:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder> = _rw;
         @:check2r _rw._writeHeader((null : stdgo.Slice<stdgo.GoUInt8>), _str?.__copy__());
-        if (((@:checkr _rw ?? throw "null pointer dereference").body != null && (((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__ == null || !((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _rw ?? throw "null pointer dereference").body;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _rw ?? throw "null pointer dereference").body.writeString(_str?.__copy__());
         };
         return { _0 : (_str.length), _1 : (null : stdgo.Error) };
@@ -110,7 +119,10 @@ package stdgo._internal.net.http.httptest;
     static public function write( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_responserecorder.ResponseRecorder> = _rw;
         @:check2r _rw._writeHeader(_buf, (stdgo.Go.str() : stdgo.GoString)?.__copy__());
-        if (((@:checkr _rw ?? throw "null pointer dereference").body != null && (((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__ == null || !((@:checkr _rw ?? throw "null pointer dereference").body : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _rw ?? throw "null pointer dereference").body;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _rw ?? throw "null pointer dereference").body.write(_buf);
         };
         return { _0 : (_buf.length), _1 : (null : stdgo.Error) };

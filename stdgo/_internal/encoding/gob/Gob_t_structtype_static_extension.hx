@@ -15,7 +15,10 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _safeString( _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_structtype.T_structType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, Bool>):stdgo.GoString {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_structtype.T_structType> = _s;
-        if ((_s == null || (_s : Dynamic).__nil__)) {
+        if (({
+            final value = _s;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return ("<nil>" : stdgo.GoString);
         };
         {

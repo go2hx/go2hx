@@ -11,7 +11,10 @@ package stdgo._internal.crypto.ecdh;
     static public function publicKey( _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey>):stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_publickey.PublicKey> {
         @:recv var _k:stdgo.Ref<stdgo._internal.crypto.ecdh.Ecdh_privatekey.PrivateKey> = _k;
         @:check2 (@:checkr _k ?? throw "null pointer dereference")._publicKeyOnce.do_(function():Void {
-            if (((@:checkr _k ?? throw "null pointer dereference")._boring != null && (((@:checkr _k ?? throw "null pointer dereference")._boring : Dynamic).__nil__ == null || !((@:checkr _k ?? throw "null pointer dereference")._boring : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _k ?? throw "null pointer dereference")._boring;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var __tmp__ = @:check2r (@:checkr _k ?? throw "null pointer dereference")._boring.publicKey(), _kpub:stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_publickeyecdh.PublicKeyECDH> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     throw stdgo.Go.toInterface((("boringcrypto: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString));

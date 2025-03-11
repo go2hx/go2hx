@@ -477,7 +477,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             return { _0 : _b, _1 : _ok };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : Bool; } = { _0 : (((_value1 << (4i64 : stdgo.GoUInt64) : stdgo.GoInt) | _value2 : stdgo.GoInt) : stdgo.GoUInt8), _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : Bool; } = { _0 : (((_value1 << (4i64 : stdgo.GoUInt64) : stdgo.GoInt) | _value2 : stdgo.GoInt) : stdgo.GoUInt8), _1 : true };
             _b = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;
@@ -632,7 +632,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             @:check2r _s._error(stdgo._internal.fmt.Fmt__errcomplex._errComplex);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _real?.__copy__(), _1 : (_imagSign + _imag?.__copy__() : stdgo.GoString)?.__copy__() };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _real?.__copy__(), _1 : (_imagSign + _imag?.__copy__() : stdgo.GoString)?.__copy__() };
             _real = __tmp__._0;
             _imag = __tmp__._1;
             __tmp__;
@@ -746,7 +746,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         var _base = (0 : stdgo.GoInt), _digits = ("" : stdgo.GoString), _zeroFound = false;
         if (!@:check2r _s._peek(("0" : stdgo.GoString))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("0123456789_" : stdgo.GoString), _2 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("0123456789_" : stdgo.GoString), _2 : false };
                 _base = __tmp__._0;
                 _digits = __tmp__._1;
                 _zeroFound = __tmp__._2;
@@ -757,7 +757,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         if (@:check2r _s._peek(("bB" : stdgo.GoString))) {
             @:check2r _s._consume(("bB" : stdgo.GoString), true);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01_" : stdgo.GoString), _2 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01_" : stdgo.GoString), _2 : true };
                 _base = __tmp__._0;
                 _digits = __tmp__._1;
                 _zeroFound = __tmp__._2;
@@ -766,7 +766,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         } else if (@:check2r _s._peek(("oO" : stdgo.GoString))) {
             @:check2r _s._consume(("oO" : stdgo.GoString), true);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
                 _base = __tmp__._0;
                 _digits = __tmp__._1;
                 _zeroFound = __tmp__._2;
@@ -775,7 +775,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         } else if (@:check2r _s._peek(("xX" : stdgo.GoString))) {
             @:check2r _s._consume(("xX" : stdgo.GoString), true);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("0123456789aAbBcCdDeEfF_" : stdgo.GoString), _2 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("0123456789aAbBcCdDeEfF_" : stdgo.GoString), _2 : true };
                 _base = __tmp__._0;
                 _digits = __tmp__._1;
                 _zeroFound = __tmp__._2;
@@ -783,7 +783,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             };
         } else {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
                 _base = __tmp__._0;
                 _digits = __tmp__._1;
                 _zeroFound = __tmp__._2;
@@ -1143,14 +1143,14 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         var _wid = (0 : stdgo.GoInt), _ok = false;
         if ((@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid == ((1073741824 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (0 : stdgo.GoInt), _1 : false };
                 _wid = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid, _1 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (@:checkr _s ?? throw "null pointer dereference")._ssave._maxWid, _1 : true };
             _wid = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;
@@ -1187,7 +1187,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_t_ss.T_ss> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("ScanState\'s Read should not be called. Use ReadRune" : stdgo.GoString)) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("ScanState\'s Read should not be called. Use ReadRune" : stdgo.GoString)) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

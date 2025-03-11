@@ -15,7 +15,10 @@ function _emitCounterDataToDirectory(_outdir:stdgo.GoString):stdgo.Error {
                 return _err;
             };
         };
-        if (((@:checkr _s ?? throw "null pointer dereference")._cf == null || ((@:checkr _s ?? throw "null pointer dereference")._cf : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _s ?? throw "null pointer dereference")._cf;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("counter data output file open failed (no additional info" : stdgo.GoString));
         };
         {

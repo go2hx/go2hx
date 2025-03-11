@@ -140,7 +140,10 @@ package stdgo._internal.database.sql;
                 _parentStmt = _stmt;
             };
             var _txs = (stdgo.Go.setRef(({ _db : (@:checkr _tx ?? throw "null pointer dereference")._db, _cg : stdgo.Go.asInterface(_tx), _cgds : (stdgo.Go.setRef(({ locker : stdgo.Go.asInterface(_dc), _si : _si } : stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_t_driverstmt.T_driverStmt>), _parentStmt : _parentStmt, _query : (@:checkr _stmt ?? throw "null pointer dereference")._query?.__copy__() } : stdgo._internal.database.sql.Sql_stmt.Stmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_stmt.Stmt>);
-            if ((_parentStmt != null && ((_parentStmt : Dynamic).__nil__ == null || !(_parentStmt : Dynamic).__nil__))) {
+            if (({
+                final value = _parentStmt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _tx ?? throw "null pointer dereference")._db._addDep(stdgo.Go.asInterface(_parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_txs)));
             };
             (@:checkr _tx ?? throw "null pointer dereference")._stmts.lock();
@@ -270,7 +273,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if ((@:checkr _tx ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__isGet__()) {
+                if ((@:checkr _tx ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__get__();
@@ -285,9 +288,10 @@ package stdgo._internal.database.sql;
                     __select__ = false;
                     {};
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__reset__();
         };
         if (!@:check2 (@:checkr _tx ?? throw "null pointer dereference")._done.compareAndSwap(false, true)) {
             return stdgo._internal.database.sql.Sql_errtxdone.errTxDone;
@@ -392,7 +396,7 @@ package stdgo._internal.database.sql;
         {
             var __select__ = true;
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                     __select__ = false;
                     {
                         _ctx.done().__get__();
@@ -404,9 +408,10 @@ package stdgo._internal.database.sql;
                     __select__ = false;
                     {};
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            _ctx.done().__reset__();
         };
         @:check2 (@:checkr _tx ?? throw "null pointer dereference")._closemu.rLock();
         if (@:check2r _tx._isDone()) {

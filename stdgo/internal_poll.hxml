@@ -1,3 +1,3 @@
--m _internal.internal.poll_dot_test.Poll_dot_test
+-m _internal.internal.polldottest.Polldottest
 -lib go2hx
 -cp .

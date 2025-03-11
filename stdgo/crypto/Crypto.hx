@@ -34,7 +34,10 @@ class Signer_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function public_():PublicKey; function sign(_rand:stdgo._internal.io.Io_reader.Reader, _digest:Array<std.UInt>, _opts:SignerOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Signer {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Signer = { public_ : () -> x.public_(), sign : (_0, _1, _2) -> x.sign(_0, [for (i in _1) i], _2), __underlying__ : () -> __f__() };
+        final y:Signer = { public_ : () -> x.public_(), sign : (_0, _1, _2) -> {
+            final obj = x.sign(_0, [for (i in _1) i], _2);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -69,7 +72,10 @@ class Decrypter_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function public_():PublicKey; function decrypt(_rand:stdgo._internal.io.Io_reader.Reader, _msg:Array<std.UInt>, _opts:DecrypterOpts):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; }):Decrypter {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Decrypter = { public_ : () -> x.public_(), decrypt : (_0, _1, _2) -> x.decrypt(_0, [for (i in _1) i], _2), __underlying__ : () -> __f__() };
+        final y:Decrypter = { public_ : () -> x.public_(), decrypt : (_0, _1, _2) -> {
+            final obj = x.decrypt(_0, [for (i in _1) i], _2);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

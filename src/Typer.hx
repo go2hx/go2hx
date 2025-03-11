@@ -930,6 +930,8 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 	var chan = typeExpr(stmt.chan, info);
 	var t = typeof(stmt.chan, info, false);
 	var value = typeExpr(stmt.value, info);
+	final valueType = typeof(stmt.value, info, false);
+	value = assignTranslate(valueType, getElem(t), value, info);
 	return (macro $chan.__send__($value)).expr;
 }
 
@@ -939,6 +941,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	if (stmt.body.list == null)
 		return (macro @:null_select {}).expr;
 	var needsReturn = true;
+	final resets:Array<Expr> = [];
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
@@ -972,16 +975,24 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			if (comm.id == "UnaryExpr") { // get
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
-				cond = macro $e != null && $e.__isGet__();
+				cond = macro $e != null && $e.__isGet__(true);
+				resets.push(macro $e.__reset__());
 				e = macro $e.__get__();
-				if (varName != "")
-					e = macro var $varName = $e;
+				if (varName != "") {
+					if (obj.comm.tok == Ast.Token.DEFINE) {
+						e = macro var $varName = $e;
+					}else{
+						e = assignTranslate(typeof(obj.comm.rhs[0], info, false), typeof(obj.comm.lhs[0], info, false), e, info, false);
+						e = macro $i{varName} = $e;
+					}
+				}
 				block = macro $b{[e, block]};
 			} else { // send
 				var stmt:Ast.SendStmt = comm;
 				final value = typeExpr(stmt.value, info);
 				var e = typeExpr(stmt.chan, info);
-				cond = macro $e != null && $e.__isSend__();
+				cond = macro $e != null && $e.__isSend__(true);
+				resets.push(macro $e.__reset__());
 				e = macro $e.__send__($value);
 				block = macro $b{[e, block]};
 			}
@@ -1012,9 +1023,10 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		var __select__ = true;
 		while(__select__) {
 			$e;
-			@:define("!js") Sys.sleep(0.01);
+			@:define("(sys || hxnodejs)") Sys.sleep(0.01);
 			stdgo._internal.internal.Async.tick();
 		}
+		@:mergeBlock $b{resets};
 	};
 	if (needsReturn) {
 		e = macro $b{[e, toExpr(typeReturnStmt({results: [], returnPos: 0}, info))]};
@@ -1768,6 +1780,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 										exprType = toComplexType(specType, info);
 								default:
 							}
+							if (isInvalidComplexType(exprType))
+								exprType = null;
 							vars.push({
 								name: name,
 								type: exprType,
@@ -1885,7 +1899,7 @@ private function createNamedObjectDecl(fields:Array<FieldType>, f:(field:String,
 	}
 	return toExpr(EObjectDecl(objectFields));
 }
-// implicit conversion
+// This is for implicit conversion
 // explicit conversion: assignTranslate
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
@@ -1998,6 +2012,13 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	return macro($e : $ct);
 }
 
+
+/**
+ * switch x.(type) {}
+ * @param stmt 
+ * @param info 
+ * @return ExprDef
+ */
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 	var init:Expr = stmt.init == null ? null : typeStmt(stmt.init, info);
 	var assign:Expr = null;
@@ -2210,10 +2231,15 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			case refType(_):
 				switch op {
 					case OpEq:
-						return macro ($value == null || ($value : Dynamic).__nil__);
+						return macro ({
+							final value = $value;
+							(value == null || (value : Dynamic).__nil__);
+						});
 					default:
-						return macro ($value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__)))
-							;
+						return macro ({
+							final value = $value;
+							(value != null && ((value : Dynamic).__nil__ == null || (!(value : Dynamic).__nil__)));
+						});
 				}
 			default:
 		}
@@ -2873,7 +2899,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 						var bool = true;
 						for (i in 0...vars.length) {
 							if (!goTypesEqual(vars[i], vars2[i], depth + 1)) {
-								false;
+								bool = false;
 								break;
 							}
 						}
@@ -2944,7 +2970,7 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 			}
 	}
 }
-// explicit conversion
+// This is for explicit conversion
 // implicit conversion: checkType
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	if (goTypesEqual(fromType, toType, 0)) {
@@ -3032,6 +3058,25 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		&& isInterface(toType)) {
 		y = wrapperExpr(fromType, y, info);
 		return y;
+	}
+	switch fromType {
+		case tuple(_, _.get() => vars):
+			switch toType {
+				case tuple(_, _.get() => vars2):
+					final fields:Array<ObjectField> = [
+						for (i in 0...vars.length) {
+							final fieldName = "_" + i;
+							{field: fieldName, expr: assignTranslate(vars[i], vars2[i], macro __tmp__.$fieldName, info, false)};
+						}
+					];
+					final obj = toExpr(EObjectDecl(fields));
+					return macro ({
+						@:assignTranslate final __tmp__ = $y;
+						$obj;
+					});
+				default:
+			}
+		default:
 	}
 	return y;
 }
@@ -3590,7 +3635,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				if (!isSelfAssignValue(x,e))
 					e = macro $x = $e;
 			}else{
-				// x,y = z
+				/*// x,y = z
 				// destructure
 				final assigns:Array<Expr> = [];
 				for (i in 0...info.returnNames.length) {
@@ -3617,7 +3662,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				];
 				assigns.push(toExpr(EObjectDecl(fields)));
 				final ct = info.returnType;
-				e = macro $b{[macro final __tmp__ = $e].concat(assigns)};
+				e = macro $b{[macro @:typeReturnStmt final __tmp__ = $e].concat(assigns)};*/
 			}
 			
 		}
@@ -3640,7 +3685,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	]));
 	if (info.returnNamed) {
 		final ct = info.returnType;
-		final decls:Array<Expr> = [macro final __tmp__:$ct = $expr];
+		final decls:Array<Expr> = [macro @:typeReturnStmt2 final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {
 			final fieldName = "_" + i;
@@ -5244,7 +5289,10 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath(p);
 		case sliceType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			TPath({pack: ["stdgo"], name: "Slice", params: [TPType(ct)]});
+			var params = [TPType(ct)];
+			if (isInvalidComplexType(ct))
+				params = [TPType(TPath({name: "Dynamic", pack: []}))];
+			TPath({pack: ["stdgo"], name: "Slice", params: params});
 		case arrayType(_.get() => elem, len):
 			final ct = toComplexType(elem, info);
 			TPath({pack: ["stdgo"], name: "GoArray", params: [TPType(ct)]});
@@ -6751,13 +6799,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		info.global.renameClasses[name] = name;
 	}
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-		var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
+	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 
 		final recvName = (decl.recv == null || decl.recv.list == null) ? "" : getRecvName(decl.recv.list[0].type, info);
 		macro throw ${makeString(recvName + ":" +info.global.path + "." + name + " is not yet implemented")};
 	} else {
-		final block = toExpr(typeBlockStmt(decl.body, info, true));
+		var block = toExpr(typeBlockStmt(decl.body, info, true));
 		final cond = Patch.skipTests[patchName];
 		if (cond != null) {
 			switch block.expr {
@@ -6767,17 +6815,20 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
 					info.global.deferBool = deferBool;
 					if (cond.length == 0) {
-						exprs.unshift(e);
-						exprs.unshift(macro stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)}));
+						block = macro {
+							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
+							$e;
+						};
 					} else {
 						final targets = makeString("(" + cond.join(" || ") + ")");
-						exprs.unshift(macro @:define($targets) {
+						block = macro @:define($targets) {
 							stdgo.Go.println('-- SKIP: ' + $e{makeExpr(name)});
 							stdgo.Go.println(" skip targets: " + $e{makeString(cond.join(", "))});
 							$e;
-						});
+						};
 					}
 				default:
+					throw "not a block expr";
 			}
 		}
 		macro $block;
@@ -7087,7 +7138,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final size = makeExpr(len);
 			final cap = size;
 			final p:TypePath = {name: "GoArray", params: [TPType(param)], pack: ["stdgo"]};
-			genSlice(p, elem, size, cap, e -> e, info, null);
+			final s = genSlice(p, elem, size, cap, e -> e, info, null);
+			s;
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);
@@ -7104,7 +7156,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final ct = toComplexType(elem, info);
 			switch elem {
 				case arrayType(_):
-					defaultValue(elem, info, strict);
+					final s = defaultValue(elem, info, strict);
+					macro $s.__setNil__();
 				default:
 					macro(null : stdgo.Ref<$ct>); // pointer can be nil
 			}
@@ -8774,10 +8827,10 @@ function splitDepFullPathName(name:String, info:Info):String {
 }
 
 function normalizePath(path:String):String {
-	path = StringTools.replace(path, ".", "_dot_");
-	path = StringTools.replace(path, ":", "_colon_");
-	path = StringTools.replace(path, "go-", "_godash_");
-	path = StringTools.replace(path, "-", "_dash_");
+	path = StringTools.replace(path, ".", "dot");
+	path = StringTools.replace(path, ":", "colon");
+	path = StringTools.replace(path, "go-", "godash");
+	path = StringTools.replace(path, "-", "dash");
 	var path = path.split("/");
 	for (i in 0...path.length) {
 		if (reserved.indexOf(path[i]) != -1) {

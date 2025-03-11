@@ -3,7 +3,7 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
         var _f = (0 : stdgo.GoFloat64), _n = (0 : stdgo.GoInt), _ok = false;
         if ((_s.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : (0 : stdgo.GoInt), _2 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : (0 : stdgo.GoInt), _2 : false };
                 _f = __tmp__._0;
                 _n = __tmp__._1;
                 _ok = __tmp__._2;
@@ -38,7 +38,7 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
                         };
                         if (((_n == (3 : stdgo.GoInt)) || (_n == (8 : stdgo.GoInt)) : Bool)) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_inf.inf(_sign), _1 : (_nsign + _n : stdgo.GoInt), _2 : true };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_inf.inf(_sign), _1 : (_nsign + _n : stdgo.GoInt), _2 : true };
                                 _f = __tmp__._0;
                                 _n = __tmp__._1;
                                 _ok = __tmp__._2;
@@ -50,7 +50,7 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == ((110 : stdgo.GoUInt8)) || __value__ == ((78 : stdgo.GoUInt8))))) {
                         if (stdgo._internal.strconv.Strconv__commonprefixlenignorecase._commonPrefixLenIgnoreCase(_s?.__copy__(), ("nan" : stdgo.GoString)) == ((3 : stdgo.GoInt))) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : (3 : stdgo.GoInt), _2 : true };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : (3 : stdgo.GoInt), _2 : true };
                                 _f = __tmp__._0;
                                 _n = __tmp__._1;
                                 _ok = __tmp__._2;
@@ -65,7 +65,7 @@ function _special(_s:stdgo.GoString):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : (0 : stdgo.GoInt), _2 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; var _2 : Bool; } = { _0 : (0 : stdgo.GoFloat64), _1 : (0 : stdgo.GoInt), _2 : false };
             _f = __tmp__._0;
             _n = __tmp__._1;
             _ok = __tmp__._2;

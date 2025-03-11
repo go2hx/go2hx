@@ -26,7 +26,13 @@ class Reader_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; function readByte():stdgo.Tuple<std.UInt, stdgo.Error>; }):Reader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Reader = { read : _0 -> x.read([for (i in _0) i]), readByte : () -> x.readByte(), __underlying__ : () -> __f__() };
+        final y:Reader = { read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, readByte : () -> {
+            final obj = x.readByte();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -94,7 +100,7 @@ class Reader_static_extension {
     public var _fill(get, set) : (T_compressor, Array<std.UInt>) -> StdTypes.Int;
     function get__fill():(T_compressor, Array<std.UInt>) -> StdTypes.Int return (_0, _1) -> this._fill(_0, [for (i in _1) i]);
     function set__fill(v:(T_compressor, Array<std.UInt>) -> StdTypes.Int):(T_compressor, Array<std.UInt>) -> StdTypes.Int {
-        this._fill = (_0, _1) -> v((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>));
+        this._fill = (_0, _1) -> (v((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
         return v;
     }
     public var _step(get, set) : T_compressor -> Void;
@@ -209,7 +215,7 @@ class Reader_static_extension {
 _compressionLevel,
 (_w : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_huffmanbitwriter.T_huffmanBitWriter>),
 (_0, _1) -> _bulkHasher(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _1) (i : stdgo.GoUInt32)] : stdgo.Slice<stdgo.GoUInt32>)),
-(_0, _1) -> _fill((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)),
+(_0, _1) -> (_fill((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>), ([for (i in _1) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt),
 _0 -> _step((_0 : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_compressor.T_compressor>)),
 _sync,
 (_bestSpeed : stdgo.Ref<stdgo._internal.compress.flate.Flate_t_deflatefast.T_deflateFast>),

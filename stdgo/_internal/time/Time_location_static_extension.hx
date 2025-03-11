@@ -12,7 +12,7 @@ package stdgo._internal.time;
                 var __tmp__ = @:check2r _l._lookup((_unix - ((@:checkr _zone ?? throw "null pointer dereference")._offset : stdgo.GoInt64) : stdgo.GoInt64)), _nam:stdgo.GoString = __tmp__._0, _offset:stdgo.GoInt = __tmp__._1, __1:stdgo.GoInt64 = __tmp__._2, __2:stdgo.GoInt64 = __tmp__._3, __3:Bool = __tmp__._4;
                 if (_nam == ((@:checkr _zone ?? throw "null pointer dereference")._name)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _offset, _1 : true };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _offset, _1 : true };
                         _offset = __tmp__._0;
                         _ok = __tmp__._1;
                         __tmp__;
@@ -24,7 +24,7 @@ package stdgo._internal.time;
             var _zone = (stdgo.Go.setRef((@:checkr _l ?? throw "null pointer dereference")._zone[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.time.Time_t_zone.T_zone>);
             if ((@:checkr _zone ?? throw "null pointer dereference")._name == (_name)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (@:checkr _zone ?? throw "null pointer dereference")._offset, _1 : true };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (@:checkr _zone ?? throw "null pointer dereference")._offset, _1 : true };
                     _offset = __tmp__._0;
                     _ok = __tmp__._1;
                     __tmp__;
@@ -85,7 +85,10 @@ package stdgo._internal.time;
         };
         {
             var _zone = (@:checkr _l ?? throw "null pointer dereference")._cacheZone;
-            if ((((_zone != null && ((_zone : Dynamic).__nil__ == null || !(_zone : Dynamic).__nil__)) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
+            if (((({
+                final value = _zone;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((@:checkr _l ?? throw "null pointer dereference")._cacheStart <= _sec : Bool) : Bool) && (_sec < (@:checkr _l ?? throw "null pointer dereference")._cacheEnd : Bool) : Bool)) {
                 _name = (@:checkr _zone ?? throw "null pointer dereference")._name?.__copy__();
                 _offset = (@:checkr _zone ?? throw "null pointer dereference")._offset;
                 _start = (@:checkr _l ?? throw "null pointer dereference")._cacheStart;
@@ -131,7 +134,7 @@ package stdgo._internal.time;
                 var __tmp__ = stdgo._internal.time.Time__tzset._tzset((@:checkr _l ?? throw "null pointer dereference")._extend?.__copy__(), _start, _sec), _ename:stdgo.GoString = __tmp__._0, _eoffset:stdgo.GoInt = __tmp__._1, _estart:stdgo.GoInt64 = __tmp__._2, _eend:stdgo.GoInt64 = __tmp__._3, _eisDST:Bool = __tmp__._4, _ok:Bool = __tmp__._5;
                 if (_ok) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; } = { _0 : _ename?.__copy__(), _1 : _eoffset, _2 : _estart, _3 : _eend, _4 : _eisDST };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt64; var _3 : stdgo.GoInt64; var _4 : Bool; } = { _0 : _ename?.__copy__(), _1 : _eoffset, _2 : _estart, _3 : _eend, _4 : _eisDST };
                         _name = __tmp__._0;
                         _offset = __tmp__._1;
                         _start = __tmp__._2;
@@ -154,7 +157,10 @@ package stdgo._internal.time;
     @:tdfield
     static public function _get( _l:stdgo.Ref<stdgo._internal.time.Time_location.Location>):stdgo.Ref<stdgo._internal.time.Time_location.Location> {
         @:recv var _l:stdgo.Ref<stdgo._internal.time.Time_location.Location> = _l;
-        if ((_l == null || (_l : Dynamic).__nil__)) {
+        if (({
+            final value = _l;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (stdgo.Go.setRef(stdgo._internal.time.Time__utcloc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>);
         };
         if (_l == ((stdgo.Go.setRef(stdgo._internal.time.Time__localloc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_location.Location>))) {

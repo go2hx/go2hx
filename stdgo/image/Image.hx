@@ -60,7 +60,13 @@ private function set_opaque(v:Uniform):Uniform {
     @:from
     static function fromHaxeInterface(x:{ function peek(_0:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function read(_0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error>; }):T_reader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_reader = { peek : _0 -> x.peek(_0), read : _0 -> x.read([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_reader = { peek : _0 -> {
+            final obj = x.peek(_0);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, read : _0 -> {
+            final obj = x.read([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -171,18 +177,36 @@ class PalettedImage_static_extension {
         return v;
     }
     public var _decode(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>;
-    function get__decode():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> return _0 -> this._decode(_0);
+    function get__decode():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> return _0 -> {
+        final obj = this._decode(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set__decode(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error> {
-        this._decode = _0 -> v(_0);
+        this._decode = _0 -> {
+            final obj = v(_0);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var _decodeConfig(get, set) : stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>;
-    function get__decodeConfig():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> return _0 -> this._decodeConfig(_0);
+    function get__decodeConfig():stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> return _0 -> {
+        final obj = this._decodeConfig(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set__decodeConfig(v:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error> {
-        this._decodeConfig = _0 -> v(_0);
+        this._decodeConfig = _0 -> {
+            final obj = v(_0);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
-    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _0 -> _decode(_0), _0 -> _decodeConfig(_0));
+    public function new(?_name:String, ?_magic:String, ?_decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, ?_decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>) this = new stdgo._internal.image.Image_t_format.T_format((_name : stdgo.GoString), (_magic : stdgo.GoString), _0 -> {
+        final obj = _decode(_0);
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    }, _0 -> {
+        final obj = _decodeConfig(_0);
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1460,8 +1484,14 @@ class Image {
     static public inline function registerFormat(_name:String, _magic:String, _decode:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Image_, stdgo.Error>, _decodeConfig:stdgo._internal.io.Io_reader.Reader -> stdgo.Tuple<Config, stdgo.Error>):Void {
         final _name = (_name : stdgo.GoString);
         final _magic = (_magic : stdgo.GoString);
-        final _decode = _0 -> _decode(_0);
-        final _decodeConfig = _0 -> _decodeConfig(_0);
+        final _decode = _0 -> {
+            final obj = _decode(_0);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
+        final _decodeConfig = _0 -> {
+            final obj = _decodeConfig(_0);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         stdgo._internal.image.Image_registerformat.registerFormat(_name, _magic, _decode, _decodeConfig);
     }
     /**

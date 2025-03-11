@@ -32,7 +32,10 @@ package stdgo._internal.net.rpc.jsonrpc;
         @:check2 (@:checkr _c ?? throw "null pointer dereference")._mutex.unlock();
         (@:checkr _r ?? throw "null pointer dereference").error = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         (@:checkr _r ?? throw "null pointer dereference").seq = (@:checkr _c ?? throw "null pointer dereference")._resp.id;
-        if ((((@:checkr _c ?? throw "null pointer dereference")._resp.error != null) || ((@:checkr _c ?? throw "null pointer dereference")._resp.result == null || ((@:checkr _c ?? throw "null pointer dereference")._resp.result : Dynamic).__nil__) : Bool)) {
+        if ((((@:checkr _c ?? throw "null pointer dereference")._resp.error != null) || ({
+            final value = (@:checkr _c ?? throw "null pointer dereference")._resp.result;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert(((@:checkr _c ?? throw "null pointer dereference")._resp.error : stdgo.GoString)) : stdgo.GoString), _1 : true };
             } catch(_) {

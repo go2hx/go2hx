@@ -9,7 +9,7 @@ function _mulAddWWW_g(_x:stdgo._internal.math.big.Big_word.Word, _y:stdgo._inter
             _cc = @:tmpset0 __tmp__._1;
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.math.big.Big_word.Word; var _1 : stdgo._internal.math.big.Big_word.Word; } = { _0 : ((_hi + _cc : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _1 : (_lo : stdgo._internal.math.big.Big_word.Word) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.math.big.Big_word.Word; var _1 : stdgo._internal.math.big.Big_word.Word; } = { _0 : ((_hi + _cc : stdgo.GoUInt) : stdgo._internal.math.big.Big_word.Word), _1 : (_lo : stdgo._internal.math.big.Big_word.Word) };
             _z1 = __tmp__._0;
             _z0 = __tmp__._1;
             __tmp__;

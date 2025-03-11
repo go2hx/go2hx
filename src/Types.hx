@@ -151,6 +151,8 @@ function getElem(type:GoType):GoType {
 			getElem(type);
 		case arrayType(_.get() => elem, _), sliceType(_.get() => elem), pointerType(_.get() => elem), refType(_.get() => elem):
 			elem;
+		case chanType(_, _.get() => elem):
+			elem;
 		default:
 			type;
 	}

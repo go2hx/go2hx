@@ -6,7 +6,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = _r.readAt(_ident, (0i64 : stdgo.GoInt64)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_n < (_ident.length) : Bool) || (_err != null) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -19,7 +19,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.debug.elf.Elf_newfile.newFile(_r), _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -31,7 +31,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.debug.pe.Pe_newfile.newFile(_r), _f:stdgo.Ref<stdgo._internal.debug.pe.Pe_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -43,7 +43,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.debug.macho.Macho_newfile.newFile(_r), _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -55,7 +55,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.debug.macho.Macho_newfatfile.newFatFile(_r), _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_fatfile.FatFile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_err != null) || ((@:checkr _f ?? throw "null pointer dereference").arches.length == (0 : stdgo.GoInt)) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -67,7 +67,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.internal.xcoff.Xcoff_newfile.newFile(_r), _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -79,7 +79,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var __tmp__ = stdgo._internal.debug.plan9obj.Plan9obj_newfile.newFile(_r), _f:stdgo.Ref<stdgo._internal.debug.plan9obj.Plan9obj_file.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -89,7 +89,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             _x = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe(_f) : stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe)) : stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe>));
         } else {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errunrecognizedformat._errUnrecognizedFormat };
                 _vers = __tmp__._0;
                 _mod = __tmp__._1;
                 _err = __tmp__._2;
@@ -100,7 +100,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
         var __tmp__ = _x.readData(_dataAddr, (65536i64 : stdgo.GoUInt64)), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                 _vers = __tmp__._0;
                 _mod = __tmp__._1;
                 _err = __tmp__._2;
@@ -112,7 +112,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             var _i = (stdgo._internal.bytes.Bytes_index.index(_data, stdgo._internal.debug.buildinfo.Buildinfo__buildinfomagic._buildInfoMagic) : stdgo.GoInt);
             if (((_i < (0 : stdgo.GoInt) : Bool) || (((_data.length) - _i : stdgo.GoInt) < (32 : stdgo.GoInt) : Bool) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -154,7 +154,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
                 _readPtr = _bo.uint64;
             } else {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
                     _vers = __tmp__._0;
                     _mod = __tmp__._1;
                     _err = __tmp__._2;
@@ -166,7 +166,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
         };
         if (_vers == ((stdgo.Go.str() : stdgo.GoString))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : stdgo._internal.debug.buildinfo.Buildinfo__errnotgoexe._errNotGoExe };
                 _vers = __tmp__._0;
                 _mod = __tmp__._1;
                 _err = __tmp__._2;
@@ -179,7 +179,7 @@ function _readRawBuildInfo(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 
             _mod = (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _vers?.__copy__(), _1 : _mod?.__copy__(), _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _vers?.__copy__(), _1 : _mod?.__copy__(), _2 : (null : stdgo.Error) };
             _vers = __tmp__._0;
             _mod = __tmp__._1;
             _err = __tmp__._2;

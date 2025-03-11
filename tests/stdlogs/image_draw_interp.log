@@ -4,9 +4,3 @@
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
      | Type not found : stdgo._internal.image.draw.Draw__i_5109377
 
-[ERROR] ./stdgo/_internal/image/draw/Draw_testpaletted.hx:5: character 43
-
-   5 |             var _keys_5119040:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
-     |                                           ^
-     | Invalid character '#'
-

@@ -9,12 +9,21 @@ private function set_errInvalidMediaParameter(v:stdgo.Error):stdgo.Error {
     }
 @:structInit @:using(stdgo.mime.Mime.WordDecoder_static_extension) abstract WordDecoder(stdgo._internal.mime.Mime_worddecoder.WordDecoder) from stdgo._internal.mime.Mime_worddecoder.WordDecoder to stdgo._internal.mime.Mime_worddecoder.WordDecoder {
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
-    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
+    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> {
+        final obj = this.charsetReader(_0, _1);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this.charsetReader = (_0, _1) -> v((_0 : stdgo.GoString), _1);
+        this.charsetReader = (_0, _1) -> {
+            final obj = v((_0 : stdgo.GoString), _1);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
-    public function new(?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder((_0, _1) -> charsetReader((_0 : stdgo.GoString), _1));
+    public function new(?charsetReader:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>) this = new stdgo._internal.mime.Mime_worddecoder.WordDecoder((_0, _1) -> {
+        final obj = charsetReader((_0 : stdgo.GoString), _1);
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    });
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

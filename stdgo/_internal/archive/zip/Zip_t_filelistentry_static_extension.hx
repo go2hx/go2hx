@@ -16,7 +16,10 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function modTime( _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry>):stdgo._internal.time.Time_time.Time {
         @:recv var _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_filelistentry.T_fileListEntry> = _f;
-        if (((@:checkr _f ?? throw "null pointer dereference")._file == null || ((@:checkr _f ?? throw "null pointer dereference")._file : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _f ?? throw "null pointer dereference")._file;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time);
         };
         return (@:checkr (@:checkr _f ?? throw "null pointer dereference")._file ?? throw "null pointer dereference").fileHeader.modified.uTC()?.__copy__();

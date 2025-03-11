@@ -50,7 +50,10 @@ _isSquare[(@:check2 _sq.uint64() : stdgo.GoInt)] = true;
                     while ((_x < _n : Bool)) {
                         @:check2 _sq.setInt64((_x : stdgo.GoInt64));
 var _z = @:check2 _sqrt.modSqrt((stdgo.Go.setRef(_sq) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), (stdgo.Go.setRef(_mod) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>));
-if ((!_isSquare[(_x : stdgo.GoInt)] && (_z != null && ((_z : Dynamic).__nil__ == null || !(_z : Dynamic).__nil__)) : Bool)) {
+if ((!_isSquare[(_x : stdgo.GoInt)] && ({
+                            final value = _z;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        }) : Bool)) {
                             @:check2r _t.errorf(("#%d: failed (sqrt(%d,%d) = nil)" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_sqrt) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_mod) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>))));
                         };
                         _x++;

@@ -8,7 +8,7 @@ Called from stdgo._internal.syscall._Syscall_setenv.$Syscall_setenv_Fields_.sete
 Called from _internal.syscall_test._Syscall_test__testsetgetenv.$Syscall_test__testsetgetenv_Fields_._testSetGetenv (_internal/syscall_test/Syscall_test__testsetgetenv.hx line 3)
 Called from _internal.syscall_test._Syscall_test_testenv.$Syscall_test_testenv_Fields_.testEnv (_internal/syscall_test/Syscall_test_testenv.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Fields_.main (_internal/syscall_dot_test/Syscall_dot_test.hx line 4)
+Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.main (_internal/syscalldottest/Syscalldottest.hx line 7)
 
 -- FAIL: TestEnv
 
@@ -21,7 +21,7 @@ Called from stdgo._internal.sync.$Once_static_extension.do_ (stdgo/_internal/syn
 Called from stdgo._internal.internal.testenv._Testenv_musthaveexec.$Testenv_musthaveexec_Fields_.mustHaveExec (stdgo/_internal/internal/testenv/Testenv_musthaveexec.hx line 3)
 Called from _internal.syscall_test._Syscall_test_testexecerrpermutedfds.$Syscall_test_testexecerrpermutedfds_Fields_.testExecErrPermutedFds (_internal/syscall_test/Syscall_test_testexecerrpermutedfds.hx line 3)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Fields_.main (_internal/syscall_dot_test/Syscall_dot_test.hx line 4)
+Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.main (_internal/syscalldottest/Syscalldottest.hx line 7)
 
 -- FAIL: TestExecErrPermutedFds
 
@@ -33,7 +33,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_inte
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.syscall_test._Syscall_test_testgettimeofday.$Syscall_test_testgettimeofday_Fields_.testGettimeofday (_internal/syscall_test/Syscall_test_testgettimeofday.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.syscall_dot_test._Syscall_dot_test.$Syscall_dot_test_Fields_.main (_internal/syscall_dot_test/Syscall_dot_test.hx line 4)
+Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.main (_internal/syscalldottest/Syscalldottest.hx line 7)
 
 -- SKIP: TestGettimeofday
 

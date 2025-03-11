@@ -1,3 +1,3 @@
--m _internal.flag_dot_test.Flag_dot_test
+-m _internal.flagdottest.Flagdottest
 -lib go2hx
 -cp .

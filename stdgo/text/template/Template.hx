@@ -522,19 +522,19 @@ class I_static_extension {
     public var binaryFunc(get, set) : (String, String) -> String;
     function get_binaryFunc():(String, String) -> String return (_0, _1) -> this.binaryFunc(_0, _1);
     function set_binaryFunc(v:(String, String) -> String):(String, String) -> String {
-        this.binaryFunc = (_0, _1) -> v((_0 : stdgo.GoString), (_1 : stdgo.GoString));
+        this.binaryFunc = (_0, _1) -> (v((_0 : stdgo.GoString), (_1 : stdgo.GoString)) : stdgo.GoString);
         return v;
     }
     public var variadicFunc(get, set) : haxe.Rest<String> -> String;
     function get_variadicFunc():haxe.Rest<String> -> String return _0 -> this.variadicFunc(_0);
     function set_variadicFunc(v:haxe.Rest<String> -> String):haxe.Rest<String> -> String {
-        this.variadicFunc = _0 -> v(_0);
+        this.variadicFunc = _0 -> (v(_0) : stdgo.GoString);
         return v;
     }
     public var variadicFuncInt(get, set) : (StdTypes.Int, haxe.Rest<String>) -> String;
     function get_variadicFuncInt():(StdTypes.Int, haxe.Rest<String>) -> String return (_0, _1) -> this.variadicFuncInt(_0, _1);
     function set_variadicFuncInt(v:(StdTypes.Int, haxe.Rest<String>) -> String):(StdTypes.Int, haxe.Rest<String>) -> String {
-        this.variadicFuncInt = (_0, _1) -> v((_0 : stdgo.GoInt), _1);
+        this.variadicFuncInt = (_0, _1) -> (v((_0 : stdgo.GoInt), _1) : stdgo.GoString);
         return v;
     }
     public var nilOKFunc(get, set) : stdgo.Pointer<StdTypes.Int> -> Bool;
@@ -544,15 +544,21 @@ class I_static_extension {
         return v;
     }
     public var errFunc(get, set) : () -> stdgo.Tuple<String, stdgo.Error>;
-    function get_errFunc():() -> stdgo.Tuple<String, stdgo.Error> return () -> this.errFunc();
+    function get_errFunc():() -> stdgo.Tuple<String, stdgo.Error> return () -> {
+        final obj = this.errFunc();
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_errFunc(v:() -> stdgo.Tuple<String, stdgo.Error>):() -> stdgo.Tuple<String, stdgo.Error> {
-        this.errFunc = () -> v();
+        this.errFunc = () -> {
+            final obj = v();
+            { _0 : (obj._0 : stdgo.GoString), _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var panicFunc(get, set) : () -> String;
     function get_panicFunc():() -> String return () -> this.panicFunc();
     function set_panicFunc(v:() -> String):() -> String {
-        this.panicFunc = () -> v();
+        this.panicFunc = () -> (v() : stdgo.GoString);
         return v;
     }
     public var tmpl(get, set) : Template_;
@@ -686,12 +692,15 @@ pI,
 pS,
 (pSI : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>),
 nIL,
-(_0, _1) -> binaryFunc((_0 : stdgo.GoString), (_1 : stdgo.GoString)),
-_0 -> variadicFunc(_0),
-(_0, _1) -> variadicFuncInt((_0 : stdgo.GoInt), _1),
+(_0, _1) -> (binaryFunc((_0 : stdgo.GoString), (_1 : stdgo.GoString)) : stdgo.GoString),
+_0 -> (variadicFunc(_0) : stdgo.GoString),
+(_0, _1) -> (variadicFuncInt((_0 : stdgo.GoInt), _1) : stdgo.GoString),
 _0 -> nilOKFunc(_0),
-() -> errFunc(),
-() -> panicFunc(),
+() -> {
+        final obj = errFunc();
+        { _0 : (obj._0 : stdgo.GoString), _1 : (obj._1 : stdgo.Error) };
+    },
+() -> (panicFunc() : stdgo.GoString),
 (tmpl : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>),
 (_unexported : stdgo.GoInt));
     public function __underlying__() return stdgo.Go.toInterface(this);

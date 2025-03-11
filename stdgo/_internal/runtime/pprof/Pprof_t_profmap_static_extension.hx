@@ -4,13 +4,13 @@ package stdgo._internal.runtime.pprof;
     @:tdfield
     static public function _lookup( _m:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmap.T_profMap>, _stk:stdgo.Slice<stdgo.GoUInt64>, _tag:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> {
         @:recv var _m:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmap.T_profMap> = _m;
+        var _i_3836135_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _h_0:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
         var _e_6:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         var _e_4:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
         var _last_3:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_t_profmapentry.T_profMapEntry>);
-        var _j_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _x_2:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _i_3836135_1:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _h_0:stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
+        var _j_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _j_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var searchBreak = false;
         var _gotoNext = 0i32;
@@ -54,7 +54,10 @@ package stdgo._internal.runtime.pprof;
                     searchBreak = false;
                     _gotoNext = 3836355i32;
                 } else if (__value__ == (3836355i32)) {
-                    if (!searchBreak && ((_e_4 != null && ((_e_4 : Dynamic).__nil__ == null || !(_e_4 : Dynamic).__nil__)))) {
+                    if (!searchBreak && (({
+                        final value = _e_4;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }))) {
                         _gotoNext = 3836409i32;
                     } else {
                         _gotoNext = 3836712i32;
@@ -106,7 +109,10 @@ package stdgo._internal.runtime.pprof;
                         _gotoNext = 3836583i32;
                     };
                 } else if (__value__ == (3836583i32)) {
-                    if ((_last_3 != null && ((_last_3 : Dynamic).__nil__ == null || !(_last_3 : Dynamic).__nil__))) {
+                    if (({
+                        final value = _last_3;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3836598i32;
                     } else {
                         _gotoNext = 3836679i32;
@@ -184,7 +190,10 @@ package stdgo._internal.runtime.pprof;
                     _gotoNext = 3837172i32;
                 } else if (__value__ == (3837172i32)) {
                     (@:checkr _m ?? throw "null pointer dereference")._hash[_h_0] = _e_6;
-                    if (((@:checkr _m ?? throw "null pointer dereference")._all == null || ((@:checkr _m ?? throw "null pointer dereference")._all : Dynamic).__nil__)) {
+                    if (({
+                        final value = (@:checkr _m ?? throw "null pointer dereference")._all;
+                        (value == null || (value : Dynamic).__nil__);
+                    })) {
                         _gotoNext = 3837203i32;
                     } else {
                         _gotoNext = 3837238i32;

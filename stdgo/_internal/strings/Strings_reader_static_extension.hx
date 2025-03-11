@@ -20,7 +20,7 @@ package stdgo._internal.strings;
         (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
         if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -84,7 +84,7 @@ package stdgo._internal.strings;
         if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             (@:checkr _r ?? throw "null pointer dereference")._prevRune = (-1 : stdgo.GoInt);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eOF };
                 _ch = __tmp__._0;
                 _size = __tmp__._1;
                 _err = __tmp__._2;
@@ -97,7 +97,7 @@ package stdgo._internal.strings;
             if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                 (@:checkr _r ?? throw "null pointer dereference")._i++;
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
                     _ch = __tmp__._0;
                     _size = __tmp__._1;
                     _err = __tmp__._2;
@@ -143,7 +143,7 @@ package stdgo._internal.strings;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_off < (0i64 : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -151,7 +151,7 @@ package stdgo._internal.strings;
         };
         if ((_off >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -170,7 +170,7 @@ package stdgo._internal.strings;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((@:checkr _r ?? throw "null pointer dereference")._i >= ((@:checkr _r ?? throw "null pointer dereference")._s.length : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eOF };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

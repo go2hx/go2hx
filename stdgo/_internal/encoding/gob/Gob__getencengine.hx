@@ -5,7 +5,10 @@ function _getEncEngine(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertype
             stdgo._internal.encoding.gob.Gob__error_._error_(_err);
         };
         var _enc = @:check2 (@:checkr _info ?? throw "null pointer dereference")._encoder.load();
-        if ((_enc == null || (_enc : Dynamic).__nil__)) {
+        if (({
+            final value = _enc;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _enc = stdgo._internal.encoding.gob.Gob__buildencengine._buildEncEngine(_info, _ut, _building);
         };
         return _enc;

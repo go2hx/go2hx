@@ -4,7 +4,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.P
         var _i = (stdgo.Go.setRef((@:checkr _p ?? throw "null pointer dereference").inst[((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_inst.Inst>);
         if ((((@:checkr _i ?? throw "null pointer dereference").op != (3 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || (((((@:checkr _i ?? throw "null pointer dereference").arg : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) & (4 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp) == (0 : stdgo._internal.regexp.syntax.Syntax_emptyop.EmptyOp)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
                 _prefix = __tmp__._0;
                 _complete = __tmp__._1;
                 _pc = __tmp__._2;
@@ -19,7 +19,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.P
         };
         if (((stdgo._internal.regexp.Regexp__iop._iop(_i) != (7 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)) || ((@:checkr _i ?? throw "null pointer dereference").rune.length != (1 : stdgo.GoInt)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (@:checkr _i ?? throw "null pointer dereference").op == ((4 : stdgo._internal.regexp.syntax.Syntax_instop.InstOp)), _2 : ((@:checkr _p ?? throw "null pointer dereference").start : stdgo.GoUInt32) };
                 _prefix = __tmp__._0;
                 _complete = __tmp__._1;
                 _pc = __tmp__._2;
@@ -40,7 +40,7 @@ function _onePassPrefix(_p:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_prog.P
             _complete = true;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (@:check2 _buf.string() : stdgo.GoString)?.__copy__(), _1 : _complete, _2 : _pc };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.GoUInt32; } = { _0 : (@:check2 _buf.string() : stdgo.GoString)?.__copy__(), _1 : _complete, _2 : _pc };
             _prefix = __tmp__._0;
             _complete = __tmp__._1;
             _pc = __tmp__._2;

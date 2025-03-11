@@ -37,7 +37,19 @@ class Curve_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function generateKey(_rand:stdgo._internal.io.Io_reader.Reader):stdgo.Tuple<PrivateKey, stdgo.Error>; function newPrivateKey(_key:Array<std.UInt>):stdgo.Tuple<PrivateKey, stdgo.Error>; function newPublicKey(_key:Array<std.UInt>):stdgo.Tuple<PublicKey, stdgo.Error>; function _ecdh(_local:PrivateKey, _remote:PublicKey):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function _privateKeyToPublicKey(_0:PrivateKey):PublicKey; }):Curve {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Curve = { generateKey : _0 -> x.generateKey(_0), newPrivateKey : _0 -> x.newPrivateKey([for (i in _0) i]), newPublicKey : _0 -> x.newPublicKey([for (i in _0) i]), _ecdh : (_0, _1) -> x._ecdh(_0, _1), _privateKeyToPublicKey : _0 -> x._privateKeyToPublicKey(_0), __underlying__ : () -> __f__() };
+        final y:Curve = { generateKey : _0 -> {
+            final obj = x.generateKey(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, newPrivateKey : _0 -> {
+            final obj = x.newPrivateKey([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, newPublicKey : _0 -> {
+            final obj = x.newPublicKey([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, _ecdh : (_0, _1) -> {
+            final obj = x._ecdh(_0, _1);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, _privateKeyToPublicKey : _0 -> x._privateKeyToPublicKey(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -78,7 +90,19 @@ class Curve_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function bytes():Array<std.UInt>; function bytesX():stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function setBytes(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarMult(_0:Dynamic, _1:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; function scalarBaseMult(_0:Array<std.UInt>):stdgo.Tuple<Dynamic, stdgo.Error>; }):T_nistPoint {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_nistPoint = { bytes : () -> x.bytes(), bytesX : () -> x.bytesX(), setBytes : _0 -> x.setBytes([for (i in _0) i]), scalarMult : (_0, _1) -> x.scalarMult(_0, [for (i in _1) i]), scalarBaseMult : _0 -> x.scalarBaseMult([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_nistPoint = { bytes : () -> [for (i in x.bytes()) i], bytesX : () -> {
+            final obj = x.bytesX();
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, setBytes : _0 -> {
+            final obj = x.setBytes([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarMult : (_0, _1) -> {
+            final obj = x.scalarMult(_0, [for (i in _1) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, scalarBaseMult : _0 -> {
+            final obj = x.scalarBaseMult([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

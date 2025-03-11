@@ -4,14 +4,14 @@ function sincos(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
         {};
         if (_x == (0 : stdgo.GoFloat64)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : _x, _1 : (1 : stdgo.GoFloat64) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : _x, _1 : (1 : stdgo.GoFloat64) };
                 _sin = __tmp__._0;
                 _cos = __tmp__._1;
                 __tmp__;
             };
         } else if ((stdgo._internal.math.Math_isnan.isNaN(_x) || stdgo._internal.math.Math_isinf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : stdgo._internal.math.Math_nan.naN() };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : stdgo._internal.math.Math_nan.naN(), _1 : stdgo._internal.math.Math_nan.naN() };
                 _sin = __tmp__._0;
                 _cos = __tmp__._1;
                 __tmp__;

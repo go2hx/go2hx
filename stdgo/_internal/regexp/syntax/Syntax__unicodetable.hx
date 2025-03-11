@@ -5,13 +5,19 @@ function _unicodeTable(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._interna
         };
         {
             var _t = (stdgo._internal.unicode.Unicode_categories.categories[_name] ?? (null : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>));
-            if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
+            if (({
+                final value = _t;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return { _0 : _t, _1 : (stdgo._internal.unicode.Unicode_foldcategory.foldCategory[_name] ?? (null : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)) };
             };
         };
         {
             var _t = (stdgo._internal.unicode.Unicode_scripts.scripts[_name] ?? (null : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>));
-            if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
+            if (({
+                final value = _t;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return { _0 : _t, _1 : (stdgo._internal.unicode.Unicode_foldscript.foldScript[_name] ?? (null : stdgo.Ref<stdgo._internal.unicode.Unicode_rangetable.RangeTable>)) };
             };
         };

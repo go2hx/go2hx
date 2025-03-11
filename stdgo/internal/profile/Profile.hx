@@ -18,7 +18,7 @@ private function set_legacyHeapAllocated(v:Bool):Bool {
     @:from
     static function fromHaxeInterface(x:{ function _decoder():Array<T_decoder>; function _encode(_0:T_buffer):Void; }):T_message {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_message = { _decoder : () -> x._decoder(), _encode : _0 -> x._encode(_0), __underlying__ : () -> __f__() };
+        final y:T_message = { _decoder : () -> [for (i in x._decoder()) i], _encode : _0 -> x._encode(_0), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

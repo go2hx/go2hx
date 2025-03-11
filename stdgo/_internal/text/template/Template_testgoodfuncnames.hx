@@ -8,7 +8,10 @@ function testGoodFuncNames(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):
                 x.set(_name, stdgo.Go.toInterface(stdgo._internal.text.template.Template__funcnametestfunc._funcNameTestFunc));
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template_funcmap.FuncMap));
-            if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
+            if (({
+                final value = _tmpl;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 @:check2r _t.fatalf(("nil result for %q" : stdgo.GoString), stdgo.Go.toInterface(_name));
             };
         };

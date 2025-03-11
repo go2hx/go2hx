@@ -13,7 +13,10 @@ package stdgo._internal.image.png;
         if ((@:checkr _e ?? throw "null pointer dereference")._err != null) {
             return;
         };
-        if (((@:checkr _e ?? throw "null pointer dereference")._bw == null || ((@:checkr _e ?? throw "null pointer dereference")._bw : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _e ?? throw "null pointer dereference")._bw;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             (@:checkr _e ?? throw "null pointer dereference")._bw = stdgo._internal.bufio.Bufio_newwritersize.newWriterSize(stdgo.Go.asInterface(_e), (32768 : stdgo.GoInt));
         } else {
             @:check2r (@:checkr _e ?? throw "null pointer dereference")._bw.reset(stdgo.Go.asInterface(_e));
@@ -30,7 +33,10 @@ package stdgo._internal.image.png;
         @:recv var _e:stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder> = _e;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if ((((@:checkr _e ?? throw "null pointer dereference")._zw == null || ((@:checkr _e ?? throw "null pointer dereference")._zw : Dynamic).__nil__) || ((@:checkr _e ?? throw "null pointer dereference")._zwLevel != _level) : Bool)) {
+            if ((({
+                final value = (@:checkr _e ?? throw "null pointer dereference")._zw;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ((@:checkr _e ?? throw "null pointer dereference")._zwLevel != _level) : Bool)) {
                 var __tmp__ = stdgo._internal.compress.zlib.Zlib_newwriterlevel.newWriterLevel(_w, _level), _zw:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_writer.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
@@ -114,7 +120,10 @@ package stdgo._internal.image.png;
 {
                         final __value__ = _cb;
                         if (__value__ == ((4 : stdgo.GoInt))) {
-                            if ((_gray != null && ((_gray : Dynamic).__nil__ == null || !(_gray : Dynamic).__nil__))) {
+                            if (({
+                                final value = _gray;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * (@:checkr _gray ?? throw "null pointer dereference").stride : stdgo.GoInt);
                                 (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _gray ?? throw "null pointer dereference").pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
@@ -132,14 +141,20 @@ _i++;
                             var _cr0 = _cr[(0 : stdgo.GoInt)];
                             var __0 = (0 : stdgo.GoInt), __1 = (null : stdgo.Slice<stdgo.GoUInt8>);
 var _pix = __1, _stride = __0;
-                            if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
+                            if (({
+                                final value = _rgba;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 {
                                     final __tmp__0 = (@:checkr _rgba ?? throw "null pointer dereference").stride;
                                     final __tmp__1 = (@:checkr _rgba ?? throw "null pointer dereference").pix;
                                     _stride = @:binopAssign __tmp__0;
                                     _pix = @:binopAssign __tmp__1;
                                 };
-                            } else if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
+                            } else if (({
+                                final value = _nrgba;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 {
                                     final __tmp__0 = (@:checkr _nrgba ?? throw "null pointer dereference").stride;
                                     final __tmp__1 = (@:checkr _nrgba ?? throw "null pointer dereference").pix;
@@ -174,7 +189,10 @@ _i = (_i + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                                 };
                             };
                         } else if (__value__ == ((10 : stdgo.GoInt))) {
-                            if ((_paletted != null && ((_paletted : Dynamic).__nil__ == null || !(_paletted : Dynamic).__nil__))) {
+                            if (({
+                                final value = _paletted;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * (@:checkr _paletted ?? throw "null pointer dereference").stride : stdgo.GoInt);
                                 (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _paletted ?? throw "null pointer dereference").pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
@@ -215,10 +233,16 @@ if (_c == (_pixelsPerByte)) {
                                 _cr[(0 : stdgo.GoInt)][(_i : stdgo.GoInt)] = _a;
                             };
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
-                            if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
+                            if (({
+                                final value = _nrgba;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * (@:checkr _nrgba ?? throw "null pointer dereference").stride : stdgo.GoInt);
                                 (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(((@:checkr _nrgba ?? throw "null pointer dereference").pix.__slice__(_offset, (_offset + (_b.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                            } else if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
+                            } else if (({
+                                final value = _rgba;
+                                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                            })) {
                                 var _dst = (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                                 var _src = ((@:checkr _rgba ?? throw "null pointer dereference").pix.__slice__(@:check2r _rgba.pixOffset(_b.min.x, _y), @:check2r _rgba.pixOffset(_b.max.x, _y)) : stdgo.Slice<stdgo.GoUInt8>);
                                 while (((_src.length) >= (4 : stdgo.GoInt) : Bool)) {

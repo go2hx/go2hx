@@ -32,14 +32,7 @@ var _stride = __2, _pix = __1, _palette = __0;
         };
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-            return {
-                final __tmp__ = _src.at(_x, _y).rGBA();
-                _r = __tmp__._0;
-                _g = __tmp__._1;
-                _b = __tmp__._2;
-                _a = __tmp__._3;
-                { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
-            };
+            return _src.at(_x, _y).rGBA();
         } : (stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; });
         {
             final __type__ = _src;
@@ -47,40 +40,19 @@ var _stride = __2, _pix = __1, _palette = __0;
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return {
-                        final __tmp__ = @:check2r _src0.rGBAAt(_x, _y).rGBA();
-                        _r = __tmp__._0;
-                        _g = __tmp__._1;
-                        _b = __tmp__._2;
-                        _a = __tmp__._3;
-                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
-                    };
+                    return @:check2r _src0.rGBAAt(_x, _y).rGBA();
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>))) {
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_nrgba.NRGBA>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return {
-                        final __tmp__ = @:check2r _src0.nRGBAAt(_x, _y).rGBA();
-                        _r = __tmp__._0;
-                        _g = __tmp__._1;
-                        _b = __tmp__._2;
-                        _a = __tmp__._3;
-                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
-                    };
+                    return @:check2r _src0.nRGBAAt(_x, _y).rGBA();
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>))) {
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_ycbcr.YCbCr>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return {
-                        final __tmp__ = @:check2r _src0.yCbCrAt(_x, _y).rGBA();
-                        _r = __tmp__._0;
-                        _g = __tmp__._1;
-                        _b = __tmp__._2;
-                        _a = __tmp__._3;
-                        { _0 : _r, _1 : _g, _2 : _b, _3 : _a };
-                    };
+                    return @:check2r _src0.yCbCrAt(_x, _y).rGBA();
                 };
             };
         };

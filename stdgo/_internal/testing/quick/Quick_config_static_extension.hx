@@ -19,7 +19,10 @@ package stdgo._internal.testing.quick;
     @:tdfield
     static public function _getRand( _c:stdgo.Ref<stdgo._internal.testing.quick.Quick_config.Config>):stdgo.Ref<stdgo._internal.math.rand.Rand_rand.Rand> {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.quick.Quick_config.Config> = _c;
-        if (((@:checkr _c ?? throw "null pointer dereference").rand == null || ((@:checkr _c ?? throw "null pointer dereference").rand : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _c ?? throw "null pointer dereference").rand;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newsource.newSource(stdgo._internal.time.Time_now.now().unixNano()));
         };
         return (@:checkr _c ?? throw "null pointer dereference").rand;

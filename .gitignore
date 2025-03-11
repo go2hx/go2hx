@@ -75,7 +75,8 @@ log.out
 sort_*.json
 prebuild
 _internal/*
-analysis/tests/unitmod/*
-analysis/tests/gotomod/*
-analysis/tests/pointermod/*
+analysis/tests/unitmod
+analysis/tests/unit/gotomod/*.go
+analysis/tests/unit/pointermod
 !tests/stdlogs/*.log
+tests/stdlogs/*.md

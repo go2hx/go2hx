@@ -348,7 +348,7 @@ class Slices {
         * and +1 if len(s1) > len(s2).
     **/
     static public inline function compareFunc(_s1:Dynamic, _s2:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):StdTypes.Int {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         return stdgo._internal.slices.Slices_comparefunc.compareFunc(_s1, _s2, _cmp);
     }
     /**
@@ -629,7 +629,7 @@ class Slices {
         * See https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings.
     **/
     static public inline function sortFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Void {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         stdgo._internal.slices.Slices_sortfunc.sortFunc(_x, _cmp);
     }
     /**
@@ -637,7 +637,7 @@ class Slices {
         * elements, using cmp to compare elements in the same way as [SortFunc].
     **/
     static public inline function sortStableFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Void {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         stdgo._internal.slices.Slices_sortstablefunc.sortStableFunc(_x, _cmp);
     }
     /**
@@ -651,7 +651,7 @@ class Slices {
         * comparison function as defined by [SortFunc].
     **/
     static public inline function isSortedFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Bool {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         return stdgo._internal.slices.Slices_issortedfunc.isSortedFunc(_x, _cmp);
     }
     /**
@@ -668,7 +668,7 @@ class Slices {
         * according to the cmp function, MinFunc returns the first one.
     **/
     static public inline function minFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Dynamic {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         return stdgo._internal.slices.Slices_minfunc.minFunc(_x, _cmp);
     }
     /**
@@ -685,7 +685,7 @@ class Slices {
         * according to the cmp function, MaxFunc returns the first one.
     **/
     static public inline function maxFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):Dynamic {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         return stdgo._internal.slices.Slices_maxfunc.maxFunc(_x, _cmp);
     }
     /**
@@ -710,7 +710,7 @@ class Slices {
         * cmp(a, t) < 0 and cmp(b, t) >= 0, then a must precede b in the slice.
     **/
     static public inline function binarySearchFunc(_x:Dynamic, _target:Dynamic, _cmp:(Dynamic, Dynamic) -> StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
-        final _cmp = (_0, _1) -> _cmp(_0, _1);
+        final _cmp = (_0, _1) -> (_cmp(_0, _1) : stdgo.GoInt);
         return {
             final obj = stdgo._internal.slices.Slices_binarysearchfunc.binarySearchFunc(_x, _target, _cmp);
             { _0 : obj._0, _1 : obj._1 };

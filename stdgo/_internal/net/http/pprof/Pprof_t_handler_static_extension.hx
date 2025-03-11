@@ -37,7 +37,7 @@ package stdgo._internal.net.http.pprof;
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (@:check2r _r.context().done() != null && @:check2r _r.context().done().__isGet__()) {
+                    if (@:check2r _r.context().done() != null && @:check2r _r.context().done().__isGet__(true)) {
                         __select__ = false;
                         {
                             @:check2r _r.context().done().__get__();
@@ -58,16 +58,18 @@ package stdgo._internal.net.http.pprof;
                                 };
                             };
                         };
-                    } else if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__()) {
+                    } else if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__(true)) {
                         __select__ = false;
                         {
                             (@:checkr _t ?? throw "null pointer dereference").c.__get__();
                             {};
                         };
                     };
-                    #if !js Sys.sleep(0.01) #else null #end;
+                    #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
+                @:check2r _r.context().done().__reset__();
+(@:checkr _t ?? throw "null pointer dereference").c.__reset__();
             };
             var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectprofile._collectProfile(_p), _p1:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -165,7 +167,10 @@ package stdgo._internal.net.http.pprof;
         @:recv var _name:stdgo._internal.net.http.pprof.Pprof_t_handler.T_handler = _name;
         _w.header().set(("X-Content-Type-Options" : stdgo.GoString), ("nosniff" : stdgo.GoString));
         var _p = stdgo._internal.runtime.pprof.Pprof_lookup.lookup((_name : stdgo.GoString)?.__copy__());
-        if ((_p == null || (_p : Dynamic).__nil__)) {
+        if (({
+            final value = _p;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             stdgo._internal.net.http.pprof.Pprof__serveerror._serveError(_w, (404 : stdgo.GoInt), ("Unknown profile" : stdgo.GoString));
             return;
         };

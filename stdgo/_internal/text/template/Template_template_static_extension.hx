@@ -9,7 +9,13 @@ package stdgo._internal.text.template;
         };
         {
             var _old = ((@:checkr _t ?? throw "null pointer dereference")._common._tmpl[(@:checkr _new_ ?? throw "null pointer dereference").tree._lex._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_template.Template>));
-            if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && stdgo._internal.text.template.parse.Parse_isemptytree.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ((@:checkr _old ?? throw "null pointer dereference").tree != null && (((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__ == null || !((@:checkr _old ?? throw "null pointer dereference").tree : Dynamic).__nil__)) : Bool)) {
+            if (((({
+                final value = _old;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && stdgo._internal.text.template.parse.Parse_isemptytree.isEmptyTree(stdgo.Go.asInterface((@:checkr _tree ?? throw "null pointer dereference").root)) : Bool) && ({
+                final value = (@:checkr _old ?? throw "null pointer dereference").tree;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) : Bool)) {
                 return false;
             };
         };
@@ -43,7 +49,10 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _t ?? throw "null pointer dereference")._common;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return null;
             };
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
@@ -205,7 +214,10 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _t ?? throw "null pointer dereference")._common;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>);
             };
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
@@ -295,7 +307,10 @@ package stdgo._internal.text.template;
             if (_name != ((@:checkr _t ?? throw "null pointer dereference").tree._lex._name)) {
                 _nt = @:check2r _t.new_(_name?.__copy__());
             };
-            if ((@:check2r _t._associate(_nt, _tree) || ((@:checkr _nt ?? throw "null pointer dereference").tree == null || ((@:checkr _nt ?? throw "null pointer dereference").tree : Dynamic).__nil__) : Bool)) {
+            if ((@:check2r _t._associate(_nt, _tree) || ({
+                final value = (@:checkr _nt ?? throw "null pointer dereference").tree;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 (@:checkr _nt ?? throw "null pointer dereference").tree = _tree;
             };
             {
@@ -375,7 +390,10 @@ package stdgo._internal.text.template;
         try {
             var _nt = @:check2r _t._copy(null);
             @:check2r _nt._init();
-            if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _t ?? throw "null pointer dereference")._common;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return { _0 : _nt, _1 : (null : stdgo.Error) };
             };
             @:check2 (@:checkr _t ?? throw "null pointer dereference")._common._muTmpl.rLock();
@@ -469,7 +487,10 @@ package stdgo._internal.text.template;
     @:tdfield
     static public function _init( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
-        if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _t ?? throw "null pointer dereference")._common;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             var _c = (stdgo.Go.setRef(({} : stdgo._internal.text.template.Template_t_common.T_common)) : stdgo.Ref<stdgo._internal.text.template.Template_t_common.T_common>);
             (@:checkr _c ?? throw "null pointer dereference")._tmpl = (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.text.template.Template_template.Template>>();
@@ -578,7 +599,10 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            if (((@:checkr _t ?? throw "null pointer dereference")._common == null || ((@:checkr _t ?? throw "null pointer dereference")._common : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _t ?? throw "null pointer dereference")._common;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
             };
             var _b:stdgo._internal.strings.Strings_builder.Builder = ({} : stdgo._internal.strings.Strings_builder.Builder);
@@ -588,7 +612,13 @@ package stdgo._internal.text.template;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             for (_name => _tmpl in (@:checkr _t ?? throw "null pointer dereference")._common._tmpl) {
-                if ((((@:checkr _tmpl ?? throw "null pointer dereference").tree == null || ((@:checkr _tmpl ?? throw "null pointer dereference").tree : Dynamic).__nil__) || ((@:checkr _tmpl ?? throw "null pointer dereference").tree.root == null || ((@:checkr _tmpl ?? throw "null pointer dereference").tree.root : Dynamic).__nil__) : Bool)) {
+                if ((({
+                    final value = (@:checkr _tmpl ?? throw "null pointer dereference").tree;
+                    (value == null || (value : Dynamic).__nil__);
+                }) || ({
+                    final value = (@:checkr _tmpl ?? throw "null pointer dereference").tree.root;
+                    (value == null || (value : Dynamic).__nil__);
+                }) : Bool)) {
                     continue;
                 };
                 if (@:check2 _b.len() == ((0 : stdgo.GoInt))) {
@@ -682,7 +712,13 @@ package stdgo._internal.text.template;
                 _value = stdgo._internal.reflect.Reflect_valueof.valueOf(_data)?.__copy__();
             };
             var _state = (stdgo.Go.setRef(({ _tmpl : _t, _wr : _wr, _vars : (new stdgo.Slice<stdgo._internal.text.template.Template_t_variable.T_variable>(1, 1, ...[(new stdgo._internal.text.template.Template_t_variable.T_variable(("$" : stdgo.GoString), _value?.__copy__()) : stdgo._internal.text.template.Template_t_variable.T_variable)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_t_variable.T_variable)])) : stdgo.Slice<stdgo._internal.text.template.Template_t_variable.T_variable>) } : stdgo._internal.text.template.Template_t_state.T_state)) : stdgo.Ref<stdgo._internal.text.template.Template_t_state.T_state>);
-            if ((((@:checkr _t ?? throw "null pointer dereference").tree == null || ((@:checkr _t ?? throw "null pointer dereference").tree : Dynamic).__nil__) || ((@:checkr _t ?? throw "null pointer dereference").tree.root == null || ((@:checkr _t ?? throw "null pointer dereference").tree.root : Dynamic).__nil__) : Bool)) {
+            if ((({
+                final value = (@:checkr _t ?? throw "null pointer dereference").tree;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ({
+                final value = (@:checkr _t ?? throw "null pointer dereference").tree.root;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 @:check2r _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(@:check2r _t.name()));
             };
             @:check2r _state._walk(_value?.__copy__(), stdgo.Go.asInterface((@:checkr _t ?? throw "null pointer dereference").tree.root));
@@ -759,7 +795,10 @@ package stdgo._internal.text.template;
     static public function executeTemplate( _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template>, _wr:stdgo._internal.io.Io_writer.Writer, _name:stdgo.GoString, _data:stdgo.AnyInterface):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_template.Template> = _t;
         var _tmpl = @:check2r _t.lookup(_name?.__copy__());
-        if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
+        if (({
+            final value = _tmpl;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("template: no template %q associated with template %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface((@:checkr _t ?? throw "null pointer dereference").tree._lex._name));
         };
         return @:check2r _tmpl.execute(_wr, _data);

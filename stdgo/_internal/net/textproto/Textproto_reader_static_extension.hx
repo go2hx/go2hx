@@ -73,11 +73,17 @@ package stdgo._internal.net.textproto;
     @:tdfield
     static public function _closeDot( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_reader.Reader> = _r;
-        if (((@:checkr _r ?? throw "null pointer dereference")._dot == null || ((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return;
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        while (((@:checkr _r ?? throw "null pointer dereference")._dot != null && (((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__ == null || !((@:checkr _r ?? throw "null pointer dereference")._dot : Dynamic).__nil__))) {
+        while (({
+            final value = (@:checkr _r ?? throw "null pointer dereference")._dot;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _r ?? throw "null pointer dereference")._dot.read(_buf);
         };
     }
@@ -100,7 +106,7 @@ package stdgo._internal.net.textproto;
             var __tmp__ = @:check2r _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : _err };
                     _code = __tmp__._0;
                     _message = __tmp__._1;
                     _err = __tmp__._2;
@@ -148,14 +154,7 @@ package stdgo._internal.net.textproto;
         if (_err != null) {
             return { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
-        return {
-            final __tmp__ = stdgo._internal.net.textproto.Textproto__parsecodeline._parseCodeLine(_line?.__copy__(), _expectCode);
-            _code = __tmp__._0;
-            _continued = __tmp__._1;
-            _message = __tmp__._2?.__copy__();
-            _err = __tmp__._3;
-            { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
-        };
+        return stdgo._internal.net.textproto.Textproto__parsecodeline._parseCodeLine(_line?.__copy__(), _expectCode);
     }
     @:keep
     @:tdfield

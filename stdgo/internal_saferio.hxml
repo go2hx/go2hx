@@ -1,3 +1,3 @@
--m _internal.internal.saferio_dot_test.Saferio_dot_test
+-m _internal.internal.saferiodottest.Saferiodottest
 -lib go2hx
 -cp .

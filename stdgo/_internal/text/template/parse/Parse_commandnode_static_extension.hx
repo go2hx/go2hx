@@ -4,7 +4,10 @@ package stdgo._internal.text.template.parse;
     @:tdfield
     static public function copy( _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode>):stdgo._internal.text.template.parse.Parse_node.Node {
         @:recv var _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_commandnode.CommandNode> = _c;
-        if ((_c == null || (_c : Dynamic).__nil__)) {
+        if (({
+            final value = _c;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return stdgo.Go.asInterface(_c);
         };
         var _n = @:check2r (@:checkr _c ?? throw "null pointer dereference")._tr._newCommand((@:checkr _c ?? throw "null pointer dereference").pos);

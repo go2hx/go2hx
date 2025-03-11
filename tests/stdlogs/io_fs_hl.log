@@ -14,11 +14,11 @@
 Exception: SysError(Failed to read directory )
 Called from stdgo._internal.io.fs._Fs_readdir.$Fs_readdir_Fields_.readDir (stdgo/_internal/io/fs/Fs_readdir.hx line 100)
 Called from stdgo._internal.io.fs._Fs__glob.$Fs__glob_Fields_._glob (stdgo/_internal/io/fs/Fs__glob.hx line 5)
-Called from stdgo._internal.io.fs._Fs__globwithlimit.$Fs__globwithlimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globwithlimit.hx line 65)
+Called from stdgo._internal.io.fs._Fs__globwithlimit.$Fs__globwithlimit_Fields_._globWithLimit (stdgo/_internal/io/fs/Fs__globwithlimit.hx line 63)
 Called from stdgo._internal.io.fs._Fs_glob.$Fs_glob_Fields_.glob (stdgo/_internal/io/fs/Fs_glob.hx line 5)
 Called from _internal.io.fs_test._Fs_test_testglob.$Fs_test_testglob_Fields_.testGlob (_internal/io/fs_test/Fs_test_testglob.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_internal/io/fs_dot_test/Fs_dot_test.hx line 4)
+Called from _internal.io.fsdottest._Fsdottest.$Fsdottest_Fields_.main (_internal/io/fsdottest/Fsdottest.hx line 7)
 
 -- FAIL: TestGlob
 
@@ -63,7 +63,7 @@ Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main (_in
 chmod: invalid mode: ‘448’
 Try 'chmod --help' for more information.
 got directories [.], want [. a a/bad a/next]
-Uncaught exception: SysError(Failed to read directory 1xc9g9rcny/a/bad)
+Uncaught exception: SysError(Failed to read directory nbzn5c2x6b/a/bad)
 Called from sys.$FileSystem.readDirectory(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/FileSystem.hx:98)
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeall.hx:8)
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(stdgo/_internal/os/Os_removeall.hx:11)
@@ -71,5 +71,5 @@ Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.~removeAll.1(
 Called from stdgo._internal.os._Os_removeall.$Os_removeall_Fields_.removeAll(stdgo/_internal/os/Os_removeall.hx:23)
 Called from stdgo._internal.testing.$T_common_static_extension.~tempDir.1(stdgo/_internal/testing/Testing_t_common_static_extension.hx:21)
 Called from stdgo._internal.testing.$M_static_extension.run(stdgo/_internal/testing/Testing_m_static_extension.hx:45)
-Called from _internal.io.fs_dot_test._Fs_dot_test.$Fs_dot_test_Fields_.main(_internal/io/fs_dot_test/Fs_dot_test.hx:4)
+Called from _internal.io.fsdottest._Fsdottest.$Fsdottest_Fields_.main(_internal/io/fsdottest/Fsdottest.hx:7)
 Called from .init(?:1)

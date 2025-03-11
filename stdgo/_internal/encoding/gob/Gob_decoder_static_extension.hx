@@ -190,7 +190,10 @@ package stdgo._internal.encoding.gob;
     @:tdfield
     static public function _recvType( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>, _id:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
-        if (((_id < (64 : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId) : Bool) || (((@:checkr _dec ?? throw "null pointer dereference")._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>)) != null && (((@:checkr _dec ?? throw "null pointer dereference")._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>) : Dynamic).__nil__ == null || !((@:checkr _dec ?? throw "null pointer dereference")._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>) : Dynamic).__nil__)) : Bool)) {
+        if (((_id < (64 : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId) : Bool) || ({
+            final value = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool)) {
             (@:checkr _dec ?? throw "null pointer dereference")._err = stdgo._internal.errors.Errors_new_.new_(("gob: duplicate type received" : stdgo.GoString));
             return;
         };
@@ -215,7 +218,13 @@ package stdgo._internal.encoding.gob;
             return;
         };
         var _wire = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
-        if (((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && ((@:checkr _wire ?? throw "null pointer dereference").structT != null && (((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__)) : Bool)) {
+        if ((({
+            final value = _wire;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && ({
+            final value = (@:checkr _wire ?? throw "null pointer dereference").structT;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool)) {
             @:check2r _dec._ignoreStruct((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>));
         } else {
             @:check2r _dec._ignoreSingle((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>));
@@ -267,7 +276,10 @@ package stdgo._internal.encoding.gob;
                 var _st = (_base : stdgo._internal.reflect.Reflect_type_.Type_);
                 if (((_st.kind() == (25u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && ((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (0 : stdgo.GoInt)) : Bool)) {
                     var _wt = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
-                    if (((((@:checkr _engine ?? throw "null pointer dereference")._numInstr == ((0 : stdgo.GoInt)) && (_st.numField() > (0 : stdgo.GoInt) : Bool) : Bool) && (_wt != null && ((_wt : Dynamic).__nil__ == null || !(_wt : Dynamic).__nil__)) : Bool) && (((@:checkr (@:checkr _wt ?? throw "null pointer dereference").structT ?? throw "null pointer dereference").field.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+                    if (((((@:checkr _engine ?? throw "null pointer dereference")._numInstr == ((0 : stdgo.GoInt)) && (_st.numField() > (0 : stdgo.GoInt) : Bool) : Bool) && ({
+                        final value = _wt;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }) : Bool) && (((@:checkr (@:checkr _wt ?? throw "null pointer dereference").structT ?? throw "null pointer dereference").field.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                         var _name = (_base.name()?.__copy__() : stdgo.GoString);
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("type mismatch: no fields matched compiling decoder for %s" : stdgo.GoString), stdgo.Go.toInterface(_name));
                     };
@@ -346,7 +358,13 @@ package stdgo._internal.encoding.gob;
                 _enginePtr = (stdgo.Go.setRef((null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>)) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
                 (@:checkr _dec ?? throw "null pointer dereference")._ignorerCache[_wireId] = _enginePtr;
                 var _wire = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
-                if (((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && ((@:checkr _wire ?? throw "null pointer dereference").structT != null && (((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__)) : Bool)) {
+                if ((({
+                    final value = _wire;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                }) && ({
+                    final value = (@:checkr _wire ?? throw "null pointer dereference").structT;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                }) : Bool)) {
                     {
                         var __tmp__ = @:check2r _dec._compileDec(_wireId, stdgo._internal.encoding.gob.Gob__usertype._userType(stdgo._internal.encoding.gob.Gob__emptystructtype._emptyStructType));
                         _enginePtr = @:tmpset0 __tmp__._0;
@@ -415,12 +433,7 @@ package stdgo._internal.encoding.gob;
             var _srt = (_rt : stdgo._internal.reflect.Reflect_type_.Type_);
             if (((_srt.kind() != (25u32 : stdgo._internal.reflect.Reflect_kind.Kind)) || ((@:checkr _ut ?? throw "null pointer dereference")._externalDec != (0 : stdgo.GoInt)) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = {
-                        final __tmp__ = @:check2r _dec._compileSingle(_remoteId, _ut);
-                        _engine = __tmp__._0;
-                        _err = __tmp__._1;
-                        { _0 : _engine, _1 : _err };
-                    };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = @:check2r _dec._compileSingle(_remoteId, _ut);
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;
                         defer.ran = true;
@@ -443,13 +456,19 @@ package stdgo._internal.encoding.gob;
                     };
                 } else {
                     var _wire = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
-                    if ((_wire == null || (_wire : Dynamic).__nil__)) {
+                    if (({
+                        final value = _wire;
+                        (value == null || (value : Dynamic).__nil__);
+                    })) {
                         stdgo._internal.encoding.gob.Gob__error_._error_(stdgo._internal.encoding.gob.Gob__errbadtype._errBadType);
                     };
                     _wireStruct = (@:checkr _wire ?? throw "null pointer dereference").structT;
                 };
             };
-            if ((_wireStruct == null || (_wireStruct : Dynamic).__nil__)) {
+            if (({
+                final value = _wireStruct;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 stdgo._internal.encoding.gob.Gob__errorf._errorf(("type mismatch in decoder: want struct type %s; got non-struct" : stdgo.GoString), stdgo.Go.toInterface(_rt));
             };
             _engine = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>);
@@ -596,14 +615,14 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
             var _remoteType = (@:check2r _dec._typeString(_remoteId)?.__copy__() : stdgo.GoString);
             if ((((@:checkr _ut ?? throw "null pointer dereference")._base.kind() == (20u32 : stdgo._internal.reflect.Reflect_kind.Kind)) && (_remoteId != stdgo._internal.encoding.gob.Gob__tinterface._tInterface) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: local interface type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" can only be decoded from remote interface type; received concrete type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: local interface type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" can only be decoded from remote interface type; received concrete type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
                     _engine = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: decoding into local type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (", received remote type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: decoding into local type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (", received remote type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
                 _engine = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -722,7 +741,16 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
         _inProgress[_fr] = _fw;
         var _ut = stdgo._internal.encoding.gob.Gob__usertype._userType(_fr);
         var __tmp__ = ((@:checkr _dec ?? throw "null pointer dereference")._wireType != null && (@:checkr _dec ?? throw "null pointer dereference")._wireType.__exists__(_fw) ? { _0 : (@:checkr _dec ?? throw "null pointer dereference")._wireType[_fw], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>), _1 : false }), _wire:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType> = __tmp__._0, _ok:Bool = __tmp__._1;
-        if (((((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (1 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT != null && (((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__)) : Bool)) || ((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (2 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__)) : Bool)) : Bool) || (((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (3 : stdgo.GoInt)) != ((_ok && ((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__)) : Bool))) : Bool)) {
+        if (((((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (1 : stdgo.GoInt)) != ((_ok && ({
+            final value = (@:checkr _wire ?? throw "null pointer dereference").gobEncoderT;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool)) || ((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (2 : stdgo.GoInt)) != ((_ok && ({
+            final value = (@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool)) : Bool) || (((@:checkr _ut ?? throw "null pointer dereference")._externalDec == (3 : stdgo.GoInt)) != ((_ok && ({
+            final value = (@:checkr _wire ?? throw "null pointer dereference").textMarshalerT;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) : Bool))) : Bool)) {
             return false;
         };
         if ((@:checkr _ut ?? throw "null pointer dereference")._externalDec != ((0 : stdgo.GoInt))) {
@@ -747,13 +775,19 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 } else if (__value__ == ((20u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                     return _fw == (stdgo._internal.encoding.gob.Gob__tinterface._tInterface);
                 } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
-                    if ((!_ok || ((@:checkr _wire ?? throw "null pointer dereference").arrayT == null || ((@:checkr _wire ?? throw "null pointer dereference").arrayT : Dynamic).__nil__) : Bool)) {
+                    if ((!_ok || ({
+                        final value = (@:checkr _wire ?? throw "null pointer dereference").arrayT;
+                        (value == null || (value : Dynamic).__nil__);
+                    }) : Bool)) {
                         return false;
                     };
                     var _array = (@:checkr _wire ?? throw "null pointer dereference").arrayT;
                     return ((_t.len() == (@:checkr _array ?? throw "null pointer dereference").len) && @:check2r _dec._compatibleType(_t.elem(), (@:checkr _array ?? throw "null pointer dereference").elem, _inProgress) : Bool);
                 } else if (__value__ == ((21u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
-                    if ((!_ok || ((@:checkr _wire ?? throw "null pointer dereference").mapT == null || ((@:checkr _wire ?? throw "null pointer dereference").mapT : Dynamic).__nil__) : Bool)) {
+                    if ((!_ok || ({
+                        final value = (@:checkr _wire ?? throw "null pointer dereference").mapT;
+                        (value == null || (value : Dynamic).__nil__);
+                    }) : Bool)) {
                         return false;
                     };
                     var mapType = (@:checkr _wire ?? throw "null pointer dereference").mapT;
@@ -774,12 +808,18 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                                 };
                                 _sw = @:tmpset0 __tmp__._0;
                             };
-                        } else if ((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__))) {
+                        } else if (({
+                            final value = _wire;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        })) {
                             _sw = (@:checkr _wire ?? throw "null pointer dereference").sliceT;
                         };
                     };
                     var _elem = (stdgo._internal.encoding.gob.Gob__usertype._userType(_t.elem())._base : stdgo._internal.reflect.Reflect_type_.Type_);
-                    return ((_sw != null && ((_sw : Dynamic).__nil__ == null || !(_sw : Dynamic).__nil__)) && @:check2r _dec._compatibleType(_elem, (@:checkr _sw ?? throw "null pointer dereference").elem, _inProgress) : Bool);
+                    return (({
+                        final value = _sw;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }) && @:check2r _dec._compatibleType(_elem, (@:checkr _sw ?? throw "null pointer dereference").elem, _inProgress) : Bool);
                 } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_kind.Kind))) {
                     return true;
                 } else {
@@ -840,15 +880,24 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 return _op__pointer__;
             };
             var _wire = ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>));
-            if ((_wire == null || (_wire : Dynamic).__nil__)) {
+            if (({
+                final value = _wire;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 stdgo._internal.encoding.gob.Gob__errorf._errorf(("bad data: undefined type %s" : stdgo.GoString), stdgo.Go.toInterface(_wireId._string()));
-            } else if (((@:checkr _wire ?? throw "null pointer dereference").arrayT != null && (((@:checkr _wire ?? throw "null pointer dereference").arrayT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").arrayT : Dynamic).__nil__))) {
+            } else if (({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").arrayT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var _elemId = ((@:checkr (@:checkr _wire ?? throw "null pointer dereference").arrayT ?? throw "null pointer dereference").elem : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId);
                 var _elemOp = @:check2r _dec._decIgnoreOpFor(_elemId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
                     @:check2r (@:checkr _state ?? throw "null pointer dereference")._dec._ignoreArray(_state, _elemOp.value, (@:checkr (@:checkr _wire ?? throw "null pointer dereference").arrayT ?? throw "null pointer dereference").len);
                 };
-            } else if (((@:checkr _wire ?? throw "null pointer dereference").mapT != null && (((@:checkr _wire ?? throw "null pointer dereference").mapT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").mapT : Dynamic).__nil__))) {
+            } else if (({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").mapT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var _keyId = ((@:checkr (@:checkr ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>)) ?? throw "null pointer dereference").mapT ?? throw "null pointer dereference").key : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId);
                 var _elemId = ((@:checkr (@:checkr ((@:checkr _dec ?? throw "null pointer dereference")._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>)) ?? throw "null pointer dereference").mapT ?? throw "null pointer dereference").elem : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId);
                 var _keyOp = @:check2r _dec._decIgnoreOpFor(_keyId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
@@ -856,13 +905,19 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
                     @:check2r (@:checkr _state ?? throw "null pointer dereference")._dec._ignoreMap(_state, _keyOp.value, _elemOp.value);
                 };
-            } else if (((@:checkr _wire ?? throw "null pointer dereference").sliceT != null && (((@:checkr _wire ?? throw "null pointer dereference").sliceT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").sliceT : Dynamic).__nil__))) {
+            } else if (({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").sliceT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var _elemId = ((@:checkr (@:checkr _wire ?? throw "null pointer dereference").sliceT ?? throw "null pointer dereference").elem : stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId);
                 var _elemOp = @:check2r _dec._decIgnoreOpFor(_elemId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
                     @:check2r (@:checkr _state ?? throw "null pointer dereference")._dec._ignoreSlice(_state, _elemOp.value);
                 };
-            } else if (((@:checkr _wire ?? throw "null pointer dereference").structT != null && (((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").structT : Dynamic).__nil__))) {
+            } else if (({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").structT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 var __tmp__ = @:check2r _dec._getIgnoreEnginePtr(_wireId), _enginePtr:stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     stdgo._internal.encoding.gob.Gob__error_._error_(_err);
@@ -870,7 +925,16 @@ var _op = @:check2r _dec._decOpFor(_wireField.id, _localField.type, _localField.
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
                     @:check2r (@:checkr _state ?? throw "null pointer dereference")._dec._ignoreStruct((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>));
                 };
-            } else if (((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT != null && (((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").gobEncoderT : Dynamic).__nil__)) || ((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT : Dynamic).__nil__)) || ((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT != null && (((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__ == null || !((@:checkr _wire ?? throw "null pointer dereference").textMarshalerT : Dynamic).__nil__))) {
+            } else if (({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").gobEncoderT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) || ({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").binaryMarshalerT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) || ({
+                final value = (@:checkr _wire ?? throw "null pointer dereference").textMarshalerT;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decinstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>, _value:stdgo._internal.reflect.Reflect_value.Value):Void {
                     @:check2r (@:checkr _state ?? throw "null pointer dereference")._dec._ignoreGobDecoder(_state);
                 };
@@ -1567,7 +1631,10 @@ _elemOp(_instr, _state, _v.__copy__());
     static public function _newDecoderState( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>, _buf:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decbuffer.T_decBuffer>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState> {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder> = _dec;
         var _d = (@:checkr _dec ?? throw "null pointer dereference")._freeList;
-        if ((_d == null || (_d : Dynamic).__nil__)) {
+        if (({
+            final value = _d;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _d = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>);
             (@:checkr _d ?? throw "null pointer dereference")._dec = _dec;
         } else {

@@ -12,7 +12,10 @@ package stdgo._internal.net.http.httputil;
                 __deferstack__.unshift({ ran : false, f : () -> __f__() });
             };
             (@:checkr _m ?? throw "null pointer dereference")._flushPending = false;
-            if (((@:checkr _m ?? throw "null pointer dereference")._t != null && (((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__ == null || !((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _m ?? throw "null pointer dereference")._t;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.stop();
             };
             {
@@ -184,7 +187,10 @@ package stdgo._internal.net.http.httputil;
                     return { _0 : _n, _1 : _err };
                 };
             };
-            if (((@:checkr _m ?? throw "null pointer dereference")._t == null || ((@:checkr _m ?? throw "null pointer dereference")._t : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _m ?? throw "null pointer dereference")._t;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 (@:checkr _m ?? throw "null pointer dereference")._t = stdgo._internal.time.Time_afterfunc.afterFunc((@:checkr _m ?? throw "null pointer dereference")._latency, @:check2r _m._delayedFlush);
             } else {
                 @:check2r (@:checkr _m ?? throw "null pointer dereference")._t.reset((@:checkr _m ?? throw "null pointer dereference")._latency);

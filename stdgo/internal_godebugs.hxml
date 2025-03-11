@@ -1,3 +1,3 @@
--m _internal.internal.godebugs_dot_test.Godebugs_dot_test
+-m _internal.internal.godebugsdottest.Godebugsdottest
 -lib go2hx
 -cp .

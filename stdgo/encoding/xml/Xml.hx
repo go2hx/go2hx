@@ -51,7 +51,10 @@ class MarshalerAttr_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function marshalXMLAttr(_name:Name):stdgo.Tuple<Attr, stdgo.Error>; }):MarshalerAttr {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:MarshalerAttr = { marshalXMLAttr : _0 -> x.marshalXMLAttr(_0), __underlying__ : () -> __f__() };
+        final y:MarshalerAttr = { marshalXMLAttr : _0 -> {
+            final obj = x.marshalXMLAttr(_0);
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -97,7 +100,10 @@ class TokenReader_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function token():stdgo.Tuple<Token, stdgo.Error>; }):TokenReader {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:TokenReader = { token : () -> x.token(), __underlying__ : () -> __f__() };
+        final y:TokenReader = { token : () -> {
+            final obj = x.token();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -495,9 +501,15 @@ _closed,
         return v;
     }
     public var charsetReader(get, set) : (String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>;
-    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> this.charsetReader(_0, _1);
+    function get_charsetReader():(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> return (_0, _1) -> {
+        final obj = this.charsetReader(_0, _1);
+        { _0 : obj._0, _1 : obj._1 };
+    };
     function set_charsetReader(v:(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error>):(String, stdgo._internal.io.Io_reader.Reader) -> stdgo.Tuple<stdgo._internal.io.Io_reader.Reader, stdgo.Error> {
-        this.charsetReader = (_0, _1) -> v((_0 : stdgo.GoString), _1);
+        this.charsetReader = (_0, _1) -> {
+            final obj = v((_0 : stdgo.GoString), _1);
+            { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+        };
         return v;
     }
     public var defaultSpace(get, set) : String;
@@ -624,7 +636,10 @@ strict,
         };
         __obj__;
     },
-(_0, _1) -> charsetReader((_0 : stdgo.GoString), _1),
+(_0, _1) -> {
+        final obj = charsetReader((_0 : stdgo.GoString), _1);
+        { _0 : obj._0, _1 : (obj._1 : stdgo.Error) };
+    },
 (defaultSpace : stdgo.GoString),
 _r,
 _t,

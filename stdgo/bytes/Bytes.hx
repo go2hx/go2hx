@@ -9,7 +9,7 @@ private function set_errTooLarge(v:stdgo.Error):stdgo.Error {
 var indexBytePortable(get, set) : (Array<std.UInt>, std.UInt) -> StdTypes.Int;
 private function get_indexBytePortable():(Array<std.UInt>, std.UInt) -> StdTypes.Int return (_0, _1) -> stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable([for (i in _0) i], _1);
 private function set_indexBytePortable(v:(Array<std.UInt>, std.UInt) -> StdTypes.Int):(Array<std.UInt>, std.UInt) -> StdTypes.Int {
-        stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = (_0, _1) -> v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_1 : stdgo.GoUInt8));
+        stdgo._internal.bytes.Bytes_indexbyteportable.indexBytePortable = (_0, _1) -> (v(([for (i in _0) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_1 : stdgo.GoUInt8)) : stdgo.GoInt);
         return v;
     }
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) abstract Buffer(stdgo._internal.bytes.Bytes_buffer.Buffer) from stdgo._internal.bytes.Bytes_buffer.Buffer to stdgo._internal.bytes.Bytes_buffer.Buffer {
@@ -589,7 +589,7 @@ class Bytes {
         * output are interpreted as UTF-8-encoded code points.
     **/
     static public inline function map_(_mapping:StdTypes.Int -> StdTypes.Int, _s:Array<std.UInt>):Array<std.UInt> {
-        final _mapping = _0 -> _mapping((_0 : stdgo.GoInt32));
+        final _mapping = _0 -> (_mapping((_0 : stdgo.GoInt32)) : stdgo.GoInt32);
         final _s = ([for (i in _s) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>);
         return [for (i in stdgo._internal.bytes.Bytes_map_.map_(_mapping, _s)) i];
     }

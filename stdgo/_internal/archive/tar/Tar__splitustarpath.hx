@@ -4,7 +4,7 @@ function _splitUSTARPath(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
         var _length = (_name.length : stdgo.GoInt);
         if (((_length <= (100 : stdgo.GoInt) : Bool) || !stdgo._internal.archive.tar.Tar__isascii._isASCII(_name?.__copy__()) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
                 _prefix = __tmp__._0;
                 _suffix = __tmp__._1;
                 _ok = __tmp__._2;
@@ -20,7 +20,7 @@ function _splitUSTARPath(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
         var _plen = (_i : stdgo.GoInt);
         if (((((_i <= (0 : stdgo.GoInt) : Bool) || (_nlen > (100 : stdgo.GoInt) : Bool) : Bool) || _nlen == ((0 : stdgo.GoInt)) : Bool) || (_plen > (155 : stdgo.GoInt) : Bool) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _2 : false };
                 _prefix = __tmp__._0;
                 _suffix = __tmp__._1;
                 _ok = __tmp__._2;
@@ -28,7 +28,7 @@ function _splitUSTARPath(_name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (_name.__slice__(0, _i) : stdgo.GoString)?.__copy__(), _1 : (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _2 : true };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : (_name.__slice__(0, _i) : stdgo.GoString)?.__copy__(), _1 : (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _2 : true };
             _prefix = __tmp__._0;
             _suffix = __tmp__._1;
             _ok = __tmp__._2;

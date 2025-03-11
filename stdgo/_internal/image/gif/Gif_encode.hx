@@ -5,7 +5,10 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
             return stdgo._internal.errors.Errors_new_.new_(("gif: image is too large to encode" : stdgo.GoString));
         };
         var _opts = (new stdgo._internal.image.gif.Gif_options.Options() : stdgo._internal.image.gif.Gif_options.Options);
-        if ((_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__))) {
+        if (({
+            final value = _o;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             _opts = (_o : stdgo._internal.image.gif.Gif_options.Options)?.__copy__();
         };
         if (((_opts.numColors < (1 : stdgo.GoInt) : Bool) || ((256 : stdgo.GoInt) < _opts.numColors : Bool) : Bool)) {
@@ -19,7 +22,10 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
         } catch(_) {
             { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>), _1 : false };
         }, _pm = __tmp__._0, __0 = __tmp__._1;
-        if ((_pm == null || (_pm : Dynamic).__nil__)) {
+        if (({
+            final value = _pm;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.colorModel()) : stdgo._internal.image.color.Color_palette.Palette)) : stdgo._internal.image.color.Color_palette.Palette), _1 : true };
@@ -44,7 +50,10 @@ function encode(_w:stdgo._internal.io.Io_writer.Writer, _m:stdgo._internal.image
                 };
             };
         };
-        if (((_pm == null || (_pm : Dynamic).__nil__) || (((@:checkr _pm ?? throw "null pointer dereference").palette.length) > _opts.numColors : Bool) : Bool)) {
+        if ((({
+            final value = _pm;
+            (value == null || (value : Dynamic).__nil__);
+        }) || (((@:checkr _pm ?? throw "null pointer dereference").palette.length) > _opts.numColors : Bool) : Bool)) {
             _pm = stdgo._internal.image.Image_newpaletted.newPaletted(_b?.__copy__(), (stdgo._internal.image.color.palette.Palette_plan9.plan9.__slice__(0, _opts.numColors) : stdgo.Slice<stdgo._internal.image.color.Color_color.Color>));
             if (_opts.quantizer != null) {
                 (@:checkr _pm ?? throw "null pointer dereference").palette = _opts.quantizer.quantize((new stdgo.Slice<stdgo._internal.image.color.Color_color.Color>((0 : stdgo.GoInt).toBasic(), _opts.numColors) : stdgo._internal.image.color.Color_palette.Palette), _m);

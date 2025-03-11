@@ -56,13 +56,19 @@ package stdgo._internal.internal.profile;
                 while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     {
                         var _fn = (@:checkr _loc ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)].function_;
-                        if (((_fn != null && ((_fn : Dynamic).__nil__ == null || !(_fn : Dynamic).__nil__)) && ((@:checkr _fn ?? throw "null pointer dereference").name != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
+                        if ((({
+                            final value = _fn;
+                            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                        }) && ((@:checkr _fn ?? throw "null pointer dereference").name != (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
                             var _funcName = ((@:checkr _fn ?? throw "null pointer dereference").name.__copy__() : stdgo.GoString);
                             if (_funcName[(0 : stdgo.GoInt)] == ((46 : stdgo.GoUInt8))) {
                                 _funcName = (_funcName.__slice__((1 : stdgo.GoInt)) : stdgo.GoString).__copy__();
                             };
                             if (@:check2r _dropRx.matchString(_funcName.__copy__())) {
-                                if (((_keepRx == null || (_keepRx : Dynamic).__nil__) || !@:check2r _keepRx.matchString(_funcName.__copy__()) : Bool)) {
+                                if ((({
+                                    final value = _keepRx;
+                                    (value == null || (value : Dynamic).__nil__);
+                                }) || !@:check2r _keepRx.matchString(_funcName.__copy__()) : Bool)) {
                                     break;
                                 };
                             };
@@ -205,7 +211,10 @@ if ((_pruneBeneath[_id] ?? false)) {
     static public function hasFileLines( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>):Bool {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = _p;
         for (__0 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
-            if ((((@:checkr _l ?? throw "null pointer dereference").mapping == null || ((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__) || ((!(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasFilenames || !(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasLineNumbers : Bool)) : Bool)) {
+            if ((({
+                final value = (@:checkr _l ?? throw "null pointer dereference").mapping;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ((!(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasFilenames || !(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasLineNumbers : Bool)) : Bool)) {
                 return false;
             };
         };
@@ -216,7 +225,10 @@ if ((_pruneBeneath[_id] ?? false)) {
     static public function hasFunctions( _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile>):Bool {
         @:recv var _p:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = _p;
         for (__0 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
-            if ((((@:checkr _l ?? throw "null pointer dereference").mapping == null || ((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__) || !(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasFunctions : Bool)) {
+            if ((({
+                final value = (@:checkr _l ?? throw "null pointer dereference").mapping;
+                (value == null || (value : Dynamic).__nil__);
+            }) || !(@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").hasFunctions : Bool)) {
                 return false;
             };
         };
@@ -283,7 +295,10 @@ if ((_pruneBeneath[_id] ?? false)) {
         var _ss = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((((@:checkr _p ?? throw "null pointer dereference").sample.length) + ((@:checkr _p ?? throw "null pointer dereference").mapping.length) : stdgo.GoInt) + ((@:checkr _p ?? throw "null pointer dereference").location.length) : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _pt = (@:checkr _p ?? throw "null pointer dereference").periodType;
-            if ((_pt != null && ((_pt : Dynamic).__nil__ == null || !(_pt : Dynamic).__nil__))) {
+            if (({
+                final value = _pt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _ss = (_ss.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("PeriodType: %s %s" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").type), stdgo.Go.toInterface((@:checkr _pt ?? throw "null pointer dereference").unit))?.__copy__()));
             };
         };
@@ -331,7 +346,10 @@ if ((_pruneBeneath[_id] ?? false)) {
             var _locStr = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%6d: %#x " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").iD), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").address))?.__copy__() : stdgo.GoString);
             {
                 var _m = (@:checkr _l ?? throw "null pointer dereference").mapping;
-                if ((_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__))) {
+                if (({
+                    final value = _m;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     _locStr = (_locStr + stdgo._internal.fmt.Fmt_sprintf.sprintf(("M=%d " : stdgo.GoString), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").iD))?.__copy__() : stdgo.GoString)?.__copy__();
                 };
             };
@@ -342,7 +360,10 @@ if ((_pruneBeneath[_id] ?? false)) {
                 var _lnStr = (("??" : stdgo.GoString) : stdgo.GoString);
                 {
                     var _fn = (@:checkr _l ?? throw "null pointer dereference").line[(_li : stdgo.GoInt)].function_;
-                    if ((_fn != null && ((_fn : Dynamic).__nil__ == null || !(_fn : Dynamic).__nil__))) {
+                    if (({
+                        final value = _fn;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _lnStr = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s %s:%d s=%d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _fn ?? throw "null pointer dereference").name), stdgo.Go.toInterface((@:checkr _fn ?? throw "null pointer dereference").filename), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").line[(_li : stdgo.GoInt)].line), stdgo.Go.toInterface((@:checkr _fn ?? throw "null pointer dereference").startLine))?.__copy__();
                         if ((@:checkr _fn ?? throw "null pointer dereference").name != ((@:checkr _fn ?? throw "null pointer dereference").systemName)) {
                             _lnStr = (((_lnStr + ("(" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (@:checkr _fn ?? throw "null pointer dereference").systemName?.__copy__() : stdgo.GoString) + (")" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
@@ -433,7 +454,10 @@ if ((_pruneBeneath[_id] ?? false)) {
             if ((@:checkr _m ?? throw "null pointer dereference").iD == ((0i64 : stdgo.GoUInt64))) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("found mapping with reserved ID=0" : stdgo.GoString));
             };
-            if (((_mappings[(@:checkr _m ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>)) != null && ((_mappings[(@:checkr _m ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>) : Dynamic).__nil__ == null || !(_mappings[(@:checkr _m ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>) : Dynamic).__nil__))) {
+            if (({
+                final value = (_mappings[(@:checkr _m ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>));
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("multiple mappings with same id: %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").iD));
             };
             _mappings[(@:checkr _m ?? throw "null pointer dereference").iD] = _m;
@@ -448,7 +472,10 @@ if ((_pruneBeneath[_id] ?? false)) {
             if ((@:checkr _f ?? throw "null pointer dereference").iD == ((0i64 : stdgo.GoUInt64))) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("found function with reserved ID=0" : stdgo.GoString));
             };
-            if (((_functions[(@:checkr _f ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>)) != null && ((_functions[(@:checkr _f ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>) : Dynamic).__nil__ == null || !(_functions[(@:checkr _f ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>) : Dynamic).__nil__))) {
+            if (({
+                final value = (_functions[(@:checkr _f ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>));
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("multiple functions with same id: %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").iD));
             };
             _functions[(@:checkr _f ?? throw "null pointer dereference").iD] = _f;
@@ -463,13 +490,19 @@ if ((_pruneBeneath[_id] ?? false)) {
             if ((@:checkr _l ?? throw "null pointer dereference").iD == ((0i64 : stdgo.GoUInt64))) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("found location with reserved id=0" : stdgo.GoString));
             };
-            if (((_locations[(@:checkr _l ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>)) != null && ((_locations[(@:checkr _l ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>) : Dynamic).__nil__ == null || !(_locations[(@:checkr _l ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>) : Dynamic).__nil__))) {
+            if (({
+                final value = (_locations[(@:checkr _l ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>));
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("multiple locations with same id: %d" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _l ?? throw "null pointer dereference").iD));
             };
             _locations[(@:checkr _l ?? throw "null pointer dereference").iD] = _l;
             {
                 var _m = (@:checkr _l ?? throw "null pointer dereference").mapping;
-                if ((_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__))) {
+                if (({
+                    final value = _m;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     if ((((@:checkr _m ?? throw "null pointer dereference").iD == (0i64 : stdgo.GoUInt64)) || ((_mappings[(@:checkr _m ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>)) != _m) : Bool)) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("inconsistent mapping %p: %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_m)), stdgo.Go.toInterface((@:checkr _m ?? throw "null pointer dereference").iD));
                     };
@@ -478,7 +511,10 @@ if ((_pruneBeneath[_id] ?? false)) {
             for (__4 => _ln in (@:checkr _l ?? throw "null pointer dereference").line) {
                 {
                     var _f = _ln.function_;
-                    if ((_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__))) {
+                    if (({
+                        final value = _f;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         if ((((@:checkr _f ?? throw "null pointer dereference").iD == (0i64 : stdgo.GoUInt64)) || ((_functions[(@:checkr _f ?? throw "null pointer dereference").iD] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>)) != _f) : Bool)) {
                             return stdgo._internal.fmt.Fmt_errorf.errorf(("inconsistent function %p: %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_f)), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").iD));
                         };
@@ -706,7 +742,10 @@ break;
                     continue;
                 };
             };
-            if ((_r != null && ((_r : Dynamic).__nil__ == null || !(_r : Dynamic).__nil__))) {
+            if (({
+                final value = _r;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 _l = @:check2r _r.replace(_l?.__copy__())?.__copy__();
             };
             var __tmp__ = stdgo._internal.internal.profile.Profile__parsemappingentry._parseMappingEntry(_l?.__copy__()), _m:stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -723,7 +762,10 @@ break;
                 };
                 return _err;
             };
-            if (((_m == null || (_m : Dynamic).__nil__) || ((((@:checkr _m ?? throw "null pointer dereference").file == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _p ?? throw "null pointer dereference").mapping.length != (0 : stdgo.GoInt)) : Bool)) : Bool)) {
+            if ((({
+                final value = _m;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ((((@:checkr _m ?? throw "null pointer dereference").file == (stdgo.Go.str() : stdgo.GoString)) && ((@:checkr _p ?? throw "null pointer dereference").mapping.length != (0 : stdgo.GoInt)) : Bool)) : Bool)) {
                 continue;
             };
             if ((((@:checkr _p ?? throw "null pointer dereference").mapping.length == (1 : stdgo.GoInt)) && ((@:checkr (@:checkr _p ?? throw "null pointer dereference").mapping[(0 : stdgo.GoInt)] ?? throw "null pointer dereference").file == (stdgo.Go.str() : stdgo.GoString)) : Bool)) {
@@ -782,7 +824,10 @@ break;
         for (__0 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
             for (__1 => _ln in (@:checkr _l ?? throw "null pointer dereference").line) {
                 var _fn = _ln.function_;
-                if (((_fn == null || (_fn : Dynamic).__nil__) || (_seen[_fn] ?? false) : Bool)) {
+                if ((({
+                    final value = _fn;
+                    (value == null || (value : Dynamic).__nil__);
+                }) || (_seen[_fn] ?? false) : Bool)) {
                     continue;
                 };
                 (@:checkr _fn ?? throw "null pointer dereference").iD = (((_fns.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64);
@@ -849,14 +894,23 @@ break;
             x;
         } : stdgo.GoMap<stdgo.GoUInt64, Bool>) : stdgo.GoMap<stdgo.GoUInt64, Bool>);
         for (__0 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
-            if (((_ignore != null && ((_ignore : Dynamic).__nil__ == null || !(_ignore : Dynamic).__nil__)) && @:check2r _l._matchesName(_ignore) : Bool)) {
+            if ((({
+                final value = _ignore;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && @:check2r _l._matchesName(_ignore) : Bool)) {
                 _im = true;
                 _focusOrIgnore[(@:checkr _l ?? throw "null pointer dereference").iD] = false;
-            } else if (((_focus == null || (_focus : Dynamic).__nil__) || @:check2r _l._matchesName(_focus) : Bool)) {
+            } else if ((({
+                final value = _focus;
+                (value == null || (value : Dynamic).__nil__);
+            }) || @:check2r _l._matchesName(_focus) : Bool)) {
                 _fm = true;
                 _focusOrIgnore[(@:checkr _l ?? throw "null pointer dereference").iD] = true;
             };
-            if (((_hide != null && ((_hide : Dynamic).__nil__ == null || !(_hide : Dynamic).__nil__)) && @:check2r _l._matchesName(_hide) : Bool)) {
+            if ((({
+                final value = _hide;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && @:check2r _l._matchesName(_hide) : Bool)) {
                 _hm = true;
                 (@:checkr _l ?? throw "null pointer dereference").line = @:check2r _l._unmatchedLines(_hide);
                 if (((@:checkr _l ?? throw "null pointer dereference").line.length) == ((0 : stdgo.GoInt))) {
@@ -947,7 +1001,10 @@ break;
                     var _id = (_ln._functionIDX : stdgo.GoUInt64);
                     if (_id != ((0i64 : stdgo.GoUInt64))) {
                         (@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)].function_ = (_functions[_id] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>));
-                        if (((@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)].function_ == null || ((@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)].function_ : Dynamic).__nil__)) {
+                        if (({
+                            final value = (@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)].function_;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             return stdgo._internal.fmt.Fmt_errorf.errorf(("Function ID %d not found" : stdgo.GoString), stdgo.Go.toInterface(_id));
                         };
                         (@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)]._functionIDX = (0i64 : stdgo.GoUInt64);
@@ -1023,13 +1080,19 @@ break;
         };
         {
             var _pt = (@:checkr _p ?? throw "null pointer dereference").periodType;
-            if ((_pt == null || (_pt : Dynamic).__nil__)) {
+            if (({
+                final value = _pt;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 (@:checkr _p ?? throw "null pointer dereference").periodType = (stdgo.Go.setRef((new stdgo._internal.internal.profile.Profile_valuetype_.ValueType_() : stdgo._internal.internal.profile.Profile_valuetype_.ValueType_)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_valuetype_.ValueType_>);
             };
         };
         {
             var _pt = (@:checkr _p ?? throw "null pointer dereference").periodType;
-            if ((_pt != null && ((_pt : Dynamic).__nil__ == null || !(_pt : Dynamic).__nil__))) {
+            if (({
+                final value = _pt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     var __tmp__ = stdgo._internal.internal.profile.Profile__getstring._getString((@:checkr _p ?? throw "null pointer dereference")._stringTable, stdgo.Go.pointer((@:checkr _pt ?? throw "null pointer dereference")._typeX), _err);
                     (@:checkr _pt ?? throw "null pointer dereference").type = @:tmpset0 __tmp__._0?.__copy__();
@@ -1086,7 +1149,10 @@ break;
         stdgo._internal.internal.profile.Profile__encodeint64opt._encodeInt64Opt(_b, (10 : stdgo.GoInt), (@:checkr _p ?? throw "null pointer dereference").durationNanos);
         {
             var _pt = (@:checkr _p ?? throw "null pointer dereference").periodType;
-            if (((_pt != null && ((_pt : Dynamic).__nil__ == null || !(_pt : Dynamic).__nil__)) && ((((@:checkr _pt ?? throw "null pointer dereference")._typeX != (0i64 : stdgo.GoInt64)) || ((@:checkr _pt ?? throw "null pointer dereference")._unitX != (0i64 : stdgo.GoInt64)) : Bool)) : Bool)) {
+            if ((({
+                final value = _pt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((((@:checkr _pt ?? throw "null pointer dereference")._typeX != (0i64 : stdgo.GoInt64)) || ((@:checkr _pt ?? throw "null pointer dereference")._unitX != (0i64 : stdgo.GoInt64)) : Bool)) : Bool)) {
                 stdgo._internal.internal.profile.Profile__encodemessage._encodeMessage(_b, (11 : stdgo.GoInt), stdgo.Go.asInterface((@:checkr _p ?? throw "null pointer dereference").periodType));
             };
         };
@@ -1142,13 +1208,19 @@ break;
         };
         for (__3 => _l in (@:checkr _p ?? throw "null pointer dereference").location) {
             for (_i => _ln in (@:checkr _l ?? throw "null pointer dereference").line) {
-                if ((_ln.function_ != null && ((_ln.function_ : Dynamic).__nil__ == null || !(_ln.function_ : Dynamic).__nil__))) {
+                if (({
+                    final value = _ln.function_;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     (@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)]._functionIDX = (@:checkr _ln.function_ ?? throw "null pointer dereference").iD;
                 } else {
                     (@:checkr _l ?? throw "null pointer dereference").line[(_i : stdgo.GoInt)]._functionIDX = (0i64 : stdgo.GoUInt64);
                 };
             };
-            if (((@:checkr _l ?? throw "null pointer dereference").mapping != null && (((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__ == null || !((@:checkr _l ?? throw "null pointer dereference").mapping : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _l ?? throw "null pointer dereference").mapping;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 (@:checkr _l ?? throw "null pointer dereference")._mappingIDX = (@:checkr (@:checkr _l ?? throw "null pointer dereference").mapping ?? throw "null pointer dereference").iD;
             } else {
                 (@:checkr _l ?? throw "null pointer dereference")._mappingIDX = (0i64 : stdgo.GoUInt64);
@@ -1163,7 +1235,10 @@ break;
         (@:checkr _p ?? throw "null pointer dereference")._keepFramesX = stdgo._internal.internal.profile.Profile__addstring._addString(_strings, (@:checkr _p ?? throw "null pointer dereference").keepFrames?.__copy__());
         {
             var _pt = (@:checkr _p ?? throw "null pointer dereference").periodType;
-            if ((_pt != null && ((_pt : Dynamic).__nil__ == null || !(_pt : Dynamic).__nil__))) {
+            if (({
+                final value = _pt;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 (@:checkr _pt ?? throw "null pointer dereference")._typeX = stdgo._internal.internal.profile.Profile__addstring._addString(_strings, (@:checkr _pt ?? throw "null pointer dereference").type?.__copy__());
                 (@:checkr _pt ?? throw "null pointer dereference")._unitX = stdgo._internal.internal.profile.Profile__addstring._addString(_strings, (@:checkr _pt ?? throw "null pointer dereference").unit?.__copy__());
             };

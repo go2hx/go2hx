@@ -17,7 +17,7 @@ function decode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>
                 _nb++;
             } else {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_i : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_i : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError)) };
                     _ndst = __tmp__._0;
                     _nsrc = __tmp__._1;
                     _err = __tmp__._2;
@@ -40,7 +40,7 @@ function decode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>
             if ((_nb > (0 : stdgo.GoInt) : Bool)) {
                 if (_nb == ((1 : stdgo.GoInt))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.ascii85.Ascii85_corruptinputerror.CorruptInputError)) };
                         _ndst = __tmp__._0;
                         _nsrc = __tmp__._1;
                         _err = __tmp__._2;

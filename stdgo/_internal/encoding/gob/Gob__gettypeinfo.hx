@@ -6,7 +6,10 @@ function _getTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypei
         };
         {
             var _info = stdgo._internal.encoding.gob.Gob__lookuptypeinfo._lookupTypeInfo(_rt);
-            if ((_info != null && ((_info : Dynamic).__nil__ == null || !(_info : Dynamic).__nil__))) {
+            if (({
+                final value = _info;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return { _0 : _info, _1 : (null : stdgo.Error) };
             };
         };

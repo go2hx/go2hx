@@ -21,7 +21,10 @@ package stdgo._internal.debug.buildinfo;
         @:recv var _x:stdgo.Ref<stdgo._internal.debug.buildinfo.Buildinfo_t_plan9objexe.T_plan9objExe> = _x;
         {
             var _s = @:check2r (@:checkr _x ?? throw "null pointer dereference")._f.section(("data" : stdgo.GoString));
-            if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
+            if (({
+                final value = _s;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 return ((@:checkr _s ?? throw "null pointer dereference").sectionHeader.offset : stdgo.GoUInt64);
             };
         };

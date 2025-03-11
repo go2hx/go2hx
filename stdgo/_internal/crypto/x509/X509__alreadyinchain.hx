@@ -22,9 +22,21 @@ function _alreadyInChain(_candidate:stdgo.Ref<stdgo._internal.crypto.x509.X509_c
                     break;
                 };
             };
-            if (((_candidateSAN == null || (_candidateSAN : Dynamic).__nil__) && (_certSAN == null || (_certSAN : Dynamic).__nil__) : Bool)) {
+            if ((({
+                final value = _candidateSAN;
+                (value == null || (value : Dynamic).__nil__);
+            }) && ({
+                final value = _certSAN;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 return true;
-            } else if (((_candidateSAN == null || (_candidateSAN : Dynamic).__nil__) || (_certSAN == null || (_certSAN : Dynamic).__nil__) : Bool)) {
+            } else if ((({
+                final value = _candidateSAN;
+                (value == null || (value : Dynamic).__nil__);
+            }) || ({
+                final value = _certSAN;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool)) {
                 return false;
             };
             if (stdgo._internal.bytes.Bytes_equal.equal((@:checkr _candidateSAN ?? throw "null pointer dereference").value, (@:checkr _certSAN ?? throw "null pointer dereference").value)) {

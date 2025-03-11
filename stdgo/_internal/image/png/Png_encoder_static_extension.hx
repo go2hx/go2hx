@@ -19,7 +19,10 @@ var _mh = __1, _mw = __0;
                     ({ _enc : e._enc, _w : e._w, _m : e._m, _cb : e._cb, _err : e._err, _header : e._header, _footer : e._footer, _tmp : e._tmp, _cr : e._cr, _pr : e._pr, _zw : e._zw, _zwLevel : e._zwLevel, _bw : e._bw } : stdgo._internal.image.png.Png_t_encoder.T_encoder);
                 }));
             };
-            if ((_e == null || (_e : Dynamic).__nil__)) {
+            if (({
+                final value = _e;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _e = (stdgo.Go.setRef((new stdgo._internal.image.png.Png_t_encoder.T_encoder() : stdgo._internal.image.png.Png_t_encoder.T_encoder)) : stdgo.Ref<stdgo._internal.image.png.Png_t_encoder.T_encoder>);
             };
             if ((@:checkr _enc ?? throw "null pointer dereference").bufferPool != null) {

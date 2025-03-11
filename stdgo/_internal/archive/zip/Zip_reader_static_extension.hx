@@ -45,7 +45,10 @@ package stdgo._internal.archive.zip;
             return { _0 : (null : stdgo._internal.io.fs.Fs_file.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errinvalid.errInvalid } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         var _e = @:check2r _r._openLookup(_name?.__copy__());
-        if ((_e == null || (_e : Dynamic).__nil__)) {
+        if (({
+            final value = _e;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo._internal.io.fs.Fs_file.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errnotexist.errNotExist } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         if ((@:checkr _e ?? throw "null pointer dereference")._isDir) {

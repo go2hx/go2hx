@@ -12,12 +12,7 @@ package stdgo._internal.mime.multipart;
     static public function read( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part>, _d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_part.Part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return {
-            final __tmp__ = (@:checkr _p ?? throw "null pointer dereference")._r.read(_d);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return (@:checkr _p ?? throw "null pointer dereference")._r.read(_d);
     }
     @:keep
     @:tdfield

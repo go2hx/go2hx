@@ -38,7 +38,7 @@ package stdgo.net.http.httptrace;
     public var got1xxResponse(get, set) : (StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error;
     function get_got1xxResponse():(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error return (_0, _1) -> this.got1xxResponse(_0, _1);
     function set_got1xxResponse(v:(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error):(StdTypes.Int, stdgo._internal.net.textproto.Textproto_mimeheader.MIMEHeader) -> stdgo.Error {
-        this.got1xxResponse = (_0, _1) -> v((_0 : stdgo.GoInt), _1);
+        this.got1xxResponse = (_0, _1) -> (v((_0 : stdgo.GoInt), _1) : stdgo.Error);
         return v;
     }
     public var dNSStart(get, set) : DNSStartInfo -> Void;
@@ -107,7 +107,7 @@ _0 -> gotConn(_0),
 _0 -> putIdleConn((_0 : stdgo.Error)),
 () -> gotFirstResponseByte(),
 () -> got100Continue(),
-(_0, _1) -> got1xxResponse((_0 : stdgo.GoInt), _1),
+(_0, _1) -> (got1xxResponse((_0 : stdgo.GoInt), _1) : stdgo.Error),
 _0 -> dNSStart(_0),
 _0 -> dNSDone(_0),
 (_0, _1) -> connectStart((_0 : stdgo.GoString), (_1 : stdgo.GoString)),

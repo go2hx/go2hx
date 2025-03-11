@@ -36,22 +36,24 @@ package stdgo._internal.net.http.httputil;
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if (@:check2r _req.context().done() != null && @:check2r _req.context().done().__isGet__()) {
+                            if (@:check2r _req.context().done() != null && @:check2r _req.context().done().__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     @:check2r _req.context().done().__get__();
                                     {};
                                 };
-                            } else if (_backConnCloseCh != null && _backConnCloseCh.__isGet__()) {
+                            } else if (_backConnCloseCh != null && _backConnCloseCh.__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     _backConnCloseCh.__get__();
                                     {};
                                 };
                             };
-                            #if !js Sys.sleep(0.01) #else null #end;
+                            #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
+                        @:check2r _req.context().done().__reset__();
+_backConnCloseCh.__reset__();
                     };
                     _backConn.close();
                 };
@@ -171,7 +173,10 @@ package stdgo._internal.net.http.httputil;
     static public function _logf( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_reverseproxy.ReverseProxy> = _p;
-        if (((@:checkr _p ?? throw "null pointer dereference").errorLog != null && (((@:checkr _p ?? throw "null pointer dereference").errorLog : Dynamic).__nil__ == null || !((@:checkr _p ?? throw "null pointer dereference").errorLog : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _p ?? throw "null pointer dereference").errorLog;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r (@:checkr _p ?? throw "null pointer dereference").errorLog.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
@@ -349,7 +354,7 @@ package stdgo._internal.net.http.httputil;
                             {
                                 var __select__ = true;
                                 while (__select__) {
-                                    if (_notifyChan != null && _notifyChan.__isGet__()) {
+                                    if (_notifyChan != null && _notifyChan.__isGet__(true)) {
                                         __select__ = false;
                                         {
                                             _notifyChan.__get__();
@@ -357,16 +362,18 @@ package stdgo._internal.net.http.httputil;
                                                 _cancel();
                                             };
                                         };
-                                    } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                                    } else if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                                         __select__ = false;
                                         {
                                             _ctx.done().__get__();
                                             {};
                                         };
                                     };
-                                    #if !js Sys.sleep(0.01) #else null #end;
+                                    #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                                     stdgo._internal.internal.Async.tick();
                                 };
+                                _notifyChan.__reset__();
+_ctx.done().__reset__();
                             };
                         };
                         a();
@@ -422,7 +429,7 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             stdgo._internal.net.http.httputil.Httputil__removehopbyhopheaders._removeHopByHopHeaders((@:checkr _outreq ?? throw "null pointer dereference").header);
-            if (_internal.golang_dot_org.x.net.http.httpguts.Httpguts_headervaluescontainstoken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Te" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("trailers" : stdgo.GoString))) {
+            if (_internal.golangdotorg.x.net.http.httpguts.Httpguts_headervaluescontainstoken.headerValuesContainsToken(((@:checkr _req ?? throw "null pointer dereference").header[("Te" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)), ("trailers" : stdgo.GoString))) {
                 (@:checkr _outreq ?? throw "null pointer dereference").header.set(("Te" : stdgo.GoString), ("trailers" : stdgo.GoString));
             };
             if (_reqUpType != ((stdgo.Go.str() : stdgo.GoString))) {

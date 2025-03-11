@@ -251,7 +251,7 @@ class Sort {
     **/
     static public inline function find(_n:StdTypes.Int, _cmp:StdTypes.Int -> StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
         final _n = (_n : stdgo.GoInt);
-        final _cmp = _0 -> _cmp((_0 : stdgo.GoInt));
+        final _cmp = _0 -> (_cmp((_0 : stdgo.GoInt)) : stdgo.GoInt);
         return {
             final obj = stdgo._internal.sort.Sort_find.find(_n, _cmp);
             { _0 : obj._0, _1 : obj._1 };

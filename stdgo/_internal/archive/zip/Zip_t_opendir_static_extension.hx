@@ -35,7 +35,10 @@ package stdgo._internal.archive.zip;
     @:tdfield
     static public function stat( _d:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_opendir.T_openDir>):{ var _0 : stdgo._internal.io.fs.Fs_fileinfo.FileInfo; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.archive.zip.Zip_t_opendir.T_openDir> = _d;
-        return @:check2r (@:checkr _d ?? throw "null pointer dereference")._e._stat();
+        return ({
+            @:assignTranslate final __tmp__ = @:check2r (@:checkr _d ?? throw "null pointer dereference")._e._stat();
+            { _0 : __tmp__._0, _1 : __tmp__._1 };
+        });
     }
     @:keep
     @:tdfield

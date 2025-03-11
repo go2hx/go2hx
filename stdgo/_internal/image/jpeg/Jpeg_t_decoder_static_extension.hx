@@ -164,19 +164,19 @@ if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
     static public function _refine( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_block.T_block>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>, _zigStart:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _delta:stdgo.GoInt32):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
         var _val1_20:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _loopBreak = false;
-        var _err_14:stdgo.Error = (null : stdgo.Error);
-        var _bit_23:Bool = false;
         var _val0_19:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _err_18:stdgo.Error = (null : stdgo.Error);
         var _z_16:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _bit_13:Bool = false;
         var _err_25:stdgo.Error = (null : stdgo.Error);
-        var _err_22:stdgo.Error = (null : stdgo.Error);
-        var _err_24:stdgo.Error = (null : stdgo.Error);
+        var _bits_21:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _bit_23:Bool = false;
         var _zig_15:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _value_17:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _loopBreak = false;
+        var _err_14:stdgo.Error = (null : stdgo.Error);
+        var _bit_13:Bool = false;
+        var _err_24:stdgo.Error = (null : stdgo.Error);
+        var _err_22:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -484,7 +484,13 @@ var _al = __3, _ah = __2, _zigEnd = __1, _zigStart = __0;
 var _v0 = __1, _h0 = __0;
         var _mxx = (((((@:checkr _d ?? throw "null pointer dereference")._width + ((8 : stdgo.GoInt) * _h0 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (((8 : stdgo.GoInt) * _h0 : stdgo.GoInt)) : stdgo.GoInt);
         var _myy = (((((@:checkr _d ?? throw "null pointer dereference")._height + ((8 : stdgo.GoInt) * _v0 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (((8 : stdgo.GoInt) * _v0 : stdgo.GoInt)) : stdgo.GoInt);
-        if ((((@:checkr _d ?? throw "null pointer dereference")._img1 == null || ((@:checkr _d ?? throw "null pointer dereference")._img1 : Dynamic).__nil__) && ((@:checkr _d ?? throw "null pointer dereference")._img3 == null || ((@:checkr _d ?? throw "null pointer dereference")._img3 : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = (@:checkr _d ?? throw "null pointer dereference")._img1;
+            (value == null || (value : Dynamic).__nil__);
+        }) && ({
+            final value = (@:checkr _d ?? throw "null pointer dereference")._img3;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             @:check2r _d._makeImg(_mxx, _myy);
         };
         if ((@:checkr _d ?? throw "null pointer dereference")._progressive) {
@@ -936,10 +942,16 @@ if (_subsample) {
                 };
             };
         };
-        if (((@:checkr _d ?? throw "null pointer dereference")._img1 != null && (((@:checkr _d ?? throw "null pointer dereference")._img1 : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._img1 : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _d ?? throw "null pointer dereference")._img1;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return { _0 : stdgo.Go.asInterface((@:checkr _d ?? throw "null pointer dereference")._img1), _1 : (null : stdgo.Error) };
         };
-        if (((@:checkr _d ?? throw "null pointer dereference")._img3 != null && (((@:checkr _d ?? throw "null pointer dereference")._img3 : Dynamic).__nil__ == null || !((@:checkr _d ?? throw "null pointer dereference")._img3 : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _d ?? throw "null pointer dereference")._img3;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if ((@:checkr _d ?? throw "null pointer dereference")._blackPix != null) {
                 return @:check2r _d._applyBlack();
             } else if (@:check2r _d._isRGB()) {
@@ -1012,7 +1024,6 @@ if (_subsample) {
     @:tdfield
     static public function _processDQT( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _n:stdgo.GoInt):stdgo.Error {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
-        var _err_7:stdgo.Error = (null : stdgo.Error);
         var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _loopBreak = false;
         var _i_12:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -1020,6 +1031,7 @@ if (_subsample) {
         var _i_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_9:stdgo.Error = (null : stdgo.Error);
         var _tq_8:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err_7:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -1353,7 +1365,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
             (@:checkr _d ?? throw "null pointer dereference")._bytes._nUnreadable = (1 : stdgo.GoInt);
             if (_x != ((255 : stdgo.GoUInt8))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : _err };
                     _x = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -1361,7 +1373,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
             };
             if ((@:checkr _d ?? throw "null pointer dereference")._bytes._buf[((@:checkr _d ?? throw "null pointer dereference")._bytes._i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo.Go.asInterface(stdgo._internal.image.jpeg.Jpeg__errmissingff00._errMissingFF00) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo.Go.asInterface(stdgo._internal.image.jpeg.Jpeg__errmissingff00._errMissingFF00) };
                     _x = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -1370,7 +1382,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
             (@:checkr _d ?? throw "null pointer dereference")._bytes._i++;
             (@:checkr _d ?? throw "null pointer dereference")._bytes._nUnreadable = (2 : stdgo.GoInt);
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (255 : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (255 : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
                 _x = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -1384,7 +1396,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
         };
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                 _x = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -1393,7 +1405,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
         (@:checkr _d ?? throw "null pointer dereference")._bytes._nUnreadable = (1 : stdgo.GoInt);
         if (_x != ((255 : stdgo.GoUInt8))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : (null : stdgo.Error) };
                 _x = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -1406,7 +1418,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
         };
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                 _x = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -1415,14 +1427,14 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
         (@:checkr _d ?? throw "null pointer dereference")._bytes._nUnreadable = (2 : stdgo.GoInt);
         if (_x != ((0 : stdgo.GoUInt8))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo.Go.asInterface(stdgo._internal.image.jpeg.Jpeg__errmissingff00._errMissingFF00) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo.Go.asInterface(stdgo._internal.image.jpeg.Jpeg__errmissingff00._errMissingFF00) };
                 _x = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (255 : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (255 : stdgo.GoUInt8), _1 : (null : stdgo.Error) };
             _x = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -1438,7 +1450,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
                 _err = @:check2r _d._fill();
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : _err };
                         _x = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -1450,7 +1462,7 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
         (@:checkr _d ?? throw "null pointer dereference")._bytes._i++;
         (@:checkr _d ?? throw "null pointer dereference")._bytes._nUnreadable = (0 : stdgo.GoInt);
         return {
-            final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : _x, _1 : (null : stdgo.Error) };
             _x = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -1534,13 +1546,13 @@ if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
     @:tdfield
     static public function _decodeHuffman( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder>, _h:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_huffman.T_huffman>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_t_decoder.T_decoder> = _d;
+        var _err_5:stdgo.Error = (null : stdgo.Error);
+        var _slowPathBreak = false;
         var _code_4:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_3:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_2:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _v_1:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_0:stdgo.Error = (null : stdgo.Error);
-        var _err_5:stdgo.Error = (null : stdgo.Error);
-        var _slowPathBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

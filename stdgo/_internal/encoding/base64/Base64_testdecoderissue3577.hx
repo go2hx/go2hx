@@ -17,7 +17,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
         {
             var __select__ = true;
             while (__select__) {
-                if (_errc != null && _errc.__isGet__()) {
+                if (_errc != null && _errc.__isGet__(true)) {
                     __select__ = false;
                     {
                         var _err = _errc.__get__();
@@ -27,7 +27,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
                             };
                         };
                     };
-                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__isGet__()) {
+                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__isGet__(true)) {
                     __select__ = false;
                     {
                         stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__get__();
@@ -36,8 +36,10 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
                         };
                     };
                 };
-                #if !js Sys.sleep(0.01) #else null #end;
+                #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
+            _errc.__reset__();
+stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__reset__();
         };
     }

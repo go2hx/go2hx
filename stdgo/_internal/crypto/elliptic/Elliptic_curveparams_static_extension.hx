@@ -220,7 +220,7 @@ var _z3 = __2, _y3 = __1, _x3 = __0;
         var _xOut = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _yOut = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         if (@:check2r _z.sign() == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _1 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>; } = { _0 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>), _1 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>) };
                 _xOut = __tmp__._0;
                 _yOut = __tmp__._1;
                 __tmp__;

@@ -42,7 +42,10 @@ function _parseCPUSamples(_b:stdgo.Slice<stdgo.GoUInt8>, _parse:stdgo.Slice<stdg
                     _addr--;
                 };
                 var _loc = (_locs[_addr] ?? (null : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>));
-                if ((_loc == null || (_loc : Dynamic).__nil__)) {
+                if (({
+                    final value = _loc;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     _loc = (stdgo.Go.setRef(({ address : _addr } : stdgo._internal.internal.profile.Profile_location.Location)) : stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>);
                     _locs[_addr] = _loc;
                     (@:checkr _p ?? throw "null pointer dereference").location = ((@:checkr _p ?? throw "null pointer dereference").location.__append__(_loc));

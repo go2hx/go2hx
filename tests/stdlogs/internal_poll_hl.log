@@ -7,7 +7,7 @@ Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from stdgo._internal.internal.poll.$XFDMutex_static_extension.incref (stdgo/_internal/internal/poll/Poll_xfdmutex_static_extension.hx line 17)
 Called from _internal.internal.poll_test._Poll_test_testmutexlock.$Poll_test_testmutexlock_Fields_.testMutexLock (_internal/internal/poll_test/Poll_test_testmutexlock.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexLock
 
@@ -16,7 +16,7 @@ Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from stdgo._internal.internal.poll.$XFDMutex_static_extension.increfAndClose (stdgo/_internal/internal/poll/Poll_xfdmutex_static_extension.hx line 14)
 Called from _internal.internal.poll_test._Poll_test_testmutexclose.$Poll_test_testmutexclose_Fields_.testMutexClose (_internal/internal/poll_test/Poll_test_testmutexclose.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexClose
 
@@ -25,7 +25,7 @@ Exception: XFDMutex:internal.poll.rWLock is not yet implemented
 Called from stdgo._internal.internal.poll.$XFDMutex_static_extension.rWLock (stdgo/_internal/internal/poll/Poll_xfdmutex_static_extension.hx line 8)
 Called from _internal.internal.poll_test._Poll_test_testmutexcloseunblock.$Poll_test_testmutexcloseunblock_Fields_.testMutexCloseUnblock (_internal/internal/poll_test/Poll_test_testmutexcloseunblock.hx line 5)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexCloseUnblock
 
@@ -34,7 +34,7 @@ Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from stdgo._internal.internal.poll.$XFDMutex_static_extension.incref (stdgo/_internal/internal/poll/Poll_xfdmutex_static_extension.hx line 17)
 Called from _internal.internal.poll_test._Poll_test_testmutexpanic.$Poll_test_testmutexpanic_Fields_.testMutexPanic (_internal/internal/poll_test/Poll_test_testmutexpanic.hx line 100)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexPanic
 
@@ -42,15 +42,21 @@ Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Field
 wrong panic message "XFDMutex:internal.poll.incref is not yet implemented"Exception: XFDMutex:internal.poll.incref is not yet implemented
 Called from _internal.internal.poll_test._Poll_test_testmutexoverflowpanic.$Poll_test_testmutexoverflowpanic_Fields_.testMutexOverflowPanic (_internal/internal/poll_test/Poll_test_testmutexoverflowpanic.hx line 87)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexOverflowPanic
 
 === RUN  TestMutexStress
+Uncaught exception: Null access .value
+Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
+Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
+Uncaught exception: Null access .value
+Called from stdgo.$Go.~routine.0(stdgo/Go.hx:24)
+Called from sys.thread._Thread.$HaxeThread.~create.0(/home/runner/haxe/versions/b0b2997/std/hl/_std/sys/thread/Thread.hx:152)
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from _internal.internal.poll_test._Poll_test_testmutexstress.$Poll_test_testmutexstress_Fields_.testMutexStress (_internal/internal/poll_test/Poll_test_testmutexstress.hx line 263)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestMutexStress
 
@@ -62,7 +68,7 @@ Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Field
 Exception: Null access
 Called from _internal.internal.poll_test._Poll_test_testconsume.$Poll_test_testconsume_Fields_.testConsume (_internal/internal/poll_test/Poll_test_testconsume.hx line 6)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.internal.poll_dot_test._Poll_dot_test.$Poll_dot_test_Fields_.main (_internal/internal/poll_dot_test/Poll_dot_test.hx line 4)
+Called from _internal.internal.polldottest._Polldottest.$Polldottest_Fields_.main (_internal/internal/polldottest/Polldottest.hx line 7)
 
 -- FAIL: TestConsume
 

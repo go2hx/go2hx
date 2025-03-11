@@ -4,7 +4,10 @@ package stdgo._internal.math.rand;
     @:tdfield
     static public function uint64( _z:stdgo.Ref<stdgo._internal.math.rand.Rand_zipf.Zipf>):stdgo.GoUInt64 {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.rand.Rand_zipf.Zipf> = _z;
-        if ((_z == null || (_z : Dynamic).__nil__)) {
+        if (({
+            final value = _z;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             throw stdgo.Go.toInterface(("rand: nil Zipf" : stdgo.GoString));
         };
         var _k = (0 : stdgo.GoFloat64);

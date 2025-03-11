@@ -497,7 +497,10 @@ var _avalue = __1, _alayout = __0;
         if (((_day < (1 : stdgo.GoInt) : Bool) || (_day > stdgo._internal.time.Time__daysin._daysIn((_month : stdgo._internal.time.Time_month.Month), _year) : Bool) : Bool)) {
             return { _0 : (new stdgo._internal.time.Time_time.Time() : stdgo._internal.time.Time_time.Time), _1 : stdgo.Go.asInterface(stdgo._internal.time.Time__newparseerror._newParseError(_alayout?.__copy__(), _avalue?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _value?.__copy__(), (": day out of range" : stdgo.GoString))) };
         };
-        if ((_z != null && ((_z : Dynamic).__nil__ == null || !(_z : Dynamic).__nil__))) {
+        if (({
+            final value = _z;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return { _0 : stdgo._internal.time.Time_date.date(_year, (_month : stdgo._internal.time.Time_month.Month), _day, _hour, _min, _sec, _nsec, _z)?.__copy__(), _1 : (null : stdgo.Error) };
         };
         if (_zoneOffset != ((-1 : stdgo.GoInt))) {

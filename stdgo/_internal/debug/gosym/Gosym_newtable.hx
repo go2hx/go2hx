@@ -1,33 +1,33 @@
 package stdgo._internal.debug.gosym;
 function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_linetable.LineTable>):{ var _0 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_table.Table>; var _1 : stdgo.Error; } {
-        var _n_25:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _obj_7:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
-        var _err_1:stdgo.Error = (null : stdgo.Error);
-        var _j_23:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_17:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_15:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _end_12:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nz_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _countloopBreak = false;
-        var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lasttyp_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _fname_3:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
-        var _n_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_26:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fn_22:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>);
-        var _na_19:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _sym_10:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _end_20:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_11:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_21:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_12:stdgo.GoInt = (0 : stdgo.GoInt);
         var _lastf_8:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nf_4:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_24:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _s_16:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
-        var _depth_14:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c_13:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _t_2:stdgo._internal.debug.gosym.Gosym_table.Table = ({} : stdgo._internal.debug.gosym.Gosym_table.Table);
-        var _lasttyp_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _n_21:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _n_26:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _na_19:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fn_22:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_func.Func>);
+        var _depth_14:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _obj_7:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>);
+        var _nf_4:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_20:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_15:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_11:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_17:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_16:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
+        var _n_25:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_23:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _countloopBreak = false;
+        var _nz_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _np_18:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _sym_10:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_sym.Sym>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -143,7 +143,10 @@ _w++;
                         {};
                         x;
                     } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>) : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>>);
-                    if ((_t_2._go12line != null && ((_t_2._go12line : Dynamic).__nil__ == null || !(_t_2._go12line : Dynamic).__nil__))) {
+                    if (({
+                        final value = _t_2._go12line;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3641741i32;
                     } else {
                         _gotoNext = 3641873i32;
@@ -186,7 +189,10 @@ _w++;
                         };
                     };
                 } else if (__value__ == (3642117i32)) {
-                    if ((_t_2._go12line != null && ((_t_2._go12line : Dynamic).__nil__ == null || !(_t_2._go12line : Dynamic).__nil__))) {
+                    if (({
+                        final value = _t_2._go12line;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3642171i32;
                     } else {
                         _gotoNext = 3642291i32;
@@ -194,7 +200,10 @@ _w++;
                 } else if (__value__ == (3642171i32)) {
                     _gotoNext = 3642069i32;
                 } else if (__value__ == (3642291i32)) {
-                    if ((_obj_7 != null && ((_obj_7 : Dynamic).__nil__ == null || !(_obj_7 : Dynamic).__nil__))) {
+                    if (({
+                        final value = _obj_7;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3642305i32;
                     } else {
                         _gotoNext = 3642347i32;
@@ -344,9 +353,15 @@ _w++;
                     (@:checkr _fn_22 ?? throw "null pointer dereference").sym = _sym_10;
                     (@:checkr _fn_22 ?? throw "null pointer dereference").entry = (@:checkr _sym_10 ?? throw "null pointer dereference").value;
                     (@:checkr _fn_22 ?? throw "null pointer dereference").obj = _obj_7;
-                    if ((_t_2._go12line != null && ((_t_2._go12line : Dynamic).__nil__ == null || !(_t_2._go12line : Dynamic).__nil__))) {
+                    if (({
+                        final value = _t_2._go12line;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3643663i32;
-                    } else if ((_pcln != null && ((_pcln : Dynamic).__nil__ == null || !(_pcln : Dynamic).__nil__))) {
+                    } else if (({
+                        final value = _pcln;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3643842i32;
                     } else {
                         _gotoNext = 3643916i32;
@@ -402,7 +417,10 @@ _w++;
                     _i_9 = (_end_20 - (1 : stdgo.GoInt) : stdgo.GoInt);
                     _gotoNext = 3642069i32;
                 } else if (__value__ == (3644276i32)) {
-                    if (((_t_2._go12line != null && ((_t_2._go12line : Dynamic).__nil__ == null || !(_t_2._go12line : Dynamic).__nil__)) && (_nf_4 == (0 : stdgo.GoInt)) : Bool)) {
+                    if ((({
+                        final value = _t_2._go12line;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    }) && (_nf_4 == (0 : stdgo.GoInt)) : Bool)) {
                         _gotoNext = 3644308i32;
                     } else {
                         _gotoNext = 3644349i32;
@@ -411,7 +429,10 @@ _w++;
                     _t_2.funcs = @:check2r _t_2._go12line._go12Funcs();
                     _gotoNext = 3644349i32;
                 } else if (__value__ == (3644349i32)) {
-                    if ((_obj_7 != null && ((_obj_7 : Dynamic).__nil__ == null || !(_obj_7 : Dynamic).__nil__))) {
+                    if (({
+                        final value = _obj_7;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         _gotoNext = 3644363i32;
                     } else {
                         _gotoNext = 3644399i32;

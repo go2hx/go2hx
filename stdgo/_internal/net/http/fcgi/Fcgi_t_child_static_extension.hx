@@ -5,7 +5,10 @@ package stdgo._internal.net.http.fcgi;
     static public function _cleanUp( _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_t_child.T_child> = _c;
         for (__0 => _req in (@:checkr _c ?? throw "null pointer dereference")._requests) {
-            if (((@:checkr _req ?? throw "null pointer dereference")._pw != null && (((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__))) {
+            if (({
+                final value = (@:checkr _req ?? throw "null pointer dereference")._pw;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.closeWithError(stdgo._internal.net.http.fcgi.Fcgi_errconnclosed.errConnClosed);
             };
         };
@@ -46,7 +49,10 @@ package stdgo._internal.net.http.fcgi;
         {
             final __value__ = (@:checkr _rec ?? throw "null pointer dereference")._h.type;
             if (__value__ == ((1 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
-                if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
+                if (({
+                    final value = _req;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     return stdgo._internal.errors.Errors_new_.new_(("fcgi: received ID that is already in-flight" : stdgo.GoString));
                 };
                 var _br:stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest = ({} : stdgo._internal.net.http.fcgi.Fcgi_t_beginrequest.T_beginRequest);
@@ -72,7 +78,10 @@ package stdgo._internal.net.http.fcgi;
                 return (null : stdgo.Error);
             } else if (__value__ == ((5 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
                 var _content = @:check2r _rec._content();
-                if (((@:checkr _req ?? throw "null pointer dereference")._pw == null || ((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__)) {
+                if (({
+                    final value = (@:checkr _req ?? throw "null pointer dereference")._pw;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     var _body:stdgo._internal.io.Io_readcloser.ReadCloser = (null : stdgo._internal.io.Io_readcloser.ReadCloser);
                     if (((_content.length) > (0 : stdgo.GoInt) : Bool)) {
                         {
@@ -89,7 +98,10 @@ package stdgo._internal.net.http.fcgi;
                     @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.write(_content);
                 } else {
                     if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.__remove__((@:checkr _req ?? throw "null pointer dereference")._reqId);
-                    if (((@:checkr _req ?? throw "null pointer dereference")._pw != null && (((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__))) {
+                    if (({
+                        final value = (@:checkr _req ?? throw "null pointer dereference")._pw;
+                        (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                    })) {
                         @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.close();
                     };
                 };
@@ -108,7 +120,10 @@ package stdgo._internal.net.http.fcgi;
             } else if (__value__ == ((2 : stdgo._internal.net.http.fcgi.Fcgi_t_rectype.T_recType))) {
                 if ((@:checkr _c ?? throw "null pointer dereference")._requests != null) (@:checkr _c ?? throw "null pointer dereference")._requests.__remove__((@:checkr _rec ?? throw "null pointer dereference")._h.id);
                 @:check2r (@:checkr _c ?? throw "null pointer dereference")._conn._writeEndRequest((@:checkr _rec ?? throw "null pointer dereference")._h.id, (0 : stdgo.GoInt), (0 : stdgo.GoUInt8));
-                if (((@:checkr _req ?? throw "null pointer dereference")._pw != null && (((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__ == null || !((@:checkr _req ?? throw "null pointer dereference")._pw : Dynamic).__nil__))) {
+                if (({
+                    final value = (@:checkr _req ?? throw "null pointer dereference")._pw;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     @:check2r (@:checkr _req ?? throw "null pointer dereference")._pw.closeWithError(stdgo._internal.net.http.fcgi.Fcgi_errrequestaborted.errRequestAborted);
                 };
                 if (!(@:checkr _req ?? throw "null pointer dereference")._keepConn) {

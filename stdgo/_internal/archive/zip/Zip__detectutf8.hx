@@ -9,7 +9,7 @@ function _detectUTF8(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; } {
                 if ((((_r < (32 : stdgo.GoInt32) : Bool) || (_r > (125 : stdgo.GoInt32) : Bool) : Bool) || (_r == (92 : stdgo.GoInt32)) : Bool)) {
                     if ((!stdgo._internal.unicode.utf8.Utf8_validrune.validRune(_r) || (((_r == (65533 : stdgo.GoInt32)) && (_size == (1 : stdgo.GoInt)) : Bool)) : Bool)) {
                         return {
-                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
                             _valid = __tmp__._0;
                             _require = __tmp__._1;
                             __tmp__;
@@ -20,7 +20,7 @@ function _detectUTF8(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; } {
             };
         };
         return {
-            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : _require };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : _require };
             _valid = __tmp__._0;
             _require = __tmp__._1;
             __tmp__;

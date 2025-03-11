@@ -1,5 +1,10 @@
 package interop
 
+import (
+	_ "github.com/go2hx/go4hx/tests/interop/a"
+	_ "github.com/go2hx/go4hx/tests/interop/go-colorful"
+)
+
 func Map(m map[int]int) map[int]int {
 	return m
 }

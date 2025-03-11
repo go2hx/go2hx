@@ -20,7 +20,10 @@ private function set_skipAll(v:stdgo.Error):stdgo.Error {
         return v;
     }
 var lstatP(get, set) : stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>;
-private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> stdgo._internal.path.filepath.Filepath_lstatp.lstatP(_0);
+private function get_lstatP():stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> return _0 -> {
+        final obj = stdgo._internal.path.filepath.Filepath_lstatp.lstatP(_0);
+        { _0 : obj._0, _1 : obj._1 };
+    };
 private function set_lstatP(v:stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>>):stdgo.Pointer<String -> stdgo.Tuple<stdgo._internal.io.fs.Fs_fileinfo.FileInfo, stdgo.Error>> {
         stdgo._internal.path.filepath.Filepath_lstatp.lstatP = v;
         return v;

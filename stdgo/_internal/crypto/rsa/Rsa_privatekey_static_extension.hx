@@ -4,7 +4,10 @@ package stdgo._internal.crypto.rsa;
     @:tdfield
     static public function precompute( _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey>):Void {
         @:recv var _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey> = _priv;
-        if ((((@:checkr _priv ?? throw "null pointer dereference").precomputed._n == null || ((@:checkr _priv ?? throw "null pointer dereference").precomputed._n : Dynamic).__nil__) && ((@:checkr _priv ?? throw "null pointer dereference").primes.length == (2 : stdgo.GoInt)) : Bool)) {
+        if ((({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").precomputed._n;
+            (value == null || (value : Dynamic).__nil__);
+        }) && ((@:checkr _priv ?? throw "null pointer dereference").primes.length == (2 : stdgo.GoInt)) : Bool)) {
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newmodulusfrombig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").publicKey.n);
@@ -38,7 +41,10 @@ package stdgo._internal.crypto.rsa;
                 return;
             };
         };
-        if (((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp != null && (((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp : Dynamic).__nil__ == null || !((@:checkr _priv ?? throw "null pointer dereference").precomputed.dp : Dynamic).__nil__))) {
+        if (({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").precomputed.dp;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             return;
         };
         (@:checkr _priv ?? throw "null pointer dereference").precomputed.dp = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).sub((@:checkr _priv ?? throw "null pointer dereference").primes[(0 : stdgo.GoInt)], stdgo._internal.crypto.rsa.Rsa__bigone._bigOne);
@@ -100,31 +106,25 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
         @:recv var _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.PrivateKey> = _priv;
         var _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (_opts == null) {
-            return {
-                final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
-                _plaintext = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _plaintext, _1 : _err };
-            };
+            return ({
+                @:assignTranslate final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                { _0 : __tmp__._0, _1 : __tmp__._1 };
+            });
         };
         {
             final __type__ = _opts;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>))) {
                 var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_oaepoptions.OAEPOptions>) : __type__.__underlying__().value;
                 if ((@:checkr _opts ?? throw "null pointer dereference").mGFHash == ((0u32 : stdgo._internal.crypto.Crypto_hash.Hash))) {
-                    return {
-                        final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").hash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
-                        _plaintext = __tmp__._0;
-                        _err = __tmp__._1;
-                        { _0 : _plaintext, _1 : _err };
-                    };
+                    return ({
+                        @:assignTranslate final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").hash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
+                        { _0 : __tmp__._0, _1 : __tmp__._1 };
+                    });
                 } else {
-                    return {
-                        final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").mGFHash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
-                        _plaintext = __tmp__._0;
-                        _err = __tmp__._1;
-                        { _0 : _plaintext, _1 : _err };
-                    };
+                    return ({
+                        @:assignTranslate final __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptoaep._decryptOAEP((@:checkr _opts ?? throw "null pointer dereference").hash.new_(), (@:checkr _opts ?? throw "null pointer dereference").mGFHash.new_(), _rand, _priv, _ciphertext, (@:checkr _opts ?? throw "null pointer dereference").label);
+                        { _0 : __tmp__._0, _1 : __tmp__._1 };
+                    });
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>))) {
                 var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_pkcs1v15decryptoptions.PKCS1v15DecryptOptions>) : __type__.__underlying__().value;
@@ -136,7 +136,7 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                             var __tmp__ = stdgo._internal.io.Io_readfull.readFull(_rand, _plaintext), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                                     _plaintext = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -147,7 +147,7 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                             var _err = (stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15sessionkey.decryptPKCS1v15SessionKey(_rand, _priv, _ciphertext, _plaintext) : stdgo.Error);
                             if (_err != null) {
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                                     _plaintext = __tmp__._0;
                                     _err = __tmp__._1;
                                     __tmp__;
@@ -155,24 +155,22 @@ var _values = (stdgo.Go.setRef((@:checkr _priv ?? throw "null pointer dereferenc
                             };
                         };
                         return {
-                            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _plaintext, _1 : (null : stdgo.Error) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _plaintext, _1 : (null : stdgo.Error) };
                             _plaintext = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
                         };
                     } else {
-                        return {
-                            final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
-                            _plaintext = __tmp__._0;
-                            _err = __tmp__._1;
-                            { _0 : _plaintext, _1 : _err };
-                        };
+                        return ({
+                            @:assignTranslate final __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptpkcs1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                            { _0 : __tmp__._0, _1 : __tmp__._1 };
+                        });
                     };
                 };
             } else {
                 var _opts:stdgo._internal.crypto.Crypto_decrypteropts.DecrypterOpts = __type__?.__underlying__();
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/rsa: invalid options for Decrypt" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/rsa: invalid options for Decrypt" : stdgo.GoString)) };
                     _plaintext = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

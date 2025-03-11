@@ -162,7 +162,10 @@ var _e = __1, _i = __0;
     @:tdfield
     static public function _lazyInit( _l:stdgo.Ref<stdgo._internal.container.list.List_list.List>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_list.List> = _l;
-        if (((@:checkr _l ?? throw "null pointer dereference")._root._next == null || ((@:checkr _l ?? throw "null pointer dereference")._root._next : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _l ?? throw "null pointer dereference")._root._next;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             @:check2r _l.init();
         };
     }

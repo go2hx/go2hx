@@ -7,7 +7,7 @@ package stdgo._internal.testing.iotest;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((@:checkr _t ?? throw "null pointer dereference")._n <= (0i64 : stdgo.GoInt64) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

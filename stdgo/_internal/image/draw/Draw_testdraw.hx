@@ -1,16 +1,16 @@
 package stdgo._internal.image.draw;
 function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _test_4:stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest = ({} : stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest);
-        var _r_2:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-        var _i_5109342_1:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _rr_0:stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle> = (null : stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle>);
         var _x_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _b_8:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
         var _golden_7:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
+        var _r_2:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
+        var _i_5109342_1:stdgo.GoInt = (0 : stdgo.GoInt);
         var _y_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _dst_6:stdgo._internal.image.draw.Draw_image.Image = (null : stdgo._internal.image.draw.Draw_image.Image);
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _test_4:stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest = ({} : stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest);
         var _i_5109377_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _rr_0:stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle> = (null : stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

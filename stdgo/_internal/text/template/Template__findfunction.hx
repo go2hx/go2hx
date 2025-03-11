@@ -3,7 +3,13 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_value.Value), _isBuiltin = false, _ok = false;
         try {
-            if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && ((@:checkr _tmpl ?? throw "null pointer dereference")._common != null && (((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__ == null || !((@:checkr _tmpl ?? throw "null pointer dereference")._common : Dynamic).__nil__)) : Bool)) {
+            if ((({
+                final value = _tmpl;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ({
+                final value = (@:checkr _tmpl ?? throw "null pointer dereference")._common;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) : Bool)) {
                 @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rLock();
                 {
                     final __f__ = @:check2 (@:checkr _tmpl ?? throw "null pointer dereference")._common._muFuncs.rUnlock;
@@ -14,7 +20,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     if (_fn.isValid()) {
                         {
                             final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                                final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
                                 _v = __tmp__._0;
                                 _isBuiltin = __tmp__._1;
                                 _ok = __tmp__._2;
@@ -35,7 +41,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 if (_fn.isValid()) {
                     {
                         final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                            final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
                             _v = __tmp__._0;
                             _isBuiltin = __tmp__._1;
                             _ok = __tmp__._2;
@@ -52,7 +58,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false, _2 : false };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_value.Value() : stdgo._internal.reflect.Reflect_value.Value), _1 : false, _2 : false };
                     _v = __tmp__._0;
                     _isBuiltin = __tmp__._1;
                     _ok = __tmp__._2;

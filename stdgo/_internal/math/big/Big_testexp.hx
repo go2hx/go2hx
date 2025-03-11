@@ -38,13 +38,25 @@ function testExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                 continue;
             };
             var _z1 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).exp(_x, _y, _m);
-            if (((_z1 != null && ((_z1 : Dynamic).__nil__ == null || !(_z1 : Dynamic).__nil__)) && !stdgo._internal.math.big.Big__isnormalized._isNormalized(_z1) : Bool)) {
+            if ((({
+                final value = _z1;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && !stdgo._internal.math.big.Big__isnormalized._isNormalized(_z1) : Bool)) {
                 @:check2r _t.errorf(("#%d: %v is not normalized" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface((_z1 : stdgo._internal.math.big.Big_int_.Int_))));
             };
-            if (!((((_z1 == null || (_z1 : Dynamic).__nil__) && (_out == null || (_out : Dynamic).__nil__) : Bool) || (@:check2r _z1.cmp(_out) == (0 : stdgo.GoInt)) : Bool))) {
+            if (!(((({
+                final value = _z1;
+                (value == null || (value : Dynamic).__nil__);
+            }) && ({
+                final value = _out;
+                (value == null || (value : Dynamic).__nil__);
+            }) : Bool) || (@:check2r _z1.cmp(_out) == (0 : stdgo.GoInt)) : Bool))) {
                 @:check2r _t.errorf(("#%d: got %x want %x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)), stdgo.Go.toInterface(stdgo.Go.asInterface(_out)));
             };
-            if ((_m == null || (_m : Dynamic).__nil__)) {
+            if (({
+                final value = _m;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big_word.Word>(0, 0, ...[]).__setNumber32__() : stdgo._internal.math.big.Big_t_nat.T_nat) } : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
                 var _z2 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).exp(_x, _y, _m);
                 if (@:check2r _z2.cmp(_z1) != ((0 : stdgo.GoInt))) {

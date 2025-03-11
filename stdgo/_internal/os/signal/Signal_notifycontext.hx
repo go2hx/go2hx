@@ -12,7 +12,7 @@ function notifyContext(_parent:stdgo._internal.context.Context_context.Context, 
                     {
                         var __select__ = true;
                         while (__select__) {
-                            if ((@:checkr _c ?? throw "null pointer dereference")._ch != null && (@:checkr _c ?? throw "null pointer dereference")._ch.__isGet__()) {
+                            if ((@:checkr _c ?? throw "null pointer dereference")._ch != null && (@:checkr _c ?? throw "null pointer dereference")._ch.__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     (@:checkr _c ?? throw "null pointer dereference")._ch.__get__();
@@ -20,23 +20,25 @@ function notifyContext(_parent:stdgo._internal.context.Context_context.Context, 
                                         (@:checkr _c ?? throw "null pointer dereference")._cancel();
                                     };
                                 };
-                            } else if ((@:checkr _c ?? throw "null pointer dereference").done() != null && (@:checkr _c ?? throw "null pointer dereference").done().__isGet__()) {
+                            } else if ((@:checkr _c ?? throw "null pointer dereference").done() != null && (@:checkr _c ?? throw "null pointer dereference").done().__isGet__(true)) {
                                 __select__ = false;
                                 {
                                     (@:checkr _c ?? throw "null pointer dereference").done().__get__();
                                     {};
                                 };
                             };
-                            #if !js Sys.sleep(0.01) #else null #end;
+                            #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
+                        (@:checkr _c ?? throw "null pointer dereference")._ch.__reset__();
+(@:checkr _c ?? throw "null pointer dereference").done().__reset__();
                     };
                 };
                 a();
             }));
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.context.Context_context.Context; var _1 : stdgo._internal.context.Context_cancelfunc.CancelFunc; } = { _0 : stdgo.Go.asInterface(_c), _1 : @:check2r _c._stop };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo._internal.context.Context_context.Context; var _1 : stdgo._internal.context.Context_cancelfunc.CancelFunc; } = { _0 : stdgo.Go.asInterface(_c), _1 : @:check2r _c._stop };
             _ctx = __tmp__._0;
             _stop = __tmp__._1;
             __tmp__;

@@ -742,7 +742,10 @@ if (((@:checkr _instr ?? throw "null pointer dereference")._indir > (0 : stdgo.G
     static public function _newEncoderState( _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_encoder.Encoder>, _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encbuffer.T_encBuffer>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState> {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_encoder.Encoder> = _enc;
         var _e = (@:checkr _enc ?? throw "null pointer dereference")._freeList;
-        if ((_e == null || (_e : Dynamic).__nil__)) {
+        if (({
+            final value = _e;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _e = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_encoderstate.T_encoderState>);
             (@:checkr _e ?? throw "null pointer dereference")._enc = _enc;
         } else {

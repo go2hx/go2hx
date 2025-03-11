@@ -9,7 +9,7 @@ package stdgo._internal.mime.quotedprintable;
             if (((@:checkr _r ?? throw "null pointer dereference")._line.length) == ((0 : stdgo.GoInt))) {
                 if ((@:checkr _r ?? throw "null pointer dereference")._rerr != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _r ?? throw "null pointer dereference")._rerr };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (@:checkr _r ?? throw "null pointer dereference")._rerr };
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -57,7 +57,7 @@ package stdgo._internal.mime.quotedprintable;
                                 break;
                             };
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                                 _n = __tmp__._0;
                                 _err = __tmp__._1;
                                 __tmp__;
@@ -73,7 +73,7 @@ package stdgo._internal.mime.quotedprintable;
                         break;
                     } else if (((_b < (32 : stdgo.GoUInt8) : Bool) || (_b > (126 : stdgo.GoUInt8) : Bool) : Bool)) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("quotedprintable: invalid unescaped byte 0x%02x in body" : stdgo.GoString), stdgo.Go.toInterface(_b)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("quotedprintable: invalid unescaped byte 0x%02x in body" : stdgo.GoString), stdgo.Go.toInterface(_b)) };
                             _n = __tmp__._0;
                             _err = __tmp__._1;
                             __tmp__;
@@ -89,7 +89,7 @@ package stdgo._internal.mime.quotedprintable;
             _n++;
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

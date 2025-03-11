@@ -38,7 +38,10 @@ package stdgo._internal.testing.fstest;
             return { _0 : (null : stdgo._internal.io.fs.Fs_file.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errnotexist.errNotExist } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
         };
         var _file = (_fsys[_name] ?? (null : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>));
-        if (((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__)) && (((@:checkr _file ?? throw "null pointer dereference").mode & (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) : stdgo._internal.io.fs.Fs_filemode.FileMode) == (0u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : Bool)) {
+        if ((({
+            final value = _file;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        }) && (((@:checkr _file ?? throw "null pointer dereference").mode & (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) : stdgo._internal.io.fs.Fs_filemode.FileMode) == (0u32 : stdgo._internal.io.fs.Fs_filemode.FileMode)) : Bool)) {
             return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile(_name?.__copy__(), (new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(stdgo._internal.path.Path_base.base(_name?.__copy__())?.__copy__(), _file) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo), (0i64 : stdgo.GoInt64)) : stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_openmapfile.T_openMapFile>)), _1 : (null : stdgo.Error) };
         };
         var _list:stdgo.Slice<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo> = (null : stdgo.Slice<stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo>);
@@ -75,7 +78,10 @@ package stdgo._internal.testing.fstest;
                     };
                 };
             };
-            if ((((_file == null || (_file : Dynamic).__nil__) && _list == null : Bool) && (_need.length == (0 : stdgo.GoInt)) : Bool)) {
+            if (((({
+                final value = _file;
+                (value == null || (value : Dynamic).__nil__);
+            }) && _list == null : Bool) && (_need.length == (0 : stdgo.GoInt)) : Bool)) {
                 return { _0 : (null : stdgo._internal.io.fs.Fs_file.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errnotexist.errNotExist } : stdgo._internal.io.fs.Fs_patherror.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>)) };
             };
         };
@@ -88,7 +94,10 @@ package stdgo._internal.testing.fstest;
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_list), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_list[(_i : stdgo.GoInt)]._name < _list[(_j : stdgo.GoInt)]._name : Bool);
         });
-        if ((_file == null || (_file : Dynamic).__nil__)) {
+        if (({
+            final value = _file;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _file = (stdgo.Go.setRef(({ mode : (-2147483648u32 : stdgo._internal.io.fs.Fs_filemode.FileMode) } : stdgo._internal.testing.fstest.Fstest_mapfile.MapFile)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_mapfile.MapFile>);
         };
         return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir(_name?.__copy__(), (new stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo(_elem?.__copy__(), _file) : stdgo._internal.testing.fstest.Fstest_t_mapfileinfo.T_mapFileInfo), _list, (0 : stdgo.GoInt)) : stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir)) : stdgo.Ref<stdgo._internal.testing.fstest.Fstest_t_mapdir.T_mapDir>)), _1 : (null : stdgo.Error) };

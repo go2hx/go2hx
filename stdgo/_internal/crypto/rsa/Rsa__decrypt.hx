@@ -4,7 +4,10 @@ function _decrypt(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_privatekey.Priv
             stdgo._internal.crypto.internal.boring.Boring_unreachable.unreachable();
         };
         var _err:stdgo.Error = (null : stdgo.Error), _m:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_nat.Nat> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_nat.Nat>), _c:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_nat.Nat> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_nat.Nat>), n:stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus> = (null : stdgo.Ref<stdgo._internal.crypto.internal.bigmod.Bigmod_modulus.Modulus>), _t0 = stdgo._internal.crypto.internal.bigmod.Bigmod_newnat.newNat();
-        if (((@:checkr _priv ?? throw "null pointer dereference").precomputed._n == null || ((@:checkr _priv ?? throw "null pointer dereference").precomputed._n : Dynamic).__nil__)) {
+        if (({
+            final value = (@:checkr _priv ?? throw "null pointer dereference").precomputed._n;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             {
                 var __tmp__ = stdgo._internal.crypto.internal.bigmod.Bigmod_newmodulusfrombig.newModulusFromBig((@:checkr _priv ?? throw "null pointer dereference").publicKey.n);
                 n = @:tmpset0 __tmp__._0;

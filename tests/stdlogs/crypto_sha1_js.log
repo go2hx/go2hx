@@ -1,12 +1,12 @@
 === RUN  TestGolden
 sha1[<invalid reflect.Value>](%!s(MISSING)) = %!s(MISSING) want %!s(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41760 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41649 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:41008:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:11148:22)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 40812 column 9)
-Called from ._$internal_crypto_sha1_$dot_$test_Sha1_$dot_$test_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 33837 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52208:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52209:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 42066 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41955 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:41314:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha1_Sha1_$testgolden_testGolden [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:11276:22)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 41118 column 9)
+Called from ._$internal_crypto_sha1dottest_Sha1dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js line 33937 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52526:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha1.js:52527:3)
 
 -- FAIL: TestGolden

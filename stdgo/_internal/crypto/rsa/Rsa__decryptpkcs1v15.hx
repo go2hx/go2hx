@@ -50,7 +50,7 @@ _lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constanttimeselect.const
         _valid = (((_firstByteIsZero & _secondByteIsTwo : stdgo.GoInt) & (((-1 ^ _lookingForIndex) & (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) & _validPS : stdgo.GoInt);
         _index = stdgo._internal.crypto.subtle.Subtle_constanttimeselect.constantTimeSelect(_valid, (_index + (1 : stdgo.GoInt) : stdgo.GoInt), (0 : stdgo.GoInt));
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } = { _0 : _valid, _1 : _em, _2 : _index, _3 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoInt; var _3 : stdgo.Error; } = { _0 : _valid, _1 : _em, _2 : _index, _3 : (null : stdgo.Error) };
             _valid = __tmp__._0;
             _em = __tmp__._1;
             _index = __tmp__._2;

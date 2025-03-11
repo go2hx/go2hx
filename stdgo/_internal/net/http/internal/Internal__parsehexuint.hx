@@ -10,7 +10,7 @@ function _parseHexUint(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt64;
                 _b = ((_b - (65 : stdgo.GoUInt8) : stdgo.GoUInt8) + (10 : stdgo.GoUInt8) : stdgo.GoUInt8);
             } else {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid byte in chunk length" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid byte in chunk length" : stdgo.GoString)) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -18,7 +18,7 @@ function _parseHexUint(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt64;
             };
             if (_i == ((16 : stdgo.GoInt))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("http chunk length too large" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("http chunk length too large" : stdgo.GoString)) };
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

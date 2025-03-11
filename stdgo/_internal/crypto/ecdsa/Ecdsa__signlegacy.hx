@@ -5,7 +5,7 @@ function _signLegacy(_priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_privatek
         var n = _c.params().n;
         if (@:check2r n.sign() == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.ecdsa.Ecdsa__errzeroparam._errZeroParam };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.ecdsa.Ecdsa__errzeroparam._errZeroParam };
                 _sig = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -21,7 +21,7 @@ function _signLegacy(_priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_privatek
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                         _sig = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -46,10 +46,8 @@ function _signLegacy(_priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_privatek
                 break;
             };
         };
-        return {
-            final __tmp__ = stdgo._internal.crypto.ecdsa.Ecdsa__encodesignature._encodeSignature(@:check2r _r.bytes(), @:check2r _s.bytes());
-            _sig = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _sig, _1 : _err };
-        };
+        return ({
+            @:assignTranslate final __tmp__ = stdgo._internal.crypto.ecdsa.Ecdsa__encodesignature._encodeSignature(@:check2r _r.bytes(), @:check2r _s.bytes());
+            { _0 : __tmp__._0, _1 : __tmp__._1 };
+        });
     }

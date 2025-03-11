@@ -32,7 +32,10 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function decompose(_0:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int>; function compose(_0:std.UInt, _1:Bool, _2:Array<std.UInt>, _3:StdTypes.Int):stdgo.Error; }):T_decimal {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_decimal = { decompose : _0 -> x.decompose([for (i in _0) i]), compose : (_0, _1, _2, _3) -> x.compose(_0, _1, [for (i in _2) i], _3), __underlying__ : () -> __f__() };
+        final y:T_decimal = { decompose : _0 -> {
+            final obj = x.decompose([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1, _2 : [for (i in obj._2) i], _3 : obj._3 };
+        }, compose : (_0, _1, _2, _3) -> x.compose(_0, _1, [for (i in _2) i], _3), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -50,7 +53,10 @@ private function set_errTxDone(v:stdgo.Error):stdgo.Error {
     @:from
     static function fromHaxeInterface(x:{ function decompose(_buf:Array<std.UInt>):stdgo.Tuple.Tuple4<std.UInt, Bool, Array<std.UInt>, StdTypes.Int>; }):T_decimalDecompose {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_decimalDecompose = { decompose : _0 -> x.decompose([for (i in _0) i]), __underlying__ : () -> __f__() };
+        final y:T_decimalDecompose = { decompose : _0 -> {
+            final obj = x.decompose([for (i in _0) i]);
+            { _0 : obj._0, _1 : obj._1, _2 : [for (i in obj._2) i], _3 : obj._3 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -116,7 +122,10 @@ class Scanner_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function _grabConn(_0:stdgo._internal.context.Context_context.Context):stdgo.Tuple.Tuple3<T_driverConn, T_releaseConn, stdgo.Error>; function _txCtx():stdgo._internal.context.Context_context.Context; }):T_stmtConnGrabber {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_stmtConnGrabber = { _grabConn : _0 -> x._grabConn(_0), _txCtx : () -> x._txCtx(), __underlying__ : () -> __f__() };
+        final y:T_stmtConnGrabber = { _grabConn : _0 -> {
+            final obj = x._grabConn(_0);
+            { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
+        }, _txCtx : () -> x._txCtx(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -139,7 +148,13 @@ class Result_static_extension {
     @:from
     static function fromHaxeInterface(x:{ function lastInsertId():stdgo.Tuple<haxe.Int64, stdgo.Error>; function rowsAffected():stdgo.Tuple<haxe.Int64, stdgo.Error>; }):Result {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:Result = { lastInsertId : () -> x.lastInsertId(), rowsAffected : () -> x.rowsAffected(), __underlying__ : () -> __f__() };
+        final y:Result = { lastInsertId : () -> {
+            final obj = x.lastInsertId();
+            { _0 : obj._0, _1 : obj._1 };
+        }, rowsAffected : () -> {
+            final obj = x.rowsAffected();
+            { _0 : obj._0, _1 : obj._1 };
+        }, __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }
@@ -1547,7 +1562,7 @@ class DB_static_extension {
     }
     static public function _retry(_db:DB, _fn:T_connReuseStrategy -> stdgo.Error):stdgo.Error {
         final _db = (_db : stdgo.Ref<stdgo._internal.database.sql.Sql_db.DB>);
-        final _fn = _0 -> _fn(_0);
+        final _fn = _0 -> (_fn(_0) : stdgo.Error);
         return stdgo._internal.database.sql.Sql_db_static_extension.DB_static_extension._retry(_db, _fn);
     }
     static public function _putConnDBLocked(_db:DB, _dc:T_driverConn, _err:stdgo.Error):Bool {
@@ -1799,7 +1814,7 @@ class Conn_static_extension {
     }
     static public function raw(_c:Conn, _f:stdgo.AnyInterface -> stdgo.Error):stdgo.Error {
         final _c = (_c : stdgo.Ref<stdgo._internal.database.sql.Sql_conn.Conn>);
-        final _f = _0 -> _f((_0 : stdgo.AnyInterface));
+        final _f = _0 -> (_f((_0 : stdgo.AnyInterface)) : stdgo.Error);
         return stdgo._internal.database.sql.Sql_conn_static_extension.Conn_static_extension.raw(_c, _f);
     }
     static public function prepareContext(_c:Conn, _ctx:stdgo._internal.context.Context_context.Context, _query:String):stdgo.Tuple<Stmt, stdgo.Error> {

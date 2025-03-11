@@ -94,7 +94,10 @@ if (_line == ((stdgo.Go.str() : stdgo.GoString))) {
                         _input = _str;
                     } else if (((_line[(0 : stdgo.GoInt)] == (45 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _line[(0 : stdgo.GoInt)] : Bool) && (_line[(0 : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
                         _ncase++;
-                        if ((_re == null || (_re : Dynamic).__nil__)) {
+                        if (({
+                            final value = _re;
+                            (value == null || (value : Dynamic).__nil__);
+                        })) {
                             {
                                 _lineno++;
                                 continue;

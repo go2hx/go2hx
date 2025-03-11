@@ -141,6 +141,25 @@ func sortImports(dir string, name string) (r Result) {
 				}
 			}
 			// if check ast
+			mode := "easy"
+			if file.Imports == nil || len(file.Imports) == 0 {
+				mode = "easy"
+			} else {
+				mediumBool := true
+				for _, imp := range file.Imports {
+					imp.Path.Value = imp.Path.Value[1 : len(imp.Path.Value)-1]
+					if !std[imp.Path.Value] && imp.Path.Value != "fmt" {
+						mediumBool = false
+						break
+					}
+				}
+				if mediumBool {
+					mode = "medium"
+				} else {
+					mode = "hard"
+				}
+			}
+
 			switch name {
 			case "yaegi", "go", "tinygo":
 				// make sure the file does not use channels
@@ -170,25 +189,21 @@ func sortImports(dir string, name string) (r Result) {
 					}
 					return true
 				})
-
-				if chanBool || typeParams {
+				// Do not skip chanBool
+				_ = chanBool
+				if chanBool {
+					//println(path)
+				}
+				if typeParams {
 					return nil
 				}
 			}
 
 			// Print the imports
-			if file.Imports == nil || len(file.Imports) == 0 {
+			if mode == "easy" {
 				r.Easy = append(r.Easy, path+"\n"+wanted)
 			} else {
-				mediumBool := true
-				for _, imp := range file.Imports {
-					imp.Path.Value = imp.Path.Value[1 : len(imp.Path.Value)-1]
-					if !std[imp.Path.Value] && imp.Path.Value != "fmt" {
-						mediumBool = false
-						break
-					}
-				}
-				if mediumBool {
+				if mode != "hard" {
 					r.Medium = append(r.Medium, path+"\n"+wanted)
 				} else {
 					r.Hard = append(r.Hard, path+"\n"+wanted)

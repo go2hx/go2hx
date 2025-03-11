@@ -7,7 +7,7 @@ var _s = __1, _i = __0;
         if (((_s.length) <= (1 : stdgo.GoInt) : Bool)) {
             _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
                 _dst1 = __tmp__._0;
                 _src1 = __tmp__._1;
                 __tmp__;
@@ -17,7 +17,7 @@ var _s = __1, _i = __0;
             if (((_s.length) <= (3 : stdgo.GoInt) : Bool)) {
                 _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     _dst1 = __tmp__._0;
                     _src1 = __tmp__._1;
                     __tmp__;
@@ -57,7 +57,7 @@ var _s = __1, _i = __0;
             if ((_i <= (3 : stdgo.GoInt) : Bool)) {
                 _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
                     _dst1 = __tmp__._0;
                     _src1 = __tmp__._1;
                     __tmp__;
@@ -69,7 +69,7 @@ var _s = __1, _i = __0;
                 _x = (65533 : stdgo.GoInt32);
             };
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
                 _dst1 = __tmp__._0;
                 _src1 = __tmp__._1;
                 __tmp__;
@@ -91,7 +91,7 @@ var _s = __1, _i = __0;
             var _x = (stdgo._internal.html.Html__entity._entity[(_entityName : stdgo.GoString)] ?? (0 : stdgo.GoInt32) : stdgo.GoInt32);
             if (_x != ((0 : stdgo.GoInt32))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
                     _dst1 = __tmp__._0;
                     _src1 = __tmp__._1;
                     __tmp__;
@@ -101,7 +101,7 @@ var _s = __1, _i = __0;
                 if (_x[(0 : stdgo.GoInt)] != ((0 : stdgo.GoInt32))) {
                     var _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x[(0 : stdgo.GoInt)]) : stdgo.GoInt);
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst1 + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst1) : stdgo.Slice<stdgo.GoUInt8>), _x[(1 : stdgo.GoInt)]) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst1 + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst1) : stdgo.Slice<stdgo.GoUInt8>), _x[(1 : stdgo.GoInt)]) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
                         _dst1 = __tmp__._0;
                         _src1 = __tmp__._1;
                         __tmp__;
@@ -118,7 +118,7 @@ var _s = __1, _i = __0;
                                 var _x = (stdgo._internal.html.Html__entity._entity[((_entityName.__slice__(0, _j) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)] ?? (0 : stdgo.GoInt32) : stdgo.GoInt32);
                                 if (_x != ((0 : stdgo.GoInt32))) {
                                     return {
-                                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : ((_src + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : ((_src + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
                                         _dst1 = __tmp__._0;
                                         _src1 = __tmp__._1;
                                         __tmp__;
@@ -139,7 +139,7 @@ var _s = __1, _i = __0;
         };
         (_b.__slice__(_dst, _dst1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_src, _src1) : stdgo.Slice<stdgo.GoUInt8>));
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _dst1, _1 : _src1 };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _dst1, _1 : _src1 };
             _dst1 = __tmp__._0;
             _src1 = __tmp__._1;
             __tmp__;

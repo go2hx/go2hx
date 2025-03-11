@@ -98,7 +98,7 @@ package stdgo._internal.io.fs;
         var _rel = ("" : stdgo.GoString), _ok = false;
         if (_name == ((@:checkr _f ?? throw "null pointer dereference")._dir)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : ("." : stdgo.GoString), _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : ("." : stdgo.GoString), _1 : true };
                 _rel = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
@@ -106,14 +106,14 @@ package stdgo._internal.io.fs;
         };
         if (((((_name.length) >= (((@:checkr _f ?? throw "null pointer dereference")._dir.length) + (2 : stdgo.GoInt) : stdgo.GoInt) : Bool) && _name[((@:checkr _f ?? throw "null pointer dereference")._dir.length : stdgo.GoInt)] == ((47 : stdgo.GoUInt8)) : Bool) && ((_name.__slice__(0, ((@:checkr _f ?? throw "null pointer dereference")._dir.length)) : stdgo.GoString) == (@:checkr _f ?? throw "null pointer dereference")._dir) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_name.__slice__((((@:checkr _f ?? throw "null pointer dereference")._dir.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : true };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_name.__slice__((((@:checkr _f ?? throw "null pointer dereference")._dir.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : true };
                 _rel = __tmp__._0;
                 _ok = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (stdgo.Go.str() : stdgo.GoString)?.__copy__(), _1 : false };
             _rel = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

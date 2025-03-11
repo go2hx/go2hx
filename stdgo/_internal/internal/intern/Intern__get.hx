@@ -17,7 +17,10 @@ function _get(_k:stdgo._internal.internal.intern.Intern_t_key.T_key):stdgo.Ref<s
                     (@:checkr _v ?? throw "null pointer dereference")._resurrected = true;
                 };
             };
-            if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
+            if (({
+                final value = _v;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            })) {
                 {
                     for (defer in __deferstack__) {
                         if (defer.ran) continue;

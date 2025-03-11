@@ -1,6 +1,12 @@
-[ERROR] (macro) ./stdgo/_internal/math/big/Big_t_nat_static_extension.hx:442: characters 16-25
+[ERROR] ./stdgo/_internal/crypto/internal/randutil/Randutil_maybereadbyte.hx:31: characters 87-96
 
- 442 |             _q._divBasic(_u, _v);
-     |                ^^^^^^^^^
-     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 31 |             stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan.__reset__();
+    |                                                                                       ^^^^^^^^^
+    | stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0> has no field __reset__ (Suggestion: __isGet__)
+
+[ERROR] ./stdgo/_internal/crypto/internal/randutil/Randutil_maybereadbyte.hx:32: characters 75-84
+
+ 32 | stdgo._internal.crypto.internal.randutil.Randutil__closedchan._closedChan.__reset__();
+    |                                                                           ^^^^^^^^^
+    | stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0> has no field __reset__ (Suggestion: __isGet__)
 

@@ -1,3 +1,3 @@
--m _internal.log_dot_test.Log_dot_test
+-m _internal.logdottest.Logdottest
 -lib go2hx
 -cp .

@@ -14,7 +14,7 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_h
         if (((_left.length == (0 : stdgo.GoInt)) || (_right.length == (0 : stdgo.GoInt)) : Bool)) {
             if (((_codes.length) < (2 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("empty Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_structuralerror.StructuralError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("empty Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_structuralerror.StructuralError)) };
                     _nodeIndex = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -22,26 +22,16 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_h
             };
             if (_level == ((31u32 : stdgo.GoUInt32))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("equal symbols in Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_structuralerror.StructuralError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("equal symbols in Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_structuralerror.StructuralError)) };
                     _nodeIndex = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             if ((_left.length) == ((0 : stdgo.GoInt))) {
-                return {
-                    final __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildhuffmannode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                    _nodeIndex = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _nodeIndex, _1 : _err };
-                };
+                return stdgo._internal.compress.bzip2.Bzip2__buildhuffmannode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
             };
-            return {
-                final __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildhuffmannode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
-                _nodeIndex = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _nodeIndex, _1 : _err };
-            };
+            return stdgo._internal.compress.bzip2.Bzip2__buildhuffmannode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
         };
         _nodeIndex = ((@:checkr _t ?? throw "null pointer dereference")._nextNode : stdgo.GoUInt16);
         var _node = (stdgo.Go.setRef((@:checkr _t ?? throw "null pointer dereference")._nodes[((@:checkr _t ?? throw "null pointer dereference")._nextNode : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_t_huffmannode.T_huffmanNode>);

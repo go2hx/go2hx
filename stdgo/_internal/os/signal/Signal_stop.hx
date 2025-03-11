@@ -2,7 +2,10 @@ package stdgo._internal.os.signal;
 function stop(_c:stdgo.Chan<stdgo._internal.os.Os_signal.Signal>):Void {
         stdgo._internal.os.signal.Signal__handlers._handlers.lock();
         var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_t_handler.T_handler>));
-        if ((_h == null || (_h : Dynamic).__nil__)) {
+        if (({
+            final value = _h;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             stdgo._internal.os.signal.Signal__handlers._handlers.unlock();
             return;
         };

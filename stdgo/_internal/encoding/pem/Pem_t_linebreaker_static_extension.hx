@@ -29,7 +29,7 @@ package stdgo._internal.encoding.pem;
             ((@:checkr _l ?? throw "null pointer dereference")._line.__slice__((@:checkr _l ?? throw "null pointer dereference")._used) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
             (@:checkr _l ?? throw "null pointer dereference")._used = ((@:checkr _l ?? throw "null pointer dereference")._used + ((_b.length)) : stdgo.GoInt);
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b.length), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b.length), _1 : (null : stdgo.Error) };
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -61,11 +61,6 @@ package stdgo._internal.encoding.pem;
         if (_err != null) {
             return { _0 : _n, _1 : _err };
         };
-        return {
-            final __tmp__ = @:check2r _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _n, _1 : _err };
-        };
+        return @:check2r _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
     }
 }

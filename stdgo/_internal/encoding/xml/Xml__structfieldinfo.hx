@@ -74,7 +74,10 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _f:s
         if (_tag == ((stdgo.Go.str() : stdgo.GoString))) {
             {
                 var _xmlname = stdgo._internal.encoding.xml.Xml__lookupxmlname._lookupXMLName((@:checkr _f ?? throw "null pointer dereference").type);
-                if ((_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__))) {
+                if (({
+                    final value = _xmlname;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     {
                         final __tmp__0 = (@:checkr _xmlname ?? throw "null pointer dereference")._xmlns?.__copy__();
                         final __tmp__1 = (@:checkr _xmlname ?? throw "null pointer dereference")._name?.__copy__();
@@ -104,7 +107,10 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_type_.Type_, _f:s
         if (((@:checkr _finfo ?? throw "null pointer dereference")._flags & (1 : stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags) : stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags) != ((0 : stdgo._internal.encoding.xml.Xml_t_fieldflags.T_fieldFlags))) {
             var _ftyp = ((@:checkr _f ?? throw "null pointer dereference").type : stdgo._internal.reflect.Reflect_type_.Type_);
             var _xmlname = stdgo._internal.encoding.xml.Xml__lookupxmlname._lookupXMLName(_ftyp);
-            if (((_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__)) && ((@:checkr _xmlname ?? throw "null pointer dereference")._name != (@:checkr _finfo ?? throw "null pointer dereference")._name) : Bool)) {
+            if ((({
+                final value = _xmlname;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && ((@:checkr _xmlname ?? throw "null pointer dereference")._name != (@:checkr _finfo ?? throw "null pointer dereference")._name) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("xml: name %q in tag of %s.%s conflicts with name %q in %s.XMLName" : stdgo.GoString), stdgo.Go.toInterface((@:checkr _finfo ?? throw "null pointer dereference")._name), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface((@:checkr _f ?? throw "null pointer dereference").name), stdgo.Go.toInterface((@:checkr _xmlname ?? throw "null pointer dereference")._name), stdgo.Go.toInterface(_ftyp)) };
             };
         };

@@ -12,7 +12,7 @@ package stdgo._internal.crypto.x509;
         }, _key = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
                 _crlBytes = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -21,7 +21,7 @@ package stdgo._internal.crypto.x509;
         var __tmp__ = stdgo._internal.crypto.x509.X509__signingparamsforpublickey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), (0 : stdgo._internal.crypto.x509.X509_signaturealgorithm.SignatureAlgorithm)), _hashFunc:stdgo._internal.crypto.Crypto_hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_algorithmidentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                 _crlBytes = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -65,12 +65,10 @@ package stdgo._internal.crypto.x509;
         if (_err != null) {
             return { _0 : _crlBytes, _1 : _err };
         };
-        return {
-            final __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList))));
-            _crlBytes = __tmp__._0;
-            _err = __tmp__._1;
-            { _0 : _crlBytes, _1 : _err };
-        };
+        return ({
+            @:assignTranslate final __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tBSCertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_bitstring.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_certificatelist.CertificateList))));
+            { _0 : __tmp__._0, _1 : __tmp__._1 };
+        });
     }
     @:keep
     @:tdfield
@@ -127,7 +125,13 @@ package stdgo._internal.crypto.x509;
     @:tdfield
     static public function equal( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>):Bool {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = _c;
-        if (((_c == null || (_c : Dynamic).__nil__) || (_other == null || (_other : Dynamic).__nil__) : Bool)) {
+        if ((({
+            final value = _c;
+            (value == null || (value : Dynamic).__nil__);
+        }) || ({
+            final value = _other;
+            (value == null || (value : Dynamic).__nil__);
+        }) : Bool)) {
             return _c == (_other);
         };
         return stdgo._internal.bytes.Bytes_equal.equal((@:checkr _c ?? throw "null pointer dereference").raw, (@:checkr _other ?? throw "null pointer dereference").raw);
@@ -238,7 +242,7 @@ package stdgo._internal.crypto.x509;
         var _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _err = (null : stdgo.Error);
         if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errnotparsed._errNotParsed };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errnotparsed._errNotParsed };
                 _chains = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -250,7 +254,7 @@ package stdgo._internal.crypto.x509;
                 var __tmp__ = @:check2r _opts.intermediates._cert(_i), _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("crypto/x509: error fetching intermediate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("crypto/x509: error fetching intermediate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                         _chains = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -258,7 +262,7 @@ if (_err != null) {
                 };
 if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdgo.GoInt))) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errnotparsed._errNotParsed };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errnotparsed._errNotParsed };
                         _chains = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -269,19 +273,23 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         };
         if (false) {
             var _systemPool = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
-            if (((_opts.roots == null || (_opts.roots : Dynamic).__nil__) && (((_systemPool == null || (_systemPool : Dynamic).__nil__) || (@:checkr _systemPool ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
-                return {
-                    final __tmp__ = @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>));
-                    _chains = __tmp__._0;
-                    _err = __tmp__._1;
-                    { _0 : _chains, _1 : _err };
-                };
+            if ((({
+                final value = _opts.roots;
+                (value == null || (value : Dynamic).__nil__);
+            }) && ((({
+                final value = _systemPool;
+                (value == null || (value : Dynamic).__nil__);
+            }) || (@:checkr _systemPool ?? throw "null pointer dereference")._systemPool : Bool)) : Bool)) {
+                return @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>));
             };
-            if (((_opts.roots != null && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && (@:checkr _opts.roots ?? throw "null pointer dereference")._systemPool : Bool)) {
+            if ((({
+                final value = _opts.roots;
+                (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+            }) && (@:checkr _opts.roots ?? throw "null pointer dereference")._systemPool : Bool)) {
                 var __tmp__ = @:check2r _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_verifyoptions.VerifyOptions>)), _platformChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) || (@:check2r _opts.roots._len() == (0 : stdgo.GoInt)) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _platformChains, _1 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _platformChains, _1 : _err };
                         _chains = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -289,11 +297,17 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
                 };
             };
         };
-        if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
+        if (({
+            final value = _opts.roots;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             _opts.roots = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
-            if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
+            if (({
+                final value = _opts.roots;
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError(stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr) : stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError(stdgo._internal.crypto.x509.X509__systemrootserr._systemRootsErr) : stdgo._internal.crypto.x509.X509_systemrootserror.SystemRootsError)) };
                     _chains = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -321,7 +335,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
             };
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : _err };
                     _chains = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -334,7 +348,7 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         for (__1 => _eku in _opts.keyUsages) {
             if (_eku == ((0 : stdgo._internal.crypto.x509.X509_extkeyusage.ExtKeyUsage))) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _candidateChains, _1 : (null : stdgo.Error) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _candidateChains, _1 : (null : stdgo.Error) };
                     _chains = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -349,14 +363,14 @@ if (((@:checkr _c ?? throw "null pointer dereference").raw.length) == ((0 : stdg
         };
         if ((_chains.length) == ((0 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_certificateinvaliderror.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_invalidreason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_certificateinvaliderror.CertificateInvalidError)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_certificateinvaliderror.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_invalidreason.InvalidReason), (stdgo.Go.str() : stdgo.GoString)?.__copy__()) : stdgo._internal.crypto.x509.X509_certificateinvaliderror.CertificateInvalidError)) };
                 _chains = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _chains, _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : _chains, _1 : (null : stdgo.Error) };
             _chains = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -550,7 +564,7 @@ if (_ok) {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate> = _c;
         var _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _err = (null : stdgo.Error);
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_certificate.Certificate>>>), _1 : (null : stdgo.Error) };
             _chains = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

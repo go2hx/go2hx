@@ -21,5 +21,8 @@ function removeAll(_path:stdgo.GoString):stdgo.Error {
             } #else null #end;
         };
         deleteRecursively(_path);
+        #if (sys || hxnodejs) {
+            sys.FileSystem.deleteDirectory(_path);
+        } #else null #end;
         return null;
     }

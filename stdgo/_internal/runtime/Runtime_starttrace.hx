@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-function startTrace():stdgo.Error throw ":runtime.startTrace is not yet implemented";
+function startTrace():stdgo.Error return null;

@@ -1,6 +1,6 @@
-[ERROR] ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1851: character 39
+[ERROR] (macro) ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1966: characters 21-62
 
- 1851 |         var _keys_6708113:stdgo.Slice<#NULL_TYPE> = (new stdgo.Slice<#NULL_TYPE>(0, 0, ...[]) : stdgo.Slice<#NULL_TYPE>);
-      |                                       ^
-      | Invalid character '#'
+ 1966 |                     stdgo._internal.go.types.Types__i_6707733._i_6707733++;
+      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      | Type not found : stdgo._internal.go.types.Types__i_6707733
 

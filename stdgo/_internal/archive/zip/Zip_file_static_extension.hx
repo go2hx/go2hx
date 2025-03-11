@@ -73,7 +73,7 @@ package stdgo._internal.archive.zip;
             return { _0 : _offset, _1 : _err };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : ((@:checkr _f ?? throw "null pointer dereference")._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : ((@:checkr _f ?? throw "null pointer dereference")._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : (null : stdgo.Error) };
             _offset = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

@@ -43,7 +43,10 @@ package stdgo._internal.strings;
             };
         } else if ((@:checkr _t ?? throw "null pointer dereference")._table != null) {
             var _m = ((@:checkr _r ?? throw "null pointer dereference")._mapping[(_key[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoUInt8);
-            if (((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] == null || ((@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) {
+            if (({
+                final value = (@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)];
+                (value == null || (value : Dynamic).__nil__);
+            })) {
                 (@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)] = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_t_trienode.T_trieNode)) : stdgo.Ref<stdgo._internal.strings.Strings_t_trienode.T_trieNode>);
             };
             @:check2r (@:checkr _t ?? throw "null pointer dereference")._table[(_m : stdgo.GoInt)]._add((_key.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _val?.__copy__(), _priority, _r);

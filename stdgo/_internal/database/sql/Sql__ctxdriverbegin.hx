@@ -8,14 +8,20 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
             }, _ciCtx = __tmp__._0, _is = __tmp__._1;
             if (_is) {
                 var _dopts = (new stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions() : stdgo._internal.database.sql.driver.Driver_txoptions.TxOptions);
-                if ((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__))) {
+                if (({
+                    final value = _opts;
+                    (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+                })) {
                     _dopts.isolation = ((@:checkr _opts ?? throw "null pointer dereference").isolation : stdgo._internal.database.sql.driver.Driver_isolationlevel.IsolationLevel);
                     _dopts.readOnly = (@:checkr _opts ?? throw "null pointer dereference").readOnly;
                 };
                 return _ciCtx.beginTx(_ctx, _dopts?.__copy__());
             };
         };
-        if ((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__))) {
+        if (({
+            final value = _opts;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             if ((@:checkr _opts ?? throw "null pointer dereference").isolation != ((0 : stdgo._internal.database.sql.Sql_isolationlevel.IsolationLevel))) {
                 return { _0 : (null : stdgo._internal.database.sql.driver.Driver_tx.Tx), _1 : stdgo._internal.errors.Errors_new_.new_(("sql: driver does not support non-default isolation level" : stdgo.GoString)) };
             };
@@ -31,7 +37,7 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
             {
                 var __select__ = true;
                 while (__select__) {
-                    if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                    if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
                         __select__ = false;
                         {
                             _ctx.done().__get__();
@@ -44,9 +50,10 @@ function _ctxDriverBegin(_ctx:stdgo._internal.context.Context_context.Context, _
                         __select__ = false;
                         {};
                     };
-                    #if !js Sys.sleep(0.01) #else null #end;
+                    #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
+                _ctx.done().__reset__();
             };
         };
         return { _0 : _txi, _1 : _err };

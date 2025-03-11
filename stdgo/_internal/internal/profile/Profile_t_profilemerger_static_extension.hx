@@ -4,7 +4,10 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function _mapFunction( _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger>, _src:stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function>):stdgo.Ref<stdgo._internal.internal.profile.Profile_function.Function> {
         @:recv var _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger> = _pm;
-        if ((_src == null || (_src : Dynamic).__nil__)) {
+        if (({
+            final value = _src;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return null;
         };
         {
@@ -38,7 +41,10 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function _mapMapping( _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger>, _src:stdgo.Ref<stdgo._internal.internal.profile.Profile_mapping.Mapping>):stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo {
         @:recv var _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger> = _pm;
-        if ((_src == null || (_src : Dynamic).__nil__)) {
+        if (({
+            final value = _src;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (new stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo() : stdgo._internal.internal.profile.Profile_t_mapinfo.T_mapInfo);
         };
         {
@@ -67,7 +73,10 @@ package stdgo._internal.internal.profile;
     @:tdfield
     static public function _mapLocation( _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger>, _src:stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location>):stdgo.Ref<stdgo._internal.internal.profile.Profile_location.Location> {
         @:recv var _pm:stdgo.Ref<stdgo._internal.internal.profile.Profile_t_profilemerger.T_profileMerger> = _pm;
-        if ((_src == null || (_src : Dynamic).__nil__)) {
+        if (({
+            final value = _src;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return null;
         };
         {

@@ -4,7 +4,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         {};
         if (_depth == ((10000 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -14,7 +14,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
             var __tmp__ = stdgo._internal.path.filepath.Filepath_match.match(_pattern?.__copy__(), (stdgo.Go.str() : stdgo.GoString)?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
                     _matches = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -29,7 +29,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
                         _matches = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -37,7 +37,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
                 };
             };
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -55,16 +55,11 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
             _dir = stdgo._internal.path.filepath.Filepath__cleanglobpath._cleanGlobPath(_dir?.__copy__())?.__copy__();
         };
         if (!stdgo._internal.path.filepath.Filepath__hasmeta._hasMeta((_dir.__slice__(_volumeLen) : stdgo.GoString)?.__copy__())) {
-            return {
-                final __tmp__ = stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
-                _matches = __tmp__._0;
-                _err = __tmp__._1;
-                { _0 : _matches, _1 : _err };
-            };
+            return stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
         };
         if (_dir == (_pattern)) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errbadpattern.errBadPattern };
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

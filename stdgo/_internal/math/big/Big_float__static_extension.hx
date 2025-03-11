@@ -377,9 +377,12 @@ package stdgo._internal.math.big;
     static public function marshalText( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return {
-                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((("<nil>" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : ((("<nil>" : stdgo.GoString) : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
                 _text = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -387,7 +390,7 @@ package stdgo._internal.math.big;
         };
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : @:check2r _x.append(_buf, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : @:check2r _x.append(_buf, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
             _text = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -448,7 +451,10 @@ package stdgo._internal.math.big;
     @:tdfield
     static public function gobEncode( _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_float_.Float_> = _x;
-        if ((_x == null || (_x : Dynamic).__nil__)) {
+        if (({
+            final value = _x;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _sz = (6 : stdgo.GoInt);
@@ -1069,7 +1075,10 @@ package stdgo._internal.math.big;
         if (false) {
             @:check2r _x._validate();
         };
-        if (((_z == null || (_z : Dynamic).__nil__) && ((@:checkr _x ?? throw "null pointer dereference")._form <= (1 : stdgo._internal.math.big.Big_t_form.T_form) : Bool) : Bool)) {
+        if ((({
+            final value = _z;
+            (value == null || (value : Dynamic).__nil__);
+        }) && ((@:checkr _x ?? throw "null pointer dereference")._form <= (1 : stdgo._internal.math.big.Big_t_form.T_form) : Bool) : Bool)) {
             _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>);
         };
         {
@@ -1105,7 +1114,10 @@ package stdgo._internal.math.big;
         if (false) {
             @:check2r _x._validate();
         };
-        if (((_z == null || (_z : Dynamic).__nil__) && ((@:checkr _x ?? throw "null pointer dereference")._form <= (1 : stdgo._internal.math.big.Big_t_form.T_form) : Bool) : Bool)) {
+        if ((({
+            final value = _z;
+            (value == null || (value : Dynamic).__nil__);
+        }) && ((@:checkr _x ?? throw "null pointer dereference")._form <= (1 : stdgo._internal.math.big.Big_t_form.T_form) : Bool) : Bool)) {
             _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         };
         {
@@ -1120,7 +1132,10 @@ package stdgo._internal.math.big;
                 if ((@:check2r _x.minPrec() <= _exp : Bool)) {
                     _acc = (0 : stdgo._internal.math.big.Big_accuracy.Accuracy);
                 };
-                if ((_z == null || (_z : Dynamic).__nil__)) {
+                if (({
+                    final value = _z;
+                    (value == null || (value : Dynamic).__nil__);
+                })) {
                     _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
                 };
                 (@:checkr _z ?? throw "null pointer dereference")._neg = (@:checkr _x ?? throw "null pointer dereference")._neg;
@@ -1672,7 +1687,10 @@ package stdgo._internal.math.big;
         if ((@:checkr _x ?? throw "null pointer dereference")._form == ((1 : stdgo._internal.math.big.Big_t_form.T_form))) {
             _exp = ((@:checkr _x ?? throw "null pointer dereference")._exp : stdgo.GoInt);
         };
-        if ((_mant != null && ((_mant : Dynamic).__nil__ == null || !(_mant : Dynamic).__nil__))) {
+        if (({
+            final value = _mant;
+            (value != null && ((value : Dynamic).__nil__ == null || !(value : Dynamic).__nil__));
+        })) {
             @:check2r _mant.copy(_x);
             if ((@:checkr _mant ?? throw "null pointer dereference")._form == ((1 : stdgo._internal.math.big.Big_t_form.T_form))) {
                 (@:checkr _mant ?? throw "null pointer dereference")._exp = (0 : stdgo.GoInt32);

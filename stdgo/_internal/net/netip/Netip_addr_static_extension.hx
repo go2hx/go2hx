@@ -575,7 +575,10 @@ var _zb = __1, _za = __0;
     @:tdfield
     static public function zone( _ip:stdgo._internal.net.netip.Netip_addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_addr.Addr = _ip?.__copy__();
-        if ((_ip._z == null || (_ip._z : Dynamic).__nil__)) {
+        if (({
+            final value = _ip._z;
+            (value == null || (value : Dynamic).__nil__);
+        })) {
             return (stdgo.Go.str() : stdgo.GoString)?.__copy__();
         };
         var __tmp__ = try {

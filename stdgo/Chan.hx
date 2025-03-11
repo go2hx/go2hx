@@ -1,19 +1,17 @@
 package stdgo;
 
 #if (target.threaded)
-import haxe.ds.Vector;
 import stdgo.GoInt;
 import stdgo._internal.internal.Async;
-import sys.thread.Deque;
 import sys.thread.Lock;
 import sys.thread.Mutex;
-import sys.thread.Thread;
 
 @:forward(
     length,
     capacity,
     __isSend__,
     __isGet__,
+    __reset__,
     __smartGet__,
     __get__,
     __send__,
@@ -37,10 +35,7 @@ abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
 
 @:dox(hide)
 class ChanData<T> {
-    private var buffer:Vector<T> = null;
-    public var bufferAddPos:Int = 0;
-    public var bufferRemovePos:Int = 0;
-	public var amount = 0;
+    private var buffer:Array<T> = [];
 
     var defaultValue:Void->T = null;
 
@@ -54,7 +49,7 @@ class ChanData<T> {
     var buffered:Bool = false;
 
     public var length(get, never):GoInt;
-    public var capacity(get, never):GoInt;
+    public var capacity:GoInt;
 
     public static inline var debug = false;
 
@@ -62,115 +57,157 @@ class ChanData<T> {
         return buffer.length;
     }
 
-    function get_capacity():GoInt
-        return buffer.length;
-
     public function new(length:GoInt, defaultValue) {
         // TODO: not handling length and capacity
         buffered = length > 0;
-        buffer = new Vector<T>(length);
+        this.capacity = length;
         this.defaultValue = defaultValue;
     }
 
-    public function __isSend__():Bool {
+    public function __isSend__(selectBool:Bool=false):Bool {
+        mutex.acquire();
+        if (buffered) {
+            mutex.release();
+            return length < capacity;
+        }
+        if (selectBool)
+            getBool = true;
         if (debug)
             trace("__isSend__ " + sendBool);
-        return sendBool;
-    }
-
-    public function __isGet__():Bool {
-        final b = getBool || amount > 0;
-        if (debug)
-            trace("__isGet__ " + b, amount);
+        final b = sendBool;
+        mutex.release();
         return b;
     }
 
-    public function __smartGet__():{value:T, ok:Bool} {
+    public function __reset__() {
+        mutex.acquire();
+        getBool = sendBool = false;
+        mutex.release();
+    }
+
+    public function __isGet__(selectBool:Bool=false):Bool {
+        mutex.acquire();
+        if (buffered) {
+            mutex.release();
+            return length > 0;
+        }
+        final b = getBool || closed;
+        if (selectBool)
+            sendBool = true;
+        if (debug)
+            trace("__isGet__ " + b, length);
+        mutex.release();
+
+        return b;
+    }
+
+    public function __smartGet__():{_0:T, _1:Bool} {
+        if (closed)
+            return {_0: defaultValue(), _1: false};
         if (getLock.wait(0)) {
             // released
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutext.acquire wait");
+                trace("__smartGet__ getLock.wait release, mutex.acquire wait");
             mutex.acquire();
-			amount--;
-            final value = buffer[bufferRemovePos++];
-			if (bufferRemovePos >= buffer.length)
-				bufferRemovePos = 0;
+            final value = buffer.shift();
             mutex.release();
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutext.acquire release");
-            return {value: value, ok: true};
+                trace("__smartGet__ getLock.wait release, mutex.acquire release");
+            return {_0: value, _1: true};
         }else{
             if (debug)
                 trace("__smartGet__ getLock.wait wait, defaultValue");
-            return {value: defaultValue(), ok: false};
+            return {_0: defaultValue(), _1: false};
         }
     }
+    /*
+    send <-
+    :
+    sendLock.wait()
+    push
+    getLock.release()
 
+
+    <- get
+    :
+    sendLock.release()
+    getLock.wait()
+    shift
+    */
     public function __get__():T {
-        if (closed)
-            throw "get to closed channel";
-        // set bools
-        if (debug)
-            trace("__get__ wait for mutex.acquire0");
         mutex.acquire();
-        mutex.release();
+        if (closed) {
+            mutex.release();
+            return defaultValue();
+        }
         if (debug)
-            trace("__get__ wait for mutex.release0");
+            trace("__get__ wait");
+        sendLock.release();
+        mutex.release();
         // block
         while (!getLock.wait(debug ? 0.2 : 0.01)) {
-            if (debug)
-                trace("__get__ wait for !getLock.wait");
             // set bools
             mutex.acquire();
-            getBool = false;
+            if (buffered && length > 0) {
+                mutex.release();
+                break;
+            }
             sendBool = true;
-            mutex.release();
-
             Async.tick();
             if (closed) {
+                mutex.release();
                 return defaultValue();
             }
+            mutex.release();
         }
         // get value
-        if (debug)
-            trace("__get__ wait for mutex.acquire1");
         mutex.acquire();
-		amount--;
-        final value = buffer[bufferRemovePos++];
-		if (bufferRemovePos >= buffer.length)
-			bufferRemovePos = 0;
-        mutex.release();
+        sendBool = false;
         if (debug)
-            trace("__get__ wait for mutex.release1");
+            trace("__get__ get value");
+        final value = buffer.shift();
+        mutex.release();
+        sendLock.release();
         return value;
     }
 
     public function __send__(value:T) {
-        if (closed)
-            throw "send to closed channel";
-        if (debug)
-            trace("__send__ wait for mutex.acquire0");
         mutex.acquire();
-        // send value
-		amount++;
-        buffer[bufferAddPos++] = value;
-		if (bufferAddPos >= buffer.length)
-			bufferAddPos = 0;
-
+        if (closed) {
+            mutex.release();
+            throw "send to closed channel";
+        }
         mutex.release();
         if (debug)
-            trace("__send__ wait for mutex.release0");
-        getLock.release();
-        while (!sendLock.wait(debug ? 0.2 : 0.01) && !closed && !buffered) {
-            if (debug)
-                trace("__send__ wait for !sendLock.wait");
-            // set bools
+            trace("__send__ wait");
+        while (!sendLock.wait(debug ? 0.2 : 0.01)) {
             mutex.acquire();
+            if (closed) {
+                mutex.release();
+                break;
+            }
+            // set bools
             getBool = true;
             sendBool = false;
+            if (buffered && length <= capacity) {
+                mutex.release();
+                break;
+            }
             mutex.release();
             Async.tick();
         }
+        if (debug)
+            trace("end loop __send__");
+        mutex.acquire();
+        if (debug)
+            trace("get mutex __send__");
+        // send value
+        if (debug)
+            trace("__send__ send value");
+        buffer.push(value);
+        getBool = false;
+        mutex.release();
+        getLock.release();
         if (debug)
             trace("end of __send__");
     }
@@ -200,11 +237,11 @@ private class ChanKeyValueIterator<T> {
     }
 
     public inline function hasNext()
-        return chan.amount > 0;
+        return chan.length > 0;
 
     public inline function next():{key:T, value:Bool} {
         final tmp = chan.__smartGet__();
-        return {key: tmp.value, value: tmp.ok};
+        return {key: tmp._0, value: tmp._1};
     }
 }
 
@@ -251,6 +288,8 @@ class Chan<T> {
         return true;
 
     public function acquire() {}
+
+    public function __reset__() {}
 }
 #end
 

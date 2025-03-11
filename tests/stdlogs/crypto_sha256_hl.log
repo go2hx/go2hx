@@ -5,6 +5,6 @@ Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_in
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from stdgo._internal.crypto.sha256._Sha256_testgolden.$Sha256_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha256/Sha256_testgolden.hx line 24)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.crypto.sha256_dot_test._Sha256_dot_test.$Sha256_dot_test_Fields_.main (_internal/crypto/sha256_dot_test/Sha256_dot_test.hx line 4)
+Called from _internal.crypto.sha256dottest._Sha256dottest.$Sha256dottest_Fields_.main (_internal/crypto/sha256dottest/Sha256dottest.hx line 8)
 
 -- FAIL: TestGolden

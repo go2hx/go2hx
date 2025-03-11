@@ -13,7 +13,7 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_flag.Flag>):{ va
                                 _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString).__copy__();
                                 _usage = (((_usage.__slice__(0, _i) : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (_usage.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__() : stdgo.GoString).__copy__();
                                 return {
-                                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _name.__copy__(), _1 : _usage.__copy__() };
+                                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _name.__copy__(), _1 : _usage.__copy__() };
                                     _name = __tmp__._0;
                                     _usage = __tmp__._1;
                                     __tmp__;

@@ -16,7 +16,10 @@ package stdgo.debug.buildinfo;
     @:from
     static function fromHaxeInterface(x:{ function readData(_addr:haxe.UInt64, _size:haxe.UInt64):stdgo.Tuple<Array<std.UInt>, stdgo.Error>; function dataStart():haxe.UInt64; }):T_exe {
         var __f__:Void -> stdgo.AnyInterface = null;
-        final y:T_exe = { readData : (_0, _1) -> x.readData(_0, _1), dataStart : () -> x.dataStart(), __underlying__ : () -> __f__() };
+        final y:T_exe = { readData : (_0, _1) -> {
+            final obj = x.readData(_0, _1);
+            { _0 : [for (i in obj._0) i], _1 : obj._1 };
+        }, dataStart : () -> x.dataStart(), __underlying__ : () -> __f__() };
         __f__ = () -> stdgo.Go.toInterface(y);
         return y;
     }

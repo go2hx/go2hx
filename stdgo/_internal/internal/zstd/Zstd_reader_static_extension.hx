@@ -214,33 +214,33 @@ package stdgo._internal.internal.zstd;
     @:tdfield
     static public function _readFrameHeader( _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader>):stdgo.Error {
         @:recv var _r:stdgo.Ref<stdgo._internal.internal.zstd.Zstd_reader.Reader> = _r;
-        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowAdd_16:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowLog_14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _windowDescriptorSize_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
         var _singleSegment_6:Bool = false;
         var _err_4:stdgo.Error = (null : stdgo.Error);
-        var _err_1:stdgo.Error = (null : stdgo.Error);
-        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3:stdgo.Error = (null : stdgo.Error);
         var _fb_18:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _windowSize_17:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _headerSize_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _windowDescriptorSize_8:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _descriptor_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _relativeOffset_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _windowAdd_16:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _exponent_12:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _windowDescriptor_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _fcsFieldSize_7:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _mantissa_13:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _windowLog_14:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _err_10:stdgo.Error = (null : stdgo.Error);
-        var _headerSize_9:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _descriptor_5:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_3:stdgo.Error = (null : stdgo.Error);
         var _magic_2:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_1:stdgo.Error = (null : stdgo.Error);
+        var _windowBase_15:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _gotoNext = 3519881i32;
-                } else if (__value__ == (3519881i32)) {
+                    _gotoNext = 3563289i32;
+                } else if (__value__ == (3563289i32)) {
                     _relativeOffset_0 = (0 : stdgo.GoInt);
                     {
                         {
@@ -248,57 +248,57 @@ package stdgo._internal.internal.zstd;
                             _err_1 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_1 != null) {
-                            _gotoNext = 3520002i32;
+                            _gotoNext = 3563410i32;
                         } else {
-                            _gotoNext = 3520184i32;
+                            _gotoNext = 3563592i32;
                         };
                     };
-                } else if (__value__ == (3520002i32)) {
+                } else if (__value__ == (3563410i32)) {
                     if (((stdgo.Go.toInterface(_err_1) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eOF)) && !(@:checkr _r ?? throw "null pointer dereference")._readOneFrame : Bool)) {
-                        _gotoNext = 3520102i32;
+                        _gotoNext = 3563510i32;
                     } else {
-                        _gotoNext = 3520139i32;
+                        _gotoNext = 3563547i32;
                     };
-                } else if (__value__ == (3520102i32)) {
+                } else if (__value__ == (3563510i32)) {
                     _err_1 = stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF;
-                    _gotoNext = 3520139i32;
-                } else if (__value__ == (3520139i32)) {
+                    _gotoNext = 3563547i32;
+                } else if (__value__ == (3563547i32)) {
                     return @:check2r _r._wrapError(_relativeOffset_0, _err_1);
-                    _gotoNext = 3520184i32;
-                } else if (__value__ == (3520184i32)) {
+                    _gotoNext = 3563592i32;
+                } else if (__value__ == (3563592i32)) {
                     {
                         _magic_2 = stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32(((@:checkr _r ?? throw "null pointer dereference")._scratch.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                         if (_magic_2 != ((-47205080u32 : stdgo.GoUInt32))) {
-                            _gotoNext = 3520259i32;
+                            _gotoNext = 3563667i32;
                         } else {
-                            _gotoNext = 3520536i32;
+                            _gotoNext = 3563944i32;
                         };
                     };
-                } else if (__value__ == (3520259i32)) {
+                } else if (__value__ == (3563667i32)) {
                     if (((_magic_2 >= (407710288u32 : stdgo.GoUInt32) : Bool) && (_magic_2 <= (407710303u32 : stdgo.GoUInt32) : Bool) : Bool)) {
-                        _gotoNext = 3520309i32;
+                        _gotoNext = 3563717i32;
                     } else {
-                        _gotoNext = 3520472i32;
+                        _gotoNext = 3563880i32;
                     };
-                } else if (__value__ == (3520309i32)) {
+                } else if (__value__ == (3563717i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._blockOffset = ((@:checkr _r ?? throw "null pointer dereference")._blockOffset + (((_relativeOffset_0 : stdgo.GoInt64) + (4i64 : stdgo.GoInt64) : stdgo.GoInt64)) : stdgo.GoInt64);
                     {
                         _err_3 = @:check2r _r._skipFrame();
                         if (_err_3 != null) {
-                            _gotoNext = 3520429i32;
+                            _gotoNext = 3563837i32;
                         } else {
-                            _gotoNext = 3520454i32;
+                            _gotoNext = 3563862i32;
                         };
                     };
-                } else if (__value__ == (3520429i32)) {
+                } else if (__value__ == (3563837i32)) {
                     return _err_3;
-                    _gotoNext = 3520454i32;
-                } else if (__value__ == (3520454i32)) {
-                    _gotoNext = 3519881i32;
-                } else if (__value__ == (3520472i32)) {
+                    _gotoNext = 3563862i32;
+                } else if (__value__ == (3563862i32)) {
+                    _gotoNext = 3563289i32;
+                } else if (__value__ == (3563880i32)) {
                     return @:check2r _r._makeError(_relativeOffset_0, ("invalid magic number" : stdgo.GoString));
-                    _gotoNext = 3520536i32;
-                } else if (__value__ == (3520536i32)) {
+                    _gotoNext = 3563944i32;
+                } else if (__value__ == (3563944i32)) {
                     _relativeOffset_0 = (_relativeOffset_0 + ((4 : stdgo.GoInt)) : stdgo.GoInt);
                     {
                         {
@@ -306,69 +306,69 @@ package stdgo._internal.internal.zstd;
                             _err_4 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_4 != null) {
-                            _gotoNext = 3520664i32;
+                            _gotoNext = 3564072i32;
                         } else {
-                            _gotoNext = 3520718i32;
+                            _gotoNext = 3564126i32;
                         };
                     };
-                } else if (__value__ == (3520664i32)) {
+                } else if (__value__ == (3564072i32)) {
                     return @:check2r _r._wrapNonEOFError(_relativeOffset_0, _err_4);
-                    _gotoNext = 3520718i32;
-                } else if (__value__ == (3520718i32)) {
+                    _gotoNext = 3564126i32;
+                } else if (__value__ == (3564126i32)) {
                     _descriptor_5 = (@:checkr _r ?? throw "null pointer dereference")._scratch[(0 : stdgo.GoInt)];
                     _singleSegment_6 = (_descriptor_5 & (32 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
                     _fcsFieldSize_7 = ((1 : stdgo.GoInt) << ((_descriptor_5 >> (6i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo.GoInt);
                     if (((_fcsFieldSize_7 == (1 : stdgo.GoInt)) && !_singleSegment_6 : Bool)) {
-                        _gotoNext = 3520868i32;
+                        _gotoNext = 3564276i32;
                     } else {
-                        _gotoNext = 3520894i32;
+                        _gotoNext = 3564302i32;
                     };
-                } else if (__value__ == (3520868i32)) {
+                } else if (__value__ == (3564276i32)) {
                     _fcsFieldSize_7 = (0 : stdgo.GoInt);
-                    _gotoNext = 3520894i32;
-                } else if (__value__ == (3520894i32)) {
+                    _gotoNext = 3564302i32;
+                } else if (__value__ == (3564302i32)) {
                     if (_singleSegment_6) {
-                        _gotoNext = 3520941i32;
+                        _gotoNext = 3564349i32;
                     } else {
-                        _gotoNext = 3520978i32;
+                        _gotoNext = 3564386i32;
                     };
-                } else if (__value__ == (3520941i32)) {
+                } else if (__value__ == (3564349i32)) {
                     _windowDescriptorSize_8 = (0 : stdgo.GoInt);
-                    _gotoNext = 3521012i32;
-                } else if (__value__ == (3520978i32)) {
-                    _gotoNext = 3520978i32;
+                    _gotoNext = 3564420i32;
+                } else if (__value__ == (3564386i32)) {
+                    _gotoNext = 3564386i32;
                     _windowDescriptorSize_8 = (1 : stdgo.GoInt);
                     var __blank__ = 0i32;
-                    _gotoNext = 3521012i32;
-                } else if (__value__ == (3521012i32)) {
+                    _gotoNext = 3564420i32;
+                } else if (__value__ == (3564420i32)) {
                     if ((_descriptor_5 & (8 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
-                        _gotoNext = 3521038i32;
+                        _gotoNext = 3564446i32;
                     } else {
-                        _gotoNext = 3521129i32;
+                        _gotoNext = 3564537i32;
                     };
-                } else if (__value__ == (3521038i32)) {
+                } else if (__value__ == (3564446i32)) {
                     return @:check2r _r._makeError(_relativeOffset_0, ("reserved bit set in frame header descriptor" : stdgo.GoString));
-                    _gotoNext = 3521129i32;
-                } else if (__value__ == (3521129i32)) {
+                    _gotoNext = 3564537i32;
+                } else if (__value__ == (3564537i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._hasChecksum = (_descriptor_5 & (4 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8));
                     if ((@:checkr _r ?? throw "null pointer dereference")._hasChecksum) {
-                        _gotoNext = 3521186i32;
+                        _gotoNext = 3564594i32;
                     } else {
-                        _gotoNext = 3521214i32;
+                        _gotoNext = 3564622i32;
                     };
-                } else if (__value__ == (3521186i32)) {
+                } else if (__value__ == (3564594i32)) {
                     @:check2 (@:checkr _r ?? throw "null pointer dereference")._checksum._reset();
-                    _gotoNext = 3521214i32;
-                } else if (__value__ == (3521214i32)) {
+                    _gotoNext = 3564622i32;
+                } else if (__value__ == (3564622i32)) {
                     if ((_descriptor_5 & (3 : stdgo.GoUInt8) : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
-                        _gotoNext = 3521235i32;
+                        _gotoNext = 3564643i32;
                     } else {
-                        _gotoNext = 3521313i32;
+                        _gotoNext = 3564721i32;
                     };
-                } else if (__value__ == (3521235i32)) {
+                } else if (__value__ == (3564643i32)) {
                     return @:check2r _r._makeError(_relativeOffset_0, ("dictionaries are not supported" : stdgo.GoString));
-                    _gotoNext = 3521313i32;
-                } else if (__value__ == (3521313i32)) {
+                    _gotoNext = 3564721i32;
+                } else if (__value__ == (3564721i32)) {
                     _relativeOffset_0++;
                     _headerSize_9 = (_windowDescriptorSize_8 + _fcsFieldSize_7 : stdgo.GoInt);
                     {
@@ -377,25 +377,25 @@ package stdgo._internal.internal.zstd;
                             _err_10 = @:tmpset0 __tmp__._1;
                         };
                         if (_err_10 != null) {
-                            _gotoNext = 3521450i32;
+                            _gotoNext = 3564858i32;
                         } else {
-                            _gotoNext = 3521590i32;
+                            _gotoNext = 3564998i32;
                         };
                     };
-                } else if (__value__ == (3521450i32)) {
+                } else if (__value__ == (3564858i32)) {
                     return @:check2r _r._wrapNonEOFError(_relativeOffset_0, _err_10);
-                    _gotoNext = 3521590i32;
-                } else if (__value__ == (3521590i32)) {
+                    _gotoNext = 3564998i32;
+                } else if (__value__ == (3564998i32)) {
                     if (_singleSegment_6) {
-                        _gotoNext = 3521607i32;
+                        _gotoNext = 3565015i32;
                     } else {
-                        _gotoNext = 3521700i32;
+                        _gotoNext = 3565108i32;
                     };
-                } else if (__value__ == (3521607i32)) {
+                } else if (__value__ == (3565015i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._windowSize = (0 : stdgo.GoInt);
-                    _gotoNext = 3522376i32;
-                } else if (__value__ == (3521700i32)) {
-                    _gotoNext = 3521700i32;
+                    _gotoNext = 3565784i32;
+                } else if (__value__ == (3565108i32)) {
+                    _gotoNext = 3565108i32;
                     _windowDescriptor_11 = (@:checkr _r ?? throw "null pointer dereference")._scratch[(0 : stdgo.GoInt)];
                     _exponent_12 = ((_windowDescriptor_11 >> (3i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoUInt64);
                     _mantissa_13 = ((_windowDescriptor_11 & (7 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt64);
@@ -404,67 +404,67 @@ package stdgo._internal.internal.zstd;
                     _windowAdd_16 = (((_windowBase_15 / (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) * _mantissa_13 : stdgo.GoUInt64);
                     _windowSize_17 = (_windowBase_15 + _windowAdd_16 : stdgo.GoUInt64);
                     if ((stdgo._internal.internal.zstd.Zstd__fuzzing._fuzzing && (((_windowLog_14 > (31i64 : stdgo.GoUInt64) : Bool) || (_windowSize_17 > (134217728i64 : stdgo.GoUInt64) : Bool) : Bool)) : Bool)) {
-                        _gotoNext = 3522119i32;
+                        _gotoNext = 3565527i32;
                     } else {
-                        _gotoNext = 3522248i32;
+                        _gotoNext = 3565656i32;
                     };
-                } else if (__value__ == (3522119i32)) {
+                } else if (__value__ == (3565527i32)) {
                     return @:check2r _r._makeError(_relativeOffset_0, ("windowSize too large" : stdgo.GoString));
-                    _gotoNext = 3522248i32;
-                } else if (__value__ == (3522248i32)) {
+                    _gotoNext = 3565656i32;
+                } else if (__value__ == (3565656i32)) {
                     if ((_windowSize_17 > (8388608i64 : stdgo.GoUInt64) : Bool)) {
-                        _gotoNext = 3522270i32;
+                        _gotoNext = 3565678i32;
                     } else {
-                        _gotoNext = 3522303i32;
+                        _gotoNext = 3565711i32;
                     };
-                } else if (__value__ == (3522270i32)) {
+                } else if (__value__ == (3565678i32)) {
                     _windowSize_17 = (8388608i64 : stdgo.GoUInt64);
-                    _gotoNext = 3522303i32;
-                } else if (__value__ == (3522303i32)) {
+                    _gotoNext = 3565711i32;
+                } else if (__value__ == (3565711i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._windowSize = (_windowSize_17 : stdgo.GoInt);
                     var __blank__ = 0i32;
-                    _gotoNext = 3522376i32;
-                } else if (__value__ == (3522376i32)) {
+                    _gotoNext = 3565784i32;
+                } else if (__value__ == (3565784i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._frameSizeUnknown = false;
                     (@:checkr _r ?? throw "null pointer dereference")._remainingFrameSize = (0i64 : stdgo.GoUInt64);
                     _fb_18 = ((@:checkr _r ?? throw "null pointer dereference")._scratch.__slice__(_windowDescriptorSize_8) : stdgo.Slice<stdgo.GoUInt8>);
-                    _gotoNext = 3522470i32;
-                } else if (__value__ == (3522470i32)) {
+                    _gotoNext = 3565878i32;
+                } else if (__value__ == (3565878i32)) {
                     {
                         final __value__ = _fcsFieldSize_7;
                         if (__value__ == ((0 : stdgo.GoInt))) {
-                            _gotoNext = 3522493i32;
+                            _gotoNext = 3565901i32;
                         } else if (__value__ == ((1 : stdgo.GoInt))) {
-                            _gotoNext = 3522530i32;
+                            _gotoNext = 3565938i32;
                         } else if (__value__ == ((2 : stdgo.GoInt))) {
-                            _gotoNext = 3522578i32;
+                            _gotoNext = 3565986i32;
                         } else if (__value__ == ((4 : stdgo.GoInt))) {
-                            _gotoNext = 3522657i32;
+                            _gotoNext = 3566065i32;
                         } else if (__value__ == ((8 : stdgo.GoInt))) {
-                            _gotoNext = 3522730i32;
+                            _gotoNext = 3566138i32;
                         } else {
-                            _gotoNext = 3522795i32;
+                            _gotoNext = 3566203i32;
                         };
                     };
-                } else if (__value__ == (3522493i32)) {
+                } else if (__value__ == (3565901i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._frameSizeUnknown = true;
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522530i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3565938i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._remainingFrameSize = (_fb_18[(0 : stdgo.GoInt)] : stdgo.GoUInt64);
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522578i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3565986i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._remainingFrameSize = ((256i64 : stdgo.GoUInt64) + (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint16(_fb_18) : stdgo.GoUInt64) : stdgo.GoUInt64);
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522657i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3566065i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._remainingFrameSize = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32(_fb_18) : stdgo.GoUInt64);
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522730i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3566138i32)) {
                     (@:checkr _r ?? throw "null pointer dereference")._remainingFrameSize = stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint64(_fb_18);
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522795i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3566203i32)) {
                     throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
-                    _gotoNext = 3522832i32;
-                } else if (__value__ == (3522832i32)) {
+                    _gotoNext = 3566240i32;
+                } else if (__value__ == (3566240i32)) {
                     _relativeOffset_0 = (_relativeOffset_0 + (_headerSize_9) : stdgo.GoInt);
                     (@:checkr _r ?? throw "null pointer dereference")._sawFrameHeader = true;
                     (@:checkr _r ?? throw "null pointer dereference")._readOneFrame = true;
@@ -835,7 +835,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
         var _tableBits = (0 : stdgo.GoInt), _roff = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_off >= (_data.length) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeEOFError(_off) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeEOFError(_off) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -853,7 +853,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             var __tmp__ = @:check2r _r._readFSE(_data, _off, (255 : stdgo.GoInt), (6 : stdgo.GoInt), (@:checkr _r ?? throw "null pointer dereference")._fseScratch), _fseBits:stdgo.GoInt = __tmp__._0, _noff:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -863,7 +863,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             var _fseTable = (@:checkr _r ?? throw "null pointer dereference")._fseScratch;
             if (((_off + (_hdr : stdgo.GoInt) : stdgo.GoInt) > (_data.length) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeEOFError(_off) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeEOFError(_off) };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -873,7 +873,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             var __tmp__ = @:check2r _r._makeReverseBitReader(_data, ((_off + (_hdr : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt), _noff), _rbr:stdgo._internal.internal.zstd.Zstd_t_reversebitreader.T_reverseBitReader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -883,7 +883,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             var __tmp__ = @:check2 _rbr._val((_fseBits : stdgo.GoUInt8)), _state1:stdgo.GoUInt32 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -893,7 +893,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             var __tmp__ = @:check2 _rbr._val((_fseBits : stdgo.GoUInt8)), _state2:stdgo.GoUInt32 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -905,7 +905,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 if (!@:check2 _rbr._fetch((@:checkr _pt ?? throw "null pointer dereference")._bits)) {
                     if ((_count >= (254 : stdgo.GoInt) : Bool)) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
                             _tableBits = __tmp__._0;
                             _roff = __tmp__._1;
                             _err = __tmp__._2;
@@ -920,7 +920,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 var __tmp__ = @:check2 _rbr._val((@:checkr _pt ?? throw "null pointer dereference")._bits), _v:stdgo.GoUInt32 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -930,7 +930,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 _state1 = (((@:checkr _pt ?? throw "null pointer dereference")._base : stdgo.GoUInt32) + _v : stdgo.GoUInt32);
                 if ((_count >= (255 : stdgo.GoInt) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -943,7 +943,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 if (!@:check2 _rbr._fetch((@:checkr _pt ?? throw "null pointer dereference")._bits)) {
                     if ((_count >= (254 : stdgo.GoInt) : Bool)) {
                         return {
-                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
+                            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
                             _tableBits = __tmp__._0;
                             _roff = __tmp__._1;
                             _err = __tmp__._2;
@@ -962,7 +962,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 };
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -972,7 +972,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
                 _state2 = (((@:checkr _pt ?? throw "null pointer dereference")._base : stdgo.GoUInt32) + _v : stdgo.GoUInt32);
                 if ((_count >= (255 : stdgo.GoInt) : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _rbr._makeError(("Huffman count overflow" : stdgo.GoString)) };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -987,7 +987,7 @@ _rbr._cnt = (_rbr._cnt - (((_t & (255 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdg
             _count = ((_hdr : stdgo.GoInt) - (127 : stdgo.GoInt) : stdgo.GoInt);
             if (((_off + ((((_count + (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) >= (_data.length) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_errunexpectedeof.errUnexpectedEOF };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -1010,7 +1010,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         for (__0 => _w in (_weights.__slice__(0, _count) : stdgo.Slice<stdgo.GoUInt8>)) {
             if ((_w > (12 : stdgo.GoUInt8) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman weight overflow" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman weight overflow" : stdgo.GoString)) };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -1024,7 +1024,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         };
         if (_weightMask == ((0u32 : stdgo.GoUInt32))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1034,7 +1034,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         _tableBits = ((32 : stdgo.GoInt) - stdgo._internal.math.bits.Bits_leadingzeros32.leadingZeros32(_weightMask) : stdgo.GoInt);
         if ((_tableBits > (11 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1043,7 +1043,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         };
         if (((_table.length) < ((1 : stdgo.GoInt) << _tableBits : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman table too small" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman table too small" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1053,7 +1053,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         var _left = ((((1u32 : stdgo.GoUInt32) << _tableBits : stdgo.GoUInt32)) - _weightMask : stdgo.GoUInt32);
         if (_left == ((0u32 : stdgo.GoUInt32))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1063,7 +1063,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         var _highBit = ((31 : stdgo.GoInt) - stdgo._internal.math.bits.Bits_leadingzeros32.leadingZeros32(_left) : stdgo.GoInt);
         if (((1u32 : stdgo.GoUInt32) << _highBit : stdgo.GoUInt32) != (_left)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1072,7 +1072,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         };
         if ((_count >= (256 : stdgo.GoInt) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman weight overflow" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("Huffman weight overflow" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1084,7 +1084,7 @@ _weights[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_b & (15 : stdgo.GoUInt8) : 
         _weightMark[(_highBit + (1 : stdgo.GoInt) : stdgo.GoInt)]++;
         if (((_weightMark[(1 : stdgo.GoInt)] < (2u32 : stdgo.GoUInt32) : Bool) || ((_weightMark[(1 : stdgo.GoInt)] & (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != (0u32 : stdgo.GoUInt32)) : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2r _r._makeError(_off, ("bad Huffman weights" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1118,7 +1118,7 @@ _weightMark[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = _cur;
             _weightMark[(_w : stdgo.GoInt)] = (_weightMark[(_w : stdgo.GoInt)] + (_length) : stdgo.GoUInt32);
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _tableBits, _1 : _off, _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _tableBits, _1 : _off, _2 : (null : stdgo.Error) };
             _tableBits = __tmp__._0;
             _roff = __tmp__._1;
             _err = __tmp__._2;
@@ -1250,7 +1250,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             var _err = (@:check2 _br._moreBits() : stdgo.Error);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -1261,7 +1261,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
         var _accuracyLog = ((@:check2 _br._val((4 : stdgo.GoUInt8)) : stdgo.GoInt) + (5 : stdgo.GoInt) : stdgo.GoInt);
         if ((_accuracyLog > _maxBits : Bool)) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE accuracy log too large" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE accuracy log too large" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1279,7 +1279,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
                 var _err = (@:check2 _br._moreBits() : stdgo.Error);
                 if (_err != null) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -1297,7 +1297,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
                         var _err = (@:check2 _br._moreBits() : stdgo.Error);
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                                 _tableBits = __tmp__._0;
                                 _roff = __tmp__._1;
                                 _err = __tmp__._2;
@@ -1314,7 +1314,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
                         var _err = (@:check2 _br._moreBits() : stdgo.Error);
                         if (_err != null) {
                             return {
-                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                                 _tableBits = __tmp__._0;
                                 _roff = __tmp__._1;
                                 _err = __tmp__._2;
@@ -1326,7 +1326,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
                 _zsym = (_zsym + ((@:check2 _br._val((2 : stdgo.GoUInt8)) : stdgo.GoInt)) : stdgo.GoInt);
                 if ((_zsym > _maxSym : Bool)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE symbol index overflow" : stdgo.GoString)) };
+                        @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE symbol index overflow" : stdgo.GoString)) };
                         _tableBits = __tmp__._0;
                         _roff = __tmp__._1;
                         _err = __tmp__._2;
@@ -1362,7 +1362,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             };
             if ((_sym >= (256 : stdgo.GoInt) : Bool)) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE sym overflow" : stdgo.GoString)) };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("FSE sym overflow" : stdgo.GoString)) };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -1379,7 +1379,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
         };
         if (_remaining != ((1 : stdgo.GoInt))) {
             return {
-                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("too many symbols in FSE table" : stdgo.GoString)) };
+                @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : @:check2 _br._makeError(("too many symbols in FSE table" : stdgo.GoString)) };
                 _tableBits = __tmp__._0;
                 _roff = __tmp__._1;
                 _err = __tmp__._2;
@@ -1395,7 +1395,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             var _err = (@:check2r _r._buildFSE(_off, (_norm.__slice__(0, (_maxSym + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt16>), _table, _accuracyLog) : stdgo.Error);
             if (_err != null) {
                 return {
-                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
+                    @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoInt), _2 : _err };
                     _tableBits = __tmp__._0;
                     _roff = __tmp__._1;
                     _err = __tmp__._2;
@@ -1404,7 +1404,7 @@ _table[(_i : stdgo.GoInt)]._base = (((_nextState << _bits : stdgo.GoUInt16)) - (
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _accuracyLog, _1 : (_br._off : stdgo.GoInt), _2 : (null : stdgo.Error) };
+            @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _accuracyLog, _1 : (_br._off : stdgo.GoInt), _2 : (null : stdgo.Error) };
             _tableBits = __tmp__._0;
             _roff = __tmp__._1;
             _err = __tmp__._2;

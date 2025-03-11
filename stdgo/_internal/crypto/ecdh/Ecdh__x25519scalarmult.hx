@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.ecdh;
 function _x25519ScalarMult(_dst:stdgo.Slice<stdgo.GoUInt8>, _scalar:stdgo.Slice<stdgo.GoUInt8>, _point:stdgo.Slice<stdgo.GoUInt8>):Void {
-        var _e:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _e:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         (_e.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_scalar.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         _e[(0 : stdgo.GoInt)] = (_e[(0 : stdgo.GoInt)] & ((248 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         _e[(31 : stdgo.GoInt)] = (_e[(31 : stdgo.GoInt)] & ((127 : stdgo.GoUInt8)) : stdgo.GoUInt8);

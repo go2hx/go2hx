@@ -1,7 +1,7 @@
 package stdgo._internal.math;
 function _pzero(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
-        var _p:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(6, 6).__setNumber32__().__setNil__().__setNil__();
-        var _q:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(5, 5).__setNumber32__().__setNil__().__setNil__();
+        var _p:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(6, 6).__setNumber32__().__setNil__();
+        var _q:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(5, 5).__setNumber32__().__setNil__();
         if ((_x >= (8 : stdgo.GoFloat64) : Bool)) {
             _p = (stdgo.Go.setRef(stdgo._internal.math.Math__p0r8._p0R8) : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>);
             _q = (stdgo.Go.setRef(stdgo._internal.math.Math__p0s8._p0S8) : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>);

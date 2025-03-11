@@ -14,7 +14,7 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
                 return { _0 : (new stdgo._internal.net.netip.Netip_addr.Addr() : stdgo._internal.net.netip.Netip_addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in?.__copy__(), _msg : ("zone must be a non-empty string" : stdgo.GoString) } : stdgo._internal.net.netip.Netip_t_parseaddrerror.T_parseAddrError)) };
             };
         };
-        var _ip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
+        var _ip:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
         var _ellipsis = (-1 : stdgo.GoInt);
         if (((((_s.length) >= (2 : stdgo.GoInt) : Bool) && _s[(0 : stdgo.GoInt)] == ((58 : stdgo.GoUInt8)) : Bool) && (_s[(1 : stdgo.GoInt)] == (58 : stdgo.GoUInt8)) : Bool)) {
             _ellipsis = (0 : stdgo.GoInt);

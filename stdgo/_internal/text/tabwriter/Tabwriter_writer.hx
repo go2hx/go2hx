@@ -4,7 +4,7 @@ package stdgo._internal.text.tabwriter;
     public var _minwidth : stdgo.GoInt = 0;
     public var _tabwidth : stdgo.GoInt = 0;
     public var _padding : stdgo.GoInt = 0;
-    public var _padbytes : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+    public var _padbytes : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public var _flags : stdgo.GoUInt = 0;
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _pos : stdgo.GoInt = 0;

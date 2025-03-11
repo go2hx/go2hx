@@ -127,4 +127,4 @@ var _unscaledQuant : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>> = (new stdgo.Go
 (99 : stdgo.GoUInt8),
 (99 : stdgo.GoUInt8),
 (99 : stdgo.GoUInt8),
-(99 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__().__setNil__()])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>);
+(99 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__()])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>);

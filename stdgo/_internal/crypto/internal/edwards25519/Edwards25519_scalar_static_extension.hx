@@ -8,7 +8,7 @@ package stdgo._internal.crypto.internal.edwards25519;
         if ((_b[(31 : stdgo.GoInt)] > (127 : stdgo.GoUInt8) : Bool)) {
             throw stdgo.Go.toInterface(("scalar has high bit set illegally" : stdgo.GoString));
         };
-        var _digits:stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(64, 64).__setNumber32__().__setNil__();
+        var _digits:stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(64, 64).__setNumber32__();
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (32 : stdgo.GoInt) : Bool)) {
@@ -41,8 +41,8 @@ _digits[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_digits[(_i + (1 : stdgo.GoIn
         } else if ((_w > (8u32 : stdgo.GoUInt) : Bool)) {
             throw stdgo.Go.toInterface(("NAF digits must fit in int8" : stdgo.GoString));
         };
-        var _naf:stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(256, 256).__setNumber32__().__setNil__();
-        var _digits:stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(5, 5).__setNumber64__().__setNil__();
+        var _naf:stdgo.GoArray<stdgo.GoInt8> = new stdgo.GoArray<stdgo.GoInt8>(256, 256).__setNumber32__();
+        var _digits:stdgo.GoArray<stdgo.GoUInt64> = new stdgo.GoArray<stdgo.GoUInt64>(5, 5).__setNumber64__();
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (4 : stdgo.GoInt) : Bool)) {
@@ -108,7 +108,7 @@ _digits[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_digits[(_i + (1 : stdgo.GoIn
     @:tdfield
     static public function bytes( _s:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_scalar.Scalar>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_scalar.Scalar> = _s;
-        var _encoded:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _encoded:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         return @:check2r _s._bytes((stdgo.Go.setRef(_encoded) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep
@@ -118,7 +118,7 @@ _digits[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_digits[(_i + (1 : stdgo.GoIn
         if ((_x.length) != ((32 : stdgo.GoInt))) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("edwards25519: invalid SetBytesWithClamping input length" : stdgo.GoString)) };
         };
-        var _wideBytes:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__().__setNil__();
+        var _wideBytes:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
         (_wideBytes.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         _wideBytes[(0 : stdgo.GoInt)] = (_wideBytes[(0 : stdgo.GoInt)] & ((248 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         _wideBytes[(31 : stdgo.GoInt)] = (_wideBytes[(31 : stdgo.GoInt)] & ((63 : stdgo.GoUInt8)) : stdgo.GoUInt8);
@@ -146,7 +146,7 @@ _digits[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_digits[(_i + (1 : stdgo.GoIn
         if (((_x.length) >= (32 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("edwards25519: internal error: setShortBytes called with a long string" : stdgo.GoString));
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_x);
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalarfrombytes._fiatScalarFromBytes(((stdgo.Go.setRef((@:checkr _s ?? throw "null pointer dereference")._s) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement>) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt64>>), (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         stdgo._internal.crypto.internal.edwards25519.Edwards25519__fiatscalartomontgomery._fiatScalarToMontgomery((stdgo.Go.setRef((@:checkr _s ?? throw "null pointer dereference")._s) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement>), ((stdgo.Go.setRef((@:checkr _s ?? throw "null pointer dereference")._s) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarmontgomerydomainfieldelement.T_fiatScalarMontgomeryDomainFieldElement>) : stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_t_fiatscalarnonmontgomerydomainfieldelement.T_fiatScalarNonMontgomeryDomainFieldElement>));

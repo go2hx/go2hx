@@ -5,7 +5,7 @@ package stdgo._internal.crypto.sha256;
     static public function _checkSum( _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest>):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha256.Sha256_t_digest.T_digest> = _d;
         var _len = ((@:checkr _d ?? throw "null pointer dereference")._len : stdgo.GoUInt64);
-        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(72, 72).__setNumber32__().__setNil__();
+        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(72, 72).__setNumber32__();
         _tmp[(0 : stdgo.GoInt)] = (128 : stdgo.GoUInt8);
         var _t:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         if (((_len % (64i64 : stdgo.GoUInt64) : stdgo.GoUInt64) < (56i64 : stdgo.GoUInt64) : Bool)) {
@@ -20,7 +20,7 @@ package stdgo._internal.crypto.sha256;
         if ((@:checkr _d ?? throw "null pointer dereference")._nx != ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("d.nx != 0" : stdgo.GoString));
         };
-        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)]);

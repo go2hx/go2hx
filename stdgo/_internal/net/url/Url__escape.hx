@@ -19,7 +19,7 @@ if (stdgo._internal.net.url.Url__shouldescape._shouldEscape(_c, _mode)) {
         if (((_spaceCount == (0 : stdgo.GoInt)) && (_hexCount == (0 : stdgo.GoInt)) : Bool)) {
             return _s?.__copy__();
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
         var _t:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _required = ((_s.length) + ((2 : stdgo.GoInt) * _hexCount : stdgo.GoInt) : stdgo.GoInt);
         if ((_required <= (_buf.length) : Bool)) {

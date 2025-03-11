@@ -7,7 +7,7 @@ function typeByExtension(_ext:stdgo.GoString):stdgo.GoString {
                 return (stdgo.Go.typeAssert((_v : stdgo.GoString)) : stdgo.GoString)?.__copy__();
             };
         };
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__();
         var _lower = (_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         {};
         {

@@ -937,7 +937,7 @@ var _year:stdgo.GoInt = (-1 : stdgo.GoInt), _month:stdgo._internal.time.Time_mon
         var _b:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _max = ((_layout.length) + (10 : stdgo.GoInt) : stdgo.GoInt);
         if ((_max < (64 : stdgo.GoInt) : Bool)) {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__().__setNil__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64).__setNumber32__();
             _b = (_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _max).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

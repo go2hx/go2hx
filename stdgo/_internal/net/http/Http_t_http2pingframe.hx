@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 @:structInit @:using(stdgo._internal.net.http.Http_t_http2pingframe_static_extension.T_http2PingFrame_static_extension) class T_http2PingFrame {
-    public var data : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+    public var data : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public function new(?data:stdgo.GoArray<stdgo.GoUInt8>) {
         if (data != null) this.data = data;
     }

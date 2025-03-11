@@ -1,6 +1,6 @@
 package stdgo._internal.debug.elf;
 @:structInit @:using(stdgo._internal.debug.elf.Elf_header64_static_extension.Header64_static_extension) class Header64 {
-    public var ident : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
+    public var ident : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
     public var type : stdgo.GoUInt16 = 0;
     public var machine : stdgo.GoUInt16 = 0;
     public var version : stdgo.GoUInt32 = 0;

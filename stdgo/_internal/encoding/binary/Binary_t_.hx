@@ -3,7 +3,7 @@ package stdgo._internal.encoding.binary;
     public var int_ : stdgo.GoInt = 0;
     public var uint : stdgo.GoUInt = 0;
     public var uintptr : stdgo.GoUIntptr = new stdgo.GoUIntptr(0);
-    public var array : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(4, 4).__setNumber32__().__setNil__();
+    public var array : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(4, 4).__setNumber32__();
     public function new(?int_:stdgo.GoInt, ?uint:stdgo.GoUInt, ?uintptr:stdgo.GoUIntptr, ?array:stdgo.GoArray<stdgo.GoInt>) {
         if (int_ != null) this.int_ = int_;
         if (uint != null) this.uint = uint;

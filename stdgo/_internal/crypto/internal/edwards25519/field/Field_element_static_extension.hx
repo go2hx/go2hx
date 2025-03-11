@@ -215,7 +215,7 @@ var _sv = __1, _sa = __0;
         @:recv var _v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element> = _v;
         var _t = ((_v : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element)?.__copy__() : stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element);
         @:check2 _t._reduce();
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
         for (_i => _l in (new stdgo.GoArray<stdgo.GoUInt64>(5, 5, ...[_t._l0, _t._l1, _t._l2, _t._l3, _t._l4]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)) {
             var _bitsOffset = (_i * (51 : stdgo.GoInt) : stdgo.GoInt);
             stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.putUint64((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_l << ((_bitsOffset % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt64));
@@ -233,7 +233,7 @@ var _sv = __1, _sa = __0;
     @:tdfield
     static public function bytes( _v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.field.Field_element.Element> = _v;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         return @:check2r _v._bytes((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep

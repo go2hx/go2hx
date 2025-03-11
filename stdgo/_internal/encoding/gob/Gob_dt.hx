@@ -7,7 +7,7 @@ package stdgo._internal.encoding.gob;
     public var j : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var i_nil : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var m : stdgo.GoMap<stdgo.GoString, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>);
-    public var t : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(3, 3).__setNumber32__().__setNil__();
+    public var t : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(3, 3).__setNumber32__();
     public var s : stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
     public function new(?a:stdgo.GoInt, ?b:stdgo.GoString, ?c:stdgo.GoFloat64, ?i:stdgo.AnyInterface, ?j:stdgo.AnyInterface, ?i_nil:stdgo.AnyInterface, ?m:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?t:stdgo.GoArray<stdgo.GoInt>, ?s:stdgo.Slice<stdgo.GoString>) {
         if (a != null) this.a = a;

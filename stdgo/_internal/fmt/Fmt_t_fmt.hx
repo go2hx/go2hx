@@ -5,7 +5,7 @@ package stdgo._internal.fmt;
     public var _fmtFlags : stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags = ({} : stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags);
     public var _wid : stdgo.GoInt = 0;
     public var _prec : stdgo.GoInt = 0;
-    public var _intbuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(68, 68).__setNumber32__().__setNil__();
+    public var _intbuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(68, 68).__setNumber32__();
     public function new(?_buf:stdgo.Ref<stdgo._internal.fmt.Fmt_t_buffer.T_buffer>, ?_fmtFlags:stdgo._internal.fmt.Fmt_t_fmtflags.T_fmtFlags, ?_wid:stdgo.GoInt, ?_prec:stdgo.GoInt, ?_intbuf:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_buf != null) this._buf = _buf;
         if (_fmtFlags != null) this._fmtFlags = _fmtFlags;

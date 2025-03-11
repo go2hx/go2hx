@@ -60,8 +60,8 @@ package stdgo._internal.compress.flate;
         if ((_maxBits > (_n - (1 : stdgo.GoInt32) : stdgo.GoInt32) : Bool)) {
             _maxBits = (_n - (1 : stdgo.GoInt32) : stdgo.GoInt32);
         };
-        var _levels:stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo> = new stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo>(16, 16, ...[for (i in 0 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo)]).__setNil__();
-        var _leafCounts:stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>(16, 16, ...[for (i in 0 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(16, 16).__setNumber32__().__setNil__()]).__setNil__();
+        var _levels:stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo> = new stdgo.GoArray<stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo>(16, 16, ...[for (i in 0 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.flate.Flate_t_levelinfo.T_levelInfo)]);
+        var _leafCounts:stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>(16, 16, ...[for (i in 0 ... (16 > 16 ? 16 : 16 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(16, 16).__setNumber32__()]);
         {
             var _level = ((1 : stdgo.GoInt32) : stdgo.GoInt32);
             while ((_level <= _maxBits : Bool)) {

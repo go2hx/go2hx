@@ -29,7 +29,7 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
             };
         };
         {};
-        var _n:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(6, 6).__setNumber32__().__setNil__();
+        var _n:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(6, 6).__setNumber32__();
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (6 : stdgo.GoInt) : Bool)) {

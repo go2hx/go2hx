@@ -7,7 +7,7 @@ package stdgo._internal.compress.bzip2;
     public var _setupDone : Bool = false;
     public var _blockSize : stdgo.GoInt = 0;
     public var _eof : Bool = false;
-    public var _c : stdgo.GoArray<stdgo.GoUInt> = new stdgo.GoArray<stdgo.GoUInt>(256, 256).__setNumber32__().__setNil__();
+    public var _c : stdgo.GoArray<stdgo.GoUInt> = new stdgo.GoArray<stdgo.GoUInt>(256, 256).__setNumber32__();
     public var _tt : stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);
     public var _tPos : stdgo.GoUInt32 = 0;
     public var _preRLE : stdgo.Slice<stdgo.GoUInt32> = (null : stdgo.Slice<stdgo.GoUInt32>);

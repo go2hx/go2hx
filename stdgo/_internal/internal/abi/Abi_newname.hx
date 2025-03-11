@@ -6,8 +6,8 @@ function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedd
         if (((_tag.length) >= (536870912 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(((("abi.NewName: tag too long: " : stdgo.GoString) + (_tag.__slice__(0, (1024 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString) + ("..." : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
-        var _nameLen:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__().__setNil__();
-        var _tagLen:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__().__setNil__();
+        var _nameLen:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__();
+        var _tagLen:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10).__setNumber32__();
         var _nameLenLen = (stdgo._internal.internal.abi.Abi__writevarint._writeVarint((_nameLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_n.length)) : stdgo.GoInt);
         var _tagLenLen = (stdgo._internal.internal.abi.Abi__writevarint._writeVarint((_tagLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_tag.length)) : stdgo.GoInt);
         var _bits:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);

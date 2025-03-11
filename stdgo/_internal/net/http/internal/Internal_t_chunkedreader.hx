@@ -3,7 +3,7 @@ package stdgo._internal.net.http.internal;
     public var _r : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>);
     public var _n : stdgo.GoUInt64 = 0;
     public var _err : stdgo.Error = (null : stdgo.Error);
-    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2, 2).__setNumber32__().__setNil__();
+    public var _buf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2, 2).__setNumber32__();
     public var _checkEnd : Bool = false;
     public function new(?_r:stdgo.Ref<stdgo._internal.bufio.Bufio_reader.Reader>, ?_n:stdgo.GoUInt64, ?_err:stdgo.Error, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_checkEnd:Bool) {
         if (_r != null) this._r = _r;

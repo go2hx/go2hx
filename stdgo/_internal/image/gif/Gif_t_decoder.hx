@@ -15,7 +15,7 @@ package stdgo._internal.image.gif;
     public var _delay : stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
     public var _disposal : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _image : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>);
-    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024).__setNumber32__().__setNil__();
+    public var _tmp : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1024, 1024).__setNumber32__();
     public function new(?_r:stdgo._internal.image.gif.Gif_t_reader.T_reader, ?_vers:stdgo.GoString, ?_width:stdgo.GoInt, ?_height:stdgo.GoInt, ?_loopCount:stdgo.GoInt, ?_delayTime:stdgo.GoInt, ?_backgroundIndex:stdgo.GoUInt8, ?_disposalMethod:stdgo.GoUInt8, ?_imageFields:stdgo.GoUInt8, ?_transparentIndex:stdgo.GoUInt8, ?_hasTransparentIndex:Bool, ?_globalColorTable:stdgo._internal.image.color.Color_palette.Palette, ?_delay:stdgo.Slice<stdgo.GoInt>, ?_disposal:stdgo.Slice<stdgo.GoUInt8>, ?_image:stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>) {
         if (_r != null) this._r = _r;
         if (_vers != null) this._vers = _vers;

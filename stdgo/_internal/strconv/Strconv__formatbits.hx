@@ -4,7 +4,7 @@ function _formatBits(_dst:stdgo.Slice<stdgo.GoUInt8>, _u:stdgo.GoUInt64, _base:s
         if (((_base < (2 : stdgo.GoInt) : Bool) || (_base > ((("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString) : stdgo.GoString).length) : Bool) : Bool)) {
             throw stdgo.Go.toInterface(("strconv: illegal AppendInt/FormatInt base" : stdgo.GoString));
         };
-        var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(65, 65).__setNumber32__().__setNil__();
+        var _a:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(65, 65).__setNumber32__();
         var _i = (_a.length : stdgo.GoInt);
         if (_neg) {
             _u = -_u;

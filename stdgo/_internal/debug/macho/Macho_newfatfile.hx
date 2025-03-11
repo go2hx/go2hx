@@ -6,7 +6,7 @@ function newFatFile(_r:stdgo._internal.io.Io_readerat.ReaderAt):{ var _0 : stdgo
         if (_err != null) {
             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_formaterror.FormatError((0i64 : stdgo.GoInt64), ("error reading magic number" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_formaterror.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_formaterror.FormatError>)) };
         } else if (_ff.magic != ((-889275714u32 : stdgo.GoUInt32))) {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
             stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _ff.magic);
             var _leMagic = (stdgo._internal.encoding.binary.Binary_littleendian.littleEndian.uint32((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
             if (((_leMagic == (-17958194u32 : stdgo.GoUInt32)) || (_leMagic == (-17958193u32 : stdgo.GoUInt32)) : Bool)) {

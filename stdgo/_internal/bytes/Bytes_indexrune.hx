@@ -17,7 +17,7 @@ function indexRune(_s:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32):stdgo.GoInt 
         } else if (!stdgo._internal.unicode.utf8.Utf8_validrune.validRune(_r)) {
             return (-1 : stdgo.GoInt);
         } else {
-            var _b:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
+            var _b:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
             var _n = (stdgo._internal.unicode.utf8.Utf8_encoderune.encodeRune((_b.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r) : stdgo.GoInt);
             return stdgo._internal.bytes.Bytes_index.index(_s, (_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         };

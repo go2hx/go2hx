@@ -45,7 +45,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         })) {
             return stdgo._internal.net.rpc.jsonrpc.Jsonrpc__errmissingparams._errMissingParams;
         };
-        var _params:stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1).__setNil__();
+        var _params:stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1);
         _params[(0 : stdgo.GoInt)] = _x;
         return stdgo._internal.encoding.json.Json_unmarshal.unmarshal(((@:checkr _c ?? throw "null pointer dereference")._req.params : stdgo._internal.encoding.json.Json_rawmessage.RawMessage), stdgo.Go.toInterface((stdgo.Go.setRef(_params) : stdgo.Ref<stdgo.GoArray<stdgo.AnyInterface>>)));
     }

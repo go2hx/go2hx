@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.internal.nistec;
 function _p224SqrtCandidate(_r:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>, _x:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>):Void {
         @:check2 stdgo._internal.crypto.internal.nistec.Nistec__p224ggonce._p224GGOnce.do_(function():Void {
-            stdgo._internal.crypto.internal.nistec.Nistec__p224gg._p224GG = (stdgo.Go.setRef(new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>(96, 96, ...[for (i in 0 ... (96 > 96 ? 96 : 96 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element)]).__setNil__()) : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>>);
+            stdgo._internal.crypto.internal.nistec.Nistec__p224gg._p224GG = (stdgo.Go.setRef(new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>(96, 96, ...[for (i in 0 ... (96 > 96 ? 96 : 96 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element)])) : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p224element.P224Element>>);
             for (_i => _ in stdgo._internal.crypto.internal.nistec.Nistec__p224gg._p224GG) {
                 if (_i == ((0 : stdgo.GoInt))) {
                     @:check2 stdgo._internal.crypto.internal.nistec.Nistec__p224gg._p224GG[(_i : stdgo.GoInt)].setBytes((new stdgo.Slice<stdgo.GoUInt8>(28, 28, ...[

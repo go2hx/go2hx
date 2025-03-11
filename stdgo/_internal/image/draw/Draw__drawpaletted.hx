@@ -9,7 +9,7 @@ var _stride = __2, _pix = __1, _palette = __0;
                 { _0 : (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>), _1 : false };
             }, _p = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                _palette = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>(((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() > 0 ? ((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__().__setNil__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
+                _palette = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>(((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() > 0 ? ((@:checkr _p ?? throw "null pointer dereference").palette.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
                 for (_i => _col in (@:checkr _p ?? throw "null pointer dereference").palette) {
                     var __tmp__ = _col.rGBA(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
                     _palette[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_r : stdgo.GoInt32);
@@ -27,8 +27,8 @@ var _stride = __2, _pix = __1, _palette = __0;
         };
         var _quantErrorCurr:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>), _quantErrorNext:stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>> = (null : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
         if (_floydSteinberg) {
-            _quantErrorCurr = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__().__setNil__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
-            _quantErrorNext = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__().__setNil__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
+            _quantErrorCurr = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
+            _quantErrorNext = (new stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_r.dx() + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(4, 4).__setNumber32__()]) : stdgo.Slice<stdgo.GoArray<stdgo.GoInt32>>);
         };
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);

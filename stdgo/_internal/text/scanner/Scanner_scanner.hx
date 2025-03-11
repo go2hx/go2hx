@@ -1,7 +1,7 @@
 package stdgo._internal.text.scanner;
 @:structInit @:using(stdgo._internal.text.scanner.Scanner_scanner_static_extension.Scanner_static_extension) class Scanner {
     public var _src : stdgo._internal.io.Io_reader.Reader = (null : stdgo._internal.io.Io_reader.Reader);
-    public var _srcBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1025, 1025).__setNumber32__().__setNil__();
+    public var _srcBuf : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1025, 1025).__setNumber32__();
     public var _srcPos : stdgo.GoInt = 0;
     public var _srcEnd : stdgo.GoInt = 0;
     public var _srcBufOffset : stdgo.GoInt = 0;

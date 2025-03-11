@@ -3,10 +3,10 @@ package stdgo._internal.encoding.binary;
     public var a : stdgo.GoUInt32 = 0;
     public var p0 : stdgo.GoInt32 = 0;
     public var b : stdgo.GoFloat64 = 0;
-    public var p1 : stdgo.GoArray<stdgo.GoInt16> = new stdgo.GoArray<stdgo.GoInt16>(4, 4).__setNumber32__().__setNil__();
+    public var p1 : stdgo.GoArray<stdgo.GoInt16> = new stdgo.GoArray<stdgo.GoInt16>(4, 4).__setNumber32__();
     public var c : stdgo.GoUInt8 = 0;
-    public var p2 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(7, 7).__setNumber32__().__setNil__();
-    public var p3 : { var f : stdgo.GoArray<stdgo.GoFloat32>; } = { f : new stdgo.GoArray<stdgo.GoFloat32>(8, 8).__setNumber32__().__setNil__() };
+    public var p2 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(7, 7).__setNumber32__();
+    public var p3 : { var f : stdgo.GoArray<stdgo.GoFloat32>; } = { f : new stdgo.GoArray<stdgo.GoFloat32>(8, 8).__setNumber32__() };
     public function new(?a:stdgo.GoUInt32, ?p0:stdgo.GoInt32, ?b:stdgo.GoFloat64, ?p1:stdgo.GoArray<stdgo.GoInt16>, ?c:stdgo.GoUInt8, ?p2:stdgo.GoArray<stdgo.GoUInt8>, ?p3:{ var f : stdgo.GoArray<stdgo.GoFloat32>; }) {
         if (a != null) this.a = a;
         if (p0 != null) this.p0 = p0;

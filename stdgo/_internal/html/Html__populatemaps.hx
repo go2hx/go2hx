@@ -2145,7 +2145,7 @@ x.set(("yuml" : stdgo.GoString), (255 : stdgo.GoInt32));
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoInt32>);
         stdgo._internal.html.Html__entity2._entity2 = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoArray<stdgo.GoInt32>>();
-            x.__defaultValue__ = () -> new stdgo.GoArray<stdgo.GoInt32>(2, 2).__setNumber32__().__setNil__();
+            x.__defaultValue__ = () -> new stdgo.GoArray<stdgo.GoInt32>(2, 2).__setNumber32__();
             x.set(("NotEqualTilde;" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[(8770 : stdgo.GoInt32), (824 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>));
 x.set(("NotGreaterFullEqual;" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[(8807 : stdgo.GoInt32), (824 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>));
 x.set(("NotGreaterGreater;" : stdgo.GoString), (new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[(8811 : stdgo.GoInt32), (824 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>));

@@ -4,11 +4,11 @@ package stdgo._internal.internal.coverage;
     public var pkgName : stdgo.GoUInt32 = 0;
     public var pkgPath : stdgo.GoUInt32 = 0;
     public var modulePath : stdgo.GoUInt32 = 0;
-    public var metaHash : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
+    public var metaHash : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
     @:optional
     public var __4 : stdgo.GoUInt8 = 0;
     @:optional
-    public var __5 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3).__setNumber32__().__setNil__();
+    public var __5 : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(3, 3).__setNumber32__();
     public var numFiles : stdgo.GoUInt32 = 0;
     public var numFuncs : stdgo.GoUInt32 = 0;
     public function new(?length_:stdgo.GoUInt32, ?pkgName:stdgo.GoUInt32, ?pkgPath:stdgo.GoUInt32, ?modulePath:stdgo.GoUInt32, ?metaHash:stdgo.GoArray<stdgo.GoUInt8>, ?__4:stdgo.GoUInt8, ?__5:stdgo.GoArray<stdgo.GoUInt8>, ?numFiles:stdgo.GoUInt32, ?numFuncs:stdgo.GoUInt32) {

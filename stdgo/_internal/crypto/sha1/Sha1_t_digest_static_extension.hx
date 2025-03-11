@@ -4,7 +4,7 @@ package stdgo._internal.crypto.sha1;
     @:tdfield
     static public function _constSum( _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest>):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest> = _d;
-        var _length:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+        var _length:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
         var _l = ((@:checkr _d ?? throw "null pointer dereference")._len << (3i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         {
             var _i = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
@@ -30,7 +30,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
             };
         };
         stdgo._internal.crypto.sha1.Sha1__block._block(_d, ((@:checkr _d ?? throw "null pointer dereference")._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__().__setNil__();
+        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
         for (_i => _s in (@:checkr _d ?? throw "null pointer dereference")._h) {
             _digest[(_i * (4 : stdgo.GoInt) : stdgo.GoInt)] = (_mask1b & ((_s >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
             _digest[((_i * (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_mask1b & ((_s >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -71,7 +71,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
     static public function _checkSum( _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest>):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.sha1.Sha1_t_digest.T_digest> = _d;
         var _len = ((@:checkr _d ?? throw "null pointer dereference")._len : stdgo.GoUInt64);
-        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(72, 72).__setNumber32__().__setNil__();
+        var _tmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(72, 72).__setNumber32__();
         _tmp[(0 : stdgo.GoInt)] = (128 : stdgo.GoUInt8);
         var _t:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         if (((_len % (64i64 : stdgo.GoUInt64) : stdgo.GoUInt64) < (56i64 : stdgo.GoUInt64) : Bool)) {
@@ -86,7 +86,7 @@ if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
         if ((@:checkr _d ?? throw "null pointer dereference")._nx != ((0 : stdgo.GoInt))) {
             throw stdgo.Go.toInterface(("d.nx != 0" : stdgo.GoString));
         };
-        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__().__setNil__();
+        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20).__setNumber32__();
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(0 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(1 : stdgo.GoInt)]);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_digest.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (@:checkr _d ?? throw "null pointer dereference")._h[(2 : stdgo.GoInt)]);

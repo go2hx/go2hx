@@ -28,7 +28,7 @@ package stdgo._internal.crypto.internal.nistec;
     static public function _generatorTable( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>):stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>> {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point> = _p;
         @:check2 stdgo._internal.crypto.internal.nistec.Nistec__p224generatortableonce._p224GeneratorTableOnce.do_(function():Void {
-            stdgo._internal.crypto.internal.nistec.Nistec__p224generatortable._p224GeneratorTable = (stdgo.Go.setRef(new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>(56, 56, ...[for (i in 0 ... (56 > 56 ? 56 : 56 : stdgo.GoInt).toBasic()) new stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table(15, 15, ...[for (i in 0 ... 15) (null : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>)])]).__setNil__()) : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>>);
+            stdgo._internal.crypto.internal.nistec.Nistec__p224generatortable._p224GeneratorTable = (stdgo.Go.setRef(new stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>(56, 56, ...[for (i in 0 ... (56 > 56 ? 56 : 56 : stdgo.GoInt).toBasic()) new stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table(15, 15, ...[for (i in 0 ... 15) (null : stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>)])])) : stdgo.Ref<stdgo.GoArray<stdgo._internal.crypto.internal.nistec.Nistec_t_p224table.T_p224Table>>);
             var _base = @:check2r stdgo._internal.crypto.internal.nistec.Nistec_newp224point.newP224Point().setGenerator();
             {
                 var _i = (0 : stdgo.GoInt);
@@ -225,7 +225,7 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp224point.newP224Point()]) : st
     @:tdfield
     static public function bytesCompressed( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point> = _p;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29).__setNumber32__().__setNil__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(29, 29).__setNumber32__();
         return @:check2r _p._bytesCompressed((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep
@@ -243,7 +243,7 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp224point.newP224Point()]) : st
     @:tdfield
     static public function bytesX( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point> = _p;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(28, 28).__setNumber32__().__setNil__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(28, 28).__setNumber32__();
         return @:check2r _p._bytesX((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep
@@ -265,7 +265,7 @@ stdgo._internal.crypto.internal.nistec.Nistec_newp224point.newP224Point()]) : st
     @:tdfield
     static public function bytes( _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _p:stdgo.Ref<stdgo._internal.crypto.internal.nistec.Nistec_p224point.P224Point> = _p;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(57, 57).__setNumber32__().__setNil__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(57, 57).__setNumber32__();
         return @:check2r _p._bytes((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep

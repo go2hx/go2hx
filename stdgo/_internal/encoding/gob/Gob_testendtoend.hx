@@ -32,16 +32,16 @@ function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void 
         var _s2 = (("string2" : stdgo.GoString) : stdgo.GoString);
         var _comp1:stdgo.GoComplex128 = new stdgo.GoComplex128((1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
         var _comp2:stdgo.GoComplex128 = new stdgo.GoComplex128((1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
-        var _arr1:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__().__setNil__();
+        var _arr1:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__();
         _arr1[(0 : stdgo.GoInt)] = _s1?.__copy__();
         _arr1[(1 : stdgo.GoInt)] = _s2?.__copy__();
-        var _arr2:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__().__setNil__();
+        var _arr2:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(2, 2).__setString__();
         _arr2[(0 : stdgo.GoInt)] = _s2?.__copy__();
         _arr2[(1 : stdgo.GoInt)] = _s1?.__copy__();
-        var _floatArr1:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2).__setNil__();
+        var _floatArr1:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2);
         _floatArr1[(0 : stdgo.GoInt)] = _pi__pointer__;
         _floatArr1[(1 : stdgo.GoInt)] = _e__pointer__;
-        var _floatArr2:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2).__setNil__();
+        var _floatArr2:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2);
         _floatArr2[(0 : stdgo.GoInt)] = _e__pointer__;
         _floatArr2[(1 : stdgo.GoInt)] = _two__pointer__;
         var _t1 = (stdgo.Go.setRef(({ a : (17 : stdgo.GoInt), b : (18 : stdgo.GoInt), c : (-5 : stdgo.GoInt), m : ({
@@ -77,7 +77,7 @@ x.set(_comp2, _comp1);
         } : stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>), marr : ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>();
             x.t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(string_kind) }, 2));
-            x.__defaultValue__ = () -> new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2).__setNil__();
+            x.__defaultValue__ = () -> new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2);
             x.set(_arr1, _floatArr1);
 x.set(_arr2, _floatArr2);
             cast x;

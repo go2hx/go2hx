@@ -1,6 +1,6 @@
 package stdgo._internal.debug.pe;
 @:structInit @:using(stdgo._internal.debug.pe.Pe_coffsymbol_static_extension.COFFSymbol_static_extension) class COFFSymbol {
-    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+    public var name : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
     public var value : stdgo.GoUInt32 = 0;
     public var sectionNumber : stdgo.GoInt16 = 0;
     public var type : stdgo.GoUInt16 = 0;

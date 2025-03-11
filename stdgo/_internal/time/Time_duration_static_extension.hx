@@ -99,7 +99,7 @@ package stdgo._internal.time;
     @:tdfield
     static public function string( _d:stdgo._internal.time.Time_duration.Duration):stdgo.GoString {
         @:recv var _d:stdgo._internal.time.Time_duration.Duration = _d;
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         var _w = (_buf.length : stdgo.GoInt);
         var _u = (_d : stdgo.GoUInt64);
         var _neg = (_d < (0i64 : stdgo._internal.time.Time_duration.Duration) : Bool);

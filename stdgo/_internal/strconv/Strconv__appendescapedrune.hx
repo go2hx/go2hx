@@ -1,6 +1,6 @@
 package stdgo._internal.strconv;
 function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _quote:stdgo.GoUInt8, aSCIIonly:Bool, _graphicOnly:Bool):stdgo.Slice<stdgo.GoUInt8> {
-        var _runeTmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__().__setNil__();
+        var _runeTmp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
         if (((_r == (_quote : stdgo.GoInt32)) || (_r == (92 : stdgo.GoInt32)) : Bool)) {
             _buf = (_buf.__append__((92 : stdgo.GoUInt8)));
             _buf = (_buf.__append__((_r : stdgo.GoUInt8)));

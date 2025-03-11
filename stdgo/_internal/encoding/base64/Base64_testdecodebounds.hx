@@ -2,7 +2,7 @@ package stdgo._internal.encoding.base64;
 function testDecodeBounds(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
             var _s = (@:check2r stdgo._internal.encoding.base64.Base64_stdencoding.stdEncoding.encodeToString((_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
             {
                 __deferstack__.unshift({ ran : false, f : () -> ({

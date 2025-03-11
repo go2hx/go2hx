@@ -226,7 +226,7 @@ if ((_bNaf[(_i : stdgo.GoInt)] > (0 : stdgo.GoInt8) : Bool)) {
     @:tdfield
     static public function bytes( _v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_point.Point>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _v:stdgo.Ref<stdgo._internal.crypto.internal.edwards25519.Edwards25519_point.Point> = _v;
-        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__().__setNil__();
+        var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32).__setNumber32__();
         return @:check2r _v._bytes((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep

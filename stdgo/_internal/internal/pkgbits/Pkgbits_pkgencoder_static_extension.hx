@@ -36,7 +36,7 @@ package stdgo._internal.internal.pkgbits;
     @:tdfield
     static public function dumpTo( _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder>, _out0:stdgo._internal.io.Io_writer.Writer):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _pw:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_pkgencoder.PkgEncoder> = _pw;
-        var _fingerprint = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__().__setNil__();
+        var _fingerprint = new stdgo.GoArray<stdgo.GoUInt8>(8, 8).__setNumber32__();
         var _h = (stdgo._internal.crypto.md5.Md5_new_.new_() : stdgo._internal.hash.Hash_hash.Hash);
         var _out = (stdgo._internal.io.Io_multiwriter.multiWriter(_out0, _h) : stdgo._internal.io.Io_writer.Writer);
         var _writeUint32 = (function(_x:stdgo.GoUInt32):Void {

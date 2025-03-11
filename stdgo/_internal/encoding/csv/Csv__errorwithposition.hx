@@ -11,7 +11,7 @@ function _errorWithPosition(_err:stdgo.Error, _recNum:stdgo.GoInt, _positions:st
         if ((_recNum >= (_positions.length) : Bool)) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_errorf.errorf(("no positions found for error at record %d" : stdgo.GoString), stdgo.Go.toInterface(_recNum)));
         };
-        var __tmp__ = (_errPositions != null && _errPositions.__exists__(_recNum) ? { _0 : _errPositions[_recNum], _1 : true } : { _0 : new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__().__setNil__(), _1 : false }), _errPos:stdgo.GoArray<stdgo.GoInt> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (_errPositions != null && _errPositions.__exists__(_recNum) ? { _0 : _errPositions[_recNum], _1 : true } : { _0 : new stdgo.GoArray<stdgo.GoInt>(2, 2).__setNumber32__(), _1 : false }), _errPos:stdgo.GoArray<stdgo.GoInt> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_errorf.errorf(("no error position found for error at record %d" : stdgo.GoString), stdgo.Go.toInterface(_recNum)));
         };

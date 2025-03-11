@@ -29,7 +29,7 @@ package stdgo._internal.debug.elf;
             if ((_newOffset < (@:checkr _r ?? throw "null pointer dereference")._offset : Bool)) {
                 @:check2r _r._start();
             };
-            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512).__setNumber32__().__setNil__();
+            var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512).__setNumber32__();
             while (((@:checkr _r ?? throw "null pointer dereference")._offset < _newOffset : Bool)) {
                 var _b = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
                 if (((_newOffset - (@:checkr _r ?? throw "null pointer dereference")._offset : stdgo.GoInt64) < (_buf.length : stdgo.GoInt64) : Bool)) {

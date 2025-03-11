@@ -4,7 +4,7 @@ package stdgo._internal.internal.coverage.encodemeta;
     @:tdfield
     static public function emit( _b:stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder>, _w:stdgo._internal.io.Io_writeseeker.WriteSeeker):{ var _0 : stdgo.GoArray<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.internal.coverage.encodemeta.Encodemeta_coveragemetadatabuilder.CoverageMetaDataBuilder> = _b;
-        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__().__setNil__();
+        var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16).__setNumber32__();
         (_digest.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((@:checkr _b ?? throw "null pointer dereference")._h.sum((null : stdgo.Slice<stdgo.GoUInt8>)));
         var _mh = ({ pkgPath : ((@:checkr _b ?? throw "null pointer dereference")._pkgpath : stdgo.GoUInt32), pkgName : ((@:checkr _b ?? throw "null pointer dereference")._pkgname : stdgo.GoUInt32), modulePath : ((@:checkr _b ?? throw "null pointer dereference")._modpath : stdgo.GoUInt32), numFiles : (@:check2 (@:checkr _b ?? throw "null pointer dereference")._stab.nentries() : stdgo.GoUInt32), numFuncs : ((@:checkr _b ?? throw "null pointer dereference")._funcs.length : stdgo.GoUInt32), metaHash : _digest?.__copy__() } : stdgo._internal.internal.coverage.Coverage_metasymbolheader.MetaSymbolHeader);
         if ((@:checkr _b ?? throw "null pointer dereference")._debug) {

@@ -144,7 +144,7 @@ package stdgo._internal.crypto.internal.nistec.fiat;
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("invalid P521Element encoding" : stdgo.GoString)) };
             };
         };
-        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(66, 66).__setNumber32__().__setNil__();
+        var _in:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(66, 66).__setNumber32__();
         (_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_v);
         stdgo._internal.crypto.internal.nistec.fiat.Fiat__p521invertendianness._p521InvertEndianness((_in.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _tmp:stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelement.T_p521NonMontgomeryDomainFieldElement = new stdgo._internal.crypto.internal.nistec.fiat.Fiat_t_p521nonmontgomerydomainfieldelement.T_p521NonMontgomeryDomainFieldElement(9, 9, ...[for (i in 0 ... 9) (0 : stdgo.GoUInt64)]);
@@ -166,7 +166,7 @@ package stdgo._internal.crypto.internal.nistec.fiat;
     @:tdfield
     static public function bytes( _e:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element>):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _e:stdgo.Ref<stdgo._internal.crypto.internal.nistec.fiat.Fiat_p521element.P521Element> = _e;
-        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(66, 66).__setNumber32__().__setNil__();
+        var _out:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(66, 66).__setNumber32__();
         return @:check2r _e._bytes((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
     }
     @:keep

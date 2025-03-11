@@ -204,7 +204,9 @@ final list = [
 			}
 		}
 		deleteRecursively(_path);
-		sys.FileSystem.deleteDirectory(_path);
+		@:define("(sys || hxnodejs)") {
+			sys.FileSystem.deleteDirectory(_path);
+		}
 		return null;
 	},
 	"os.File:readFrom" => macro {

@@ -110,7 +110,7 @@ final list = [
 		
 				return result;
 			}
-			var name = randomName(10);
+			var name = "tmp_" + randomName(10);
 			final pattern:String = _pattern;
 			final wildCardIndex = pattern.indexOf("*");
 			if (wildCardIndex != -1) {
@@ -204,6 +204,9 @@ final list = [
 			}
 		}
 		deleteRecursively(_path);
+		@:define("(sys || hxnodejs)") {
+			sys.FileSystem.deleteDirectory(_path);
+		}
 		return null;
 	},
 	"os.File:readFrom" => macro {
@@ -565,6 +568,23 @@ final list = [
 		}
 		return {_0: bytes.length, _1: null};
 	},
+	"os:createTemp" => macro {
+		final dir = _dir;
+		final pattern = _pattern;
+		function randomName(length:Int) {
+			var chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+			var result = "";
+	
+			for (i in 0...length) {
+				var randomIndex = std.Math.floor(std.Math.random() * chars.length);
+				result += chars.charAt(randomIndex);
+			}
+	
+			return result;
+		}
+		var name = "tmp_" + randomName(10);
+		return stdgo._internal.os.Os_openfile.openFile(haxe.io.Path.addTrailingSlash(dir) + name, 0, 0);
+	},
 	"os:create" => macro {
 		//O_RDWR|O_CREATE|O_TRUNC
 		return stdgo._internal.os.Os_openfile.openFile(_name, 0, 0);
@@ -582,6 +602,20 @@ final list = [
 	"os:stderr" => macro {
 		final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stderr();
 		new stdgo._internal.os.Os_file.File(null, output);
+	},
+	"os.File:writeAt" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (_b.length == 0)
+				return {_0: 0, _1: null};
+			try {
+				final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), _off.toBasic().low , _b.length.toBasic());
+				return {_0: i, _1: null};
+			}catch(e) {
+				return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt failed")};
+			}
+		};
+		trace("not supported on non sys target");
+		return {_0: 0, _1: null};
 	},
 	"os.File:writeString" => macro return _f.write(_s),
 	"os:_fastrand" => macro return std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
@@ -1454,6 +1488,9 @@ final list = [
 	"sync.atomic_:loadInt64" => macro {
 		return @:privateAccess _addr.value;
 	},
+	"sync.atomic_:addInt64" => macro {
+		return @:privateAccess _addr.value = _delta;
+	},
 	"sync.atomic_:storeInt64" => macro {
 		_addr.value = _val;
 	},
@@ -1687,6 +1724,13 @@ final list = [
 		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
 		_c.failNow();
 	},
+	/*
+	TempDir returns the default directory to use for temporary files.
+
+	On Unix systems, it returns $TMPDIR if non-empty, else /tmp. On Windows, it uses GetTempPath, returning the first non-empty value from %TMP%, %TEMP%, %USERPROFILE%, or the Windows directory. On Plan 9, it returns /tmp.
+
+	The directory is neither guaranteed to exist nor have accessible permissions. 
+	*/
 	"testing.T_common:tempDir" => macro {
 		final pattern = "";
 		final obj = stdgo._internal.os.Os_mkdirtemp.mkdirTemp("", pattern);
@@ -1815,6 +1859,8 @@ final skipTests = [
 	"bufio_test:testReadStringAllocs" => [], // checks runtime allocations num
 	"io_test:testMultiWriter_WriteStringSingleAlloc" => [], // checks runtime allocations num
 	"io_test:testMultiReaderFreesExhaustedReaders" => [], // uses runtime.setFinalizer
+	"io_test:testMultiWriterSingleChainFlatten" => [], // uses runtime.callers
+	"io_test:testMultiReaderFlatten" => [], // uses runtime.callers
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync
@@ -1841,7 +1887,21 @@ final skipTests = [
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
 	"encoding.json:testHTTPDecoding" => [], // uses net/http
+	"compress.gzip:example_compressingReader" => [], // uses net/http
 	"encoding.binary_test:testNativeEndian" => [], // uses unsafe pointer conversions
+	// stdgo/math/rand_test
+	"math.rand_test:testFloat32" => [], // slow
+	// stdgo/math/big_test
+	"math.big_test:testLinkerGC" => [], // specific to GC's linker
+	"math.big_test:testModSqrt" => [], // slow
+	"math.big_test:testBytes" => [], // broken for gopherjs
+	// stdgo/sync_test
+	"sync_test:testCondCopy" => [], // raw pointers
+	"sync_test:testIssue40999" => [], // uses runtime.setFinalizers
+	"sync_test:testPoolGC" => [], // uses runtime.GC()
+	"sync_test:testPoolRelease" => [], // uses runtime.GC()
+	"sync_test:testPoolDequeue" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
+	"sync_test:testPoolChain" => [], // This test targets upstream pool implementation, which is not used by GopherJS.
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => [], // fmt formatter
 	"math:testGamma" => ["interp"], // high floating point precision

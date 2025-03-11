@@ -381,8 +381,8 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	for (line in lines) {
 		if (StringTools.startsWith(line, passPrefix) || StringTools.startsWith(line, skipPrefix)) {
 			final s = line.substr(passPrefix.length).split(" ")[0];
-			//if (!passes.contains(s))
-			//	passes.push(s);
+			if (!passes.contains(s))
+				passes.push(s);
 		}else if (StringTools.startsWith(line, runPrefix)){
 			final s = line.substr(runPrefix.length).split(" ")[0];
 			if (!runs.contains(s))

@@ -4,10 +4,10 @@ Exception: not implemented: funcPCABI0
 Called from .stdgo__$internal_internal_abi_Abi_$funcpcabi0_funcPCABI0 (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12813 column 23)
 Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12803 column 9)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpc_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12295:18)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46932 column 9)
-Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39106 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:54029:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54030:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46906 column 9)
+Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39090 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:53999:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54000:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPC
@@ -17,10 +17,10 @@ Exception: :os.getenv is not yet implemented
 Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12894 column 23)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 12882 column 12)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpccompileerror_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12311:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46932 column 9)
-Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39106 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:54029:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54030:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 46906 column 9)
+Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39090 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:53999:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54000:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPCCompileError

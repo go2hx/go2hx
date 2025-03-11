@@ -1,16 +1,16 @@
 
-/home/runner/work/go2hx/go2hx/golibs/std_template.js:43058
+/home/runner/work/go2hx/go2hx/golibs/std_template.js:43044
 	throw haxe_Exception.thrown("Int32:sync.atomic_.add is not yet implemented");
 	^
 <ref *1> Error: Int32:sync.atomic_.add is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_template.js:34972:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_template.js:34902:11)
-    at stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_template.js:43058:23)
-    at stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_template.js:43021:78)
-    at stdgo__$internal_text_template_Template_$static_$extension.parse (/home/runner/work/go2hx/go2hx/golibs/std_template.js:41083:51)
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101337:75
-    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101342:2
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:107658:3)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_template.js:34968:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_template.js:34898:11)
+    at stdgo__$internal_sync_atomic_$_Int32_$static_$extension.add (/home/runner/work/go2hx/go2hx/golibs/std_template.js:43044:23)
+    at stdgo__$internal_sync_RWMutex_$static_$extension.rLock (/home/runner/work/go2hx/go2hx/golibs/std_template.js:43007:78)
+    at stdgo__$internal_text_template_Template_$static_$extension.parse (/home/runner/work/go2hx/go2hx/golibs/std_template.js:41069:51)
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101289:75
+    at /home/runner/work/go2hx/go2hx/golibs/std_template.js:101294:2
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_template.js:107610:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10) {
   __previousException: undefined,

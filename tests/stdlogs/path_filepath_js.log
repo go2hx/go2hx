@@ -27,10 +27,10 @@ Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)
 Exception: :os.symlink is not yet implemented
 Called from .stdgo__$internal_os_Os_$symlink_symlink (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 25652 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testglobsymlink_testGlobSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:16229:10)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54137 column 9)
-Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44561 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64238:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64239:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54113 column 9)
+Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44545 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64208:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64209:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -39,10 +39,10 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestWindowsGlob
 Exception: Cannot read properties of undefined (reading '_common')
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testwindowsglob_testWindowsGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:17407:25)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54137 column 9)
-Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44561 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64238:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64239:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54113 column 9)
+Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44545 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64208:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64209:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -51,13 +51,13 @@ Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
 
 === RUN  TestNonWindowsGlobEscape
 Glob(<invalid reflect.Value>) = %!v(MISSING) want %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54890 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54779 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:54333:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54866 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54755 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:54309:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_path_filepath_$test_Filepath_$test_$testnonwindowsglobescape_testNonWindowsGlobEscape [as f] (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:16641:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54137 column 9)
-Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44561 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64238:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64239:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 54113 column 9)
+Called from ._$internal_path_filepathdottest_Filepathdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js line 44545 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64208:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_filepath.js:64209:3)
 
 -- FAIL: TestNonWindowsGlobEscape

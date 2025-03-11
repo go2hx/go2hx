@@ -379,7 +379,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	final passes:Array<String> = [];
 	final fails:Array<String> = [];
 	for (line in lines) {
-		if (StringTools.startsWith(line, passPrefix) || StringTools.startsWith(line, skipPrefix)) {
+		if (StringTools.startsWith(line, passPrefix)) {
 			final s = line.substr(passPrefix.length).split(" ")[0];
 			if (!passes.contains(s))
 				passes.push(s);

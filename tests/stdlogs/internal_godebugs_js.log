@@ -2,10 +2,10 @@
 Exception: :os.isNotExist is not yet implemented
 Called from .stdgo__$internal_os_Os_$isnotexist_isNotExist (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 11443 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebugs_$test_Godebugs_$test_$testall_testAll [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:10219:6)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 37033 column 9)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 37072 column 9)
 Called from ._$internal_internal_godebugsdottest_Godebugsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js line 12253 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46069:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46070:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46108:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebugs.js:46109:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

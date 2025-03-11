@@ -40,30 +40,6 @@
          |          ^^^^^^^^^^^^^^^^^^^^
          | Called from here
 
-[ERROR] ./_internal/sync_test/Sync_test_testcondsignal.hx:50: characters 24-33
-
- 50 |                 _awake.__reset__();
-    |                        ^^^^^^^^^
-    | stdgo.Chan<Bool> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/sync_test/Sync_test_testcondsignal.hx:74: characters 24-33
-
- 74 |                 _awake.__reset__();
-    |                        ^^^^^^^^^
-    | stdgo.Chan<Bool> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/sync_test/Sync_test_testcondbroadcast.hx:60: characters 28-37
-
- 60 |                     _awake.__reset__();
-    |                            ^^^^^^^^^
-    | stdgo.Chan<stdgo.GoInt> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/sync_test/Sync_test_testcondbroadcast.hx:98: characters 22-31
-
- 98 |             _running.__reset__();
-    |                      ^^^^^^^^^
-    | stdgo.Chan<stdgo.GoInt> has no field __reset__ (Suggestion: __isGet__)
-
 [ERROR] ./_internal/sync_test/Sync_test__applymap.hx:3: characters 91-96
 
   3 |         return _internal.sync_test.Sync_test__applycalls._applyCalls(stdgo.Go.asInterface(_new_(stdgo._internal.sync.Sync_map_.map_)), _calls);
@@ -208,18 +184,6 @@
     |                      ^^^^^
     | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test_testconcurrentrange.hx:66: characters 51-60
-
- 66 |                                             _done.__reset__();
-    |                                                   ^^^^^^^^^
-    | stdgo.Chan<_internal.sync_test.T_httpPkg> has no field __reset__ (Suggestion: __isGet__)
-
-[ERROR] ./_internal/sync_test/Sync_test_testissue40999.hx:7: characters 22-27
-
-  7 |             var _p = _new_(_internal.sync_test.Sync_test__int._int);
-    |                      ^^^^^
-    | Unknown identifier : _new_
-
 [ERROR] ./_internal/sync_test/Sync_test_testsemaphore.hx:3: characters 18-23
 
   3 |         var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
@@ -232,15 +196,85 @@
     |                      ^^^^^
     | Unknown identifier : _new_
 
-[ERROR] ./_internal/sync_test/Sync_test_testmutexfairness.hx:35: characters 35-44
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:3: characters 18-23
 
- 35 |                             _stop.__reset__();
-    |                                   ^^^^^^^^^
-    | stdgo.Chan<Bool> has no field __reset__ (Suggestion: __isGet__)
+  3 |         var _o = _new_(_internal.sync_test.Sync_test__one._one);
+    |                  ^^^^^
+    | Unknown identifier : _new_
 
-[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:4: characters 21-26
 
- 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
-    |                                                                                                                                             ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
+  4 |         var _once = _new_(stdgo._internal.sync.Sync_once.once);
+    |                     ^^^^^
+    | Unknown identifier : _new_
+
+[ERROR] ./_internal/sync_test/Sync_test_testonce.hx:22: characters 113-143
+
+ 22 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
+    |                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | invalid type run asInterface: TDynamic(null)
+
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:51: characters 10-43
+
+      51 |   return load("error", 2)(msg, pos, depth);
+         |          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  stdgo/Go.macro.hx:461: characters 6-79
+
+     461 |      Context.error("invalid type run asInterface: " + t, Context.currentPos());
+         |      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     465 |   return run();
+         |          ^^^^^
+         | Called from here
+
+         | Called from here
+
+     ->  /home/runner/haxe/versions/b0b2997/std/haxe/macro/Context.hx:513: characters 10-30
+
+     513 |   return load("typeof", 1)(e);
+         |          ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  stdgo/Go.macro.hx:653: characters 11-31
+
+     653 |   var t = Context.typeof(expr);
+         |           ^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+     ->  ./_internal/sync_test/Sync_test_testonce.hx:22: characters 92-144
+
+      22 |             @:check2r _t.errorf(("once failed outside run: %d is not 1" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_o.value)));
+         |                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         | Called from here
+
+         | For function argument ''
+
+[ERROR] ./_internal/sync_test/Sync_test_testwaitgrouprace.hx:7: characters 10-15
+
+  7 | var _n = _new_(_internal.sync_test.Sync_test__int32._int32);
+    |          ^^^^^
+    | Unknown identifier : _new_
+
+[ERROR] ./_internal/sync_test/Sync_test_benchmarkuncontendedsemaphore.hx:3: characters 18-23
+
+  3 |         var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
+    |                  ^^^^^
+    | Unknown identifier : _new_
+
+[ERROR] ./_internal/sync_test/Sync_test_benchmarkcontendedsemaphore.hx:6: characters 22-27
+
+  6 |             var _s = _new_(_internal.sync_test.Sync_test__uint32._uint32);
+    |                      ^^^^^
+    | Unknown identifier : _new_
+
+[ERROR] ./_internal/sync_test/Sync_test_benchmarksemauncontended.hx:5: characters 24-29
+
+  5 |             var _sem = _new_(_internal.sync_test.Sync_test_paddedsem.paddedSem);
+    |                        ^^^^^
+    | Unknown identifier : _new_
+
+         | For function argument '_body'
 

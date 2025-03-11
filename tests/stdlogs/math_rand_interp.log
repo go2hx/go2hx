@@ -252,6 +252,7 @@ mean 0.005555645289124483 != 0.15625 (allowed error 0.1, 0.2)
 -- PASS: TestExpTables
 
 === RUN  TestFloat32
+-- SKIP: testFloat32
 
 -- PASS: TestFloat32
 

@@ -68,7 +68,7 @@ function main() {
 	final offsetStr = Compiler.getDefine("offset");
 	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
 	run = Compiler.getDefine("run") ?? "";
-	runOnly = Compiler.getDefine("runonly") ?? "";
+	runOnly = Compiler.getDefine("runonly") ?? Compiler.getDefine("runOnly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	startStamp = haxe.Timer.stamp();
 	if (listAllBool) {
@@ -379,7 +379,7 @@ private function analyzeStdLog(content:String):{runs:Array<String>, passes:Array
 	final passes:Array<String> = [];
 	final fails:Array<String> = [];
 	for (line in lines) {
-		if (StringTools.startsWith(line, passPrefix) || StringTools.startsWith(line, skipPrefix)) {
+		if (StringTools.startsWith(line, passPrefix)) {
 			final s = line.substr(passPrefix.length).split(" ")[0];
 			if (!passes.contains(s))
 				passes.push(s);
@@ -682,7 +682,6 @@ private function excludeTest(name:String) {
 		case "issue47928": // go-easy fails for golang too
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "export0": // yaegi-easy no main func
-		case "sieve": // yaegi-easy SIGNAL 15 Channel buffer pop
 		case "issue29624", "issue29312": // yaegi-medium 100d array breaks Haxe's printer
 		case "type9", "method16", "struct28": // yaegi-medium not the same as go compiler output
 		case "issue26094": // go-medium relies on exact same error messages for null access

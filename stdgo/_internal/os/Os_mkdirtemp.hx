@@ -10,7 +10,7 @@ function mkdirTemp(_dir:stdgo.GoString, _pattern:stdgo.GoString):{ var _0 : stdg
                 };
                 return result;
             };
-            var name = randomName(10);
+            var name = "tmp_" + randomName(10);
             final pattern:String = _pattern;
             final wildCardIndex = pattern.indexOf("*");
             if (wildCardIndex != -1) {

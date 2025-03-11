@@ -42,13 +42,12 @@ Called from _internal.internal.poll_test._Poll_test_testmutexoverflowpanic.Poll_
 -- FAIL: TestMutexOverflowPanic
 
 === RUN  TestMutexStress
-./stdgo/Chan.hx:202: get mutex __send__
 ./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
 ./stdgo/Go.hx:24: characters 5-10 : Called from here
 /home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
-./stdgo/Chan.hx:202: get mutex __send__
-./stdgo/Chan.hx:202: get mutex __send__
-./stdgo/Chan.hx:202: get mutex __send__
+./stdgo/Go.hx:24: characters 5-10 : Uncaught exception field access on null
+./stdgo/Go.hx:24: characters 5-10 : Called from here
+/home/runner/haxe/versions/b0b2997/std/eval/_std/sys/thread/Thread.hx:73: characters 4-9 : Called from here
 Exception: XFDMutex:internal.poll.increfAndClose is not yet implemented
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from _internal.internal.poll_test._Poll_test_testmutexstress.Poll_test_testmutexstress_Fields_.testMutexStress (./_internal/internal/poll_test/Poll_test_testmutexstress.hx line 263 column 21)

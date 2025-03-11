@@ -2,106 +2,106 @@
 Exception: Cannot read properties of undefined (reading 'length')
 Called from module TypeError: Cannot read properties of undefined (reading 'length')
 Called from StringTools.endsWith (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 132 column 15)
-Called from stdgo__$internal_reflect_Value_$static_$extension.set (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 24801 column 18)
-Called from .stdgo__$internal_testing_quick_Quick_$_$sizedvalue__sizedValue (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38865 column 54)
-Called from .stdgo__$internal_testing_quick_Quick_$value_value (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38670 column 9)
-Called from .stdgo__$internal_testing_quick_Quick_$_$arbitraryvalues__arbitraryValues (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38647 column 17)
-Called from .stdgo__$internal_testing_quick_Quick_$checkequal_checkEqual (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 36347 column 14)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testcheckequal_testCheckEqual [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:35626:101)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
+Called from stdgo__$internal_reflect_Value_$static_$extension.set (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 24811 column 18)
+Called from .stdgo__$internal_testing_quick_Quick_$_$sizedvalue__sizedValue (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38875 column 54)
+Called from .stdgo__$internal_testing_quick_Quick_$value_value (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38680 column 9)
+Called from .stdgo__$internal_testing_quick_Quick_$_$arbitraryvalues__arbitraryValues (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 38657 column 17)
+Called from .stdgo__$internal_testing_quick_Quick_$checkequal_checkEqual (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 36357 column 14)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testcheckequal_testCheckEqual [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:35636:101)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
 
 -- FAIL: TestCheckEqual
 
 === RUN  TestCheckProperty
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testcheckproperty_testCheckProperty [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40349:111)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testcheckproperty_testCheckProperty [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40359:111)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestCheckProperty
 
 === RUN  TestFailure
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testfailure_testFailure [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40452:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testfailure_testFailure [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40462:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestFailure
 
 === RUN  TestRecursive
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testrecursive_testRecursive [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40783:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testrecursive_testRecursive [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40793:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestRecursive
 
 === RUN  TestEmptyStruct
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testemptystruct_testEmptyStruct [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40795:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testemptystruct_testEmptyStruct [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40805:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestEmptyStruct
 
 === RUN  TestMutuallyRecursive
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testmutuallyrecursive_testMutuallyRecursive [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40807:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testmutuallyrecursive_testMutuallyRecursive [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40817:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestMutuallyRecursive
 
 === RUN  TestNonZeroSliceAndMap
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testnonzerosliceandmap_testNonZeroSliceAndMap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40823:13)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testnonzerosliceandmap_testNonZeroSliceAndMap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40833:13)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestNonZeroSliceAndMap
 
 === RUN  TestInt64
 Exception: not implemented numOut
-Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15337 column 23)
-Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15995 column 70)
-Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40375 column 12)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testint64_testInt64 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40847:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51357 column 9)
-Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40937 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59298:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59299:3)
+Called from stdgo__$internal_internal_reflect__$Type_$static_$extension.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 15347 column 23)
+Called from stdgo__$internal_internal_reflect__$Type_$asInterface.numOut (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 16005 column 70)
+Called from .stdgo__$internal_testing_quick_Quick_$check_check (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40385 column 12)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_quick_Quick_$testint64_testInt64 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:40857:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 51408 column 9)
+Called from ._$internal_testing_quickdottest_Quickdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_quick.js line 40947 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_quick.js:59349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_quick.js:59350:3)
 
 -- FAIL: TestInt64
 

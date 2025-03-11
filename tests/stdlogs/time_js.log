@@ -1,6 +1,24 @@
-[ERROR] (macro) ./stdgo/_internal/time/Time__sendtime.hx:19: characters 141-150
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 
- 19 |             (stdgo.Go.typeAssert((_c : stdgo.Chan<stdgo._internal.time.Time_time.Time>)) : stdgo.Chan<stdgo._internal.time.Time_time.Time>).__reset__();
-    |                                                                                                                                             ^^^^^^^^^
-    | stdgo.Chan<stdgo._internal.time.Time> has no field __reset__ (Suggestion: __isGet__)
+  3 |         _stopTimer(_t);
+    |         ^^^^^^^^^^
+    | Unknown identifier : _stopTimer
+
+[ERROR] ./stdgo/_internal/time/Time__modtimer.hx:9: characters 9-20
+
+  9 |         _startTimer(_t);
+    |         ^^^^^^^^^^^
+    | Unknown identifier : _startTimer
+
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:12: characters 35-50
+
+ 12 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+    |                                   ^^^^^^^^^^^^^^^
+    | stdgo.GoString should be Int
+
+[ERROR] ./_internal/time_test/Time_test_testdurationstring.hx:12: characters 33-68
+
+ 12 |                     var _str = ((-_tt._d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    | Int should be stdgo.GoString
 

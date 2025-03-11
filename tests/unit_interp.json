@@ -185,5 +185,7 @@
  "interp|chan3",
  "interp|chan4",
  "interp|chan5",
- "interp|chan6"
+ "interp|chan6",
+ "interp|chan7",
+ "interp|io1"
 ]

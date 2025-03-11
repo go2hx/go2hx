@@ -5,7 +5,6 @@
         "TestSize",
         "TestBlockSize",
         "TestLargeHashes",
-        "testAllocations",
         "TestAllocations"
     ],
     "fails": [

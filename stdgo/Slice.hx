@@ -154,7 +154,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	private function __boundsCheck__(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
 		if (i < 0 || i >= this.length) {
-			throw "array out of bounds, index: " + i + " length: " + length.toBasic();
+			throw stdgo.Go.toInterface(stdgo._internal.errors.Errors_new_.new_("runtime: index out of range [" + i + "] with length " + length.toBasic()));
 		}
 		#end
 	}

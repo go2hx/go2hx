@@ -8,8 +8,8 @@
 
 === RUN  TestSprintf
 Exception: Can't cast stdgo._internal.reflect.Value_asInterface to stdgo._internal.reflect.Value
-Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 833)
-Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179)
+Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 845)
+Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 191)
 Called from stdgo._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (stdgo/_internal/fmt/Fmt_sprintf.hx line 5)
 Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (_internal/fmt_test/Fmt_test_testsprintf.hx line 4)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)

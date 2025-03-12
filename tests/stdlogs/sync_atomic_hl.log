@@ -190,9 +190,9 @@
     |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | stdgo.GoUInt64 should be stdgo.GoUIntptr
 
-[ERROR] ./_internal/sync/atomic_test/Atomic_test_testvalueconcurrent.hx:60: characters 58-98
+[ERROR] ./_internal/sync/atomic_test/Atomic_test_testvalueconcurrent.hx:69: characters 58-98
 
- 60 |                                             while ((_j < _internal.sync.atomic_test.Atomic_test_n.n : Bool)) {
+ 69 |                                             while ((_j < _internal.sync.atomic_test.Atomic_test_n.n : Bool)) {
     |                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Type not found : _internal.sync.atomic_test.Atomic_test_n
 

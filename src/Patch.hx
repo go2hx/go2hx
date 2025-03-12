@@ -1817,6 +1817,7 @@ final list = [
 			} else if (chatty) {
 				if (t.skipped()) {
 					stdgo.Go.println('\n-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+					stdgo.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				} else {
 					stdgo.Go.println('\n-- PASS: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				}

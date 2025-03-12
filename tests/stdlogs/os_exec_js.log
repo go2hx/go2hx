@@ -1,8 +1,8 @@
-[ERROR] ./_internal/os/exec_test/Exec_test__cmdhang.hx:73: characters 36-92
+[ERROR] ./_internal/os/exec_test/Exec_test__cmdhang.hx:73: characters 31-87
 
-  73 |                     for (_ => _ in (@:checkr _ticker ?? throw "null pointer dereference").c) {
-     |                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | stdgo.Chan<stdgo._internal.time.Time> has no field keyValueIterator
+  73 |                     for (_ in (@:checkr _ticker ?? throw "null pointer dereference").c) {
+     |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     | stdgo.Chan<stdgo._internal.time.Time> has no field iterator
 
 [ERROR] ./stdgo/_internal/time/Time__modtimer.hx:3: characters 9-19
 

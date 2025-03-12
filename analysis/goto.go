@@ -760,7 +760,10 @@ func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 	return ast.NewIdent(t.String())
 }
 
-func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet) {
+var testBool = false
+
+func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool) {
+	testBool = setTestBool
 	counter = 0
 	// select functions that have gotos in them
 	decls := []*ast.FuncDecl{}
@@ -927,16 +930,18 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 			if data.Value != nil {
 				valueSpec.Values = []ast.Expr{data.Value}
 			}
-			fn.List = append([]ast.Stmt{&ast.DeclStmt{
+			stmts := []ast.Stmt{&ast.DeclStmt{
 				Decl: &ast.GenDecl{
 					Tok: token.VAR,
 					Specs: []ast.Spec{
 						valueSpec,
 					},
 				},
-			},
-				assignExpr(ast.NewIdent("_"), data.Ident),
-			}, fn.List...)
+			}}
+			if testBool {
+				stmts = append(stmts, assignExpr(ast.NewIdent("_"), data.Ident))
+			}
+			fn.List = append(stmts, fn.List...)
 		}
 
 		/*

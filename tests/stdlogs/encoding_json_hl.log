@@ -1,6 +1,372 @@
-[ERROR] ./stdgo/_internal/compress/flate/Flate_t_decompressor_static_extension.hx:184: characters 9-22
+=== RUN  TestMarshal
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testmarshal.$Json_testmarshal_Fields_.testMarshal (stdgo/_internal/encoding/json/Json_testmarshal.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
 
- 184 |         _stateInit_31;
-     |         ^^^^^^^^^^^^^
-     | Local variable _stateInit_31 used without being initialized
+-- FAIL: TestMarshal
 
+=== RUN  TestMarshalBadUTF8
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testmarshalbadutf8.$Json_testmarshalbadutf8_Fields_.testMarshalBadUTF8 (stdgo/_internal/encoding/json/Json_testmarshalbadutf8.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestMarshalBadUTF8
+
+=== RUN  TestMarshalNumberZeroVal
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testmarshalnumberzeroval.$Json_testmarshalnumberzeroval_Fields_.testMarshalNumberZeroVal (stdgo/_internal/encoding/json/Json_testmarshalnumberzeroval.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestMarshalNumberZeroVal
+
+=== RUN  TestMarshalEmbeds
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testmarshalembeds.$Json_testmarshalembeds_Fields_.testMarshalEmbeds (stdgo/_internal/encoding/json/Json_testmarshalembeds.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestMarshalEmbeds
+
+=== RUN  TestUnmarshal
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+Exception: reflect.NumMethod not implemented for bool
+Called from stdgo._internal.internal.reflect.$_Type_static_extension.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1399)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1502)
+Called from stdgo._internal.internal.reflect.$_Type_static_extension.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1397)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1502)
+Called from stdgo._internal.encoding.json._Json__indirect.$Json__indirect_Fields_._indirect (stdgo/_internal/encoding/json/Json__indirect.hx line 31)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._literalStore (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 135)
+Called from stdgo._internal.encoding.json._Json__typeencoder.$Json__typeencoder_Fields_._typeEncoder (stdgo/_internal/encoding/json/Json__typeencoder.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 751)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json.$Decoder_static_extension.decode (stdgo/_internal/encoding/json/Json_decoder_static_extension.hx line 422)
+Called from stdgo._internal.encoding.json._Json_testunmarshal.$Json_testunmarshal_Fields_.testUnmarshal (stdgo/_internal/encoding/json/Json_testunmarshal.hx line 37)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshal
+
+=== RUN  TestUnmarshalMarshal
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 4)
+Called from stdgo._internal.math.rand._Rand_normfloat64.$Rand_normfloat64_Fields_.normFloat64 (stdgo/_internal/math/rand/Rand_normfloat64.hx line 3)
+Called from stdgo._internal.encoding.json._Json__genarray.$Json__genarray_Fields_._genArray (stdgo/_internal/encoding/json/Json__genarray.hx line 3)
+Called from stdgo._internal.encoding.json._Json__genvalue.$Json__genvalue_Fields_._genValue (stdgo/_internal/encoding/json/Json__genvalue.hx line 7)
+Called from stdgo._internal.encoding.json._Json__initbig.$Json__initbig_Fields_._initBig (stdgo/_internal/encoding/json/Json__initbig.hx line 7)
+Called from stdgo._internal.encoding.json._Json_testunmarshalmarshal.$Json_testunmarshalmarshal_Fields_.testUnmarshalMarshal (stdgo/_internal/encoding/json/Json_testunmarshalmarshal.hx line 3)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalMarshal
+
+=== RUN  TestNumberAccessors
+
+-- PASS: TestNumberAccessors
+
+=== RUN  TestLargeByteSlice
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testlargebyteslice.$Json_testlargebyteslice_Fields_.testLargeByteSlice (stdgo/_internal/encoding/json/Json_testlargebyteslice.hx line 7)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestLargeByteSlice
+
+=== RUN  TestUnmarshalInterface
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__typeencoder.$Json__typeencoder_Fields_._typeEncoder (stdgo/_internal/encoding/json/Json__typeencoder.hx line 4)
+Called from local function #13180 (stdgo/_internal/encoding/json/Json_t_encodestate_static_extension.hx line 41)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testunmarshalinterface.$Json_testunmarshalinterface_Fields_.testUnmarshalInterface (stdgo/_internal/encoding/json/Json_testunmarshalinterface.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalInterface
+
+=== RUN  TestUnmarshalPtrPtr
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__typeencoder.$Json__typeencoder_Fields_._typeEncoder (stdgo/_internal/encoding/json/Json__typeencoder.hx line 4)
+Called from local function #13180 (stdgo/_internal/encoding/json/Json_t_encodestate_static_extension.hx line 41)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testunmarshalptrptr.$Json_testunmarshalptrptr_Fields_.testUnmarshalPtrPtr (stdgo/_internal/encoding/json/Json_testunmarshalptrptr.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalPtrPtr
+
+=== RUN  TestEscape
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testescape.$Json_testescape_Fields_.testEscape (stdgo/_internal/encoding/json/Json_testescape.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestEscape
+
+=== RUN  TestErrorMessageFromMisusedString
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json.$Decoder_static_extension.decode (stdgo/_internal/encoding/json/Json_decoder_static_extension.hx line 422)
+Called from stdgo._internal.encoding.json._Json_testerrormessagefrommisusedstring.$Json_testerrormessagefrommisusedstring_Fields_.testErrorMessageFromMisusedString (stdgo/_internal/encoding/json/Json_testerrormessagefrommisusedstring.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestErrorMessageFromMisusedString
+
+=== RUN  TestRefUnmarshal
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testrefunmarshal.$Json_testrefunmarshal_Fields_.testRefUnmarshal (stdgo/_internal/encoding/json/Json_testrefunmarshal.hx line 9)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestRefUnmarshal
+
+=== RUN  TestEmptyString
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json.$Decoder_static_extension.decode (stdgo/_internal/encoding/json/Json_decoder_static_extension.hx line 422)
+Called from stdgo._internal.encoding.json._Json_testemptystring.$Json_testemptystring_Fields_.testEmptyString (stdgo/_internal/encoding/json/Json_testemptystring.hx line 7)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestEmptyString
+
+=== RUN  TestNullString
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testnullstring.$Json_testnullstring_Fields_.testNullString (stdgo/_internal/encoding/json/Json_testnullstring.hx line 9)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestNullString
+
+=== RUN  TestInterfaceSet
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testinterfaceset.$Json_testinterfaceset_Fields_.testInterfaceSet (stdgo/_internal/encoding/json/Json_testinterfaceset.hx line 7)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestInterfaceSet
+
+=== RUN  TestUnmarshalNulls
+Exception: generic function is not supported
+Called from stdgo._internal.time._Time__isdigit.$Time__isdigit_Fields_._isDigit (stdgo/_internal/time/Time__isdigit.hx line 2)
+Called from stdgo._internal.time._Time__nextstdchunk.$Time__nextstdchunk_Fields_._nextStdChunk (stdgo/_internal/time/Time__nextstdchunk.hx line 288)
+Called from stdgo._internal.time.$Time_static_extension._appendFormat (stdgo/_internal/time/Time_time_static_extension.hx line 733)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.time.$Time_static_extension.appendFormat (stdgo/_internal/time/Time_time_static_extension.hx line 928)
+Called from stdgo._internal.time.$Time_static_extension.format (stdgo/_internal/time/Time_time_static_extension.hx line 945)
+Called from stdgo._internal.time.$Time_static_extension.string (stdgo/_internal/time/Time_time_static_extension.hx line 1000)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json_testunmarshalnulls.$Json_testunmarshalnulls_Fields_.testUnmarshalNulls (stdgo/_internal/encoding/json/Json_testunmarshalnulls.hx line 10)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalNulls
+
+=== RUN  TestStringKind
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json._Json_teststringkind.$Json_teststringkind_Fields_.testStringKind (stdgo/_internal/encoding/json/Json_teststringkind.hx line 11)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestStringKind
+
+=== RUN  TestByteKind
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testbytekind.$Json_testbytekind_Fields_.testByteKind (stdgo/_internal/encoding/json/Json_testbytekind.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestByteKind
+
+=== RUN  TestSliceOfCustomByte
+Exception: Null access .value
+Called from stdgo._internal.encoding.json._Json_marshal.$Json_marshal_Fields_.marshal (stdgo/_internal/encoding/json/Json_marshal.hx line 81)
+Called from stdgo._internal.encoding.json._Json_testsliceofcustombyte.$Json_testsliceofcustombyte_Fields_.testSliceOfCustomByte (stdgo/_internal/encoding/json/Json_testsliceofcustombyte.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestSliceOfCustomByte
+
+=== RUN  TestUnmarshalTypeError
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+Exception: reflect.NumMethod not implemented for string
+Called from stdgo._internal.internal.reflect.$_Type_static_extension.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1399)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1502)
+Called from stdgo._internal.internal.reflect.$_Type_static_extension.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1397)
+Called from stdgo._internal.internal.reflect._Type_asInterface.numMethod (stdgo/_internal/internal/reflect/Reflect.hx line 1502)
+Called from stdgo._internal.encoding.json._Json__indirect.$Json__indirect_Fields_._indirect (stdgo/_internal/encoding/json/Json__indirect.hx line 31)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 352)
+Called from stdgo._internal.time.$Time_static_extension.appendFormat (stdgo/_internal/time/Time_time_static_extension.hx line 928)
+Called from stdgo._internal.time.$Time_static_extension.format (stdgo/_internal/time/Time_time_static_extension.hx line 945)
+Called from stdgo._internal.time.$Time_static_extension.string (stdgo/_internal/time/Time_time_static_extension.hx line 1000)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__typeencoder.$Json__typeencoder_Fields_._typeEncoder (stdgo/_internal/encoding/json/Json__typeencoder.hx line 4)
+Called from local function #13180 (stdgo/_internal/encoding/json/Json_t_encodestate_static_extension.hx line 41)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testunmarshaltypeerror.$Json_testunmarshaltypeerror_Fields_.testUnmarshalTypeError (stdgo/_internal/encoding/json/Json_testunmarshaltypeerror.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalTypeError
+
+=== RUN  TestUnmarshalSyntax
+
+-- PASS: TestUnmarshalSyntax
+
+=== RUN  TestUnmarshalUnexported
+Exception: Null access .value
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__cachedtypefields.$Json__cachedtypefields_Fields_._cachedTypeFields (stdgo/_internal/encoding/json/Json__cachedtypefields.hx line 4)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._object (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 388)
+Called from stdgo._internal.time.$Time_static_extension.appendFormat (stdgo/_internal/time/Time_time_static_extension.hx line 928)
+Called from stdgo._internal.time.$Time_static_extension.format (stdgo/_internal/time/Time_time_static_extension.hx line 945)
+Called from stdgo._internal.time.$Time_static_extension.string (stdgo/_internal/time/Time_time_static_extension.hx line 1000)
+Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.$Map__static_extension._loadReadOnly (stdgo/_internal/sync/Sync_map__static_extension.hx line 421)
+Called from stdgo._internal.sync.$Map__static_extension.load (stdgo/_internal/sync/Sync_map__static_extension.hx line 383)
+Called from stdgo._internal.encoding.json._Json__typeencoder.$Json__typeencoder_Fields_._typeEncoder (stdgo/_internal/encoding/json/Json__typeencoder.hx line 4)
+Called from local function #13180 (stdgo/_internal/encoding/json/Json_t_encodestate_static_extension.hx line 41)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._value (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 737)
+Called from stdgo._internal.encoding.json.$T_decodeState_static_extension._unmarshal (stdgo/_internal/encoding/json/Json_t_decodestate_static_extension.hx line 1003)
+Called from stdgo._internal.encoding.json._Json_unmarshal.$Json_unmarshal_Fields_.unmarshal (stdgo/_internal/encoding/json/Json_unmarshal.hx line 9)
+Called from stdgo._internal.encoding.json._Json_testunmarshalunexported.$Json_testunmarshalunexported_Fields_.testUnmarshalUnexported (stdgo/_internal/encoding/json/Json_testunmarshalunexported.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalUnexported
+
+=== RUN  TestUnmarshalJSONLiteralError
+expected error; got time %!v(PANIC=String method: generic function is not supported)Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from stdgo._internal.encoding.json._Json_testunmarshaljsonliteralerror.$Json_testunmarshaljsonliteralerror_Fields_.testUnmarshalJSONLiteralError (stdgo/_internal/encoding/json/Json_testunmarshaljsonliteralerror.hx line 6)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.encoding.jsondottest._Jsondottest.$Jsondottest_Fields_.main (_internal/encoding/jsondottest/Jsondottest.hx line 8)
+
+-- FAIL: TestUnmarshalJSONLiteralError

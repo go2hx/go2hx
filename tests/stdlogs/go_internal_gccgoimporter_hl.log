@@ -1,34 +1,34 @@
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:136: characters 49-92
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 49-92
 
-  136 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+   73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
       |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       | Type not found : stdgo._internal.internal.xcoff.Xcoff__magic
 
            | For optional function argument 'get'
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:136: characters 21-100
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:73: characters 21-100
 
-  136 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
+   73 |                     _magic_1 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__magic._magic);
       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       | Void should be stdgo.GoUInt16
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:253: characters 46-85
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 46-85
 
-  253 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+  190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
       |                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       | Type not found : stdgo._internal.internal.xcoff.Xcoff__l
 
            | For optional function argument 'get'
 
-[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:253: characters 21-89
+[ERROR] ./stdgo/_internal/internal/xcoff/Xcoff_newfile.hx:190: characters 21-89
 
-  253 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
+  190 |                     _l_16 = stdgo.Go.pointer(stdgo._internal.internal.xcoff.Xcoff__l._l);
       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
       | Void should be stdgo.GoUInt32
 
-[ERROR] (macro) ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1974: characters 21-69
+[ERROR] (macro) ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1966: characters 21-69
 
- 1974 |                     stdgo._internal.go.types.Types__iterator_6323498._iterator_6323498++;
+ 1966 |                     stdgo._internal.go.types.Types__iterator_6477050._iterator_6477050++;
       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      | Type not found : stdgo._internal.go.types.Types__iterator_6323498
+      | Type not found : stdgo._internal.go.types.Types__iterator_6477050
 

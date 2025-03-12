@@ -260,23 +260,15 @@ jobs:
             ./go2hx.*.zip 
             ./data/go4hx.*
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-      # run yaegi easy tests
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-      - name: Sort tests
-        run: go run ./scripts/sortTests ci
-      - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Report results
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D report -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
+      - name: Run lib tests
+        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: yaegi easy tests update hl
+            message: libs tests update hl
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
@@ -319,23 +311,15 @@ jobs:
             ./go2hx.*.zip 
             ./data/go4hx.*
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-      # run yaegi easy tests
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-      - name: Sort tests
-        run: go run ./scripts/sortTests ci
-      - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Report results
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D report -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
+      - name: Run lib tests
+        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
-      # add yaegi_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
-            message: yaegi easy tests update interp
+            message: libs tests update interp
             add: ./tests
             pull: --rebase --autostash
         continue-on-error: true
@@ -381,15 +365,8 @@ jobs:
             ./go2hx.*.zip 
             ./data/go4hx.*
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-      # run yaegi easy tests
-      - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
-      - name: Sort tests
-        run: go run ./scripts/sortTests ci
-      - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Report results
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D report -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
+      - name: Run lib tests
+        run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -1143,7 +1120,7 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl -D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
@@ -1152,7 +1129,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  -D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update hl
@@ -1208,7 +1185,7 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp -D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
@@ -1217,7 +1194,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  -D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update interp
@@ -1276,7 +1253,7 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js -D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
@@ -1285,7 +1262,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         continue-on-error: true
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  -D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update js

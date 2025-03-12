@@ -39,6 +39,8 @@ Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main
 
 -- SKIP: TestArchIEEE
 
+-- PASS: TestArchIEEE
+
 === RUN  TestArchCastagnoli
 Arch-specific Castagnoli not available.
 Exception: __skip__
@@ -50,6 +52,8 @@ Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/tes
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 8)
 
 -- SKIP: TestArchCastagnoli
+
+-- PASS: TestArchCastagnoli
 
 === RUN  TestGolden
 

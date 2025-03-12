@@ -13,7 +13,6 @@
         "TestBlankln",
         "TestFormatterPrintln",
         "TestWidthAndPrecision",
-        "testPanics",
         "TestPanics",
         "TestBadVerbRecursion",
         "TestIsSpace",

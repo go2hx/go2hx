@@ -4,7 +4,6 @@
         "TestFormatDirEntry",
         "TestValidPath",
         "TestGlobError",
-        "testCVE202230630",
         "TestCVE202230630",
         "TestGlobMethod",
         "TestReadDir",

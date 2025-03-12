@@ -37,6 +37,8 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 
 -- SKIP: TestCountMallocs
 
+-- PASS: TestCountMallocs
+
 === RUN  TestFlagParser
 
 -- PASS: TestFlagParser

@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.aes;
 function _decryptBlockGo(_xk:stdgo.Slice<stdgo.GoUInt32>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
-        var __blank__ = _src[(15 : stdgo.GoInt)];
+        _src[(15 : stdgo.GoInt)];
         var _s0 = (stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.uint32((_src.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
         var _s1 = (stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.uint32((_src.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
         var _s2 = (stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.uint32((_src.__slice__((8 : stdgo.GoInt), (12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
@@ -41,7 +41,7 @@ _k = (_k + ((4 : stdgo.GoInt)) : stdgo.GoInt);
         _s1 = (_s1 ^ (_xk[((_k + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
         _s2 = (_s2 ^ (_xk[((_k + (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
         _s3 = (_s3 ^ (_xk[((_k + (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoUInt32);
-        var __blank__ = _dst[(15 : stdgo.GoInt)];
+        _dst[(15 : stdgo.GoInt)];
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s0);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s1);
         stdgo._internal.encoding.binary.Binary_bigendian.bigEndian.putUint32((_dst.__slice__((8 : stdgo.GoInt), (12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _s2);

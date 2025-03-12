@@ -187,7 +187,7 @@ package stdgo._internal.archive.tar;
         @:recv var _tw:stdgo.Ref<stdgo._internal.archive.tar.Tar_writer.Writer> = _tw;
         var __0 = ((@:checkr _hdr ?? throw "null pointer dereference").name?.__copy__() : stdgo.GoString), __1 = ((@:checkr _hdr ?? throw "null pointer dereference").size : stdgo.GoInt64);
 var _realSize = __1, _realName = __0;
-        var __blank__ = _realSize;
+        _realSize;
         var _isGlobal = ((@:checkr _hdr ?? throw "null pointer dereference").typeflag == ((103 : stdgo.GoUInt8)) : Bool);
         if ((((_paxHdrs.length) > (0 : stdgo.GoInt) : Bool) || _isGlobal : Bool)) {
             var _keys:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);

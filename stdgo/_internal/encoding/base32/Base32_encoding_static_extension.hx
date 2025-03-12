@@ -37,7 +37,7 @@ package stdgo._internal.encoding.base32;
     static public function _decode( _enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.Error; } {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_encoding.Encoding> = _enc;
         var _n = (0 : stdgo.GoInt), _end = false, _err = (null : stdgo.Error);
-        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
+        (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         var _dsti = (0 : stdgo.GoInt);
         var _olen = (_src.length : stdgo.GoInt);
         while ((((_src.length) > (0 : stdgo.GoInt) : Bool) && !_end : Bool)) {

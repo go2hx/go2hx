@@ -5,7 +5,7 @@ function benchmarkCompact_Large(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
-                var __blank__ = stdgo._internal.slices.Slices_compact.compact(_ss);
+                stdgo._internal.slices.Slices_compact.compact(_ss);
                 _i++;
             };
         };

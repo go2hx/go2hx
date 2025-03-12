@@ -1,14 +1,14 @@
 
-/home/runner/work/go2hx/go2hx/golibs/std_os.js:108113
+/home/runner/work/go2hx/go2hx/golibs/std_os.js:108060
 			throw haxe_Exception.thrown(__exception__);
 			^
 <ref *1> Error: :os.getenv is not yet implemented
-    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_os.js:33414:17)
-    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_os.js:33344:11)
+    at new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_os.js:33410:17)
+    at haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_os.js:33340:11)
     at stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_os.js:21369:23)
-    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:108063:13
-    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:108118:2
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:114773:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:108010:13
+    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:108065:2
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:114720:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32)

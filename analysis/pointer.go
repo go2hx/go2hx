@@ -10,7 +10,7 @@ import (
 	"golang.org/x/tools/go/ast/astutil"
 )
 
-func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.FileSet) {
+func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool) {
 	const suffix = "__pointer__"
 	for _, decl := range file.Decls {
 		switch decl := decl.(type) {

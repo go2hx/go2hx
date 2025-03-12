@@ -19,7 +19,7 @@ package stdgo._internal.log.slog;
         if (_ctx == null) {
             _ctx = stdgo._internal.context.Context_background.background();
         };
-        var __blank__ = @:check2r _l.handler().handle(_ctx, _r?.__copy__());
+        @:check2r _l.handler().handle(_ctx, _r?.__copy__());
     }
     @:keep
     @:tdfield
@@ -40,7 +40,7 @@ package stdgo._internal.log.slog;
         if (_ctx == null) {
             _ctx = stdgo._internal.context.Context_background.background();
         };
-        var __blank__ = @:check2r _l.handler().handle(_ctx, _r?.__copy__());
+        @:check2r _l.handler().handle(_ctx, _r?.__copy__());
     }
     @:keep
     @:tdfield

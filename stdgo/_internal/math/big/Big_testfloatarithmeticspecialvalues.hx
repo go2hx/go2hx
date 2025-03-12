@@ -57,7 +57,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
                                                         r;
                                                     } : stdgo.AnyInterface);
                                                     if (_p != null) {
-                                                        var __blank__ = (stdgo.Go.typeAssert((_p : stdgo._internal.math.big.Big_errnan.ErrNaN)) : stdgo._internal.math.big.Big_errnan.ErrNaN);
+                                                        (stdgo.Go.typeAssert((_p : stdgo._internal.math.big.Big_errnan.ErrNaN)) : stdgo._internal.math.big.Big_errnan.ErrNaN);
                                                         _errnan = true;
                                                     };
                                                 };

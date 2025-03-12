@@ -1,23 +1,23 @@
 package stdgo._internal.crypto.dsa;
 function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_parameters.Parameters>, _rand:stdgo._internal.io.Io_reader.Reader, _sizes:stdgo._internal.crypto.dsa.Dsa_parametersizes.ParameterSizes):stdgo.Error {
-        var _q_4:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var n_1:stdgo.GoInt = (0 : stdgo.GoInt);
-        var l_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _e_14:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var _g_12:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var _h_11:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var _err_8:stdgo.Error = (null : stdgo.Error);
-        var _p_5:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var _rem_6:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
-        var _qBytes_2:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _err_10:stdgo.Error = (null : stdgo.Error);
-        var generatePrimesBreak = false;
-        var _one_7:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _i_9:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_8:stdgo.Error = (null : stdgo.Error);
+        var _rem_6:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var _one_7:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _pBytes_3:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _p_5:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var _q_4:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var _qBytes_2:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var l_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _g_12:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var _err_10:stdgo.Error = (null : stdgo.Error);
         var _pm1_13:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var _h_11:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
+        var generatePrimesBreak = false;
+        var n_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _e_14:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -67,7 +67,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_par
                     @:check2r _one_7.setInt64((1i64 : stdgo.GoInt64));
                     _gotoNext = 3977916i32;
                 } else if (__value__ == (3977916i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     generatePrimesBreak = false;
                     _gotoNext = 3977933i32;
                 } else if (__value__ == (3977933i32)) {
@@ -101,7 +101,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_par
                         _gotoNext = 3978139i32;
                     };
                 } else if (__value__ == (3978118i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3977933i32;
                 } else if (__value__ == (3978139i32)) {
                     _i_9 = (0 : stdgo.GoInt);
@@ -161,7 +161,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_par
                     _g_12 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>);
                     _pm1_13 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).sub(_p_5, _one_7);
                     _e_14 = @:check2r (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>).div(_pm1_13, _q_4);
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3978654i32;
                 } else if (__value__ == (3978654i32)) {
                     if (true) {
@@ -178,7 +178,7 @@ function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_par
                     };
                 } else if (__value__ == (3978698i32)) {
                     @:check2r _h_11.add(_h_11, _one_7);
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3978654i32;
                 } else if (__value__ == (3978736i32)) {
                     (@:checkr _params ?? throw "null pointer dereference").g = _g_12;

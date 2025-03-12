@@ -1,6 +1,6 @@
-[ERROR] ./_internal/math/rand_test/Rand_test__dodefaulttest.hx:396: characters 25-28
+[ERROR] ./_internal/math/rand_test/Rand_test__dodefaulttest.hx:396: characters 20-23
 
- 396 |         for (_i => _ in _ch) {
-     |                         ^^^
-     | stdgo.Chan<stdgo.GoUInt64> has no field keyValueIterator
+ 396 |         for (_i in _ch) {
+     |                    ^^^
+     | stdgo.Chan<stdgo.GoUInt64> has no field iterator
 

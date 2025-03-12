@@ -1,19 +1,19 @@
 package stdgo._internal.image.draw;
 function testDrawOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _y_20:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _op_12:stdgo._internal.image.draw.Draw_op.Op = ((0 : stdgo.GoInt) : stdgo._internal.image.draw.Draw_op.Op);
+        var _iterator_5111153_11:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _b_18:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
         var _src_17:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _m_15:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _loopBreak = false;
-        var _yoff_13:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5111153_11:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _x_21:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _golden_19:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
-        var _b_18:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-        var _dst_16:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _xoff_14:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _op_12:stdgo._internal.image.draw.Draw_op.Op = ((0 : stdgo.GoInt) : stdgo._internal.image.draw.Draw_op.Op);
+        var _yoff_13:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _x_21:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _y_20:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _golden_19:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
+        var _dst_16:stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA> = (null : stdgo.Ref<stdgo._internal.image.Image_rgba.RGBA>);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -24,10 +24,10 @@ function testDrawOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                         _gotoNext = 5112348i32;
                     };
                 } else if (__value__ == (5111144i32)) {
-                    _i_5111153_11++;
+                    _iterator_5111153_11++;
                     _gotoNext = 5112346i32;
                 } else if (__value__ == (5111175i32)) {
-                    _op_12 = (new stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>(2, 2, ...[(0 : stdgo._internal.image.draw.Draw_op.Op), (1 : stdgo._internal.image.draw.Draw_op.Op)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>)[(_i_5111153_11 : stdgo.GoInt)];
+                    _op_12 = (new stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>(2, 2, ...[(0 : stdgo._internal.image.draw.Draw_op.Op), (1 : stdgo._internal.image.draw.Draw_op.Op)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>)[(_iterator_5111153_11 : stdgo.GoInt)];
                     _yoff_13 = (-2 : stdgo.GoInt);
                     _gotoNext = 5111179i32;
                 } else if (__value__ == (5111179i32)) {
@@ -108,12 +108,12 @@ function testDrawOverlap(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Vo
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (new stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>(2, 2, ...[(0 : stdgo._internal.image.draw.Draw_op.Op), (1 : stdgo._internal.image.draw.Draw_op.Op)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>)[(0i32 : stdgo.GoInt)];
-                        _i_5111153_11 = @:binopAssign __tmp__0;
+                        _iterator_5111153_11 = @:binopAssign __tmp__0;
                         _op_12 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5112346i32;
                 } else if (__value__ == (5112346i32)) {
-                    if (_i_5111153_11 < ((new stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>(2, 2, ...[(0 : stdgo._internal.image.draw.Draw_op.Op), (1 : stdgo._internal.image.draw.Draw_op.Op)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>).length)) {
+                    if (_iterator_5111153_11 < ((new stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>(2, 2, ...[(0 : stdgo._internal.image.draw.Draw_op.Op), (1 : stdgo._internal.image.draw.Draw_op.Op)]).__setNumber32__() : stdgo.Slice<stdgo._internal.image.draw.Draw_op.Op>).length)) {
                         _gotoNext = 5111175i32;
                     } else {
                         _gotoNext = 5112348i32;

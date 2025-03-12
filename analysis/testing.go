@@ -26,7 +26,7 @@ func PointerParseTest() {
 	all(dir+"/pointer", ParseLocalPointers)
 }
 
-func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet)) {
+func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet, testBool bool)) {
 	paths, err := os.ReadDir(dir)
 	if err != nil {
 		panic(err)
@@ -39,7 +39,7 @@ func all(dir string, runFunc func(file *ast.File, checker *types.Checker, fset *
 	}
 }
 
-func create(filePath string, fileName string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet)) {
+func create(filePath string, fileName string, runFunc func(file *ast.File, checker *types.Checker, fset *token.FileSet, setTestBool bool)) {
 	// Parse the code
 	code, err := os.ReadFile(filePath + "/" + fileName)
 	if err != nil {
@@ -66,7 +66,7 @@ func create(filePath string, fileName string, runFunc func(file *ast.File, check
 	checker := types.NewChecker(&conf, fset, pkg, info)
 
 	// Rewrite the function body without goto statements
-	runFunc(file, checker, fset)
+	runFunc(file, checker, fset, true)
 	//ParseLocalGotos(file, checker, fset)
 
 	// Print the result

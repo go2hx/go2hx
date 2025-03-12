@@ -38,7 +38,7 @@ if ((_count[_k] ?? (0 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
                     _index[_k] = _i;
                     _keys = (_keys.__append__(_k.__copy__()));
                 };
-(_count[_k] != null ? _count[_k]++ : (0 : stdgo.GoInt));
+(@:typeIncDecStmt_escapeParens _count[_k] != null ? _count[_k]++ : (0 : stdgo.GoInt));
                 _i++;
             };
         };

@@ -49,7 +49,7 @@ function _testCrossCheck(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _c
 (10000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         for (__4 => _length in _lengths) {
             var _p = (new stdgo.Slice<stdgo.GoUInt8>((_length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var __blank__ = stdgo._internal.math.rand.Rand_read.read(_p);
+            stdgo._internal.math.rand.Rand_read.read(_p);
             var _crcInit = (stdgo._internal.math.rand.Rand_int63.int63() : stdgo.GoUInt32);
             var _crc1 = (_crcFunc1(_crcInit, _p) : stdgo.GoUInt32);
             var _crc2 = (_crcFunc2(_crcInit, _p) : stdgo.GoUInt32);

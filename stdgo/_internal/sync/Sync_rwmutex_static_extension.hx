@@ -14,7 +14,7 @@ package stdgo._internal.sync;
     static public function unlock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_release.release((stdgo.Go.toInterface(stdgo.Go.pointer((@:checkr _rw ?? throw "null pointer dereference")._readerSem)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
             stdgo._internal.internal.race.Race_disable.disable();
         };
@@ -40,7 +40,7 @@ package stdgo._internal.sync;
     static public function tryLock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Bool {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_disable.disable();
         };
         if (!@:check2 (@:checkr _rw ?? throw "null pointer dereference")._w.tryLock()) {
@@ -68,7 +68,7 @@ package stdgo._internal.sync;
     static public function lock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_disable.disable();
         };
         @:check2 (@:checkr _rw ?? throw "null pointer dereference")._w.lock();
@@ -99,7 +99,7 @@ package stdgo._internal.sync;
     static public function rUnlock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_releasemerge.releaseMerge((stdgo.Go.toInterface(stdgo.Go.pointer((@:checkr _rw ?? throw "null pointer dereference")._writerSem)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
             stdgo._internal.internal.race.Race_disable.disable();
         };
@@ -118,7 +118,7 @@ package stdgo._internal.sync;
     static public function tryRLock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Bool {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_disable.disable();
         };
         while (true) {
@@ -143,7 +143,7 @@ package stdgo._internal.sync;
     static public function rLock( _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex>):Void {
         @:recv var _rw:stdgo.Ref<stdgo._internal.sync.Sync_rwmutex.RWMutex> = _rw;
         if (false) {
-            var __blank__ = (@:checkr _rw ?? throw "null pointer dereference")._w._state;
+            (@:checkr _rw ?? throw "null pointer dereference")._w._state;
             stdgo._internal.internal.race.Race_disable.disable();
         };
         if ((@:check2 (@:checkr _rw ?? throw "null pointer dereference")._readerCount.add((1 : stdgo.GoInt32)) < (0 : stdgo.GoInt32) : Bool)) {

@@ -25,7 +25,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     {
                         __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
-                                var __blank__ = stdgo._internal.os.Os_removeall.removeAll(_dir?.__copy__());
+                                stdgo._internal.os.Os_removeall.removeAll(_dir?.__copy__());
                             };
                             a();
                         }) });

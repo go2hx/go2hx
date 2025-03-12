@@ -15,7 +15,7 @@ function benchmarkString(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Void
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
-                            var __blank__ = _z._utoa(_base);
+                            _z._utoa(_base);
                             _i++;
                         };
                     };

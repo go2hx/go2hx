@@ -13,7 +13,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
-                            var __blank__ = stdgo._internal.math.big.Big__shrvu._shrVU(_z, _x, _s);
+                            stdgo._internal.math.big.Big__shrvu._shrVU(_z, _x, _s);
                             _i++;
                         };
                     };
@@ -22,7 +22,7 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B
                     {
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
-                            var __blank__ = stdgo._internal.math.big.Big__shlvu._shlVU(_z, _x, _s);
+                            stdgo._internal.math.big.Big__shlvu._shlVU(_z, _x, _s);
                             _i++;
                         };
                     };

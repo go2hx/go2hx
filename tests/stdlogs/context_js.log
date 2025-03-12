@@ -1,6 +1,6 @@
-[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:48: characters 29-39
+[ERROR] ./_internal/context_test/Context_test_examplewithcancel.hx:48: characters 24-34
 
- 48 |             for (_n => _ in _gen(_ctx)) {
-    |                             ^^^^^^^^^^
-    | stdgo.Chan<stdgo.GoInt> has no field keyValueIterator
+ 48 |             for (_n in _gen(_ctx)) {
+    |                        ^^^^^^^^^^
+    | stdgo.Chan<stdgo.GoInt> has no field iterator
 

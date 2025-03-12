@@ -68,7 +68,7 @@ var _e:stdgo._internal.encoding.gob.Gob_dt.DT = ({} : stdgo._internal.encoding.g
                                     }) });
                                 };
                                 var _err = (@:check2r stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newreader.newReader(_b))).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_dt.DT>)))) : stdgo.Error);
-                                var __blank__ = _err;
+                                _err;
                                 {
                                     for (defer in __deferstack__) {
                                         if (defer.ran) continue;

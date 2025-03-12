@@ -1,18 +1,18 @@
 package stdgo._internal.image.draw;
 function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
-        var _b_8:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-        var _dst_6:stdgo._internal.image.draw.Draw_image.Image = (null : stdgo._internal.image.draw.Draw_image.Image);
-        var _i_5109377_3:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5109342_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _rr_0:stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle> = (null : stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle>);
+        var _y_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _golden_7:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
+        var _dst_6:stdgo._internal.image.draw.Draw_image.Image = (null : stdgo._internal.image.draw.Draw_image.Image);
+        var _iterator_5109377_3:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _iterator_5109342_1:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _x_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _b_8:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _test_4:stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest = ({} : stdgo._internal.image.draw.Draw_t_drawtest.T_drawTest);
         var _r_2:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-        var _rr_0:stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle> = (null : stdgo.Slice<stdgo._internal.image.Image_rectangle.Rectangle>);
-        var _x_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _y_9:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -24,10 +24,10 @@ function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                         _gotoNext = 5111099i32;
                     };
                 } else if (__value__ == (5109334i32)) {
-                    _i_5109342_1++;
+                    _iterator_5109342_1++;
                     _gotoNext = 5111097i32;
                 } else if (__value__ == (5109351i32)) {
-                    _r_2 = _rr_0[(_i_5109342_1 : stdgo.GoInt)];
+                    _r_2 = _rr_0[(_iterator_5109342_1 : stdgo.GoInt)];
                     _gotoNext = 5109354i32;
                 } else if (__value__ == (5109354i32)) {
                     if ((0i32 : stdgo.GoInt) < (stdgo._internal.image.draw.Draw__drawtests._drawTests.length)) {
@@ -36,10 +36,10 @@ function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                         _gotoNext = 5109334i32;
                     };
                 } else if (__value__ == (5109366i32)) {
-                    _i_5109377_3++;
+                    _iterator_5109377_3++;
                     _gotoNext = 5111094i32;
                 } else if (__value__ == (5109393i32)) {
-                    _test_4 = stdgo._internal.image.draw.Draw__drawtests._drawTests[(_i_5109377_3 : stdgo.GoInt)];
+                    _test_4 = stdgo._internal.image.draw.Draw__drawtests._drawTests[(_iterator_5109377_3 : stdgo.GoInt)];
                     _i_5 = (0 : stdgo.GoInt);
                     _gotoNext = 5109398i32;
                 } else if (__value__ == (5109398i32)) {
@@ -131,18 +131,18 @@ function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                     };
                 } else if (__value__ == (5110909i32)) {
                     @:check2r _t.errorf(("draw %v %s on %T: at (%d, %d), %v versus golden %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r_2)), stdgo.Go.toInterface(_test_4._desc), stdgo.Go.toInterface(_dst_6), stdgo.Go.toInterface(_x_10), stdgo.Go.toInterface(_y_9), stdgo.Go.toInterface(_dst_6.at(_x_10, _y_9)), stdgo.Go.toInterface(_golden_7.at(_x_10, _y_9)));
-                    stdgo._internal.image.draw.Draw__i_5109377._i_5109377++;
+                    stdgo._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
                     _gotoNext = 5111094i32;
                 } else if (__value__ == (5111093i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = stdgo._internal.image.draw.Draw__drawtests._drawTests[(0i32 : stdgo.GoInt)];
-                        _i_5109377_3 = @:binopAssign __tmp__0;
+                        _iterator_5109377_3 = @:binopAssign __tmp__0;
                         _test_4 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5111094i32;
                 } else if (__value__ == (5111094i32)) {
-                    if (_i_5109377_3 < (stdgo._internal.image.draw.Draw__drawtests._drawTests.length)) {
+                    if (_iterator_5109377_3 < (stdgo._internal.image.draw.Draw__drawtests._drawTests.length)) {
                         _gotoNext = 5109393i32;
                     } else {
                         _gotoNext = 5109334i32;
@@ -151,12 +151,12 @@ function testDraw(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _rr_0[(0i32 : stdgo.GoInt)];
-                        _i_5109342_1 = @:binopAssign __tmp__0;
+                        _iterator_5109342_1 = @:binopAssign __tmp__0;
                         _r_2 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 5111097i32;
                 } else if (__value__ == (5111097i32)) {
-                    if (_i_5109342_1 < (_rr_0.length)) {
+                    if (_iterator_5109342_1 < (_rr_0.length)) {
                         _gotoNext = 5109351i32;
                     } else {
                         _gotoNext = 5111099i32;

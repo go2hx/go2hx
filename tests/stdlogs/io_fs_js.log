@@ -19,7 +19,7 @@ Called from .stdgo__$internal_io_fs_Fs_$glob_glob (/home/runner/work/go2hx/go2hx
 Called from module at stdgo__$internal_testing_InternalTest._$internal_io_fs_$test_Fs_$test_$testglob_testGlob [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:19539:17)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 49147 column 9)
 Called from ._$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js line 41357 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:55582:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:55583:1
 
 -- FAIL: TestGlob
 
@@ -68,21 +68,21 @@ node:fs:1581
   const result = binding.readdir(
                          ^
 
-Error: EACCES: permission denied, scandir 'tmp_8df3p2oqu7/a/bad'
+Error: EACCES: permission denied, scandir 'tmp_8aka7nktwa/a/bad'
     at Object.readdirSync (node:fs:1581:26)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45411:30)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45417:7)
     at deleteRecursively (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45417:7)
     at stdgo__$internal_os_Os_$removeall_removeAll (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:45457:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:49724:4
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:49725:4
     at stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:49161:4)
     at _$internal_io_fsdottest_Fsdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:41357:59)
-    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:55582:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:55583:3) {
+    at /home/runner/work/go2hx/go2hx/golibs/std_fs.js:55583:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fs.js:55584:3) {
   errno: -13,
   code: 'EACCES',
   syscall: 'scandir',
-  path: 'tmp_8df3p2oqu7/a/bad'
+  path: 'tmp_8aka7nktwa/a/bad'
 }
 
 Node.js v23.9.0

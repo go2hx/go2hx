@@ -91,13 +91,13 @@ Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/
 === RUN  TestSliceRoundTrip
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53435 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53339 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:52869:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53436 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 53340 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:52870:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_encoding_binary_Binary_$testsliceroundtrip_testSliceRoundTrip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:27433:20)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 52682 column 9)
 Called from ._$internal_encoding_binarydottest_Binarydottest_main (/home/runner/work/go2hx/go2hx/golibs/std_binary.js line 45225 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61292:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61293:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_binary.js:61293:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_binary.js:61294:3)
 
 -- FAIL: TestSliceRoundTrip

@@ -151,8 +151,8 @@ Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha512_Sha512_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:19036:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 42320 column 9)
 Called from ._$internal_crypto_sha512dottest_Sha512dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 34790 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72714:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72715:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72715:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:72716:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 

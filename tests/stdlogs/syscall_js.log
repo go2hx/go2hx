@@ -9,8 +9,8 @@ Called from ._$internal_syscall_$test_Syscall_$test_$_$testsetgetenv__testSetGet
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testenv_testEnv [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:11338:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40024 column 9)
 Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 31845 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48595:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48596:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48596:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48597:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestEnv
@@ -31,14 +31,16 @@ Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go
 === RUN  TestGettimeofday
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40816 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40846 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:40259:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40817 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40847 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:40260:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_syscall_$test_Syscall_$test_$testgettimeofday_testGettimeofday [as f] (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:11362:17)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 40024 column 9)
 Called from ._$internal_syscalldottest_Syscalldottest_main (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js line 31845 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48595:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48596:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48596:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_syscall.js:48597:3)
 
 -- SKIP: TestGettimeofday
+
+-- PASS: TestGettimeofday
 

@@ -168,7 +168,7 @@ package stdgo._internal.net.mail;
         var loopBreak = false;
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -176,7 +176,7 @@ package stdgo._internal.net.mail;
                     _i_5 = (0 : stdgo.GoInt);
                     _gotoNext = 4212300i32;
                 } else if (__value__ == (4212300i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     loopBreak = false;
                     _gotoNext = 4212307i32;
                 } else if (__value__ == (4212307i32)) {
@@ -307,7 +307,7 @@ package stdgo._internal.net.mail;
         var _qsb_1:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _i_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -317,7 +317,7 @@ package stdgo._internal.net.mail;
                     _escaped_2 = false;
                     _gotoNext = 4211003i32;
                 } else if (__value__ == (4211003i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     loopBreak = false;
                     _gotoNext = 4211010i32;
                 } else if (__value__ == (4211010i32)) {

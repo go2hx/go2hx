@@ -103,7 +103,7 @@ if (((_name != ((stdgo.Go.str() : stdgo.GoString)) || !_sf.anonymous : Bool) || 
                                 continue;
                             };
                         };
-(_nextCount[_ft] != null ? _nextCount[_ft]++ : (0 : stdgo.GoInt));
+(@:typeIncDecStmt_escapeParens _nextCount[_ft] != null ? _nextCount[_ft]++ : (0 : stdgo.GoInt));
 if ((_nextCount[_ft] ?? (0 : stdgo.GoInt)) == ((1 : stdgo.GoInt))) {
                             _next = (_next.__append__(({ _name : _ft.name().__copy__(), _index : _index, _typ : _ft } : stdgo._internal.encoding.json.Json_t_field.T_field)));
                         };

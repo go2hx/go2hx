@@ -5,12 +5,12 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
         var _i_10:stdgo.GoInt = (0 : stdgo.GoInt);
         var _inrange_9:Bool = false;
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3943863i32;
                 } else if (__value__ == (3943863i32)) {
                     if ((((_pattern.length) > (0 : stdgo.GoInt) : Bool) && (_pattern[(0 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {

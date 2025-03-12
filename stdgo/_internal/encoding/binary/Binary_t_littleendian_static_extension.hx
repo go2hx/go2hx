@@ -22,7 +22,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function putUint64( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.GoUInt64):Void {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(7 : stdgo.GoInt)];
+        _b[(7 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoUInt8);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8);
         _b[(2 : stdgo.GoInt)] = ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt8);
@@ -36,7 +36,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function uint64( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt64 {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(7 : stdgo.GoInt)];
+        _b[(7 : stdgo.GoInt)];
         return ((((((((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt64) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt64) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt64) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt64) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(4 : stdgo.GoInt)] : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(5 : stdgo.GoInt)] : stdgo.GoUInt64) << (40i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(6 : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_b[(7 : stdgo.GoInt)] : stdgo.GoUInt64) << (56i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
     }
     @:keep
@@ -49,7 +49,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function putUint32( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.GoUInt32):Void {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(3 : stdgo.GoInt)];
+        _b[(3 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoUInt8);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _b[(2 : stdgo.GoInt)] = ((_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
@@ -59,7 +59,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function uint32( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32 {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(3 : stdgo.GoInt)];
+        _b[(3 : stdgo.GoInt)];
         return ((((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt32) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(2 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_b[(3 : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
     @:keep
@@ -72,7 +72,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function putUint16( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.GoUInt16):Void {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(1 : stdgo.GoInt)];
+        _b[(1 : stdgo.GoInt)];
         _b[(0 : stdgo.GoInt)] = (_v : stdgo.GoUInt8);
         _b[(1 : stdgo.GoInt)] = ((_v >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
     }
@@ -80,7 +80,7 @@ package stdgo._internal.encoding.binary;
     @:tdfield
     static public function uint16( _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt16 {
         @:recv var _:stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian = _?.__copy__();
-        var __blank__ = _b[(1 : stdgo.GoInt)];
+        _b[(1 : stdgo.GoInt)];
         return ((_b[(0 : stdgo.GoInt)] : stdgo.GoUInt16) | ((_b[(1 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt16);
     }
 }

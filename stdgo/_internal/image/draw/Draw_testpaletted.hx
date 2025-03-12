@@ -2,27 +2,27 @@ package stdgo._internal.image.draw;
 function testPaletted(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
         var __deferstack__:Array<{ var ran : Bool; var f : Void -> Void; }> = [];
         try {
-            var _y_35:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _i_5119099 = 0i32;
-            var _video001_24:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
-            var _err_23:stdgo.Error = (null : stdgo.Error);
             var _dst0_33:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>);
-            var _sName_32:stdgo.GoString = ("" : stdgo.GoString);
-            var _sources_28:stdgo.GoMap<stdgo.GoString, stdgo._internal.image.Image_image.Image> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.image.Image_image.Image>);
-            var _drawers_27:stdgo.GoMap<stdgo.GoString, stdgo._internal.image.draw.Draw_drawer.Drawer> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.image.draw.Draw_drawer.Drawer>);
-            var _b_25:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
-            var _f_22:stdgo.Ref<stdgo._internal.os.Os_file.File> = (null : stdgo.Ref<stdgo._internal.os.Os_file.File>);
-            var _dName_30:stdgo.GoString = ("" : stdgo.GoString);
             var _d_29:stdgo._internal.image.draw.Draw_drawer.Drawer = (null : stdgo._internal.image.draw.Draw_drawer.Drawer);
-            var _keys_5119040:stdgo.Slice<Dynamic> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
-            var _i_5119056 = 0i32;
-            var _src_31:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
-            var _x_36:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _dst1_34:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>);
+            var _drawers_27:stdgo.GoMap<stdgo.GoString, stdgo._internal.image.draw.Draw_drawer.Drawer> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.image.draw.Draw_drawer.Drawer>);
             var _keys_5119081:stdgo.Slice<Dynamic> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
+            var _iterator_5119099 = 0i32;
+            var _dName_30:stdgo.GoString = ("" : stdgo.GoString);
+            var _sources_28:stdgo.GoMap<stdgo.GoString, stdgo._internal.image.Image_image.Image> = (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.image.Image_image.Image>);
+            var _b_25:stdgo._internal.image.Image_rectangle.Rectangle = ({} : stdgo._internal.image.Image_rectangle.Rectangle);
+            var _dst1_34:stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted> = (null : stdgo.Ref<stdgo._internal.image.Image_paletted.Paletted>);
+            var _sName_32:stdgo.GoString = ("" : stdgo.GoString);
+            var _iterator_5119056 = 0i32;
             var _cgaPalette_26:stdgo._internal.image.color.Color_palette.Palette = (new stdgo._internal.image.color.Color_palette.Palette(0, 0) : stdgo._internal.image.color.Color_palette.Palette);
+            var _video001_24:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
+            var _x_36:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _y_35:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _src_31:stdgo._internal.image.Image_image.Image = (null : stdgo._internal.image.Image_image.Image);
+            var _keys_5119040:stdgo.Slice<Dynamic> = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
+            var _err_23:stdgo.Error = (null : stdgo.Error);
+            var _f_22:stdgo.Ref<stdgo._internal.os.Os_file.File> = (null : stdgo.Ref<stdgo._internal.os.Os_file.File>);
             var _gotoNext = 0i32;
-            var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+            _gotoNext == ((0i32 : stdgo.GoInt));
             while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
                 {
                     final __value__ = _gotoNext;
@@ -85,11 +85,11 @@ x.set(("video001" : stdgo.GoString), _video001_24);
                             _gotoNext = 5119579i32;
                         };
                     } else if (__value__ == (5119056i32)) {
-                        _i_5119056++;
+                        _iterator_5119056++;
                         _gotoNext = 5119577i32;
                     } else if (__value__ == (5119070i32)) {
-                        _d_29 = (_drawers_27[_keys_5119040[@:invalid_index_invalid_type _i_5119056]] ?? (null : stdgo._internal.image.draw.Draw_drawer.Drawer));
-                        _dName_30 = _keys_5119040[@:invalid_index_invalid_type _i_5119056]?.__copy__();
+                        _d_29 = (_drawers_27[_keys_5119040[@:invalid_index_invalid_type _iterator_5119056]] ?? (null : stdgo._internal.image.draw.Draw_drawer.Drawer));
+                        _dName_30 = _keys_5119040[@:invalid_index_invalid_type _iterator_5119056]?.__copy__();
                         _gotoNext = 5119073i32;
                     } else if (__value__ == (5119073i32)) {
                         _keys_5119081 = (new stdgo.Slice<stdgo.GoString>(0, 0, ...[]).__setString__() : stdgo.Slice<stdgo.GoString>);
@@ -102,11 +102,11 @@ x.set(("video001" : stdgo.GoString), _video001_24);
                             _gotoNext = 5119056i32;
                         };
                     } else if (__value__ == (5119099i32)) {
-                        _i_5119099++;
+                        _iterator_5119099++;
                         _gotoNext = 5119574i32;
                     } else if (__value__ == (5119113i32)) {
-                        _src_31 = (_sources_28[_keys_5119081[@:invalid_index_invalid_type _i_5119099]] ?? (null : stdgo._internal.image.Image_image.Image));
-                        _sName_32 = _keys_5119081[@:invalid_index_invalid_type _i_5119099]?.__copy__();
+                        _src_31 = (_sources_28[_keys_5119081[@:invalid_index_invalid_type _iterator_5119099]] ?? (null : stdgo._internal.image.Image_image.Image));
+                        _sName_32 = _keys_5119081[@:invalid_index_invalid_type _iterator_5119099]?.__copy__();
                         _dst0_33 = stdgo._internal.image.Image_newpaletted.newPaletted(_b_25?.__copy__(), _cgaPalette_26);
                         _dst1_34 = stdgo._internal.image.Image_newpaletted.newPaletted(_b_25?.__copy__(), _cgaPalette_26);
                         _d_29.draw(stdgo.Go.asInterface(_dst0_33), _b_25?.__copy__(), _src_31, (new stdgo._internal.image.Image_point.Point() : stdgo._internal.image.Image_point.Point));
@@ -142,22 +142,22 @@ x.set(("video001" : stdgo.GoString), _video001_24);
                         };
                     } else if (__value__ == (5119422i32)) {
                         @:check2r _t.errorf(("%s / %s: at (%d, %d), %v versus %v" : stdgo.GoString), stdgo.Go.toInterface(_dName_30), stdgo.Go.toInterface(_sName_32), stdgo.Go.toInterface(_x_36), stdgo.Go.toInterface(_y_35), stdgo.Go.toInterface(@:check2r _dst0_33.at(_x_36, _y_35)), stdgo.Go.toInterface(@:check2r _dst1_34.at(_x_36, _y_35)));
-                        _i_5119099++;
+                        _iterator_5119099++;
                         _gotoNext = 5119574i32;
                     } else if (__value__ == (5119573i32)) {
-                        _i_5119099 = 0i32;
+                        _iterator_5119099 = 0i32;
                         _gotoNext = 5119574i32;
                     } else if (__value__ == (5119574i32)) {
-                        if (_i_5119099 < (_keys_5119081.length)) {
+                        if (_iterator_5119099 < (_keys_5119081.length)) {
                             _gotoNext = 5119113i32;
                         } else {
                             _gotoNext = 5119056i32;
                         };
                     } else if (__value__ == (5119576i32)) {
-                        _i_5119056 = 0i32;
+                        _iterator_5119056 = 0i32;
                         _gotoNext = 5119577i32;
                     } else if (__value__ == (5119577i32)) {
-                        if (_i_5119056 < (_keys_5119040.length)) {
+                        if (_iterator_5119056 < (_keys_5119040.length)) {
                             _gotoNext = 5119070i32;
                         } else {
                             _gotoNext = 5119579i32;

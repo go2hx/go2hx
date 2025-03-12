@@ -17,7 +17,7 @@ function new_(_h:() -> stdgo._internal.hash.Hash_hash.Hash, _key:stdgo.Slice<std
                     {
                         __deferstack__.unshift({ ran : false, f : () -> ({
                             var a = function():Void {
-                                var __blank__ = ({
+                                ({
                                     final r = stdgo.Go.recover_exception;
                                     stdgo.Go.recover_exception = null;
                                     r;

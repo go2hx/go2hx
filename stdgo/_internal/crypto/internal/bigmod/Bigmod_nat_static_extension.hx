@@ -159,7 +159,7 @@ var _c2 = (stdgo._internal.crypto.internal.bigmod.Bigmod__addmulvvw2048._addMulV
                 {
                     var _i = (0 : stdgo.GoInt);
                     while ((_i < _n : Bool)) {
-                        var __blank__ = t[(_n + _i : stdgo.GoInt)];
+                        t[(_n + _i : stdgo.GoInt)];
 var _d = (_bLimbs[(_i : stdgo.GoInt)] : stdgo.GoUInt);
 var _c1 = (stdgo._internal.crypto.internal.bigmod.Bigmod__addmulvvw._addMulVVW((t.__slice__(_i, (_n + _i : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt>), _aLimbs, _d) : stdgo.GoUInt);
 var y = (t[(_i : stdgo.GoInt)] * (@:checkr _m ?? throw "null pointer dereference")._m0inv : stdgo.GoUInt);

@@ -16,7 +16,7 @@ function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Voi
                     while ((_k < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                         var _s = _c._s();
 var _v = _c._v();
-var __blank__ = stdgo._internal.slices.Slices__naivereplace._naiveReplace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
+stdgo._internal.slices.Slices__naivereplace._naiveReplace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
                         _k++;
                     };
                 };
@@ -27,7 +27,7 @@ var __blank__ = stdgo._internal.slices.Slices__naivereplace._naiveReplace(_s, _c
                     while ((_k < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                         var _s = _c._s();
 var _v = _c._v();
-var __blank__ = stdgo._internal.slices.Slices_replace.replace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
+stdgo._internal.slices.Slices_replace.replace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
                         _k++;
                     };
                 };

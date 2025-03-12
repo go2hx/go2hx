@@ -22,7 +22,7 @@ package stdgo._internal.encoding.base64;
                 __tmp__;
             };
         };
-        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
+        (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         var _si = (0 : stdgo.GoInt);
         while (((false && (((_src.length) - _si : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool) && (((_dst.length) - _n : stdgo.GoInt) >= (8 : stdgo.GoInt) : Bool) : Bool)) {
             var _src2 = (_src.__slice__(_si, (_si + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -120,7 +120,7 @@ package stdgo._internal.encoding.base64;
         var _nsi = (0 : stdgo.GoInt), _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _dbuf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4).__setNumber32__();
         var _dlen = (4 : stdgo.GoInt);
-        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
+        (@:checkr _enc ?? throw "null pointer dereference")._decodeMap;
         {
             var _j = (0 : stdgo.GoInt);
             while ((_j < (_dbuf.length) : Bool)) {
@@ -316,7 +316,7 @@ break;
         if ((_src.length) == ((0 : stdgo.GoInt))) {
             return;
         };
-        var __blank__ = (@:checkr _enc ?? throw "null pointer dereference")._encode;
+        (@:checkr _enc ?? throw "null pointer dereference")._encode;
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _si = __1, _di = __0;
         var _n = ((((_src.length) / (3 : stdgo.GoInt) : stdgo.GoInt)) * (3 : stdgo.GoInt) : stdgo.GoInt);

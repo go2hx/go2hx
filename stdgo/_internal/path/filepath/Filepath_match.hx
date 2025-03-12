@@ -1,25 +1,25 @@
 package stdgo._internal.path.filepath;
 function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var _matched = false, _err = (null : stdgo.Error);
-        var _err_4:stdgo.Error = (null : stdgo.Error);
-        var _ok_3:Bool = false;
         var _star_0:Bool = false;
         var patternBreak = false;
-        var _ok_7:Bool = false;
+        var _err_8:stdgo.Error = (null : stdgo.Error);
         var _t_6:stdgo.GoString = ("" : stdgo.GoString);
         var _i_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_3:Bool = false;
         var _t_2:stdgo.GoString = ("" : stdgo.GoString);
         var _chunk_1:stdgo.GoString = ("" : stdgo.GoString);
-        var _err_8:stdgo.Error = (null : stdgo.Error);
+        var _ok_7:Bool = false;
+        var _err_4:stdgo.Error = (null : stdgo.Error);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     _gotoNext = 3942600i32;
                 } else if (__value__ == (3942600i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     patternBreak = false;
                     _gotoNext = 3942610i32;
                 } else if (__value__ == (3942610i32)) {
@@ -62,7 +62,7 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                     };
                 } else if (__value__ == (3943141i32)) {
                     _name = _t_2?.__copy__();
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3942610i32;
                 } else if (__value__ == (3943173i32)) {
                     if (_err_4 != null) {

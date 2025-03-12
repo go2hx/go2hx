@@ -6,7 +6,7 @@ function benchmarkNewEncoding(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>)
             while ((_i < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                 var _e = stdgo._internal.encoding.base64.Base64_newencoding.newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
 for (__16 => _v in (@:checkr _e ?? throw "null pointer dereference")._decodeMap) {
-                    var __blank__ = _v;
+                    _v;
                 };
                 _i++;
             };

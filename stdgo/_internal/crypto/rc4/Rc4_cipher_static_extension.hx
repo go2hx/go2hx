@@ -12,7 +12,7 @@ package stdgo._internal.crypto.rc4;
         };
         var __0 = ((@:checkr _c ?? throw "null pointer dereference")._i : stdgo.GoUInt8), __1 = ((@:checkr _c ?? throw "null pointer dereference")._j : stdgo.GoUInt8);
 var _j = __1, _i = __0;
-        var __blank__ = _dst[((_src.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
+        _dst[((_src.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
         _dst = (_dst.__slice__(0, (_src.length)) : stdgo.Slice<stdgo.GoUInt8>);
         for (_k => _v in _src) {
             _i = (_i + ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);

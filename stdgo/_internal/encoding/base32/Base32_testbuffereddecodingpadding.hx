@@ -10,9 +10,9 @@ function testBufferedDecodingPadding(_t:stdgo.Ref<stdgo._internal.testing.Testin
             stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     for (__1 => _chunk in _testcase._chunks) {
-                        var __blank__ = @:check2r _pw.write((_chunk : stdgo.Slice<stdgo.GoUInt8>));
+                        @:check2r _pw.write((_chunk : stdgo.Slice<stdgo.GoUInt8>));
                     };
-                    var __blank__ = @:check2r _pw.close();
+                    @:check2r _pw.close();
                 };
                 a();
             }));

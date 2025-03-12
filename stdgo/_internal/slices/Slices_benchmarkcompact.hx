@@ -8,7 +8,7 @@ function benchmarkCompact(_b:stdgo.Ref<stdgo._internal.testing.Testing_b.B>):Voi
                     while ((_k < (@:checkr _b ?? throw "null pointer dereference").n : Bool)) {
                         _ss = (_ss.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
 _ss = (_ss.__append__(...(_c._s : Array<stdgo.GoInt>)));
-var __blank__ = stdgo._internal.slices.Slices_compact.compact(_ss);
+stdgo._internal.slices.Slices_compact.compact(_ss);
                         _k++;
                     };
                 };

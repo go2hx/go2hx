@@ -8,7 +8,7 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_cert
             })) {
                 throw stdgo.Go.toInterface(("roots must be non-nil" : stdgo.GoString));
             };
-            var __blank__ = stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
+            stdgo._internal.crypto.x509.X509__systemrootspool._systemRootsPool();
             @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.lock();
             {
                 final __f__ = @:check2 stdgo._internal.crypto.x509.X509__systemrootsmu._systemRootsMu.unlock;

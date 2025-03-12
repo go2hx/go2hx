@@ -116,22 +116,22 @@ package stdgo._internal.compress.lzw;
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _key_13:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _err1_17:stdgo.Error = (null : stdgo.Error);
-        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_3646075_5:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _code_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_14:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _literal_12:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _maxLit_4:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _h_15:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _x_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _err_9:stdgo.Error = (null : stdgo.Error);
-        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _literal_12:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _x_6:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err1_17:stdgo.Error = (null : stdgo.Error);
+        var _hash_14:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _err_9:stdgo.Error = (null : stdgo.Error);
+        var _code_7:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _iterator_3646075_5:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _maxLit_4:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _t_16:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _key_13:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_11:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _iterator_3646893_10:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _clear_8:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _gotoNext = 0i32;
-        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
@@ -179,10 +179,10 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3646206i32;
                     };
                 } else if (__value__ == (3646067i32)) {
-                    _i_3646075_5++;
+                    _iterator_3646075_5++;
                     _gotoNext = 3646200i32;
                 } else if (__value__ == (3646083i32)) {
-                    _x_6 = _p[(_i_3646075_5 : stdgo.GoInt)];
+                    _x_6 = _p[(_iterator_3646075_5 : stdgo.GoInt)];
                     if ((_x_6 > _maxLit_4 : Bool)) {
                         _gotoNext = 3646102i32;
                     } else {
@@ -201,12 +201,12 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _p[(0i32 : stdgo.GoInt)];
-                        _i_3646075_5 = @:binopAssign __tmp__0;
+                        _iterator_3646075_5 = @:binopAssign __tmp__0;
                         _x_6 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 3646200i32;
                 } else if (__value__ == (3646200i32)) {
-                    if (_i_3646075_5 < (_p.length)) {
+                    if (_iterator_3646075_5 < (_p.length)) {
                         _gotoNext = 3646083i32;
                     } else {
                         _gotoNext = 3646206i32;
@@ -253,10 +253,10 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3647941i32;
                     };
                 } else if (__value__ == (3646885i32)) {
-                    _i_3646893_10++;
+                    _iterator_3646893_10++;
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3646901i32)) {
-                    _x_11 = _p[(_i_3646893_10 : stdgo.GoInt)];
+                    _x_11 = _p[(_iterator_3646893_10 : stdgo.GoInt)];
                     _literal_12 = (_x_11 : stdgo.GoUInt32);
                     _key_13 = ((_code_7 << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | _literal_12 : stdgo.GoUInt32);
                     _hash_14 = ((((_key_13 >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) ^ _key_13 : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -281,7 +281,7 @@ package stdgo._internal.compress.lzw;
                     };
                 } else if (__value__ == (3647172i32)) {
                     _code_7 = (_t_16 & (4095u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    stdgo._internal.compress.lzw.Lzw__i_3646893._i_3646893++;
+                    stdgo._internal.compress.lzw.Lzw__iterator_3646893._iterator_3646893++;
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647223i32)) {
                     _h_15 = (((_h_15 + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -321,7 +321,7 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3647691i32;
                     };
                 } else if (__value__ == (3647668i32)) {
-                    _i_3646893_10++;
+                    _iterator_3646893_10++;
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647691i32)) {
                     (@:checkr _w ?? throw "null pointer dereference")._err = _err1_17;
@@ -333,7 +333,7 @@ package stdgo._internal.compress.lzw;
                     };
                     _gotoNext = 3647802i32;
                 } else if (__value__ == (3647802i32)) {
-                    var __blank__ = 0i32;
+                    0i32;
                     _gotoNext = 3647802i32;
                     if (true) {
                         _gotoNext = 3647806i32;
@@ -356,12 +356,12 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _p[(0i32 : stdgo.GoInt)];
-                        _i_3646893_10 = @:binopAssign __tmp__0;
+                        _iterator_3646893_10 = @:binopAssign __tmp__0;
                         _x_11 = @:binopAssign __tmp__1;
                     };
                     _gotoNext = 3647938i32;
                 } else if (__value__ == (3647938i32)) {
-                    if (_i_3646893_10 < (_p.length)) {
+                    if (_iterator_3646893_10 < (_p.length)) {
                         _gotoNext = 3646901i32;
                     } else {
                         _gotoNext = 3647941i32;

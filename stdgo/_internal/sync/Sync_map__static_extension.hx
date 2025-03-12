@@ -373,7 +373,7 @@ package stdgo._internal.sync;
     @:tdfield
     static public function store( _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_map_.Map_> = _m;
-        var __blank__ = @:check2r _m.swap(_key, _value);
+        @:check2r _m.swap(_key, _value);
     }
     @:keep
     @:tdfield

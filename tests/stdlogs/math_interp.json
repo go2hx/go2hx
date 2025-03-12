@@ -67,7 +67,6 @@
         "TestLargeTan",
         "TestTrigReduce",
         "TestFloatMinMax",
-        "testFloatMinima",
         "TestFloatMinima",
         "TestFloat32Sqrt",
         "TestMaxUint",

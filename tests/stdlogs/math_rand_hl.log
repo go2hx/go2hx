@@ -22,6 +22,8 @@ Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_
 
 -- SKIP: TestDefaultRace
 
+-- PASS: TestDefaultRace
+
 === RUN  TestConcurrent
 -- SKIP: testConcurrent
 
@@ -161,6 +163,7 @@ Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_
 -- FAIL: TestExpTables
 
 === RUN  TestFloat32
+-- SKIP: testFloat32
 
 -- PASS: TestFloat32
 

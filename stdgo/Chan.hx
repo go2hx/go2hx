@@ -95,7 +95,7 @@ class ChanData<T> {
         if (selectBool)
             sendBool = true;
         if (debug)
-            trace("__isGet__ " + b, length);
+            trace("__isGet__ " + b, length, buffered);
         mutex.release();
 
         return b;
@@ -136,10 +136,6 @@ class ChanData<T> {
     */
     public function __get__():T {
         mutex.acquire();
-        if (closed) {
-            mutex.release();
-            return defaultValue();
-        }
         if (debug)
             trace("__get__ wait");
         sendLock.release();
@@ -212,9 +208,6 @@ class ChanData<T> {
             trace("end of __send__");
     }
 
-    public inline function keyValueIterator()
-        return new ChanKeyValueIterator(this);
-
     public inline function iterator()
         return new ChanIterator(this);
 
@@ -246,18 +239,19 @@ private class ChanKeyValueIterator<T> {
 }
 
 private class ChanIterator<T> {
-    var chan:Chan<T>;
+    var chan:ChanData<T>;
 
-    public inline function new(chan:Chan<T>) {
+    public inline function new(chan:ChanData<T>) {
         this.chan = chan;
     }
 
     public inline function hasNext() {
-        return chan.length > 0;
+        return chan.__isGet__() || @:privateAccess !chan.closed;
     }
 
     public inline function next() {
-        return chan.__get__();
+        final value = chan.__get__();
+        return value;
     }
 }
 #else

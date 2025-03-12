@@ -37,3 +37,5 @@ Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.mai
 
 -- SKIP: TestGettimeofday
 
+-- PASS: TestGettimeofday
+

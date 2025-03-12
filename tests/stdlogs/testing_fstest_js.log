@@ -9,13 +9,13 @@
 === RUN  TestSymlink
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49654 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49558 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:48893:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49655 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49559 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:48894:58
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testsymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:33932:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 48706 column 9)
 Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40099 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58942:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58943:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58943:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:58944:3)
 
 -- FAIL: TestSymlink

@@ -34,3 +34,5 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 
 -- SKIP: TestGettimeofday
 
+-- PASS: TestGettimeofday
+

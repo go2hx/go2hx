@@ -461,7 +461,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		switch t := fs.checker.TypeOf(stmt.X).Underlying().(type) {
 		case *types.Basic:
 			_ = t
-			ident := ast.NewIdent("i_" + fmt.Sprint(stmt.Range))
+			ident := ast.NewIdent("iterator_" + fmt.Sprint(stmt.Range))
 			ident.Obj = ast.NewObj(ast.Var, ident.Name)
 			ident.NamePos = stmt.Range
 			fs.tempVars[ident.Obj] = tempVarData{
@@ -510,7 +510,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}}
 			return append([]ast.Stmt{assign(keysExpr, clKeysType), assign(valuesExpr, clValuesType), rangeStmt}, fs.markJumps(ifStmt, scopeIndex)...)
 		case *types.Map:
-			ident := ast.NewIdent("i_" + fmt.Sprint(stmt.Range))
+			ident := ast.NewIdent("iterator_" + fmt.Sprint(stmt.Range))
 			ident.Obj = ast.NewObj(ast.Var, ident.Name)
 			ident.NamePos = stmt.Range
 			fs.tempVars[ident.Obj] = tempVarData{
@@ -561,7 +561,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				switch key := stmt.Key.(type) {
 				case *ast.Ident:
 					if key.Name == "_" {
-						key.Name = "i_" + fmt.Sprint(stmt.Range)
+						key.Name = "iterator_" + fmt.Sprint(stmt.Range)
 						if stmt.Tok == token.ASSIGN {
 							obj := ast.NewObj(ast.Var, key.Name)
 							fs.tempVars[obj] = tempVarData{
@@ -805,7 +805,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 					fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
 					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.RangeStmt:
-					var x ast.Expr = ast.NewIdent("i_" + fmt.Sprint(child.Range))
+					var x = ast.NewIdent("iterator_" + fmt.Sprint(child.Range))
 					switch t := fs.checker.TypeOf(child.X).Underlying().(type) {
 					case *types.Array, *types.Slice:
 						_ = t
@@ -934,7 +934,9 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 						valueSpec,
 					},
 				},
-			}}, fn.List...)
+			},
+				assignExpr(ast.NewIdent("_"), data.Ident),
+			}, fn.List...)
 		}
 
 		/*

@@ -1577,6 +1577,12 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for stmt
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info, false);
+	var isChan = false;
+	switch getUnderlying(xType) {
+		case chanType(_, _):
+			isChan = true;
+		default:
+	}
 	x = destructureExpr(x, xType).x;
 	final assign = stmt.tok == ASSIGN;
 	var key = null;
@@ -1614,6 +1620,9 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (assign) {
 		key = macro __key__;
 		value = macro __value__;
+	}
+	if (isChan) {
+		return (macro for ($key in $x) $body).expr;
 	}
 	return (macro for ($key => $value in $x) $body).expr;
 }

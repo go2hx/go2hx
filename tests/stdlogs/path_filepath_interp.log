@@ -38,6 +38,8 @@ Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath
 
 -- SKIP: TestWindowsGlob
 
+-- PASS: TestWindowsGlob
+
 === RUN  TestNonWindowsGlobEscape
 Glob(`\match.go`) = [] want [match.go]Exception: __fail__
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)

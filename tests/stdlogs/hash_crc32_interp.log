@@ -18,7 +18,7 @@
 Exception: field access on null
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.hash.crc32._Crc32_testslicing.Crc32_testslicing_Fields_.testSlicing (./stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 20 column 13)
-Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.Crc32__testcrosscheck_Fields_._testCrossCheck (./stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 52 column 29)
+Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.Crc32__testcrosscheck_Fields_._testCrossCheck (./stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 52 column 13)
 Called from stdgo._internal.math.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/math/rand/Rand_read.hx line 4 column 26)
 Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (./stdgo/_internal/math/rand/Rand__globalrand.hx line 4 column 31)
 Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29 column 32)

@@ -97,17 +97,19 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
                     };
                     {
                         var __select__ = true;
+                        var __c__0 = (@:checkr _dr ?? throw "null pointer dereference")._c;
+var __c__1 = _quitReadCh;
                         while (__select__) {
-                            if ((@:checkr _dr ?? throw "null pointer dereference")._c != null && (@:checkr _dr ?? throw "null pointer dereference")._c.__isSend__(true)) {
+                            if ((@:checkr _dr ?? throw "null pointer dereference")._c != null && __c__0.__isSend__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _dr ?? throw "null pointer dereference")._c.__send__(stdgo._internal.strings.Strings_newreader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
+                                    __c__0.__send__(stdgo._internal.strings.Strings_newreader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
                                     {};
                                 };
-                            } else if (_quitReadCh != null && _quitReadCh.__isGet__(true)) {
+                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    _quitReadCh.__get__();
+                                    __c__1.__get__();
                                     {
                                         if ((@:checkr _dr ?? throw "null pointer dereference")._c != null) (@:checkr _dr ?? throw "null pointer dereference")._c.__close__();
                                     };
@@ -116,8 +118,8 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_request.Req
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        (@:checkr _dr ?? throw "null pointer dereference")._c.__reset__();
-_quitReadCh.__reset__();
+                        __c__0.__reset__();
+__c__1.__reset__();
                     };
                 };
                 a();

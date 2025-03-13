@@ -9,11 +9,12 @@ package stdgo._internal.internal.fuzz;
         };
         {
             var __select__ = true;
+            var __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
             while (__select__) {
-                if ((@:checkr _w ?? throw "null pointer dereference")._termC != null && (@:checkr _w ?? throw "null pointer dereference")._termC.__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        (@:checkr _w ?? throw "null pointer dereference")._termC.__get__();
+                        __c__0.__get__();
                         {
                             if (({
                                 final value = (@:checkr _w ?? throw "null pointer dereference")._client;
@@ -34,7 +35,7 @@ package stdgo._internal.internal.fuzz;
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            (@:checkr _w ?? throw "null pointer dereference")._termC.__reset__();
+            __c__0.__reset__();
         };
         var _closeC = (new stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy>(0, () -> ({} : stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy)) : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_t_nocopy.T_noCopy>);
         stdgo.Go.routine(() -> ({
@@ -52,11 +53,13 @@ package stdgo._internal.internal.fuzz;
         while (true) {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
                 while (__select__) {
-                    if ((@:checkr _w ?? throw "null pointer dereference")._termC != null && (@:checkr _w ?? throw "null pointer dereference")._termC.__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _w ?? throw "null pointer dereference")._termC.__get__();
+                            __c__0.__get__();
                             {
                                 @:check2r _t.stop();
                                 _closeC.__get__();
@@ -65,10 +68,10 @@ package stdgo._internal.internal.fuzz;
                                 return (@:checkr _w ?? throw "null pointer dereference")._waitErr;
                             };
                         };
-                    } else if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _t ?? throw "null pointer dereference").c.__get__();
+                            __c__1.__get__();
                             {
                                 (@:checkr _w ?? throw "null pointer dereference")._interrupted = true;
                                 {
@@ -91,8 +94,8 @@ package stdgo._internal.internal.fuzz;
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _w ?? throw "null pointer dereference")._termC.__reset__();
-(@:checkr _t ?? throw "null pointer dereference").c.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
         };
     }
@@ -417,11 +420,15 @@ package stdgo._internal.internal.fuzz;
             };
             {
                 var __select__ = true;
+                var __c__0 = _ctx.done();
+var __c__1 = (@:checkr _w ?? throw "null pointer dereference")._termC;
+var __c__2 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC;
+var __c__3 = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC;
                 while (__select__) {
-                    if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            _ctx.done().__get__();
+                            __c__0.__get__();
                             {
                                 var _err = (@:check2r _w._stop() : stdgo.Error);
                                 if (((_err != null && !(@:checkr _w ?? throw "null pointer dereference")._interrupted : Bool) && !stdgo._internal.internal.fuzz.Fuzz__isinterrupterror._isInterruptError(_err) : Bool)) {
@@ -430,10 +437,10 @@ package stdgo._internal.internal.fuzz;
                                 return _ctx.err();
                             };
                         };
-                    } else if ((@:checkr _w ?? throw "null pointer dereference")._termC != null && (@:checkr _w ?? throw "null pointer dereference")._termC.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _w ?? throw "null pointer dereference")._termC.__get__();
+                            __c__1.__get__();
                             {
                                 var _err = (@:check2r _w._stop() : stdgo.Error);
                                 if ((@:checkr _w ?? throw "null pointer dereference")._interrupted) {
@@ -455,10 +462,10 @@ package stdgo._internal.internal.fuzz;
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("fuzzing process hung or terminated unexpectedly: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
                         };
-                    } else if ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC != null && (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC.__isGet__(true)) {
+                    } else if (__c__2 != null && __c__2.__isGet__(true)) {
                         __select__ = false;
                         {
-                            var _input = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC.__get__();
+                            var _input = __c__2.__get__();
                             {
                                 var _args = ({ limit : _input._limit, timeout : _input._timeout, warmup : _input._warmup, coverageData : _input._coverageData } : stdgo._internal.internal.fuzz.Fuzz_t_fuzzargs.T_fuzzArgs);
                                 var __tmp__ = @:check2r (@:checkr _w ?? throw "null pointer dereference")._client._fuzz(_ctx, _input._entry?.__copy__(), _args?.__copy__()), _entry:stdgo._internal.internal.fuzz.Fuzz_corpusentry.CorpusEntry = __tmp__._0, _resp:stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse = __tmp__._1, _isInternalError:Bool = __tmp__._2, _err:stdgo.Error = __tmp__._3;
@@ -487,10 +494,10 @@ package stdgo._internal.internal.fuzz;
                                 (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._resultC.__send__(_result?.__copy__());
                             };
                         };
-                    } else if ((@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC != null && (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC.__isGet__(true)) {
+                    } else if (__c__3 != null && __c__3.__isGet__(true)) {
                         __select__ = false;
                         {
-                            var _input = (@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC.__get__();
+                            var _input = __c__3.__get__();
                             {
                                 var __tmp__ = @:check2r _w._minimize(_ctx, _input?.__copy__()), _result:stdgo._internal.internal.fuzz.Fuzz_t_fuzzresult.T_fuzzResult = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
@@ -509,10 +516,10 @@ package stdgo._internal.internal.fuzz;
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                _ctx.done().__reset__();
-(@:checkr _w ?? throw "null pointer dereference")._termC.__reset__();
-(@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._inputC.__reset__();
-(@:checkr (@:checkr _w ?? throw "null pointer dereference")._coordinator ?? throw "null pointer dereference")._minimizeC.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
+__c__2.__reset__();
+__c__3.__reset__();
             };
         };
     }

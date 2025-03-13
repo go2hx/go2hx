@@ -765,38 +765,41 @@ package stdgo._internal.database.sql;
         };
         {
             var __select__ = true;
+            var __c__0 = _ctx.done();
+var __c__1 = _txctxDone;
+var __c__2 = _closectx.done();
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _ctx.done().__get__();
+                        __c__0.__get__();
                         {
                             var _err = (_ctx.err() : stdgo.Error);
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_txctxDone != null && _txctxDone.__isGet__(true)) {
+                } else if (__c__1 != null && __c__1.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _txctxDone.__get__();
+                        __c__1.__get__();
                         {
                             var _err = (_txctx.err() : stdgo.Error);
                             @:check2 (@:checkr _rs ?? throw "null pointer dereference")._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
-                } else if (_closectx.done() != null && _closectx.done().__isGet__(true)) {
+                } else if (__c__2 != null && __c__2.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _closectx.done().__get__();
+                        __c__2.__get__();
                         {};
                     };
                 };
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            _ctx.done().__reset__();
-_txctxDone.__reset__();
-_closectx.done().__reset__();
+            __c__0.__reset__();
+__c__1.__reset__();
+__c__2.__reset__();
         };
         @:check2r _rs._close(_ctx.err());
     }

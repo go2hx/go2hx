@@ -768,11 +768,12 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         };
         {
             var __select__ = true;
+            var __c__0 = _ctx.done();
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _ctx.done().__get__();
+                        __c__0.__get__();
                         {
                             @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.unlock();
                             return { _0 : null, _1 : _ctx.err() };
@@ -785,7 +786,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            _ctx.done().__reset__();
+            __c__0.__reset__();
         };
         var _lifetime = ((@:checkr _db ?? throw "null pointer dereference")._maxLifetime : stdgo._internal.time.Time_duration.Duration);
         var _last = (((@:checkr _db ?? throw "null pointer dereference")._freeConn.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -818,11 +819,12 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
             var _waitStart = (stdgo._internal.database.sql.Sql__nowfunc._nowFunc()?.__copy__() : stdgo._internal.time.Time_time.Time);
             {
                 var __select__ = true;
+                var __c__0 = _ctx.done();
                 while (__select__) {
-                    if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            _ctx.done().__get__();
+                            __c__0.__get__();
                             {
                                 @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.lock();
                                 if ((@:checkr _db ?? throw "null pointer dereference")._connRequests != null) (@:checkr _db ?? throw "null pointer dereference")._connRequests.__remove__(_reqKey);
@@ -830,6 +832,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                                 @:check2 (@:checkr _db ?? throw "null pointer dereference")._waitDuration.add((stdgo._internal.time.Time_since.since(_waitStart?.__copy__()) : stdgo.GoInt64));
                                 {
                                     var __select__ = true;
+                                    {};
                                     while (__select__) {
                                         {
                                             __select__ = false;
@@ -850,7 +853,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                _ctx.done().__reset__();
+                __c__0.__reset__();
             };
         };
         (@:checkr _db ?? throw "null pointer dereference")._numOpen++;
@@ -984,19 +987,21 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         while (true) {
             {
                 var __select__ = true;
+                var __c__0 = _ctx.done();
+var __c__1 = (@:checkr _db ?? throw "null pointer dereference")._openerCh;
                 while (__select__) {
-                    if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            _ctx.done().__get__();
+                            __c__0.__get__();
                             {
                                 return;
                             };
                         };
-                    } else if ((@:checkr _db ?? throw "null pointer dereference")._openerCh != null && (@:checkr _db ?? throw "null pointer dereference")._openerCh.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _db ?? throw "null pointer dereference")._openerCh.__get__();
+                            __c__1.__get__();
                             {
                                 @:check2r _db._openNewConnection(_ctx);
                             };
@@ -1005,8 +1010,8 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                _ctx.done().__reset__();
-(@:checkr _db ?? throw "null pointer dereference")._openerCh.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
         };
     }
@@ -1178,25 +1183,27 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
         while (true) {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
+var __c__1 = (@:checkr _db ?? throw "null pointer dereference")._cleanerCh;
                 while (__select__) {
-                    if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _t ?? throw "null pointer dereference").c.__get__();
+                            __c__0.__get__();
                             {};
                         };
-                    } else if ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null && (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__get__();
+                            __c__1.__get__();
                             {};
                         };
                     };
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _t ?? throw "null pointer dereference").c.__reset__();
-(@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
             @:check2 (@:checkr _db ?? throw "null pointer dereference")._mu.lock();
             _d = @:check2r _db._shortestIdleTimeLocked();
@@ -1216,11 +1223,12 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
             if (!@:check2r _t.stop()) {
                 {
                     var __select__ = true;
+                    var __c__0 = (@:checkr _t ?? throw "null pointer dereference").c;
                     while (__select__) {
-                        if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__(true)) {
+                        if (__c__0 != null && __c__0.__isGet__(true)) {
                             __select__ = false;
                             {
-                                (@:checkr _t ?? throw "null pointer dereference").c.__get__();
+                                __c__0.__get__();
                                 {};
                             };
                         } else {
@@ -1230,7 +1238,7 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
                         #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                         stdgo._internal.internal.Async.tick();
                     };
-                    (@:checkr _t ?? throw "null pointer dereference").c.__reset__();
+                    __c__0.__reset__();
                 };
             };
             @:check2r _t.reset(_d);
@@ -1262,11 +1270,12 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
             if ((((_d > (0i64 : stdgo._internal.time.Time_duration.Duration) : Bool) && (_d < (@:checkr _db ?? throw "null pointer dereference")._maxIdleTime : Bool) : Bool) && ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null) : Bool)) {
                 {
                     var __select__ = true;
+                    var __c__0 = (@:checkr _db ?? throw "null pointer dereference")._cleanerCh;
                     while (__select__) {
-                        if ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null && (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__isSend__(true)) {
+                        if ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null && __c__0.__isSend__(true)) {
                             __select__ = false;
                             {
-                                (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__send__(({  } : stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0));
+                                __c__0.__send__(({  } : stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0));
                                 {};
                             };
                         } else {
@@ -1276,7 +1285,7 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
                         #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                         stdgo._internal.internal.Async.tick();
                     };
-                    (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__reset__();
+                    __c__0.__reset__();
                 };
             };
             (@:checkr _db ?? throw "null pointer dereference")._maxIdleTime = _d;
@@ -1346,11 +1355,12 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
         if ((((_d > (0i64 : stdgo._internal.time.Time_duration.Duration) : Bool) && (_d < (@:checkr _db ?? throw "null pointer dereference")._maxLifetime : Bool) : Bool) && ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null) : Bool)) {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _db ?? throw "null pointer dereference")._cleanerCh;
                 while (__select__) {
-                    if ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null && (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__isSend__(true)) {
+                    if ((@:checkr _db ?? throw "null pointer dereference")._cleanerCh != null && __c__0.__isSend__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__send__(({  } : stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0));
+                            __c__0.__send__(({  } : stdgo._internal.database.sql.Sql_t__struct_0.T__struct_0));
                             {};
                         };
                     } else {
@@ -1360,7 +1370,7 @@ if ((@:checkr _c ?? throw "null pointer dereference")._createdAt.before(_expired
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _db ?? throw "null pointer dereference")._cleanerCh.__reset__();
+                __c__0.__reset__();
             };
         };
         (@:checkr _db ?? throw "null pointer dereference")._maxLifetime = _d;

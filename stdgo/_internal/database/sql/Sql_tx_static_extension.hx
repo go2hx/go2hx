@@ -272,11 +272,12 @@ package stdgo._internal.database.sql;
         @:recv var _tx:stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx> = _tx;
         {
             var __select__ = true;
+            var __c__0 = (@:checkr _tx ?? throw "null pointer dereference")._ctx.done();
             while (__select__) {
-                if ((@:checkr _tx ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__get__();
+                        __c__0.__get__();
                         {
                             if (@:check2 (@:checkr _tx ?? throw "null pointer dereference")._done.load()) {
                                 return stdgo._internal.database.sql.Sql_errtxdone.errTxDone;
@@ -291,7 +292,7 @@ package stdgo._internal.database.sql;
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            (@:checkr _tx ?? throw "null pointer dereference")._ctx.done().__reset__();
+            __c__0.__reset__();
         };
         if (!@:check2 (@:checkr _tx ?? throw "null pointer dereference")._done.compareAndSwap(false, true)) {
             return stdgo._internal.database.sql.Sql_errtxdone.errTxDone;
@@ -395,11 +396,12 @@ package stdgo._internal.database.sql;
         @:recv var _tx:stdgo.Ref<stdgo._internal.database.sql.Sql_tx.Tx> = _tx;
         {
             var __select__ = true;
+            var __c__0 = _ctx.done();
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _ctx.done().__get__();
+                        __c__0.__get__();
                         {
                             return { _0 : null, _1 : null, _2 : _ctx.err() };
                         };
@@ -411,7 +413,7 @@ package stdgo._internal.database.sql;
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            _ctx.done().__reset__();
+            __c__0.__reset__();
         };
         @:check2 (@:checkr _tx ?? throw "null pointer dereference")._closemu.rLock();
         if (@:check2r _tx._isDone()) {

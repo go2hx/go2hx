@@ -15,11 +15,12 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                 if (@:check2r _h._want(_n)) {
                     {
                         var __select__ = true;
+                        var __c__0 = _c;
                         while (__select__) {
-                            if (_c != null && _c.__isSend__(true)) {
+                            if (_c != null && __c__0.__isSend__(true)) {
                                 __select__ = false;
                                 {
-                                    _c.__send__(_sig);
+                                    __c__0.__send__(_sig);
                                     {};
                                 };
                             } else {
@@ -29,7 +30,7 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        _c.__reset__();
+                        __c__0.__reset__();
                     };
                 };
             };
@@ -37,11 +38,12 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                 if (@:check2r _d._h._want(_n)) {
                     {
                         var __select__ = true;
+                        var __c__0 = _d._c;
                         while (__select__) {
-                            if (_d._c != null && _d._c.__isSend__(true)) {
+                            if (_d._c != null && __c__0.__isSend__(true)) {
                                 __select__ = false;
                                 {
-                                    _d._c.__send__(_sig);
+                                    __c__0.__send__(_sig);
                                     {};
                                 };
                             } else {
@@ -51,7 +53,7 @@ function _process(_sig:stdgo._internal.os.Os_signal.Signal):Void {
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        _d._c.__reset__();
+                        __c__0.__reset__();
                     };
                 };
             };

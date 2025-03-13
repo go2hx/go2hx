@@ -11,27 +11,29 @@ function notifyContext(_parent:stdgo._internal.context.Context_context.Context, 
                 var a = function():Void {
                     {
                         var __select__ = true;
+                        var __c__0 = (@:checkr _c ?? throw "null pointer dereference")._ch;
+var __c__1 = (@:checkr _c ?? throw "null pointer dereference").done();
                         while (__select__) {
-                            if ((@:checkr _c ?? throw "null pointer dereference")._ch != null && (@:checkr _c ?? throw "null pointer dereference")._ch.__isGet__(true)) {
+                            if (__c__0 != null && __c__0.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _c ?? throw "null pointer dereference")._ch.__get__();
+                                    __c__0.__get__();
                                     {
                                         (@:checkr _c ?? throw "null pointer dereference")._cancel();
                                     };
                                 };
-                            } else if ((@:checkr _c ?? throw "null pointer dereference").done() != null && (@:checkr _c ?? throw "null pointer dereference").done().__isGet__(true)) {
+                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _c ?? throw "null pointer dereference").done().__get__();
+                                    __c__1.__get__();
                                     {};
                                 };
                             };
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        (@:checkr _c ?? throw "null pointer dereference")._ch.__reset__();
-(@:checkr _c ?? throw "null pointer dereference").done().__reset__();
+                        __c__0.__reset__();
+__c__1.__reset__();
                     };
                 };
                 a();

@@ -16,11 +16,12 @@ function _ctxDriverStmtQuery(_ctx:stdgo._internal.context.Context_context.Contex
         };
         {
             var __select__ = true;
+            var __c__0 = _ctx.done();
             while (__select__) {
-                if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        _ctx.done().__get__();
+                        __c__0.__get__();
                         {
                             return { _0 : (null : stdgo._internal.database.sql.driver.Driver_rows.Rows), _1 : _ctx.err() };
                         };
@@ -32,7 +33,7 @@ function _ctxDriverStmtQuery(_ctx:stdgo._internal.context.Context_context.Contex
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            _ctx.done().__reset__();
+            __c__0.__reset__();
         };
         return _si.query(_dargs);
     }

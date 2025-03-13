@@ -36,11 +36,13 @@ package stdgo._internal.net.http.pprof;
             };
             {
                 var __select__ = true;
+                var __c__0 = @:check2r _r.context().done();
+var __c__1 = (@:checkr _t ?? throw "null pointer dereference").c;
                 while (__select__) {
-                    if (@:check2r _r.context().done() != null && @:check2r _r.context().done().__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            @:check2r _r.context().done().__get__();
+                            __c__0.__get__();
                             {
                                 var _err = (@:check2r _r.context().err() : stdgo.Error);
                                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.context.Context_deadlineexceeded.deadlineExceeded))) {
@@ -58,18 +60,18 @@ package stdgo._internal.net.http.pprof;
                                 };
                             };
                         };
-                    } else if ((@:checkr _t ?? throw "null pointer dereference").c != null && (@:checkr _t ?? throw "null pointer dereference").c.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _t ?? throw "null pointer dereference").c.__get__();
+                            __c__1.__get__();
                             {};
                         };
                     };
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                @:check2r _r.context().done().__reset__();
-(@:checkr _t ?? throw "null pointer dereference").c.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
             var __tmp__ = stdgo._internal.net.http.pprof.Pprof__collectprofile._collectProfile(_p), _p1:stdgo.Ref<stdgo._internal.internal.profile.Profile_profile.Profile> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

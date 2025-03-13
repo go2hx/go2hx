@@ -251,17 +251,19 @@ package stdgo._internal.net.http.httptest;
                 while ((_i < _nconn : Bool)) {
                     {
                         var __select__ = true;
+                        var __c__0 = _ch;
+var __c__1 = (@:checkr _timer ?? throw "null pointer dereference").c;
                         while (__select__) {
-                            if (_ch != null && _ch.__isGet__(true)) {
+                            if (__c__0 != null && __c__0.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    _ch.__get__();
+                                    __c__0.__get__();
                                     {};
                                 };
-                            } else if ((@:checkr _timer ?? throw "null pointer dereference").c != null && (@:checkr _timer ?? throw "null pointer dereference").c.__isGet__(true)) {
+                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _timer ?? throw "null pointer dereference").c.__get__();
+                                    __c__1.__get__();
                                     {
                                         {
                                             for (defer in __deferstack__) {
@@ -277,8 +279,8 @@ package stdgo._internal.net.http.httptest;
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        _ch.__reset__();
-(@:checkr _timer ?? throw "null pointer dereference").c.__reset__();
+                        __c__0.__reset__();
+__c__1.__reset__();
                     };
                     _i++;
                 };

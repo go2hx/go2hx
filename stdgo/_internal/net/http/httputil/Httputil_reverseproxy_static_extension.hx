@@ -35,25 +35,27 @@ package stdgo._internal.net.http.httputil;
                 var a = function():Void {
                     {
                         var __select__ = true;
+                        var __c__0 = @:check2r _req.context().done();
+var __c__1 = _backConnCloseCh;
                         while (__select__) {
-                            if (@:check2r _req.context().done() != null && @:check2r _req.context().done().__isGet__(true)) {
+                            if (__c__0 != null && __c__0.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    @:check2r _req.context().done().__get__();
+                                    __c__0.__get__();
                                     {};
                                 };
-                            } else if (_backConnCloseCh != null && _backConnCloseCh.__isGet__(true)) {
+                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    _backConnCloseCh.__get__();
+                                    __c__1.__get__();
                                     {};
                                 };
                             };
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        @:check2r _req.context().done().__reset__();
-_backConnCloseCh.__reset__();
+                        __c__0.__reset__();
+__c__1.__reset__();
                     };
                     _backConn.close();
                 };
@@ -353,27 +355,29 @@ _backConnCloseCh.__reset__();
                         var a = function():Void {
                             {
                                 var __select__ = true;
+                                var __c__0 = _notifyChan;
+var __c__1 = _ctx.done();
                                 while (__select__) {
-                                    if (_notifyChan != null && _notifyChan.__isGet__(true)) {
+                                    if (__c__0 != null && __c__0.__isGet__(true)) {
                                         __select__ = false;
                                         {
-                                            _notifyChan.__get__();
+                                            __c__0.__get__();
                                             {
                                                 _cancel();
                                             };
                                         };
-                                    } else if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                         __select__ = false;
                                         {
-                                            _ctx.done().__get__();
+                                            __c__1.__get__();
                                             {};
                                         };
                                     };
                                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                                     stdgo._internal.internal.Async.tick();
                                 };
-                                _notifyChan.__reset__();
-_ctx.done().__reset__();
+                                __c__0.__reset__();
+__c__1.__reset__();
                             };
                         };
                         a();

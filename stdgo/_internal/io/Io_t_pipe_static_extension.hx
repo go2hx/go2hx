@@ -48,11 +48,12 @@ package stdgo._internal.io;
         try {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _p ?? throw "null pointer dereference")._done;
                 while (__select__) {
-                    if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
+                            __c__0.__get__();
                             {
                                 return {
                                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._writeCloseError() };
@@ -75,28 +76,30 @@ package stdgo._internal.io;
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+                __c__0.__reset__();
             };
             {
                 var _once = (true : Bool);
                 while ((_once || ((_b.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     {
                         var __select__ = true;
+                        var __c__0 = (@:checkr _p ?? throw "null pointer dereference")._wrCh;
+var __c__1 = (@:checkr _p ?? throw "null pointer dereference")._done;
                         while (__select__) {
-                            if ((@:checkr _p ?? throw "null pointer dereference")._wrCh != null && (@:checkr _p ?? throw "null pointer dereference")._wrCh.__isSend__(true)) {
+                            if ((@:checkr _p ?? throw "null pointer dereference")._wrCh != null && __c__0.__isSend__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _p ?? throw "null pointer dereference")._wrCh.__send__(_b);
+                                    __c__0.__send__(_b);
                                     {
                                         var _nw = ((@:checkr _p ?? throw "null pointer dereference")._rdCh.__get__() : stdgo.GoInt);
                                         _b = (_b.__slice__(_nw) : stdgo.Slice<stdgo.GoUInt8>);
                                         _n = (_n + (_nw) : stdgo.GoInt);
                                     };
                                 };
-                            } else if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.__isGet__(true)) {
+                            } else if (__c__1 != null && __c__1.__isGet__(true)) {
                                 __select__ = false;
                                 {
-                                    (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
+                                    __c__1.__get__();
                                     {
                                         {
                                             final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
@@ -118,8 +121,8 @@ package stdgo._internal.io;
                             #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                             stdgo._internal.internal.Async.tick();
                         };
-                        (@:checkr _p ?? throw "null pointer dereference")._wrCh.__reset__();
-(@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+                        __c__0.__reset__();
+__c__1.__reset__();
                     };
                     _once = false;
                 };
@@ -212,11 +215,12 @@ package stdgo._internal.io;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __select__ = true;
+            var __c__0 = (@:checkr _p ?? throw "null pointer dereference")._done;
             while (__select__) {
-                if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
+                        __c__0.__get__();
                         {
                             return {
                                 @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
@@ -233,16 +237,18 @@ package stdgo._internal.io;
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            (@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+            __c__0.__reset__();
         };
         {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _p ?? throw "null pointer dereference")._wrCh;
+var __c__1 = (@:checkr _p ?? throw "null pointer dereference")._done;
                 while (__select__) {
-                    if ((@:checkr _p ?? throw "null pointer dereference")._wrCh != null && (@:checkr _p ?? throw "null pointer dereference")._wrCh.__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            var _bw = (@:checkr _p ?? throw "null pointer dereference")._wrCh.__get__();
+                            var _bw = __c__0.__get__();
                             {
                                 var _nr = (_b.__copyTo__(_bw) : stdgo.GoInt);
                                 (@:checkr _p ?? throw "null pointer dereference")._rdCh.__send__(_nr);
@@ -254,10 +260,10 @@ package stdgo._internal.io;
                                 };
                             };
                         };
-                    } else if ((@:checkr _p ?? throw "null pointer dereference")._done != null && (@:checkr _p ?? throw "null pointer dereference")._done.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _p ?? throw "null pointer dereference")._done.__get__();
+                            __c__1.__get__();
                             {
                                 return {
                                     @:typeReturnStmt2 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : @:check2r _p._readCloseError() };
@@ -271,8 +277,8 @@ package stdgo._internal.io;
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _p ?? throw "null pointer dereference")._wrCh.__reset__();
-(@:checkr _p ?? throw "null pointer dereference")._done.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
             return { _0 : _n, _1 : _err };
         };

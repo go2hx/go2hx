@@ -6,11 +6,12 @@ package stdgo._internal.net.rpc;
         @:recv var _call:stdgo.Ref<stdgo._internal.net.rpc.Rpc_call.Call> = _call;
         {
             var __select__ = true;
+            var __c__0 = (@:checkr _call ?? throw "null pointer dereference").done;
             while (__select__) {
-                if ((@:checkr _call ?? throw "null pointer dereference").done != null && (@:checkr _call ?? throw "null pointer dereference").done.__isSend__(true)) {
+                if ((@:checkr _call ?? throw "null pointer dereference").done != null && __c__0.__isSend__(true)) {
                     __select__ = false;
                     {
-                        (@:checkr _call ?? throw "null pointer dereference").done.__send__(_call);
+                        __c__0.__send__(_call);
                         {};
                     };
                 } else {
@@ -24,7 +25,7 @@ package stdgo._internal.net.rpc;
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            (@:checkr _call ?? throw "null pointer dereference").done.__reset__();
+            __c__0.__reset__();
         };
     }
 }

@@ -366,11 +366,12 @@ package stdgo._internal.internal.fuzz;
             while (true) {
                 {
                     var __select__ = true;
+                    var __c__0 = _ctx.done();
                     while (__select__) {
-                        if (_ctx.done() != null && _ctx.done().__isGet__(true)) {
+                        if (__c__0 != null && __c__0.__isGet__(true)) {
                             __select__ = false;
                             {
-                                _ctx.done().__get__();
+                                __c__0.__get__();
                                 {
                                     {
                                         final __ret__:stdgo._internal.internal.fuzz.Fuzz_t_fuzzresponse.T_fuzzResponse = _resp = _resp?.__copy__();
@@ -434,7 +435,7 @@ package stdgo._internal.internal.fuzz;
                         #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                         stdgo._internal.internal.Async.tick();
                     };
-                    _ctx.done().__reset__();
+                    __c__0.__reset__();
                 };
             };
             {

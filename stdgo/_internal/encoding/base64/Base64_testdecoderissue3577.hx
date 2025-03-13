@@ -16,21 +16,23 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
         }));
         {
             var __select__ = true;
+            var __c__0 = _errc;
+var __c__1 = stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration));
             while (__select__) {
-                if (_errc != null && _errc.__isGet__(true)) {
+                if (__c__0 != null && __c__0.__isGet__(true)) {
                     __select__ = false;
                     {
-                        var _err = _errc.__get__();
+                        var _err = __c__0.__get__();
                         {
                             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_wantErr))) {
                                 @:check2r _t.errorf(("got error %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantErr));
                             };
                         };
                     };
-                } else if (stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)) != null && stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__isGet__(true)) {
+                } else if (__c__1 != null && __c__1.__isGet__(true)) {
                     __select__ = false;
                     {
-                        stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__get__();
+                        __c__1.__get__();
                         {
                             @:check2r _t.errorf(("timeout; Decoder blocked without returning an error" : stdgo.GoString));
                         };
@@ -39,7 +41,7 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_
                 #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                 stdgo._internal.internal.Async.tick();
             };
-            _errc.__reset__();
-stdgo._internal.time.Time_after.after((5000000000i64 : stdgo._internal.time.Time_duration.Duration)).__reset__();
+            __c__0.__reset__();
+__c__1.__reset__();
         };
     }

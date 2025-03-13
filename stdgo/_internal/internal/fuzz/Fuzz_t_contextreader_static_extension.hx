@@ -27,19 +27,21 @@ package stdgo._internal.internal.fuzz;
         {
             {
                 var __select__ = true;
+                var __c__0 = (@:checkr _cr ?? throw "null pointer dereference")._ctx.done();
+var __c__1 = _done;
                 while (__select__) {
-                    if ((@:checkr _cr ?? throw "null pointer dereference")._ctx.done() != null && (@:checkr _cr ?? throw "null pointer dereference")._ctx.done().__isGet__(true)) {
+                    if (__c__0 != null && __c__0.__isGet__(true)) {
                         __select__ = false;
                         {
-                            (@:checkr _cr ?? throw "null pointer dereference")._ctx.done().__get__();
+                            __c__0.__get__();
                             {
                                 return { _0 : (0 : stdgo.GoInt), _1 : (@:checkr _cr ?? throw "null pointer dereference")._ctx.err() };
                             };
                         };
-                    } else if (_done != null && _done.__isGet__(true)) {
+                    } else if (__c__1 != null && __c__1.__isGet__(true)) {
                         __select__ = false;
                         {
-                            _done.__get__();
+                            __c__1.__get__();
                             {
                                 return { _0 : _n, _1 : _err };
                             };
@@ -48,8 +50,8 @@ package stdgo._internal.internal.fuzz;
                     #if (sys || hxnodejs) Sys.sleep(0.01) #else null #end;
                     stdgo._internal.internal.Async.tick();
                 };
-                (@:checkr _cr ?? throw "null pointer dereference")._ctx.done().__reset__();
-_done.__reset__();
+                __c__0.__reset__();
+__c__1.__reset__();
             };
             return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
         };

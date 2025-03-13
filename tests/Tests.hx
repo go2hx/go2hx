@@ -201,10 +201,17 @@ function update() {
 		trace("COMPLETE");
 		close();
 	}
-	if (timeout++ > (10 * 60) * 6) {
+	if (timeout++ > (10 * 60) * 20) {
 		trace("TIMEOUT");
 		trace("tests.length:",tests.length);
-		trace("tasks.length:",tasks.length);
+		trace("timeout tasks remaining, tasks.length:",tasks.length);
+		for (task in tasks) {
+			if (task.runtime) {
+				suite.runtimeError(task);
+			}else{
+				suite.buildError(task);
+			}
+		}
 		trace("runningCount:",runningCount);
 		trace("completeBool:",completeBool);
 		// instance.args is null
@@ -254,7 +261,7 @@ function update() {
 		lastTaskLogs.push(taskString);
 		runningCount++;
 		final ls = ChildProcess.spawn(task.command, task.args);
-		var timeoutTimer = new haxe.Timer((1000 * 60) * 16);
+		var timeoutTimer = new haxe.Timer((1000 * 60) * 12);
 		timeoutTimer.run = () -> {
 			runningCount--;
 			trace("TEST TIMEOUT: " + task.command + " " + task.args.join(" "));

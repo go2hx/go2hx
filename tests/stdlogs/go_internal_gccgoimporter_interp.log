@@ -28,7 +28,7 @@
 
 [ERROR] (macro) ./stdgo/_internal/go/types/Types_checker_static_extension.hx:1966: characters 21-69
 
- 1966 |                     stdgo._internal.go.types.Types__iterator_6313118._iterator_6313118++;
+ 1966 |                     stdgo._internal.go.types.Types__iterator_6495527._iterator_6495527++;
       |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      | Type not found : stdgo._internal.go.types.Types__iterator_6313118
+      | Type not found : stdgo._internal.go.types.Types__iterator_6495527
 

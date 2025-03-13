@@ -131,7 +131,7 @@ jobs:
   test-os:
     timeout-minutes: 15
     needs: [setup]
-    runs-on: [ubuntu-latest, windows-latest, macos-latest, macos-13]
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Install lix

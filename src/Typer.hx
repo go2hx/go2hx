@@ -942,6 +942,8 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 		return (macro @:null_select {}).expr;
 	var needsReturn = true;
 	final resets:Array<Expr> = [];
+	final defines:Array<Expr> = [];
+	var defineCount = 0;
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
@@ -975,9 +977,11 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 			if (comm.id == "UnaryExpr") { // get
 				var expr:Ast.UnaryExpr = comm;
 				var e = typeExpr(expr.x, info);
-				cond = macro $e != null && $e.__isGet__(true);
-				resets.push(macro $e.__reset__());
-				e = macro $e.__get__();
+				final chanName = "__c__" + defineCount++;
+				defines.push(macro var $chanName = $e);
+				cond = macro $i{chanName} != null && $i{chanName}.__isGet__(true);
+				resets.push(macro $i{chanName}.__reset__());
+				e = macro $i{chanName}.__get__();
 				if (varName != "") {
 					if (obj.comm.tok == Ast.Token.DEFINE) {
 						e = macro var $varName = $e;
@@ -991,9 +995,11 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				var stmt:Ast.SendStmt = comm;
 				final value = typeExpr(stmt.value, info);
 				var e = typeExpr(stmt.chan, info);
-				cond = macro $e != null && $e.__isSend__(true);
-				resets.push(macro $e.__reset__());
-				e = macro $e.__send__($value);
+				final chanName = "__c__" + defineCount++;
+				defines.push(macro var $chanName = $e);
+				cond = macro $e != null && $i{chanName}.__isSend__(true);
+				resets.push(macro $i{chanName}.__reset__());
+				e = macro $i{chanName}.__send__($value);
 				block = macro $b{[e, block]};
 			}
 		}
@@ -1021,6 +1027,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	var e = ifs(0);
 	e = macro {
 		var __select__ = true;
+		@:mergeBlock $b{defines};
 		while(__select__) {
 			$e;
 			@:define("(sys || hxnodejs)") Sys.sleep(0.01);

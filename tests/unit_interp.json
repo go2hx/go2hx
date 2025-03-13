@@ -189,5 +189,6 @@
  "interp|chan9",
  "interp|chan10",
  "interp|chan11",
- "interp|range0"
+ "interp|range0",
+ "interp|io2"
 ]

@@ -50,6 +50,8 @@ class ChanData<T> {
 
     public var length(get, never):GoInt;
     public var capacity:GoInt;
+    public static var count:Int = 0;
+    var index:Int = 0;
 
     public static inline var debug = false;
 
@@ -58,10 +60,15 @@ class ChanData<T> {
     }
 
     public function new(length:GoInt, defaultValue) {
-        // TODO: not handling length and capacity
         buffered = length > 0;
         this.capacity = length;
         this.defaultValue = defaultValue;
+        if (debug) {
+            mutex.acquire();
+            index = count;
+            count++;
+            mutex.release();
+        }
     }
 
     public function __isSend__(selectBool:Bool=false):Bool {
@@ -72,9 +79,9 @@ class ChanData<T> {
         }
         if (selectBool)
             getBool = true;
-        if (debug)
-            trace("__isSend__ " + sendBool);
         final b = sendBool;
+        if (debug)
+            trace(index + "__isSend__ " + b, length, buffered);
         mutex.release();
         return b;
     }
@@ -95,7 +102,7 @@ class ChanData<T> {
         if (selectBool)
             sendBool = true;
         if (debug)
-            trace("__isGet__ " + b, length, buffered);
+            trace(index + "__isGet__ " + b, length, buffered);
         mutex.release();
 
         return b;
@@ -107,16 +114,16 @@ class ChanData<T> {
         if (getLock.wait(0)) {
             // released
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutex.acquire wait");
+                trace(index + "__smartGet__ getLock.wait release, mutex.acquire wait");
             mutex.acquire();
             final value = buffer.shift();
             mutex.release();
             if (debug)
-                trace("__smartGet__ getLock.wait release, mutex.acquire release");
+                trace(index + "__smartGet__ getLock.wait release, mutex.acquire release");
             return {_0: value, _1: true};
         }else{
             if (debug)
-                trace("__smartGet__ getLock.wait wait, defaultValue");
+                trace(index + "__smartGet__ getLock.wait wait, defaultValue");
             return {_0: defaultValue(), _1: false};
         }
     }
@@ -137,7 +144,7 @@ class ChanData<T> {
     public function __get__():T {
         mutex.acquire();
         if (debug)
-            trace("__get__ wait");
+            trace(index + "__get__ wait");
         sendLock.release();
         mutex.release();
         // block
@@ -160,10 +167,9 @@ class ChanData<T> {
         mutex.acquire();
         sendBool = false;
         if (debug)
-            trace("__get__ get value");
+            trace(index + "__get__ get value");
         final value = buffer.shift();
         mutex.release();
-        sendLock.release();
         return value;
     }
 
@@ -175,7 +181,7 @@ class ChanData<T> {
         }
         mutex.release();
         if (debug)
-            trace("__send__ wait");
+            trace(index + "__send__ wait");
         while (!sendLock.wait(debug ? 0.2 : 0.01)) {
             mutex.acquire();
             if (closed) {
@@ -184,7 +190,6 @@ class ChanData<T> {
             }
             // set bools
             getBool = true;
-            sendBool = false;
             if (buffered && length < capacity) {
                 mutex.release();
                 break;
@@ -192,20 +197,14 @@ class ChanData<T> {
             mutex.release();
             Async.tick();
         }
-        if (debug)
-            trace("end loop __send__");
         mutex.acquire();
-        if (debug)
-            trace("get mutex __send__");
         // send value
-        if (debug)
-            trace("__send__ send value");
         buffer.push(value);
         getBool = false;
-        mutex.release();
         getLock.release();
+        mutex.release();
         if (debug)
-            trace("end of __send__");
+            trace(index + "end of __send__");
     }
 
     public inline function iterator()
@@ -217,7 +216,7 @@ class ChanData<T> {
 
     public inline function __close__() {
         if (debug)
-            trace("close");
+            trace(index + "close");
         closed = true;
     }
 }

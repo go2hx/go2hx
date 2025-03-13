@@ -1,16 +1,257 @@
-[ERROR] ./_internal/io_test/Io_test_testpipe2.hx:5: characters 32-64
+=== RUN  TestCopy
 
-  5 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_reader.reader(_t, stdgo.Go.asInterface(_r), _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_reader
+-- PASS: TestCopy
 
-        | For function argument 'func'
+=== RUN  TestCopyNegative
 
-[ERROR] ./_internal/io_test/Io_test_testpipe3.hx:13: characters 32-64
+-- PASS: TestCopyNegative
 
- 13 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_writer.writer(stdgo.Go.asInterface(_w), _wdat, _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_writer
+=== RUN  TestCopyBuffer
 
-        | For function argument 'func'
+-- PASS: TestCopyBuffer
+
+=== RUN  TestCopyBufferNil
+
+-- PASS: TestCopyBufferNil
+
+=== RUN  TestCopyReadFrom
+
+-- PASS: TestCopyReadFrom
+
+=== RUN  TestCopyWriteTo
+
+-- PASS: TestCopyWriteTo
+
+=== RUN  TestCopyPriority
+
+-- PASS: TestCopyPriority
+
+=== RUN  TestCopyReadErrWriteErr
+
+-- PASS: TestCopyReadErrWriteErr
+
+=== RUN  TestCopyN
+
+-- PASS: TestCopyN
+
+=== RUN  TestCopyNReadFrom
+
+-- PASS: TestCopyNReadFrom
+
+=== RUN  TestCopyNWriteTo
+
+-- PASS: TestCopyNWriteTo
+
+=== RUN  TestCopyNEOF
+
+-- PASS: TestCopyNEOF
+
+=== RUN  TestReadAtLeast
+
+-- PASS: TestReadAtLeast
+
+=== RUN  TestReadAtLeastWithDataAndEOF
+
+-- PASS: TestReadAtLeastWithDataAndEOF
+
+=== RUN  TestReadAtLeastWithDataAndError
+
+-- PASS: TestReadAtLeastWithDataAndError
+
+=== RUN  TestTeeReader
+
+-- PASS: TestTeeReader
+
+=== RUN  TestSectionReader_ReadAt
+
+-- PASS: TestSectionReader_ReadAt
+
+=== RUN  TestSectionReader_Seek
+
+-- PASS: TestSectionReader_Seek
+
+=== RUN  TestSectionReader_Size
+
+-- PASS: TestSectionReader_Size
+
+=== RUN  TestSectionReader_Max
+
+-- PASS: TestSectionReader_Max
+
+=== RUN  TestCopyLargeWriter
+
+-- PASS: TestCopyLargeWriter
+
+=== RUN  TestNopCloserWriterToForwarding
+
+-- PASS: TestNopCloserWriterToForwarding
+
+=== RUN  TestOffsetWriter_Seek
+
+-- PASS: TestOffsetWriter_Seek
+
+=== RUN  TestOffsetWriter_WriteAt
+WriteAt failed. off: 0, at: 0, step: 1
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 3
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 2
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 8
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 7
+ error: File.writeAt failed
+Exception: File:os.readAt is not yet implemented
+Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.~testOffsetWriter_WriteAt.1 (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 157)
+Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.testOffsetWriter_WriteAt (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 169)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
+
+-- FAIL: TestOffsetWriter_WriteAt
+WriteAt failed. off: 0, at: 0, step: 12
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 6
+ error: File.writeAt failed
+
+=== RUN  TestWriteAt_PositionPriorToBase
+WriteAt failed. off: 0, at: 0, step: 14
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 9
+ error: File.writeAt failed
+
+-- PASS: TestWriteAt_PositionPriorToBase
+WriteAt failed. off: 0, at: 0, step: 4
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 10
+ error: File.writeAt failed
+
+=== RUN  TestOffsetWriter_Write
+
+-- PASS: TestOffsetWriter_Write
+
+=== RUN  TestMultiReader
+WriteAt failed. off: 0, at: 0, step: 13
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 15
+ error: File.writeAt failed
+
+-- PASS: TestMultiReader
+
+=== RUN  TestMultiReaderAsWriterTo
+WriteAt failed. off: 0, at: 0, step: 11
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 5
+ error: File.writeAt failed
+
+-- PASS: TestMultiReaderAsWriterTo
+
+=== RUN  TestMultiWriter
+
+-- PASS: TestMultiWriter
+
+=== RUN  TestMultiWriter_String
+
+-- PASS: TestMultiWriter_String
+
+=== RUN  TestMultiWriter_WriteStringSingleAlloc
+-- SKIP: testMultiWriter_WriteStringSingleAlloc
+
+-- PASS: TestMultiWriter_WriteStringSingleAlloc
+
+=== RUN  TestMultiWriter_StringCheckCall
+
+-- PASS: TestMultiWriter_StringCheckCall
+
+=== RUN  TestMultiWriterSingleChainFlatten
+-- SKIP: testMultiWriterSingleChainFlatten
+
+-- PASS: TestMultiWriterSingleChainFlatten
+
+=== RUN  TestMultiWriterError
+
+-- PASS: TestMultiWriterError
+
+=== RUN  TestMultiReaderCopy
+
+-- PASS: TestMultiReaderCopy
+
+=== RUN  TestMultiWriterCopy
+
+-- PASS: TestMultiWriterCopy
+
+=== RUN  TestMultiReaderFlatten
+-- SKIP: testMultiReaderFlatten
+
+-- PASS: TestMultiReaderFlatten
+
+=== RUN  TestMultiReaderSingleByteWithEOF
+
+-- PASS: TestMultiReaderSingleByteWithEOF
+
+=== RUN  TestMultiReaderFinalEOF
+
+-- PASS: TestMultiReaderFinalEOF
+
+=== RUN  TestMultiReaderFreesExhaustedReaders
+-- SKIP: testMultiReaderFreesExhaustedReaders
+
+-- PASS: TestMultiReaderFreesExhaustedReaders
+
+=== RUN  TestInterleavedMultiReader
+
+-- PASS: TestInterleavedMultiReader
+
+=== RUN  TestPipe1
+
+-- PASS: TestPipe1
+
+=== RUN  TestPipe2
+
+-- PASS: TestPipe2
+
+=== RUN  TestPipe3
+
+-- PASS: TestPipe3
+
+=== RUN  TestPipeReadClose
+
+-- PASS: TestPipeReadClose
+
+=== RUN  TestPipeReadClose2
+
+-- PASS: TestPipeReadClose2
+
+=== RUN  TestPipeWriteClose
+
+-- PASS: TestPipeWriteClose
+
+=== RUN  TestPipeWriteClose2
+
+-- PASS: TestPipeWriteClose2
+
+=== RUN  TestWriteEmpty
+
+-- PASS: TestWriteEmpty
+
+=== RUN  TestWriteNil
+
+-- PASS: TestWriteNil
+
+=== RUN  TestWriteAfterWriterClose
+
+-- PASS: TestWriteAfterWriterClose
+
+=== RUN  TestPipeCloseError
+Exception: stdgo._internal.math.bits.T_errorString_asInterface
+Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 158)
+Called from stdgo._AnyInterface.$AnyInterface_Impl_.notEquals (stdgo/AnyInterface.hx line 43)
+Called from _internal.io_test._Io_test_testpipecloseerror.$Io_test_testpipecloseerror_Fields_.testPipeCloseError (_internal/io_test/Io_test_testpipecloseerror.hx line 9)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
+
+-- FAIL: TestPipeCloseError
+
+=== RUN  TestPipeConcurrent
+
+-- PASS: TestPipeConcurrent
 

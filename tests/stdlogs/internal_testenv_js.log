@@ -3,10 +3,10 @@ Exception: :os.getenv is not yet implemented
 Called from .stdgo__$internal_os_Os_$getenv_getenv (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 12929 column 23)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 12917 column 12)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testgotoollocation_testGoToolLocation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:12355:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 46629 column 9)
-Called from ._$internal_internal_testenvdottest_Testenvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 39210 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:53455:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:53456:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 46609 column 9)
+Called from ._$internal_internal_testenvdottest_Testenvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 39190 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:53435:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:53436:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestGoToolLocation

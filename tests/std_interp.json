@@ -27,5 +27,6 @@
  "interp|hash/fnv",
  "interp|internal/platform",
  "interp|crypto",
- "interp|bufio"
+ "interp|bufio",
+ "interp|encoding/base32"
 ]

@@ -185,7 +185,7 @@ class ChanData<T> {
             // set bools
             getBool = true;
             sendBool = false;
-            if (buffered && length <= capacity) {
+            if (buffered && length < capacity) {
                 mutex.release();
                 break;
             }

@@ -956,6 +956,9 @@ final list = [
 	"reflect.Value:numField" => macro {
 		return _v.type().numField();
 	},
+	"reflect.Value:numMethod" => macro {
+		return _v.type().numMethod();
+	},
 	"reflect.Value:slice" => macro @:splitdeps {
 		var value = @:privateAccess _v.value.value;
 		var t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();

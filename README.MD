@@ -10,7 +10,7 @@ This project aims to change the paradigm of the Haxe ecosystem by providing thou
 
 
 - In a manner that is easy to use for Haxe devs.
-- Allows Haxe to be used in production for many more fields.
+- Allows Haxe to be used as a general purpose language.
 - Fulfill Haxe's promises of cross target compilable code. Write once run anywhere, now with the libraries to back it up.
 
 If you are interested in improving the Haxe ecosystem you may be interested in [contributing](#contributing)
@@ -138,7 +138,7 @@ function main() {
 To go ahead with more complicated compiles, proceed with caution as most libraries will not work.
 Feedback is highly welcome, and any issues run across feel free to make an issue.
 
-Code using generics, goroutines, unsafe, or channels has a very low chance of correctly compiling.
+Code using generics or unsafe has a very low chance of correctly compiling.
 Likewise for non passing std libraries.
 
 To experiment with a few samples take a look at: samples [code](https://github.com/go2hx/go2hx.github.io/tree/master/samples/cases) [live](https://go2hx.github.io/samples/)
@@ -230,7 +230,7 @@ Target:
 
 # Project status
 
-The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensively tested and will likely work in isolation, that are not explicated excluded such as: generics, goroutines, channels, unsafe
+The project is currently in a prealpha state. Not able to compile most Go code. Most Go language features are extensively tested and will likely work in isolation, that are not explicated excluded such as: generics, unsafe
 
 The project is on the verge of having larger 3rd party libraries working.
 For example ``regexp/syntax`` now passes as well as [regexp2](https://github.com/dlclark/regexp2)
@@ -264,7 +264,7 @@ with using Go2hx.
 - The compiler supports a sub-specification of the full language, language features outside of it, are likely excluded from testing and have no support.
 - Many targets have fundamental problems not addressed by Go2hx such as too large of function blocks in jvm.
 - The project has many rough spots, and pain points that need feedback to fix.
-- Some of the excluded language features such as goroutines and generics are heavily used in most Go libraries.
+- Some of the excluded language features such as generics are heavily used in most Go libraries.
 - Most stdlibs do not work, most 3rd party libs also do not work.
 
 
@@ -272,9 +272,7 @@ with using Go2hx.
 
 There is the language and then the stdlib.
 
-If a library uses language features not supported such as [generics](https://go.dev/blog/intro-generics), [goroutines](https://go.dev/ref/spec#Go_statements), [unsafe](https://pkg.go.dev/unsafe) or [cgo](https://go.dev/blog/cgo), it will most likely not work.
-
-Find goroutines by searching for: ``go func() {``
+If a library uses language features not supported such as [generics](https://go.dev/blog/intro-generics), [unsafe](https://pkg.go.dev/unsafe) or [cgo](https://go.dev/blog/cgo), it will most likely not work.
 
 generics by: ``[T`` (not fully reliable)
 
@@ -362,9 +360,9 @@ After you have [setup from source](#setup-from-source) and **ran the compiler at
 
 # Similar Projects
 
-- [reflaxe_go](https://github.com/neimanpinchas/reflaxe_go) is a go target for haxe
 - [tardisgo](https://github.com/tardisgo/tardisgo) go to haxe compiler that this project is the spiritual successor to
 - [gopherjs](https://github.com/gopherjs/gopherjs) go to js compiler
+- [reflaxe_go](https://github.com/neimanpinchas/reflaxe_go) is a go target for haxe
 
 # Credits
 

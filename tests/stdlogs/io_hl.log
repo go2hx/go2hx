@@ -91,15 +91,29 @@
 -- PASS: TestOffsetWriter_Seek
 
 === RUN  TestOffsetWriter_WriteAt
+WriteAt failed. off: 0, at: 0, step: 2
+ error: File.writeAt failed
 WriteAt failed. off: 0, at: 0, step: 1
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 3
+WriteAt failed. off: 0, at: 0, step: 4
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 2
+WriteAt failed. off: 0, at: 0, step: 7
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 6
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 5
  error: File.writeAt failed
 WriteAt failed. off: 0, at: 0, step: 8
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 7
+WriteAt failed. off: 0, at: 0, step: 3
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 9
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 10
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 11
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 12
  error: File.writeAt failed
 Exception: File:os.readAt is not yet implemented
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.~testOffsetWriter_WriteAt.1 (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 157)
@@ -108,39 +122,25 @@ Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/tes
 Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
 
 -- FAIL: TestOffsetWriter_WriteAt
-WriteAt failed. off: 0, at: 0, step: 12
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 6
- error: File.writeAt failed
 
 === RUN  TestWriteAt_PositionPriorToBase
-WriteAt failed. off: 0, at: 0, step: 14
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 9
- error: File.writeAt failed
 
 -- PASS: TestWriteAt_PositionPriorToBase
-WriteAt failed. off: 0, at: 0, step: 4
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 10
- error: File.writeAt failed
 
 === RUN  TestOffsetWriter_Write
 
 -- PASS: TestOffsetWriter_Write
 
 === RUN  TestMultiReader
-WriteAt failed. off: 0, at: 0, step: 13
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 15
- error: File.writeAt failed
 
 -- PASS: TestMultiReader
 
 === RUN  TestMultiReaderAsWriterTo
-WriteAt failed. off: 0, at: 0, step: 11
+WriteAt failed. off: 0, at: 0, step: 15
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 5
+WriteAt failed. off: 0, at: 0, step: 14
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 13
  error: File.writeAt failed
 
 -- PASS: TestMultiReaderAsWriterTo
@@ -242,14 +242,8 @@ WriteAt failed. off: 0, at: 0, step: 5
 -- PASS: TestWriteAfterWriterClose
 
 === RUN  TestPipeCloseError
-Exception: stdgo._internal.math.bits.T_errorString_asInterface
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.equals (stdgo/AnyInterface.hx line 158)
-Called from stdgo._AnyInterface.$AnyInterface_Impl_.notEquals (stdgo/AnyInterface.hx line 43)
-Called from _internal.io_test._Io_test_testpipecloseerror.$Io_test_testpipecloseerror_Fields_.testPipeCloseError (_internal/io_test/Io_test_testpipecloseerror.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
-Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
 
--- FAIL: TestPipeCloseError
+-- PASS: TestPipeCloseError
 
 === RUN  TestPipeConcurrent
 

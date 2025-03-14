@@ -192,9 +192,10 @@ Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_
 -- PASS: TestUniformFactorial
 
 === RUN  TestRegress
-Exception: Value:reflect.numMethod is not yet implemented
-Called from stdgo._internal.reflect.$Value_static_extension.numMethod (stdgo/_internal/reflect/Reflect_value_static_extension.hx line 384)
-Called from _internal.math.rand_test._Rand_test_testregress.$Rand_test_testregress_Fields_.testRegress (_internal/math/rand_test/Rand_test_testregress.hx line 22)
+Exception: not implemented method
+Called from stdgo._internal.internal.reflect.$_Type_static_extension.method (stdgo/_internal/internal/reflect/Reflect.hx line 1407)
+Called from stdgo._internal.internal.reflect._Type_asInterface.method (stdgo/_internal/internal/reflect/Reflect.hx line 1508)
+Called from _internal.math.rand_test._Rand_test_testregress.$Rand_test_testregress_Fields_.testRegress (_internal/math/rand_test/Rand_test_testregress.hx line 30)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_internal/math/randdottest/Randdottest.hx line 7)
 

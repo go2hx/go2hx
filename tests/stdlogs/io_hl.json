@@ -50,11 +50,11 @@
         "TestWriteEmpty",
         "TestWriteNil",
         "TestWriteAfterWriterClose",
+        "TestPipeCloseError",
         "TestPipeConcurrent"
     ],
     "fails": [
-        "TestOffsetWriter_WriteAt",
-        "TestPipeCloseError"
+        "TestOffsetWriter_WriteAt"
     ],
     "runs": [
         "TestCopy",

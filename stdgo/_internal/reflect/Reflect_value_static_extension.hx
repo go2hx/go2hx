@@ -381,7 +381,10 @@ stdgo._internal.internal.reflect.Reflect._set(_v);
     static public function methodByName( _v:stdgo._internal.reflect.Reflect_value.Value, _name:stdgo.GoString):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.methodByName is not yet implemented";
     @:keep
     @:tdfield
-    static public function numMethod( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt throw "Value:reflect.numMethod is not yet implemented";
+    static public function numMethod( _v:stdgo._internal.reflect.Reflect_value.Value):stdgo.GoInt {
+        @:recv var _v:stdgo._internal.reflect.Reflect_value.Value = _v?.__copy__();
+        return _v.type().numMethod();
+    }
     @:keep
     @:tdfield
     static public function method( _v:stdgo._internal.reflect.Reflect_value.Value, _i:stdgo.GoInt):stdgo._internal.reflect.Reflect_value.Value throw "Value:reflect.method is not yet implemented";

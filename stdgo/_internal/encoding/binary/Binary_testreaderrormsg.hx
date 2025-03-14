@@ -17,7 +17,7 @@ function testReadErrorMsg(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):V
         } : stdgo.AnyInterface -> Void);
         _read(stdgo.Go.toInterface((0 : stdgo.GoInt)));
         var _s = (stdgo.Go.setRef(({} : stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian)) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian>);
-        _read(stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian>>)));
-        var _p = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.binary.Binary_t_littleendian.T_littleEndian>>);
+        _read(stdgo.Go.toInterface(stdgo.Go.pointer(_s)));
+        var _p = stdgo.Go.pointer(_s);
         _read(stdgo.Go.toInterface(stdgo.Go.pointer(_p)));
     }

@@ -272,11 +272,11 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_value.Value, _bytes:stdg
                 var _v:stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_flag.Flag> = __type__ == null ? (null : stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_flag.Flag>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_flag.Flag>) : __type__ == null ? (null : stdgo.Pointer<stdgo._internal.encoding.asn1.Asn1_flag.Flag>) : __type__.__underlying__().value;
                 _v.value = true;
                 return { _0 : _offset, _1 : _err };
-            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>))) {
-                var _v:stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>> = __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__.__underlying__().value;
+            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>))) {
+                var _v:stdgo.Pointer<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>> = __type__ == null ? (null : stdgo.Pointer<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__.__underlying__() == null ? (null : stdgo.Pointer<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__ == null ? (null : stdgo.Pointer<stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_>>) : __type__.__underlying__().value;
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parsebigint._parseBigInt(_innerBytes), _parsedInt:stdgo.Ref<stdgo._internal.math.big.Big_int_.Int_> = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
                 if (_err1 == null) {
-                    _v = _parsedInt;
+                    _v.value = _parsedInt;
                 };
                 _err = _err1;
                 return { _0 : _offset, _1 : _err };

@@ -32,10 +32,10 @@ class Decoder_asInterface {
     public dynamic function _decodeValue(_wireId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, _value:stdgo._internal.reflect.Reflect_value.Value):Void @:_0 __self__.value._decodeValue(_wireId, _value);
     @:keep
     @:tdfield
-    public dynamic function _getIgnoreEnginePtr(_wireId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId):{ var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>; var _1 : stdgo.Error; } return @:_0 __self__.value._getIgnoreEnginePtr(_wireId);
+    public dynamic function _getIgnoreEnginePtr(_wireId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId):{ var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>; var _1 : stdgo.Error; } return @:_0 __self__.value._getIgnoreEnginePtr(_wireId);
     @:keep
     @:tdfield
-    public dynamic function _getDecEnginePtr(_remoteId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>):{ var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>; var _1 : stdgo.Error; } return @:_0 __self__.value._getDecEnginePtr(_remoteId, _ut);
+    public dynamic function _getDecEnginePtr(_remoteId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>):{ var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>; var _1 : stdgo.Error; } return @:_0 __self__.value._getDecEnginePtr(_remoteId, _ut);
     @:keep
     @:tdfield
     public dynamic function _compileDec(_remoteId:stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>; var _1 : stdgo.Error; } return @:_0 __self__.value._compileDec(_remoteId, _ut);

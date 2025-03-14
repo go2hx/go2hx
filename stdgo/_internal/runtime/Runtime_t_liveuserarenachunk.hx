@@ -102,10 +102,10 @@ package stdgo._internal.runtime;
     @:embedded
     @:embeddededffieldsffun
     public function get__setUserArenaChunkToFault():() -> Void return @:check32 this.new._setUserArenaChunkToFault;
-    public var _specialFindSplicePoint(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; };
+    public var _specialFindSplicePoint(get, never) : (stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; };
     @:embedded
     @:embeddededffieldsffun
-    public function get__specialFindSplicePoint():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:check32 this.new._specialFindSplicePoint;
+    public function get__specialFindSplicePoint():(stdgo.GoUIntptr, stdgo.GoUInt8) -> { var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:check32 this.new._specialFindSplicePoint;
     public var _userArenaNextFree(get, never) : (stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>, stdgo.GoInt) -> stdgo._internal.unsafe.Unsafe.UnsafePointer;
     @:embedded
     @:embeddededffieldsffun

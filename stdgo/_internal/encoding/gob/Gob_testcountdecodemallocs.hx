@@ -26,7 +26,7 @@ function testCountDecodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.
                 x.c = __tmp__?.c;
                 x.d = __tmp__?.d;
             };
-            var _err = (@:check2r _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_bench) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_bench.Bench>>))) : stdgo.Error);
+            var _err = (@:check2r _dec.decode(stdgo.Go.toInterface(stdgo.Go.pointer(_bench))) : stdgo.Error);
             if (_err != null) {
                 @:check2r _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };

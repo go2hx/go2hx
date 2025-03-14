@@ -5,7 +5,7 @@ package stdgo._internal.runtime;
     public static function _userArenaNextFree( __self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>, _1:stdgo.GoInt):stdgo._internal.unsafe.Unsafe.UnsafePointer return @:_5 __self__._userArenaNextFree(_0, _1);
     @:embedded
     @:embeddededffieldsffun
-    public static function _specialFindSplicePoint( __self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:stdgo.GoUInt8):{ var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:_5 __self__._specialFindSplicePoint(_0, _1);
+    public static function _specialFindSplicePoint( __self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:stdgo.GoUInt8):{ var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:_5 __self__._specialFindSplicePoint(_0, _1);
     @:embedded
     @:embeddededffieldsffun
     public static function _setUserArenaChunkToFault( __self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked):Void return @:_5 __self__._setUserArenaChunkToFault();

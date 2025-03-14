@@ -3,7 +3,7 @@ function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testin
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob_newencoder.newEncoder(stdgo.Go.asInterface(_b));
         var _s = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct(("HIJKL" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct>);
-        var _sp = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct>>);
+        var _sp = stdgo.Go.pointer(_s);
         var _err = (@:check2r _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec)))) : stdgo.Error);
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
@@ -14,7 +14,7 @@ function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testin
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        if ((((@:checkr _x ?? throw "null pointer dereference").g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s != (("HIJKL" : stdgo.GoString))) {
-            @:check2r _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface((((@:checkr _x ?? throw "null pointer dereference").g.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct>) : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s));
+        if (((@:checkr _x ?? throw "null pointer dereference").g.value.value : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s != (("HIJKL" : stdgo.GoString))) {
+            @:check2r _t.errorf(("expected `HIJKL` got %s" : stdgo.GoString), stdgo.Go.toInterface(((@:checkr _x ?? throw "null pointer dereference").g.value.value : stdgo._internal.encoding.gob.Gob_stringstruct.StringStruct)._s));
         };
     }

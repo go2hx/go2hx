@@ -24,7 +24,7 @@ stdgo.Go.toInterface(((("sailor" : stdgo.GoString) : stdgo.GoString) : stdgo.Sli
             @:check2r _t.error(stdgo.Go.toInterface(("expected no encode error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _item2 = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_basicinterfaceitem.BasicInterfaceItem() : stdgo._internal.encoding.gob.Gob_basicinterfaceitem.BasicInterfaceItem)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_basicinterfaceitem.BasicInterfaceItem>);
-        _err = @:check2r stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_basicinterfaceitem.BasicInterfaceItem>>)));
+        _err = @:check2r stdgo._internal.encoding.gob.Gob_newdecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface(stdgo.Go.pointer(_item2)));
         if (_err != null) {
             @:check2r _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

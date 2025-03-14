@@ -341,25 +341,25 @@ class GobDecoder_static_extension {
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.encoding.gob.Gob.Indirect_static_extension) abstract Indirect(stdgo._internal.encoding.gob.Gob_indirect.Indirect) from stdgo._internal.encoding.gob.Gob_indirect.Indirect to stdgo._internal.encoding.gob.Gob_indirect.Indirect {
-    public var a(get, set) : stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>;
-    function get_a():stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>> return this.a;
-    function set_a(v:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>):stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>> {
+    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>>;
+    function get_a():stdgo.Pointer<stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>> {
         this.a = v;
         return v;
     }
-    public var s(get, set) : stdgo.Pointer<Array<StdTypes.Int>>;
-    function get_s():stdgo.Pointer<Array<StdTypes.Int>> return this.s;
-    function set_s(v:stdgo.Pointer<Array<StdTypes.Int>>):stdgo.Pointer<Array<StdTypes.Int>> {
+    public var s(get, set) : stdgo.Pointer<stdgo.Pointer<Array<StdTypes.Int>>>;
+    function get_s():stdgo.Pointer<stdgo.Pointer<Array<StdTypes.Int>>> return this.s;
+    function set_s(v:stdgo.Pointer<stdgo.Pointer<Array<StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<Array<StdTypes.Int>>> {
         this.s = v;
         return v;
     }
-    public var m(get, set) : stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>;
-    function get_m():stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>> return this.m;
-    function set_m(v:stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>> {
+    public var m(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>>;
+    function get_m():stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>> return this.m;
+    function set_m(v:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>>):stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>> {
         this.m = v;
         return v;
     }
-    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>) this = new stdgo._internal.encoding.gob.Gob_indirect.Indirect(a, s, m);
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>>, ?s:stdgo.Pointer<stdgo.Pointer<Array<StdTypes.Int>>>, ?m:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<Map<String, StdTypes.Int>>>>) this = new stdgo._internal.encoding.gob.Gob_indirect.Indirect(a, s, m);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -932,12 +932,12 @@ class GobDecoder_static_extension {
         };
         return v;
     }
-    public var _decoderCache(get, set) : Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>;
-    function get__decoderCache():Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> return {
-        final __obj__:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> = [];
+    public var _decoderCache(get, set) : Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>>;
+    function get__decoderCache():Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>> return {
+        final __obj__:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>> = [];
         for (key => value in this._decoderCache) {
             __obj__[key] = {
-                final __obj__:Map<T_typeId, T_decEngine> = [];
+                final __obj__:Map<T_typeId, stdgo.Pointer<T_decEngine>> = [];
                 for (key => value in value) {
                     __obj__[key] = value;
                 };
@@ -946,14 +946,14 @@ class GobDecoder_static_extension {
         };
         __obj__;
     };
-    function set__decoderCache(v:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>):Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>> {
+    function set__decoderCache(v:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>>):Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>> {
         this._decoderCache = {
-            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
+            final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
             for (key => value in v) {
                 __obj__[key] = {
-                    final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+                    final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
                     for (key => value in value) {
-                        __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+                        __obj__[key] = value;
                     };
                     __obj__;
                 };
@@ -962,19 +962,19 @@ class GobDecoder_static_extension {
         };
         return v;
     }
-    public var _ignorerCache(get, set) : Map<T_typeId, T_decEngine>;
-    function get__ignorerCache():Map<T_typeId, T_decEngine> return {
-        final __obj__:Map<T_typeId, T_decEngine> = [];
+    public var _ignorerCache(get, set) : Map<T_typeId, stdgo.Pointer<T_decEngine>>;
+    function get__ignorerCache():Map<T_typeId, stdgo.Pointer<T_decEngine>> return {
+        final __obj__:Map<T_typeId, stdgo.Pointer<T_decEngine>> = [];
         for (key => value in this._ignorerCache) {
             __obj__[key] = value;
         };
         __obj__;
     };
-    function set__ignorerCache(v:Map<T_typeId, T_decEngine>):Map<T_typeId, T_decEngine> {
+    function set__ignorerCache(v:Map<T_typeId, stdgo.Pointer<T_decEngine>>):Map<T_typeId, stdgo.Pointer<T_decEngine>> {
         this._ignorerCache = {
-            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+            final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
             for (key => value in v) {
-                __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+                __obj__[key] = value;
             };
             __obj__;
         };
@@ -998,28 +998,28 @@ class GobDecoder_static_extension {
         this._err = (v : stdgo.Error);
         return v;
     }
-    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_r:stdgo._internal.io.Io_reader.Reader, ?_buf:T_decBuffer, ?_wireType:Map<T_typeId, T_wireType>, ?_decoderCache:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, T_decEngine>>, ?_ignorerCache:Map<T_typeId, T_decEngine>, ?_freeList:T_decoderState, ?_countBuf:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_decoder.Decoder(_mutex, _r, _buf, {
+    public function new(?_mutex:stdgo._internal.sync.Sync_mutex.Mutex, ?_r:stdgo._internal.io.Io_reader.Reader, ?_buf:T_decBuffer, ?_wireType:Map<T_typeId, T_wireType>, ?_decoderCache:Map<stdgo._internal.reflect.Reflect_type_.Type_, Map<T_typeId, stdgo.Pointer<T_decEngine>>>, ?_ignorerCache:Map<T_typeId, stdgo.Pointer<T_decEngine>>, ?_freeList:T_decoderState, ?_countBuf:Array<std.UInt>, ?_err:stdgo.Error) this = new stdgo._internal.encoding.gob.Gob_decoder.Decoder(_mutex, _r, _buf, {
         final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>>();
         for (key => value in _wireType) {
             __obj__[key] = (value : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_wiretype.T_wireType>);
         };
         __obj__;
     }, {
-        final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
+        final __obj__ = new stdgo.GoMap<stdgo._internal.reflect.Reflect_type_.Type_, stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>>();
         for (key => value in _decoderCache) {
             __obj__[key] = {
-                final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+                final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
                 for (key => value in value) {
-                    __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+                    __obj__[key] = value;
                 };
                 __obj__;
             };
         };
         __obj__;
     }, {
-        final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
+        final __obj__ = new stdgo.GoMap<stdgo._internal.encoding.gob.Gob_t_typeid.T_typeId, stdgo.Pointer<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>>();
         for (key => value in _ignorerCache) {
-            __obj__[key] = (value : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decengine.T_decEngine>>);
+            __obj__[key] = value;
         };
         __obj__;
     }, (_freeList : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_decoderstate.T_decoderState>), ([for (i in _countBuf) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>), (_err : stdgo.Error));
@@ -1811,13 +1811,13 @@ class GobDecoder_static_extension {
         this.x = (v : stdgo.GoInt);
         return v;
     }
-    public var g(get, set) : stdgo.Pointer<StringStruct>;
-    function get_g():stdgo.Pointer<StringStruct> return this.g;
-    function set_g(v:stdgo.Pointer<StringStruct>):stdgo.Pointer<StringStruct> {
+    public var g(get, set) : stdgo.Pointer<stdgo.Pointer<StringStruct>>;
+    function get_g():stdgo.Pointer<stdgo.Pointer<StringStruct>> return this.g;
+    function set_g(v:stdgo.Pointer<stdgo.Pointer<StringStruct>>):stdgo.Pointer<stdgo.Pointer<StringStruct>> {
         this.g = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?g:stdgo.Pointer<StringStruct>) this = new stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec((x : stdgo.GoInt), g);
+    public function new(?x:StdTypes.Int, ?g:stdgo.Pointer<stdgo.Pointer<StringStruct>>) this = new stdgo._internal.encoding.gob.Gob_gobtestindirectencdec.GobTestIndirectEncDec((x : stdgo.GoInt), g);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -1845,13 +1845,13 @@ class GobDecoder_static_extension {
         this.x = (v : stdgo.GoInt);
         return v;
     }
-    public var a(get, set) : stdgo.Pointer<ArrayStruct>;
-    function get_a():stdgo.Pointer<ArrayStruct> return this.a;
-    function set_a(v:stdgo.Pointer<ArrayStruct>):stdgo.Pointer<ArrayStruct> {
+    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<ArrayStruct>>;
+    function get_a():stdgo.Pointer<stdgo.Pointer<ArrayStruct>> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo.Pointer<ArrayStruct>>):stdgo.Pointer<stdgo.Pointer<ArrayStruct>> {
         this.a = v;
         return v;
     }
-    public function new(?x:StdTypes.Int, ?a:stdgo.Pointer<ArrayStruct>) this = new stdgo._internal.encoding.gob.Gob_gobtestindirectarrayencdec.GobTestIndirectArrayEncDec((x : stdgo.GoInt), a);
+    public function new(?x:StdTypes.Int, ?a:stdgo.Pointer<stdgo.Pointer<ArrayStruct>>) this = new stdgo._internal.encoding.gob.Gob_gobtestindirectarrayencdec.GobTestIndirectArrayEncDec((x : stdgo.GoInt), a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -3255,14 +3255,14 @@ class Decoder_static_extension {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
         stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._decodeValue(_dec, _wireId, _value);
     }
-    static public function _getIgnoreEnginePtr(_dec:Decoder, _wireId:T_typeId):stdgo.Tuple<T_decEngine, stdgo.Error> {
+    static public function _getIgnoreEnginePtr(_dec:Decoder, _wireId:T_typeId):stdgo.Tuple<stdgo.Pointer<T_decEngine>, stdgo.Error> {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
         return {
             final obj = stdgo._internal.encoding.gob.Gob_decoder_static_extension.Decoder_static_extension._getIgnoreEnginePtr(_dec, _wireId);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _getDecEnginePtr(_dec:Decoder, _remoteId:T_typeId, _ut:T_userTypeInfo):stdgo.Tuple<T_decEngine, stdgo.Error> {
+    static public function _getDecEnginePtr(_dec:Decoder, _remoteId:T_typeId, _ut:T_userTypeInfo):stdgo.Tuple<stdgo.Pointer<T_decEngine>, stdgo.Error> {
         final _dec = (_dec : stdgo.Ref<stdgo._internal.encoding.gob.Gob_decoder.Decoder>);
         final _ut = (_ut : stdgo.Ref<stdgo._internal.encoding.gob.Gob_t_usertypeinfo.T_userTypeInfo>);
         return {

@@ -5,7 +5,7 @@ class T_liveUserArenaChunk_asInterface {
     public dynamic function _userArenaNextFree(_0:stdgo.Ref<stdgo._internal.internal.abi.Abi_type_.Type_>, _1:stdgo.GoInt):stdgo._internal.unsafe.Unsafe.UnsafePointer return @:_0 __self__.value._userArenaNextFree(_0, _1);
     @:embedded
     @:embeddededffieldsffun
-    public dynamic function _specialFindSplicePoint(_0:stdgo.GoUIntptr, _1:stdgo.GoUInt8):{ var _0 : stdgo.Ref<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:_0 __self__.value._specialFindSplicePoint(_0, _1);
+    public dynamic function _specialFindSplicePoint(_0:stdgo.GoUIntptr, _1:stdgo.GoUInt8):{ var _0 : stdgo.Pointer<stdgo.Ref<stdgo._internal.runtime.Runtime_t_special.T_special>>; var _1 : Bool; } return @:_0 __self__.value._specialFindSplicePoint(_0, _1);
     @:embedded
     @:embeddededffieldsffun
     public dynamic function _setUserArenaChunkToFault():Void @:_0 __self__.value._setUserArenaChunkToFault();

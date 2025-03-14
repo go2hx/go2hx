@@ -8,7 +8,7 @@ function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.run
                     var a = function():Void {
                         {
                             var _pathErr = (null : stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>);
-                            if (stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathErr) : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs_patherror.PathError>>)))) {
+                            if (stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.pointer(_pathErr)))) {
                                 _err = stdgo._internal.fmt.Fmt_errorf.errorf(("could not read Go build info: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             } else if (_err != null) {
                                 _err = stdgo._internal.fmt.Fmt_errorf.errorf(("could not read Go build info from %s: %w" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err));

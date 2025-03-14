@@ -1267,10 +1267,10 @@ class Marshaler_static_extension {
         this.pSmall = (v : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>);
         return v;
     }
-    public var pPSmall(get, set) : Small;
-    function get_pPSmall():Small return this.pPSmall;
-    function set_pPSmall(v:Small):Small {
-        this.pPSmall = (v : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>);
+    public var pPSmall(get, set) : stdgo.Pointer<Small>;
+    function get_pPSmall():stdgo.Pointer<Small> return this.pPSmall;
+    function set_pPSmall(v:stdgo.Pointer<Small>):stdgo.Pointer<Small> {
+        this.pPSmall = v;
         return v;
     }
     public var interface_(get, set) : stdgo.AnyInterface;
@@ -1291,7 +1291,7 @@ class Marshaler_static_extension {
         this._unexported = (v : stdgo.GoInt);
         return v;
     }
-    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?uintptr:stdgo.GoUIntptr, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?foo:String, ?foo2:String, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?pBool:stdgo.Pointer<Bool>, ?pInt:stdgo.Pointer<StdTypes.Int>, ?pInt8:stdgo.Pointer<StdTypes.Int>, ?pInt16:stdgo.Pointer<StdTypes.Int>, ?pInt32:stdgo.Pointer<StdTypes.Int>, ?pInt64:stdgo.Pointer<haxe.Int64>, ?pUint:stdgo.Pointer<std.UInt>, ?pUint8:stdgo.Pointer<std.UInt>, ?pUint16:stdgo.Pointer<std.UInt>, ?pUint32:stdgo.Pointer<std.UInt>, ?pUint64:stdgo.Pointer<haxe.UInt64>, ?pUintptr:stdgo.Pointer<stdgo.GoUIntptr>, ?pFloat32:stdgo.Pointer<StdTypes.Float>, ?pFloat64:stdgo.Pointer<StdTypes.Float>, ?string:String, ?pString:stdgo.Pointer<String>, ?map_:Map<String, Small>, ?mapP:Map<String, Small>, ?pMap:Map<String, Small>, ?pMapP:Map<String, Small>, ?emptyMap:Map<String, Small>, ?nilMap:Map<String, Small>, ?slice:Array<Small>, ?sliceP:Array<Small>, ?pSlice:Array<Small>, ?pSliceP:Array<Small>, ?emptySlice:Array<Small>, ?nilSlice:Array<Small>, ?stringSlice:Array<String>, ?byteSlice:Array<std.UInt>, ?small:Small, ?pSmall:Small, ?pPSmall:Small, ?interface_:stdgo.AnyInterface, ?pInterface:stdgo.AnyInterface, ?_unexported:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_all.All(
+    public function new(?bool_:Bool, ?int_:StdTypes.Int, ?int8:StdTypes.Int, ?int16:StdTypes.Int, ?int32:StdTypes.Int, ?int64:haxe.Int64, ?uint:std.UInt, ?uint8:std.UInt, ?uint16:std.UInt, ?uint32:std.UInt, ?uint64:haxe.UInt64, ?uintptr:stdgo.GoUIntptr, ?float32:StdTypes.Float, ?float64:StdTypes.Float, ?foo:String, ?foo2:String, ?intStr:haxe.Int64, ?uintptrStr:stdgo.GoUIntptr, ?pBool:stdgo.Pointer<Bool>, ?pInt:stdgo.Pointer<StdTypes.Int>, ?pInt8:stdgo.Pointer<StdTypes.Int>, ?pInt16:stdgo.Pointer<StdTypes.Int>, ?pInt32:stdgo.Pointer<StdTypes.Int>, ?pInt64:stdgo.Pointer<haxe.Int64>, ?pUint:stdgo.Pointer<std.UInt>, ?pUint8:stdgo.Pointer<std.UInt>, ?pUint16:stdgo.Pointer<std.UInt>, ?pUint32:stdgo.Pointer<std.UInt>, ?pUint64:stdgo.Pointer<haxe.UInt64>, ?pUintptr:stdgo.Pointer<stdgo.GoUIntptr>, ?pFloat32:stdgo.Pointer<StdTypes.Float>, ?pFloat64:stdgo.Pointer<StdTypes.Float>, ?string:String, ?pString:stdgo.Pointer<String>, ?map_:Map<String, Small>, ?mapP:Map<String, Small>, ?pMap:Map<String, Small>, ?pMapP:Map<String, Small>, ?emptyMap:Map<String, Small>, ?nilMap:Map<String, Small>, ?slice:Array<Small>, ?sliceP:Array<Small>, ?pSlice:Array<Small>, ?pSliceP:Array<Small>, ?emptySlice:Array<Small>, ?nilSlice:Array<Small>, ?stringSlice:Array<String>, ?byteSlice:Array<std.UInt>, ?small:Small, ?pSmall:Small, ?pPSmall:stdgo.Pointer<Small>, ?interface_:stdgo.AnyInterface, ?pInterface:stdgo.AnyInterface, ?_unexported:StdTypes.Int) this = new stdgo._internal.encoding.json.Json_all.All(
 bool_,
 (int_ : stdgo.GoInt),
 (int8 : stdgo.GoInt8),
@@ -1366,7 +1366,7 @@ pString,
 ([for (i in byteSlice) (i : stdgo.GoUInt8)] : stdgo.Slice<stdgo.GoUInt8>),
 small,
 (pSmall : stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>),
-(pPSmall : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.json.Json_small.Small>>),
+pPSmall,
 (interface_ : stdgo.AnyInterface),
 (pInterface : stdgo.Ref<stdgo.AnyInterface>),
 (_unexported : stdgo.GoInt));

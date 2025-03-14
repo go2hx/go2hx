@@ -2293,7 +2293,7 @@ typedef TimeHistogram = stdgo._internal.runtime.Runtime_timehistogram.TimeHistog
         final _1 = (_1 : stdgo.GoInt);
         return stdgo._internal.runtime.Runtime_t_liveuserarenachunk_static_extension.T_liveUserArenaChunk_static_extension._userArenaNextFree(__self__, _0, _1);
     }
-    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
+    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_liveuserarenachunk.T_liveUserArenaChunk, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.Pointer<T_special>, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {
@@ -3221,7 +3221,7 @@ class UserArena_static_extension {
         final _1 = (_1 : stdgo.GoInt);
         return stdgo._internal.runtime.Runtime_t_sweeplocked_static_extension.T_sweepLocked_static_extension._userArenaNextFree(__self__, _0, _1);
     }
-    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<T_special, Bool> {
+    public static function _specialFindSplicePoint(__self__:stdgo._internal.runtime.Runtime_t_sweeplocked.T_sweepLocked, _0:stdgo.GoUIntptr, _1:std.UInt):stdgo.Tuple<stdgo.Pointer<T_special>, Bool> {
         final _0 = (_0 : stdgo.GoUIntptr);
         final _1 = (_1 : stdgo.GoUInt8);
         return {

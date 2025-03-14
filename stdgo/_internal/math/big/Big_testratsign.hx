@@ -9,7 +9,7 @@ function testRatSign(_t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
             var _s = (@:check2r _x.sign() : stdgo.GoInt);
             var _e = (@:check2r _x.cmp(_zero) : stdgo.GoInt);
             if (_s != (_e)) {
-                @:check2r _t.errorf(("got %d; want %d for z = %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_e), stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_rat.Rat>>)));
+                @:check2r _t.errorf(("got %d; want %d for z = %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(stdgo.Go.pointer(_x)));
             };
         };
     }

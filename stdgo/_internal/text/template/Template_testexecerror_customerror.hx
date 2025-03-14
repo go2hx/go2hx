@@ -16,7 +16,7 @@ function testExecError_CustomError(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         var _b:stdgo._internal.bytes.Bytes_buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_buffer.Buffer);
         var _err = (@:check2r _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_buffer.Buffer>)), (null : stdgo.AnyInterface)) : stdgo.Error);
         var _e:stdgo.Ref<stdgo._internal.text.template.Template_customerror.CustomError> = (null : stdgo.Ref<stdgo._internal.text.template.Template_customerror.CustomError>);
-        if (!stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_customerror.CustomError>>)))) {
+        if (!stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.pointer(_e)))) {
             @:check2r _t.fatalf(("expected custom error; got %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }

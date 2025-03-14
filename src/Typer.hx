@@ -7445,6 +7445,7 @@ private function typeFieldListComplexTypes(list:Ast.FieldList, info:Info):Array<
 
 private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field> {
 	var fields:Array<Field> = [];
+	final oldRenameIdents = info.renameIdents.copy();
 	for (field in list.list) {
 		var expr:Ast.FuncType = field.type;
 
@@ -7467,6 +7468,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 			});
 		}
 	}
+	info.renameIdents = oldRenameIdents;
 	return fields;
 }
 
@@ -8304,7 +8306,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			};
 			if (!alreadyExistsTypeDef(staticExtension,info))
 				info.data.defs.push(staticExtension);
-			final fields = typeFieldListMethods(struct.methods, info);
+			final fields:Array<haxe.macro.Expr.Field> = typeFieldListMethods(struct.methods, info);
 			final wrapper = macro class Wrapper {};
 			for (i in 0...fields.length) {
 				final field = fields[i];

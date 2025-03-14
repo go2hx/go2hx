@@ -2,10 +2,10 @@
 Exception: T_:testing.setenv is not yet implemented
 Called from stdgo__$internal_testing_T_$_$static_$extension.setenv (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 13114 column 23)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testget_testGet [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:11906:51)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41161 column 9)
-Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 32792 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49647:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49648:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41331 column 9)
+Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 32807 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49817:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49818:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -13,13 +13,13 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestMetrics
 NonDefault kind = <invalid reflect.Value>, want uint64Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41915 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41804 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41358:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 42085 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41974 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:41528:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_godebug_$test_Godebug_$test_$testmetrics_testMetrics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:11961:20)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41161 column 9)
-Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 32792 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49647:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49648:3)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 41331 column 9)
+Called from ._$internal_internal_godebugdottest_Godebugdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js line 32807 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49817:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_godebug.js:49818:3)
 
 -- FAIL: TestMetrics

@@ -291,10 +291,11 @@ stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.00577350
 -- PASS: TestUniformFactorial
 
 === RUN  TestRegress
-Exception: Value:reflect.numMethod is not yet implemented
+Exception: not implemented method
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (./_internal/math/rand_test/Rand_test_testregress.hx line 22 column 18)
-Called from stdgo._internal.reflect.Value_static_extension.numMethod (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 384 column 99)
+Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (./_internal/math/rand_test/Rand_test_testregress.hx line 30 column 27)
+Called from stdgo._internal.internal.reflect._Type_asInterface.method (./stdgo/_internal/internal/reflect/Reflect.hx line 1508 column 10)
+Called from stdgo._internal.internal.reflect._Type_static_extension.method (./stdgo/_internal/internal/reflect/Reflect.hx line 1407 column 3)
 
 -- FAIL: TestRegress
 

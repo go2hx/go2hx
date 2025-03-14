@@ -13,7 +13,7 @@ Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields
 Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
 Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179 column 31)
 Called from stdgo._internal.fmt.T_pp_static_extension._printArg (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 834 column 22)
-Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 456 column 29)
+Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 459 column 29)
 
 -- FAIL: TestSprintf
 

@@ -31,10 +31,10 @@ Called from stdgo._internal.encoding.json._Json_marshal.Json_marshal_Fields_.mar
 -- FAIL: TestMarshalEmbeds
 
 === RUN  TestUnmarshal
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Exception: reflect.NumMethod not implemented for bool
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.encoding.json._Json_testunmarshal.Json_testunmarshal_Fields_.testUnmarshal (./stdgo/_internal/encoding/json/Json_testunmarshal.hx line 37 column 28)
@@ -93,6 +93,8 @@ Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdg
 -- FAIL: TestUnmarshalInterface
 
 === RUN  TestUnmarshalPtrPtr
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Exception: field access on null
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.encoding.json._Json_testunmarshalptrptr.Json_testunmarshalptrptr_Fields_.testUnmarshalPtrPtr (./stdgo/_internal/encoding/json/Json_testunmarshalptrptr.hx line 6 column 24)
@@ -234,8 +236,8 @@ Called from stdgo._internal.encoding.json._Json_marshal.Json_marshal_Fields_.mar
 -- FAIL: TestSliceOfCustomByte
 
 === RUN  TestUnmarshalTypeError
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
-./stdgo/_internal/reflect/Reflect_value_static_extension.hx:490: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
 Exception: reflect.NumMethod not implemented for string
 Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
 Called from stdgo._internal.encoding.json._Json_testunmarshaltypeerror.Json_testunmarshaltypeerror_Fields_.testUnmarshalTypeError (./stdgo/_internal/encoding/json/Json_testunmarshaltypeerror.hx line 4 column 24)

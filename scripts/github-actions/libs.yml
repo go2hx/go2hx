@@ -33,6 +33,7 @@ steps:
         ./_internal/*
         ./stdgo/*
         ./go2hx.*.zip 
+        ./data/go4hx.*
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - name: Run lib tests
     run: npx haxe tests/tests.hxml -D libs -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb

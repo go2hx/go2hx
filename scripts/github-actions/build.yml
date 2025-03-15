@@ -38,6 +38,7 @@ steps:
         ./_internal/*
         ./stdgo/*
         ./go2hx.*.zip 
+        ./data/go4hx.*
       key: ${{ github.sha }}-build-${{ env.cache-name }}
   - run: ls
   # compile stdgo
@@ -53,7 +54,7 @@ steps:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     continue-on-error: true
   - name: Run std
-    run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
+    run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: build std tests update ::target::

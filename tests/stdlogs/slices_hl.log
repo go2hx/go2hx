@@ -11,6 +11,7 @@ Called from _internal.slicesdottest._Slicesdottest.$Slicesdottest_Fields_.main (
 Exception: generic function is not supported
 Called from stdgo._internal.slices._Slices_equalfunc.$Slices_equalfunc_Fields_.equalFunc (stdgo/_internal/slices/Slices_equalfunc.hx line 2)
 Called from stdgo._internal.slices._Slices_testequalfunc.$Slices_testequalfunc_Fields_.testEqualFunc (stdgo/_internal/slices/Slices_testequalfunc.hx line 5)
+Called from local function #9338 (stdgo/_internal/strconv/Strconv__detailedpowersoften.hx line 305)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.slicesdottest._Slicesdottest.$Slicesdottest_Fields_.main (_internal/slicesdottest/Slicesdottest.hx line 8)
 
@@ -264,6 +265,7 @@ Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
 Called from stdgo._internal.math.rand._Rand_seed.$Rand_seed_Fields_.seed (stdgo/_internal/math/rand/Rand_seed.hx line 3)
+Called from local function #9338 (stdgo/_internal/strconv/Strconv__detailedpowersoften.hx line 305)
 Called from stdgo._internal.math.rand._Rand_seed.$Rand_seed_Fields_.seed (stdgo/_internal/math/rand/Rand_seed.hx line 3)
 Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
 Called from stdgo._internal.math.rand._Rand_seed.$Rand_seed_Fields_.seed (stdgo/_internal/math/rand/Rand_seed.hx line 3)
@@ -342,7 +344,6 @@ Exception: generic function is not supported
 Called from stdgo._internal.slices._Slices_minfunc.$Slices_minfunc_Fields_.minFunc (stdgo/_internal/slices/Slices_minfunc.hx line 2)
 Called from stdgo._internal.slices._Slices_testminmax.$Slices_testminmax_Fields_.testMinMax (stdgo/_internal/slices/Slices_testminmax.hx line 28)
 Called from stdgo._internal.math.rand._Rand_seed.$Rand_seed_Fields_.seed (stdgo/_internal/math/rand/Rand_seed.hx line 3)
-Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
 Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.slicesdottest._Slicesdottest.$Slicesdottest_Fields_.main (_internal/slicesdottest/Slicesdottest.hx line 8)
 

@@ -95,19 +95,13 @@ WriteAt failed. off: 0, at: 0, step: 1
  error: File.writeAt failed
 WriteAt failed. off: 0, at: 0, step: 2
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 4
- error: File.writeAt failed
 WriteAt failed. off: 0, at: 0, step: 3
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 4
  error: File.writeAt failed
 WriteAt failed. off: 0, at: 0, step: 5
  error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 6
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 8
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 7
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 10
+WriteAt failed. off: 0, at: 0, step: 9
  error: File.writeAt failed
 Exception: File:os.readAt is not yet implemented
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.~testOffsetWriter_WriteAt.1 (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 157)
@@ -117,10 +111,10 @@ Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/io
 
 -- FAIL: TestOffsetWriter_WriteAt
 
+WriteAt failed. off: 0, at: 0, step: 8
+ error: File.writeAt failed
 === RUN  TestWriteAt_PositionPriorToBase
 WriteAt failed. off: 0, at: 0, step: 12
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 9
  error: File.writeAt failed
 
 -- PASS: TestWriteAt_PositionPriorToBase
@@ -130,6 +124,18 @@ WriteAt failed. off: 0, at: 0, step: 9
 -- PASS: TestOffsetWriter_Write
 
 === RUN  TestMultiReader
+WriteAt failed. off: 0, at: 0, step: 7
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 14
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 6
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 11
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 10
+ error: File.writeAt failed
+WriteAt failed. off: 0, at: 0, step: 15
+ error: File.writeAt failed
 
 -- PASS: TestMultiReader
 
@@ -138,6 +144,8 @@ WriteAt failed. off: 0, at: 0, step: 9
 -- PASS: TestMultiReaderAsWriterTo
 
 === RUN  TestMultiWriter
+WriteAt failed. off: 0, at: 0, step: 13
+ error: File.writeAt failed
 
 -- PASS: TestMultiWriter
 
@@ -181,19 +189,11 @@ WriteAt failed. off: 0, at: 0, step: 9
 -- PASS: TestMultiReaderSingleByteWithEOF
 
 === RUN  TestMultiReaderFinalEOF
-WriteAt failed. off: 0, at: 0, step: 14
- error: File.writeAt failed
-WriteAt failed. off: 0, at: 0, step: 11
- error: File.writeAt failed
 
 -- PASS: TestMultiReaderFinalEOF
 
-WriteAt failed. off: 0, at: 0, step: 13
- error: File.writeAt failed
 === RUN  TestMultiReaderFreesExhaustedReaders
 -- SKIP: testMultiReaderFreesExhaustedReaders
-WriteAt failed. off: 0, at: 0, step: 15
- error: File.writeAt failed
 
 -- PASS: TestMultiReaderFreesExhaustedReaders
 

@@ -6,7 +6,8 @@
             "TestUnMarshal",
             "TestPcre_Basics",
             "TestIncorrectTimeoutError",
-            "TestStopTimeoutClock"
+            "TestStopTimeoutClock",
+            "TestDeadline"
         ],
         "main": "regexp2.Regexp2"
     }

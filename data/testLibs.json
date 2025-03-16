@@ -7,7 +7,8 @@
             "TestPcre_Basics",
             "TestIncorrectTimeoutError",
             "TestStopTimeoutClock",
-            "TestDeadline"
+            "TestDeadline",
+            "TestBacktrack_CatastrophicTimeout"
         ],
         "main": "regexp2.Regexp2"
     }

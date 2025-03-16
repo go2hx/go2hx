@@ -182,6 +182,17 @@ final list = [
 			}
 		}
 	},
+	"os:remove" => macro {
+		@:define("(sys || hxnodejs)") {
+			final path = _name;
+			if (sys.FileSystem.isDirectory(path)) {
+				sys.FileSystem.deleteDirectory(path);
+			}else{
+				sys.FileSystem.deleteFile(path);
+			}
+		}
+		return null;
+	},
 	"os:removeAll" => macro {
 		var deleteRecursively:String->Void = null;
 		deleteRecursively = function(path:String) {
@@ -251,7 +262,9 @@ final list = [
 	"os.File:write" => macro {
 		if (_b.length == 0)
 			return {_0: 0, _1: null};
+		@:privateAccess _f.mutex.acquire();
 		final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+		@:privateAccess _f.mutex.release();
 		if (i != _b.length.toBasic())
 			return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
 		return {_0: i, _1: null};
@@ -273,15 +286,16 @@ final list = [
 		@:privateAccess _f._output.close();
 		return null;
 	},
-	"os:getEnv" => macro {
+	"os:Getenv" => macro {
 		return @:define("(sys || hxnodejs)") {
 			try {
-				return {_0: std.Sys.getEnv(_key), _1: null};
+				return {_0: std.Sys.getEnv(_key) ?? "", _1: null};
 			} catch (e) {
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
 			}
 		};
 	},
+	"os:getenv" => macro return std.Sys.getEnv(_key) ?? "",
 	"os:getwd" => macro {
 		return @:define("(sys || hxnodejs)") {
 			try {
@@ -562,10 +576,13 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
+		@:privateAccess _f.mutex.acquire();
 		final bytes = @:privateAccess _f._input.read(_b.length);
-		for (i in 0...bytes.length) {
+		@:privateAccess _b.__bytes__ = bytes;
+		/*for (i in 0...bytes.length) {
 			_b[i] = bytes.get(i);
-		}
+		}*/
+		@:privateAccess _f.mutex.release();
 		return {_0: bytes.length, _1: null};
 	},
 	"os:createTemp" => macro {
@@ -583,7 +600,7 @@ final list = [
 			return result;
 		}
 		var name = "tmp_" + randomName(10);
-		return stdgo._internal.os.Os_openfile.openFile(haxe.io.Path.addTrailingSlash(dir) + name, 0, 0);
+		return stdgo._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
 	},
 	"os:create" => macro {
 		//O_RDWR|O_CREATE|O_TRUNC
@@ -607,11 +624,49 @@ final list = [
 		@:define("(sys || hxnodejs)") {
 			if (_b.length == 0)
 				return {_0: 0, _1: null};
+			@:privateAccess _f.mutex.acquire();
 			try {
-				final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), _off.toBasic().low , _b.length.toBasic());
+				final t = @:privateAccess cast(_f._output, sys.io.FileOutput).tell();
+				@:privateAccess cast(_f._output, sys.io.FileOutput).seek(_off.toBasic().low, sys.io.FileSeek.SeekBegin);
+				final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+				@:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
+				@:privateAccess _f.mutex.release();
 				return {_0: i, _1: null};
 			}catch(e) {
-				return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt failed")};
+				@:privateAccess _f.mutex.release();
+				return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.writeAt failed: " + e)};
+			}
+		};
+		trace("not supported on non sys target");
+		return {_0: 0, _1: null};
+	},
+	"os.File:name" => macro {
+		return _f._file._name;
+	},
+	"os.File:readAt" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (_b.length == 0)
+				return {_0: 0, _1: null};
+			try {
+				@:privateAccess _f.mutex.acquire();
+				var offset = _off.toBasic().low;
+				//@:privateAccess cast(_f._input, sys.io.FileInput).seek(0, sys.io.FileSeek.SeekBegin);
+				final b = _b.toBytes();
+				final t = @:privateAccess cast(_f._input, sys.io.FileInput).tell();
+				@:privateAccess cast(_f._input, sys.io.FileInput).seek(offset, sys.io.FileSeek.SeekBegin);
+				var n = @:privateAccess _f._input.readBytes(b, 0, _b.length.toBasic());
+				@:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
+				@:privateAccess _b.__bytes__ = b;
+				// always returns a non-nil error when n < len(b). At end of file, that error is io.EOF.
+				var err = null;
+				if (n < _b.length.toBasic()) {
+                    err = stdgo._internal.io.Io_eof.eOF;
+				}
+				@:privateAccess _f.mutex.release();
+				return {_0: n, _1: err};
+			}catch(e) {
+				@:privateAccess _f.mutex.release();
+				return {_0: 0, _1: stdgo._internal.errors.Errors_new_.new_("File.readAt failed: " + e)};
 			}
 		};
 		trace("not supported on non sys target");
@@ -1466,47 +1521,78 @@ final list = [
 	// Swap atomically stores new into x and returns the previous value.
 	// func (x *Pointer[T]) Swap(new *T) (old *T) { return (*T)(SwapPointer(&x.v, unsafe.Pointer(new))) }
 	"sync.atomic_.Pointer_:swap" => macro {
+		stdgo.Go.globalMutex.acquire();
 		final old = @:privateAccess _x._v;
 		_x._v = stdgo.Go.toInterface(_new_);
+		stdgo.Go.globalMutex.release();
 		return stdgo.Go.toInterface(old);
 	},
 	"sync.atomic_.Pointer_:compareAndSwap" => macro {
+		stdgo.Go.globalMutex.acquire();
 		final b = stdgo.Go.toInterface(_old) == stdgo.Go.toInterface(_new_);
 		if (b)
 			_x._v = stdgo.Go.toInterface(_new_);
+		stdgo.Go.globalMutex.release();
 		return b;
 	},
 	"sync.atomic_.Pointer_:store" => macro {
+		stdgo.Go.globalMutex.acquire();
 		_x._v = stdgo.Go.toInterface(_val);
+		stdgo.Go.globalMutex.release();
 	},
 	"sync.atomic_.Pointer_:load" => macro {
-		return @:privateAccess _x._v.__toRef__();
+		stdgo.Go.globalMutex.acquire();
+		final value = @:privateAccess _x._v.__toRef__();
+		stdgo.Go.globalMutex.release();
+		return value;
 	},
 	"sync.atomic_.Int32:store" => macro {
+		stdgo.Go.globalMutex.acquire();
 		_x._v = _val;
+		stdgo.Go.globalMutex.release();
 	},
 	"sync.atomic_.Int32:load" => macro {
-		return @:privateAccess _x._v;
+		stdgo.Go.globalMutex.acquire();
+		final value = @:privateAccess _x._v;
+		stdgo.Go.globalMutex.release();
+		return value;
 	},
 	"sync.atomic_:loadInt64" => macro {
-		return @:privateAccess _addr.value;
+		stdgo.Go.globalMutex.acquire();
+		final value = @:privateAccess _addr.value;
+		stdgo.Go.globalMutex.release();
+		return value;
 	},
 	"sync.atomic_:addInt64" => macro {
-		return @:privateAccess _addr.value = _delta;
+		stdgo.Go.globalMutex.acquire();
+		final value = @:privateAccess _addr.value += _delta;
+		stdgo.Go.globalMutex.release();
+		return value;
 	},
 	"sync.atomic_:storeInt64" => macro {
+		stdgo.Go.globalMutex.acquire();
 		_addr.value = _val;
+		stdgo.Go.globalMutex.release();
 	},
 	"sync.atomic_:storeUint32" => macro {
+		stdgo.Go.globalMutex.acquire();
 		_addr.value = _val;
+		stdgo.Go.globalMutex.release();
 	},
 	"sync.atomic_:storeUint64" => macro {
+		stdgo.Go.globalMutex.acquire();
 		_addr.value = _val;
+		stdgo.Go.globalMutex.release();
 	},
 	"sync.Pool:_pinSlow" => macro return {_0: null, _1: 0},
 	// Atomic -> Atomic_ because of restriction for cpp
 	"sync.atomic_.Bool_:store" => macro stdgo._internal.sync.atomic_.Atomic__storeuint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
-	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
+	"sync.atomic_.Bool_:load" => macro {
+		stdgo.Go.globalMutex.acquire();
+		final value = @:privateAccess _x._v == 1;
+		stdgo.Go.globalMutex.release();
+		return value;
+	},
 	// stdgo/sync
 	"sync.Pool:get" => macro {
 		var obj = @:define("target.threaded", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);
@@ -1523,17 +1609,31 @@ final list = [
 	"sync.Mutex:tryLock" => macro @:privateAccess return @:define("target.threaded", true) _m.mutex.tryAcquire(),
 	"sync.Mutex:unlock" => macro @:privateAccess @:define("target.threaded") _m.mutex.release(),
 	"sync.WaitGroup:add" => macro {
-		@:privateAccess _wg.counter += _delta;
-		if (@:privateAccess _wg.counter < 0)
-			throw "sync: negative WaitGroup counter";
-	},
-	"sync.WaitGroup:done" => macro {
-		@:privateAccess _wg.counter--;
-		if (@:privateAccess _wg.counter <= 0) {
-			@:privateAccess @:define("target.threaded") _wg.lock.release();
+		@:define("target.threaded") {
+			@:privateAccess _wg.mutex.acquire();
+			@:privateAccess _wg.counter += _delta;
+			if (@:privateAccess _wg.counter < 0) {
+				@:privateAccess _wg.mutex.release();
+				throw "sync: negative WaitGroup counter";
+			}
+			@:privateAccess _wg.mutex.release();
 		}
 	},
-	"sync.WaitGroup:wait_" => macro @:privateAccess @:define("target.threaded") _wg.lock.wait(),
+	"sync.WaitGroup:done" => macro {
+		@:define("target.threaded")  {
+			@:privateAccess _wg.mutex.acquire();
+			@:privateAccess _wg.counter--;
+			if (@:privateAccess _wg.counter <= 0) {
+				@:privateAccess _wg.lock.release();
+			}
+			@:privateAccess _wg.mutex.release();
+		}
+	},
+	"sync.WaitGroup:wait_" => macro {
+		@:define("target.threaded") {
+			@:privateAccess @:define("target.threaded") _wg.lock.wait();
+		}
+	},
 	"sync.Once:do_" => macro {
 		if (@:privateAccess _o._done == 1)
 			return;
@@ -1542,6 +1642,10 @@ final list = [
 	},
 	// stdgo/math/rand
 	"math.rand:intn" => macro return std.Std.random(_n),
+	"math.rand:int31n" => macro return std.Std.random(),
+	"math.rand:int" => macro return std.Std.random(),
+	"math.rand:int31" => macro return std.Std.random(),
+
 	// log
 	"log.Logger:setPrefix" => macro {},
 	"log.Logger:prefix" => macro return "",
@@ -1713,7 +1817,12 @@ final list = [
 		return 0;
 	},
 	"testing:verbose" => macro return false,
-	"testing.T_:run" => macro return true,
+	"testing.T_:run" => macro {
+		stdgo.Go.println("- SUBRUN  " + _name.toString());
+		_f(_t);
+		return true;
+	},
+	"testing.T_:parallel" => macro {},
 	"testing.T_common:log" => macro {},
 	"testing.T_common:logf" => macro {},
 	"testing.T_common:fatal" => macro {
@@ -1944,6 +2053,8 @@ final structs = [
 		var _input:haxe.io.Input = null;
 		@:local
 		var _output:haxe.io.Output = null;
+		@:local
+		var mutex = @:define("target.threaded", {acquire: () -> {}, release: () -> {}}) new sys.thread.Mutex();
 		// FileInput + FileOutput: seek, tell
 		// FileInput only: eof
 	},
@@ -2007,7 +2118,10 @@ final structs = [
 	"sync:WaitGroup" => macro {
 		@:local
 		var lock = @:define("target.threaded") new sys.thread.Lock();
+		@:local
 		var counter:stdgo.GoUInt = 0;
+		@:local
+		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
 	"sync:Mutex" => macro {
 		@:local

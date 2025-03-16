@@ -10,6 +10,7 @@ class Go {
 	 * Where the recover_exception is stored in case `recover` is called.
 	 */
 	public static var recover_exception:stdgo.AnyInterface= null;
+	public static var globalMutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
 	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js

@@ -5,6 +5,5 @@
     "reflect",
     "net",
     "net/http",
-    "crypto/tls",
-    "sync/atomic"
+    "crypto/tls"
 ]

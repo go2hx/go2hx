@@ -974,8 +974,16 @@ class Go {
 		//final e = macro stdgo._internal.internal.TypeInfo.names[$v{path}];
 		final e = nameTypes[path];
 		e.pos = Context.currentPos();
+		return macro stdgo.Go.getNameType($v{path});
+	}
+
+	static function setTypeInfoData(path:String, e:Expr):Expr {
+		nameTypes[path] = e;
+		e = macro stdgo.Go.setNameType($v{path}, $e);
+		e.pos = Context.currentPos();
 		return e;
 	}
+
 
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr, marked:Map<String, Bool>, recv:Expr = null):Expr {
 		final marked = marked.copy();
@@ -1071,13 +1079,11 @@ class Go {
 											methods.push(macro {name: $v{field.name}, type: {get: () -> $t}, recv: {get: () -> $ret}});
 										}
 										final empty = methods.length == 0;
-										Go.nameTypes[path] = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods},
+										final e = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods},
 											stdgo._internal.internal.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), false, {
 												get: () -> null
 											});
-										final e = getTypeInfoData(path);
-										e.pos = Context.currentPos();
-										return e;
+										return setTypeInfoData(path, e);
 									}
 								}
 							default:
@@ -1166,8 +1172,7 @@ class Go {
 										if (isInvalidNamed) {
 											return e;
 										} else {
-											Go.nameTypes[path] = e;
-											return getTypeInfoData(path);
+											return setTypeInfoData(path, e);
 										}
 									}
 								} else {
@@ -1502,8 +1507,7 @@ class Go {
 			t = gtDecode(underlyingType, expr, marked);
 		}
 		final e = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
-		Go.nameTypes[path] = e;
-		return getTypeInfoData(path);
+		return setTypeInfoData(path, e);
 	}
 	static var counter = 0;
 

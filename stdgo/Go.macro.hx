@@ -956,8 +956,6 @@ class Go {
 		};
 		return exprMacro;
 	}
-
-	#if macro
 	// reflect decode
 	private static function gtParams(params:Array<haxe.macro.Type>, marked:Map<String, Bool>, ?expr:Expr):Array<Expr> {
 		var pTypes = [];
@@ -969,6 +967,7 @@ class Go {
 	}
 
 	// this stays in macro only context
+	@:persistent
 	static final nameTypes:Map<String, Expr> = [];
 
 	static function getTypeInfoData(path:String):Expr {
@@ -1050,6 +1049,14 @@ class Go {
 										final fields = macro $a{fields};
 										return macro stdgo._internal.internal.reflect.Reflect.GoType.structType($fields);
 									} else {
+										if (marked.exists(path)) {
+											return macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType,
+												false, {
+													get: () -> null
+												});
+										} else {
+											marked[path] = true;
+										}
 										final methods:Array<Expr> = [];
 										for (field in a.fields) {
 											switch field.name {
@@ -1084,9 +1091,16 @@ class Go {
 												get: () -> null
 											});
 									} else {
-										marked[path] = true;
 										if (Go.nameTypes.exists(path))
 											return getTypeInfoData(path);
+										if (marked.exists(path)) {
+											return macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType,
+												false, {
+													get: () -> null
+												});
+										} else {
+											marked[path] = true;
+										}
 										var type:haxe.macro.Type = ref.type;
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
@@ -1125,7 +1139,7 @@ class Go {
 														}
 														if (field.meta.has(":pointer"))
 															ret = macro stdgo._internal.internal.reflect.Reflect.GoType.pointerType({get: () -> $ret});
-														final t = gtDecode(field.type, expr, marked.copy(), ret);
+														final t = gtDecode(field.type, expr, marked, ret);
 														//trace(new haxe.macro.Printer().printExpr(t));
 														final method = macro new stdgo._internal.internal.reflect.Reflect.MethodType($v{field.name}, {get: () -> $t},
 														// recv
@@ -1450,8 +1464,17 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		final path = createPath(ref.module, ref.name);
-		if (nameTypes.exists(path))
+		if (nameTypes.exists(path)) {
 			return getTypeInfoData(path);
+		}
+		if (marked.exists(path)) {
+			return macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType,
+				false, {
+					get: () -> null
+				});
+		} else {
+			marked[path] = true;
+		}
 		for (field in fs) {
 			if (field.meta.has(":local"))
 				continue;
@@ -1478,10 +1501,11 @@ class Go {
 		if (ref.meta.has(":named") && underlyingType != null) {
 			t = gtDecode(underlyingType, expr, marked);
 		}
-		Go.nameTypes[path] = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
+		final e = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
+		Go.nameTypes[path] = e;
 		return getTypeInfoData(path);
 	}
-	#end
+	static var counter = 0;
 
 	public static macro function min(exprs:Array<Expr>) {
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];

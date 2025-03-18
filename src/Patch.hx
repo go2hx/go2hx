@@ -260,6 +260,18 @@ final list = [
 		return null;
 	},
 	"os.File:write" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (!(@:privateAccess _f._output is sys.io.FileOutput)) {
+				if (_b.length == 0)
+					return {_0: 0, _1: null};
+				@:privateAccess _f.mutex.acquire();
+				final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+				@:privateAccess _f.mutex.release();
+				if (i != _b.length.toBasic())
+					return {_0: i, _1: stdgo._internal.errors.Errors_new_.new_("invalid write")};
+				return {_0: i, _1: null};
+			}
+		}
 		return @:privateAccess _f.writeAt(_b, 0);
 	},
 	"os.File:truncate" => macro {
@@ -569,6 +581,18 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
+		@:define("(sys || hxnodejs)") {
+			if (!(@:privateAccess _f._input is sys.io.FileInput)) {
+				@:privateAccess _f.mutex.acquire();
+				final bytes = @:privateAccess _f._input.read(_b.length);
+				@:privateAccess _b.__bytes__ = bytes;
+				/*for (i in 0...bytes.length) {
+					_b[i] = bytes.get(i);
+				}*/
+				@:privateAccess _f.mutex.release();
+				return {_0: bytes.length, _1: null};
+			}
+		}
 		return @:privateAccess _f.readAt(_b, 0);
 	},
 	"os:createTemp" => macro {

@@ -1,4 +1,5 @@
 -D go2hx
+--macro stdgo._internal.internal.Macro.init()
 -D message-reporting=pretty
 -D source-map
 -D source-map-content

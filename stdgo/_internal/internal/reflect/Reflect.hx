@@ -297,6 +297,8 @@ function directlyAssignable(t:Type, v:Type):Bool {
 }
 
 private function identicalType(t:GoType,v:GoType):Bool {
+	if (t == null || v == null)
+		return t == v;
 	return switch t {
 		case named(path,_,_,_,_):
 			switch v {
@@ -390,11 +392,12 @@ function implementsMethod(t:Type, v:Type):Bool {
 		vgt = getElem(vgt);
 	}
 	//trace("n0:", gt);
-	// trace("n1:", vgt);
+	//trace("n1:", vgt);
 	return switch gt {
-		case interfaceType(_, methods), named(_, methods, interfaceType(_, _), _):
-			if (methods == null || methods.length == 0)
+		case interfaceType(_, methods), named(_, methods, _, _):
+			if (methods == null || methods.length == 0) {
 				return true;
+			}
 			switch vgt {
 				case interfaceType(_, methods2), named(_, methods2, _):
 					if (methods.length > methods2.length) {
@@ -406,12 +409,18 @@ function implementsMethod(t:Type, v:Type):Bool {
 						// if (!gtIsPointer && isPointer(methods[i].recv.get()) != gtIsPointer)
 						// 	continue;
 						for (j in 0...methods2.length) {
-							if (methods[i].name != methods2[j].name)
+							if (methods[i].name != methods2[j].name) {
+								//trace(methods[i].name);
+								//trace(methods2[i].name);
 								continue;
+							}
 							// if (!vgtIsPointer && isPointer(methods2[i].recv.get()) != vgtIsPointer)
 							// 	continue;
-							if (!new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
-								new _Type(methods2[j].type.get())))) {
+							final b = !new _Type(methods[i].type.get()).assignableTo(new _Type_asInterface(Go.pointer(new _Type(methods2[j].type.get())),
+							new _Type(methods2[j].type.get())));
+							if (b) {
+								//trace(methods[i].type.get());
+								//trace(methods[j].type.get());
 								return false;
 							}
 							found = true;
@@ -1403,8 +1412,24 @@ class _Type {
 	static public function methodByName(t:_Type, _0:GoString):{var _0:ReflectMethod; var _1:Bool;}
 		throw "not implemented methodByName";
 
-	static public function method(t:_Type, _0:GoInt):ReflectMethod
-		throw "not implemented method";
+	static public function method(t:_Type, _0:GoInt):ReflectMethod {
+		switch t._common() {
+			case named(_, methods, _), interfaceType(_, methods):
+				var count = 0;
+				final m = new ReflectMethod();
+				final method = methods[_0];
+				m.name = method.name;
+				var methodType = new _Type(method.type.get());
+				m.type = new _Type_asInterface(Go.pointer(methodType), methodType);
+				return m;
+			case structType(_):
+				throw "not valid for structType";
+			case pointerType(_), refType(_):
+				return t.elem().method(_0);
+			default:
+				throw "reflect.NumMethod not implemented for " + t.string();
+		}
+	}
 
 	static public function fieldAlign(t:_Type):GoInt
 		throw "not implemented fieldAlign";

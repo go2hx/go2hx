@@ -720,8 +720,8 @@ class Go {
 					final e = $e;
 					final b = e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
 					if (!b) {
-						//trace(e.type.string().toString());
-						//trace(t.string().toString());
+					//trace(e.type.string().toString());
+					//trace(t.string().toString());
 						throw "unable to assert";
 					}
 					// interface kind check
@@ -967,7 +967,7 @@ class Go {
 	}
 
 	// this stays in macro only context
-	@:persistent
+	//@:persistent
 	static final nameTypes:Map<String, Expr> = [];
 
 	static function getTypeInfoData(path:String):Expr {
@@ -1027,7 +1027,14 @@ class Go {
 											get: () -> null
 										});
 								} else {
-									marked[path] = true;
+									if (marked.exists(path)) {
+										return macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType,
+											false, {
+												get: () -> null
+											});
+									} else {
+										marked[path] = true;
+									}
 									final a = a.get();
 									a.fields.sort((a, b) -> {
 										return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
@@ -1054,14 +1061,6 @@ class Go {
 										final fields = macro $a{fields};
 										return macro stdgo._internal.internal.reflect.Reflect.GoType.structType($fields);
 									} else {
-										if (marked.exists(path)) {
-											return macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType,
-												false, {
-													get: () -> null
-												});
-										} else {
-											marked[path] = true;
-										}
 										final methods:Array<Expr> = [];
 										for (field in a.fields) {
 											switch field.name {
@@ -1500,7 +1499,6 @@ class Go {
 		final e = macro stdgo._internal.internal.reflect.Reflect.GoType.named($v{path}, $a{methods}, $t, false, {get: () -> null});
 		return setTypeInfoData(path, e);
 	}
-	static var counter = 0;
 
 	public static macro function min(exprs:Array<Expr>) {
 		final block:Array<Expr> = [macro var num = ${exprs[0]}];

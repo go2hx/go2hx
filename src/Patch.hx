@@ -260,7 +260,7 @@ final list = [
 		return null;
 	},
 	"os.File:write" => macro {
-		@:define("(sys || hxnodejs)") {
+		@:define("((sys || hxnodejs) && !eval)") {
 			if (!(@:privateAccess _f._output is sys.io.FileOutput)) {
 				if (_b.length == 0)
 					return {_0: 0, _1: null};
@@ -571,6 +571,10 @@ final list = [
 	"os.File:seek" => macro {
 		// seek(p:Int, pos:FileSeek):Void
 		// SeekBegin, SeekCur, SeekEnd
+		@:define("eval") {
+			trace("not supported on eval target");
+			return { _0 : 0, _1 : null };
+		}
 		@:define("(sys || hxnodejs)") {
 			final input:sys.io.FileInput = cast @:privateAccess _f._input;
 			final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
@@ -581,7 +585,7 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
-		@:define("(sys || hxnodejs)") {
+		@:define("((sys || hxnodejs) && !eval)") {
 			if (!(@:privateAccess _f._input is sys.io.FileInput)) {
 				@:privateAccess _f.mutex.acquire();
 				final bytes = @:privateAccess _f._input.read(_b.length);
@@ -636,10 +640,15 @@ final list = [
 				return {_0: 0, _1: null};
 			@:privateAccess _f.mutex.acquire();
 			try {
-				final t = @:privateAccess cast(_f._output, sys.io.FileOutput).tell();
-				@:privateAccess cast(_f._output, sys.io.FileOutput).seek(_off.toBasic().low, sys.io.FileSeek.SeekBegin);
+				var t = 0;
+				@:define("!eval") {
+					t = @:privateAccess cast(_f._output, sys.io.FileOutput).tell();
+					@:privateAccess cast(_f._output, sys.io.FileOutput).seek(_off.toBasic().low, sys.io.FileSeek.SeekBegin);
+				}
 				final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
-				@:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
+				@:define("!eval") {
+					@:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
+				}
 				@:privateAccess _f.mutex.release();
 				return {_0: i, _1: null};
 			}catch(e) {
@@ -662,10 +671,15 @@ final list = [
 				var offset = _off.toBasic().low;
 				//@:privateAccess cast(_f._input, sys.io.FileInput).seek(0, sys.io.FileSeek.SeekBegin);
 				final b = _b.toBytes();
-				final t = @:privateAccess cast(_f._input, sys.io.FileInput).tell();
-				@:privateAccess cast(_f._input, sys.io.FileInput).seek(offset, sys.io.FileSeek.SeekBegin);
+				var t = 0;
+				@:define("!eval") {
+					t = @:privateAccess cast(_f._input, sys.io.FileInput).tell();
+					@:privateAccess cast(_f._input, sys.io.FileInput).seek(offset, sys.io.FileSeek.SeekBegin);
+				}
 				var n = @:privateAccess _f._input.readBytes(b, 0, _b.length.toBasic());
-				@:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
+				@:define("!eval") {
+					@:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
+				}
 				@:privateAccess _b.__bytes__ = b;
 				// always returns a non-nil error when n < len(b). At end of file, that error is io.EOF.
 				var err = null;

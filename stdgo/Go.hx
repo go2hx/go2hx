@@ -11,13 +11,6 @@ class Go {
 	 */
 	public static var recover_exception:stdgo.AnyInterface= null;
 	public static var globalMutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
-	static var nameTypes:Map<String,stdgo._internal.internal.reflect.Reflect.GoType> = [];
-	public static function setNameType(path:String, t:stdgo._internal.internal.reflect.Reflect.GoType):stdgo._internal.internal.reflect.Reflect.GoType {
-		return nameTypes[path] = t;
-	}
-	public static function getNameType(path:String):stdgo._internal.internal.reflect.Reflect.GoType {
-		return nameTypes[path];
-	}
 	// GOROUTINE
 	public static function routine(func:Void->Void) {
 		#if js

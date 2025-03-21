@@ -189,6 +189,8 @@
 -- PASS: TestWriterReadFromWithBufferedData
 
 === RUN  TestReadZero
+- SUBRUN  bufsize=100
+- SUBRUN  bufsize=2
 
 -- PASS: TestReadZero
 
@@ -254,16 +256,16 @@ Called from module get : <function>
 Called from module })
 Called from module }
 Called from module }
-Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30142 column 17)
-Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30072 column 11)
-Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30024 column 25)
-Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29672 column 15)
-Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29523 column 57)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlonglines_testScanLongLines [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:25838:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58364 column 9)
-Called from ._$internal_bufiodottest_Bufiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50171 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67238:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67239:3)
+Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30565 column 17)
+Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30495 column 11)
+Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30447 column 25)
+Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30095 column 15)
+Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29946 column 57)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlonglines_testScanLongLines [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:26261:52)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58854 column 9)
+Called from ._$internal_bufiodottest_Bufiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50605 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67720:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67721:3)
 
 -- FAIL: TestScanLongLines
 
@@ -281,16 +283,16 @@ Called from module get : <function>
 Called from module })
 Called from module }
 Called from module }
-Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30142 column 17)
-Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30072 column 11)
-Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30024 column 25)
-Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29672 column 15)
-Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29523 column 57)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlinetoolong_testScanLineTooLong [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:25779:52)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58364 column 9)
-Called from ._$internal_bufiodottest_Bufiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50171 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67238:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67239:3)
+Called from .new haxe_ValueException (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30565 column 17)
+Called from haxe_Exception.thrown (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30495 column 11)
+Called from .stdgo__$internal_bytes_Bytes_$_$growslice__growSlice (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30447 column 25)
+Called from stdgo__$internal_bytes_Buffer_$static_$extension._grow (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 30095 column 15)
+Called from stdgo__$internal_bytes_Buffer_$static_$extension.write (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 29946 column 57)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_bufio_$test_Bufio_$test_$testscanlinetoolong_testScanLineTooLong [as f] (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:26202:52)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 58854 column 9)
+Called from ._$internal_bufiodottest_Bufiodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js line 50605 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67720:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_bufio.js:67721:3)
 
 -- FAIL: TestScanLineTooLong
 

@@ -1,9 +1,15 @@
 {
     "passes": [],
     "fails": [
-        "TestNode"
+        "TestNode",
+        "TestNodeNoModify",
+        "TestSource",
+        "TestPartial"
     ],
     "runs": [
-        "TestNode"
+        "TestNode",
+        "TestNodeNoModify",
+        "TestSource",
+        "TestPartial"
     ]
 }

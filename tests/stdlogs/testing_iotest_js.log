@@ -56,6 +56,9 @@ ReadLogger mismatch
 -- PASS: TestDataErrReader_emptyReader
 
 === RUN  TestErrReader
+- SUBRUN  nil error
+- SUBRUN  non-nil error
+- SUBRUN  io.EOF
 
 -- PASS: TestErrReader
 

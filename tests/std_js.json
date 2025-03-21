@@ -20,5 +20,6 @@
  "js|encoding/ascii85",
  "js|encoding/csv",
  "js|hash/fnv",
- "js|crypto"
+ "js|crypto",
+ "js|hash"
 ]

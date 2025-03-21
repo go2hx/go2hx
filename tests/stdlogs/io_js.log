@@ -1,6 +1,18 @@
 === RUN  TestCopy
+Exception: Cannot read properties of undefined (reading 'high')
+Called from module TypeError: Cannot read properties of undefined (reading 'high')
+Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20971 column 23)
+Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21406 column 24)
+Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20763 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopy_testCopy [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17782:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
--- PASS: TestCopy
+-- FAIL: TestCopy
 
 === RUN  TestCopyNegative
 
@@ -11,8 +23,20 @@
 -- PASS: TestCopyBuffer
 
 === RUN  TestCopyBufferNil
+Exception: Cannot read properties of undefined (reading 'high')
+Called from module TypeError: Cannot read properties of undefined (reading 'high')
+Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20971 column 23)
+Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21406 column 24)
+Called from .stdgo__$internal_io_Io_$copybuffer_copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 26255 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopybuffernil_testCopyBufferNil [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17828:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
--- PASS: TestCopyBufferNil
+-- FAIL: TestCopyBufferNil
 
 === RUN  TestCopyReadFrom
 
@@ -27,8 +51,20 @@
 -- PASS: TestCopyPriority
 
 === RUN  TestCopyReadErrWriteErr
+Exception: Cannot read properties of undefined (reading 'high')
+Called from module TypeError: Cannot read properties of undefined (reading 'high')
+Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20971 column 23)
+Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21406 column 24)
+Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20763 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopyreaderrwriteerr_testCopyReadErrWriteErr [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:18214:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
--- PASS: TestCopyReadErrWriteErr
+-- FAIL: TestCopyReadErrWriteErr
 
 === RUN  TestCopyN
 
@@ -47,8 +83,9 @@
 -- PASS: TestCopyNEOF
 
 === RUN  TestReadAtLeast
+expected <invalid reflect.Value>, got %!v(MISSING)
 
--- PASS: TestReadAtLeast
+-- FAIL: TestReadAtLeast
 
 === RUN  TestReadAtLeastWithDataAndEOF
 
@@ -79,25 +116,40 @@
 -- PASS: TestSectionReader_Max
 
 === RUN  TestCopyLargeWriter
+Exception: Cannot read properties of undefined (reading 'high')
+Called from module TypeError: Cannot read properties of undefined (reading 'high')
+Called from stdgo_GoInt64.gt (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20971 column 23)
+Called from .stdgo__$internal_io_Io_$_$copybuffer__copyBuffer (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 21406 column 24)
+Called from .stdgo__$internal_io_Io_$copy_copy (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 20763 column 16)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testcopylargewriter_testCopyLargeWriter [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:17852:16)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
+Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
--- PASS: TestCopyLargeWriter
+-- FAIL: TestCopyLargeWriter
 
 === RUN  TestNopCloserWriterToForwarding
 
 -- PASS: TestNopCloserWriterToForwarding
 
 === RUN  TestOffsetWriter_Seek
+- SUBRUN  errWhence
+- SUBRUN  errOffset
+- SUBRUN  normal
 
 -- PASS: TestOffsetWriter_Seek
 
 === RUN  TestOffsetWriter_WriteAt
-Exception: File:os.readAt is not yet implemented
-Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 19282 column 26)
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19291:4)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60432 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52578 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65926:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65927:3)
+ReadAt failed: <invalid reflect.Value>Exception: __fail__
+Called from ._work (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 19541 column 26)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$writeat_testOffsetWriter_WriteAt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19550:4)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -108,8 +160,18 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestWriteAt_PositionPriorToBase
 
 === RUN  TestOffsetWriter_Write
+- SUBRUN  Write
+Exception: Cannot read properties of undefined (reading 'high')
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:19201:26
+Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 44668 column 2)
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testoffsetwriter_$write_testOffsetWriter_Write [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19086:50)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
--- PASS: TestOffsetWriter_Write
+-- FAIL: TestOffsetWriter_Write
 
 === RUN  TestMultiReader
 
@@ -124,8 +186,9 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestMultiWriter
 
 === RUN  TestMultiWriter_String
+expected <invalid reflect.Value>; got %!q(MISSING)
 
--- PASS: TestMultiWriter_String
+-- FAIL: TestMultiWriter_String
 
 === RUN  TestMultiWriter_WriteStringSingleAlloc
 -- SKIP: testMultiWriter_WriteStringSingleAlloc
@@ -133,8 +196,9 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestMultiWriter_WriteStringSingleAlloc
 
 === RUN  TestMultiWriter_StringCheckCall
+<invalid reflect.Value>
 
--- PASS: TestMultiWriter_StringCheckCall
+-- FAIL: TestMultiWriter_StringCheckCall
 
 === RUN  TestMultiWriterSingleChainFlatten
 -- SKIP: testMultiWriterSingleChainFlatten
@@ -150,8 +214,9 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 -- PASS: TestMultiReaderCopy
 
 === RUN  TestMultiWriterCopy
+buf.String() = <invalid reflect.Value>, want %!q(MISSING)
 
--- PASS: TestMultiWriterCopy
+-- FAIL: TestMultiWriterCopy
 
 === RUN  TestMultiReaderFlatten
 -- SKIP: testMultiReaderFlatten
@@ -202,13 +267,139 @@ final read got <invalid reflect.Value>
 
 === RUN  TestPipe3
 read: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61186 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61075 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:60629:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19416:21)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60432 column 9)
-Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 52578 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:65926:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:65927:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61651 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61540 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61094:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testpipe3_testPipe3 [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:19675:21)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
 
 -- FAIL: TestPipe3
+
+=== RUN  TestPipeReadClose
+read from closed pipe: <invalid reflect.Value> want %!v(MISSING)
+read from closed pipe: <invalid reflect.Value> want %!v(MISSING)
+read from closed pipe: <invalid reflect.Value> want %!v(MISSING)
+
+-- FAIL: TestPipeReadClose
+
+=== RUN  TestPipeReadClose2
+
+-- PASS: TestPipeReadClose2
+
+=== RUN  TestPipeWriteClose
+write on closed pipe: <invalid reflect.Value> want %!v(MISSING)
+
+-- FAIL: TestPipeWriteClose
+
+=== RUN  TestPipeWriteClose2
+
+-- PASS: TestPipeWriteClose2
+
+=== RUN  TestWriteEmpty
+
+-- PASS: TestWriteEmpty
+
+=== RUN  TestWriteNil
+
+-- PASS: TestWriteNil
+
+=== RUN  TestWriteAfterWriterClose
+got: <invalid reflect.Value>; want: %!q(MISSING)Exception: __fail__
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61651 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 61540 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:61094:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_io_$test_Io_$test_$testwriteafterwriterclose_testWriteAfterWriterClose [as f] (/home/runner/work/go2hx/go2hx/golibs/std_io.js:20532:20)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 60904 column 9)
+Called from ._$internal_iodottest_Iodottest_main (/home/runner/work/go2hx/go2hx/golibs/std_io.js line 53036 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_io.js:66384:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_io.js:66385:3)
+
+-- FAIL: TestWriteAfterWriterClose
+
+=== RUN  TestPipeCloseError
+
+-- PASS: TestPipeCloseError
+
+=== RUN  TestPipeConcurrent
+- SUBRUN  Write
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Read() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+got: <invalid reflect.Value>; want: %!q(MISSING)
+- SUBRUN  Read
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+Write() = (<invalid reflect.Value>, %!v(MISSING)); want (%!d(MISSING), nil)
+got: <invalid reflect.Value>; want: %!q(MISSING)
+
+-- FAIL: TestPipeConcurrent
+

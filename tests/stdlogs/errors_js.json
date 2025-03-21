@@ -1,0 +1,26 @@
+{
+    "passes": [
+        "TestNewEqual",
+        "TestErrorMethod",
+        "TestJoinReturnsNil",
+        "TestJoin",
+        "TestJoinErrorMethod",
+        "TestAsValidation",
+        "TestUnwrap"
+    ],
+    "fails": [
+        "TestIs",
+        "TestAs"
+    ],
+    "runs": [
+        "TestNewEqual",
+        "TestErrorMethod",
+        "TestJoinReturnsNil",
+        "TestJoin",
+        "TestJoinErrorMethod",
+        "TestIs",
+        "TestAs",
+        "TestAsValidation",
+        "TestUnwrap"
+    ]
+}

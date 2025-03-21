@@ -9,13 +9,31 @@
 === RUN  TestSymlink
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49790 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49694 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49029:58
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testsymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:33918:19)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 48841 column 9)
-Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40085 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59078:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59079:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 50253 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 50157 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:49489:58
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testsymlink_testSymlink [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:34323:19)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49308 column 9)
+Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40490 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59540:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59541:3)
 
 -- FAIL: TestSymlink
+
+=== RUN  TestDash
+
+-- PASS: TestDash
+
+=== RUN  TestShuffledFS
+Exception: Cannot read properties of null (reading 'name')
+Called from stdgo__$internal_testing_fstest_T_$fsTester_$static_$extension._checkDir (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 37431 column 25)
+Called from .stdgo__$internal_testing_fstest_Fstest_$_$testfs__testFS (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 35870 column 65)
+Called from .stdgo__$internal_testing_fstest_Fstest_$testfs_testFS (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 35820 column 70)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_testing_fstest_Fstest_$testshuffledfs_testShuffledFS [as f] (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:40363:14)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 49308 column 9)
+Called from ._$internal_testing_fstestdottest_Fstestdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js line 40490 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59540:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_fstest.js:59541:3)
+
+-- FAIL: TestShuffledFS
+

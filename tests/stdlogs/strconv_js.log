@@ -12,13 +12,332 @@
 
 === RUN  TestParseComplex
 ParseComplex(<invalid reflect.Value>, 64) = %!v(MISSING), %!v(MISSING); want %!v(MISSING), %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57338 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57227 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:56781:58
-Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:29971:5)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 56584 column 9)
-Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 49610 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64473:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64474:3)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57788 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57677 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:57231:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testparsecomplex_testParseComplex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:30354:5)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57041 column 9)
+Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50024 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64922:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64923:3)
 
 -- FAIL: TestParseComplex
+
+=== RUN  TestParseComplexIncorrectBitSize
+
+-- PASS: TestParseComplexIncorrectBitSize
+
+=== RUN  TestParseFloatPrefix
+
+-- PASS: TestParseFloatPrefix
+
+=== RUN  TestAtof
+-- SKIP: testAtof
+
+-- PASS: TestAtof
+
+=== RUN  TestAtofSlow
+-- SKIP: testAtofSlow
+
+-- PASS: TestAtofSlow
+
+=== RUN  TestAtofRandom
+-- SKIP: testAtofRandom
+
+-- PASS: TestAtofRandom
+
+=== RUN  TestRoundTrip
+
+-- PASS: TestRoundTrip
+
+=== RUN  TestRoundTrip32
+-- SKIP: testRoundTrip32
+ skip targets: interp, js
+
+-- PASS: TestRoundTrip32
+
+=== RUN  TestParseFloatIncorrectBitSize
+
+-- PASS: TestParseFloatIncorrectBitSize
+
+=== RUN  TestParseUint32
+
+-- PASS: TestParseUint32
+
+=== RUN  TestParseUint64
+
+-- PASS: TestParseUint64
+
+=== RUN  TestParseUint64Base
+
+-- PASS: TestParseUint64Base
+
+=== RUN  TestParseInt32
+
+-- PASS: TestParseInt32
+
+=== RUN  TestParseInt64
+
+-- PASS: TestParseInt64
+
+=== RUN  TestParseInt64Base
+
+-- PASS: TestParseInt64Base
+
+=== RUN  TestParseUint
+
+-- PASS: TestParseUint
+
+=== RUN  TestParseInt
+
+-- PASS: TestParseInt
+
+=== RUN  TestAtoi
+
+-- PASS: TestAtoi
+
+=== RUN  TestParseIntBitSize
+
+-- PASS: TestParseIntBitSize
+
+=== RUN  TestParseUintBitSize
+
+-- PASS: TestParseUintBitSize
+
+=== RUN  TestParseIntBase
+
+-- PASS: TestParseIntBase
+
+=== RUN  TestParseUintBase
+
+-- PASS: TestParseUintBase
+
+=== RUN  TestNumError
+
+-- PASS: TestNumError
+
+=== RUN  TestNumErrorUnwrap
+
+-- PASS: TestNumErrorUnwrap
+
+=== RUN  TestFormatComplex
+
+-- PASS: TestFormatComplex
+
+=== RUN  TestFormatComplexInvalidBitSize
+
+-- PASS: TestFormatComplexInvalidBitSize
+
+=== RUN  TestDecimalShift
+
+-- PASS: TestDecimalShift
+
+=== RUN  TestDecimalRound
+
+-- PASS: TestDecimalRound
+
+=== RUN  TestDecimalRoundedInteger
+
+-- PASS: TestDecimalRoundedInteger
+
+=== RUN  TestFp
+-- SKIP: testFp
+
+-- PASS: TestFp
+
+=== RUN  TestFtoa
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+<invalid reflect.Value>
+
+-- FAIL: TestFtoa
+
+=== RUN  TestFtoaPowersOfTwo
+-- SKIP: testFtoaPowersOfTwo
+
+-- PASS: TestFtoaPowersOfTwo
+
+=== RUN  TestFtoaRandom
+-- SKIP: testFtoaRandom
+
+-- PASS: TestFtoaRandom
+
+=== RUN  TestFormatFloatInvalidBitSize
+
+-- PASS: TestFormatFloatInvalidBitSize
+
+=== RUN  TestMulByLog2Log10
+
+-- PASS: TestMulByLog2Log10
+
+=== RUN  TestMulByLog10Log2
+
+-- PASS: TestMulByLog10Log2
+
+=== RUN  TestItoa
+
+-- PASS: TestItoa
+
+=== RUN  TestUitoa
+
+-- PASS: TestUitoa
+
+=== RUN  TestFormatUintVarlen
+
+-- PASS: TestFormatUintVarlen
+
+=== RUN  TestIsPrint
+
+-- PASS: TestIsPrint
+
+=== RUN  TestIsGraphic
+
+-- PASS: TestIsGraphic
+
+=== RUN  TestQuote
+
+-- PASS: TestQuote
+
+=== RUN  TestQuoteToASCII
+
+-- PASS: TestQuoteToASCII
+
+=== RUN  TestQuoteToGraphic
+
+-- PASS: TestQuoteToGraphic
+
+=== RUN  TestQuoteRune
+
+-- PASS: TestQuoteRune
+
+=== RUN  TestQuoteRuneToASCII
+
+-- PASS: TestQuoteRuneToASCII
+
+=== RUN  TestQuoteRuneToGraphic
+
+-- PASS: TestQuoteRuneToGraphic
+
+=== RUN  TestCanBackquote
+
+-- PASS: TestCanBackquote
+
+=== RUN  TestUnquote
+
+-- PASS: TestUnquote
+
+=== RUN  TestUnquoteInvalidUTF8
+
+-- PASS: TestUnquoteInvalidUTF8
+
+=== RUN  TestCountMallocs
+<invalid reflect.Value>
+Exception: __skip__
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57632 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57662 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:57270:58
+Called from module at stdgo__$internal_testing_InternalTest._$internal_strconv_$test_Strconv_$test_$testcountmallocs_testCountMallocs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:27747:18)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 57041 column 9)
+Called from ._$internal_strconvdottest_Strconvdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js line 50024 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64922:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_strconv.js:64923:3)
+
+-- SKIP: TestCountMallocs
+
+-- PASS: TestCountMallocs
+
+=== RUN  TestAllocationsFromBytes
+- SUBRUN  Atoi
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  ParseBool
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  ParseInt
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  ParseUint
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  ParseFloat
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  ParseComplex
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  CanBackquote
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  AppendQuote
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  AppendQuoteToASCII
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+- SUBRUN  AppendQuoteToGraphic
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+
+-- PASS: TestAllocationsFromBytes
+
+=== RUN  TestErrorPrefixes
+
+-- PASS: TestErrorPrefixes
+

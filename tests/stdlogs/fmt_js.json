@@ -24,7 +24,10 @@
         "TestScanfMulti",
         "TestUnreadRuneWithBufio",
         "TestLineByLineFscanf",
-        "TestScanStateCount"
+        "TestScanStateCount",
+        "TestScanNewlinesAreSpaces",
+        "TestFormatString",
+        "TestStringer"
     ],
     "fails": [
         "TestSprintf",
@@ -45,7 +48,11 @@
         "TestEOFAtEndOfInput",
         "TestEOFAllTypes",
         "TestMultiLine",
-        "TestScanInts"
+        "TestScanInts",
+        "TestHexBytes",
+        "TestScanlnNewlinesTerminate",
+        "TestScanfNewlineMatchFormat",
+        "TestHexByte"
     ],
     "runs": [
         "TestErrorf",
@@ -91,6 +98,13 @@
         "TestMultiLine",
         "TestLineByLineFscanf",
         "TestScanStateCount",
-        "TestScanInts"
+        "TestScanInts",
+        "TestHexBytes",
+        "TestScanNewlinesAreSpaces",
+        "TestScanlnNewlinesTerminate",
+        "TestScanfNewlineMatchFormat",
+        "TestHexByte",
+        "TestFormatString",
+        "TestStringer"
     ]
 }

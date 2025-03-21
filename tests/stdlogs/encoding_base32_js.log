@@ -110,6 +110,8 @@ case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
 -- FAIL: TestBufferedDecodingPadding
 
 === RUN  TestEncodedDecodedLen
+- SUBRUN  StdEncoding
+- SUBRUN  NoPadding
 
 -- PASS: TestEncodedDecodedLen
 

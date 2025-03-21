@@ -26,8 +26,8 @@ Called from .stdgo__$internal_crypto_aes_Aes_$_$expandkeygo__expandKeyGo (/home/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testexpandkey_testExpandKey [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13582:4)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43481 column 9)
 Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20540 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52655:3)
 
 -- FAIL: TestExpandKey
 
@@ -38,8 +38,8 @@ Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.encrypt (/home
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherencrypt_testCipherEncrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:13907:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43481 column 9)
 Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20540 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52655:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCipherEncrypt
@@ -51,8 +51,8 @@ Called from stdgo__$internal_crypto_aes_T_$aesCipher_$asInterface.decrypt (/home
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_aes_Aes_$testcipherdecrypt_testCipherDecrypt [as f] (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:14069:6)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 43481 column 9)
 Called from ._$internal_crypto_aesdottest_Aesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_aes.js line 20540 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52653:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_aes.js:52654:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_aes.js:52655:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestCipherDecrypt
@@ -77,3 +77,4 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 
 -- PASS: TestCTRAble
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

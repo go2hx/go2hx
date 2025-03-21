@@ -127,3 +127,4 @@ case <invalid reflect.Value>: got %!v(MISSING), want %!v(MISSING)
 
 -- PASS: TestDecodeSmallBuffer
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

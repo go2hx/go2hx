@@ -1,8 +1,8 @@
 === RUN  TestGoToolLocation
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 47626 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 47641 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:47279:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 47627 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 47642 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_testenv.js:47280:58
 Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 13239 column 54)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js line 13028 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_testenv_$test_Testenv_$test_$testgotoollocation_testGoToolLocation [as f] (/home/runner/work/go2hx/go2hx/golibs/std_testenv.js:12458:2)
@@ -31,3 +31,4 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_
 
 -- FAIL: TestMustHaveExec
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

@@ -6,17 +6,17 @@ Called from .stdgo__$internal_internal_abi_Abi_$funcpctest_funcPCTest (/home/run
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpc_testFuncPC [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12408:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 47342 column 9)
 Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 39323 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:54431:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54432:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:54432:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:54433:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 48131 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 48146 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:47586:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 48132 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 48147 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_abi.js:47587:58
 Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13171 column 54)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_abi.js line 13003 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_internal_abi_$test_Abi_$test_$testfuncpccompileerror_testFuncPCCompileError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_abi.js:12424:2)
@@ -27,3 +27,4 @@ Called from ._$internal_internal_abidottest_Abidottest_main (/home/runner/work/g
 
 -- PASS: TestFuncPCCompileError
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

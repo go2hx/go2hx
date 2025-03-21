@@ -104,3 +104,4 @@
 
 -- PASS: TestRem64Overflow
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

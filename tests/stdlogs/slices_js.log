@@ -4,8 +4,8 @@ Called from .stdgo__$internal_slices_Slices_$equal_equal (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testequal_testEqual [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:12257:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -17,8 +17,8 @@ Called from .stdgo__$internal_slices_Slices_$equalfunc_equalFunc (/home/runner/w
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testequalfunc_testEqualFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:12976:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -30,8 +30,8 @@ Called from .stdgo__$internal_slices_Slices_$compare_compare (/home/runner/work/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompare_testCompare [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14131:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -43,8 +43,8 @@ Called from .stdgo__$internal_slices_Slices_$_$equaltocmp__equalToCmp (/home/run
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcomparefunc_testCompareFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:14198:90)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -56,8 +56,8 @@ Called from .stdgo__$internal_slices_Slices_$index_index (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testindex_testIndex [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15302:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -69,8 +69,8 @@ Called from .stdgo__$internal_slices_Slices_$_$equaltoindex__equalToIndex (/home
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testindexfunc_testIndexFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15319:75)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -82,8 +82,8 @@ Called from .stdgo__$internal_slices_Slices_$contains_contains (/home/runner/wor
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcontains_testContains [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15356:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -95,8 +95,8 @@ Called from .stdgo__$internal_slices_Slices_$_$equaltoindex__equalToIndex (/home
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcontainsfunc_testContainsFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15373:81)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -108,8 +108,8 @@ Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsert_testInsert [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15411:13)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -121,8 +121,8 @@ Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsertoverlap_testInsertOverlap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15618:63)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -134,8 +134,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testdelete_testDelete [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15639:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -147,8 +147,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testdeletefunc_testDeleteFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15659:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -164,8 +164,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testclone_testClone [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15934:12)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -177,8 +177,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompact_testCompact [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:15985:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -190,8 +190,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testcompactfunc_testCompactFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16005:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -203,8 +203,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testgrow_testGrow [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16034:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -216,8 +216,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testclip_testClip [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16163:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -229,8 +229,8 @@ Called from .stdgo__$internal_slices_Slices_$reverse_reverse (/home/runner/work/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreverse_testReverse [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16189:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -242,8 +242,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplace_testReplace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16782:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -255,8 +255,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplacepanics_testReplacePanics [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16823:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -268,8 +268,8 @@ Called from .stdgo__$internal_slices_Slices_$replace_replace (/home/runner/work/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplaceoverlap_testReplaceOverlap [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16861:66)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -281,8 +281,8 @@ Called from .stdgo__$internal_slices_Slices_$_$rotateleft__rotateLeft (/home/run
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testrotate_testRotate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16891:4)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -294,8 +294,8 @@ Called from .stdgo__$internal_slices_Slices_$insert_insert (/home/runner/work/go
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinsertgrowthrate_testInsertGrowthRate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:16913:8)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -307,8 +307,8 @@ Called from .stdgo__$internal_slices_Slices_$replace_replace (/home/runner/work/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testreplacegrowthrate_testReplaceGrowthRate [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:17547:8)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -320,8 +320,8 @@ Called from .stdgo__$internal_slices_Slices_$_$apply__apply (/home/runner/work/g
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testinference_testInference [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:17561:2)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -337,8 +337,8 @@ Called from .stdgo__$internal_slices_Slices_$_$makerandomints__makeRandomInts (/
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testintsorts_testIntSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:17583:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestIntSorts
@@ -353,8 +353,8 @@ Called from .stdgo__$internal_slices_Slices_$_$makerandomstrings__makeRandomStri
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststringsorts_testStringSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23160:12)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestStringSorts
@@ -369,8 +369,8 @@ Called from .stdgo__$internal_slices_Slices_$_$makerandomstructs__makeRandomStru
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststructsorts_testStructSorts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23294:12)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestStructSorts
@@ -381,8 +381,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortintslice_testSortIntSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23500:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -394,8 +394,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfuncintslice_testSortFuncIntSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23551:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -407,8 +407,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfloat64slice_testSortFloat64Slice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23601:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -420,8 +420,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortfloat64slicewithnans_testSortFloat64SliceWithNaNs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23656:15)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -433,8 +433,8 @@ Called from .stdgo__$internal_slices_Slices_$clone_clone (/home/runner/work/go2h
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortstringslice_testSortStringSlice [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23743:14)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -446,8 +446,8 @@ Called from .stdgo__$internal_slices_Slices_$issorted_isSorted (/home/runner/wor
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testsortlarge_$random_testSortLarge_Random [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23771:5)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -459,8 +459,8 @@ Called from .stdgo__$internal_slices_Slices_$issortedfunc_isSortedFunc (/home/ru
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$teststability_testStability [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23806:5)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -475,8 +475,8 @@ Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/wo
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testminmax_testMinMax [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:23928:51)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 
 -- FAIL: TestMinMax
 
@@ -486,8 +486,8 @@ Called from .stdgo__$internal_slices_Slices_$min_min (/home/runner/work/go2hx/go
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testminmaxnans_testMinMaxNaNs [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36734:27)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -506,8 +506,8 @@ Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/wo
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testbinarysearch_testBinarySearch [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36842:51)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 
 -- FAIL: TestBinarySearch
 
@@ -520,8 +520,8 @@ Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/wo
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testbinarysearchints_testBinarySearchInts [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36884:51)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 
 -- FAIL: TestBinarySearchInts
 
@@ -534,8 +534,8 @@ Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/wo
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testbinarysearchfloats_testBinarySearchFloats [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36966:51)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 
 -- FAIL: TestBinarySearchFloats
 
@@ -545,10 +545,11 @@ Called from .stdgo__$internal_slices_Slices_$binarysearchfunc_binarySearchFunc (
 Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_slices_Slices_$testbinarysearchfunc_testBinarySearchFunc [as f] (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:36984:16)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 46674 column 9)
 Called from ._$internal_slicesdottest_Slicesdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_slices.js line 39145 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56129:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_slices.js:56130:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_slices.js:56131:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestBinarySearchFunc
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

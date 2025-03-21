@@ -67,3 +67,4 @@ got error <invalid reflect.Value>; want %!v(MISSING)
 
 -- PASS: TestDecoderRaw
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

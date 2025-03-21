@@ -5,8 +5,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestExpand
@@ -22,8 +22,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestUnsetenv
@@ -34,8 +34,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -47,8 +47,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -65,8 +65,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -75,14 +75,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestErrIsNotExist
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testerrisnotexist_testErrIsNotExist [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48311:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestErrIsNotExist
 
@@ -93,8 +93,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestIsExist
@@ -106,8 +106,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestIsPermission
@@ -119,8 +119,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -137,8 +137,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestErrorIsMethods
@@ -158,9 +158,9 @@ Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/
 
 === RUN  TestExecutableDeleted
 skipping test: 'go build' unavailable: <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103176 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from stdgo__$internal_testing_T_$_$asInterface.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 59938 column 54)
 Called from .stdgo__$internal_internal_testenv_Testenv_$musthavegobuild_mustHaveGoBuild (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 63009 column 6)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testexecutabledeleted_testExecutableDeleted [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48546:2)
@@ -180,8 +180,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestStat
@@ -192,8 +192,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -205,8 +205,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -219,8 +219,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -235,8 +235,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestLstat
@@ -248,8 +248,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -258,14 +258,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestReadClosed
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testreadclosed_testReadClosed [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:53441:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestReadClosed
 
@@ -278,8 +278,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestFileReaddirnames
 
@@ -292,8 +292,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestFileReaddir
 
@@ -306,8 +306,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestFileReadDir
 
@@ -317,8 +317,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -327,14 +327,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestReaddirNValues
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103190 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102798:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103191 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102799:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testreaddirnvalues_testReaddirNValues [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:53737:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestReaddirNValues
 
@@ -346,8 +346,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -359,8 +359,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -372,8 +372,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -385,8 +385,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -398,8 +398,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -411,8 +411,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -424,8 +424,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -437,8 +437,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -450,8 +450,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -463,8 +463,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -479,8 +479,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestRenameCaseDifference
 
@@ -491,8 +491,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestStartProcess
@@ -504,8 +504,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -517,8 +517,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -530,8 +530,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -552,8 +552,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -565,8 +565,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -578,8 +578,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -591,8 +591,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -604,8 +604,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -613,14 +613,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestChdirAndGetwd
 Open .: <invalid reflect.Value>Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103205 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102759:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103206 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102760:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testchdirandgetwd_testChdirAndGetwd [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:46142:20)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestChdirAndGetwd
 
@@ -641,14 +641,14 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
 
 === RUN  TestSeekError
 skipping test on <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103176 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testseekerror_testSeekError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:56986:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestSeekError
 
@@ -663,8 +663,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestOpenError
@@ -679,8 +679,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestOpenNoName
 
@@ -691,8 +691,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestHostname
@@ -729,8 +729,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -747,8 +747,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestNilProcessStateString
@@ -759,8 +759,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -773,8 +773,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestDevNullFile
@@ -782,14 +782,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestLargeWriteToConsole
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103190 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102798:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103191 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102799:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testlargewritetoconsole_testLargeWriteToConsole [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:49786:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestLargeWriteToConsole
 
@@ -807,8 +807,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestStatStdin
@@ -819,8 +819,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -832,8 +832,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -846,8 +846,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -860,8 +860,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestKillStartProcess
@@ -874,8 +874,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestGetppid
 
@@ -886,8 +886,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestKillFindProcess
@@ -895,13 +895,13 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestNilFileMethods
 Exception: File:os.chdir is not yet implemented
 Called from stdgo__$internal_os_File_$static_$extension.chdir (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 42292 column 23)
-Called from Object._f (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 108326 column 54)
+Called from Object._f (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 108327 column 54)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testnilfilemethods_testNilFileMethods [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:51692:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestNilFileMethods
 
@@ -916,8 +916,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -929,9 +929,9 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 - SUBRUN  file
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:44348:20
 Called from stdgo__$internal_testing_T_$_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 59135 column 2)
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testdoublecloseerror_testDoubleCloseError [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48156:50)
@@ -947,8 +947,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestUserHomeDir
@@ -956,14 +956,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestDirSeek
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testdirseek_testDirSeek [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48111:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestDirSeek
 
@@ -977,8 +977,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestReaddirSmallSeek
 
@@ -989,8 +989,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestOpenFileKeepsPermissions
@@ -1004,7 +1004,7 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestDirFS
 
@@ -1041,14 +1041,14 @@ Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/
 === RUN  TestDirFSPathsValid
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testdirfspathsvalid_testDirFSPathsValid [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48031:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestDirFSPathsValid
 
@@ -1063,8 +1063,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestDirFSReadFileProc
@@ -1076,8 +1076,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1087,14 +1087,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestPipeIOCloseRace
 skipping on <invalid reflect.Value>: no pipesException: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103176 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testpipeiocloserace_testPipeIOCloseRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:52057:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestPipeIOCloseRace
 
@@ -1102,14 +1102,14 @@ Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
 
 === RUN  TestPipeCloseRace
 skipping on <invalid reflect.Value>: no pipesException: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103176 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testpipecloserace_testPipeCloseRace [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:51939:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestPipeCloseRace
 
@@ -1121,8 +1121,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1134,8 +1134,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1147,8 +1147,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1160,8 +1160,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1173,8 +1173,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1187,8 +1187,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- SKIP: TestNewFileBlock
@@ -1202,8 +1202,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- SKIP: TestNewFileNonBlock
@@ -1217,8 +1217,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestNewFileInvalid
@@ -1230,8 +1230,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 Called from Module.load (node:internal/modules/cjs/loader line 1469 column 32)
@@ -1245,8 +1245,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1259,8 +1259,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestMkdirAllWithSymlink
@@ -1273,8 +1273,8 @@ Called from stdgo__$internal_internal_reflect__$Type_$asInterface.string (/home/
 Called from stdgo__$internal_fmt_T_$pp_$static_$extension._doPrintf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 28416 column 73)
 Called from .stdgo__$internal_fmt_Fmt_$fprintf_fprintf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 40186 column 48)
 Called from .stdgo__$internal_fmt_Fmt_$printf_printf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 88008 column 51)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103174 column 42)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 42)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testmkdirallatslash_testMkdirAllAtSlash [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:50898:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
@@ -1283,14 +1283,14 @@ Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/
 
 === RUN  TestReadFile
 ReadFile <invalid reflect.Value>: %!v(MISSING)Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103205 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102759:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatalf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103206 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102760:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testreadfile_testReadFile [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:54427:20)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestReadFile
 
@@ -1304,8 +1304,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1319,8 +1319,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1333,8 +1333,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestRemoveAll
@@ -1342,14 +1342,14 @@ Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 1
 === RUN  TestRemoveAllLarge
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103190 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102798:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103191 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102799:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testremovealllarge_testRemoveAllLarge [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:55080:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestRemoveAllLarge
 
@@ -1362,8 +1362,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1377,8 +1377,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1391,14 +1391,14 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestRemoveAllDotDot
 
 === RUN  TestRemoveReadOnlyDir
-chmod: cannot access 'tmp_s1y5cha9kk/x': No such file or directory
+chmod: cannot access 'tmp_w8wqj5rgdj/x': No such file or directory
 
 -- PASS: TestRemoveReadOnlyDir
 
@@ -1408,8 +1408,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1419,14 +1419,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 === RUN  TestRemoveUnreadableDir
 skipping test on <invalid reflect.Value>Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103175 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102813:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipf (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103176 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102814:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testremoveunreadabledir_testRemoveUnreadableDir [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:55752:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestRemoveUnreadableDir
 
@@ -1439,8 +1439,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1451,14 +1451,14 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 === RUN  TestRemoveAllNoFcntl
 <invalid reflect.Value>
 Exception: __skip__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103160 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103190 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102798:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skipNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103161 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.skip (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103191 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102799:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testremoveallnofcntl_testRemoveAllNoFcntl [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:55242:18)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- SKIP: TestRemoveAllNoFcntl
 
@@ -1472,22 +1472,22 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 
 -- FAIL: TestDirAndSymlinkStats
 
 === RUN  TestFileAndSymlinkStats
 <invalid reflect.Value>
 Exception: __fail__
-Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103316 column 23)
-Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103220 column 56)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102750:58
+Called from stdgo__$internal_testing_T_$common_$static_$extension.failNow (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103317 column 23)
+Called from stdgo__$internal_testing_T_$common_$static_$extension.fatal (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 103221 column 56)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:102751:58
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testfileandsymlinkstats_testFileAndSymlinkStats [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:48645:19)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
 
 -- FAIL: TestFileAndSymlinkStats
 
@@ -1498,20 +1498,20 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestSymlinkWithTrailingSlash
 
 === RUN  TestCreateTemp
-Exception: ENOENT: no such file or directory, open 'TestCreateTempBadDirtmp_v55siqwf1t/_not_exists_/tmp_u7n1y423kh'
+Exception: ENOENT: no such file or directory, open 'TestCreateTempBadDirtmp_mrgcw0jbz0/_not_exists_/tmp_vk4q272fe9'
 Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_Os_$test_$testcreatetemp_testCreateTemp [as f] (/home/runner/work/go2hx/go2hx/golibs/std_os.js:47447:25)
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1530,8 +1530,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
@@ -1545,8 +1545,8 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 
 -- FAIL: TestMkdirTemp
@@ -1562,13 +1562,14 @@ Called from module at stdgo__$internal_testing_InternalTest._$internal_os_$test_
 Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 102569 column 9)
 Called from ._$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 50593 column 82)
 Called from ._$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js line 90688 column 2)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
 -- FAIL: TestMkdirTempBadPattern
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
 
 /home/runner/work/go2hx/go2hx/golibs/std_os.js:65426
 	throw haxe_Exception.thrown(":os.exit is not yet implemented");
@@ -1579,8 +1580,8 @@ Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
     at stdgo__$internal_os_Os_$exit_exit (/home/runner/work/go2hx/go2hx/golibs/std_os.js:65426:23)
     at _$internal_os_$test_Os_$test_$testmain_testMain (/home/runner/work/go2hx/go2hx/golibs/std_os.js:50593:2)
     at _$internal_osdottest_Osdottest_main (/home/runner/work/go2hx/go2hx/golibs/std_os.js:90688:2)
-    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115348:1
-    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:3)
+    at /home/runner/work/go2hx/go2hx/golibs/std_os.js:115349:1
+    at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_os.js:115350:3)
     at Module._compile (node:internal/modules/cjs/loader:1734:14)
     at Object..js (node:internal/modules/cjs/loader:1899:10)
     at Module.load (node:internal/modules/cjs/loader:1469:32) {

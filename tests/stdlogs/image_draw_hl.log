@@ -1,6 +1,6 @@
 [ERROR] ./stdgo/_internal/image/draw/Draw_testdraw.hx:134: characters 21-70
 
- 134 |                     stdgo._internal.image.draw.Draw__iterator_5109377._iterator_5109377++;
+ 134 |                     stdgo._internal.image.draw.Draw__iterator_5120425._iterator_5120425++;
      |                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     | Type not found : stdgo._internal.image.draw.Draw__iterator_5109377
+     | Type not found : stdgo._internal.image.draw.Draw__iterator_5120425
 

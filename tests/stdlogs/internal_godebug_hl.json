@@ -1,11 +1,16 @@
 {
-    "passes": [],
+    "passes": [
+        "TestCmdBisect",
+        "TestBisectTestCase"
+    ],
     "fails": [
         "TestGet",
         "TestMetrics"
     ],
     "runs": [
         "TestGet",
-        "TestMetrics"
+        "TestMetrics",
+        "TestCmdBisect",
+        "TestBisectTestCase"
     ]
 }

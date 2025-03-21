@@ -41,6 +41,9 @@
         "TestStability",
         "TestMinMax",
         "TestMinMaxNaNs",
+        "TestBinarySearch",
+        "TestBinarySearchInts",
+        "TestBinarySearchFloats",
         "TestBinarySearchFunc"
     ],
     "runs": [
@@ -83,6 +86,9 @@
         "TestMinMax",
         "TestMinMaxNaNs",
         "TestMinMaxPanics",
+        "TestBinarySearch",
+        "TestBinarySearchInts",
+        "TestBinarySearchFloats",
         "TestBinarySearchFunc"
     ]
 }

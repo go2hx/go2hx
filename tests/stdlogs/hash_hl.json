@@ -1,0 +1,9 @@
+{
+    "passes": [],
+    "fails": [
+        "TestMarshalHash"
+    ],
+    "runs": [
+        "TestMarshalHash"
+    ]
+}

@@ -4,12 +4,31 @@
         "TestCVE202230632",
         "TestGlobError",
         "TestGlobUNC",
-        "TestWindowsGlob"
+        "TestWindowsGlob",
+        "TestClean",
+        "TestIsLocal",
+        "TestFromAndToSlash",
+        "TestSplitList",
+        "TestSplit",
+        "TestJoin",
+        "TestExt",
+        "TestBase",
+        "TestDir",
+        "TestIsAbs"
     ],
     "fails": [
         "TestGlob",
         "TestGlobSymlink",
-        "TestNonWindowsGlobEscape"
+        "TestNonWindowsGlobEscape",
+        "TestWalk",
+        "TestWalkDir",
+        "TestWalkSkipDirOnFile",
+        "TestWalkSkipAllOnFile",
+        "TestWalkFileError",
+        "TestWalkSymlinkRoot",
+        "TestEvalSymlinks",
+        "TestEvalSymlinksIsNotExist",
+        "TestIssue13582"
     ],
     "runs": [
         "TestMatch",
@@ -19,6 +38,26 @@
         "TestGlobUNC",
         "TestGlobSymlink",
         "TestWindowsGlob",
-        "TestNonWindowsGlobEscape"
+        "TestNonWindowsGlobEscape",
+        "TestClean",
+        "TestIsLocal",
+        "TestFromAndToSlash",
+        "TestSplitList",
+        "TestSplit",
+        "TestJoin",
+        "TestExt",
+        "TestWalk",
+        "TestWalkDir",
+        "TestWalkSkipDirOnFile",
+        "TestWalkSkipAllOnFile",
+        "TestWalkFileError",
+        "TestWalkSymlinkRoot",
+        "TestBase",
+        "TestDir",
+        "TestIsAbs",
+        "TestEvalSymlinks",
+        "TestEvalSymlinksIsNotExist",
+        "TestIssue13582",
+        "TestRelativeSymlinkToAbsolute"
     ]
 }

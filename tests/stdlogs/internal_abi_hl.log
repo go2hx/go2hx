@@ -4,18 +4,23 @@ Exception: not implemented: funcPCABI0
 Called from stdgo._internal.internal.abi._Abi_funcpcabi0.$Abi_funcpcabi0_Fields_.funcPCABI0 (stdgo/_internal/internal/abi/Abi_funcpcabi0.hx line 4)
 Called from stdgo._internal.internal.abi._Abi_funcpctest.$Abi_funcpctest_Fields_.funcPCTest (stdgo/_internal/internal/abi/Abi_funcpctest.hx line 3)
 Called from _internal.internal.abi_test._Abi_test_testfuncpc.$Abi_test_testfuncpc_Fields_.testFuncPC (_internal/internal/abi_test/Abi_test_testfuncpc.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (_internal/internal/abidottest/Abidottest.hx line 7)
 
 -- FAIL: TestFuncPC
 
 === RUN  TestFuncPCCompileError
-Exception: :os.getenv is not yet implemented
-Called from stdgo._internal.os._Os_getenv.$Os_getenv_Fields_.getenv (stdgo/_internal/os/Os_getenv.hx line 2)
-Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 3)
+Exception: __skip__
+Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
+Called from stdgo._internal.testing.$T_common_static_extension.skipf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 53)
+Called from stdgo._internal.testing.T_.~get_skipf.0 (stdgo/_internal/testing/Testing_t_.hx line 75)
+Called from stdgo._internal.testing.T__asInterface.skipf (stdgo/_internal/testing/Testing_t__asinterface.hx line 53)
+Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_musthavegobuild_Fields_.mustHaveGoBuild (stdgo/_internal/internal/testenv/Testenv_musthavegobuild.hx line 9)
 Called from _internal.internal.abi_test._Abi_test_testfuncpccompileerror.$Abi_test_testfuncpccompileerror_Fields_.testFuncPCCompileError (_internal/internal/abi_test/Abi_test_testfuncpccompileerror.hx line 3)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (_internal/internal/abidottest/Abidottest.hx line 7)
 
--- FAIL: TestFuncPCCompileError
+-- SKIP: TestFuncPCCompileError
+
+-- PASS: TestFuncPCCompileError
 

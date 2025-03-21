@@ -1,9 +1,20 @@
 {
-    "passes": [],
+    "passes": [
+        "TestLargeHashes",
+        "TestAllocations"
+    ],
     "fails": [
-        "TestGolden"
+        "TestGolden",
+        "TestGoldenMarshal",
+        "TestLarge",
+        "TestBlockGeneric"
     ],
     "runs": [
-        "TestGolden"
+        "TestGolden",
+        "TestGoldenMarshal",
+        "TestLarge",
+        "TestBlockGeneric",
+        "TestLargeHashes",
+        "TestAllocations"
     ]
 }

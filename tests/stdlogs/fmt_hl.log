@@ -12,7 +12,7 @@ Called from stdgo._internal.fmt.$T_pp_static_extension._printArg (stdgo/_interna
 Called from stdgo._internal.fmt.$T_pp_static_extension._doPrintf (stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179)
 Called from stdgo._internal.fmt._Fmt_sprintf.$Fmt_sprintf_Fields_.sprintf (stdgo/_internal/fmt/Fmt_sprintf.hx line 5)
 Called from _internal.fmt_test._Fmt_test_testsprintf.$Fmt_test_testsprintf_Fields_.testSprintf (_internal/fmt_test/Fmt_test_testsprintf.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
 
 -- FAIL: TestSprintf
@@ -26,13 +26,12 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestReorder
 
 === RUN  TestCountMallocs
-skipping malloc count in short mode
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from _internal.fmt_test._Fmt_test_testcountmallocs.$Fmt_test_testcountmallocs_Fields_.testCountMallocs (_internal/fmt_test/Fmt_test_testcountmallocs.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
 
 -- SKIP: TestCountMallocs
@@ -44,8 +43,6 @@ Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal
 -- PASS: TestFlagParser
 
 === RUN  TestStructPrinter
-Sprintf("%#v", s) = `_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `fmt_test.T{a:"abc", b:"def", c:123}`
-Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, want `&fmt_test.T{a:"abc", b:"def", c:123}`
 
 -- FAIL: TestStructPrinter
 
@@ -91,15 +88,10 @@ Sprintf("%#v", &s) = `&_internal.fmt_test.T_47832{a:"abc", b:"def", c:123}`, wan
 -- PASS: TestIsSpace
 
 === RUN  TestNilDoesNotBecomeTyped
-expected:
-	"%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)"
-got:
-	"%!s(<nil>) &{} %!s(<nil>) {} %!s(<nil>)"
 
 -- FAIL: TestNilDoesNotBecomeTyped
 
 === RUN  TestFormatterFlags
-Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagPrinter{[%#v]}", want "[1]fmt_test.flagPrinter{[%#v]}"
 
 -- FAIL: TestFormatterFlags
 
@@ -108,12 +100,125 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 -- PASS: TestParsenum
 
 === RUN  TestAppendf
-Appendf allocated a new sliceException: __fail__
+Exception: __fail__
 Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.fmt_test._Fmt_test_testappendf.$Fmt_test_testappendf_Fields_.testAppendf (_internal/fmt_test/Fmt_test_testappendf.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
 
 -- FAIL: TestAppendf
+
+=== RUN  TestAppend
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from _internal.fmt_test._Fmt_test_testappend.$Fmt_test_testappend_Fields_.testAppend (_internal/fmt_test/Fmt_test_testappend.hx line 10)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+
+-- FAIL: TestAppend
+
+=== RUN  TestAppendln
+Exception: __fail__
+Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118)
+Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
+Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
+Called from _internal.fmt_test._Fmt_test_testappendln.$Fmt_test_testappendln_Fields_.testAppendln (_internal/fmt_test/Fmt_test_testappendln.hx line 10)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+
+-- FAIL: TestAppendln
+
+=== RUN  TestScan
+
+-- PASS: TestScan
+
+=== RUN  TestScanln
+
+-- PASS: TestScanln
+
+=== RUN  TestScanf
+Exception: array out of bounds, index: 0 length: 0
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScanf (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 126)
+Called from stdgo._internal.fmt._Fmt_fscanf.$Fmt_fscanf_Fields_.fscanf (stdgo/_internal/fmt/Fmt_fscanf.hx line 7)
+Called from stdgo._internal.fmt._Fmt_sscanf.$Fmt_sscanf_Fields_.sscanf (stdgo/_internal/fmt/Fmt_sscanf.hx line 5)
+Called from _internal.fmt_test._Fmt_test_testscanf.$Fmt_test_testscanf_Fields_.testScanf (_internal/fmt_test/Fmt_test_testscanf.hx line 4)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+
+-- FAIL: TestScanf
+
+=== RUN  TestScanOverflow
+
+-- FAIL: TestScanOverflow
+
+=== RUN  TestNaN
+
+-- PASS: TestNaN
+
+=== RUN  TestInf
+
+-- PASS: TestInf
+
+=== RUN  TestScanfMulti
+
+-- PASS: TestScanfMulti
+
+=== RUN  TestScanMultiple
+
+-- FAIL: TestScanMultiple
+
+=== RUN  TestScanEmpty
+
+-- FAIL: TestScanEmpty
+
+=== RUN  TestScanNotPointer
+Exception: Can't cast i32 to stdgo.PointerData
+Called from stdgo._internal.fmt.$T_ss_static_extension._doScan (stdgo/_internal/fmt/Fmt_t_ss_static_extension.hx line 291)
+Called from stdgo._internal.fmt._Fmt_fscan.$Fmt_fscan_Fields_.fscan (stdgo/_internal/fmt/Fmt_fscan.hx line 7)
+Called from _internal.fmt_test._Fmt_test_testscannotpointer.$Fmt_test_testscannotpointer_Fields_.testScanNotPointer (_internal/fmt_test/Fmt_test_testscannotpointer.hx line 5)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from _internal.fmtdottest._Fmtdottest.$Fmtdottest_Fields_.main (_internal/fmtdottest/Fmtdottest.hx line 7)
+
+-- FAIL: TestScanNotPointer
+
+=== RUN  TestScanlnNoNewline
+
+-- FAIL: TestScanlnNoNewline
+
+=== RUN  TestScanlnWithMiddleNewline
+
+-- FAIL: TestScanlnWithMiddleNewline
+
+=== RUN  TestEOF
+
+-- FAIL: TestEOF
+
+=== RUN  TestEOFAtEndOfInput
+
+-- FAIL: TestEOFAtEndOfInput
+
+=== RUN  TestEOFAllTypes
+
+-- FAIL: TestEOFAllTypes
+
+=== RUN  TestUnreadRuneWithBufio
+
+-- PASS: TestUnreadRuneWithBufio
+
+=== RUN  TestMultiLine
+
+-- FAIL: TestMultiLine
+
+=== RUN  TestLineByLineFscanf
+
+-- PASS: TestLineByLineFscanf
+
+=== RUN  TestScanStateCount
+
+-- PASS: TestScanStateCount
+
+=== RUN  TestScanInts

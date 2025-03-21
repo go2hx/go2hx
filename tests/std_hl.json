@@ -26,5 +26,6 @@
  "hl|hash/fnv",
  "hl|internal/platform",
  "hl|crypto",
- "hl|bufio"
+ "hl|bufio",
+ "hl|io"
 ]

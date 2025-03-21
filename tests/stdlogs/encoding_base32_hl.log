@@ -23,8 +23,6 @@
 -- PASS: TestIssue20044
 
 === RUN  TestDecoderError
-Corrupt input error expected.  Found .encoding.base32.CorruptInputError
-Corrupt input error expected.  Found .encoding.base32.CorruptInputError
 
 -- FAIL: TestDecoderError
 
@@ -77,6 +75,8 @@ Corrupt input error expected.  Found .encoding.base32.CorruptInputError
 -- PASS: TestBufferedDecodingPadding
 
 === RUN  TestEncodedDecodedLen
+- SUBRUN  StdEncoding
+- SUBRUN  NoPadding
 
 -- PASS: TestEncodedDecodedLen
 

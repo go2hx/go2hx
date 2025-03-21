@@ -7,6 +7,8 @@
 -- PASS: TestSimple
 
 === RUN  TestGoldenMarshal
+- SUBRUN  IEEE
+- SUBRUN  Castagnoli
 
 -- PASS: TestGoldenMarshal
 
@@ -17,24 +19,23 @@
 === RUN  TestSlicing
 Exception: Null access .value
 Called from stdgo._internal.unsafe._Unsafe.$UnsafePointer_Impl_.__toRef__ (stdgo/_internal/unsafe/Unsafe.hx line 10)
-Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29)
+Called from stdgo._internal.sync.atomic_.$Pointer__static_extension.load (stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36)
 Called from stdgo._internal.math.rand._Rand__globalrand.$Rand__globalrand_Fields_._globalRand (stdgo/_internal/math/rand/Rand__globalrand.hx line 4)
 Called from stdgo._internal.math.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/math/rand/Rand_read.hx line 4)
 Called from stdgo._internal.hash.crc32._Crc32__testcrosscheck.$Crc32__testcrosscheck_Fields_._testCrossCheck (stdgo/_internal/hash/crc32/Crc32__testcrosscheck.hx line 52)
 Called from stdgo._internal.hash.crc32._Crc32_testslicing.$Crc32_testslicing_Fields_.testSlicing (stdgo/_internal/hash/crc32/Crc32_testslicing.hx line 20)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 8)
 
 -- FAIL: TestSlicing
 
 === RUN  TestArchIEEE
-Arch-specific IEEE not available.
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from stdgo._internal.hash.crc32._Crc32_testarchieee.$Crc32_testarchieee_Fields_.testArchIEEE (stdgo/_internal/hash/crc32/Crc32_testarchieee.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 8)
 
 -- SKIP: TestArchIEEE
@@ -42,13 +43,12 @@ Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main
 -- PASS: TestArchIEEE
 
 === RUN  TestArchCastagnoli
-Arch-specific Castagnoli not available.
 Exception: __skip__
 Called from stdgo._internal.testing.$T_common_static_extension.skipNow (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45)
 Called from stdgo._internal.testing.$T_common_static_extension.skip (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61)
 Called from stdgo._internal.testing.T_.~get_skip.0 (stdgo/_internal/testing/Testing_t_.hx line 67)
 Called from stdgo._internal.hash.crc32._Crc32_testarchcastagnoli.$Crc32_testarchcastagnoli_Fields_.testArchCastagnoli (stdgo/_internal/hash/crc32/Crc32_testarchcastagnoli.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
 Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main (_internal/hash/crc32dottest/Crc32dottest.hx line 8)
 
 -- SKIP: TestArchCastagnoli

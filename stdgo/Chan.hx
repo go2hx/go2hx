@@ -109,8 +109,16 @@ class ChanData<T> {
     }
 
     public function __smartGet__():{_0:T, _1:Bool} {
-        if (closed)
+        if (closed) {
+            mutex.acquire();
+            if (length > 0) {
+                final value = buffer.shift();
+                mutex.release();
+                return {_0: value, _1: true};
+            }
+            mutex.release();
             return {_0: defaultValue(), _1: false};
+        }
         if (getLock.wait(0)) {
             // released
             if (debug)
@@ -158,6 +166,11 @@ class ChanData<T> {
             sendBool = true;
             Async.tick();
             if (closed) {
+                if (length > 0) {
+                    final value = buffer.shift();
+                    mutex.release();
+                    return value;
+                }
                 mutex.release();
                 return defaultValue();
             }
@@ -221,31 +234,17 @@ class ChanData<T> {
     }
 }
 
-private class ChanKeyValueIterator<T> {
-    var chan:ChanData<T>;
-
-    public inline function new(chan:ChanData<T>) {
-        this.chan = chan;
-    }
-
-    public inline function hasNext()
-        return chan.length > 0;
-
-    public inline function next():{key:T, value:Bool} {
-        final tmp = chan.__smartGet__();
-        return {key: tmp._0, value: tmp._1};
-    }
-}
-
 private class ChanIterator<T> {
     var chan:ChanData<T>;
 
     public inline function new(chan:ChanData<T>) {
         this.chan = chan;
     }
-
+    /**
+     * For channels, the iteration values produced are the successive values sent on the channel until the channel is closed. If the channel is nil, the range expression blocks forever. 
+     */
     public inline function hasNext() {
-        return chan.__isGet__() || @:privateAccess !chan.closed;
+        return @:privateAccess !chan.closed;
     }
 
     public inline function next() {

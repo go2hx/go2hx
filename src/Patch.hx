@@ -1962,6 +1962,7 @@ final list = [
 			}
 			stdgo.Go.println(output.toString());
 		}
+		trace("exitCode: " + _m._exitCode);
 		return _m._exitCode;
 	},
 	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_benchmarkresult.BenchmarkResult(),

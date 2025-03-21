@@ -222,3 +222,4 @@ Called from stdgo._Slice.Slice_Impl_.__boundsCheck__ (./stdgo/Slice.hx line 156 
 
 -- PASS: TestNonCanonicalZero
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

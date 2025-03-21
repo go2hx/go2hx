@@ -355,3 +355,4 @@ Called from stdgo._internal.slices._Slices_binarysearchfunc.Slices_binarysearchf
 
 -- FAIL: TestBinarySearchFunc
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

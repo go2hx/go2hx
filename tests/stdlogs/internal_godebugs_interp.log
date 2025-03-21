@@ -6,3 +6,4 @@ Called from stdgo._internal.os._Os_isnotexist.Os_isnotexist_Fields_.isNotExist (
 
 -- FAIL: TestAll
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

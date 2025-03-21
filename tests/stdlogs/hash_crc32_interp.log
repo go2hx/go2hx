@@ -58,3 +58,4 @@ Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_
 
 -- PASS: TestGolden
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

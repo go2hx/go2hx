@@ -81,3 +81,4 @@ Called from stdgo._internal.internal.reflect._Type_static_extension.numOut (./st
 
 -- FAIL: TestInt64
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

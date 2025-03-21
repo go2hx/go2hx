@@ -39,3 +39,4 @@ Called from stdgo._internal.go.parser._Parser_parsefile.Parser_parsefile_Fields_
 
 -- FAIL: TestPartial
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

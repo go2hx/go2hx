@@ -130,3 +130,4 @@ Called from stdgo._internal.crypto.des.T_tripleDESCipher_static_extension.decryp
 
 -- PASS: TestFinalPermute
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

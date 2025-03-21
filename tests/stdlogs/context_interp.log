@@ -288,3 +288,4 @@ Called from _internal.context_test._Context_test_testafterfunccalledasynchronous
 
 -- FAIL: TestAfterFuncCalledAsynchronously
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

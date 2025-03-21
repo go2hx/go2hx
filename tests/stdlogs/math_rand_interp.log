@@ -1,10 +1,10 @@
 === RUN  TestAuto
 Exception: field access on null
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.math.rand_test._Rand_test_testauto.Rand_test_testauto_Fields_.testAuto (./_internal/math/rand_test/Rand_test_testauto.hx line 7 column 41)
 Called from stdgo._internal.math.rand._Rand_int63.Rand_int63_Fields_.int63 (./stdgo/_internal/math/rand/Rand_int63.hx line 3 column 26)
 Called from stdgo._internal.math.rand._Rand__globalrand.Rand__globalrand_Fields_._globalRand (./stdgo/_internal/math/rand/Rand__globalrand.hx line 4 column 31)
-Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 29 column 32)
+Called from stdgo._internal.sync.atomic_.Pointer__static_extension.load (./stdgo/_internal/sync/atomic_/Atomic__pointer__static_extension.hx line 36 column 39)
 Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdgo/_internal/unsafe/Unsafe.hx line 10 column 10)
 
 -- FAIL: TestAuto
@@ -12,7 +12,7 @@ Called from stdgo._internal.unsafe._Unsafe.UnsafePointer_Impl_.__toRef__ (./stdg
 === RUN  TestDefaultRace
 skipping starting another executable in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.math.rand_test._Rand_test_testdefaultrace.Rand_test_testdefaultrace_Fields_.testDefaultRace (./_internal/math/rand_test/Rand_test_testdefaultrace.hx line 4 column 31)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
@@ -287,15 +287,20 @@ stddev NaN != 73.90083445627211 (allowed error 0.0072168783648703235, 0.00577350
 -- PASS: TestShuffleSmall
 
 === RUN  TestUniformFactorial
+- SUBRUN  n=3
+- SUBRUN  Int31n
+- SUBRUN  int31n
+- SUBRUN  Perm
+- SUBRUN  Shuffle
 
 -- PASS: TestUniformFactorial
 
 === RUN  TestRegress
-Exception: not implemented method
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
-Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (./_internal/math/rand_test/Rand_test_testregress.hx line 30 column 27)
-Called from stdgo._internal.internal.reflect._Type_asInterface.method (./stdgo/_internal/internal/reflect/Reflect.hx line 1508 column 10)
-Called from stdgo._internal.internal.reflect._Type_static_extension.method (./stdgo/_internal/internal/reflect/Reflect.hx line 1407 column 3)
+Exception: Value:reflect.method is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.math.rand_test._Rand_test_testregress.Rand_test_testregress_Fields_.testRegress (./_internal/math/rand_test/Rand_test_testregress.hx line 31 column 12)
+Called from stdgo._internal.reflect.Value_static_extension.method (./stdgo/_internal/reflect/Reflect_value_static_extension.hx line 390 column 144)
 
 -- FAIL: TestRegress
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

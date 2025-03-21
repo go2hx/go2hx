@@ -31,3 +31,4 @@ Called from stdgo._internal.os._Os_executable.Os_executable_Fields_.executable (
 
 -- FAIL: TestMustHaveExec
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

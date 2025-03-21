@@ -116,3 +116,4 @@ Called from stdgo._internal.crypto.cipher.T_ofb_static_extension.xORKeyStream (.
 
 -- FAIL: TestOFB
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

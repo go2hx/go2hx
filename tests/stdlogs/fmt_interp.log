@@ -360,3 +360,4 @@ Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_
 
 -- PASS: TestStringer
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

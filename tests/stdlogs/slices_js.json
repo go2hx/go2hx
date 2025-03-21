@@ -1,10 +1,7 @@
 {
     "passes": [
         "TestDeletePanics",
-        "TestMinMaxPanics",
-        "TestBinarySearch",
-        "TestBinarySearchInts",
-        "TestBinarySearchFloats"
+        "TestMinMaxPanics"
     ],
     "fails": [
         "TestEqual",
@@ -86,9 +83,6 @@
         "TestMinMax",
         "TestMinMaxNaNs",
         "TestMinMaxPanics",
-        "TestBinarySearch",
-        "TestBinarySearchInts",
-        "TestBinarySearchFloats",
         "TestBinarySearchFunc"
     ]
 }

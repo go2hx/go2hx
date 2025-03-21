@@ -8,32 +8,6 @@ import haxe.macro.Context;
 using Lambda;
 
 class Macro {
-	public static function initHxb(startingPath:String) {
-        var run = false;
-		Context.onAfterTyping(_ -> {
-			if (run)
-				return;
-			run = true;
-			final printer = new haxe.macro.Printer();
-			final exprs:Array<Expr> = [];
-			for (name => e in @:privateAccess Go.nameTypes) {
-				exprs.push(macro $v{name} => $e);
-			}
-			//trace("hxb types:", exprs.length);
-			final e = macro $a{exprs};
-			final className = "TypeInfoData_go2hx_hxb";
-			final cl = macro class T {
-				public var names:stdgo._internal.internal.TypeInfo.TypeInternalMap = [];
-				public function new() {}
-			};
-			cl.name = className;
-			var path = haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"]));
-			path = startingPath + "/" + path;
-			//Context.defineType(cl);
-			trace("SAVE");
-			sys.io.File.saveContent(path, printer.printTypeDefinition(cl));
-		});
-    }
 	public static function init() {
 		var run = false;
 		Context.onAfterTyping(_ -> {
@@ -45,10 +19,9 @@ class Macro {
 				exprs.push(macro $v{name} => $e);
 			}
 			//trace("non hxb types:", exprs.length);
-			final e = macro $a{exprs};
 			final className = "TypeInfoData_go2hx_";
 			final cl = macro class T {
-				public var names:stdgo._internal.internal.TypeInfo.TypeInternalMap = $e;
+				public var names:stdgo.TypeInfo.TypeInternalMap = $a{exprs};
 				public function new() {}
 			};
 			cl.meta.push({name: ":keep", pos: haxe.macro.Context.currentPos()});
@@ -56,7 +29,6 @@ class Macro {
 			Context.defineType(cl);
 		});
 	}
-
 	private static function exprToString(e:Expr):String {
 		switch e.expr {
 			case EConst(CString(s)):

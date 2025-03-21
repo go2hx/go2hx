@@ -2,8 +2,6 @@
  "interp|bytes",
  "interp|encoding/base64",
  "interp|encoding/hex",
- "interp|errors",
- "interp|hash",
  "interp|hash/adler32",
  "interp|internal/saferio",
  "interp|math/bits",

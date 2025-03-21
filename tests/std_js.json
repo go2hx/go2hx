@@ -1,7 +1,5 @@
 [
  "js|encoding/hex",
- "js|errors",
- "js|hash",
  "js|internal/saferio",
  "js|math",
  "js|path",

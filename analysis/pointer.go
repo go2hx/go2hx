@@ -17,7 +17,15 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 		case *ast.FuncDecl:
 			identObjMap := map[*ast.Object]bool{}
 			// add ptr var
-			astutil.Apply(decl.Body, nil, func(c *astutil.Cursor) bool {
+			astutil.Apply(decl.Body, func(c *astutil.Cursor) bool {
+				switch stmt := c.Node().(type) {
+				case *ast.SelectStmt:
+					_ = stmt
+					return false
+				default:
+					return true
+				}
+			}, func(c *astutil.Cursor) bool {
 				//switch
 				switch stmt := c.Node().(type) {
 				case *ast.AssignStmt:

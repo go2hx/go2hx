@@ -357,5 +357,7 @@
  "interp|bug230",
  "interp|issue43292",
  "interp|bug312",
- "interp|const4"
+ "interp|const4",
+ "interp|bug320",
+ "interp|escape"
 ]

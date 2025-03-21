@@ -67,7 +67,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception tmp_ep9rigwhec/a/bad: Permission denied
+   | Uncaught exception tmp_mqvb4uadfr/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

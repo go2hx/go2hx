@@ -2,8 +2,6 @@
  "hl|bytes",
  "hl|encoding/base64",
  "hl|encoding/hex",
- "hl|errors",
- "hl|hash",
  "hl|hash/adler32",
  "hl|internal/saferio",
  "hl|math",

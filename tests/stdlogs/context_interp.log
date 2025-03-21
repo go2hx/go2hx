@@ -1,27 +1,27 @@
 === RUN  TestCustomContextAfterFuncCancel
 Exception: :context.withCancel is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfunccancel.Context_test_testcustomcontextafterfunccancel_Fields_.testCustomContextAfterFuncCancel (./_internal/context_test/Context_test_testcustomcontextafterfunccancel.hx line 61 column 21)
 
 -- FAIL: TestCustomContextAfterFuncCancel
 
 === RUN  TestCustomContextAfterFuncTimeout
 Exception: :context.withTimeout is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfunctimeout.Context_test_testcustomcontextafterfunctimeout_Fields_.testCustomContextAfterFuncTimeout (./_internal/context_test/Context_test_testcustomcontextafterfunctimeout.hx line 61 column 21)
 
 -- FAIL: TestCustomContextAfterFuncTimeout
 
 === RUN  TestCustomContextAfterFuncAfterFunc
 Exception: :context.afterFunc is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncafterfunc.Context_test_testcustomcontextafterfuncafterfunc_Fields_.testCustomContextAfterFuncAfterFunc (./_internal/context_test/Context_test_testcustomcontextafterfuncafterfunc.hx line 64 column 21)
 
 -- FAIL: TestCustomContextAfterFuncAfterFunc
 
 === RUN  TestCustomContextAfterFuncUnregisterCancel
 Exception: :context.withCancel is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistercancel.Context_test_testcustomcontextafterfuncunregistercancel_Fields_.testCustomContextAfterFuncUnregisterCancel (./_internal/context_test/Context_test_testcustomcontextafterfuncunregistercancel.hx line 4 column 23)
 Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Fields_.withCancel (./stdgo/_internal/context/Context_withcancel.hx line 2 column 204)
 
@@ -29,7 +29,7 @@ Called from stdgo._internal.context._Context_withcancel.Context_withcancel_Field
 
 === RUN  TestCustomContextAfterFuncUnregisterTimeout
 Exception: :context.withTimeout is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregistertimeout.Context_test_testcustomcontextafterfuncunregistertimeout_Fields_.testCustomContextAfterFuncUnregisterTimeout (./_internal/context_test/Context_test_testcustomcontextafterfuncunregistertimeout.hx line 4 column 23)
 Called from stdgo._internal.context._Context_withtimeout.Context_withtimeout_Fields_.withTimeout (./stdgo/_internal/context/Context_withtimeout.hx line 2 column 259)
 
@@ -37,7 +37,7 @@ Called from stdgo._internal.context._Context_withtimeout.Context_withtimeout_Fie
 
 === RUN  TestCustomContextAfterFuncUnregisterAfterFunc
 Exception: :context.afterFunc is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testcustomcontextafterfuncunregisterafterfunc.Context_test_testcustomcontextafterfuncunregisterafterfunc_Fields_.testCustomContextAfterFuncUnregisterAfterFunc (./_internal/context_test/Context_test_testcustomcontextafterfuncunregisterafterfunc.hx line 4 column 21)
 Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_.afterFunc (./stdgo/_internal/context/Context_afterfunc.hx line 2 column 100)
 
@@ -46,10 +46,245 @@ Called from stdgo._internal.context._Context_afterfunc.Context_afterfunc_Fields_
 === RUN  TestDeadlineExceededIsNetError
 DeadlineExceeded does not implement net.Error
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.context_test._Context_test_testdeadlineexceededisneterror.Context_test_testdeadlineexceededisneterror_Fields_.testDeadlineExceededIsNetError (./_internal/context_test/Context_test_testdeadlineexceededisneterror.hx line 9 column 32)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
 Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestDeadlineExceededIsNetError
+
+=== RUN  TestParentFinishesChild
+Exception: :context.xTestParentFinishesChild is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testparentfinisheschild.Context_test_testparentfinisheschild_Fields_.testParentFinishesChild (./_internal/context_test/Context_test_testparentfinisheschild.hx line 3 column 9)
+Called from stdgo._internal.context._Context_xtestparentfinisheschild.Context_xtestparentfinisheschild_Fields_.xTestParentFinishesChild (./stdgo/_internal/context/Context_xtestparentfinisheschild.hx line 2 column 98)
+
+-- FAIL: TestParentFinishesChild
+
+=== RUN  TestChildFinishesFirst
+Exception: :context.xTestChildFinishesFirst is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testchildfinishesfirst.Context_test_testchildfinishesfirst_Fields_.testChildFinishesFirst (./_internal/context_test/Context_test_testchildfinishesfirst.hx line 3 column 9)
+Called from stdgo._internal.context._Context_xtestchildfinishesfirst.Context_xtestchildfinishesfirst_Fields_.xTestChildFinishesFirst (./stdgo/_internal/context/Context_xtestchildfinishesfirst.hx line 2 column 97)
+
+-- FAIL: TestChildFinishesFirst
+
+=== RUN  TestCancelRemoves
+Exception: :context.xTestCancelRemoves is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcancelremoves.Context_test_testcancelremoves_Fields_.testCancelRemoves (./_internal/context_test/Context_test_testcancelremoves.hx line 3 column 9)
+Called from stdgo._internal.context._Context_xtestcancelremoves.Context_xtestcancelremoves_Fields_.xTestCancelRemoves (./stdgo/_internal/context/Context_xtestcancelremoves.hx line 2 column 92)
+
+-- FAIL: TestCancelRemoves
+
+=== RUN  TestCustomContextGoroutines
+Exception: :context.xTestCustomContextGoroutines is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextgoroutines.Context_test_testcustomcontextgoroutines_Fields_.testCustomContextGoroutines (./_internal/context_test/Context_test_testcustomcontextgoroutines.hx line 3 column 9)
+Called from stdgo._internal.context._Context_xtestcustomcontextgoroutines.Context_xtestcustomcontextgoroutines_Fields_.xTestCustomContextGoroutines (./stdgo/_internal/context/Context_xtestcustomcontextgoroutines.hx line 2 column 102)
+
+-- FAIL: TestCustomContextGoroutines
+
+=== RUN  TestBackground
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testbackground.Context_test_testbackground_Fields_.testBackground (./_internal/context_test/Context_test_testbackground.hx line 3 column 18)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestBackground
+
+=== RUN  TestTODO
+Exception: :context.tODO is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testtodo.Context_test_testtodo_Fields_.testTODO (./_internal/context_test/Context_test_testtodo.hx line 3 column 18)
+Called from stdgo._internal.context._Context_todo.Context_todo_Fields_.tODO (./stdgo/_internal/context/Context_todo.hx line 2 column 65)
+
+-- FAIL: TestTODO
+
+=== RUN  TestWithCancel
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testwithcancel.Context_test_testwithcancel_Fields_.testWithCancel (./_internal/context_test/Context_test_testwithcancel.hx line 3 column 77)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestWithCancel
+
+=== RUN  TestDeadline
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testdeadline.Context_test_testdeadline_Fields_.testDeadline (./_internal/context_test/Context_test_testdeadline.hx line 4 column 81)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestDeadline
+
+=== RUN  TestTimeout
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testtimeout.Context_test_testtimeout_Fields_.testTimeout (./_internal/context_test/Context_test_testtimeout.hx line 4 column 79)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestTimeout
+
+=== RUN  TestCanceledTimeout
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcanceledtimeout.Context_test_testcanceledtimeout_Fields_.testCanceledTimeout (./_internal/context_test/Context_test_testcanceledtimeout.hx line 3 column 79)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestCanceledTimeout
+
+=== RUN  TestValues
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testvalues.Context_test_testvalues_Fields_.testValues (./_internal/context_test/Context_test_testvalues.hx line 35 column 19)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestValues
+
+=== RUN  TestAllocs
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testallocs.Context_test_testallocs_Fields_.testAllocs (./_internal/context_test/Context_test_testallocs.hx line 3 column 19)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestAllocs
+
+=== RUN  TestSimultaneousCancels
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testsimultaneouscancels.Context_test_testsimultaneouscancels_Fields_.testSimultaneousCancels (./_internal/context_test/Context_test_testsimultaneouscancels.hx line 161 column 21)
+
+-- FAIL: TestSimultaneousCancels
+
+=== RUN  TestInterlockedCancels
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testinterlockedcancels.Context_test_testinterlockedcancels_Fields_.testInterlockedCancels (./_internal/context_test/Context_test_testinterlockedcancels.hx line 97 column 21)
+
+-- FAIL: TestInterlockedCancels
+
+=== RUN  TestLayersCancel
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testlayerscancel.Context_test_testlayerscancel_Fields_.testLayersCancel (./_internal/context_test/Context_test_testlayerscancel.hx line 3 column 9)
+Called from _internal.context_test._Context_test__testlayers.Context_test__testlayers_Fields_._testLayers (./_internal/context_test/Context_test__testlayers.hx line 199 column 21)
+
+-- FAIL: TestLayersCancel
+
+=== RUN  TestLayersTimeout
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testlayerstimeout.Context_test_testlayerstimeout_Fields_.testLayersTimeout (./_internal/context_test/Context_test_testlayerstimeout.hx line 3 column 9)
+Called from _internal.context_test._Context_test__testlayers.Context_test__testlayers_Fields_._testLayers (./_internal/context_test/Context_test__testlayers.hx line 199 column 21)
+
+-- FAIL: TestLayersTimeout
+
+=== RUN  TestWithCancelCanceledParent
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testwithcancelcanceledparent.Context_test_testwithcancelcanceledparent_Fields_.testWithCancelCanceledParent (./_internal/context_test/Context_test_testwithcancelcanceledparent.hx line 3 column 87)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestWithCancelCanceledParent
+
+=== RUN  TestWithCancelSimultaneouslyCanceledParent
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testwithcancelsimultaneouslycanceledparent.Context_test_testwithcancelsimultaneouslycanceledparent_Fields_.testWithCancelSimultaneouslyCanceledParent (./_internal/context_test/Context_test_testwithcancelsimultaneouslycanceledparent.hx line 6 column 95)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestWithCancelSimultaneouslyCanceledParent
+
+=== RUN  TestWithValueChecksKey
+panic = ":context.background is not yet implemented"; want "nil key"
+
+-- FAIL: TestWithValueChecksKey
+
+=== RUN  TestInvalidDerivedFail
+
+-- PASS: TestInvalidDerivedFail
+
+=== RUN  TestDeadlineExceededSupportsTimeout
+DeadlineExceeded does not support Timeout interface
+Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testdeadlineexceededsupportstimeout.Context_test_testdeadlineexceededsupportstimeout_Fields_.testDeadlineExceededSupportsTimeout (./_internal/context_test/Context_test_testdeadlineexceededsupportstimeout.hx line 9 column 32)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
+Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestDeadlineExceededSupportsTimeout
+
+=== RUN  TestCause
+- SUBRUN  Background
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcause.Context_test_testcause_Fields_.testCause (./_internal/context_test/Context_test_testcause.hx line 121 column 23)
+Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #19 (./_internal/context_test/Context_test_testcause.hx line 123 column 28)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestCause
+
+=== RUN  TestCauseRace
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcauserace.Context_test_testcauserace_Fields_.testCauseRace (./_internal/context_test/Context_test_testcauserace.hx line 4 column 87)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestCauseRace
+
+=== RUN  TestWithoutCancel
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testwithoutcancel.Context_test_testwithoutcancel_Fields_.testWithoutCancel (./_internal/context_test/Context_test_testwithoutcancel.hx line 5 column 73)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestWithoutCancel
+
+=== RUN  TestCustomContextPropagation
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testcustomcontextpropagation.Context_test_testcustomcontextpropagation_Fields_.testCustomContextPropagation (./_internal/context_test/Context_test_testcustomcontextpropagation.hx line 79 column 21)
+
+-- FAIL: TestCustomContextPropagation
+
+=== RUN  TestAfterFuncCalledAfterCancel
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testafterfunccalledaftercancel.Context_test_testafterfunccalledaftercancel_Fields_.testAfterFuncCalledAfterCancel (./_internal/context_test/Context_test_testafterfunccalledaftercancel.hx line 3 column 77)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestAfterFuncCalledAfterCancel
+
+=== RUN  TestAfterFuncCalledAfterTimeout
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testafterfunccalledaftertimeout.Context_test_testafterfunccalledaftertimeout_Fields_.testAfterFuncCalledAfterTimeout (./_internal/context_test/Context_test_testafterfunccalledaftertimeout.hx line 88 column 21)
+
+-- FAIL: TestAfterFuncCalledAfterTimeout
+
+=== RUN  TestAfterFuncCalledImmediately
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testafterfunccalledimmediately.Context_test_testafterfunccalledimmediately_Fields_.testAfterFuncCalledImmediately (./_internal/context_test/Context_test_testafterfunccalledimmediately.hx line 3 column 77)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestAfterFuncCalledImmediately
+
+=== RUN  TestAfterFuncNotCalledAfterStop
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testafterfuncnotcalledafterstop.Context_test_testafterfuncnotcalledafterstop_Fields_.testAfterFuncNotCalledAfterStop (./_internal/context_test/Context_test_testafterfuncnotcalledafterstop.hx line 3 column 77)
+Called from stdgo._internal.context._Context_background.Context_background_Fields_.background (./stdgo/_internal/context/Context_background.hx line 2 column 71)
+
+-- FAIL: TestAfterFuncNotCalledAfterStop
+
+=== RUN  TestAfterFuncCalledAsynchronously
+Exception: :context.background is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.context_test._Context_test_testafterfunccalledasynchronously.Context_test_testafterfunccalledasynchronously_Fields_.testAfterFuncCalledAsynchronously (./_internal/context_test/Context_test_testafterfunccalledasynchronously.hx line 89 column 21)
+
+-- FAIL: TestAfterFuncCalledAsynchronously
+

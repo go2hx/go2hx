@@ -22,3 +22,9 @@
     |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     | Int should be stdgo.GoString
 
+[ERROR] ./stdgo/_internal/math/rand/Rand_int31.hx:2: characters 39-55
+
+  2 | function int31():stdgo.GoInt32 return std.Std.random();
+    |                                       ^^^^^^^^^^^^^^^^
+    | Not enough arguments, expected x:Int
+

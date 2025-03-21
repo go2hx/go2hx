@@ -1,5 +1,23 @@
 {
-    "passes": [],
-    "fails": [],
-    "runs": []
+    "passes": [
+        "TestCopyNegative",
+        "TestCopyBuffer",
+        "TestCopyReadFrom",
+        "TestCopyWriteTo",
+        "TestCopyPriority"
+    ],
+    "fails": [
+        "TestCopy",
+        "TestCopyBufferNil"
+    ],
+    "runs": [
+        "TestCopy",
+        "TestCopyNegative",
+        "TestCopyBuffer",
+        "TestCopyBufferNil",
+        "TestCopyReadFrom",
+        "TestCopyWriteTo",
+        "TestCopyPriority",
+        "TestCopyReadErrWriteErr"
+    ]
 }

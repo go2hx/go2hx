@@ -8,7 +8,7 @@
 
 === RUN  TestSprintf
 Exception: Unexpected value #fun, expected instance
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.fmt_test._Fmt_test_testsprintf.Fmt_test_testsprintf_Fields_.testSprintf (./_internal/fmt_test/Fmt_test_testsprintf.hx line 4 column 23)
 Called from stdgo._internal.fmt._Fmt_sprintf.Fmt_sprintf_Fields_.sprintf (./stdgo/_internal/fmt/Fmt_sprintf.hx line 5 column 19)
 Called from stdgo._internal.fmt.T_pp_static_extension._doPrintf (./stdgo/_internal/fmt/Fmt_t_pp_static_extension.hx line 179 column 31)
@@ -28,7 +28,7 @@ Called from stdgo._internal.reflect.Value_static_extension.isValid (./stdgo/_int
 === RUN  TestCountMallocs
 skipping malloc count in short mode
 Exception: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.fmt_test._Fmt_test_testcountmallocs.Fmt_test_testcountmallocs_Fields_.testCountMallocs (./_internal/fmt_test/Fmt_test_testcountmallocs.hx line 4 column 31)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
 Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
@@ -108,10 +108,255 @@ Sprintf("%#v", [1]_internal.fmt_test.flagPrinter) = "[1]_internal.fmt_test.flagP
 
 === RUN  TestAppendf
 Appendf allocated a new sliceException: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.fmt_test._Fmt_test_testappendf.Fmt_test_testappendf_Fields_.testAppendf (./_internal/fmt_test/Fmt_test_testappendf.hx line 10 column 33)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestAppendf
+
+=== RUN  TestAppend
+Append allocated a new sliceException: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.fmt_test._Fmt_test_testappend.Fmt_test_testappend_Fields_.testAppend (./_internal/fmt_test/Fmt_test_testappend.hx line 10 column 33)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestAppend
+
+=== RUN  TestAppendln
+Appendln allocated a new sliceException: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.fmt_test._Fmt_test_testappendln.Fmt_test_testappendln_Fields_.testAppendln (./_internal/fmt_test/Fmt_test_testappendln.hx line 10 column 33)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestAppendln
+
+=== RUN  TestScan
+
+-- PASS: TestScan
+
+=== RUN  TestScanln
+
+-- PASS: TestScanln
+
+=== RUN  TestScanf
+Sscanf("\"1155\"\n", "%q"): parsed 0 field, want 1
+Sscanf("X27", "X %d"): unexpected success
+Sscanf("X27 ", "X %d"): unexpected success
+Sscanf("27 X", "%dX"): unexpected success
+Sscanf(" 27 X", "%dX"): unexpected success
+Sscanf("27X", "%d X"): unexpected success
+Sscanf(" 27X", "%d X"): unexpected success
+Sscanf("X27X", "X %d X"): unexpected success
+Sscanf("X27 X", "X %d X"): unexpected success
+Sscanf("X 27X", "X %d X"): unexpected success
+Sscanf("X27X", "X %s X"): unexpected success
+Sscanf("X27 X", "X %s X"): unexpected success
+Sscanf("X 27X", "X %s X"): unexpected success
+Sscanf("X27X", "X%sX"): unexpected success
+Sscanf("X27 X", "X%sX"): unexpected success
+Sscanf("X 27X", "X%sX"): unexpected success
+Sscanf("X 27 X", "X%sX"): unexpected success
+Sscanf("X27 X", "X%dX"): unexpected success
+Sscanf("X 27 X", "X%dX"): unexpected success
+Sscanf(" X27X", "X%dX"): unexpected success
+Sscanf(" X27X ", "X%dX"): unexpected success
+Sscanf("X!", "X %c"): unexpected success
+Sscanf("X\n", "X %c"): unexpected success
+Sscanf("X27X", " X%dX"): unexpected success
+Sscanf("X27X ", " X%dX"): unexpected success
+Sscanf(" X27X", "X%dX "): unexpected success
+Sscanf(" X27X ", "X%dX "): unexpected success
+Sscanf("X27X", " X%dX "): unexpected success
+Sscanf("X27X ", " X%dX "): unexpected success
+
+-- FAIL: TestScanf
+
+=== RUN  TestScanOverflow
+expected overflow scanning "128"
+expected overflow scanning "32768"
+expected overflow scanning "-129"
+expected overflow scanning "-32769"
+expected overflow scanning "256"
+expected overflow scanning "65536"
+expected overflow scanning "1e100"
+expected overflow scanning "1e500"
+expected overflow scanning "(1e100+0i)"
+expected overflow scanning "(1+1e100i)"
+expected overflow scanning "(1-1e500i)"
+
+-- FAIL: TestScanOverflow
+
+=== RUN  TestNaN
+
+-- PASS: TestNaN
+
+=== RUN  TestInf
+
+-- PASS: TestInf
+
+=== RUN  TestScanfMulti
+
+-- PASS: TestScanfMulti
+
+=== RUN  TestScanMultiple
+Sscan expected error; got none: %!s(nil=<nil>)
+
+-- FAIL: TestScanMultiple
+
+=== RUN  TestScanEmpty
+Sscan <one item> expected error; got none
+Sscan <empty> expected error; got none
+
+-- FAIL: TestScanEmpty
+
+=== RUN  TestScanNotPointer
+expected error scanning non-pointer
+
+-- FAIL: TestScanNotPointer
+
+=== RUN  TestScanlnNoNewline
+expected error scanning string missing newline
+
+-- FAIL: TestScanlnNoNewline
+
+=== RUN  TestScanlnWithMiddleNewline
+expected error scanning string with extra newline
+
+-- FAIL: TestScanlnWithMiddleNewline
+
+=== RUN  TestEOF
+expected error scanning empty string
+
+-- FAIL: TestEOF
+
+=== RUN  TestEOFAtEndOfInput
+Sscanf expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
+Sscan expected EOF; got %!q(nil=<nil>)
+
+-- FAIL: TestEOFAtEndOfInput
+
+=== RUN  TestEOFAllTypes
+#0: %s *string not eof on empty string: %!s(nil=<nil>)
+#0: %s *string not eof on trailing blanks: %!s(nil=<nil>)
+#1: %q *string not eof on empty string: %!s(nil=<nil>)
+#1: %q *string not eof on trailing blanks: %!s(nil=<nil>)
+#2: %x *string not eof on empty string: %!s(nil=<nil>)
+#2: %x *string not eof on trailing blanks: %!s(nil=<nil>)
+#3: %v *string not eof on empty string: %!s(nil=<nil>)
+#3: %v *string not eof on trailing blanks: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on empty string: %!s(nil=<nil>)
+#4: %v *[]uint8 not eof on trailing blanks: %!s(nil=<nil>)
+#5: %v *int not eof on empty string: %!s(nil=<nil>)
+#5: %v *int not eof on trailing blanks: %!s(nil=<nil>)
+#6: %v *uint not eof on empty string: %!s(nil=<nil>)
+#6: %v *uint not eof on trailing blanks: %!s(nil=<nil>)
+#7: %v *bool not eof on empty string: %!s(nil=<nil>)
+#7: %v *bool not eof on trailing blanks: %!s(nil=<nil>)
+#8: %v *float32 not eof on empty string: %!s(nil=<nil>)
+#8: %v *float32 not eof on trailing blanks: %!s(nil=<nil>)
+#9: %v *complex64 not eof on empty string: %!s(nil=<nil>)
+#9: %v *complex64 not eof on trailing blanks: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on empty string: %!s(nil=<nil>)
+#10: %v *_internal.fmt_test.renamedString not eof on trailing blanks: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on empty string: %!s(nil=<nil>)
+#11: %v *_internal.fmt_test.renamedBytes not eof on trailing blanks: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on empty string: %!s(nil=<nil>)
+#12: %v *_internal.fmt_test.renamedInt not eof on trailing blanks: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on empty string: %!s(nil=<nil>)
+#13: %v *_internal.fmt_test.renamedUint not eof on trailing blanks: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on empty string: %!s(nil=<nil>)
+#14: %v *_internal.fmt_test.renamedBool not eof on trailing blanks: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on empty string: %!s(nil=<nil>)
+#15: %v *_internal.fmt_test.renamedFloat32 not eof on trailing blanks: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on empty string: %!s(nil=<nil>)
+#16: %v *_internal.fmt_test.renamedComplex64 not eof on trailing blanks: %!s(nil=<nil>)
+
+-- FAIL: TestEOFAllTypes
+
+=== RUN  TestUnreadRuneWithBufio
+
+-- PASS: TestUnreadRuneWithBufio
+
+=== RUN  TestMultiLine
+Sscanln: expected error; got none
+
+-- FAIL: TestMultiLine
+
+=== RUN  TestLineByLineFscanf
+
+-- PASS: TestLineByLineFscanf
+
+=== RUN  TestScanStateCount
+
+-- PASS: TestScanStateCount
+
+=== RUN  TestScanInts
+bad scan: expected 801 got 0Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.fmt_test._Fmt_test_testscanints.Fmt_test_testscanints_Fields_.testScanInts (./_internal/fmt_test/Fmt_test_testscanints.hx line 4 column 9)
+Called from _internal.fmt_test._Fmt_test__testscanints.Fmt_test__testscanints_Fields_._testScanInts (./_internal/fmt_test/Fmt_test__testscanints.hx line 16 column 114)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestScanInts
+
+=== RUN  TestHexBytes
+simple: bad length 0
+simple pair a: bad length 0
+simple pair b: bad length 0
+colon: bad length 0
+colon pair a: bad length 0
+colon pair b: bad length 0
+odd count: got count, err = 0, <nil>; expected 0, error
+
+-- FAIL: TestHexBytes
+
+=== RUN  TestScanNewlinesAreSpaces
+
+-- PASS: TestScanNewlinesAreSpaces
+
+=== RUN  TestScanlnNewlinesTerminate
+one line one item: expected error; got none
+two lines two items: expected error; got none
+
+-- FAIL: TestScanlnNewlinesTerminate
+
+=== RUN  TestScanfNewlineMatchFormat
+newline in input: expected error; got none
+space-newline in input: expected error; got none
+newline in format: expected error; got none
+space-newline in format: expected error; got none
+space vs newline no-percent 0100: expected error; got none
+space vs newline no-percent 0101: expected error; got none
+space vs newline no-percent 0110: expected error; got none
+space vs newline no-percent 1100: expected error; got none
+space vs newline no-percent 1110: expected error; got none
+
+-- FAIL: TestScanfNewlineMatchFormat
+
+=== RUN  TestHexByte
+expected 0123 got 0000Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.fmt_test._Fmt_test_testhexbyte.Fmt_test_testhexbyte_Fields_.testHexByte (./_internal/fmt_test/Fmt_test_testhexbyte.hx line 12 column 76)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestHexByte
+
+=== RUN  TestFormatString
+
+-- PASS: TestFormatString
+
+=== RUN  TestStringer
+
+-- PASS: TestStringer
+

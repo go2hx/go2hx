@@ -1,9 +1,51 @@
 === RUN  TestGolden
 sha256[2]() = be27808a748f37fa2f2b7a7a7d9404e1139dedfedcc41c68b92b8f41f2e5d20e want e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.crypto.sha256._Sha256_testgolden.Sha256_testgolden_Fields_.testGolden (./stdgo/_internal/crypto/sha256/Sha256_testgolden.hx line 24 column 181)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestGolden
+
+=== RUN  TestGoldenMarshal
+- SUBRUN  256
+- SUBRUN  224
+
+-- PASS: TestGoldenMarshal
+
+=== RUN  TestMarshalTypeMismatch
+
+-- PASS: TestMarshalTypeMismatch
+
+=== RUN  TestSize
+
+-- PASS: TestSize
+
+=== RUN  TestBlockSize
+
+-- PASS: TestBlockSize
+
+=== RUN  TestBlockGeneric
+Exception: Null Access
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.crypto.sha256._Sha256_testblockgeneric.Sha256_testblockgeneric_Fields_.testBlockGeneric (./stdgo/_internal/crypto/sha256/Sha256_testblockgeneric.hx line 9 column 9)
+Called from stdgo._internal.crypto.rand._Rand_read.Rand_read_Fields_.read (./stdgo/_internal/crypto/rand/Rand_read.hx line 4 column 16)
+Called from stdgo._internal.io._Io_readfull.Io_readfull_Fields_.readFull (./stdgo/_internal/io/Io_readfull.hx line 4 column 16)
+Called from stdgo._internal.io._Io_readatleast.Io_readatleast_Fields_.readAtLeast (./stdgo/_internal/io/Io_readatleast.hx line 15 column 31)
+
+-- FAIL: TestBlockGeneric
+
+=== RUN  TestLargeHashes
+
+-- PASS: TestLargeHashes
+
+=== RUN  TestAllocations
+./stdgo/_internal/testing/Testing_allocsperrun.hx:3: allocsPerRun not implemented
+
+-- PASS: TestAllocations
+
+=== RUN  TestCgo
+
+-- PASS: TestCgo
+

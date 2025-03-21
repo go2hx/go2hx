@@ -25,7 +25,7 @@ Glob(`../*/match.go`) = []string(nil) want ../filepath/match.go
 
 === RUN  TestGlobSymlink
 Exception: :os.symlink is not yet implemented
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testglobsymlink.Filepath_test_testglobsymlink_Fields_.testGlobSymlink (./_internal/path/filepath_test/Filepath_test_testglobsymlink.hx line 18 column 20)
 Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_internal/os/Os_symlink.hx line 2 column 80)
 
@@ -33,7 +33,7 @@ Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_
 
 === RUN  TestWindowsGlob
 skipping windows specific testException: __skip__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath_test_testwindowsglob_Fields_.testWindowsGlob (./_internal/path/filepath_test/Filepath_test_testwindowsglob.hx line 138 column 21)
 
 -- SKIP: TestWindowsGlob
@@ -42,10 +42,153 @@ Called from _internal.path.filepath_test._Filepath_test_testwindowsglob.Filepath
 
 === RUN  TestNonWindowsGlobEscape
 Glob(`\match.go`) = [] want [match.go]Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.path.filepath_test._Filepath_test_testnonwindowsglobescape.Filepath_test_testnonwindowsglobescape_Fields_.testNonWindowsGlobEscape (./_internal/path/filepath_test/Filepath_test_testnonwindowsglobescape.hx line 13 column 142)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
 Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestNonWindowsGlobEscape
+
+=== RUN  TestClean
+skipping malloc count in short mode
+Exception: __skip__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testclean.Filepath_test_testclean_Fields_.testClean (./_internal/path/filepath_test/Filepath_test_testclean.hx line 27 column 31)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 67 column 87)
+Called from stdgo._internal.testing.T_common_static_extension.skip (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 61 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.skipNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 45 column 9)
+
+-- SKIP: TestClean
+
+-- PASS: TestClean
+
+=== RUN  TestIsLocal
+
+-- PASS: TestIsLocal
+
+=== RUN  TestFromAndToSlash
+
+-- PASS: TestFromAndToSlash
+
+=== RUN  TestSplitList
+
+-- PASS: TestSplitList
+
+=== RUN  TestSplit
+
+-- PASS: TestSplit
+
+=== RUN  TestJoin
+
+-- PASS: TestJoin
+
+=== RUN  TestExt
+
+-- PASS: TestExt
+
+=== RUN  TestWalk
+unexpected errors: [Exception: testdata: Is a directory
+Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (./stdgo/_internal/os/Os_openfile.hx line 8 column 97)]Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalk.Filepath_test_testwalk_Fields_.testWalk (./_internal/path/filepath_test/Filepath_test_testwalk.hx line 8 column 9)
+Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (./_internal/path/filepath_test/Filepath_test__testwalk.hx line 133 column 21)
+
+-- FAIL: TestWalk
+
+=== RUN  TestWalkDir
+unexpected errors: [Exception: testdata: Is a directory
+Called from stdgo._internal.os._Os_openfile.Os_openfile_Fields_.openFile (./stdgo/_internal/os/Os_openfile.hx line 8 column 97)]Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalkdir.Filepath_test_testwalkdir_Fields_.testWalkDir (./_internal/path/filepath_test/Filepath_test_testwalkdir.hx line 3 column 9)
+Called from _internal.path.filepath_test._Filepath_test__testwalk.Filepath_test__testwalk_Fields_._testWalk (./_internal/path/filepath_test/Filepath_test__testwalk.hx line 133 column 21)
+
+-- FAIL: TestWalkDir
+
+=== RUN  TestWalkSkipDirOnFile
+Exception: :os.mkdirAll is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalkskipdironfile.Filepath_test_testwalkskipdironfile_Fields_.testWalkSkipDirOnFile (./_internal/path/filepath_test/Filepath_test_testwalkskipdironfile.hx line 5 column 24)
+Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (./stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
+
+-- FAIL: TestWalkSkipDirOnFile
+
+=== RUN  TestWalkSkipAllOnFile
+Exception: :os.mkdirAll is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalkskipallonfile.Filepath_test_testwalkskipallonfile_Fields_.testWalkSkipAllOnFile (./_internal/path/filepath_test/Filepath_test_testwalkskipallonfile.hx line 5 column 24)
+Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (./stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
+
+-- FAIL: TestWalkSkipAllOnFile
+
+=== RUN  TestWalkFileError
+Exception: :os.mkdirAll is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalkfileerror.Filepath_test_testwalkfileerror_Fields_.testWalkFileError (./_internal/path/filepath_test/Filepath_test_testwalkfileerror.hx line 108 column 21)
+
+-- FAIL: TestWalkFileError
+
+=== RUN  TestWalkSymlinkRoot
+Exception: :os.mkdirAll is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testwalksymlinkroot.Filepath_test_testwalksymlinkroot_Fields_.testWalkSymlinkRoot (./_internal/path/filepath_test/Filepath_test_testwalksymlinkroot.hx line 7 column 24)
+Called from stdgo._internal.os._Os_mkdirall.Os_mkdirall_Fields_.mkdirAll (./stdgo/_internal/os/Os_mkdirall.hx line 2 column 103)
+
+-- FAIL: TestWalkSymlinkRoot
+
+=== RUN  TestBase
+
+-- PASS: TestBase
+
+=== RUN  TestDir
+
+-- PASS: TestDir
+
+=== RUN  TestIsAbs
+
+-- PASS: TestIsAbs
+
+=== RUN  TestEvalSymlinks
+Exception: :os.symlink is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testevalsymlinks.Filepath_test_testevalsymlinks_Fields_.testEvalSymlinks (./_internal/path/filepath_test/Filepath_test_testevalsymlinks.hx line 20 column 24)
+Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_internal/os/Os_symlink.hx line 2 column 80)
+
+-- FAIL: TestEvalSymlinks
+
+=== RUN  TestEvalSymlinksIsNotExist
+Exception: :os.isNotExist is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testevalsymlinksisnotexist.Filepath_test_testevalsymlinksisnotexist_Fields_.testEvalSymlinksIsNotExist (./_internal/path/filepath_test/Filepath_test_testevalsymlinksisnotexist.hx line 78 column 21)
+
+-- FAIL: TestEvalSymlinksIsNotExist
+
+=== RUN  TestIssue13582
+Exception: :os.symlink is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testissue13582.Filepath_test_testissue13582_Fields_.testIssue13582 (./_internal/path/filepath_test/Filepath_test_testissue13582.hx line 11 column 16)
+Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_internal/os/Os_symlink.hx line 2 column 80)
+
+-- FAIL: TestIssue13582
+
+=== RUN  TestRelativeSymlinkToAbsolute
+Exception: :os.symlink is not yet implemented
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.path.filepath_test._Filepath_test_testrelativesymlinktoabsolute.Filepath_test_testrelativesymlinktoabsolute_Fields_.testRelativeSymlinkToAbsolute (./_internal/path/filepath_test/Filepath_test_testrelativesymlinktoabsolute.hx line 7 column 24)
+Called from stdgo._internal.os._Os_symlink.Os_symlink_Fields_.symlink (./stdgo/_internal/os/Os_symlink.hx line 2 column 80)
+[ERROR] ./stdgo/_internal/os/Os_removeall.hx
+
+    | Uncaught exception No such file or directory(rmdir, tmp_pqqqfm2m8r)
+
+     ->  ./stdgo/_internal/testing/Testing_t_common_static_extension.hx
+
+        | Called from here
+
+     ->  ./stdgo/_internal/testing/Testing_m_static_extension.hx
+
+        | Called from here
+
+     ->  ./_internal/path/filepathdottest/Filepathdottest.hx
+
+        | Called from here
+

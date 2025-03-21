@@ -7,12 +7,27 @@
 -- PASS: TestMapFSChmodDot
 
 === RUN  TestSymlink
-writeFile tmp_187ua5n5bq/hello: no such file or directory
+writeFile tmp_san793cgax/hello: no such file or directory
 Exception: __fail__
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.Fstest_testsymlink_Fields_.testSymlink (./stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 9 column 36)
 Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 43 column 88)
 Called from stdgo._internal.testing.T_common_static_extension.fatal (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77 column 9)
 Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
 
 -- FAIL: TestSymlink
+
+=== RUN  TestDash
+
+-- PASS: TestDash
+
+=== RUN  TestShuffledFS
+Exception: Null Access
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from stdgo._internal.testing.fstest._Fstest_testshuffledfs.Fstest_testshuffledfs_Fields_.testShuffledFS (./stdgo/_internal/testing/fstest/Fstest_testshuffledfs.hx line 12 column 24)
+Called from stdgo._internal.testing.fstest._Fstest_testfs.Fstest_testfs_Fields_.testFS (./stdgo/_internal/testing/fstest/Fstest_testfs.hx line 5 column 24)
+Called from stdgo._internal.testing.fstest._Fstest__testfs.Fstest__testfs_Fields_._testFS (./stdgo/_internal/testing/fstest/Fstest__testfs.hx line 5 column 18)
+Called from stdgo._internal.testing.fstest.T_fsTester_static_extension._checkDir (./stdgo/_internal/testing/fstest/Fstest_t_fstester_static_extension.hx line 672 column 21)
+
+-- FAIL: TestShuffledFS
+

@@ -1,16 +1,45 @@
-[ERROR] ./_internal/io_test/Io_test_testpipe2.hx:5: characters 32-64
+=== RUN  TestCopy
+Exception: field access on null
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.io_test._Io_test_testcopy.Io_test_testcopy_Fields_.testCopy (./_internal/io_test/Io_test_testcopy.hx line 6 column 9)
+Called from stdgo._internal.io._Io_copy.Io_copy_Fields_.copy (./stdgo/_internal/io/Io_copy.hx line 5 column 47)
+Called from stdgo._internal.io._Io__copybuffer.Io__copybuffer_Fields_._copyBuffer (./stdgo/_internal/io/Io__copybuffer.hx line 38 column 29)
+Called from stdgo._GoInt64.GoInt64_Impl_.gt (./stdgo/GoInt64.hx line 144 column 8191)
 
-  5 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_reader.reader(_t, stdgo.Go.asInterface(_r), _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_reader
+-- FAIL: TestCopy
 
-        | For function argument 'func'
+=== RUN  TestCopyNegative
 
-[ERROR] ./_internal/io_test/Io_test_testpipe3.hx:13: characters 32-64
+-- PASS: TestCopyNegative
 
- 13 |         stdgo.Go.routine(() -> _internal.io_test.Io_test_writer.writer(stdgo.Go.asInterface(_w), _wdat, _c));
-    |                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    | Type not found : _internal.io_test.Io_test_writer
+=== RUN  TestCopyBuffer
 
-        | For function argument 'func'
+-- PASS: TestCopyBuffer
+
+=== RUN  TestCopyBufferNil
+Exception: field access on null
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.io_test._Io_test_testcopybuffernil.Io_test_testcopybuffernil_Fields_.testCopyBufferNil (./_internal/io_test/Io_test_testcopybuffernil.hx line 6 column 9)
+Called from stdgo._internal.io._Io_copybuffer.Io_copybuffer_Fields_.copyBuffer (./stdgo/_internal/io/Io_copybuffer.hx line 8 column 47)
+Called from stdgo._internal.io._Io__copybuffer.Io__copybuffer_Fields_._copyBuffer (./stdgo/_internal/io/Io__copybuffer.hx line 38 column 29)
+Called from stdgo._GoInt64.GoInt64_Impl_.gt (./stdgo/GoInt64.hx line 144 column 8191)
+
+-- FAIL: TestCopyBufferNil
+
+=== RUN  TestCopyReadFrom
+
+-- PASS: TestCopyReadFrom
+
+=== RUN  TestCopyWriteTo
+
+-- PASS: TestCopyWriteTo
+
+=== RUN  TestCopyPriority
+
+-- PASS: TestCopyPriority
+
+=== RUN  TestCopyReadErrWriteErr
+[ERROR] (unknown position)
+
+   | Invalid_argument("index out of bounds")
 

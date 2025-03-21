@@ -1,0 +1,82 @@
+=== RUN  TestNewEqual
+
+-- PASS: TestNewEqual
+
+=== RUN  TestErrorMethod
+
+-- PASS: TestErrorMethod
+
+=== RUN  TestJoinReturnsNil
+
+-- PASS: TestJoinReturnsNil
+
+=== RUN  TestJoin
+
+-- PASS: TestJoin
+
+=== RUN  TestJoinErrorMethod
+
+-- PASS: TestJoinErrorMethod
+
+=== RUN  TestIs
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+Is(uncomparable error, uncomparable error) = true, want false
+- SUBRUN  
+- SUBRUN  
+Is(uncomparable error, uncomparable error) = true, want false
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+- SUBRUN  
+
+-- FAIL: TestIs
+
+=== RUN  TestAs
+- SUBRUN  0:As(Errorf(..., <nil>), 0x1)
+- SUBRUN  1:As(Errorf(..., pitied the fool), errorT())
+got _internal.errors_test.errorT{s:""}, want _internal.errors_test.errorT{s:"T"}Exception: __fail__
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
+Called from _internal.errors_test._Errors_test_testas.Errors_test_testas_Fields_.testAs (./_internal/errors_test/Errors_test_testas.hx line 32 column 23)
+Called from stdgo._internal.testing.T__static_extension.run (./stdgo/_internal/testing/Testing_t__static_extension.hx line 14 column 9)
+Called from local function #159 (./_internal/errors_test/Errors_test_testas.hx line 43 column 45)
+Called from local function #1 (./stdgo/_internal/testing/Testing_t_.hx line 47 column 107)
+Called from stdgo._internal.testing.T_common_static_extension.fatalf (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69 column 9)
+Called from stdgo._internal.testing.T_common_static_extension.failNow (./stdgo/_internal/testing/Testing_t_common_static_extension.hx line 118 column 9)
+
+-- FAIL: TestAs
+
+=== RUN  TestAsValidation
+- SUBRUN  <nil>(<nil>)
+- SUBRUN  *int(<nil>)
+- SUBRUN  string(error)
+- SUBRUN  *string(0x1)
+./stdgo/_internal/reflect/Reflect_value_static_extension.hx:493: hasSet: false
+
+-- PASS: TestAsValidation
+
+=== RUN  TestUnwrap
+
+-- PASS: TestUnwrap
+

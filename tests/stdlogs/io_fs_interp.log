@@ -12,7 +12,7 @@
 
 === RUN  TestGlob
 Exception: : No such file or directory
-Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 34 column 17)
+Called from stdgo._internal.testing.M_static_extension.run (./stdgo/_internal/testing/Testing_m_static_extension.hx line 33 column 17)
 Called from _internal.io.fs_test._Fs_test_testglob.Fs_test_testglob_Fields_.testGlob (./_internal/io/fs_test/Fs_test_testglob.hx line 4 column 27)
 Called from stdgo._internal.io.fs._Fs_glob.Fs_glob_Fields_.glob (./stdgo/_internal/io/fs/Fs_glob.hx line 5 column 47)
 Called from stdgo._internal.io.fs._Fs__globwithlimit.Fs__globwithlimit_Fields_._globWithLimit (./stdgo/_internal/io/fs/Fs__globwithlimit.hx line 63 column 51)
@@ -39,6 +39,8 @@ Called from stdgo._internal.io.fs._Fs_readdir.Fs_readdir_Fields_.readDir (./stdg
 -- PASS: TestReadDir
 
 === RUN  TestFileInfoToDirEntry
+- SUBRUN  notadir.txt
+- SUBRUN  adir
 
 -- PASS: TestFileInfoToDirEntry
 
@@ -65,7 +67,7 @@ Try 'chmod --help' for more information.
 
  8 |                         var entries = sys.FileSystem.readDirectory(path);
    |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   | Uncaught exception tmp_4keo1eknbo/a/bad: Permission denied
+   | Uncaught exception tmp_ep9rigwhec/a/bad: Permission denied
 
     11 |                                 deleteRecursively(path + '/' + entry);
        |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,9 +83,9 @@ Try 'chmod --help' for more information.
        |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
        | Called from here
 
-    ->  ./stdgo/_internal/testing/Testing_m_static_extension.hx:45: characters 17-20
+    ->  ./stdgo/_internal/testing/Testing_m_static_extension.hx:41: characters 17-20
 
-    45 |                 f();
+    41 |                 f();
        |                 ^^^
        | Called from here
 

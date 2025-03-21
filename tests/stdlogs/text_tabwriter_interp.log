@@ -1131,10 +1131,14 @@
 -- FAIL: Test
 
 === RUN  TestPanicDuringFlush
+-- SKIP: testPanicDuringFlush
+ skip targets: interp, js
 
 -- PASS: TestPanicDuringFlush
 
 === RUN  TestPanicDuringWrite
+-- SKIP: testPanicDuringWrite
+ skip targets: interp, js
 
 -- PASS: TestPanicDuringWrite
 

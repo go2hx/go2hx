@@ -1,6 +1,5 @@
 [
  "js|encoding/hex",
- "js|internal/saferio",
  "js|math",
  "js|path",
  "js|regexp/syntax",

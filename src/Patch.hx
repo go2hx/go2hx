@@ -260,8 +260,9 @@ final list = [
 		return null;
 	},
 	"os.File:write" => macro {
-		@:define("((sys || hxnodejs) && !eval)") {
-			if (!(@:privateAccess _f._output is sys.io.FileOutput)) {
+		@:define("(sys || hxnodejs)") {
+			final isEval = @:define("eval", false) true;
+			if (!(@:privateAccess _f._output is sys.io.FileOutput) || isEval) {
 				if (_b.length == 0)
 					return {_0: 0, _1: null};
 				@:privateAccess _f.mutex.acquire();
@@ -585,8 +586,9 @@ final list = [
 		return {_0: 0, _1: null};
 	},
 	"os.File:read" => macro {
-		@:define("((sys || hxnodejs) && !eval)") {
-			if (!(@:privateAccess _f._input is sys.io.FileInput)) {
+		@:define("(sys || hxnodejs)") {
+			final isEval = @:define("eval", false) true;
+			if (!(@:privateAccess _f._input is sys.io.FileInput) || isEval) {
 				@:privateAccess _f.mutex.acquire();
 				final bytes = @:privateAccess _f._input.read(_b.length);
 				@:privateAccess _b.__bytes__ = bytes;
@@ -1884,7 +1886,7 @@ final list = [
 	"testing.T_common:skipped" => macro return _c._skipped,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
-		if (@:privateAccess ++_c.failCount > 200) {
+		if (@:privateAccess ++_c.failCount > 20_000) {
 			trace("fail count exceeded max");
 			@:define("(sys || hxnodejs)") Sys.exit(1);
 		}

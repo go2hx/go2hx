@@ -41,3 +41,4 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 
 -- FAIL: TestPartial
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

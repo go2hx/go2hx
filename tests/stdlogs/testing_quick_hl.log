@@ -91,3 +91,4 @@ Called from _internal.testing.quickdottest._Quickdottest.$Quickdottest_Fields_.m
 
 -- FAIL: TestInt64
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

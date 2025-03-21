@@ -120,3 +120,4 @@ Called from _internal.go.scannerdottest._Scannerdottest.$Scannerdottest_Fields_.
 
 -- FAIL: TestNumbers
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

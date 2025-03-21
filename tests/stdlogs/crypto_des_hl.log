@@ -160,3 +160,4 @@ Called from _internal.crypto.desdottest._Desdottest.$Desdottest_Fields_.main (_i
 
 -- PASS: TestFinalPermute
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

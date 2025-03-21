@@ -24,3 +24,4 @@ Called from _internal.internal.abidottest._Abidottest.$Abidottest_Fields_.main (
 
 -- PASS: TestFuncPCCompileError
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

@@ -7,3 +7,4 @@ Called from _internal.internal.godebugsdottest._Godebugsdottest.$Godebugsdottest
 
 -- FAIL: TestAll
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

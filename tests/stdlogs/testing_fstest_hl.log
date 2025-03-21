@@ -32,3 +32,4 @@ Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields
 
 -- FAIL: TestShuffledFS
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

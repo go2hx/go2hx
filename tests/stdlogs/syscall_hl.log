@@ -38,3 +38,4 @@ Called from _internal.syscalldottest._Syscalldottest.$Syscalldottest_Fields_.mai
 
 -- PASS: TestGettimeofday
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

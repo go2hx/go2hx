@@ -128,3 +128,4 @@ Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_
 
 -- FAIL: TestOFB
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

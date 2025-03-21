@@ -26,3 +26,4 @@ Called from _internal.hashdottest._Hashdottest.$Hashdottest_Fields_.main (_inter
 
 -- FAIL: TestMarshalHash
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

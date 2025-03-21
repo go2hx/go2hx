@@ -33,3 +33,4 @@ Called from _internal.internal.testenvdottest._Testenvdottest.$Testenvdottest_Fi
 
 -- FAIL: TestMustHaveExec
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

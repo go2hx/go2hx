@@ -39,3 +39,4 @@ Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fi
 
 -- PASS: TestBisectTestCase
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

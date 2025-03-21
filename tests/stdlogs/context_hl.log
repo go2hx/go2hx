@@ -332,3 +332,4 @@ Called from _internal.contextdottest._Contextdottest.$Contextdottest_Fields_.mai
 
 -- FAIL: TestAfterFuncCalledAsynchronously
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

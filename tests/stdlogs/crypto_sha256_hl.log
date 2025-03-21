@@ -51,3 +51,4 @@ Called from _internal.crypto.sha256dottest._Sha256dottest.$Sha256dottest_Fields_
 
 -- PASS: TestCgo
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

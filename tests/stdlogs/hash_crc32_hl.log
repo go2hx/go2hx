@@ -59,3 +59,4 @@ Called from _internal.hash.crc32dottest._Crc32dottest.$Crc32dottest_Fields_.main
 
 -- PASS: TestGolden
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

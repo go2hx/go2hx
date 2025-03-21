@@ -41,3 +41,4 @@ Called from _internal.crypto.sha1dottest._Sha1dottest.$Sha1dottest_Fields_.main 
 
 -- PASS: TestAllocations
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

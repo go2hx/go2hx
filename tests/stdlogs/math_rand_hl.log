@@ -103,3 +103,4 @@ Called from _internal.math.randdottest._Randdottest.$Randdottest_Fields_.main (_
 
 -- FAIL: TestRegress
 
+./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1

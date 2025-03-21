@@ -1904,6 +1904,14 @@ final list = [
 		throw "__skip__";
 	},
 	"testing.T_common:helper" => macro {},
+	// FailNow marks the function as having failed and stops its execution
+	// by calling runtime.Goexit (which then runs all deferred calls in the
+	// current goroutine).
+	// Execution will continue at the next test or benchmark.
+	// FailNow must be called from the goroutine running the
+	// test or benchmark function, not from other goroutines
+	// created during the test. Calling FailNow does not stop
+	// those other goroutines.
 	"testing.T_common:failNow" => macro {
 		_c._failed = true;
 		throw "__fail__";
@@ -1925,7 +1933,6 @@ final list = [
 		_m._numRun++;
 		for (test in _m._tests) {
 			var error = false;
-			var exit = false;
 			final output = new StringBuf();
 			var t = new stdgo._internal.testing.Testing_t_.T_(null, null, null, output);
 			final stamp = @:define("(sys || hxnodejs)", haxe.Timer.stamp()) std.Sys.time();
@@ -1934,9 +1941,6 @@ final list = [
 				test.f(t);
 			} catch (e) {
 				stdgo.Go.println(e.details());
-				if (e.message == "__fail__") {
-					exit = true;
-				}
 				if (e.message != "__skip__") {
 					error = true;
 				}
@@ -1948,10 +1952,6 @@ final list = [
 			if (t.failed() || error) {
 				stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
 				_m._exitCode = 1;
-				if (exit) {
-					@:define("(sys || hxnodejs)") Sys.exit(1);
-					@:define("hxnodejs") js.Node.process.exit(1);
-				}
 			} else if (chatty) {
 				if (t.skipped()) {
 					stdgo.Go.println('\n-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));

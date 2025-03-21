@@ -21,7 +21,7 @@ class Macro {
 			//trace("non hxb types:", exprs.length);
 			final className = "TypeInfoData_go2hx_";
 			final cl = macro class T {
-				public var names:stdgo.TypeInfo.TypeInternalMap = untyped $a{exprs};
+				public var names:stdgo.TypeInfo.TypeInternalMap = $a{exprs};
 				public function new() {}
 			};
 			cl.meta.push({name: ":keep", pos: haxe.macro.Context.currentPos()});

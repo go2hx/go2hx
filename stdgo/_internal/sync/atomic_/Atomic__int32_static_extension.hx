@@ -13,12 +13,17 @@ package stdgo._internal.sync.atomic_;
     @:tdfield
     static public function store( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>, _val:stdgo.GoInt32):Void {
         @:recv var _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32> = _x;
+        stdgo.Go.globalMutex.acquire();
         _x._v = _val;
+        stdgo.Go.globalMutex.release();
     }
     @:keep
     @:tdfield
     static public function load( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32>):stdgo.GoInt32 {
         @:recv var _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__int32.Int32> = _x;
-        return @:privateAccess _x._v;
+        stdgo.Go.globalMutex.acquire();
+        final value = @:privateAccess _x._v;
+        stdgo.Go.globalMutex.release();
+        return value;
     }
 }

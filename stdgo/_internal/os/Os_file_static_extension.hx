@@ -93,6 +93,10 @@ package stdgo._internal.os;
     @:tdfield
     static public function seek( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        #if eval {
+            trace("not supported on eval target");
+            return { _0 : 0, _1 : null };
+        } #else null #end;
         #if (sys || hxnodejs) {
             final input:sys.io.FileInput = cast @:privateAccess _f._input;
             final pos = sys.io.FileSeek.createByIndex(_whence.toBasic());
@@ -108,11 +112,22 @@ package stdgo._internal.os;
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
         #if (sys || hxnodejs) {
             if (_b.length == 0) return { _0 : 0, _1 : null };
+            @:privateAccess _f.mutex.acquire();
             try {
-                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), _off.toBasic().low, _b.length.toBasic());
+                var t = 0;
+                #if !eval {
+                    t = @:privateAccess cast(_f._output, sys.io.FileOutput).tell();
+                    @:privateAccess cast(_f._output, sys.io.FileOutput).seek(_off.toBasic().low, sys.io.FileSeek.SeekBegin);
+                } #else null #end;
+                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+                #if !eval {
+                    @:privateAccess cast(_f._output, sys.io.FileOutput).seek(t, sys.io.FileSeek.SeekBegin);
+                } #else null #end;
+                @:privateAccess _f.mutex.release();
                 return { _0 : i, _1 : null };
             } catch(e) {
-                return { _0 : 0, _1 : stdgo._internal.errors.Errors_new_.new_("File.writeAt failed") };
+                @:privateAccess _f.mutex.release();
+                return { _0 : 0, _1 : stdgo._internal.errors.Errors_new_.new_("File.writeAt failed: " + e) };
             };
         } #else null #end;
         trace("not supported on non sys target");
@@ -122,10 +137,18 @@ package stdgo._internal.os;
     @:tdfield
     static public function write( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        if (_b.length == 0) return { _0 : 0, _1 : null };
-        final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
-        if (i != _b.length.toBasic()) return { _0 : i, _1 : stdgo._internal.errors.Errors_new_.new_("invalid write") };
-        return { _0 : i, _1 : null };
+        #if (sys || hxnodejs) {
+            final isEval = #if eval true #else false #end;
+            if (!(@:privateAccess _f._output is sys.io.FileOutput) || isEval) {
+                if (_b.length == 0) return { _0 : 0, _1 : null };
+                @:privateAccess _f.mutex.acquire();
+                final i = @:privateAccess _f._output.writeBytes(_b.toBytes(), 0, _b.length.toBasic());
+                @:privateAccess _f.mutex.release();
+                if (i != _b.length.toBasic()) return { _0 : i, _1 : stdgo._internal.errors.Errors_new_.new_("invalid write") };
+                return { _0 : i, _1 : null };
+            };
+        } #else null #end;
+        return @:privateAccess _f.writeAt(_b, 0);
     }
     @:keep
     @:tdfield
@@ -138,20 +161,60 @@ package stdgo._internal.os;
     }
     @:keep
     @:tdfield
-    static public function readAt( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "File:os.readAt is not yet implemented";
+    static public function readAt( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        #if (sys || hxnodejs) {
+            if (_b.length == 0) return { _0 : 0, _1 : null };
+            try {
+                @:privateAccess _f.mutex.acquire();
+                var offset = _off.toBasic().low;
+                final b = _b.toBytes();
+                var t = 0;
+                #if !eval {
+                    t = @:privateAccess cast(_f._input, sys.io.FileInput).tell();
+                    @:privateAccess cast(_f._input, sys.io.FileInput).seek(offset, sys.io.FileSeek.SeekBegin);
+                } #else null #end;
+                var n = @:privateAccess _f._input.readBytes(b, 0, _b.length.toBasic());
+                #if !eval {
+                    @:privateAccess cast(_f._input, sys.io.FileInput).seek(t, sys.io.FileSeek.SeekBegin);
+                } #else null #end;
+                @:privateAccess _b.__bytes__ = b;
+                var err = null;
+                if (n < _b.length.toBasic()) {
+                    err = stdgo._internal.io.Io_eof.eOF;
+                };
+                @:privateAccess _f.mutex.release();
+                return { _0 : n, _1 : err };
+            } catch(e) {
+                @:privateAccess _f.mutex.release();
+                return { _0 : 0, _1 : stdgo._internal.errors.Errors_new_.new_("File.readAt failed: " + e) };
+            };
+        } #else null #end;
+        trace("not supported on non sys target");
+        return { _0 : 0, _1 : null };
+    }
     @:keep
     @:tdfield
     static public function read( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
-        final bytes = @:privateAccess _f._input.read(_b.length);
-        for (i in 0 ... bytes.length) {
-            _b[i] = bytes.get(i);
-        };
-        return { _0 : bytes.length, _1 : null };
+        #if (sys || hxnodejs) {
+            final isEval = #if eval true #else false #end;
+            if (!(@:privateAccess _f._input is sys.io.FileInput) || isEval) {
+                @:privateAccess _f.mutex.acquire();
+                final bytes = @:privateAccess _f._input.read(_b.length);
+                @:privateAccess _b.__bytes__ = bytes;
+                @:privateAccess _f.mutex.release();
+                return { _0 : bytes.length, _1 : null };
+            };
+        } #else null #end;
+        return @:privateAccess _f.readAt(_b, 0);
     }
     @:keep
     @:tdfield
-    static public function name( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>):stdgo.GoString throw "File:os.name is not yet implemented";
+    static public function name( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>):stdgo.GoString {
+        @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        return _f._file._name;
+    }
     @:keep
     @:tdfield
     static public function _readdir( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _n:stdgo.GoInt, _mode:stdgo._internal.os.Os_t_readdirmode.T_readdirMode):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo._internal.io.fs.Fs_direntry.DirEntry>; var _2 : stdgo.Slice<stdgo._internal.io.fs.Fs_fileinfo.FileInfo>; var _3 : stdgo.Error; } throw "File:os._readdir is not yet implemented";

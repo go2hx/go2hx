@@ -437,7 +437,7 @@ class Signal_static_extension {
         this._file = (v : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>);
         return v;
     }
-    public function new(?_file:T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os_file.File((_file : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>), _input, _output);
+    public function new(?_file:T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output, ?mutex) this = new stdgo._internal.os.Os_file.File((_file : stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>), _input, _output, mutex);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

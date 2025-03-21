@@ -11,5 +11,11 @@ package stdgo._internal.sync.atomic_;
     static public function store( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>, _val:Bool):Void stdgo._internal.sync.atomic_.Atomic__storeuint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0);
     @:keep
     @:tdfield
-    static public function load( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>):Bool return @:privateAccess _x._v == 1;
+    static public function load( _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_>):Bool {
+        @:recv var _x:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__bool_.Bool_> = _x;
+        stdgo.Go.globalMutex.acquire();
+        final value = @:privateAccess _x._v == 1;
+        stdgo.Go.globalMutex.release();
+        return value;
+    }
 }

@@ -472,7 +472,7 @@ class Locker_static_extension {
         this._sema = (v : stdgo.GoUInt32);
         return v;
     }
-    public function new(?_noCopy:T_noCopy, ?_state:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_sema:std.UInt, ?lock, ?counter:std.UInt) this = new stdgo._internal.sync.Sync_waitgroup.WaitGroup(_noCopy, _state, (_sema : stdgo.GoUInt32), lock, (counter : stdgo.GoUInt));
+    public function new(?_noCopy:T_noCopy, ?_state:stdgo._internal.sync.atomic_.Atomic__uint64.Uint64, ?_sema:std.UInt, ?lock, ?counter:std.UInt, ?mutex) this = new stdgo._internal.sync.Sync_waitgroup.WaitGroup(_noCopy, _state, (_sema : stdgo.GoUInt32), lock, (counter : stdgo.GoUInt), mutex);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

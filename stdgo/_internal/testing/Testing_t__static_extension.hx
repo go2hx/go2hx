@@ -8,13 +8,20 @@ package stdgo._internal.testing;
     static public function deadline( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):{ var _0 : stdgo._internal.time.Time_time.Time; var _1 : Bool; } throw "T_:testing.deadline is not yet implemented";
     @:keep
     @:tdfield
-    static public function run( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _name:stdgo.GoString, _f:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void):Bool return true;
+    static public function run( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _name:stdgo.GoString, _f:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> -> Void):Bool {
+        @:recv var _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> = _t;
+        stdgo.Go.println("- SUBRUN  " + _name.toString());
+        _f(_t);
+        return true;
+    }
     @:keep
     @:tdfield
     static public function setenv( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>, _key:stdgo.GoString, _value:stdgo.GoString):Void throw "T_:testing.setenv is not yet implemented";
     @:keep
     @:tdfield
-    static public function parallel( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void throw "T_:testing.parallel is not yet implemented";
+    static public function parallel( _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_>):Void {
+        @:recv var _t:stdgo.Ref<stdgo._internal.testing.Testing_t_.T_> = _t;
+    }
     @:embedded
     @:embeddededffieldsffun
     public static function _setRan( __self__:stdgo._internal.testing.Testing_t_.T_):Void return @:_5 __self__._setRan();

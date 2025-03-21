@@ -6,10 +6,13 @@ package stdgo._internal.os;
     var _input : haxe.io.Input = null;
     @:local
     var _output : haxe.io.Output = null;
-    public function new(?_file:stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>, ?_input:haxe.io.Input, ?_output:haxe.io.Output) {
+    @:local
+    var mutex = #if target.threaded new sys.thread.Mutex() #else { acquire : () -> {}, release : () -> {} } #end;
+    public function new(?_file:stdgo.Ref<stdgo._internal.os.Os_t_file.T_file>, ?_input:haxe.io.Input, ?_output:haxe.io.Output, ?mutex) {
         if (_file != null) this._file = _file;
         if (_input != null) this._input = _input;
         if (_output != null) this._output = _output;
+        if (mutex != null) this.mutex = mutex;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public var _close(get, never) : () -> stdgo.Error;
@@ -17,6 +20,6 @@ package stdgo._internal.os;
     @:embeddededffieldsffun
     public function get__close():() -> stdgo.Error return @:check32 this._file._close;
     public function __copy__() {
-        return new File(_file, _input, _output);
+        return new File(_file, _input, _output, mutex);
     }
 }

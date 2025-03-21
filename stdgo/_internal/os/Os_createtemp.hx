@@ -12,5 +12,5 @@ function createTemp(_dir:stdgo.GoString, _pattern:stdgo.GoString):{ var _0 : std
             return result;
         };
         var name = "tmp_" + randomName(10);
-        return stdgo._internal.os.Os_openfile.openFile(haxe.io.Path.addTrailingSlash(dir) + name, 0, 0);
+        return stdgo._internal.os.Os_openfile.openFile((dir != "" ? haxe.io.Path.addTrailingSlash(dir) : "") + name, 0, 0);
     }

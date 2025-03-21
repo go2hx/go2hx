@@ -125,7 +125,7 @@ package stdgo._internal.testing;
     static public function fail( _c:stdgo.Ref<stdgo._internal.testing.Testing_t_common.T_common>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_t_common.T_common> = _c;
         _c._failed = true;
-        if (@:privateAccess ++_c.failCount > 200) {
+        if (@:privateAccess ++_c.failCount > 20_000) {
             trace("fail count exceeded max");
             #if (sys || hxnodejs) Sys.exit(1) #else null #end;
         };

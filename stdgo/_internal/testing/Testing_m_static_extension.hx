@@ -25,7 +25,6 @@ package stdgo._internal.testing;
         _m._numRun++;
         for (test in _m._tests) {
             var error = false;
-            var exit = false;
             final output = new StringBuf();
             var t = new stdgo._internal.testing.Testing_t_.T_(null, null, null, output);
             final stamp = #if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end;
@@ -34,9 +33,6 @@ package stdgo._internal.testing;
                 test.f(t);
             } catch(e) {
                 stdgo.Go.println(e.details());
-                if (e.message == "__fail__") {
-                    exit = true;
-                };
                 if (e.message != "__skip__") {
                     error = true;
                 };
@@ -48,10 +44,6 @@ package stdgo._internal.testing;
             if (t.failed() || error) {
                 stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
                 _m._exitCode = 1;
-                if (exit) {
-                    #if (sys || hxnodejs) Sys.exit(1) #else null #end;
-                    #if hxnodejs js.Node.process.exit(1) #else null #end;
-                };
             } else if (chatty) {
                 if (t.skipped()) {
                     stdgo.Go.println('\n-- SKIP: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));

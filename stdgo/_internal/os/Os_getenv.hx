@@ -1,2 +1,2 @@
 package stdgo._internal.os;
-function getenv(_key:stdgo.GoString):stdgo.GoString throw ":os.getenv is not yet implemented";
+function getenv(_key:stdgo.GoString):stdgo.GoString return std.Sys.getEnv(_key) ?? "";

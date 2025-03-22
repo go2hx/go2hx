@@ -246,6 +246,11 @@ function isPortUsed(port: Int) {
 		});
 		#else
 		final process = new sys.io.Process(cmd);
+		// wait for process to complete
+		final code = process.exitCode();
+		if (code != 0) {
+			trace(process.stderr.readAll());
+		}
 		final cmdRes: String = process.stdout.readAll().toString();
 		#end
 		

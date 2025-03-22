@@ -97,7 +97,7 @@
 Exception: __fail__
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.~testOffsetWriter_WriteAt.1 (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 157)
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.testOffsetWriter_WriteAt (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 169)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
 
 -- FAIL: TestOffsetWriter_WriteAt
@@ -226,7 +226,9 @@ Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/io
 
 -- PASS: TestPipeConcurrent
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestOffsetWriter_WriteAt
 === RUN  TestCopy
 
 -- PASS: TestCopy
@@ -326,7 +328,7 @@ Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/io
 Exception: __fail__
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.~testOffsetWriter_WriteAt.1 (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 157)
 Called from _internal.io_test._Io_test_testoffsetwriter_writeat.$Io_test_testoffsetwriter_writeat_Fields_.testOffsetWriter_WriteAt (_internal/io_test/Io_test_testoffsetwriter_writeat.hx line 169)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/iodottest/Iodottest.hx line 7)
 
 -- FAIL: TestOffsetWriter_WriteAt
@@ -455,4 +457,6 @@ Called from _internal.iodottest._Iodottest.$Iodottest_Fields_.main (_internal/io
 
 -- PASS: TestPipeConcurrent
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestOffsetWriter_WriteAt

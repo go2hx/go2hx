@@ -28,7 +28,7 @@ Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLea
 Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 4)
 Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 4)
 Called from stdgo._internal.crypto.sha512._Sha512_testblockgeneric.$Sha512_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha512/Sha512_testblockgeneric.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.sha512dottest._Sha512dottest.$Sha512dottest_Fields_.main (_internal/crypto/sha512dottest/Sha512dottest.hx line 7)
 
 -- FAIL: TestBlockGeneric
@@ -42,4 +42,6 @@ Called from _internal.crypto.sha512dottest._Sha512dottest.$Sha512dottest_Fields_
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestBlockGeneric

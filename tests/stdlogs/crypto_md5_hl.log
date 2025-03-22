@@ -4,7 +4,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from stdgo._internal.crypto.md5._Md5_testgolden.$Md5_testgolden_Fields_.testGolden (stdgo/_internal/crypto/md5/Md5_testgolden.hx line 29)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 8)
 
 -- FAIL: TestGolden
@@ -20,7 +20,7 @@ Called from stdgo._internal.crypto.md5.$T_digest_static_extension._checkSum (std
 Called from stdgo._internal.crypto.md5.$T_digest_static_extension.sum (stdgo/_internal/crypto/md5/Md5_t_digest_static_extension.hx line 26)
 Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8)
 Called from stdgo._internal.crypto.md5._Md5_testgoldenmarshal.$Md5_testgoldenmarshal_Fields_.testGoldenMarshal (stdgo/_internal/crypto/md5/Md5_testgoldenmarshal.hx line 26)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 8)
 
 -- FAIL: TestGoldenMarshal
@@ -37,7 +37,7 @@ Called from stdgo._internal.crypto.md5.$T_digest_static_extension.sum (stdgo/_in
 Called from stdgo._internal.crypto.md5._Md5_testgoldenmarshal.$Md5_testgoldenmarshal_Fields_.testGoldenMarshal (stdgo/_internal/crypto/md5/Md5_testgoldenmarshal.hx line 26)
 Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (stdgo/_internal/crypto/md5/Md5_t_digest_asinterface.hx line 8)
 Called from stdgo._internal.crypto.md5._Md5_testlarge.$Md5_testlarge_Fields_.testLarge (stdgo/_internal/crypto/md5/Md5_testlarge.hx line 30)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 8)
 
 -- FAIL: TestLarge
@@ -48,7 +48,7 @@ Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLea
 Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 4)
 Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 4)
 Called from stdgo._internal.crypto.md5._Md5_testblockgeneric.$Md5_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/md5/Md5_testblockgeneric.hx line 6)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_internal/crypto/md5dottest/Md5dottest.hx line 8)
 
 -- FAIL: TestBlockGeneric
@@ -62,4 +62,6 @@ Called from _internal.crypto.md5dottest._Md5dottest.$Md5dottest_Fields_.main (_i
 
 -- PASS: TestAllocations
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestBlockGeneric

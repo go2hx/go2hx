@@ -4,7 +4,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from stdgo._internal.go.format._Format_testnode.$Format_testnode_Fields_.testNode (stdgo/_internal/go/format/Format_testnode.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 8)
 
 -- FAIL: TestNode
@@ -13,7 +13,7 @@ Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.mai
 Exception: Int32:sync.atomic_.add is not yet implemented
 Called from stdgo._internal.go.parser._Parser_parsefile.$Parser_parsefile_Fields_.parseFile (stdgo/_internal/go/parser/Parser_parsefile.hx line 114)
 Called from stdgo._internal.go.format._Format_testnodenomodify.$Format_testnodenomodify_Fields_.testNodeNoModify (stdgo/_internal/go/format/Format_testnodenomodify.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 8)
 
 -- FAIL: TestNodeNoModify
@@ -24,7 +24,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from stdgo._internal.go.format._Format_testsource.$Format_testsource_Fields_.testSource (stdgo/_internal/go/format/Format_testsource.hx line 5)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 8)
 
 -- FAIL: TestSource
@@ -36,9 +36,11 @@ Called from stdgo._internal.go.format._Format__parse.$Format__parse_Fields_._par
 Called from stdgo._internal.go.format._Format_source.$Format_source_Fields_.source (stdgo/_internal/go/format/Format_source.hx line 4)
 Called from stdgo._internal.go.format._Format_string.$Format_string_Fields_.string (stdgo/_internal/go/format/Format_string.hx line 3)
 Called from stdgo._internal.go.format._Format_testpartial.$Format_testpartial_Fields_.testPartial (stdgo/_internal/go/format/Format_testpartial.hx line 11)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.go.formatdottest._Formatdottest.$Formatdottest_Fields_.main (_internal/go/formatdottest/Formatdottest.hx line 8)
 
 -- FAIL: TestPartial
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestPartial

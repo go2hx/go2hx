@@ -4,7 +4,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from stdgo._internal.crypto.sha256._Sha256_testgolden.$Sha256_testgolden_Fields_.testGolden (stdgo/_internal/crypto/sha256/Sha256_testgolden.hx line 24)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.sha256dottest._Sha256dottest.$Sha256dottest_Fields_.main (_internal/crypto/sha256dottest/Sha256dottest.hx line 8)
 
 -- FAIL: TestGolden
@@ -33,7 +33,7 @@ Called from stdgo._internal.io._Io_readatleast.$Io_readatleast_Fields_.readAtLea
 Called from stdgo._internal.io._Io_readfull.$Io_readfull_Fields_.readFull (stdgo/_internal/io/Io_readfull.hx line 4)
 Called from stdgo._internal.crypto.rand._Rand_read.$Rand_read_Fields_.read (stdgo/_internal/crypto/rand/Rand_read.hx line 4)
 Called from stdgo._internal.crypto.sha256._Sha256_testblockgeneric.$Sha256_testblockgeneric_Fields_.testBlockGeneric (stdgo/_internal/crypto/sha256/Sha256_testblockgeneric.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.sha256dottest._Sha256dottest.$Sha256dottest_Fields_.main (_internal/crypto/sha256dottest/Sha256dottest.hx line 8)
 
 -- FAIL: TestBlockGeneric
@@ -51,4 +51,6 @@ Called from _internal.crypto.sha256dottest._Sha256dottest.$Sha256dottest_Fields_
 
 -- PASS: TestCgo
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestBlockGeneric

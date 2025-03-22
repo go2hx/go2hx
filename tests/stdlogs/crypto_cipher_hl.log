@@ -3,7 +3,7 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_cbcEncrypter_static_extension.cryptBlocks (stdgo/_internal/crypto/cipher/Cipher_t_cbcencrypter_static_extension.hx line 23)
 Called from stdgo._internal.crypto.cipher.T_cbcEncrypter_asInterface.cryptBlocks (stdgo/_internal/crypto/cipher/Cipher_t_cbcencrypter_asinterface.hx line 8)
 Called from _internal.crypto.cipher_test._Cipher_test_testcbcencrypteraes.$Cipher_test_testcbcencrypteraes_Fields_.testCBCEncrypterAES (_internal/crypto/cipher_test/Cipher_test_testcbcencrypteraes.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCBCEncrypterAES
@@ -13,7 +13,7 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_cbcDecrypter_static_extension.cryptBlocks (stdgo/_internal/crypto/cipher/Cipher_t_cbcdecrypter_static_extension.hx line 23)
 Called from stdgo._internal.crypto.cipher.T_cbcDecrypter_asInterface.cryptBlocks (stdgo/_internal/crypto/cipher/Cipher_t_cbcdecrypter_asinterface.hx line 8)
 Called from _internal.crypto.cipher_test._Cipher_test_testcbcdecrypteraes.$Cipher_test_testcbcdecrypteraes_Fields_.testCBCDecrypterAES (_internal/crypto/cipher_test/Cipher_test_testcbcdecrypteraes.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCBCDecrypterAES
@@ -23,7 +23,7 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_cfb_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_cfb_static_extension.hx line 11)
 Called from stdgo._internal.crypto.cipher.T_cfb_asInterface.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_cfb_asinterface.hx line 5)
 Called from _internal.crypto.cipher_test._Cipher_test_testcfbvectors.$Cipher_test_testcfbvectors_Fields_.testCFBVectors (_internal/crypto/cipher_test/Cipher_test_testcfbvectors.hx line 26)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCFBVectors
@@ -31,7 +31,7 @@ Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_
 === RUN  TestCFBInverse
 Exception: Null access
 Called from _internal.crypto.cipher_test._Cipher_test_testcfbinverse.$Cipher_test_testcfbinverse_Fields_.testCFBInverse (_internal/crypto/cipher_test/Cipher_test_testcfbinverse.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCFBInverse
@@ -49,7 +49,7 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_ctr_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_static_extension.hx line 11)
 Called from stdgo._internal.crypto.cipher.T_ctr_asInterface.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_asinterface.hx line 5)
 Called from _internal.crypto.cipher_test._Cipher_test_testctr_aes.$Cipher_test_testctr_aes_Fields_.testCTR_AES (_internal/crypto/cipher_test/Cipher_test_testctr_aes.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCTR_AES
@@ -59,7 +59,7 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_ctr_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_static_extension.hx line 11)
 Called from stdgo._internal.crypto.cipher.T_ctr_asInterface.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_asinterface.hx line 5)
 Called from _internal.crypto.cipher_test._Cipher_test_testctr.$Cipher_test_testctr_Fields_.testCTR (_internal/crypto/cipher_test/Cipher_test_testctr.hx line 24)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestCTR
@@ -72,7 +72,7 @@ Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Ci
 Called from stdgo._internal.crypto.cipher._Cipher_newgcm.$Cipher_newgcm_Fields_.newGCM (stdgo/_internal/crypto/cipher/Cipher_newgcm.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testaesgcm.$Cipher_test_testaesgcm_Fields_.testAESGCM (_internal/crypto/cipher_test/Cipher_test_testaesgcm.hx line 44)
 Called from stdgo._internal.crypto.cipher.$T_ctr_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ctr_static_extension.hx line 11)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestAESGCM
@@ -88,7 +88,7 @@ Called from stdgo._internal.crypto.aes.T_aesCipher_asInterface.encrypt (stdgo/_i
 Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Cipher__newgcmwithnonceandtagsize_Fields_._newGCMWithNonceAndTagSize (stdgo/_internal/crypto/cipher/Cipher__newgcmwithnonceandtagsize.hx line 23)
 Called from stdgo._internal.crypto.cipher._Cipher_newgcm.$Cipher_newgcm_Fields_.newGCM (stdgo/_internal/crypto/cipher/Cipher_newgcm.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testtagfailureoverwrite.$Cipher_test_testtagfailureoverwrite_Fields_.testTagFailureOverwrite (_internal/crypto/cipher_test/Cipher_test_testtagfailureoverwrite.hx line 7)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestTagFailureOverwrite
@@ -100,7 +100,7 @@ Called from stdgo._internal.crypto.aes.T_aesCipher_asInterface.encrypt (stdgo/_i
 Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Cipher__newgcmwithnonceandtagsize_Fields_._newGCMWithNonceAndTagSize (stdgo/_internal/crypto/cipher/Cipher__newgcmwithnonceandtagsize.hx line 23)
 Called from stdgo._internal.crypto.cipher._Cipher_newgcmwithnoncesize.$Cipher_newgcmwithnoncesize_Fields_.newGCMWithNonceSize (stdgo/_internal/crypto/cipher/Cipher_newgcmwithnoncesize.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testgcmcounterwrap.$Cipher_test_testgcmcounterwrap_Fields_.testGCMCounterWrap (_internal/crypto/cipher_test/Cipher_test_testgcmcounterwrap.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestGCMCounterWrap
@@ -113,7 +113,7 @@ Called from stdgo._internal.crypto.cipher._Cipher__newgcmwithnonceandtagsize.$Ci
 Called from stdgo._internal.crypto.cipher._Cipher_newgcm.$Cipher_newgcm_Fields_.newGCM (stdgo/_internal/crypto/cipher/Cipher_newgcm.hx line 3)
 Called from _internal.crypto.cipher_test._Cipher_test_testgcmasm.$Cipher_test_testgcmasm_Fields_.~testGCMAsm.0 (_internal/crypto/cipher_test/Cipher_test_testgcmasm.hx line 16)
 Called from _internal.crypto.cipher_test._Cipher_test_testgcmasm.$Cipher_test_testgcmasm_Fields_.testGCMAsm (_internal/crypto/cipher_test/Cipher_test_testgcmasm.hx line 52)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestGCMAsm
@@ -123,9 +123,11 @@ Exception: crypto/cipher: invalid buffer overlap
 Called from stdgo._internal.crypto.cipher.$T_ofb_static_extension.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ofb_static_extension.hx line 11)
 Called from stdgo._internal.crypto.cipher.T_ofb_asInterface.xORKeyStream (stdgo/_internal/crypto/cipher/Cipher_t_ofb_asinterface.hx line 5)
 Called from _internal.crypto.cipher_test._Cipher_test_testofb.$Cipher_test_testofb_Fields_.testOFB (_internal/crypto/cipher_test/Cipher_test_testofb.hx line 16)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.crypto.cipherdottest._Cipherdottest.$Cipherdottest_Fields_.main (_internal/crypto/cipherdottest/Cipherdottest.hx line 7)
 
 -- FAIL: TestOFB
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestOFB

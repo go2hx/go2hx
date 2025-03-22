@@ -12,7 +12,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatal (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 77)
 Called from stdgo._internal.testing.T_.~get_fatal.0 (stdgo/_internal/testing/Testing_t_.hx line 43)
 Called from stdgo._internal.testing.fstest._Fstest_testsymlink.$Fstest_testsymlink_Fields_.testSymlink (stdgo/_internal/testing/fstest/Fstest_testsymlink.hx line 9)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields_.main (_internal/testing/fstestdottest/Fstestdottest.hx line 7)
 
 -- FAIL: TestSymlink
@@ -27,9 +27,11 @@ Called from stdgo._internal.testing.fstest.$T_fsTester_static_extension._checkDi
 Called from stdgo._internal.testing.fstest._Fstest__testfs.$Fstest__testfs_Fields_._testFS (stdgo/_internal/testing/fstest/Fstest__testfs.hx line 5)
 Called from stdgo._internal.testing.fstest._Fstest_testfs.$Fstest_testfs_Fields_.testFS (stdgo/_internal/testing/fstest/Fstest_testfs.hx line 5)
 Called from stdgo._internal.testing.fstest._Fstest_testshuffledfs.$Fstest_testshuffledfs_Fields_.testShuffledFS (stdgo/_internal/testing/fstest/Fstest_testshuffledfs.hx line 12)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.testing.fstestdottest._Fstestdottest.$Fstestdottest_Fields_.main (_internal/testing/fstestdottest/Fstestdottest.hx line 7)
 
 -- FAIL: TestShuffledFS
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestShuffledFS

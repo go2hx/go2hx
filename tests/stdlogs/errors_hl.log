@@ -61,7 +61,7 @@ Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Te
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.~testAs.286 (_internal/errors_test/Errors_test_testas.hx line 43)
 Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
 Called from _internal.errors_test._Errors_test_testas.$Errors_test_testas_Fields_.testAs (_internal/errors_test/Errors_test_testas.hx line 32)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (_internal/errorsdottest/Errorsdottest.hx line 7)
 
 -- FAIL: TestAs
@@ -79,4 +79,6 @@ Called from _internal.errorsdottest._Errorsdottest.$Errorsdottest_Fields_.main (
 
 -- PASS: TestUnwrap
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestAs

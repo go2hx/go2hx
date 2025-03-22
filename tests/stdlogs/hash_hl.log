@@ -21,9 +21,11 @@ Called from stdgo._internal.crypto.md5.T_digest_asInterface.sum (stdgo/_internal
 Called from _internal.hash_test._Hash_test_testmarshalhash.$Hash_test_testmarshalhash_Fields_.~testMarshalHash.0 (_internal/hash_test/Hash_test_testmarshalhash.hx line 11)
 Called from stdgo._internal.testing.$T__static_extension.run (stdgo/_internal/testing/Testing_t__static_extension.hx line 14)
 Called from _internal.hash_test._Hash_test_testmarshalhash.$Hash_test_testmarshalhash_Fields_.testMarshalHash (_internal/hash_test/Hash_test_testmarshalhash.hx line 4)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.hashdottest._Hashdottest.$Hashdottest_Fields_.main (_internal/hashdottest/Hashdottest.hx line 7)
 
 -- FAIL: TestMarshalHash
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestMarshalHash

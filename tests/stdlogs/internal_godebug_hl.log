@@ -2,7 +2,7 @@
 Exception: T_:testing.setenv is not yet implemented
 Called from stdgo._internal.testing.$T__static_extension.setenv (stdgo/_internal/testing/Testing_t__static_extension.hx line 19)
 Called from _internal.internal.godebug_test._Godebug_test_testget.$Godebug_test_testget_Fields_.testGet (_internal/internal/godebug_test/Godebug_test_testget.hx line 18)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 7)
 
 -- FAIL: TestGet
@@ -13,7 +13,7 @@ Called from stdgo._internal.testing.$T_common_static_extension.failNow (stdgo/_i
 Called from stdgo._internal.testing.$T_common_static_extension.fatalf (stdgo/_internal/testing/Testing_t_common_static_extension.hx line 69)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.internal.godebug_test._Godebug_test_testmetrics.$Godebug_test_testmetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 7)
 
 -- FAIL: TestMetrics
@@ -28,7 +28,7 @@ Called from stdgo._internal.internal.testenv._Testenv_musthavegobuild.$Testenv_m
 Called from _internal.internal.godebug_test._Godebug_test_testcmdbisect.$Godebug_test_testcmdbisect_Fields_.testCmdBisect (_internal/internal/godebug_test/Godebug_test_testcmdbisect.hx line 3)
 Called from stdgo._internal.testing.T_.~get_fatalf.0 (stdgo/_internal/testing/Testing_t_.hx line 47)
 Called from _internal.internal.godebug_test._Godebug_test_testmetrics.$Godebug_test_testmetrics_Fields_.testMetrics (_internal/internal/godebug_test/Godebug_test_testmetrics.hx line 10)
-Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 33)
+Called from stdgo._internal.testing.$M_static_extension.run (stdgo/_internal/testing/Testing_m_static_extension.hx line 34)
 Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fields_.main (_internal/internal/godebugdottest/Godebugdottest.hx line 7)
 
 -- SKIP: TestCmdBisect
@@ -39,4 +39,6 @@ Called from _internal.internal.godebugdottest._Godebugdottest.$Godebugdottest_Fi
 
 -- PASS: TestBisectTestCase
 
-./stdgo/_internal/testing/Testing_m_static_extension.hx:57: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:60: exitCode: 1
+./stdgo/_internal/testing/Testing_m_static_extension.hx:61: exitCodeReason: 
+-- FAIL: TestMetrics

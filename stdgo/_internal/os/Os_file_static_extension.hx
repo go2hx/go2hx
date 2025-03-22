@@ -35,6 +35,7 @@ package stdgo._internal.os;
     static public function truncate( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>, _size:stdgo.GoInt64):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
         #if (sys || hxnodejs) {
+            @:privateAccess _f._output.flush();
             @:privateAccess _f._output.close();
             final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
             sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
@@ -64,6 +65,7 @@ package stdgo._internal.os;
     @:tdfield
     static public function close( _f:stdgo.Ref<stdgo._internal.os.Os_file.File>):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_file.File> = _f;
+        @:privateAccess _f._output.flush();
         @:privateAccess _f._input.close();
         @:privateAccess _f._output.close();
         return null;

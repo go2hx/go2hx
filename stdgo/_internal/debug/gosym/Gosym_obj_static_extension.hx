@@ -4,13 +4,13 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
-        var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _i_32:stdgo.GoInt = (0 : stdgo.GoInt);
         var _val_38:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_37:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _iterator_3648328_36:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_35:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _depth_34:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_33:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -140,11 +140,11 @@ package stdgo._internal.debug.gosym;
     @:tdfield
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_obj.Obj> = _o;
+        var _noPath_27:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _val_31:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_30:stdgo._internal.debug.gosym.Gosym_sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_sym.Sym);
         var _iterator_3647500_29:stdgo.GoInt = (0 : stdgo.GoInt);
         var _tos_28:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
-        var _noPath_27:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_t_stackent.T_stackEnt>);
         var _gotoNext = 0i32;
         _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

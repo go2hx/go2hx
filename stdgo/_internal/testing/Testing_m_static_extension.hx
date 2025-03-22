@@ -23,6 +23,7 @@ package stdgo._internal.testing;
         final chattyTimes = false;
         stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
         _m._numRun++;
+        var exitCodeReason = "";
         for (test in _m._tests) {
             var error = false;
             final output = new StringBuf();
@@ -42,7 +43,9 @@ package stdgo._internal.testing;
             };
             final dstr = (#if (sys || hxnodejs) std.Sys.time() #else haxe.Timer.stamp() #end) - stamp;
             if (t.failed() || error) {
-                stdgo.Go.println('\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : ''));
+                final reason = '\n-- FAIL: ${test.name.toString()}' + (chattyTimes ? ' ($dstr)' : '');
+                stdgo.Go.println(reason);
+                exitCodeReason = reason;
                 _m._exitCode = 1;
             } else if (chatty) {
                 if (t.skipped()) {
@@ -55,6 +58,7 @@ package stdgo._internal.testing;
             stdgo.Go.println(output.toString());
         };
         trace("exitCode: " + _m._exitCode);
+        trace("exitCodeReason: " + exitCodeReason);
         return _m._exitCode;
     }
 }

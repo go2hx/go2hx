@@ -5,7 +5,7 @@ function openFile(_name:stdgo.GoString, _flag:stdgo.GoInt, _perm:stdgo._internal
                 sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
             };
             try {
-                { _0 : { _file : { _name : _name }, _input : sys.io.File.read(_name), _output : sys.io.File.write(_name) }, _1 : null };
+                { _0 : { _file : { _name : _name }, _input : sys.io.File.read(_name, false), _output : sys.io.File.update(_name) }, _1 : null };
             } catch(e) {
                 { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(e.details()) };
             };

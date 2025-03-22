@@ -249,7 +249,7 @@ final list = [
 				sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 			}
 			try {
-				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
+				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name, false), _output: sys.io.File.update(_name)}, _1: null};
 			} catch (e) {
 				{_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
 			}
@@ -277,6 +277,7 @@ final list = [
 	},
 	"os.File:truncate" => macro {
 		@:define("(sys || hxnodejs)") {
+			@:privateAccess _f._output.flush();
 			@:privateAccess _f._output.close();
 			final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
 			sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : stdgo.GoInt).toBasic()));
@@ -288,6 +289,7 @@ final list = [
 		return @:privateAccess _v._v;
 	},
 	"os.File:close" => macro {
+		@:privateAccess _f._output.flush();
 		@:privateAccess _f._input.close();
 		@:privateAccess _f._output.close();
 		return null;

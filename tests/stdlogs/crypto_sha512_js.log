@@ -149,14 +149,14 @@ one-shot result for <invalid reflect.Value>(%!q(MISSING)) = %!q(MISSING), but ex
 === RUN  TestBlockGeneric
 Exception: Cannot read properties of null (reading 'read')
 Called from module TypeError: Cannot read properties of null (reading 'read')
-Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19446 column 20)
-Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19433 column 9)
-Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19428 column 9)
-Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha512_Sha512_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:19418:2)
-Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 42898 column 9)
-Called from ._$internal_crypto_sha512dottest_Sha512dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 35146 column 59)
-Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:73289:1
-Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:73290:3)
+Called from .stdgo__$internal_io_Io_$readatleast_readAtLeast (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19460 column 20)
+Called from .stdgo__$internal_io_Io_$readfull_readFull (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19447 column 9)
+Called from .stdgo__$internal_crypto_rand_Rand_$read_read (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 19442 column 9)
+Called from module at stdgo__$internal_testing_InternalTest.stdgo__$internal_crypto_sha512_Sha512_$testblockgeneric_testBlockGeneric [as f] (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:19432:2)
+Called from stdgo__$internal_testing_M_$static_$extension.run (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 42912 column 9)
+Called from ._$internal_crypto_sha512dottest_Sha512dottest_main (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js line 35160 column 59)
+Called from module at /home/runner/work/go2hx/go2hx/golibs/std_sha512.js:73303:1
+Called from module at Object.<anonymous> (/home/runner/work/go2hx/go2hx/golibs/std_sha512.js:73304:3)
 Called from Module._compile (node:internal/modules/cjs/loader line 1734 column 14)
 Called from Object..js (node:internal/modules/cjs/loader line 1899 column 10)
 
